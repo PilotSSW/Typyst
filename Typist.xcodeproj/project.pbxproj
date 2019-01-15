@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A32E027521ED7AD4000DB25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E027421ED7AD4000DB25F /* AppDelegate.swift */; };
+		A32E027721ED7AD4000DB25F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E027621ED7AD4000DB25F /* ViewController.swift */; };
+		A32E027A21ED7AD4000DB25F /* Typist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */; };
+		A32E027C21ED7AD6000DB25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32E027B21ED7AD6000DB25F /* Assets.xcassets */; };
+		A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32E027D21ED7AD6000DB25F /* Main.storyboard */; };
+		A32E028B21ED7AD6000DB25F /* TypistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E028A21ED7AD6000DB25F /* TypistTests.swift */; };
+		A32E029621ED7AD6000DB25F /* TypistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E029521ED7AD6000DB25F /* TypistUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A32E028721ED7AD6000DB25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A32E026921ED7AD4000DB25F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A32E027021ED7AD4000DB25F;
+			remoteInfo = Typist;
+		};
+		A32E029221ED7AD6000DB25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A32E026921ED7AD4000DB25F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A32E027021ED7AD4000DB25F;
+			remoteInfo = Typist;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A32E027121ED7AD4000DB25F /* Typist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32E027421ED7AD4000DB25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A32E027621ED7AD4000DB25F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A32E027921ED7AD4000DB25F /* Typist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Typist.xcdatamodel; sourceTree = "<group>"; };
+		A32E027B21ED7AD6000DB25F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A32E027E21ED7AD6000DB25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A32E028021ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32E028121ED7AD6000DB25F /* Typist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Typist.entitlements; sourceTree = "<group>"; };
+		A32E028621ED7AD6000DB25F /* TypistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32E028A21ED7AD6000DB25F /* TypistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypistTests.swift; sourceTree = "<group>"; };
+		A32E028C21ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32E029121ED7AD6000DB25F /* TypistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32E029521ED7AD6000DB25F /* TypistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypistUITests.swift; sourceTree = "<group>"; };
+		A32E029721ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A32E026E21ED7AD4000DB25F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32E028321ED7AD6000DB25F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32E028E21ED7AD6000DB25F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A32E026821ED7AD4000DB25F = {
+			isa = PBXGroup;
+			children = (
+				A32E027321ED7AD4000DB25F /* Typist */,
+				A32E028921ED7AD6000DB25F /* TypistTests */,
+				A32E029421ED7AD6000DB25F /* TypistUITests */,
+				A32E027221ED7AD4000DB25F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A32E027221ED7AD4000DB25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A32E027121ED7AD4000DB25F /* Typist.app */,
+				A32E028621ED7AD6000DB25F /* TypistTests.xctest */,
+				A32E029121ED7AD6000DB25F /* TypistUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A32E027321ED7AD4000DB25F /* Typist */ = {
+			isa = PBXGroup;
+			children = (
+				A32E027421ED7AD4000DB25F /* AppDelegate.swift */,
+				A32E027621ED7AD4000DB25F /* ViewController.swift */,
+				A32E027B21ED7AD6000DB25F /* Assets.xcassets */,
+				A32E027D21ED7AD6000DB25F /* Main.storyboard */,
+				A32E028021ED7AD6000DB25F /* Info.plist */,
+				A32E028121ED7AD6000DB25F /* Typist.entitlements */,
+				A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */,
+			);
+			path = Typist;
+			sourceTree = "<group>";
+		};
+		A32E028921ED7AD6000DB25F /* TypistTests */ = {
+			isa = PBXGroup;
+			children = (
+				A32E028A21ED7AD6000DB25F /* TypistTests.swift */,
+				A32E028C21ED7AD6000DB25F /* Info.plist */,
+			);
+			path = TypistTests;
+			sourceTree = "<group>";
+		};
+		A32E029421ED7AD6000DB25F /* TypistUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A32E029521ED7AD6000DB25F /* TypistUITests.swift */,
+				A32E029721ED7AD6000DB25F /* Info.plist */,
+			);
+			path = TypistUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A32E027021ED7AD4000DB25F /* Typist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32E029A21ED7AD6000DB25F /* Build configuration list for PBXNativeTarget "Typist" */;
+			buildPhases = (
+				A32E026D21ED7AD4000DB25F /* Sources */,
+				A32E026E21ED7AD4000DB25F /* Frameworks */,
+				A32E026F21ED7AD4000DB25F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Typist;
+			productName = Typist;
+			productReference = A32E027121ED7AD4000DB25F /* Typist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A32E028521ED7AD6000DB25F /* TypistTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32E029D21ED7AD6000DB25F /* Build configuration list for PBXNativeTarget "TypistTests" */;
+			buildPhases = (
+				A32E028221ED7AD6000DB25F /* Sources */,
+				A32E028321ED7AD6000DB25F /* Frameworks */,
+				A32E028421ED7AD6000DB25F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A32E028821ED7AD6000DB25F /* PBXTargetDependency */,
+			);
+			name = TypistTests;
+			productName = TypistTests;
+			productReference = A32E028621ED7AD6000DB25F /* TypistTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A32E029021ED7AD6000DB25F /* TypistUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32E02A021ED7AD6000DB25F /* Build configuration list for PBXNativeTarget "TypistUITests" */;
+			buildPhases = (
+				A32E028D21ED7AD6000DB25F /* Sources */,
+				A32E028E21ED7AD6000DB25F /* Frameworks */,
+				A32E028F21ED7AD6000DB25F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A32E029321ED7AD6000DB25F /* PBXTargetDependency */,
+			);
+			name = TypistUITests;
+			productName = TypistUITests;
+			productReference = A32E029121ED7AD6000DB25F /* TypistUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A32E026921ED7AD4000DB25F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = wickedPropeller;
+				TargetAttributes = {
+					A32E027021ED7AD4000DB25F = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A32E028521ED7AD6000DB25F = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A32E027021ED7AD4000DB25F;
+					};
+					A32E029021ED7AD6000DB25F = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A32E027021ED7AD4000DB25F;
+					};
+				};
+			};
+			buildConfigurationList = A32E026C21ED7AD4000DB25F /* Build configuration list for PBXProject "Typist" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A32E026821ED7AD4000DB25F;
+			productRefGroup = A32E027221ED7AD4000DB25F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A32E027021ED7AD4000DB25F /* Typist */,
+				A32E028521ED7AD6000DB25F /* TypistTests */,
+				A32E029021ED7AD6000DB25F /* TypistUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A32E026F21ED7AD4000DB25F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32E027C21ED7AD6000DB25F /* Assets.xcassets in Resources */,
+				A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32E028421ED7AD6000DB25F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32E028F21ED7AD6000DB25F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A32E026D21ED7AD4000DB25F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32E027A21ED7AD4000DB25F /* Typist.xcdatamodeld in Sources */,
+				A32E027721ED7AD4000DB25F /* ViewController.swift in Sources */,
+				A32E027521ED7AD4000DB25F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32E028221ED7AD6000DB25F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32E028B21ED7AD6000DB25F /* TypistTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32E028D21ED7AD6000DB25F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32E029621ED7AD6000DB25F /* TypistUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A32E028821ED7AD6000DB25F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A32E027021ED7AD4000DB25F /* Typist */;
+			targetProxy = A32E028721ED7AD6000DB25F /* PBXContainerItemProxy */;
+		};
+		A32E029321ED7AD6000DB25F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A32E027021ED7AD4000DB25F /* Typist */;
+			targetProxy = A32E029221ED7AD6000DB25F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A32E027D21ED7AD6000DB25F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A32E027E21ED7AD6000DB25F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A32E029821ED7AD6000DB25F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A32E029921ED7AD6000DB25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A32E029B21ED7AD6000DB25F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Typist/Typist.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
+				INFOPLIST_FILE = Typist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		A32E029C21ED7AD6000DB25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Typist/Typist.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
+				INFOPLIST_FILE = Typist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		A32E029E21ED7AD6000DB25F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
+				INFOPLIST_FILE = TypistTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.TypistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Typist.app/Contents/MacOS/Typist";
+			};
+			name = Debug;
+		};
+		A32E029F21ED7AD6000DB25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
+				INFOPLIST_FILE = TypistTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.TypistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Typist.app/Contents/MacOS/Typist";
+			};
+			name = Release;
+		};
+		A32E02A121ED7AD6000DB25F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
+				INFOPLIST_FILE = TypistUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.TypistUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Typist;
+			};
+			name = Debug;
+		};
+		A32E02A221ED7AD6000DB25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
+				INFOPLIST_FILE = TypistUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.TypistUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Typist;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A32E026C21ED7AD4000DB25F /* Build configuration list for PBXProject "Typist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32E029821ED7AD6000DB25F /* Debug */,
+				A32E029921ED7AD6000DB25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32E029A21ED7AD6000DB25F /* Build configuration list for PBXNativeTarget "Typist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32E029B21ED7AD6000DB25F /* Debug */,
+				A32E029C21ED7AD6000DB25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32E029D21ED7AD6000DB25F /* Build configuration list for PBXNativeTarget "TypistTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32E029E21ED7AD6000DB25F /* Debug */,
+				A32E029F21ED7AD6000DB25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32E02A021ED7AD6000DB25F /* Build configuration list for PBXNativeTarget "TypistUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32E02A121ED7AD6000DB25F /* Debug */,
+				A32E02A221ED7AD6000DB25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A32E027921ED7AD4000DB25F /* Typist.xcdatamodel */,
+			);
+			currentVersion = A32E027921ED7AD4000DB25F /* Typist.xcdatamodel */;
+			path = Typist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A32E026921ED7AD4000DB25F /* Project object */;
+}
