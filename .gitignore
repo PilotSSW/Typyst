@@ -124,6 +124,7 @@ DerivedData/
 !default.perspectivev3
 
 Podfile.lock
+/Pods
 Pods/Headers/
 Pods/Local Podspecs/
 Pods/Manifest.lock
