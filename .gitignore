@@ -123,4 +123,9 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 
-Podfile
+Podfile.lock
+Pods/Headers/
+Pods/Local Podspecs/
+Pods/Manifest.lock
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Target Support Files/
