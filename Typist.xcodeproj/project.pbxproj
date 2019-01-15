@@ -14,6 +14,8 @@
 		A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32E027D21ED7AD6000DB25F /* Main.storyboard */; };
 		A32E028B21ED7AD6000DB25F /* TypistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E028A21ED7AD6000DB25F /* TypistTests.swift */; };
 		A32E029621ED7AD6000DB25F /* TypistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E029521ED7AD6000DB25F /* TypistUITests.swift */; };
+		A32E02A421ED7C10000DB25F /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E02A321ED7C10000DB25F /* EventMonitor.swift */; };
+		A32E02A621ED8967000DB25F /* Typewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E02A521ED8967000DB25F /* Typewriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		A32E029121ED7AD6000DB25F /* TypistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32E029521ED7AD6000DB25F /* TypistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypistUITests.swift; sourceTree = "<group>"; };
 		A32E029721ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32E02A321ED7C10000DB25F /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		A32E02A521ED8967000DB25F /* Typewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typewriter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				A32E027421ED7AD4000DB25F /* AppDelegate.swift */,
+				A32E02A321ED7C10000DB25F /* EventMonitor.swift */,
 				A32E027621ED7AD4000DB25F /* ViewController.swift */,
 				A32E027B21ED7AD6000DB25F /* Assets.xcassets */,
 				A32E027D21ED7AD6000DB25F /* Main.storyboard */,
 				A32E028021ED7AD6000DB25F /* Info.plist */,
 				A32E028121ED7AD6000DB25F /* Typist.entitlements */,
 				A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */,
+				A32E02A521ED8967000DB25F /* Typewriter.swift */,
 			);
 			path = Typist;
 			sourceTree = "<group>";
@@ -260,6 +266,8 @@
 				A32E027A21ED7AD4000DB25F /* Typist.xcdatamodeld in Sources */,
 				A32E027721ED7AD4000DB25F /* ViewController.swift in Sources */,
 				A32E027521ED7AD4000DB25F /* AppDelegate.swift in Sources */,
+				A32E02A421ED7C10000DB25F /* EventMonitor.swift in Sources */,
+				A32E02A621ED8967000DB25F /* Typewriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

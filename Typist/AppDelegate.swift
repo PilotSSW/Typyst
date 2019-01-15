@@ -11,10 +11,13 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    let popover = NSPopover()
+    var eventMonitor: EventMonitor?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        setupApplication()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -117,6 +120,71 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // If we got here, it is time to quit.
         return .terminateNow
     }
-
+    
+    
+    /**
+     * App functions
+     */
+    
+    @objc func setupApplication() {
+        
+        if let button = statusItem.button {
+            button.image = NSImage(named: "AppIcon")
+            button.image?.size.height = 16
+            button.image?.size.width = 16
+            button.action = #selector(printQuote(_:))//#selector(AppDelegate.togglePopover(_:))
+        }
+        
+        constructMenu()
+        
+        let mainViewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "TypistMenu") as! ViewController
+        
+        popover.contentViewController = mainViewController
+        
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
+            if self.popover.isShown {
+                self.closePopover(event)
+            }
+        }
+        eventMonitor?.start()
+    }
+    
+    func constructMenu() {
+        let menu = NSMenu()
+        
+        menu.addItem(withTitle: <#T##String#>, action: <#T##Selector?#>, keyEquivalent: <#T##String#>)
+        menu.addItem(NSMenuItem(title: "Print Quote", action: #selector(AppDelegate.printQuote(_:)), keyEquivalent: "P"))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        
+        statusItem.menu = menu
+    }
+    
+    @objc func togglePopover(_ sender: AnyObject?) {
+        if popover.isShown {
+            closePopover(sender)
+        } else {
+            showPopover(sender)
+        }
+    }
+    
+    @objc func showPopover(_ sender: AnyObject?) {
+        if let button = statusItem.button {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+        }
+        eventMonitor?.start()
+    }
+    
+    @objc func closePopover(_ sender: AnyObject?) {
+        popover.performClose(sender)
+        eventMonitor?.stop()
+    }
+    
+    @objc func printQuote(_ sender: Any?) {
+        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
+        let quoteAuthor = "Mark Twain"
+        
+        print("\(quoteText) — \(quoteAuthor)")
+    }
 }
 
