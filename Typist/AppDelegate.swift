@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
+    var loadedTypewriter: Typewriter?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -132,7 +133,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "AppIcon")
             button.image?.size.height = 16
             button.image?.size.width = 16
-            button.action = #selector(printQuote(_:))//#selector(AppDelegate.togglePopover(_:))
+//            button.action = #selector(printQuote(_:))//#selector(AppDelegate.togglePopover(_:))
         }
         
         constructMenu()
@@ -152,8 +153,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func constructMenu() {
         let menu = NSMenu()
         
-        menu.addItem(withTitle: <#T##String#>, action: <#T##Selector?#>, keyEquivalent: <#T##String#>)
-        menu.addItem(NSMenuItem(title: "Print Quote", action: #selector(AppDelegate.printQuote(_:)), keyEquivalent: "P"))
+        menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "P"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
@@ -180,11 +180,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         eventMonitor?.stop()
     }
     
-    @objc func printQuote(_ sender: Any?) {
-        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-        let quoteAuthor = "Mark Twain"
-        
-        print("\(quoteText) — \(quoteAuthor)")
+    @objc func loadRoyalModelP(_ sender: Any?) {
+        loadedTypewriter = nil
+        loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
     }
 }
 

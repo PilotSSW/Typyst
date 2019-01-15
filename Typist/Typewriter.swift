@@ -7,35 +7,28 @@
 //
 
 import Foundation
-import AVFoundation
+import FilesProvider
+import SwiftySound
 
 class Typewriter {
     
-    var soundPlayer: AVAudioPlayer?
-    
-    let soundset = {
-        a: ""
+    var keyUpSounds: [Sound] = []
+    var keyDownSounds: [Sound] = []
+
+    init(model: TypewriterModel) {
+        // Get root directory and open the corresponding typewriter's folder
+        let documentsProvider = LocalFileProvider()
+        documentsProvider.contentsOfDirectory(path: "/\(model.rawValue)", completionHandler: { contents, error in
+            for file in contents {
+                print("Name: \(file.name)")
+                print("Size: \(file.size)")
+                print("Creation Date: \(file.creationDate)")
+                print("Modification Date: \(file.modifiedDate)")
+            }
+        })
     }
     
     func playSound() {
-        guard let url = Bundle.main.url(forResource: "soundName", withExtension: "mp3") else { return }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            
-            /* iOS 10 and earlier require the following line:
-             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
-            
-            guard let player = player else { return }
-            
-            player.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
+
     }
 }

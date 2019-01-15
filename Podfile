@@ -6,6 +6,8 @@ target 'Typist' do
   use_frameworks!
 
   # Pods for Typist
+  pod 'SwiftySound'
+  pod 'FilesProvider'
 
   target 'TypistTests' do
     inherit! :search_paths
