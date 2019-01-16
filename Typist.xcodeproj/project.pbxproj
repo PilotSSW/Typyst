@@ -320,6 +320,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Typist/Pods-Typist-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Files/Files.framework",
+				"${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -327,6 +328,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Files.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HotKey.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
