@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loadedTypewriter: Typewriter?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
         // Insert code here to initialize your application
         setupApplication()
     }
@@ -133,21 +134,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "AppIcon")
             button.image?.size.height = 16
             button.image?.size.width = 16
-//            button.action = #selector(printQuote(_:))//#selector(AppDelegate.togglePopover(_:))
         }
         
         constructMenu()
-        
-//        let mainViewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "TypistMenu") as! ViewController
-//
-//        popover.contentViewController = mainViewController
-//
-//        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
-//            if self.popover.isShown {
-//                self.closePopover(event)
-//            }
-//        }
-//        eventMonitor?.start()
         
         let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
         guard AXIsProcessTrustedWithOptions(opts) == true else {
@@ -162,6 +151,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let answer = alert.runModal()
             return
         }
+
+        loadTypeWriter()
     }
     
     func constructMenu() {
@@ -197,7 +188,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func loadRoyalModelP(_ sender: Any?) {
         loadedTypewriter = nil
         loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
-        print(loadedTypewriter?.model)
+    }
+
+    func currentTypeWriter(model: TypewriterModel) {
+        UserDefaults.standard.set(model, forKey: "loadedTypeWriter")
+    }
+
+    func loadTypeWriter() {
+        if let model = UserDefaults.standard.value(forKey: "loadedTypeWriter") as? TypewriterModel {
+
+            if model == TypewriterModel.Royal_Model_P {
+                loadRoyalModelP(self)
+            }
+        }
     }
 }
 
