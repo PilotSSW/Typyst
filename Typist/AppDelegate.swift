@@ -138,16 +138,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         constructMenu()
         
-        let mainViewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "TypistMenu") as! ViewController
+//        let mainViewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "TypistMenu") as! ViewController
+//
+//        popover.contentViewController = mainViewController
+//
+//        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
+//            if self.popover.isShown {
+//                self.closePopover(event)
+//            }
+//        }
+//        eventMonitor?.start()
         
-        popover.contentViewController = mainViewController
-        
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
-            if self.popover.isShown {
-                self.closePopover(event)
-            }
+        let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
+        guard AXIsProcessTrustedWithOptions(opts) == true else {
+            let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
+            let info = NSLocalizedString("Typist will be unable to recieve key press events from other applications and the typewriter sounds will not be triggered.", comment: "Typist will be unable to recieve key press events.");
+            let button = NSLocalizedString("Okay", comment: "Close alert")
+            let alert = NSAlert()
+            alert.messageText = question
+            alert.informativeText = info
+            alert.addButton(withTitle: button)
+            
+            let answer = alert.runModal()
+            return
         }
-        eventMonitor?.start()
     }
     
     func constructMenu() {
@@ -183,6 +197,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func loadRoyalModelP(_ sender: Any?) {
         loadedTypewriter = nil
         loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
+        print(loadedTypewriter?.model)
     }
 }
 

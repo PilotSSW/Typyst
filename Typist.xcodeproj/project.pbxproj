@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		A32E029621ED7AD6000DB25F /* TypistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E029521ED7AD6000DB25F /* TypistUITests.swift */; };
 		A32E02A421ED7C10000DB25F /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E02A321ED7C10000DB25F /* EventMonitor.swift */; };
 		A32E02A621ED8967000DB25F /* Typewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E02A521ED8967000DB25F /* Typewriter.swift */; };
+		A32E02A821EE9DA7000DB25F /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A32E02A721EE9DA7000DB25F /* Soundsets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		A32E029721ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A32E02A321ED7C10000DB25F /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		A32E02A521ED8967000DB25F /* Typewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typewriter.swift; sourceTree = "<group>"; };
+		A32E02A721EE9DA7000DB25F /* Soundsets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Soundsets; path = Typist/Soundsets; sourceTree = "<group>"; };
 		A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFBE7D22EAD29E6DA277BA6 /* Pods-TypistUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypistUITests.debug.xcconfig"; path = "Target Support Files/Pods-TypistUITests/Pods-TypistUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 		A32E026821ED7AD4000DB25F = {
 			isa = PBXGroup;
 			children = (
+				A32E02A721EE9DA7000DB25F /* Soundsets */,
 				A32E027321ED7AD4000DB25F /* Typist */,
 				A32E028921ED7AD6000DB25F /* TypistTests */,
 				A32E029421ED7AD6000DB25F /* TypistUITests */,
@@ -163,7 +166,6 @@
 				DAFBE7D22EAD29E6DA277BA6 /* Pods-TypistUITests.debug.xcconfig */,
 				7FCD730319214FFC7C53E66F /* Pods-TypistUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -261,7 +263,7 @@
 				};
 			};
 			buildConfigurationList = A32E026C21ED7AD4000DB25F /* Build configuration list for PBXProject "Typist" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -287,6 +289,7 @@
 			files = (
 				A32E027C21ED7AD6000DB25F /* Assets.xcassets in Resources */,
 				A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */,
+				A32E02A821EE9DA7000DB25F /* Soundsets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,14 +319,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Typist/Pods-Typist-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FilesProvider/FilesProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/Files/Files.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FilesProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Files.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Typist/Typist.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PK75CJKJVR;
@@ -587,6 +591,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -597,6 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Typist/Typist.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PK75CJKJVR;
@@ -607,6 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

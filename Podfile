@@ -7,7 +7,7 @@ target 'Typist' do
 
   # Pods for Typist
   pod 'SwiftySound'
-  pod 'FilesProvider'
+  pod 'Files'
 
   target 'TypistTests' do
     inherit! :search_paths
