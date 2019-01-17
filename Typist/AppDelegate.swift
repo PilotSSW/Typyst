@@ -11,13 +11,17 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    let menu = NSMenu()
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
     var loadedTypewriter: Typewriter?
 
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
+        item.title = "Typist"
         // Insert code here to initialize your application
         setupApplication()
     }
@@ -136,8 +140,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image?.size.width = 16
         }
         
-        constructMenu()
-        
         let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
         guard AXIsProcessTrustedWithOptions(opts) == true else {
             let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
@@ -153,18 +155,53 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         loadTypeWriter()
+        constructMenu()
     }
     
     func constructMenu() {
-        let menu = NSMenu()
-        
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "P"))
         menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-        
+
         statusItem.menu = menu
     }
-    
+
+    func currentTypeWriter(model: TypewriterModel) {
+        UserDefaults.standard.set(model.rawValue, forKey: "selectedTypewriter")
+    }
+
+    func loadTypeWriter() {
+        if let model = UserDefaults.standard.string (forKey: "selectedTypewriter") {
+
+            if model == TypewriterModel.Royal_Model_P.rawValue {
+                loadRoyalModelP (self)
+            }
+        }
+    }
+
+    @objc func setPaperFeedEnabled(_ sender: Any?) {
+        simulatePaperFeed(enabled: !paperFeedEnabled())
+    }
+
+    func simulatePaperFeed(enabled: Bool) {
+        UserDefaults.standard.set(enabled, forKey: "paperFeedEnabled")
+    }
+
+    func paperFeedEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: "paperFeedEnabled") ?? false
+    }
+
+    @objc func loadRoyalModelP(_ sender: Any?) {
+        loadedTypewriter = nil
+        loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
+        currentTypeWriter(model: TypewriterModel.Royal_Model_P)
+    }
+
+    /*
+    * Window functions
+    */
     @objc func togglePopover(_ sender: AnyObject?) {
         if popover.isShown {
             closePopover(sender)
@@ -172,35 +209,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             showPopover(sender)
         }
     }
-    
+
     @objc func showPopover(_ sender: AnyObject?) {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
         eventMonitor?.start()
     }
-    
+
     @objc func closePopover(_ sender: AnyObject?) {
         popover.performClose(sender)
         eventMonitor?.stop()
-    }
-    
-    @objc func loadRoyalModelP(_ sender: Any?) {
-        loadedTypewriter = nil
-        loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
-    }
-
-    func currentTypeWriter(model: TypewriterModel) {
-        UserDefaults.standard.set(model, forKey: "loadedTypeWriter")
-    }
-
-    func loadTypeWriter() {
-        if let model = UserDefaults.standard.value(forKey: "loadedTypeWriter") as? TypewriterModel {
-
-            if model == TypewriterModel.Royal_Model_P {
-                loadRoyalModelP(self)
-            }
-        }
     }
 }
 

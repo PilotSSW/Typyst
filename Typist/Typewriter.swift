@@ -16,34 +16,33 @@ class Typewriter {
 
     // Typewriter variables / constants
     var model: TypewriterModel?
-
-    // Recognized keypresses
-    let letterSet: [Key] =
-        [.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m, .n, .o, .p, .q, .r, .s, .t, .u, .v, .x, .y, .z]
-    let numberSet: [Key] =
-        [.zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine,
-         .keypad0, .keypad1, .keypad2, .keypad3, .keypad4, .keypad5, .keypad6, .keypad7, .keypad8, .keypad9]
-    let letterNumberKeyset: [Key]
-    let shiftSet: [Key] = [.shift, .rightShift]
+    var marginWidth = 80
+    var numberOfNewLines = 0
 
     // Soundsets
-    let keySets = [
+    let keySets        = [
         "BackspaceUp", "BackspaceDown",
         "Bell",
+        "DoubleSpaceReturn",
         "KeyUp", "KeyDown",
+        "Letters",
         "MarginRelease",
-        "Number",
+        "Numbers",
+        "PaperFeed", "PaperLoad", "PaperRelease", "PaperReturn",
+        "RibbonSelector",
         "ShiftUp", "ShiftDown", "ShiftLock", "ShiftRelease",
+        "SingleSpaceReturn",
+        "SpaceDown", "SpaceUp",
         "Symbols"
     ]
-    var soundSets = [String: [Sound]]()
+    var soundSets      = [String: [Sound]]()
     var keyListenerSet = [Any?]()
-    var flagDown = true
-    var capsOn = false
+    var shiftIsPressed = false
+    var capsOn         = false
 
-    init(model: TypewriterModel) {
+    init(model: TypewriterModel, marginWidth: Int = 80) {
         self.model = model
-        self.letterNumberKeyset = numberSet + letterSet
+        self.marginWidth = marginWidth
         loadSounds()
         createKeyEventListeners()
     }
@@ -73,34 +72,13 @@ class Typewriter {
 
         // Make sure the event is some kind of key press
         if let keyPressed = Key(carbonKeyCode: UInt32(event.keyCode)) {
+            print(keyPressed)
 
-            // Check if the key press was in the up or down direction
-            if event.type == NSEvent.EventType.keyUp {
-                print("\(keyPressed) Key-Up")
-                if letterNumberKeyset.contains (keyPressed) {
-                    self.soundSets["KeyUp"]?.randomElement ()?.play ()
-                }
-                else {
-                    self.soundSets["ShiftUp"]?.randomElement ()?.play ()
-                }
-            }
-            else if event.type == NSEvent.EventType.keyDown {
-                print("\(keyPressed) Key-Down")
-                if letterNumberKeyset.contains (keyPressed) {
-                    self.soundSets["KeyDown"]?.randomElement ()?.play ()
-                }
-                else {
-                    self.soundSets["ShiftDown"]?.randomElement ()?.play ()
-                }
-            }
-            else if event.type == NSEvent.EventType.flagsChanged {
-                print("\(keyPressed) Flag")
-                if keyPressed == Key.capsLock {
-                    capsOn ? self.soundSets["ShiftLock"]?.randomElement()?.play() :
-                             self.soundSets["ShiftRelease"]?.randomElement()?.play()
-                    capsOn = !capsOn
-                }
-                else if flagDown {
+            // These should be ordered by likelihood they were the key pressed. The fewer the searches, the faster the
+            // sound plays ;)
+
+            if shiftSet.contains(keyPressed) {
+                if !shiftIsPressed {
                     self.soundSets["ShiftDown"]?.randomElement ()?.play ()
                 }
                 else {
@@ -108,13 +86,69 @@ class Typewriter {
                 }
 
                 // Flag key directions aren't tracked - we need to do that.
-                flagDown = !flagDown
+                shiftIsPressed = !shiftIsPressed
+            }
+            else if keyPressed == Key.space {
+                event.type == NSEvent.EventType.keyUp ?
+                    self.soundSets["SpaceUp"]?.randomElement()?.play() :
+                    self.soundSets["SpaceDown"]?.randomElement()?.play()
+            }
+            else if keyPressed == Key.return || keyPressed == Key.keypadEnter {
+                let returnSet = (self.soundSets["SingleSpaceReturn"] ?? []) + (self.soundSets["DoubleSpaceReturn"] ?? [])
+                returnSet.randomElement()?.play()
+
+                if numberOfNewLines == 25 {
+                    numberOfNewLines = 0
+                    if UserDefaults.standard.bool(forKey: "paperFeedEnabled") ?? false {
+                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+                            if let sound = self.soundSets["PaperLoad"]?.randomElement() {
+                                sound.play()
+                                Timer.scheduledTimer(withTimeInterval: sound.duration, repeats: false, block:
+                                {_ in
+                                    self.soundSets["PaperFeed"]?.randomElement()?.play()
+                                })
+                            }
+                        })
+                    }
+                }
+
+                else {
+                    // Only count the key press once - not on both up and down
+                    if event.type == NSEvent.EventType.keyDown {
+                        numberOfNewLines += 1
+                    }
+                }
+            }
+            else if keyPressed == Key.delete || keyPressed == Key.forwardDelete {
+                event.type == NSEvent.EventType.keyUp ?
+                    self.soundSets["BackspaceUp"]?.randomElement()?.play() :
+                    self.soundSets["BackspaceDown"]?.randomElement()?.play()
+            }
+            else if keyPressed == Key.escape {
+                event.type == NSEvent.EventType.keyUp ?
+                    self.soundSets["PaperRelease"]?.randomElement()?.play() :
+                    self.soundSets["PaperReturn"]?.randomElement()?.play()
+            }
+            else if keyPressed == Key.capsLock {
+                capsOn ? self.soundSets["ShiftLock"]?.randomElement()?.play() :
+                    self.soundSets["ShiftRelease"]?.randomElement()?.play()
+                capsOn = !capsOn
+            }
+            else if bellSet.contains(keyPressed) {
+                self.soundSets["Bell"]?.randomElement()?.play()
+            }
+            else if keyPressed == Key.keypadClear {
+                self.soundSets["RibbonSelector"]?.randomElement()?.play()
             }
             else if event.type == NSEvent.EventType.systemDefined {
-                print("\(keyPressed) System")
                 // Stop any margin sounds that are already playing
                 self.soundSets["MarginRelease"]?.forEach({ $0.stop() })
                 self.soundSets["MarginRelease"]?.randomElement ()?.play ()
+            }
+            else {
+                event.type == NSEvent.EventType.keyUp ?
+                    self.soundSets["KeyUp"]?.randomElement ()?.play () :
+                    self.soundSets["KeyDown"]?.randomElement ()?.play ()
             }
         }
     }
@@ -126,11 +160,11 @@ class Typewriter {
         for eventType in eventTypes {
 
             // Listen for key presses in Typist
-            keyListenerSet.append(
-                NSEvent.addLocalMonitorForEvents(matching: eventType) { (aEvent) -> NSEvent in
-                    self.assignKeyPresses(event: aEvent)
-                    return aEvent
-                })
+//            keyListenerSet.append(
+//                NSEvent.addLocalMonitorForEvents(matching: eventType) { (aEvent) -> NSEvent in
+//                    self.assignKeyPresses(event: aEvent)
+//                    return aEvent
+//                })
 
             // Listen for key presses in other apps
             keyListenerSet.append(

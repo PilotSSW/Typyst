@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0719588C8D7FC8CD359922A7 /* Pods_TypistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C351D94462D5AFB61AA936F /* Pods_TypistUITests.framework */; };
 		1F0DE872F874473DA3DFBC04 /* Pods_TypistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F26EAA6F2BED80E440C064 /* Pods_TypistTests.framework */; };
+		6EF6BAF831A6A5BEEFBA4162 /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC87A773D1C506B1833B /* KeySets.swift */; };
 		6EF6BE730993E21B8C1384CB /* TypewriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B357154F2081147BFE15 /* TypewriterModel.swift */; };
 		A31D5D25FF674532EB57D72B /* Pods_Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */; };
 		A32E027521ED7AD4000DB25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E027421ED7AD4000DB25F /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		59CAEEC1AE58BFCB7DEEBC62 /* Pods-TypistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypistTests.debug.xcconfig"; path = "Target Support Files/Pods-TypistTests/Pods-TypistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C351D94462D5AFB61AA936F /* Pods_TypistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TypistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF6B357154F2081147BFE15 /* TypewriterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterModel.swift; sourceTree = "<group>"; };
+		6EF6BC87A773D1C506B1833B /* KeySets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeySets.swift; sourceTree = "<group>"; };
 		7FCD730319214FFC7C53E66F /* Pods-TypistUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypistUITests.release.xcconfig"; path = "Target Support Files/Pods-TypistUITests/Pods-TypistUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A32E027121ED7AD4000DB25F /* Typist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32E027421ED7AD4000DB25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */,
 				A32E02A521ED8967000DB25F /* Typewriter.swift */,
 				6EF6B357154F2081147BFE15 /* TypewriterModel.swift */,
+				6EF6BC87A773D1C506B1833B /* KeySets.swift */,
 			);
 			path = Typist;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				A32E02A421ED7C10000DB25F /* EventMonitor.swift in Sources */,
 				A32E02A621ED8967000DB25F /* Typewriter.swift in Sources */,
 				6EF6BE730993E21B8C1384CB /* TypewriterModel.swift in Sources */,
+				6EF6BAF831A6A5BEEFBA4162 /* KeySets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
