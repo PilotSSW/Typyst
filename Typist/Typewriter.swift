@@ -23,17 +23,20 @@ class Typewriter {
     let keySets        = [
         "BackspaceUp", "BackspaceDown",
         "Bell",
-        "DoubleSpaceReturn",
+        "DoubleLineReturn",
         "KeyUp", "KeyDown",
         "Letters",
+        "LidDown", "LidUp",
         "MarginRelease",
         "Numbers",
         "PaperFeed", "PaperLoad", "PaperRelease", "PaperReturn",
         "RibbonSelector",
         "ShiftUp", "ShiftDown", "ShiftLock", "ShiftRelease",
-        "SingleSpaceReturn",
+        "SingleLineReturn",
         "SpaceDown", "SpaceUp",
-        "Symbols"
+        "Symbols",
+        "TabDown", "TabUp",
+        "TripleLineReturn"
     ]
     var soundSets      = [String: [Sound]]()
     var keyListenerSet = [Any?]()
@@ -45,6 +48,10 @@ class Typewriter {
         self.marginWidth = marginWidth
         loadSounds()
         createKeyEventListeners()
+
+        if soundSets["LidUp"]?.count ?? 0 > 0 {
+            soundSets["LidUp"]?.randomElement()?.play()
+        }
     }
 
     func getSoundset(location: String) -> [Sound] {
@@ -72,7 +79,6 @@ class Typewriter {
 
         // Make sure the event is some kind of key press
         if let keyPressed = Key(carbonKeyCode: UInt32(event.keyCode)) {
-            print(keyPressed)
 
             // These should be ordered by likelihood they were the key pressed. The fewer the searches, the faster the
             // sound plays ;)
@@ -94,7 +100,10 @@ class Typewriter {
                     self.soundSets["SpaceDown"]?.randomElement()?.play()
             }
             else if keyPressed == Key.return || keyPressed == Key.keypadEnter {
-                let returnSet = (self.soundSets["SingleSpaceReturn"] ?? []) + (self.soundSets["DoubleSpaceReturn"] ?? [])
+                let returnSet = (self.soundSets["SingleLineReturn"] ?? []) +
+                                (self.soundSets["DoubleLineReturn"] ?? []) +
+                                (self.soundSets["TripleLineReturn"] ?? [])
+
                 returnSet.randomElement()?.play()
 
                 if numberOfNewLines == 25 {
@@ -124,7 +133,7 @@ class Typewriter {
                     self.soundSets["BackspaceUp"]?.randomElement()?.play() :
                     self.soundSets["BackspaceDown"]?.randomElement()?.play()
             }
-            else if keyPressed == Key.escape {
+            else if keyPressed == Key.escape && soundSets["PaperRelease"]?.count != 0 && soundSets["PaperReturn"]?.count != 0 {
                 event.type == NSEvent.EventType.keyUp ?
                     self.soundSets["PaperRelease"]?.randomElement()?.play() :
                     self.soundSets["PaperReturn"]?.randomElement()?.play()
@@ -133,6 +142,11 @@ class Typewriter {
                 capsOn ? self.soundSets["ShiftLock"]?.randomElement()?.play() :
                     self.soundSets["ShiftRelease"]?.randomElement()?.play()
                 capsOn = !capsOn
+            }
+            else if keyPressed == Key.tab && soundSets["TabUp"]?.count != 0 && soundSets["TabDown"]?.count != 0 {
+                event.type == NSEvent.EventType.keyUp ?
+                    self.soundSets["TabUp"]?.randomElement()?.play() :
+                    self.soundSets["TabDown"]?.randomElement()?.play()
             }
             else if bellSet.contains(keyPressed) {
                 self.soundSets["Bell"]?.randomElement()?.play()
@@ -172,5 +186,17 @@ class Typewriter {
                     self.assignKeyPresses(event: aEvent)
                 })
         }
+    }
+
+    func prepareToRemove() {
+        if soundSets["LidDown"]?.count ?? 0 > 0 {
+            soundSets["LidDown"]?.randomElement()?.play()
+        }
+
+        keyListenerSet.removeAll()
+        for keySet in keySets {
+            soundSets[keySet] = nil
+        }
+        soundSets.removeAll()
     }
 }

@@ -15,8 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
-    var loadedTypewriter: Typewriter?
-
+    var app = App()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
@@ -154,12 +153,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
 
-        loadTypeWriter()
         constructMenu()
     }
     
     func constructMenu() {
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "P"))
+        menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppDelegate.loadSmithCoronaSilent(_:)), keyEquivalent: "S"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
@@ -168,35 +167,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
 
-    func currentTypeWriter(model: TypewriterModel) {
-        UserDefaults.standard.set(model.rawValue, forKey: "selectedTypewriter")
+
+    @objc func loadRoyalModelP(_ sender: Any?) {
+        app.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
     }
 
-    func loadTypeWriter() {
-        if let model = UserDefaults.standard.string (forKey: "selectedTypewriter") {
-
-            if model == TypewriterModel.Royal_Model_P.rawValue {
-                loadRoyalModelP (self)
-            }
-        }
+    @objc func loadSmithCoronaSilent(_ sender: Any?) {
+        app.currentTypeWriter(model: TypewriterModel.Smith_Corona_Silent)
     }
 
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        simulatePaperFeed(enabled: !paperFeedEnabled())
-    }
-
-    func simulatePaperFeed(enabled: Bool) {
-        UserDefaults.standard.set(enabled, forKey: "paperFeedEnabled")
-    }
-
-    func paperFeedEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "paperFeedEnabled") ?? false
-    }
-
-    @objc func loadRoyalModelP(_ sender: Any?) {
-        loadedTypewriter = nil
-        loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
-        currentTypeWriter(model: TypewriterModel.Royal_Model_P)
+        app.simulatePaperFeed(enabled: !app.paperFeedEnabled())
     }
 
     /*
