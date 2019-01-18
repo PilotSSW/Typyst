@@ -6,6 +6,7 @@
 import Foundation
 
 enum TypewriterModel: String {
+    case Olympia_SM3
     case Royal_Model_P
     case Smith_Corona_Silent
 }

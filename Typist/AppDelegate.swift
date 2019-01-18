@@ -157,16 +157,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func constructMenu() {
-        menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "P"))
-        menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppDelegate.loadSmithCoronaSilent(_:)), keyEquivalent: "S"))
+        menu.addItem(NSMenuItem(title: "Load Olympia SM3", action: #selector(AppDelegate.loadOlympiaSM3(_:)), keyEquivalent: "1"))
+        menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "2"))
+        menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppDelegate.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: "0"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
         statusItem.menu = menu
     }
 
+    @objc func loadOlympiaSM3(_ sender: Any?) {
+        app.currentTypeWriter(model: TypewriterModel.Olympia_SM3)
+    }
 
     @objc func loadRoyalModelP(_ sender: Any?) {
         app.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
