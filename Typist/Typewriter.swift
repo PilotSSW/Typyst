@@ -90,9 +90,9 @@ class Typewriter {
                                      (self.soundSets["TripleLineReturn"] ?? [])).randomElement()
                     let bell = self.soundSets["Bell"]?.randomElement()
             
-                    lineReturn?.play()
-                    Timer.scheduledTimer(withTimeInterval: lineReturn?.duration ?? 0, repeats: false, block: {_ in
-                        bell?.play()
+                    bell?.play()
+                    Timer.scheduledTimer(withTimeInterval: bell?.duration ?? 0 + 0.3, repeats: false, block: {_ in
+                        lineReturn?.play()
                     })
                 }
             }
