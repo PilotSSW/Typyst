@@ -26,5 +26,9 @@ let commandSet: [Key] =
 
 let specialKeys: [Key] =
     []
-let shiftSet: [Key] = [.shift, .rightShift]
-let bellSet: [Key] = [.home, .help]
+
+let shiftSet: [Key] =
+    [.shift, .rightShift]
+
+let bellSet: [Key] =
+    [.home, .help]

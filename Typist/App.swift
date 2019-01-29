@@ -38,12 +38,24 @@ class App {
             }
         }
     }
+    
+    
+    
+    func simulatePaperReturn(enabled: Bool) {
+        UserDefaults.standard.set(enabled, forKey: "paperReturnEnabled")
+    }
+    
+    func paperReturnEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: "paperFeedReturned")
+    }
+    
+    
 
     func simulatePaperFeed(enabled: Bool) {
         UserDefaults.standard.set(enabled, forKey: "paperFeedEnabled")
     }
 
     func paperFeedEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "paperFeedEnabled") ?? false
+        return UserDefaults.standard.bool(forKey: "paperFeedEnabled")
     }
 }

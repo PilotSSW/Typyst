@@ -17,7 +17,9 @@ class Typewriter {
     // Typewriter variables / constants
     var model: TypewriterModel?
     var marginWidth = 80
+    
     var numberOfNewLines = 0
+    var lineIndex = 0
 
     // Soundsets
     let keySets        = [
@@ -79,17 +81,34 @@ class Typewriter {
 
         // Make sure the event is some kind of key press
         if let keyPressed = Key(carbonKeyCode: UInt32(event.keyCode)) {
+            
+            // If the current key press is less than the margin width - increment the count
+            if lineIndex < marginWidth {
+                lineIndex += 1
+            }
+            else {
+                lineIndex = 0
+                if UserDefaults.standard.bool(forKey: "simulateNewLine") {
+                    let lineReturn = ((self.soundSets["SingleLineReturn"] ?? []) +
+                                     (self.soundSets["DoubleLineReturn"] ?? []) +
+                                     (self.soundSets["TripleLineReturn"] ?? [])).randomElement()
+                    let bell = self.soundSets["Bell"]?.randomElement()
+            
+                    lineReturn?.play()
+                    Timer.scheduledTimer(withTimeInterval: lineReturn?.duration ?? 0, repeats: false, block: {_ in
+                        bell?.play()
+                    })
+                }
+            }
+
 
             // These should be ordered by likelihood they were the key pressed. The fewer the searches, the faster the
             // sound plays ;)
 
             if shiftSet.contains(keyPressed) {
-                if !shiftIsPressed {
-                    self.soundSets["ShiftDown"]?.randomElement ()?.play ()
-                }
-                else {
+                shiftIsPressed == false ?
+                    self.soundSets["ShiftDown"]?.randomElement ()?.play () :
                     self.soundSets["ShiftUp"]?.randomElement ()?.play ()
-                }
 
                 // Flag key directions aren't tracked - we need to do that.
                 shiftIsPressed = !shiftIsPressed
@@ -108,12 +127,11 @@ class Typewriter {
 
                 if numberOfNewLines == 25 {
                     numberOfNewLines = 0
-                    if UserDefaults.standard.bool(forKey: "paperFeedEnabled") ?? false {
+                    if UserDefaults.standard.bool(forKey: "paperFeedEnabled") {
                         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
                             if let sound = self.soundSets["PaperLoad"]?.randomElement() {
                                 sound.play()
-                                Timer.scheduledTimer(withTimeInterval: sound.duration, repeats: false, block:
-                                {_ in
+                                Timer.scheduledTimer(withTimeInterval: sound.duration, repeats: false, block: {_ in
                                     self.soundSets["PaperFeed"]?.randomElement()?.play()
                                 })
                             }

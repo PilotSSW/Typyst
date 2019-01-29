@@ -161,6 +161,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "2"))
         menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppDelegate.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
         menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppDelegate.setPaperReturnEnabled), keyEquivalent: "4"))
         menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: "0"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
@@ -182,6 +183,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func setPaperFeedEnabled(_ sender: Any?) {
         app.simulatePaperFeed(enabled: !app.paperFeedEnabled())
+    }
+    
+    @objc func setPaperReturnEnabled() {
+        app.simulatePaperReturn(enabled: !app.paperReturnEnabled())
     }
 
     /*
