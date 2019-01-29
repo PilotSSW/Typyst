@@ -82,13 +82,9 @@ class Typewriter {
         // Make sure the event is some kind of key press
         if let keyPressed = Key(carbonKeyCode: UInt32(event.keyCode)) {
             
-            // If the current key press is less than the margin width - increment the count
-            if lineIndex < marginWidth {
-                lineIndex += 1
-            }
-            else {
+            if lineIndex >= marginWidth {
                 lineIndex = 0
-                if UserDefaults.standard.bool(forKey: "simulateNewLine") {
+                if UserDefaults.standard.bool(forKey: "paperReturnEnabled") {
                     let lineReturn = ((self.soundSets["SingleLineReturn"] ?? []) +
                                      (self.soundSets["DoubleLineReturn"] ?? []) +
                                      (self.soundSets["TripleLineReturn"] ?? [])).randomElement()
@@ -100,7 +96,6 @@ class Typewriter {
                     })
                 }
             }
-
 
             // These should be ordered by likelihood they were the key pressed. The fewer the searches, the faster the
             // sound plays ;)
@@ -114,9 +109,13 @@ class Typewriter {
                 shiftIsPressed = !shiftIsPressed
             }
             else if keyPressed == Key.space {
-                event.type == NSEvent.EventType.keyUp ?
-                    self.soundSets["SpaceUp"]?.randomElement()?.play() :
+                if event.type == NSEvent.EventType.keyUp {
+                    self.soundSets["SpaceUp"]?.randomElement()?.play()
+                }
+                else {
+                    lineIndex += 1
                     self.soundSets["SpaceDown"]?.randomElement()?.play()
+                }
             }
             else if keyPressed == Key.return || keyPressed == Key.keypadEnter {
                 lineIndex = 0
@@ -148,6 +147,9 @@ class Typewriter {
                 }
             }
             else if keyPressed == Key.delete || keyPressed == Key.forwardDelete {
+                if lineIndex > 0 {
+                    lineIndex += -1
+                }
                 event.type == NSEvent.EventType.keyUp ?
                     self.soundSets["BackspaceUp"]?.randomElement()?.play() :
                     self.soundSets["BackspaceDown"]?.randomElement()?.play()
@@ -179,9 +181,13 @@ class Typewriter {
                 self.soundSets["MarginRelease"]?.randomElement ()?.play ()
             }
             else {
-                event.type == NSEvent.EventType.keyUp ?
-                    self.soundSets["KeyUp"]?.randomElement ()?.play () :
+                if event.type == NSEvent.EventType.keyUp {
+                    self.soundSets["KeyUp"]?.randomElement ()?.play ()
+                }
+                else {
+                    lineIndex += 1
                     self.soundSets["KeyDown"]?.randomElement ()?.play ()
+                }
             }
         }
     }
