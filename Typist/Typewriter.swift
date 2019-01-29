@@ -119,6 +119,7 @@ class Typewriter {
                     self.soundSets["SpaceDown"]?.randomElement()?.play()
             }
             else if keyPressed == Key.return || keyPressed == Key.keypadEnter {
+                lineIndex = 0
                 let returnSet = (self.soundSets["SingleLineReturn"] ?? []) +
                                 (self.soundSets["DoubleLineReturn"] ?? []) +
                                 (self.soundSets["TripleLineReturn"] ?? [])
