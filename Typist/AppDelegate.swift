@@ -20,13 +20,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
-        item.title = "Typist"
+        item.button?.title = "Typyst"
         // Insert code here to initialize your application
         setupApplication()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        
     }
 
     // MARK: - Core Data stack
@@ -138,7 +139,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image?.size.height = 16
             button.image?.size.width = 16
         }
-        
+
         let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
         guard AXIsProcessTrustedWithOptions(opts) == true else {
             let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
@@ -148,8 +149,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alert.messageText = question
             alert.informativeText = info
             alert.addButton(withTitle: button)
-            
-            let answer = alert.runModal()
+
+            _ = alert.runModal()
             return
         }
 

@@ -119,11 +119,9 @@ class Typewriter {
             }
             else if keyPressed == Key.return || keyPressed == Key.keypadEnter {
                 lineIndex = 0
-                let returnSet = (self.soundSets["SingleLineReturn"] ?? []) +
-                                (self.soundSets["DoubleLineReturn"] ?? []) +
-                                (self.soundSets["TripleLineReturn"] ?? [])
-
-                returnSet.randomElement()?.play()
+                ((self.soundSets["SingleLineReturn"] ?? []) +
+                (self.soundSets["DoubleLineReturn"] ?? []) +
+                (self.soundSets["TripleLineReturn"] ?? [])).randomElement()?.play()
 
                 if numberOfNewLines == 25 {
                     numberOfNewLines = 0
@@ -209,7 +207,8 @@ class Typewriter {
             keyListenerSet.append(
                 NSEvent.addGlobalMonitorForEvents(matching: eventType) { (aEvent) in
                     self.assignKeyPresses(event: aEvent)
-                })
+                }
+            )
         }
     }
 

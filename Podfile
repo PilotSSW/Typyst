@@ -9,6 +9,7 @@ target 'Typist' do
   pod 'Files'
   pod 'HotKey'
   pod 'SwiftySound'
+  pod 'CoreStore'
 
   target 'TypistTests' do
     inherit! :search_paths

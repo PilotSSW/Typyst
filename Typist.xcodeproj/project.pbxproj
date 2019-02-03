@@ -254,12 +254,29 @@
 		A32E026921ED7AD4000DB25F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = wickedPropeller;
 				TargetAttributes = {
 					A32E027021ED7AD4000DB25F = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					A32E028521ED7AD6000DB25F = {
 						CreatedOnToolsVersion = 10.1;
@@ -599,12 +616,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PK75CJKJVR;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Typist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typist;
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedpropeller.typist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -621,12 +639,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PK75CJKJVR;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Typist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typist;
+				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedpropeller.typist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

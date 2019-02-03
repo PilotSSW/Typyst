@@ -24,6 +24,8 @@
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>true</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2019 wickedPropeller. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
