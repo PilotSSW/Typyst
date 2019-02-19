@@ -15,13 +15,11 @@
 		6EF6BE730993E21B8C1384CB /* TypewriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B357154F2081147BFE15 /* TypewriterModel.swift */; };
 		A31D5D25FF674532EB57D72B /* Pods_Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */; };
 		A32E027521ED7AD4000DB25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E027421ED7AD4000DB25F /* AppDelegate.swift */; };
-		A32E027721ED7AD4000DB25F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E027621ED7AD4000DB25F /* ViewController.swift */; };
 		A32E027A21ED7AD4000DB25F /* Typist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */; };
 		A32E027C21ED7AD6000DB25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32E027B21ED7AD6000DB25F /* Assets.xcassets */; };
 		A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32E027D21ED7AD6000DB25F /* Main.storyboard */; };
 		A32E028B21ED7AD6000DB25F /* TypistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E028A21ED7AD6000DB25F /* TypistTests.swift */; };
 		A32E029621ED7AD6000DB25F /* TypistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E029521ED7AD6000DB25F /* TypistUITests.swift */; };
-		A32E02A421ED7C10000DB25F /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E02A321ED7C10000DB25F /* EventMonitor.swift */; };
 		A32E02A621ED8967000DB25F /* Typewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E02A521ED8967000DB25F /* Typewriter.swift */; };
 		A32E02A821EE9DA7000DB25F /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A32E02A721EE9DA7000DB25F /* Soundsets */; };
 /* End PBXBuildFile section */
@@ -57,7 +55,6 @@
 		7FCD730319214FFC7C53E66F /* Pods-TypistUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypistUITests.release.xcconfig"; path = "Target Support Files/Pods-TypistUITests/Pods-TypistUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A32E027121ED7AD4000DB25F /* Typist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32E027421ED7AD4000DB25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A32E027621ED7AD4000DB25F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A32E027921ED7AD4000DB25F /* Typist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Typist.xcdatamodel; sourceTree = "<group>"; };
 		A32E027B21ED7AD6000DB25F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A32E027E21ED7AD6000DB25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,7 +66,6 @@
 		A32E029121ED7AD6000DB25F /* TypistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32E029521ED7AD6000DB25F /* TypistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypistUITests.swift; sourceTree = "<group>"; };
 		A32E029721ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A32E02A321ED7C10000DB25F /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		A32E02A521ED8967000DB25F /* Typewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typewriter.swift; sourceTree = "<group>"; };
 		A32E02A721EE9DA7000DB25F /* Soundsets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Soundsets; path = Typist/Soundsets; sourceTree = "<group>"; };
 		A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				A32E027421ED7AD4000DB25F /* AppDelegate.swift */,
-				A32E02A321ED7C10000DB25F /* EventMonitor.swift */,
-				A32E027621ED7AD4000DB25F /* ViewController.swift */,
 				A32E027B21ED7AD6000DB25F /* Assets.xcassets */,
 				A32E027D21ED7AD6000DB25F /* Main.storyboard */,
 				A32E028021ED7AD6000DB25F /* Info.plist */,
@@ -345,7 +339,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Typist/Pods-Typist-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Files/Files.framework",
 				"${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 			);
@@ -353,7 +346,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Files.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HotKey.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 			);
@@ -436,9 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A32E027A21ED7AD4000DB25F /* Typist.xcdatamodeld in Sources */,
-				A32E027721ED7AD4000DB25F /* ViewController.swift in Sources */,
 				A32E027521ED7AD4000DB25F /* AppDelegate.swift in Sources */,
-				A32E02A421ED7C10000DB25F /* EventMonitor.swift in Sources */,
 				A32E02A621ED8967000DB25F /* Typewriter.swift in Sources */,
 				6EF6BE730993E21B8C1384CB /* TypewriterModel.swift in Sources */,
 				6EF6BAF831A6A5BEEFBA4162 /* KeySets.swift in Sources */,

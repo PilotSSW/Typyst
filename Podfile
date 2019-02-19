@@ -6,10 +6,8 @@ target 'Typist' do
   use_frameworks!
 
   # Pods for Typist
-  pod 'Files'
   pod 'HotKey'
   pod 'SwiftySound'
-  pod 'CoreStore'
 
   target 'TypistTests' do
     inherit! :search_paths
@@ -20,5 +18,4 @@ target 'Typist' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end

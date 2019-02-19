@@ -10,12 +10,10 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     let menu = NSMenu()
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
-    var eventMonitor: EventMonitor?
-    var app = App()
+    var app: App?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
@@ -143,18 +141,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
         guard AXIsProcessTrustedWithOptions(opts) == true else {
             let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
-            let info = NSLocalizedString("Typist will be unable to recieve key press events from other applications and the typewriter sounds will not be triggered.", comment: "Typist will be unable to recieve key press events.");
+            let info = NSLocalizedString("Typist will be unable to receive key press events from other applications and the typewriter sounds will not be triggered.",
+                                         comment: "Typist will be unable to receive key press events.");
             let button = NSLocalizedString("Okay", comment: "Close alert")
             let alert = NSAlert()
             alert.messageText = question
             alert.informativeText = info
             alert.addButton(withTitle: button)
-
             _ = alert.runModal()
             return
         }
 
         constructMenu()
+        app = App()
     }
     
     func constructMenu() {
@@ -171,46 +170,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func loadOlympiaSM3(_ sender: Any?) {
-        app.currentTypeWriter(model: TypewriterModel.Olympia_SM3)
+        app?.currentTypeWriter(model: TypewriterModel.Olympia_SM3)
     }
 
     @objc func loadRoyalModelP(_ sender: Any?) {
-        app.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
+        app?.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
     }
 
     @objc func loadSmithCoronaSilent(_ sender: Any?) {
-        app.currentTypeWriter(model: TypewriterModel.Smith_Corona_Silent)
+        app?.currentTypeWriter(model: TypewriterModel.Smith_Corona_Silent)
     }
 
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        app.simulatePaperFeed(enabled: !app.paperFeedEnabled())
+        app?.simulatePaperFeed(enabled: !(app?.paperFeedEnabled() ?? true))
     }
     
     @objc func setPaperReturnEnabled() {
-        app.simulatePaperReturn(enabled: !app.paperReturnEnabled())
-    }
-
-    /*
-    * Window functions
-    */
-    @objc func togglePopover(_ sender: AnyObject?) {
-        if popover.isShown {
-            closePopover(sender)
-        } else {
-            showPopover(sender)
-        }
-    }
-
-    @objc func showPopover(_ sender: AnyObject?) {
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-        }
-        eventMonitor?.start()
-    }
-
-    @objc func closePopover(_ sender: AnyObject?) {
-        popover.performClose(sender)
-        eventMonitor?.stop()
+        app?.simulatePaperReturn(enabled: !(app?.paperReturnEnabled() ?? true))
     }
 }
 

@@ -8,7 +8,6 @@
 
 import AppKit
 import Foundation
-import Files
 import HotKey
 import SwiftySound
 
@@ -58,15 +57,28 @@ class Typewriter {
 
     func getSoundset(location: String) -> [Sound] {
         var sounds = [Sound]()
+        var soundsNotFound = [String]()
         Bundle.main.urls(forResourcesWithExtension: ".aif", subdirectory: location)?.forEach({
             if let keySound = Sound(url: $0.absoluteURL) {
                 keySound.prepare()
                 sounds.append(keySound)
             }
+            else {
+                soundsNotFound.append($0.relativePath)
+            }
         })
+
+        if soundsNotFound.count > 0 {
+            let alert = NSAlert()
+            alert.messageText = "Some sounds were unable to be loaded"
+            
+            var message = ""
+            soundsNotFound.forEach({ message += $0 })
+            alert.informativeText = message
+        }
         return sounds
     }
-    
+
     func loadSounds() {
         // Load KeyUp sounds
         let model = self.model?.rawValue ?? ""
@@ -80,20 +92,20 @@ class Typewriter {
     func assignKeyPresses(event: NSEvent) {
 
         // Make sure the event is some kind of key press
-        if let keyPressed = Key(carbonKeyCode: UInt32(event.keyCode)) {
-            
+        let keyCode = event.keyCode
+        let intVal = UInt32(exactly: keyCode) ?? 0
+        if let keyPressed = Key(carbonKeyCode: intVal) {
             if lineIndex >= marginWidth {
                 lineIndex = 0
                 if UserDefaults.standard.bool(forKey: "paperReturnEnabled") {
-                    let lineReturn = ((self.soundSets["SingleLineReturn"] ?? []) +
-                                     (self.soundSets["DoubleLineReturn"] ?? []) +
-                                     (self.soundSets["TripleLineReturn"] ?? [])).randomElement()
                     let bell = self.soundSets["Bell"]?.randomElement()
-            
                     bell?.play()
-                    Timer.scheduledTimer(withTimeInterval: bell?.duration ?? 0 + 0.1, repeats: false, block: {_ in
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: UInt64(exactly: bell?.duration ?? 0 + 0.1) ?? 0)) {
+                        let lineReturn = ((self.soundSets["SingleLineReturn"] ?? []) +
+                            (self.soundSets["DoubleLineReturn"] ?? []) +
+                            (self.soundSets["TripleLineReturn"] ?? [])).randomElement()
                         lineReturn?.play()
-                    })
+                    }
                 }
             }
 
@@ -126,14 +138,14 @@ class Typewriter {
                 if numberOfNewLines == 25 {
                     numberOfNewLines = 0
                     if UserDefaults.standard.bool(forKey: "paperFeedEnabled") {
-                        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: UInt64(1))) {
                             if let sound = self.soundSets["PaperLoad"]?.randomElement() {
                                 sound.play()
-                                Timer.scheduledTimer(withTimeInterval: sound.duration, repeats: false, block: {_ in
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: UInt64(1))) {
                                     self.soundSets["PaperFeed"]?.randomElement()?.play()
-                                })
+                                }
                             }
-                        })
+                        }
                     }
                 }
 
@@ -192,7 +204,7 @@ class Typewriter {
     
     func createKeyEventListeners() {
 
-        let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged, .systemDefined]
+        let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
 
         for eventType in eventTypes {
 
@@ -205,8 +217,8 @@ class Typewriter {
 
             // Listen for key presses in other apps
             keyListenerSet.append(
-                NSEvent.addGlobalMonitorForEvents(matching: eventType) { (aEvent) in
-                    self.assignKeyPresses(event: aEvent)
+                NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
+                    self.assignKeyPresses(event: event)
                 }
             )
         }
