@@ -157,12 +157,15 @@ class Typewriter {
                 }
             }
             else if keyPressed == Key.delete || keyPressed == Key.forwardDelete {
-                if lineIndex > 0 {
-                    lineIndex += -1
+                if event.type == NSEvent.EventType.keyUp {
+                    self.soundSets["BackspaceUp"]?.randomElement()?.play()
                 }
-                event.type == NSEvent.EventType.keyUp ?
-                    self.soundSets["BackspaceUp"]?.randomElement()?.play() :
+                else {
                     self.soundSets["BackspaceDown"]?.randomElement()?.play()
+                    if lineIndex > 0 {
+                        lineIndex += -1
+                    }
+                }
             }
             else if keyPressed == Key.escape && soundSets["PaperRelease"]?.count != 0 && soundSets["PaperReturn"]?.count != 0 {
                 event.type == NSEvent.EventType.keyUp ?
@@ -175,9 +178,13 @@ class Typewriter {
                 capsOn = !capsOn
             }
             else if keyPressed == Key.tab && soundSets["TabUp"]?.count != 0 && soundSets["TabDown"]?.count != 0 {
-                event.type == NSEvent.EventType.keyUp ?
-                    self.soundSets["TabUp"]?.randomElement()?.play() :
+                if event.type == NSEvent.EventType.keyUp {
+                    self.soundSets["TabUp"]?.randomElement()?.play()
+                }
+                else {
+                    lineIndex += 5
                     self.soundSets["TabDown"]?.randomElement()?.play()
+                }
             }
             else if bellSet.contains(keyPressed) {
                 self.soundSets["Bell"]?.randomElement()?.play()
