@@ -58,7 +58,7 @@ class Typewriter {
     func getSoundset(location: String) -> [Sound] {
         var sounds = [Sound]()
         var soundsNotFound = [String]()
-        Bundle.main.urls(forResourcesWithExtension: ".aif", subdirectory: location)?.forEach({
+        Bundle.main.urls(forResourcesWithExtension: "aif", subdirectory: location)?.forEach({
             if let keySound = Sound(url: $0.absoluteURL) {
                 keySound.prepare()
                 sounds.append(keySound)
@@ -75,6 +75,7 @@ class Typewriter {
             var message = ""
             soundsNotFound.forEach({ message += $0 })
             alert.informativeText = message
+            alert.runModal()
         }
         return sounds
     }
@@ -86,6 +87,19 @@ class Typewriter {
 
         for keySet in keySets {
             soundSets[keySet] = getSoundset(location: modelLocation + keySet)
+        }
+        
+        if app?.modalNotificationsEnabled() ?? false {
+            let alert = NSAlert()
+            alert.messageText = "Loaded sounds"
+            
+            var message = ""
+            soundSets.forEach({ message += $0.key + "\n" })
+            if let index = message.lastIndex(of: "\n") {
+                message.remove(at: index)
+            }
+            alert.informativeText = message
+            alert.runModal()
         }
     }
 

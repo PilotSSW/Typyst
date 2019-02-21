@@ -13,9 +13,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let menu = NSMenu()
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
-    var app: App?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        #if DEBUG
+            Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection10.bundle")?.load()
+        #endif
+        
         NSApp.setActivationPolicy(.accessory)
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
         item.button?.title = "Typyst"
@@ -161,8 +165,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "2"))
         menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppDelegate.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppDelegate.setPaperReturnEnabled), keyEquivalent: "4"))
-        menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: "0"))
+        menu.addItem(NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppDelegate.setPaperReturnEnabled(_:)), keyEquivalent: "8"))
+        menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppDelegate.setPaperFeedEnabled(_:)), keyEquivalent: "9"))
+        menu.addItem(NSMenuItem(title: "Show modal notifications", action: #selector(AppDelegate.setShowModalNotifications(_:)), keyEquivalent: "0"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
@@ -182,11 +187,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        app?.simulatePaperFeed(enabled: !(app?.paperFeedEnabled() ?? true))
+        app?.simulatePaperFeed(enabled: !(app?.paperFeedEnabled() ?? false))
     }
     
-    @objc func setPaperReturnEnabled() {
-        app?.simulatePaperReturn(enabled: !(app?.paperReturnEnabled() ?? true))
+    @objc func setPaperReturnEnabled(_ sender: Any?) {
+        app?.simulatePaperReturn(enabled: !(app?.paperReturnEnabled() ?? false))
+    }
+    
+    @objc func setShowModalNotifications(_ sender: Any?) {
+        app?.showModalNotifications(enabled: !(app?.modalNotificationsEnabled() ?? false))
     }
 }
 

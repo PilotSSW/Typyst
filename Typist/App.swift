@@ -6,6 +6,7 @@
 import Foundation
 
 class App {
+    let showModals: Bool = true
     var loadedTypewriter: Typewriter?
 
     init() {
@@ -36,6 +37,9 @@ class App {
             else if model == TypewriterModel.Smith_Corona_Silent.rawValue {
                 self.loadedTypewriter = Typewriter(model: TypewriterModel.Smith_Corona_Silent)
             }
+            else if model == TypewriterModel.Olympia_SM3.rawValue {
+                self.loadedTypewriter = Typewriter(model: TypewriterModel.Olympia_SM3)
+            }
         }
     }
     
@@ -58,4 +62,15 @@ class App {
     func paperFeedEnabled() -> Bool {
         return UserDefaults.standard.bool(forKey: "paperFeedEnabled")
     }
+    
+    
+    func showModalNotifications(enabled: Bool) {
+        UserDefaults.standard.set(enabled, forKey: "showModalNotifications")
+    }
+    
+    func modalNotificationsEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: "showModalNotifications")
+    }
 }
+
+var app: App?
