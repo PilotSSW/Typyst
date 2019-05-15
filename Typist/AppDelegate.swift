@@ -161,6 +161,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func constructMenu() {
+
+        // Volume slider
+        let sliderView = NSView(frame: NSRect(x: 0, y: 0, width: 500, height: 40))
+
+        let volumeLabel = NSTextField(frame: NSRect(x: 20, y: 20, width: 150, height: 80))
+        volumeLabel.stringValue = "Volume"
+        volumeLabel.isBordered = false;
+        volumeLabel.isBezeled = false;
+        volumeLabel.backgroundColor = .clear
+        volumeLabel.textColor = .white
+        sliderView.addSubview(volumeLabel)
+
+        let slider = NSSlider(frame: NSRect(x: 100, y: 0, width: 380, height: 40))
+        slider.target = self
+        slider.action = #selector(AppDelegate.setVolume)
+        slider.floatValue = UserDefaults.standard.float(forKey: "lastSetVolume") ?? 10
+        sliderView.addSubview(slider)
+
+        let volumeItem = NSMenuItem()
+        volumeItem.view = sliderView
+
+        menu.addItem(volumeItem)
+
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Load Olympia SM3", action: #selector(AppDelegate.loadOlympiaSM3(_:)), keyEquivalent: "1"))
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppDelegate.loadRoyalModelP(_:)), keyEquivalent: "2"))
         menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppDelegate.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
@@ -172,6 +196,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
         statusItem.menu = menu
+    }
+
+    @objc func setVolume(slider: NSSlider) {
+        UserDefaults.standard.set(slider.floatValue, forKey: "lastSetVolume")
+        app?.loadedTypewriter?.volume = slider.floatValue
     }
 
     @objc func loadOlympiaSM3(_ sender: Any?) {

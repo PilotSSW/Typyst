@@ -23,7 +23,7 @@ class App {
         self.loadedTypewriter?.prepareToRemove()
         self.loadedTypewriter = nil
         self.loadedTypewriter = Typewriter(model: model)
-
+        self.loadedTypewriter?.volume = UserDefaults.standard.float(forKey: "lastSetVolume")
     }
 
     func loadTypeWriter() {

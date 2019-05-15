@@ -20,6 +20,21 @@ class Typewriter {
     var numberOfNewLines = 0
     var lineIndex = 0
 
+    var volume: Float {
+        get {
+            let sounds = soundSets.values.flatMap({ $0 })//.reduce([], +)
+            let averageVolume = sounds.map({ $0.volume }).reduce(0.0, +) / Float(sounds.count)
+            return averageVolume
+        }
+        set(newValue) {
+            soundSets.forEach({
+                $0.value.forEach({
+                    $0.volume = newValue
+                })
+            })
+        }
+    }
+
     // Soundsets
     let keySets        = [
         "BackspaceUp", "BackspaceDown",
