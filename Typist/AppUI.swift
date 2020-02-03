@@ -131,5 +131,7 @@ class AppUI {
         if answer == .alertSecondButtonReturn {
             return .terminateCancel
         }
+
+        return .terminateNow
     }
 }

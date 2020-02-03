@@ -38,7 +38,6 @@ class AppPersistence {
 
 
     // MARK: - Core Data Saving and Undo support
-
     func saveContext(_ sender: AnyObject?) -> NSApplication.TerminateReply {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
         let context = persistentContainer.viewContext
@@ -51,7 +50,7 @@ class AppPersistence {
                 try context.save()
             } catch {
                 // Customize this code block to include application-specific recovery steps.
-                return app?.ui.couldntSaveAppStateAlert(error, sender)
+                return app?.ui.couldntSaveAppStateAlert(error as NSError, sender as! NSApplication) ?? .terminateNow
             }
         }
 
