@@ -20,16 +20,16 @@ class Typewriter {
     var numberOfNewLines = 0
     var lineIndex = 0
 
-    var volume: Float {
+    var volume: Double {
         get {
-            let sounds = soundSets.values.flatMap({ $0 })//.reduce([], +)
-            let averageVolume = sounds.map({ $0.volume }).reduce(0.0, +) / Float(sounds.count)
+            let sounds = soundSets.values.flatMap({ $0 })
+            let averageVolume = sounds.map({ Double($0.volume) }).reduce(0.0, +) / Double(sounds.count)
             return averageVolume
         }
         set(newValue) {
             soundSets.forEach({
                 $0.value.forEach({
-                    $0.volume = newValue
+                    $0.volume = Float(newValue)
                 })
             })
         }
@@ -97,24 +97,16 @@ class Typewriter {
 
     func loadSounds() {
         // Load KeyUp sounds
-        let model = self.model?.rawValue ?? ""
-        let modelLocation = "Soundsets/\(model)/"
+        if let model = self.model?.rawValue {
+            let modelLocation = "Soundsets/\(model)/"
 
-        for keySet in keySets {
-            soundSets[keySet] = getSoundset(location: modelLocation + keySet)
-        }
-        
-        if app?.modalNotificationsEnabled() ?? false {
-            let alert = NSAlert()
-            alert.messageText = "Loaded sounds"
-            
-            var message = ""
-            soundSets.forEach({ message += $0.key + "\n" })
-            if let index = message.lastIndex(of: "\n") {
-                message.remove(at: index)
+            for keySet in keySets {
+                soundSets[keySet] = getSoundset(location: modelLocation + keySet)
             }
-            alert.informativeText = message
-            alert.runModal()
+
+            if App.instance.modalNotificationsEnabled() {
+                App.instance.ui.alertLoadedTypeWriterSoundsets(soundSets.map({ $0.key }))
+            }
         }
     }
 
@@ -127,7 +119,7 @@ class Typewriter {
             if lineIndex >= marginWidth {
                 lineIndex = 0
                 if UserDefaults.standard.bool(forKey: "paperReturnEnabled") {
-                    let bell = self.soundSets["Bell"]?.randomElement()
+                    let bell = soundSets["Bell"]?.randomElement()
                     bell?.play()
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: UInt64(exactly: bell?.duration ?? 0 + 0.1) ?? 0)) {
                         let lineReturn = ((self.soundSets["SingleLineReturn"] ?? []) +
@@ -143,26 +135,26 @@ class Typewriter {
 
             if shiftSet.contains(keyPressed) {
                 shiftIsPressed == false ?
-                    self.soundSets["ShiftDown"]?.randomElement ()?.play () :
-                    self.soundSets["ShiftUp"]?.randomElement ()?.play ()
+                    soundSets["ShiftDown"]?.randomElement ()?.play () :
+                    soundSets["ShiftUp"]?.randomElement ()?.play ()
 
                 // Flag key directions aren't tracked - we need to do that.
                 shiftIsPressed = !shiftIsPressed
             }
             else if keyPressed == Key.space {
                 if event.type == NSEvent.EventType.keyUp {
-                    self.soundSets["SpaceUp"]?.randomElement()?.play()
+                    soundSets["SpaceUp"]?.randomElement()?.play()
                 }
                 else {
                     lineIndex += 1
-                    self.soundSets["SpaceDown"]?.randomElement()?.play()
+                    soundSets["SpaceDown"]?.randomElement()?.play()
                 }
             }
             else if keyPressed == Key.return || keyPressed == Key.keypadEnter {
                 lineIndex = 0
-                ((self.soundSets["SingleLineReturn"] ?? []) +
-                (self.soundSets["DoubleLineReturn"] ?? []) +
-                (self.soundSets["TripleLineReturn"] ?? [])).randomElement()?.play()
+                ((soundSets["SingleLineReturn"] ?? []) +
+                (soundSets["DoubleLineReturn"] ?? []) +
+                (soundSets["TripleLineReturn"] ?? [])).randomElement()?.play()
 
                 if numberOfNewLines == 25 {
                     numberOfNewLines = 0
@@ -187,10 +179,10 @@ class Typewriter {
             }
             else if keyPressed == Key.delete || keyPressed == Key.forwardDelete {
                 if event.type == NSEvent.EventType.keyUp {
-                    self.soundSets["BackspaceUp"]?.randomElement()?.play()
+                    soundSets["BackspaceUp"]?.randomElement()?.play()
                 }
                 else {
-                    self.soundSets["BackspaceDown"]?.randomElement()?.play()
+                    soundSets["BackspaceDown"]?.randomElement()?.play()
                     if lineIndex > 0 {
                         lineIndex += -1
                     }
@@ -198,41 +190,41 @@ class Typewriter {
             }
             else if keyPressed == Key.escape && soundSets["PaperRelease"]?.count != 0 && soundSets["PaperReturn"]?.count != 0 {
                 event.type == NSEvent.EventType.keyUp ?
-                    self.soundSets["PaperRelease"]?.randomElement()?.play() :
-                    self.soundSets["PaperReturn"]?.randomElement()?.play()
+                    soundSets["PaperRelease"]?.randomElement()?.play() :
+                    soundSets["PaperReturn"]?.randomElement()?.play()
             }
             else if keyPressed == Key.capsLock {
-                capsOn ? self.soundSets["ShiftLock"]?.randomElement()?.play() :
-                    self.soundSets["ShiftRelease"]?.randomElement()?.play()
+                capsOn ? soundSets["ShiftLock"]?.randomElement()?.play() :
+                    soundSets["ShiftRelease"]?.randomElement()?.play()
                 capsOn = !capsOn
             }
             else if keyPressed == Key.tab && soundSets["TabUp"]?.count != 0 && soundSets["TabDown"]?.count != 0 {
                 if event.type == NSEvent.EventType.keyUp {
-                    self.soundSets["TabUp"]?.randomElement()?.play()
+                    soundSets["TabUp"]?.randomElement()?.play()
                 }
                 else {
                     lineIndex += 5
-                    self.soundSets["TabDown"]?.randomElement()?.play()
+                    soundSets["TabDown"]?.randomElement()?.play()
                 }
             }
             else if bellSet.contains(keyPressed) {
-                self.soundSets["Bell"]?.randomElement()?.play()
+                soundSets["Bell"]?.randomElement()?.play()
             }
             else if keyPressed == Key.keypadClear {
-                self.soundSets["RibbonSelector"]?.randomElement()?.play()
+                soundSets["RibbonSelector"]?.randomElement()?.play()
             }
             else if event.type == NSEvent.EventType.systemDefined {
                 // Stop any margin sounds that are already playing
-                self.soundSets["MarginRelease"]?.forEach({ $0.stop() })
-                self.soundSets["MarginRelease"]?.randomElement ()?.play ()
+                soundSets["MarginRelease"]?.forEach({ $0.stop() })
+                soundSets["MarginRelease"]?.randomElement ()?.play ()
             }
             else {
                 if event.type == NSEvent.EventType.keyUp {
-                    self.soundSets["KeyUp"]?.randomElement ()?.play ()
+                    soundSets["KeyUp"]?.randomElement ()?.play ()
                 }
                 else {
                     lineIndex += 1
-                    self.soundSets["KeyDown"]?.randomElement ()?.play ()
+                    soundSets["KeyDown"]?.randomElement ()?.play ()
                 }
             }
         }
@@ -247,7 +239,7 @@ class Typewriter {
             // Listen for key presses in Typist
 //            keyListenerSet.append(
 //                NSEvent.addLocalMonitorForEvents(matching: eventType) { (aEvent) -> NSEvent in
-//                    self.assignKeyPresses(event: aEvent)
+//                    assignKeyPresses(event: aEvent)
 //                    return aEvent
 //                })
 

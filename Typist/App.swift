@@ -5,16 +5,24 @@
 
 import Foundation
 
-var app: App?
-
 class App {
+    static let instance: App = App()
     var ui = AppUI()
     var persistence = AppPersistence()
 
-    let showModals: Bool = true
-    var loadedTypewriter: Typewriter?
+    var showModals: Bool = true
+    private var loadedTypewriter: Typewriter?
 
-    init() {
+    private init() {
+        
+    }
+
+    deinit {
+        loadedTypewriter?.prepareToRemove()
+        loadedTypewriter = nil
+    }
+
+    func setup() {
         loadTypeWriter()
         ui.setupApplicationUI()
 
@@ -26,33 +34,30 @@ class App {
         }
     }
 
-    deinit {
-        self.loadedTypewriter?.prepareToRemove()
-        loadedTypewriter = nil
-    }
-
     func currentTypeWriter(model: TypewriterModel) {
         UserDefaults.standard.set(model.rawValue, forKey: "selectedTypewriter")
-        self.loadedTypewriter?.prepareToRemove()
-        self.loadedTypewriter = nil
-        self.loadedTypewriter = Typewriter(model: model)
-        self.loadedTypewriter?.volume = UserDefaults.standard.float(forKey: "lastSetVolume")
+        loadedTypewriter?.prepareToRemove()
+        loadedTypewriter = nil
+        loadedTypewriter = Typewriter(model: model)
+        loadedTypewriter?.volume = UserDefaults.standard.double(forKey: "lastSetVolume")
     }
 
     func loadTypeWriter() {
         if let model = UserDefaults.standard.string (forKey: "selectedTypewriter") {
 
-            self.loadedTypewriter?.prepareToRemove()
-            self.loadedTypewriter = nil
+            loadedTypewriter?.prepareToRemove()
+            loadedTypewriter = nil
             if model == TypewriterModel.Royal_Model_P.rawValue {
-                self.loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
+                loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
             }
             else if model == TypewriterModel.Smith_Corona_Silent.rawValue {
-                self.loadedTypewriter = Typewriter(model: TypewriterModel.Smith_Corona_Silent)
+                loadedTypewriter = Typewriter(model: TypewriterModel.Smith_Corona_Silent)
             }
             else if model == TypewriterModel.Olympia_SM3.rawValue {
-                self.loadedTypewriter = Typewriter(model: TypewriterModel.Olympia_SM3)
+                loadedTypewriter = Typewriter(model: TypewriterModel.Olympia_SM3)
             }
+        } else {
+            loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
         }
     }
     
@@ -78,5 +83,9 @@ class App {
 
     func modalNotificationsEnabled() -> Bool {
         UserDefaults.standard.bool(forKey: "showModalNotifications")
+    }
+    
+    func setVolumeTo(_ volume: Double) {
+        loadedTypewriter?.volume = volume
     }
 }

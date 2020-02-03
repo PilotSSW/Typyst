@@ -17,14 +17,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         #endif
         
         NSApp.setActivationPolicy(.accessory)
-        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
-        item.button?.title = "Typist"
         // Insert code here to initialize your application
+        
+        App.instance.setup()
     }
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
-        app?.persistence.saveContext(sender) ?? .terminateNow
+        App.instance.persistence.saveContext(sender) ?? .terminateNow
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
         // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
-        app?.persistence.persistentContainer.viewContext.undoManager
+        App.instance.persistence.persistentContainer.viewContext.undoManager
     }
 }
 

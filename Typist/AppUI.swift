@@ -19,6 +19,8 @@ class AppUI {
      */
 
     @objc func setupApplicationUI() {
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
+        item.button?.title = "Typist"
 
         if let button = menuBarIcon.button {
             button.image = NSImage(named: "AppIcon")
@@ -32,17 +34,18 @@ class AppUI {
     func constructMenu() {
 
         // Volume slider
-        let sliderView = NSView(frame: NSRect(x: 0, y: 0, width: 500, height: 40))
+        let sliderView = NSView(frame: NSRect(x: 0, y: 0, width: 500, height: 25))
 
-        let volumeLabel = NSTextField(frame: NSRect(x: 20, y: 20, width: 150, height: 80))
+        let volumeLabel = NSTextField(frame: NSRect(x: 20, y: 0, width: 150, height: 25))
         volumeLabel.stringValue = "Volume"
         volumeLabel.isBordered = false;
         volumeLabel.isBezeled = false;
         volumeLabel.backgroundColor = .clear
         volumeLabel.textColor = .white
+        volumeLabel.font = menu.font
         sliderView.addSubview(volumeLabel)
 
-        let slider = NSSlider(frame: NSRect(x: 100, y: 0, width: 380, height: 40))
+        let slider = NSSlider(frame: NSRect(x: 100, y: 0, width: 380, height: 25))
         slider.target = self
         slider.action = #selector(AppUI.setVolume)
         slider.floatValue = UserDefaults.standard.float(forKey: "lastSetVolume")
@@ -68,32 +71,32 @@ class AppUI {
     }
 
     @objc func setVolume(slider: NSSlider) {
-        UserDefaults.standard.set(slider.floatValue, forKey: "lastSetVolume")
-        app?.loadedTypewriter?.volume = slider.floatValue
+        UserDefaults.standard.set(slider.doubleValue, forKey: "lastSetVolume")
+        App.instance.setVolumeTo(slider.doubleValue)
     }
 
     @objc func loadOlympiaSM3(_ sender: Any?) {
-        app?.currentTypeWriter(model: TypewriterModel.Olympia_SM3)
+        App.instance.currentTypeWriter(model: TypewriterModel.Olympia_SM3)
     }
 
     @objc func loadRoyalModelP(_ sender: Any?) {
-        app?.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
+        App.instance.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
     }
 
     @objc func loadSmithCoronaSilent(_ sender: Any?) {
-        app?.currentTypeWriter(model: TypewriterModel.Smith_Corona_Silent)
+        App.instance.currentTypeWriter(model: TypewriterModel.Smith_Corona_Silent)
     }
 
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        app?.simulatePaperFeed(enabled: !(app?.paperFeedEnabled() ?? false))
+        App.instance.simulatePaperFeed(enabled: !(App.instance.paperFeedEnabled() ?? false))
     }
 
     @objc func setPaperReturnEnabled(_ sender: Any?) {
-        app?.simulatePaperReturn(enabled: !(app?.paperReturnEnabled() ?? false))
+        App.instance.simulatePaperReturn(enabled: !(App.instance.paperReturnEnabled() ?? false))
     }
 
     @objc func setShowModalNotifications(_ sender: Any?) {
-        app?.showModalNotifications(enabled: !(app?.modalNotificationsEnabled() ?? false))
+        App.instance.showModalNotifications(enabled: !(App.instance.modalNotificationsEnabled() ?? false))
     }
 
     @objc func keyCaptureUnavailableAlert() {
@@ -133,5 +136,18 @@ class AppUI {
         }
 
         return .terminateNow
+    }
+
+    @objc func alertLoadedTypeWriterSoundsets(_ soundSets: [String]) {
+        let alert = NSAlert()
+        alert.messageText = "Loaded sounds"
+
+        var message = ""
+        soundSets.forEach({ message += $0 + "\n" })
+        if let index = message.lastIndex(of: "\n") {
+            message.remove(at: index)
+        }
+        alert.informativeText = message
+        alert.runModal()
     }
 }
