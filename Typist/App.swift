@@ -5,12 +5,25 @@
 
 import Foundation
 
+var app: App?
+
 class App {
+    var ui = AppUI()
+    var persistence = AppPersistence()
+
     let showModals: Bool = true
     var loadedTypewriter: Typewriter?
 
     init() {
         loadTypeWriter()
+        ui.setupApplicationUI()
+
+        // Ensure key capture events are available or alert user
+        let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
+        guard AXIsProcessTrustedWithOptions(opts) == true else {
+            ui.keyCaptureUnavailableAlert()
+            return
+        }
     }
 
     deinit {
@@ -43,34 +56,27 @@ class App {
         }
     }
     
-    
-    
     func simulatePaperReturn(enabled: Bool) {
         UserDefaults.standard.set(enabled, forKey: "paperReturnEnabled")
     }
     
     func paperReturnEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "paperFeedReturned")
+        UserDefaults.standard.bool(forKey: "paperFeedReturned")
     }
-    
-    
 
     func simulatePaperFeed(enabled: Bool) {
         UserDefaults.standard.set(enabled, forKey: "paperFeedEnabled")
     }
 
     func paperFeedEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "paperFeedEnabled")
+        UserDefaults.standard.bool(forKey: "paperFeedEnabled")
     }
-    
-    
+
     func showModalNotifications(enabled: Bool) {
         UserDefaults.standard.set(enabled, forKey: "showModalNotifications")
     }
-    
+
     func modalNotificationsEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "showModalNotifications")
+        UserDefaults.standard.bool(forKey: "showModalNotifications")
     }
 }
-
-var app: App?
