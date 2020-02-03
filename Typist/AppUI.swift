@@ -108,7 +108,7 @@ class AppUI {
         _ = alert.runModal()
     }
 
-    @objc func couldntSaveAppStateAlert(_ error: NSError, _ sender: NSApplication) -> NIApplication.TerminateReply {
+    @objc func couldntSaveAppStateAlert(_ error: NSError, _ sender: NSApplication) -> NSApplication.TerminateReply {
         let nserror = error as NSError
 
         // Customize this code block to include application-specific recovery steps.
