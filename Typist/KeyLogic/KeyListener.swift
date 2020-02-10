@@ -52,7 +52,7 @@ class KeyListener {
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
                 if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
                     if App.instance.debug {
-                        NSLog("Key press detected: \(keyPressed)")
+                        NSLog("Key: \(keyPressed.0) - \(keyPressed.1)")
                     }
                     completion?(keyPressed)
                 }

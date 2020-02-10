@@ -28,7 +28,7 @@ class Sounds {
 
     }
 
-    func loadSounds(for model: Typewriter.Model, completion: (() -> ()?), error: ((Error) -> ()?)) {
+    func loadSounds(for model: Typewriter.Model, completion: (() -> ())?, error: ((Error) -> ())?) {
         // Load KeyUp sounds
         Sounds.AvailableSoundSets.allCases.forEach({
             let key = $0
@@ -37,6 +37,7 @@ class Sounds {
                         App.instance.ui.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
                     })
         })
+        completion?()
     }
 
     func playSound(for soundSet: Sounds.AvailableSoundSets, completion: (() -> ())? = nil) {
