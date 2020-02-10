@@ -17,18 +17,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         #endif
         
         NSApp.setActivationPolicy(.accessory)
-        // Insert code here to initialize your application
-        
+
         App.instance.setup()
     }
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
-        App.instance.persistence.saveContext(sender) ?? .terminateNow
+        App.instance.persistence.saveContext(sender)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        App.instance.unloadTypewriter()
     }
 
     func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {

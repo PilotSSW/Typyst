@@ -10,6 +10,7 @@ class App {
     var ui = AppUI()
     var persistence = AppPersistence()
 
+    var debug = true
     var showModals: Bool = true
     private var loadedTypewriter: Typewriter?
 
@@ -18,8 +19,7 @@ class App {
     }
 
     deinit {
-        loadedTypewriter?.prepareToRemove()
-        loadedTypewriter = nil
+        unloadTypewriter()
     }
 
     func setup() {
@@ -34,30 +34,23 @@ class App {
         }
     }
 
-    func currentTypeWriter(model: TypewriterModel) {
-        UserDefaults.standard.set(model.rawValue, forKey: "selectedTypewriter")
-        loadedTypewriter?.prepareToRemove()
+    func unloadTypewriter(){
         loadedTypewriter = nil
+    }
+
+    func setCurrentTypeWriter(model: Typewriter.Model) {
+        UserDefaults.standard.set(model.rawValue, forKey: "selectedTypewriter")
+        unloadTypewriter()
         loadedTypewriter = Typewriter(model: model)
-        loadedTypewriter?.volume = UserDefaults.standard.double(forKey: "lastSetVolume")
     }
 
     func loadTypeWriter() {
-        if let model = UserDefaults.standard.string (forKey: "selectedTypewriter") {
-
-            loadedTypewriter?.prepareToRemove()
-            loadedTypewriter = nil
-            if model == TypewriterModel.Royal_Model_P.rawValue {
-                loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
-            }
-            else if model == TypewriterModel.Smith_Corona_Silent.rawValue {
-                loadedTypewriter = Typewriter(model: TypewriterModel.Smith_Corona_Silent)
-            }
-            else if model == TypewriterModel.Olympia_SM3.rawValue {
-                loadedTypewriter = Typewriter(model: TypewriterModel.Olympia_SM3)
+        if let modelString = UserDefaults.standard.string (forKey: "selectedTypewriter") {
+            if let model = Typewriter.Model.init(rawValue: modelString) {
+                setCurrentTypeWriter(model: model)
             }
         } else {
-            loadedTypewriter = Typewriter(model: TypewriterModel.Royal_Model_P)
+            setCurrentTypeWriter(model: Typewriter.defaultTypeWriter)
         }
     }
     
@@ -65,7 +58,7 @@ class App {
         UserDefaults.standard.set(enabled, forKey: "paperReturnEnabled")
     }
     
-    func paperReturnEnabled() -> Bool {
+    func isPaperReturnEnabled() -> Bool {
         UserDefaults.standard.bool(forKey: "paperFeedReturned")
     }
 
@@ -73,7 +66,7 @@ class App {
         UserDefaults.standard.set(enabled, forKey: "paperFeedEnabled")
     }
 
-    func paperFeedEnabled() -> Bool {
+    func isPaperFeedEnabled() -> Bool {
         UserDefaults.standard.bool(forKey: "paperFeedEnabled")
     }
 
@@ -81,11 +74,11 @@ class App {
         UserDefaults.standard.set(enabled, forKey: "showModalNotifications")
     }
 
-    func modalNotificationsEnabled() -> Bool {
+    func isModalNotificationsEnabled() -> Bool {
         UserDefaults.standard.bool(forKey: "showModalNotifications")
     }
     
     func setVolumeTo(_ volume: Double) {
-        loadedTypewriter?.volume = volume
+        Sounds.instance.volume = volume
     }
 }

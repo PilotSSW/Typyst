@@ -17,7 +17,6 @@ class AppUI {
     /**
      * App UI functions
      */
-
     @objc func setupApplicationUI() {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
         item.button?.title = "Typist"
@@ -75,30 +74,39 @@ class AppUI {
         App.instance.setVolumeTo(slider.doubleValue)
     }
 
+    /**
+    * Load Typewriters
+    */
     @objc func loadOlympiaSM3(_ sender: Any?) {
-        App.instance.currentTypeWriter(model: TypewriterModel.Olympia_SM3)
+        App.instance.setCurrentTypeWriter(model: Typewriter.Model.Olympia_SM3)
     }
 
     @objc func loadRoyalModelP(_ sender: Any?) {
-        App.instance.currentTypeWriter(model: TypewriterModel.Royal_Model_P)
+        App.instance.setCurrentTypeWriter(model: Typewriter.Model.Royal_Model_P)
     }
 
     @objc func loadSmithCoronaSilent(_ sender: Any?) {
-        App.instance.currentTypeWriter(model: TypewriterModel.Smith_Corona_Silent)
+        App.instance.setCurrentTypeWriter(model: Typewriter.Model.Smith_Corona_Silent)
     }
 
+    /**
+    * Set current Typewriter properties
+    */
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        App.instance.simulatePaperFeed(enabled: !(App.instance.paperFeedEnabled() ?? false))
+        App.instance.simulatePaperFeed(enabled: !(App.instance.isPaperFeedEnabled() ?? false))
     }
 
     @objc func setPaperReturnEnabled(_ sender: Any?) {
-        App.instance.simulatePaperReturn(enabled: !(App.instance.paperReturnEnabled() ?? false))
+        App.instance.simulatePaperReturn(enabled: !(App.instance.isPaperReturnEnabled() ?? false))
     }
 
     @objc func setShowModalNotifications(_ sender: Any?) {
-        App.instance.showModalNotifications(enabled: !(App.instance.modalNotificationsEnabled() ?? false))
+        App.instance.showModalNotifications(enabled: !(App.instance.isModalNotificationsEnabled() ?? false))
     }
-
+    
+    /**
+    * Show alerts
+    */
     @objc func keyCaptureUnavailableAlert() {
         let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
         let info = NSLocalizedString("Typist will be unable to receive key press events from other applications and the typewriter sounds will not be triggered.",
@@ -138,15 +146,27 @@ class AppUI {
         return .terminateNow
     }
 
-    @objc func alertLoadedTypeWriterSoundsets(_ soundSets: [String]) {
+    @objc func typeWriterSoundsLoadedAlert(_ soundSets: [String]) {
+        if App.instance.isModalNotificationsEnabled() {
+            let alert = NSAlert()
+            alert.messageText = "Loaded sounds"
+
+            var message = ""
+            soundSets.forEach({ message += $0 + "\n" })
+            if let index = message.lastIndex(of: "\n") {
+                message.remove(at: index)
+            }
+            alert.informativeText = message
+            alert.runModal()
+        }
+    }
+
+    @objc func couldntFindSoundsAlert(sounds: [String]) {
         let alert = NSAlert()
-        alert.messageText = "Loaded sounds"
+        alert.messageText = "Some sounds were unable to be loaded"
 
         var message = ""
-        soundSets.forEach({ message += $0 + "\n" })
-        if let index = message.lastIndex(of: "\n") {
-            message.remove(at: index)
-        }
+        sounds.forEach({ message += $0 })
         alert.informativeText = message
         alert.runModal()
     }
