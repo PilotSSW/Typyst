@@ -3,6 +3,7 @@
 // Copyright (c) 2019 wickedPropeller. All rights reserved.
 //
 
+import AppKit
 import Foundation
 
 class App {
@@ -25,12 +26,12 @@ class App {
     func setup() {
         loadTypeWriter()
         ui.setupApplicationUI()
-
-        // Ensure key capture events are available or alert user
-        let opts = NSDictionary(object: kCFBooleanTrue, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
-        guard AXIsProcessTrustedWithOptions(opts) == true else {
-            ui.keyCaptureUnavailableAlert()
-            return
+        if !AppDelegate.isAccessibilityAdded() {
+            ui.keyCaptureUnavailableAlert(){ [weak self] modalResponse in
+                guard let self = self else { return }
+                NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
+                self.ui.addToTrustedAppsAlert(completion: nil)
+            }
         }
     }
 
@@ -39,13 +40,13 @@ class App {
     }
 
     func setCurrentTypeWriter(model: Typewriter.Model) {
-        UserDefaults.standard.set(model.rawValue, forKey: "selectedTypewriter")
+        AppSettings.selectedTypewriter = model.rawValue
         unloadTypewriter()
         loadedTypewriter = Typewriter(model: model)
     }
 
     func loadTypeWriter() {
-        if let modelString = UserDefaults.standard.string (forKey: "selectedTypewriter") {
+        if let modelString = AppSettings.selectedTypewriter {
             if let model = Typewriter.Model.init(rawValue: modelString) {
                 setCurrentTypeWriter(model: model)
             }
@@ -55,27 +56,27 @@ class App {
     }
     
     func simulatePaperReturn(enabled: Bool) {
-        UserDefaults.standard.set(enabled, forKey: "paperReturnEnabled")
+        AppSettings.paperReturnEnabled = enabled
     }
     
     func isPaperReturnEnabled() -> Bool {
-        UserDefaults.standard.bool(forKey: "paperFeedReturned")
+        AppSettings.paperReturnEnabled
     }
 
     func simulatePaperFeed(enabled: Bool) {
-        UserDefaults.standard.set(enabled, forKey: "paperFeedEnabled")
+        AppSettings.simulatePaperFeed = enabled
     }
 
     func isPaperFeedEnabled() -> Bool {
-        UserDefaults.standard.bool(forKey: "paperFeedEnabled")
+        AppSettings.simulatePaperFeed
     }
 
     func showModalNotifications(enabled: Bool) {
-        UserDefaults.standard.set(enabled, forKey: "showModalNotifications")
+        AppSettings.showModalNotifications = enabled
     }
 
     func isModalNotificationsEnabled() -> Bool {
-        UserDefaults.standard.bool(forKey: "showModalNotifications")
+        AppSettings.showModalNotifications
     }
     
     func setVolumeTo(_ volume: Double) {

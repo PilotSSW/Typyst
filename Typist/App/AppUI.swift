@@ -107,16 +107,42 @@ class AppUI {
     /**
     * Show alerts
     */
-    @objc func keyCaptureUnavailableAlert() {
+    @objc func keyCaptureUnavailableAlert(completion: ((NSApplication.ModalResponse) -> ())?) {
         let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
-        let info = NSLocalizedString("Typist will be unable to receive key press events from other applications and the typewriter sounds will not be triggered.",
+        let info = NSLocalizedString("""
+                                     Typist will be unable to receive key press events from other applications and the typewriter sounds will not be triggered.
+                                     """,
                 comment: "Typist will be unable to receive key press events.");
         let button = NSLocalizedString("Okay", comment: "Close alert")
         let alert = NSAlert()
         alert.messageText = question
         alert.informativeText = info
         alert.addButton(withTitle: button)
-        _ = alert.runModal()
+        if let window = NSApplication.shared.mainWindow {
+            alert.beginSheetModal(for: window,
+                    completionHandler: completion)
+        } else {
+            completion?(alert.runModal())
+        }
+    }
+
+    @objc func addToTrustedAppsAlert(completion: ((NSApplication.ModalResponse) -> ())?) {
+        let question = NSLocalizedString("Add Typist to your trusted Apps", comment: "")
+        let info = NSLocalizedString("""
+                                     In order for Typist to be able to listen to key presses in other apps, it needs to be added to the trusted applications in your system preferences. 
+                                     """,
+                comment: "Typist will be unable to receive key press events.");
+        let button = NSLocalizedString("Okay", comment: "Close alert")
+        let alert = NSAlert()
+        alert.messageText = question
+        alert.informativeText = info
+        alert.addButton(withTitle: button)
+        if let window = NSApplication.shared.mainWindow {
+            alert.beginSheetModal(for: window,
+                    completionHandler: completion)
+        } else {
+            _ = alert.runModal()
+        }
     }
 
     @objc func couldntSaveAppStateAlert(_ error: NSError, _ sender: NSApplication) -> NSApplication.TerminateReply {

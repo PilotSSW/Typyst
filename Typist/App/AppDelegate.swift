@@ -37,3 +37,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    static func isAccessibilityAdded() -> Bool {
+        // Ensure key capture events are available or alert user
+        let opts = NSDictionary(object: kCFBooleanTrue as Any, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
+        return AXIsProcessTrustedWithOptions(opts)
+    }
+}
+
