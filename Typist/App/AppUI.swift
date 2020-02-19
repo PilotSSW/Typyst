@@ -64,8 +64,11 @@ class AppUI {
         menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppUI.setPaperFeedEnabled(_:)), keyEquivalent: "9"))
         menu.addItem(NSMenuItem(title: "Show modal notifications", action: #selector(AppUI.setShowModalNotifications(_:)), keyEquivalent: "0"))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        let quitItem = NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        quitItem.isEnabled = true
+        menu.addItem(quitItem)
 
+        if AppDelegate.isAccessibilityAdded() { menu.items.forEach({ $0.isEnabled = true }) }
         menuBarIcon.menu = menu
     }
 
@@ -126,20 +129,45 @@ class AppUI {
         }
     }
 
-    @objc func addToTrustedAppsAlert(completion: ((NSApplication.ModalResponse) -> ())?) {
+    @objc func addToTrustedAppsAlert(userAddedToAccessibilityCompletion: ((NSAlert) -> ())?) {
         let question = NSLocalizedString("Add Typist to your trusted Apps", comment: "")
         let info = NSLocalizedString("""
-                                     In order for Typist to be able to listen to key presses in other apps, it needs to be added to the trusted applications in your system preferences. 
+                                     In order for Typist to be able to listen to key presses in other apps, it needs \
+                                     to be added to the trusted applications in your system preferences. 
+
+                                     To do this, do the following: 
+                                     1. Unlock your 'System Preferences' if they are locked by clicking lock icon \
+                                        in the bottom right hand corner.
+                                     2. Scroll down to the Accessibility tab in the left menu.
+                                     3. Click the + icon underneath your trusted apps and search the 'Applications' \
+                                        folder and add 'Typist.app'
+                                     4. Close 'System Preferences' and start using Typist.
                                      """,
                 comment: "Typist will be unable to receive key press events.");
-        let button = NSLocalizedString("Okay", comment: "Close alert")
+        let button = NSLocalizedString("Done", comment: "Close alert")
         let alert = NSAlert()
         alert.messageText = question
         alert.informativeText = info
         alert.addButton(withTitle: button)
         if let window = NSApplication.shared.mainWindow {
             alert.beginSheetModal(for: window,
-                    completionHandler: completion)
+                    completionHandler: nil)
+        } else {
+            _ = alert.runModal()
+        }
+
+        userAddedToAccessibilityCompletion?(alert)
+    }
+
+    @objc func typistAddedToAccessibility() {
+        let alert = NSAlert()
+        alert.messageText = ""
+        alert.informativeText = ""
+        let button = NSLocalizedString("Awesome!", comment: "Close alert")
+        alert.addButton(withTitle: button)
+        if let window = NSApplication.shared.mainWindow {
+            alert.beginSheetModal(for: window,
+                    completionHandler: nil)
         } else {
             _ = alert.runModal()
         }

@@ -32,10 +32,11 @@ class Sounds {
         // Load KeyUp sounds
         Sounds.AvailableSoundSets.allCases.forEach({
             let key = $0
-            soundSets[key] = Sounds.getSoundSet(location: "Soundsets/\(model.rawValue)",
+            let result = getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)",
                     errorHandler: { soundErrors in
                         App.instance.ui.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
                     })
+            soundSets[key] = result
         })
         completion?()
     }
@@ -61,11 +62,12 @@ class Sounds {
         }
     }
 
-    private static func getSoundSet(location: String, errorHandler: (([SoundError]) -> ()?)) -> [Sound] {
+    func getSoundSet(location: String, errorHandler: (([SoundError]) -> ()?)) -> [Sound] {
         var sounds = [Sound]()
         var soundsNotFound = [SoundError]()
+
         Bundle.main.urls(forResourcesWithExtension: nil, subdirectory: location)?.forEach({
-            if let keySound = Sound(url: $0.absoluteURL) {
+            if let keySound = Sound(url: $0) {
                 keySound.prepare()
                 sounds.append(keySound)
             }

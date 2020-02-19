@@ -20,6 +20,7 @@ class App {
     }
 
     deinit {
+        persistence.saveAction(self)
         unloadTypewriter()
     }
 
@@ -30,9 +31,24 @@ class App {
             ui.keyCaptureUnavailableAlert(){ [weak self] modalResponse in
                 guard let self = self else { return }
                 NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
-                self.ui.addToTrustedAppsAlert(completion: nil)
+                self.ui.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { [weak self] (modalBody) in
+                    // Check that the app has permission to listen for key events
+                    let timer = RepeatingTimer(timeInterval: 0.5)
+                    timer.eventHandler = { [weak self, weak modalBody, weak timer] in
+                        if AppDelegate.isAccessibilityAdded() {
+                            NSApplication.shared.stopModal()
+                            timer = nil
+                            self?.ui.typistAddedToAccessibility()
+                        }
+                    }
+                    timer.resume()
+                })
             }
         }
+    }
+
+    func continueCheckingForAccessibilityKeyListening(closeAlertIfOpen: NSAlert?) {
+
     }
 
     func unloadTypewriter(){
@@ -46,13 +62,13 @@ class App {
     }
 
     func loadTypeWriter() {
-        if let modelString = AppSettings.selectedTypewriter {
-            if let model = Typewriter.Model.init(rawValue: modelString) {
+        if let modelString = AppSettings.selectedTypewriter,
+            let model = Typewriter.Model.init(rawValue: modelString) {
                 setCurrentTypeWriter(model: model)
-            }
-        } else {
-            setCurrentTypeWriter(model: Typewriter.defaultTypeWriter)
+                return
         }
+
+        setCurrentTypeWriter(model: Typewriter.defaultTypeWriter)
     }
     
     func simulatePaperReturn(enabled: Bool) {

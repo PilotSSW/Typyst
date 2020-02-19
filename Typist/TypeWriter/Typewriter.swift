@@ -15,7 +15,7 @@ class Typewriter {
 
     enum Model: String {
         case Olympia_SM3 = "Olympia_SM3"
-        case Royal_Model_P = " Royal_Model_P"
+        case Royal_Model_P = "Royal_Model_P"
         case Smith_Corona_Silent = "Smith_Corona_Silent"
     }
 
@@ -30,15 +30,6 @@ class Typewriter {
 
     var shiftIsPressed = false
     var capsOn         = false
-
-    var paperReturnEnabled: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "paperReturnEnabled")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "paperReturnEnabled")
-        }
-    }
 
     init(model: Model, marginWidth: Int = 80) {
         self.model = model
@@ -56,19 +47,13 @@ class Typewriter {
     }
 
     deinit {
-        if let model = model {
-            Sounds.instance.loadSounds(for: model, completion: {
-                Sounds.instance.playSound(for: .LidDown)
-            }, error: { error in
-
-            })
-        }
+        Sounds.instance.playSound(for: .LidDown)
     }
 
     func assignKeyPresses(for keyPressed: KeyEvent) {
         if lineIndex >= marginWidth {
             lineIndex = 0
-            if paperReturnEnabled {
+            if AppSettings.paperReturnEnabled {
                 Sounds.instance.playSound(for: .Bell, completion: {
                     Sounds.instance.playSound(from: [
                         .SingleLineReturn, .DoubleLineReturn, .TripleLineReturn
