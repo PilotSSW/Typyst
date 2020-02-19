@@ -43,7 +43,6 @@ class Sounds {
 
     func playSound(for soundSet: Sounds.AvailableSoundSets, completion: (() -> ())? = nil) {
         if let sounds = soundSets[soundSet] {
-            sounds.forEach({ $0.stop() })
             if let sound: Sound = sounds.randomElement() {
                 sound.play(completion: { event in
                     completion?()
@@ -55,7 +54,6 @@ class Sounds {
     func playSound(from sets: [Sounds.AvailableSoundSets], completion: (() -> ())? = nil) {
         let sounds:[Sound] = sets.compactMap({ soundSets[$0] }).flatMap({ $0 })
         if let sound: Sound = sounds.randomElement() {
-            sounds.forEach({ $0.stop() })
             sound.play(completion: { event in
                 completion?()
             })
