@@ -14,6 +14,11 @@ class AppUI {
     let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
 
+    init() {
+        menuBarIcon.target = self
+        menuBarIcon.menu = menu
+    }
+
     /**
      * App UI functions
      */
@@ -68,8 +73,12 @@ class AppUI {
         quitItem.isEnabled = true
         menu.addItem(quitItem)
 
-        if AppDelegate.isAccessibilityAdded() { menu.items.forEach({ $0.isEnabled = true }) }
-        menuBarIcon.menu = menu
+        if AppDelegate.isAccessibilityAdded() {
+            menu.items.forEach({
+                $0.target = self
+                $0.isEnabled = true
+            })
+        }
     }
 
     @objc func setVolume(slider: NSSlider) {
