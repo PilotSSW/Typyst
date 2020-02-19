@@ -35,8 +35,8 @@ class Typewriter {
         self.model = model
         self.marginWidth = marginWidth
 
-        KeyListener.instance.listenForAllKeyPresses(completion: { (keyEvent) in
-            self.assignKeyPresses(for: keyEvent)
+        KeyListener.instance.listenForAllKeyPresses(completion: { [weak self] (keyEvent) in
+            self?.assignKeyPresses(for: keyEvent)
         })
 
         Sounds.instance.loadSounds(for: model, completion: {
