@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import AppKit
 
 class AppUI {
     let menu = NSMenu()
