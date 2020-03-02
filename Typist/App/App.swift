@@ -8,10 +8,11 @@ import Foundation
 
 class App {
     static let instance: App = App()
-    var ui = AppUI()
-    var persistence = AppPersistence()
+    private(set) var ui = AppUI()
+    private(set) var persistence = AppPersistence()
 
-    var debug = true
+    private(set) var debug = false
+
     var showModals: Bool = true
     private var loadedTypewriter: Typewriter?
 
@@ -25,6 +26,10 @@ class App {
     }
 
     func setup() {
+        #if DEBUG
+        debug = true
+        #endif
+
         loadTypeWriter()
         ui.setupApplicationUI()
         if !AppDelegate.isAccessibilityAdded() {
@@ -45,10 +50,6 @@ class App {
                 })
             }
         }
-    }
-
-    func continueCheckingForAccessibilityKeyListening(closeAlertIfOpen: NSAlert?) {
-
     }
 
     func unloadTypewriter(){

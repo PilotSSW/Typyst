@@ -65,13 +65,17 @@ class AppUI {
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2"))
         menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "8"))
-        menu.addItem(NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppUI.setPaperFeedEnabled(_:)), keyEquivalent: "9"))
-        menu.addItem(NSMenuItem(title: "Show modal notifications", action: #selector(AppUI.setShowModalNotifications(_:)), keyEquivalent: "0"))
+        let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "8")
+        menuItemPR.state = AppSettings.paperReturnEnabled ? .on : .off
+        menu.addItem(menuItemPR)
+        let menuItemPF = NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppUI.setPaperFeedEnabled(_:)), keyEquivalent: "9")
+        menuItemPF.state = AppSettings.paperFeedEnabled ? .on : .off
+        menu.addItem(menuItemPF)
+        let menuItemMN = NSMenuItem(title: "Show modal notifications", action: #selector(AppUI.setShowModalNotifications(_:)), keyEquivalent: "0")
+        menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
+        menu.addItem(menuItemMN)
         menu.addItem(NSMenuItem.separator())
-        let quitItem = NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
-        quitItem.isEnabled = true
-        menu.addItem(quitItem)
+        menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
         if AppDelegate.isAccessibilityAdded() {
             menu.items.forEach({
@@ -79,6 +83,10 @@ class AppUI {
                 $0.isEnabled = true
             })
         }
+    }
+
+    private func triggerMenuItem(sender: Any, func: (() -> ())) {
+
     }
 
     @objc func setVolume(slider: NSSlider) {
