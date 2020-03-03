@@ -11,14 +11,13 @@ import Cocoa
 import AppKit
 
 class AppUI {
+    let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     var menu: NSMenu
-    let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
-    let popover = NSPopover()
 
     init() {
         menu = NSMenu()
-        menuBarIcon.target = self
         menuBarIcon.menu = menu
+        menuBarIcon.target = self
     }
 
     /**
@@ -83,7 +82,8 @@ class AppUI {
         menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
         menu.addItem(menuItemMN)
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q"))
+        let menuItemQuit = NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q")
+        menu.addItem(menuItemQuit)
 
         if AppDelegate.isAccessibilityAdded() {
             menu.items.forEach({
@@ -121,15 +121,21 @@ class AppUI {
     * Set current Typewriter properties
     */
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        App.instance.simulatePaperFeed(enabled: !(App.instance.isPaperFeedEnabled()))
+        let enabled = !(App.instance.isPaperFeedEnabled())
+        (sender as? NSMenuItem)?.state = enabled ? .on : .off
+        App.instance.simulatePaperFeed(enabled: enabled)
     }
 
     @objc func setPaperReturnEnabled(_ sender: Any?) {
-        App.instance.simulatePaperReturn(enabled: !(App.instance.isPaperReturnEnabled()))
+        let enabled = !(App.instance.isPaperReturnEnabled())
+        (sender as? NSMenuItem)?.state = enabled ? .on : .off
+        App.instance.simulatePaperReturn(enabled: enabled)
     }
 
     @objc func setShowModalNotifications(_ sender: Any?) {
-        App.instance.showModalNotifications(enabled: !(App.instance.isModalNotificationsEnabled()))
+        let enabled = !(App.instance.isModalNotificationsEnabled())
+        (sender as? NSMenuItem)?.state = enabled ? .on : .off
+        App.instance.showModalNotifications(enabled: enabled)
     }
     
     /**
