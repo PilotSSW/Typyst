@@ -7,16 +7,21 @@
 //
 
 import Cocoa
+import FirebaseCore
+import FirebaseCrashlytics
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        FirebaseApp.configure()
+
         #if DEBUG
             Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection10.bundle")?.load()
         #endif
         
         NSApp.setActivationPolicy(.accessory)
+        UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
 
         App.instance.setup()
     }
@@ -40,7 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     static func isAccessibilityAdded() -> Bool {
         // Ensure key capture events are available or alert user
-        let opts = NSDictionary(object: kCFBooleanTrue as Any, forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
+        let opts = NSDictionary(object: kCFBooleanTrue as Any,
+                forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
         return AXIsProcessTrustedWithOptions(opts)
     }
 }

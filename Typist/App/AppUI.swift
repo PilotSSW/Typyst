@@ -11,11 +11,12 @@ import Cocoa
 import AppKit
 
 class AppUI {
-    let menu = NSMenu()
-    let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    var menu: NSMenu
+    let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
     let popover = NSPopover()
 
     init() {
+        menu = NSMenu()
         menuBarIcon.target = self
         menuBarIcon.menu = menu
     }
@@ -37,9 +38,13 @@ class AppUI {
     }
 
     func constructMenu() {
-
-        // Volume slider
-        let sliderView = NSView(frame: NSRect(x: 0, y: 0, width: 500, height: 25))
+        menu = NSMenu()
+        menuBarIcon.target = self
+        menuBarIcon.menu = menu
+        menu.title = "Typist"
+        menu.autoenablesItems = true
+        menu.allowsContextMenuPlugIns = true
+        menu.showsStateColumn = true
 
         let volumeLabel = NSTextField(frame: NSRect(x: 20, y: 0, width: 150, height: 25))
         volumeLabel.stringValue = "Volume"
@@ -48,19 +53,21 @@ class AppUI {
         volumeLabel.backgroundColor = .clear
         volumeLabel.textColor = .white
         volumeLabel.font = menu.font
-        sliderView.addSubview(volumeLabel)
 
         let slider = NSSlider(frame: NSRect(x: 100, y: 0, width: 380, height: 25))
         slider.target = self
         slider.action = #selector(AppUI.setVolume)
         slider.floatValue = UserDefaults.standard.float(forKey: "lastSetVolume")
+
+        // Volume slider
+        let sliderView = NSView(frame: NSRect(x: 0, y: 0, width: 500, height: 25))
+        sliderView.addSubview(volumeLabel)
         sliderView.addSubview(slider)
 
         let volumeItem = NSMenuItem()
         volumeItem.view = sliderView
 
         menu.addItem(volumeItem)
-
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Load Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "1"))
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2"))
@@ -76,7 +83,7 @@ class AppUI {
         menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
         menu.addItem(menuItemMN)
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q"))
 
         if AppDelegate.isAccessibilityAdded() {
             menu.items.forEach({
@@ -114,15 +121,15 @@ class AppUI {
     * Set current Typewriter properties
     */
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        App.instance.simulatePaperFeed(enabled: !(App.instance.isPaperFeedEnabled() ?? false))
+        App.instance.simulatePaperFeed(enabled: !(App.instance.isPaperFeedEnabled()))
     }
 
     @objc func setPaperReturnEnabled(_ sender: Any?) {
-        App.instance.simulatePaperReturn(enabled: !(App.instance.isPaperReturnEnabled() ?? false))
+        App.instance.simulatePaperReturn(enabled: !(App.instance.isPaperReturnEnabled()))
     }
 
     @objc func setShowModalNotifications(_ sender: Any?) {
-        App.instance.showModalNotifications(enabled: !(App.instance.isModalNotificationsEnabled() ?? false))
+        App.instance.showModalNotifications(enabled: !(App.instance.isModalNotificationsEnabled()))
     }
     
     /**

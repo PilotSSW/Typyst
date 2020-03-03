@@ -52,7 +52,11 @@ class App {
         }
     }
 
-    func unloadTypewriter(){
+    @objc func quit(_ sender: Any?) {
+        NSApplication.shared.terminate(sender)
+    }
+
+    func unloadTypewriter() {
         loadedTypewriter = nil
     }
 

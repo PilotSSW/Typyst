@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0719588C8D7FC8CD359922A7 /* Pods_TypistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C351D94462D5AFB61AA936F /* Pods_TypistUITests.framework */; };
 		1F0DE872F874473DA3DFBC04 /* Pods_TypistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F26EAA6F2BED80E440C064 /* Pods_TypistTests.framework */; };
+		6EF6B004B15FB0F0858A1275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */; };
 		6EF6B291856F96C6ADE78DC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B986BD58037385A13CD0 /* AppDelegate.swift */; };
 		6EF6B3AB92FC26EF6EA2A8C3 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B4DE467CAC8DBE93D4D6 /* AppSettings.swift */; };
 		6EF6B3D45A7E0C591528643D /* KeyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BB1230A11180AF838642 /* KeyListener.swift */; };
@@ -70,6 +71,7 @@
 		6EF6BAEE227912C1ADA5F03B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6EF6BB1230A11180AF838642 /* KeyListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyListener.swift; sourceTree = "<group>"; };
 		6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEventExtension.swift; sourceTree = "<group>"; };
+		6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7FCD730319214FFC7C53E66F /* Pods-TypistUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypistUITests.release.xcconfig"; path = "Target Support Files/Pods-TypistUITests/Pods-TypistUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A32E027121ED7AD4000DB25F /* Typist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32E027921ED7AD4000DB25F /* Typist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Typist.xcdatamodel; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				6EF6B2FBD67EDD951E8C5A72 /* KeyLogic */,
 				6EF6B660AE9CAB559B1A8A7B /* Errors */,
 				6EF6B1285DCCB6B5CCCB0219 /* SwiftTools */,
+				6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */,
 			);
 			path = Typist;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				A3C92B6023FD15D700D84A6C /* Soundsets in Resources */,
 				A32E027C21ED7AD6000DB25F /* Assets.xcassets in Resources */,
 				A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */,
+				6EF6B004B15FB0F0858A1275 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
