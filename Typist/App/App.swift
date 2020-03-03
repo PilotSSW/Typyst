@@ -5,6 +5,11 @@
 
 import AppKit
 import Foundation
+import FirebaseCore
+import FirebaseCoreDiagnostics
+import FirebaseCrashlytics
+import FirebaseInstallations
+import FirebaseInstanceID
 
 class App {
     static let instance: App = App()
