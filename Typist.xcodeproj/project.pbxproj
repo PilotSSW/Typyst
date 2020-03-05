@@ -23,6 +23,7 @@
 		6EF6BB75E59D5CA596CE9AC1 /* NSEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */; };
 		6EF6BBB466B54B4B1E1A5E4D /* Typewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B36234D56CBA9D7D6FC0 /* Typewriter.swift */; };
 		6EF6BBEE457E9F38B3926A06 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B38665A653B2213CCC13 /* SoundError.swift */; };
+		6EF6BC9F3A1AF3B1B4E98D88 /* KeyAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BADDA24A7D01DA1DFAC5 /* KeyAnalytics.swift */; };
 		6EF6BE72231CA9C39A178E5F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B01FF4606218D1CEF4DD /* App.swift */; };
 		A31D5D25FF674532EB57D72B /* Pods_Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */; };
 		A32E027A21ED7AD4000DB25F /* Typist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32E027821ED7AD4000DB25F /* Typist.xcdatamodeld */; };
@@ -68,6 +69,7 @@
 		6EF6B8B8CC1AA2789818CA2D /* RepeatingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		6EF6B986BD58037385A13CD0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF6B9E51419CF7F84B0E783 /* Sounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
+		6EF6BADDA24A7D01DA1DFAC5 /* KeyAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyAnalytics.swift; sourceTree = "<group>"; };
 		6EF6BAEE227912C1ADA5F03B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6EF6BB1230A11180AF838642 /* KeyListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyListener.swift; sourceTree = "<group>"; };
 		6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEventExtension.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 				6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */,
 			);
 			path = SwiftTools;
+			sourceTree = "<group>";
+		};
+		6EF6B2359B9FA205E0101A5D /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6BADDA24A7D01DA1DFAC5 /* KeyAnalytics.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		6EF6B23B9594B67CDF1A8088 /* SoundUI */ = {
@@ -212,6 +222,7 @@
 				6EF6B660AE9CAB559B1A8A7B /* Errors */,
 				6EF6B1285DCCB6B5CCCB0219 /* SwiftTools */,
 				6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */,
+				6EF6B2359B9FA205E0101A5D /* Analytics */,
 			);
 			path = Typist;
 			sourceTree = "<group>";
@@ -512,6 +523,7 @@
 				6EF6B57CBE2891C1D64792FA /* RepeatingTimer.swift in Sources */,
 				6EF6B77FF0258BFFF10EF9EB /* System.swift in Sources */,
 				6EF6BB75E59D5CA596CE9AC1 /* NSEventExtension.swift in Sources */,
+				6EF6BC9F3A1AF3B1B4E98D88 /* KeyAnalytics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

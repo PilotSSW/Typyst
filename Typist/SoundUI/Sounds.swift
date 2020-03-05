@@ -28,14 +28,11 @@ class Sounds {
 
     }
 
-    func loadSounds(for model: Typewriter.Model, completion: (() -> ())?, error: ((Error) -> ())?) {
+    func loadSounds(for model: Typewriter.Model, completion: (() -> ())?, errorHandler: (([SoundError]) -> ())?) {
         // Load KeyUp sounds
         Sounds.AvailableSoundSets.allCases.forEach({
             let key = $0
-            let result = getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)",
-                    errorHandler: { soundErrors in
-                        App.instance.ui.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
-                    })
+            let result = getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)", errorHandler: errorHandler)
             soundSets[key] = result
         })
         completion?()
@@ -60,7 +57,7 @@ class Sounds {
         }
     }
 
-    func getSoundSet(location: String, errorHandler: (([SoundError]) -> ()?)) -> [Sound] {
+    func getSoundSet(location: String, errorHandler: (([SoundError]) -> Void)?) -> [Sound] {
         var sounds = [Sound]()
         var soundsNotFound = [SoundError]()
 
@@ -75,7 +72,7 @@ class Sounds {
         })
 
         if soundsNotFound.count > 0 {
-            errorHandler(soundsNotFound)
+            errorHandler?(soundsNotFound)
         }
         return sounds
     }

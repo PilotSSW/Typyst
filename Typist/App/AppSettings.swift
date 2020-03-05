@@ -50,4 +50,22 @@ class AppSettings {
             UserDefaults.standard.set(newValue, forKey: "showModalNotifications")
         }
     }
+
+    static var logUsageAnalytics: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "logUsageAnalytics")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "logUsageAnalytics")
+        }
+    }
+
+    static var logErrorsAndCrashes: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "logToFirebase")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "logToFirebase")
+        }
+    }
 }

@@ -36,7 +36,7 @@ class AppUI {
         constructMenu()
     }
 
-    func constructMenu() {
+    @objc func constructMenu(_ sender: Any? = nil) {
         menu = NSMenu()
         menuBarIcon.target = self
         menuBarIcon.menu = menu
@@ -82,15 +82,47 @@ class AppUI {
         menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
         menu.addItem(menuItemMN)
         menu.addItem(NSMenuItem.separator())
+        let menuItemTUA = NSMenuItem(title: "Show usage analytics", action: #selector(AppUI.setTrackUsageAnalytics(_:)), keyEquivalent: "0")
+        menuItemTUA.state = AppSettings.logUsageAnalytics ? .on : .off
+        menu.addItem(menuItemTUA)
+        menu.addItem(NSMenuItem.separator())
+
+        if AppSettings.logUsageAnalytics {
+            let analytics = KeyAnalytics.shared?.defaultAnalytics()
+            analytics?.enumerated().forEach({
+
+                var numMinutes = 0
+                switch $0.offset {
+                case 0: numMinutes = 1
+                case 1: numMinutes = 5
+                case 2: numMinutes = 10
+                case 3: numMinutes = 30
+                case 4: numMinutes = 60
+                default: numMinutes = 0
+                }
+                let title = """
+                            Past \(numMinutes)\n minutes -- 
+                            \($0.element.0) total key presses -- 
+                            \($0.element.1) average key presses every second
+                            \n
+                            """
+                menu.addItem(NSMenuItem(title: title, action: nil, keyEquivalent: ""))
+            })
+            menu.addItem(NSMenuItem.separator())
+        }
+
+        let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
+        menuItemFirebase.state = AppSettings.logUsageAnalytics ? .on : .off
+        menu.addItem(menuItemFirebase)
+        menu.addItem(NSMenuItem.separator())
+
         let menuItemQuit = NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q")
         menu.addItem(menuItemQuit)
 
-        if AppDelegate.isAccessibilityAdded() {
-            menu.items.forEach({
-                $0.target = self
-                $0.isEnabled = true
-            })
-        }
+        menu.items.forEach({
+            $0.target = self
+            $0.isEnabled = AppDelegate.isAccessibilityAdded()
+        })
     }
 
     private func triggerMenuItem(sender: Any, func: (() -> ())) {
@@ -121,21 +153,33 @@ class AppUI {
     * Set current Typewriter properties
     */
     @objc func setPaperFeedEnabled(_ sender: Any?) {
-        let enabled = !(App.instance.isPaperFeedEnabled())
+        let enabled = !AppSettings.paperFeedEnabled
         (sender as? NSMenuItem)?.state = enabled ? .on : .off
-        App.instance.simulatePaperFeed(enabled: enabled)
+        AppSettings.paperFeedEnabled = enabled
     }
 
     @objc func setPaperReturnEnabled(_ sender: Any?) {
-        let enabled = !(App.instance.isPaperReturnEnabled())
+        let enabled = !AppSettings.paperReturnEnabled
         (sender as? NSMenuItem)?.state = enabled ? .on : .off
-        App.instance.simulatePaperReturn(enabled: enabled)
+        AppSettings.paperReturnEnabled = enabled
     }
 
     @objc func setShowModalNotifications(_ sender: Any?) {
-        let enabled = !(App.instance.isModalNotificationsEnabled())
+        let enabled = !AppSettings.showModalNotifications
         (sender as? NSMenuItem)?.state = enabled ? .on : .off
-        App.instance.showModalNotifications(enabled: enabled)
+        AppSettings.showModalNotifications = enabled
+    }
+
+    @objc func setTrackUsageAnalytics(_ sender: Any?) {
+        let enabled = !AppSettings.logUsageAnalytics
+        (sender as? NSMenuItem)?.state = enabled ? .on : .off
+        AppSettings.logUsageAnalytics = enabled
+    }
+
+    @objc func setLogErrorsAndCrashes(_ sender: Any?) {
+        let enabled = !AppSettings.logErrorsAndCrashes
+        (sender as? NSMenuItem)?.state = enabled ? .on : .off
+        AppSettings.logErrorsAndCrashes = enabled
     }
     
     /**
@@ -232,7 +276,7 @@ class AppUI {
     }
 
     @objc func typeWriterSoundsLoadedAlert(_ soundSets: [String]) {
-        if App.instance.isModalNotificationsEnabled() {
+        if AppSettings.showModalNotifications {
             let alert = NSAlert()
             alert.messageText = "Loaded sounds"
 

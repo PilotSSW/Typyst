@@ -68,7 +68,10 @@ class App {
     func setCurrentTypeWriter(model: Typewriter.Model) {
         AppSettings.selectedTypewriter = model.rawValue
         unloadTypewriter()
-        loadedTypewriter = Typewriter(model: model)
+        loadedTypewriter = Typewriter(model: model, errorHandler: { [weak self] (soundErrors) in
+            guard let strongSelf = self else { return }
+            strongSelf.ui.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
+        })
     }
 
     func loadTypeWriter() {
@@ -79,30 +82,6 @@ class App {
         }
 
         setCurrentTypeWriter(model: Typewriter.defaultTypeWriter)
-    }
-    
-    func simulatePaperReturn(enabled: Bool) {
-        AppSettings.paperReturnEnabled = enabled
-    }
-    
-    func isPaperReturnEnabled() -> Bool {
-        AppSettings.paperReturnEnabled
-    }
-
-    func simulatePaperFeed(enabled: Bool) {
-        AppSettings.simulatePaperFeed = enabled
-    }
-
-    func isPaperFeedEnabled() -> Bool {
-        AppSettings.simulatePaperFeed
-    }
-
-    func showModalNotifications(enabled: Bool) {
-        AppSettings.showModalNotifications = enabled
-    }
-
-    func isModalNotificationsEnabled() -> Bool {
-        AppSettings.showModalNotifications
     }
     
     func setVolumeTo(_ volume: Double) {

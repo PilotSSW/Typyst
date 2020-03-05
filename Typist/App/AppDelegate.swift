@@ -14,7 +14,9 @@ import FirebaseCrashlytics
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        FirebaseApp.configure()
+        if AppSettings.logErrorsAndCrashes {
+            FirebaseApp.configure()
+        }
 
         #if DEBUG
             Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection10.bundle")?.load()

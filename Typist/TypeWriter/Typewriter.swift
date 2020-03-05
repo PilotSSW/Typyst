@@ -31,19 +31,18 @@ class Typewriter {
     var shiftIsPressed = false
     var capsOn         = false
 
-    init(model: Model, marginWidth: Int = 80) {
+    init(model: Model, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?) {
         self.model = model
         self.marginWidth = marginWidth
 
         KeyListener.instance.listenForAllKeyPresses(completion: { [weak self] (keyEvent) in
             self?.assignKeyPresses(for: keyEvent)
+            KeyAnalytics.shared?.logEvent(keyEvent)
         })
 
         Sounds.instance.loadSounds(for: model, completion: {
             Sounds.instance.playSound(for: .LidUp)
-        }, error: { error in
-
-        })
+        }, errorHandler: errorHandler)
     }
 
     deinit {
