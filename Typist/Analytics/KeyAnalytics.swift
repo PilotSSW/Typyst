@@ -18,12 +18,21 @@ class KeyAnalytics {
     typealias KeyEventByTime = (KeyEvent, Date)
     public static let shared: KeyAnalytics? = AppSettings.logUsageAnalytics ? KeyAnalytics() : nil
 
-    public internal(set) var defaultAnalyticsIntervals: [Double] = [10, 20, 30, 45, 60]
+    public internal(set) var currentAnalyticsIntervals: [Double] = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(0)
+    private let timer: RepeatingTimer
 
     private var keypresses: [KeyEventByTime] = []
 
     private init() {
+        self.timer = RepeatingTimer(timeInterval: 60)
+        timer.eventHandler = { [weak self] in
+            self?.currentAnalyticsIntervals = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(abs(startTime.timeIntervalSinceNow))
+        }
+        timer.resume()
+    }
 
+    deinit {
+        timer.suspend()
     }
 
     public func logEvent(_ event: KeyEvent) {
@@ -46,7 +55,21 @@ class KeyAnalytics {
     }
 
     public func defaultAnalytics() -> [(Int, Double)] {
-        defaultAnalyticsIntervals.map({ (totalKeypressesInPastSeconds($0), averageKeypressesEveryXSecondsForPastSeconds($0)) })
+        currentAnalyticsIntervals.map({ (totalKeypressesInPastSeconds($0), averageKeypressesEveryXSecondsForPastSeconds($0)) })
+    }
+
+    static private func getAnalyticsIntervalsForTimeRunning(_ totalUptime: Double) -> [Double] {
+        switch totalUptime {
+        case 0...120: return [5, 15, 30, 45, 60]
+        case 120...300: return [15, 30, 60, 90, 120]
+        case 300...600: return [15, 30, 60, 150, 300]
+        case 600...1800: return [15, 60, 300, 600, 600]
+        case 1800...3600: return [15, 60, 300, 600, 1800]
+        case 3600...14400: return [15, 60, 300, 600, 3600]
+        case 14400...86400: return [15, 60, 600, 3600, 14400]
+        case let x where x > 86400: return [15, 60, 600, 3600, 7200, 86400]
+        default: return []
+        }
     }
 }
 

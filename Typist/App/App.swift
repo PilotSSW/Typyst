@@ -11,6 +11,7 @@ import FirebaseCrashlytics
 import FirebaseInstallations
 import FirebaseInstanceID
 
+let startTime: Date = Date()
 class App {
     static let instance: App = App()
     private(set) var ui = AppUI()

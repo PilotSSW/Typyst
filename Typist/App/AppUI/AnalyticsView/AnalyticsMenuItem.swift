@@ -85,7 +85,7 @@ class AnalyticsMenuItemViewModel {
     var analyticsItems = [AnalyticsItem]()
     var analyticsItemsUpdated: ((Int) -> Void)? = nil
 
-    let timer = RepeatingTimer(timeInterval: 1)
+    let timer = RepeatingTimer(timeInterval: 0.5)
 
     init() {
         updateItems()
@@ -106,12 +106,13 @@ class AnalyticsMenuItemViewModel {
     }
 
     func updateItems() {
+        guard let analyticsShared = KeyAnalytics.shared else { return }
         analyticsItems.removeAll()
 
-        let seconds = [60.0, 300.0, 600.0, 1800.0, 3600.0] // 1 min, 5 min, 10 min, 30 min, 60 min
+        let seconds = analyticsShared.currentAnalyticsIntervals
         for (index, timeAmount) in seconds.enumerated() {
             pushAnalyticsItemForTime(seconds: timeAmount)
-               analyticsItemsUpdated?(index)
+            analyticsItemsUpdated?(index)
         }
     }
 

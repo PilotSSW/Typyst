@@ -46,11 +46,11 @@ class AppMenu {
         volumeItem.view = sliderView
 
         menu.addItem(volumeItem)
-        menu.addItem(NSMenuItem.separator())
+        menu.addItem(.separator())
         menu.addItem(NSMenuItem(title: "Load Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "1"))
         menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2"))
         menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
-        menu.addItem(NSMenuItem.separator())
+        menu.addItem(.separator())
 
         let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "8")
         menuItemPR.state = AppSettings.paperReturnEnabled ? .on : .off
@@ -64,13 +64,13 @@ class AppMenu {
         menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
         menu.addItem(menuItemMN)
 
-        menu.addItem(NSMenuItem.separator())
+        menu.addItem(.separator())
 
         let menuItemTUA = NSMenuItem(title: "Show usage analytics", action: #selector(AppUI.setTrackUsageAnalytics(_:)), keyEquivalent: "0")
         menuItemTUA.state = AppSettings.logUsageAnalytics ? .on : .off
         menu.addItem(menuItemTUA)
 
-        menu.addItem(NSMenuItem.separator())
+        menu.addItem(.separator())
 
         let menuView = NSView()
         menuView.addSubview(analyticsView.view)
@@ -80,13 +80,18 @@ class AppMenu {
         menuView.leftAnchor.constraint(equalTo: analyticsView.view.leftAnchor, constant: -15).isActive = true
         menuView.rightAnchor.constraint(equalTo: analyticsView.view.rightAnchor, constant: 15).isActive = true
         analyticsRow.view = menuView
-        AppSettings.shared.onLogUsageAnalyticsChanged({ [weak self] (enabled) in
-            guard let strongSelf = self else { return }
-
-            strongSelf.analyticsRow.isHidden = !enabled
+        analyticsRow.tag = 99
+        AppSettings.shared.onLogUsageAnalyticsChanged({ (enabled) in
+            if !enabled {
+                menu.removeItem(self.analyticsRow)
+                menu.removeItem(at: 12) // remove separator
+            } else {
+                menu.items.insert(self.analyticsRow, at: 12)
+                menu.items.insert(.separator(), at: 13)
+            }
         })
         menu.addItem(analyticsRow)
-        menu.addItem(NSMenuItem.separator())
+        menu.addItem(.separator())
 
 
         let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
@@ -94,7 +99,7 @@ class AppMenu {
         menu.addItem(menuItemFirebase)
         let menuItemEmailDev = NSMenuItem(title: "Email Typist Support", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
 
-        menu.addItem(NSMenuItem.separator())
+        menu.addItem(.separator())
 
         let menuItemQuit = NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q")
         menu.addItem(menuItemQuit)
