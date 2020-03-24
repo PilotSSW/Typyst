@@ -33,7 +33,7 @@ class AppSettings {
 
     static var paperReturnEnabled: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "paperFeedReturned")
+            UserDefaults.standard.bool(forKey: "paperReturnEnabled")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "paperReturnEnabled")

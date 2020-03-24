@@ -47,9 +47,18 @@ class AppMenu {
 
         menu.addItem(volumeItem)
         menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "Load Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "1"))
-        menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2"))
-        menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
+
+        let olympiaRow = NSMenuItem(title: "Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "1")
+        olympiaRow.state = App.instance.loadedTypewriter?.model == .Olympia_SM3 ? .on : .off
+        menu.addItem(olympiaRow)
+
+        let royalModelPRow = NSMenuItem(title: "Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2")
+        royalModelPRow.state = App.instance.loadedTypewriter?.model == .Royal_Model_P ? .on : .off
+        menu.addItem(royalModelPRow)
+
+        let coronaSilentRow = NSMenuItem(title: "Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "3")
+        coronaSilentRow.state = App.instance.loadedTypewriter?.model == .Smith_Corona_Silent ? .on : .off
+        menu.addItem(coronaSilentRow)
         menu.addItem(.separator())
 
         let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "8")
@@ -75,24 +84,39 @@ class AppMenu {
         let menuView = NSView()
         menuView.addSubview(analyticsView.view)
         menuView.translatesAutoresizingMaskIntoConstraints = false
-        menuView.topAnchor.constraint(equalTo: analyticsView.view.topAnchor, constant: -15).isActive = true
-        menuView.bottomAnchor.constraint(equalTo: analyticsView.view.bottomAnchor, constant: 15).isActive = true
-        menuView.leftAnchor.constraint(equalTo: analyticsView.view.leftAnchor, constant: -15).isActive = true
-        menuView.rightAnchor.constraint(equalTo: analyticsView.view.rightAnchor, constant: 15).isActive = true
+        menuView.topAnchor.constraint(equalTo: analyticsView.view.topAnchor, constant: -4).isActive = true
+        menuView.bottomAnchor.constraint(equalTo: analyticsView.view.bottomAnchor, constant: 4).isActive = true
+        menuView.leftAnchor.constraint(equalTo: analyticsView.view.leftAnchor, constant: -20).isActive = true
+        menuView.rightAnchor.constraint(equalTo: analyticsView.view.rightAnchor, constant: 20).isActive = true
         analyticsRow.view = menuView
         analyticsRow.tag = 99
-        AppSettings.shared.onLogUsageAnalyticsChanged({ (enabled) in
+
+        if AppSettings.logUsageAnalytics {
+            menu.addItem(analyticsRow)
+            let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "")
+            resetAnalyticsRow.target = self
+            menu.addItem(resetAnalyticsRow)
+            menu.addItem(.separator())
+        }
+
+        AppSettings.shared.onLogUsageAnalyticsChanged({ [weak self] (enabled) in
             if !enabled {
+                guard let self = self else { return }
+                menu.removeItem(at: 14) // remove separator
+                menu.removeItem(at: 13) // reset analytics
                 menu.removeItem(self.analyticsRow)
-                menu.removeItem(at: 12) // remove separator
             } else {
+                guard let self = self else { return }
                 menu.items.insert(self.analyticsRow, at: 12)
-                menu.items.insert(.separator(), at: 13)
+                _ = menu.items[12].view
+                let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "")
+                resetAnalyticsRow.target = self
+                menu.items.insert(resetAnalyticsRow, at: 13)
+                menu.items.insert(.separator(), at: 14)
+                self.analyticsRow.view?.needsDisplay = true
+                self.analyticsRow.view?.displayIfNeeded()
             }
         })
-        menu.addItem(analyticsRow)
-        menu.addItem(.separator())
-
 
         let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
         menuItemFirebase.state = AppSettings.logUsageAnalytics ? .on : .off
@@ -110,5 +134,9 @@ class AppMenu {
         })
 
         return menu
+    }
+
+    @objc func resetMenuAnalytics() {
+        KeyAnalytics.shared?.reset()
     }
 }

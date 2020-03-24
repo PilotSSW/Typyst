@@ -11,14 +11,13 @@ import FirebaseCrashlytics
 import FirebaseInstallations
 import FirebaseInstanceID
 
-let startTime: Date = Date()
 class App {
     static let instance: App = App()
     private(set) var ui = AppUI()
     private(set) var persistence = AppPersistence()
 
     var showModals: Bool = true
-    private var loadedTypewriter: Typewriter?
+    private(set) var loadedTypewriter: Typewriter?
 
     private init() {
         
