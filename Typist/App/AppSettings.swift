@@ -6,6 +6,13 @@
 import Foundation
 
 class AppSettings {
+    public static let shared = AppSettings()
+    private var analyticsUsageChanged = [((Bool) -> Void)]()
+
+    private init() {
+
+    }
+
     static var selectedTypewriter: String? {
         get {
             UserDefaults.standard.string(forKey: "selectedTypewriter")
@@ -57,6 +64,7 @@ class AppSettings {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "logUsageAnalytics")
+            shared.analyticsUsageChanged.forEach({ $0(newValue) })
         }
     }
 
@@ -66,6 +74,38 @@ class AppSettings {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "logToFirebase")
+        }
+    }
+
+    func onLogUsageAnalyticsChanged(_ event: @escaping ((Bool) -> Void)) {
+        analyticsUsageChanged.append(event)
+    }
+
+    func removeAllOnLogUsageAnalyticsChangedEvents(_ events: [Int]? = nil) {
+        if events != nil {
+            events?.forEach({ _ = analyticsUsageChanged.remove(at: $0) })
+        } else {
+            analyticsUsageChanged.removeAll()
+        }
+    }
+}
+
+class AppDebugSettings {
+    static var debugGlobal: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "debugGlobal")
+        }
+        set{
+            UserDefaults.standard.set(newValue, forKey: "debugGlobal")
+        }
+    }
+
+    static var debugKeypresses: Bool {
+        get {
+            debugGlobal && UserDefaults.standard.bool(forKey: "debugKeypresses")
+        }
+        set{
+            UserDefaults.standard.set(newValue, forKey: "debugKeypresses")
         }
     }
 }

@@ -6,9 +6,9 @@
 //  Copyright © 2020 wickedPropeller. All rights reserved.
 //
 
-import Foundation
-import Cocoa
 import AppKit
+import Cocoa
+import Foundation
 
 class AppUI {
     let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
@@ -37,96 +37,9 @@ class AppUI {
     }
 
     @objc func constructMenu(_ sender: Any? = nil) {
-        menu = NSMenu()
-        menuBarIcon.target = self
+        menu = AppMenu.shared.constructMenu()
         menuBarIcon.menu = menu
-        menu.title = "Typist"
-        menu.autoenablesItems = true
-        menu.allowsContextMenuPlugIns = true
-        menu.showsStateColumn = true
-
-        let volumeLabel = NSTextField(frame: NSRect(x: 20, y: 0, width: 150, height: 25))
-        volumeLabel.stringValue = "Volume"
-        volumeLabel.isBordered = false;
-        volumeLabel.isBezeled = false;
-        volumeLabel.backgroundColor = .clear
-        volumeLabel.textColor = .white
-        volumeLabel.font = menu.font
-
-        let slider = NSSlider(frame: NSRect(x: 100, y: 0, width: 380, height: 25))
-        slider.target = self
-        slider.action = #selector(AppUI.setVolume)
-        slider.floatValue = UserDefaults.standard.float(forKey: "lastSetVolume")
-
-        // Volume slider
-        let sliderView = NSView(frame: NSRect(x: 0, y: 0, width: 500, height: 25))
-        sliderView.addSubview(volumeLabel)
-        sliderView.addSubview(slider)
-
-        let volumeItem = NSMenuItem()
-        volumeItem.view = sliderView
-
-        menu.addItem(volumeItem)
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Load Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "1"))
-        menu.addItem(NSMenuItem(title: "Load Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2"))
-        menu.addItem(NSMenuItem(title: "Load Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "3"))
-        menu.addItem(NSMenuItem.separator())
-        let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "8")
-        menuItemPR.state = AppSettings.paperReturnEnabled ? .on : .off
-        menu.addItem(menuItemPR)
-        let menuItemPF = NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppUI.setPaperFeedEnabled(_:)), keyEquivalent: "9")
-        menuItemPF.state = AppSettings.paperFeedEnabled ? .on : .off
-        menu.addItem(menuItemPF)
-        let menuItemMN = NSMenuItem(title: "Show modal notifications", action: #selector(AppUI.setShowModalNotifications(_:)), keyEquivalent: "0")
-        menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
-        menu.addItem(menuItemMN)
-        menu.addItem(NSMenuItem.separator())
-        let menuItemTUA = NSMenuItem(title: "Show usage analytics", action: #selector(AppUI.setTrackUsageAnalytics(_:)), keyEquivalent: "0")
-        menuItemTUA.state = AppSettings.logUsageAnalytics ? .on : .off
-        menu.addItem(menuItemTUA)
-        menu.addItem(NSMenuItem.separator())
-
-        if AppSettings.logUsageAnalytics {
-            let analytics = KeyAnalytics.shared?.defaultAnalytics()
-            analytics?.enumerated().forEach({
-
-                var numMinutes = 0
-                switch $0.offset {
-                case 0: numMinutes = 1
-                case 1: numMinutes = 5
-                case 2: numMinutes = 10
-                case 3: numMinutes = 30
-                case 4: numMinutes = 60
-                default: numMinutes = 0
-                }
-                let title = """
-                            Past \(numMinutes)\n minutes -- 
-                            \($0.element.0) total key presses -- 
-                            \($0.element.1) average key presses every second
-                            \n
-                            """
-                menu.addItem(NSMenuItem(title: title, action: nil, keyEquivalent: ""))
-            })
-            menu.addItem(NSMenuItem.separator())
-        }
-
-        let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
-        menuItemFirebase.state = AppSettings.logUsageAnalytics ? .on : .off
-        menu.addItem(menuItemFirebase)
-        menu.addItem(NSMenuItem.separator())
-
-        let menuItemQuit = NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q")
-        menu.addItem(menuItemQuit)
-
-        menu.items.forEach({
-            $0.target = self
-            $0.isEnabled = AppDelegate.isAccessibilityAdded()
-        })
-    }
-
-    private func triggerMenuItem(sender: Any, func: (() -> ())) {
-
+        menuBarIcon.target = self
     }
 
     @objc func setVolume(slider: NSSlider) {

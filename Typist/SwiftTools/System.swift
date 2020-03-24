@@ -17,8 +17,7 @@ func systemUptime() -> TimeInterval {
     let result = sysctl(&mib, u_int(mib.count), &bootTime, &size, nil, 0)
     if result != 0 {
         #if DEBUG
-        print("ERROR - \(#file):\(#function) - errno = "
-                + "\(result)")
+        NSLog("ERROR - \(#file):\(#function) - errno = \(result)")
         #endif
         return 0
     }

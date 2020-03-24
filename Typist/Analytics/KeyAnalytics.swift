@@ -18,6 +18,8 @@ class KeyAnalytics {
     typealias KeyEventByTime = (KeyEvent, Date)
     public static let shared: KeyAnalytics? = AppSettings.logUsageAnalytics ? KeyAnalytics() : nil
 
+    public internal(set) var defaultAnalyticsIntervals: [Double] = [10, 20, 30, 45, 60]
+
     private var keypresses: [KeyEventByTime] = []
 
     private init() {
@@ -32,7 +34,7 @@ class KeyAnalytics {
         let currentTime = Date()
         let startingTime = Date(timeInterval: -seconds, since: currentTime)
 
-        return keypresses.filter({ $0.1 >= startingTime })
+        return keypresses.filter({ $0.1 >= startingTime && $0.0.1 == .keyUp })
     }
 
     public func totalKeypressesInPastSeconds(_ seconds: Double) -> Int {
@@ -44,14 +46,26 @@ class KeyAnalytics {
     }
 
     public func defaultAnalytics() -> [(Int, Double)] {
-        let analytics = [
-            (totalKeypressesInPastSeconds(60), averageKeypressesEveryXSecondsForPastSeconds(60)),
-            (totalKeypressesInPastSeconds(300), averageKeypressesEveryXSecondsForPastSeconds(300)),
-            (totalKeypressesInPastSeconds(600), averageKeypressesEveryXSecondsForPastSeconds(600)),
-            (totalKeypressesInPastSeconds(1800), averageKeypressesEveryXSecondsForPastSeconds(1800)),
-            (totalKeypressesInPastSeconds(3600), averageKeypressesEveryXSecondsForPastSeconds(3600))
-        ]
+        defaultAnalyticsIntervals.map({ (totalKeypressesInPastSeconds($0), averageKeypressesEveryXSecondsForPastSeconds($0)) })
+    }
+}
 
-        return analytics
+class TimeHelper {
+    struct TimeAmount {
+        let days: Int
+        let hours: Int
+        let minutes: Int
+        let seconds: Double
+    }
+    static func daysHoursMinutesSecondsFromTotalSeconds(_ totalSeconds: Double) -> TimeAmount {
+        var seconds = totalSeconds
+        let days = Int(seconds / 86400)
+        seconds = seconds.truncatingRemainder(dividingBy: 86400)
+        let hours = Int(seconds) / 3600
+        seconds = seconds.truncatingRemainder(dividingBy: 3600)
+        let minutes = Int(seconds) / 60
+        seconds = seconds.truncatingRemainder(dividingBy: 60)
+
+        return TimeAmount(days: days, hours: hours, minutes: minutes, seconds: seconds)
     }
 }

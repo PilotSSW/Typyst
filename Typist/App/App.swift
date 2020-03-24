@@ -16,8 +16,6 @@ class App {
     private(set) var ui = AppUI()
     private(set) var persistence = AppPersistence()
 
-    private(set) var debug = false
-
     var showModals: Bool = true
     private var loadedTypewriter: Typewriter?
 
@@ -32,7 +30,7 @@ class App {
 
     func setup() {
         #if DEBUG
-        debug = true
+        AppDebugSettings.debugGlobal = true
         #endif
 
         loadTypeWriter()
