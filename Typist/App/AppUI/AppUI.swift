@@ -47,6 +47,14 @@ class AppUI {
         App.instance.setVolumeTo(slider.doubleValue)
     }
 
+    @objc func openEmailClient(_ sender: Any? = nil) {
+        let service = NSSharingService(named: NSSharingService.Name.composeEmail)
+        service?.recipients = ["pilotssw@gmail.com"]
+        service?.subject = "Oh no! Something in Typist isn't working correctly"
+        service?.perform(withItems: ["Test Mail body"])
+        NSWorkspace.shared.launchApplication("Mail")
+    }
+
     /**
     * Load Typewriters
     */

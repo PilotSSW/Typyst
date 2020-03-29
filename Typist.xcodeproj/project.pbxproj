@@ -35,6 +35,7 @@
 		A3C92B6023FD15D700D84A6C /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A32E02A721EE9DA7000DB25F /* Soundsets */; };
 		A3DA92912429BDF200989EF4 /* Pods_Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */; };
 		A3DA92922429BDF200989EF4 /* Pods_Typist.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3E37277242DA2D7000C588E /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E37276242DA2D7000C588E /* SwiftExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		A32E029521ED7AD6000DB25F /* TypistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypistUITests.swift; sourceTree = "<group>"; };
 		A32E029721ED7AD6000DB25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A32E02A721EE9DA7000DB25F /* Soundsets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Soundsets; path = Typist/Soundsets; sourceTree = "<group>"; };
+		A3E37276242DA2D7000C588E /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		A40C76F57B24766DAEF7B5BA /* Pods_Typist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFBE7D22EAD29E6DA277BA6 /* Pods-TypistUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypistUITests.debug.xcconfig"; path = "Target Support Files/Pods-TypistUITests/Pods-TypistUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 				6EF6B8B8CC1AA2789818CA2D /* RepeatingTimer.swift */,
 				6EF6B67994B43EA8D67C6068 /* System.swift */,
 				6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */,
+				A3E37276242DA2D7000C588E /* SwiftExtensions.swift */,
 			);
 			path = SwiftTools;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				6EF6B5EEB1FD683AC1C9F989 /* README.md in Sources */,
 				6EF6BE72231CA9C39A178E5F /* App.swift in Sources */,
 				6EF6B291856F96C6ADE78DC7 /* AppDelegate.swift in Sources */,
+				A3E37277242DA2D7000C588E /* SwiftExtensions.swift in Sources */,
 				6EF6B8FBA86B026650877B2E /* AppPersistence.swift in Sources */,
 				6EF6B84D1671F5B68875C888 /* Sounds.swift in Sources */,
 				6EF6BBB466B54B4B1E1A5E4D /* Typewriter.swift in Sources */,

@@ -48,34 +48,34 @@ class AppMenu {
         menu.addItem(volumeItem)
         menu.addItem(.separator())
 
-        let olympiaRow = NSMenuItem(title: "Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "1")
+        let olympiaRow = NSMenuItem(title: "Olympia SM3", action: #selector(AppUI.loadOlympiaSM3(_:)), keyEquivalent: "O")
         olympiaRow.state = App.instance.loadedTypewriter?.model == .Olympia_SM3 ? .on : .off
         menu.addItem(olympiaRow)
 
-        let royalModelPRow = NSMenuItem(title: "Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "2")
+        let royalModelPRow = NSMenuItem(title: "Royal Model P", action: #selector(AppUI.loadRoyalModelP(_:)), keyEquivalent: "P")
         royalModelPRow.state = App.instance.loadedTypewriter?.model == .Royal_Model_P ? .on : .off
         menu.addItem(royalModelPRow)
 
-        let coronaSilentRow = NSMenuItem(title: "Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "3")
+        let coronaSilentRow = NSMenuItem(title: "Smith Corona Silent", action: #selector(AppUI.loadSmithCoronaSilent(_:)), keyEquivalent: "S")
         coronaSilentRow.state = App.instance.loadedTypewriter?.model == .Smith_Corona_Silent ? .on : .off
         menu.addItem(coronaSilentRow)
         menu.addItem(.separator())
 
-        let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "8")
+        let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: #selector(AppUI.setPaperReturnEnabled(_:)), keyEquivalent: "1")
         menuItemPR.state = AppSettings.paperReturnEnabled ? .on : .off
         menu.addItem(menuItemPR)
 
-        let menuItemPF = NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppUI.setPaperFeedEnabled(_:)), keyEquivalent: "9")
+        let menuItemPF = NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppUI.setPaperFeedEnabled(_:)), keyEquivalent: "2")
         menuItemPF.state = AppSettings.paperFeedEnabled ? .on : .off
         menu.addItem(menuItemPF)
 
-        let menuItemMN = NSMenuItem(title: "Show modal notifications", action: #selector(AppUI.setShowModalNotifications(_:)), keyEquivalent: "0")
+        let menuItemMN = NSMenuItem(title: "Show modal notifications", action: #selector(AppUI.setShowModalNotifications(_:)), keyEquivalent: "3")
         menuItemMN.state = AppSettings.showModalNotifications ? .on : .off
         menu.addItem(menuItemMN)
 
         menu.addItem(.separator())
 
-        let menuItemTUA = NSMenuItem(title: "Show usage analytics", action: #selector(AppUI.setTrackUsageAnalytics(_:)), keyEquivalent: "0")
+        let menuItemTUA = NSMenuItem(title: "Show typing analytics", action: #selector(AppUI.setTrackUsageAnalytics(_:)), keyEquivalent: "9")
         menuItemTUA.state = AppSettings.logUsageAnalytics ? .on : .off
         menu.addItem(menuItemTUA)
 
@@ -93,8 +93,10 @@ class AppMenu {
 
         if AppSettings.logUsageAnalytics {
             menu.addItem(analyticsRow)
-            let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "")
+            let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "/")
             resetAnalyticsRow.target = self
+            resetAnalyticsRow.isEnabled = true
+            resetAnalyticsRow.tag = 98
             menu.addItem(resetAnalyticsRow)
             menu.addItem(.separator())
         }
@@ -109,7 +111,7 @@ class AppMenu {
                 guard let self = self else { return }
                 menu.items.insert(self.analyticsRow, at: 12)
                 _ = menu.items[12].view
-                let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "")
+                let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "/")
                 resetAnalyticsRow.target = self
                 menu.items.insert(resetAnalyticsRow, at: 13)
                 menu.items.insert(.separator(), at: 14)
@@ -121,16 +123,21 @@ class AppMenu {
         let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
         menuItemFirebase.state = AppSettings.logUsageAnalytics ? .on : .off
         menu.addItem(menuItemFirebase)
-        let menuItemEmailDev = NSMenuItem(title: "Email Typist Support", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
-
+        let menuItemEmailDev = NSMenuItem(title: "Email Typist Support", action: #selector(AppUI.openEmailClient(_:)), keyEquivalent: "")
+        menuItemEmailDev.target = self
+        menu.addItem(menuItemEmailDev)
         menu.addItem(.separator())
 
         let menuItemQuit = NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q")
+        menuItemQuit.target = App.instance
+        menuItemQuit.tag = 97
         menu.addItem(menuItemQuit)
 
         menu.items.forEach({
-            $0.target = App.instance.ui
-            $0.isEnabled = AppDelegate.isAccessibilityAdded()
+            if ![99, 98, 97].contains($0.tag) {
+                $0.target = App.instance.ui
+                $0.isEnabled = AppDelegate.isAccessibilityAdded()
+            }
         })
 
         return menu

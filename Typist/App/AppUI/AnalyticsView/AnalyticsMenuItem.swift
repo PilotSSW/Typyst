@@ -39,13 +39,13 @@ class AnalyticsMenuItemView {
         viewModel.analyticsItemsUpdated = { [weak self] (index) in
             guard let self = self else { return }
 
-            let labelCount = self.view.arrangedSubviews.count
-            if labelCount > 0 && index < labelCount && index < self.viewModel.analyticsItems.count {
-                if let textView = self.view.arrangedSubviews[index] as? NSTextField {
-                    let analyticsItem = self.viewModel.analyticsItems[index]
-                    textView.stringValue = self.formatTextForRowWith(seconds: analyticsItem.amountOfTime,
+            if let analyticsItem = self.viewModel.analyticsItems[safe: index] {
+                DispatchQueue.main.async(execute: {
+                    if let textView = self.view.arrangedSubviews[safe: index] as? NSTextField {
+                        textView.stringValue = self.formatTextForRowWith(seconds: analyticsItem.amountOfTime,
                             totalKP: analyticsItem.totalKeyPresses, averageKP: analyticsItem.averageKeyPresses)
-                }
+                    }
+                })
             }
         }
     }
