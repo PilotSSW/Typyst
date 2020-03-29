@@ -58,6 +58,6 @@ class AppPersistence {
     }
 
     @IBAction func saveAction(_ sender: AnyObject?) {
-        saveContext(sender)
+        _ = saveContext(sender)
     }
 }

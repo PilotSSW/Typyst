@@ -84,7 +84,7 @@ class Typewriter {
                 numberOfNewLines = 0
                 if AppSettings.paperFeedEnabled {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        Sounds.instance.playSound(for: .PaperLoad, completion: { [weak self] in
+                        Sounds.instance.playSound(for: .PaperLoad, completion: {
                             Sounds.instance.playSound(for: .PaperFeed)
                         })
                     }

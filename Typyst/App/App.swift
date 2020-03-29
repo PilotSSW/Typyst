@@ -41,10 +41,10 @@ class App {
                 self.ui.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { [weak self] (modalBody) in
                     // Check that the app has permission to listen for key events
                     let timer = RepeatingTimer(timeInterval: 0.5)
-                    timer.eventHandler = { [weak self, weak modalBody, weak timer] in
+                    timer.eventHandler = { [weak self, weak timer] in
                         if AppDelegate.isAccessibilityAdded() {
                             NSApplication.shared.stopModal()
-                            timer = nil
+                            timer?.suspend()
                             self?.ui.typystAddedToAccessibility()
                         }
                     }
