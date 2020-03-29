@@ -1,15 +1,15 @@
 //
-//  TypistTests.swift
-//  TypistTests
+//  TypystTests.swift
+//  TypystTests
 //
 //  Created by Sean Wolford on 1/14/19.
 //  Copyright © 2019 wickedPropeller. All rights reserved.
 //
 
 import XCTest
-@testable import Typist
+@testable import Typyst
 
-class TypistTests: XCTestCase {
+class TypystTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

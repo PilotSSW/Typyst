@@ -1,6 +1,6 @@
 //
 //  Typewriter.swift
-//  Typist
+//  Typyst
 //
 //  Created by Sean Wolford on 1/14/19.
 //  Copyright © 2019 wickedPropeller. All rights reserved.

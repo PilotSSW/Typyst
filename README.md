@@ -1,14 +1,14 @@
-# Typist
-Typist is a menu-bar typewriter app that will trigger typewriter sounds while using the keyboard. Each typewriter 
+# Typyst
+Typyst is a menu-bar typewriter app that will trigger typewriter sounds while using the keyboard. Each typewriter 
 soundset has been recreated from real type-writers by the creators (Evan Bezeredi and Sean Wolford). 
 
-Typist has only been run on macOS and not on any Linux distros; if you are interested in running on Linux, we have a 
-Python script which is available at https://github.com/PilotSSW/Typist-Python
+Typyst has only been run on macOS and not on any Linux distros; if you are interested in running on Linux, we have a 
+Python script which is available at https://github.com/PilotSSW/Typyst-Python
 
 If you have not yet installed a cocoapods manager, a guide can be found here at 
 https://guides.cocoapods.org/using/getting-started.html
 
-<B> Building Typist </B> 
+<B> Building Typyst </B> 
 
 Clone the repository, open a terminal and run 'pod install' in the root directory. 
 Once the pods are finished installing, open the project in Xcode or AppCode (whichever you are more familiar with) and 

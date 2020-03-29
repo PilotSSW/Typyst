@@ -19,7 +19,7 @@ class AppMenu {
 
     func constructMenu() -> NSMenu {
         let menu = NSMenu()
-        menu.title = "Typist"
+        menu.title = "Typyst"
         menu.autoenablesItems = true
         menu.allowsContextMenuPlugIns = true
         menu.showsStateColumn = true
@@ -123,12 +123,12 @@ class AppMenu {
         let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
         menuItemFirebase.state = AppSettings.logUsageAnalytics ? .on : .off
         menu.addItem(menuItemFirebase)
-        let menuItemEmailDev = NSMenuItem(title: "Email Typist Support", action: #selector(AppUI.openEmailClient(_:)), keyEquivalent: "")
+        let menuItemEmailDev = NSMenuItem(title: "Email Typyst Support", action: #selector(AppUI.openEmailClient(_:)), keyEquivalent: "")
         menuItemEmailDev.target = self
         menu.addItem(menuItemEmailDev)
         menu.addItem(.separator())
 
-        let menuItemQuit = NSMenuItem(title: "Quit Typist", action: #selector(App.quit(_:)), keyEquivalent: "q")
+        let menuItemQuit = NSMenuItem(title: "Quit Typyst", action: #selector(App.quit(_:)), keyEquivalent: "q")
         menuItemQuit.target = App.instance
         menuItemQuit.tag = 97
         menu.addItem(menuItemQuit)

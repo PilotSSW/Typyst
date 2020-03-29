@@ -1,6 +1,6 @@
 //
 //  AppUI.swift
-//  Typist
+//  Typyst
 //
 //  Created by Sean Wolford on 2/1/20.
 //  Copyright © 2020 wickedPropeller. All rights reserved.
@@ -25,7 +25,7 @@ class AppUI {
      */
     @objc func setupApplicationUI() {
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem().length)
-        item.button?.title = "Typist"
+        item.button?.title = "Typyst"
 
         if let button = menuBarIcon.button {
             button.image = NSImage(named: "AppIcon")
@@ -50,7 +50,7 @@ class AppUI {
     @objc func openEmailClient(_ sender: Any? = nil) {
         let service = NSSharingService(named: NSSharingService.Name.composeEmail)
         service?.recipients = ["pilotssw@gmail.com"]
-        service?.subject = "Oh no! Something in Typist isn't working correctly"
+        service?.subject = "Oh no! Something in Typyst isn't working correctly"
         service?.perform(withItems: ["Test Mail body"])
         NSWorkspace.shared.launchApplication("Mail")
     }
@@ -121,9 +121,9 @@ class AppUI {
     @objc func keyCaptureUnavailableAlert(completion: ((NSApplication.ModalResponse) -> ())?) {
         let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
         let info = NSLocalizedString("""
-                                     Typist will be unable to receive key press events from other applications and the typewriter sounds will not be triggered.
+                                     Typyst will be unable to receive key press events from other applications and the typewriter sounds will not be triggered.
                                      """,
-                comment: "Typist will be unable to receive key press events.");
+                comment: "Typyst will be unable to receive key press events.");
         let button = NSLocalizedString("Okay", comment: "Close alert")
         let alert = NSAlert()
         alert.messageText = question
@@ -138,9 +138,9 @@ class AppUI {
     }
 
     @objc func addToTrustedAppsAlert(userAddedToAccessibilityCompletion: ((NSAlert) -> ())?) {
-        let question = NSLocalizedString("Add Typist to your trusted Apps", comment: "")
+        let question = NSLocalizedString("Add Typyst to your trusted Apps", comment: "")
         let info = NSLocalizedString("""
-                                     In order for Typist to be able to listen to key presses in other apps, it needs \
+                                     In order for Typyst to be able to listen to key presses in other apps, it needs \
                                      to be added to the trusted applications in your system preferences. 
 
                                      To do this, do the following: 
@@ -148,10 +148,10 @@ class AppUI {
                                         in the bottom right hand corner.
                                      2. Scroll down to the Accessibility tab in the left menu.
                                      3. Click the + icon underneath your trusted apps and search the 'Applications' \
-                                        folder and add 'Typist.app'
-                                     4. Close 'System Preferences' and start using Typist.
+                                        folder and add 'Typyst.app'
+                                     4. Close 'System Preferences' and start using Typyst.
                                      """,
-                comment: "Typist will be unable to receive key press events.");
+                comment: "Typyst will be unable to receive key press events.");
         let button = NSLocalizedString("Done", comment: "Close alert")
         let alert = NSAlert()
         alert.messageText = question
@@ -167,7 +167,7 @@ class AppUI {
         userAddedToAccessibilityCompletion?(alert)
     }
 
-    @objc func typistAddedToAccessibility() {
+    @objc func typystAddedToAccessibility() {
         let alert = NSAlert()
         alert.messageText = ""
         alert.informativeText = ""

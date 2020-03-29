@@ -9,7 +9,6 @@ import FirebaseCore
 import FirebaseCoreDiagnostics
 import FirebaseCrashlytics
 import FirebaseInstallations
-import FirebaseInstanceID
 
 class App {
     static let instance: App = App()
@@ -46,7 +45,7 @@ class App {
                         if AppDelegate.isAccessibilityAdded() {
                             NSApplication.shared.stopModal()
                             timer = nil
-                            self?.ui.typistAddedToAccessibility()
+                            self?.ui.typystAddedToAccessibility()
                         }
                     }
                     timer.resume()

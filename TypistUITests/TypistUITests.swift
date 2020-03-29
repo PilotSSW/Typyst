@@ -1,6 +1,6 @@
 //
-//  TypistUITests.swift
-//  TypistUITests
+//  TypystUITests.swift
+//  TypystUITests
 //
 //  Created by Sean Wolford on 1/14/19.
 //  Copyright © 2019 wickedPropeller. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TypistUITests: XCTestCase {
+class TypystUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -31,7 +31,7 @@ class KeyListener {
         return nil
     }
 
-    // Listen for key presses in Typist
+    // Listen for key presses in Typyst
     func listenForLocalKeyPresses(completion: ((KeyEvent) -> ())?) {
         for eventType in KeyListener.eventTypes {
             self.keyListeners.append(

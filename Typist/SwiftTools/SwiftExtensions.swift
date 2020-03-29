@@ -1,6 +1,6 @@
 //
 //  SwiftExtensions.swift
-//  Typist
+//  Typyst
 //
 //  Created by Sean Wolford on 3/26/20.
 //  Copyright © 2020 wickedPropeller. All rights reserved.
