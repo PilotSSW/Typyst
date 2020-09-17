@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A6E568DDED3B8A20A75F9A6 /* Pods_Typyst.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30591BC0E7626D89DF78C6E7 /* Pods_Typyst.framework */; };
-		6EF6B004B15FB0F0858A1275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */; };
 		6EF6B024AFC83B4AE9C8A1C8 /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B14B85247B50EDD535FD /* AppUI.swift */; };
 		6EF6B291856F96C6ADE78DC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B986BD58037385A13CD0 /* AppDelegate.swift */; };
 		6EF6B3AB92FC26EF6EA2A8C3 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B4DE467CAC8DBE93D4D6 /* AppSettings.swift */; };
@@ -31,8 +30,8 @@
 		A32E029621ED7AD6000DB25F /* TypystUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E029521ED7AD6000DB25F /* TypystUITests.swift */; };
 		A3C92B6023FD15D700D84A6C /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A32E02A721EE9DA7000DB25F /* Soundsets */; };
 		A3E37277242DA2D7000C588E /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E37276242DA2D7000C588E /* SwiftExtensions.swift */; };
-		A3FEAF7B2431238D00E3701E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A32E028021ED7AD6000DB25F /* Info.plist */; };
 		A3FEAF7D2431265600E3701E /* KeyAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEAF7C2431265600E3701E /* KeyAnalytics.swift */; };
+		A3FEAF812431A46100E3701E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FEAF802431A46100E3701E /* GoogleService-Info.plist */; };
 		C0001C7A825050504B671E9E /* Pods_TypystTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4F04AFEC95A797B13769CE /* Pods_TypystTests.framework */; };
 		C161F92979DC3D45436913DB /* Pods_TypystUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211BF0DA1F0933851D97BF9B /* Pods_TypystUITests.framework */; };
 /* End PBXBuildFile section */
@@ -90,7 +89,6 @@
 		6EF6BB1230A11180AF838642 /* KeyListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyListener.swift; sourceTree = "<group>"; };
 		6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEventExtension.swift; sourceTree = "<group>"; };
 		6EF6BD29463E35387CA4D3A5 /* AnalyticsMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsMenuItem.swift; sourceTree = "<group>"; };
-		6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B4F04AFEC95A797B13769CE /* Pods_TypystTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TypystTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6A1EA2C2D8F29962F3118D /* Pods-Typyst.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst.release.xcconfig"; path = "Target Support Files/Pods-Typyst/Pods-Typyst.release.xcconfig"; sourceTree = "<group>"; };
 		A32E027121ED7AD4000DB25F /* Typyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +105,7 @@
 		A32E02A721EE9DA7000DB25F /* Soundsets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Soundsets; path = Typyst/Soundsets; sourceTree = "<group>"; };
 		A3E37276242DA2D7000C588E /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		A3FEAF7C2431265600E3701E /* KeyAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyAnalytics.swift; path = Typyst/Analytics/KeyAnalytics.swift; sourceTree = SOURCE_ROOT; };
+		A3FEAF802431A46100E3701E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC0FA5177A310E2800BF87A0 /* Pods-TypystTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TypystTests.release.xcconfig"; path = "Target Support Files/Pods-TypystTests/Pods-TypystTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,7 +267,7 @@
 			children = (
 				A32E027B21ED7AD6000DB25F /* Assets.xcassets */,
 				A32E027D21ED7AD6000DB25F /* Main.storyboard */,
-				6EF6BE6A808DC4D5C5830FC6 /* GoogleService-Info.plist */,
+				A3FEAF802431A46100E3701E /* GoogleService-Info.plist */,
 				A32E028021ED7AD6000DB25F /* Info.plist */,
 				A32E028121ED7AD6000DB25F /* Typyst.entitlements */,
 				6EF6B2359B9FA205E0101A5D /* Analytics */,
@@ -384,7 +383,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = wickedPropeller;
 				TargetAttributes = {
 					A32E027021ED7AD4000DB25F = {
@@ -442,9 +441,8 @@
 			files = (
 				A3C92B6023FD15D700D84A6C /* Soundsets in Resources */,
 				A32E027C21ED7AD6000DB25F /* Assets.xcassets in Resources */,
+				A3FEAF812431A46100E3701E /* GoogleService-Info.plist in Resources */,
 				A32E027F21ED7AD6000DB25F /* Main.storyboard in Resources */,
-				A3FEAF7B2431238D00E3701E /* Info.plist in Resources */,
-				6EF6B004B15FB0F0858A1275 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,7 +658,7 @@
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -723,7 +721,7 @@
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -745,20 +743,24 @@
 			baseConfigurationReference = 3322DD0E520F55C17C1B0485 /* Pods-Typyst.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = Typyst/Typyst.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = Typyst/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -770,20 +772,24 @@
 			baseConfigurationReference = 9F6A1EA2C2D8F29962F3118D /* Pods-Typyst.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = Typyst/Typyst.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = Typyst/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

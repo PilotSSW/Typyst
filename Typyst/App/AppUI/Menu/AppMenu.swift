@@ -98,26 +98,11 @@ class AppMenu {
             resetAnalyticsRow.isEnabled = true
             resetAnalyticsRow.tag = 98
             menu.addItem(resetAnalyticsRow)
-            menu.addItem(.separator())
-        }
+            menu.addItem(.separator())        }
 
         AppSettings.shared.onLogUsageAnalyticsChanged({ [weak self] (enabled) in
-            if !enabled {
-                guard let self = self else { return }
-                menu.removeItem(at: 14) // remove separator
-                menu.removeItem(at: 13) // reset analytics
-                menu.removeItem(self.analyticsRow)
-            } else {
-                guard let self = self else { return }
-                menu.items.insert(self.analyticsRow, at: 12)
-                _ = menu.items[12].view
-                let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "/")
-                resetAnalyticsRow.target = self
-                menu.items.insert(resetAnalyticsRow, at: 13)
-                menu.items.insert(.separator(), at: 14)
-                self.analyticsRow.view?.needsDisplay = true
-                self.analyticsRow.view?.displayIfNeeded()
-            }
+            guard let self = self else { return }
+            self.enableAnalyticsItem(enabled, menu: menu)
         })
 
         let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppUI.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
@@ -130,6 +115,7 @@ class AppMenu {
 
         let menuItemQuit = NSMenuItem(title: "Quit Typyst", action: #selector(App.quit(_:)), keyEquivalent: "q")
         menuItemQuit.target = App.instance
+        menuItemQuit.isEnabled = true
         menuItemQuit.tag = 97
         menu.addItem(menuItemQuit)
 
@@ -144,6 +130,23 @@ class AppMenu {
     }
 
     @objc func resetMenuAnalytics() {
-        KeyAnalytics.shared?.reset()
+        KeyAnalytics.shared.reset()
+    }
+
+    @objc func enableAnalyticsItem(_ enabled: Bool, menu: NSMenu) {
+        if !enabled {
+            menu.removeItem(at: 14) // remove separator
+            menu.removeItem(at: 13) // reset analytics
+            menu.removeItem(self.analyticsRow)
+        } else {
+            menu.items.insert(self.analyticsRow, at: 12)
+            _ = menu.items[12].view
+            let resetAnalyticsRow = NSMenuItem(title: "Reset analytics", action: #selector(self.resetMenuAnalytics), keyEquivalent: "/")
+            resetAnalyticsRow.target = self
+            menu.items.insert(resetAnalyticsRow, at: 13)
+            menu.items.insert(.separator(), at: 14)
+            self.analyticsRow.view?.needsDisplay = true
+            self.analyticsRow.view?.displayIfNeeded()
+        }
     }
 }

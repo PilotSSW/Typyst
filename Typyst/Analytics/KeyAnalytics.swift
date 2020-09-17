@@ -15,7 +15,7 @@ enum TimeAmount {
 
 class KeyAnalytics {
     typealias KeyEventByTime = (KeyEvent, Date)
-    public static let shared: KeyAnalytics? = AppSettings.logUsageAnalytics ? KeyAnalytics() : nil
+    public static let shared: KeyAnalytics = KeyAnalytics()
 
     public internal(set) var currentAnalyticsIntervals: [Double] = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(0)
     private let timer: RepeatingTimer
@@ -29,6 +29,7 @@ class KeyAnalytics {
         timer.eventHandler = { [weak self] in
             guard let self = self else { return }
             self.currentAnalyticsIntervals = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(abs(self.analyticsStartTime.timeIntervalSinceNow))
+            self.keypresses.removeAll(where: { abs($0.1.timeIntervalSinceNow) > 86400 })
         }
         timer.resume()
     }
@@ -38,7 +39,9 @@ class KeyAnalytics {
     }
 
     public func logEvent(_ event: KeyEvent) {
-        keypresses.append((event, Date()))
+        if AppSettings.logUsageAnalytics {
+            keypresses.append((event, Date()))
+        }
     }
 
     public func reset() {
@@ -49,7 +52,7 @@ class KeyAnalytics {
         let currentTime = Date()
         let startingTime = Date(timeInterval: -seconds, since: currentTime)
 
-        return keypresses.filter({ $0.1 >= startingTime && $0.0.1 == .keyUp })
+        return keypresses.filter({ $0.1 >= startingTime && $0.0.1 == .keyDown })
     }
 
     public func totalKeypressesInPastSeconds(_ seconds: Double) -> Int {

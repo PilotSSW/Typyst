@@ -106,10 +106,10 @@ class AnalyticsMenuItemViewModel {
     }
 
     func updateItems() {
-        guard let analyticsShared = KeyAnalytics.shared else { return }
+        //guard let analyticsShared = KeyAnalytics.shared else { return }
         analyticsItems.removeAll()
 
-        let seconds = analyticsShared.currentAnalyticsIntervals
+        let seconds = KeyAnalytics.shared.currentAnalyticsIntervals
         for (index, timeAmount) in seconds.enumerated() {
             pushAnalyticsItemForTime(seconds: timeAmount)
             analyticsItemsUpdated?(index)
@@ -117,12 +117,10 @@ class AnalyticsMenuItemViewModel {
     }
 
     func pushAnalyticsItemForTime(seconds: Double) {
-        if let analyticsSingleton = KeyAnalytics.shared {
-            let analyticsItem = AnalyticsItem(amountOfTime: seconds,
-                    totalKeyPresses: analyticsSingleton.totalKeypressesInPastSeconds(seconds),
-                    averageKeyPresses:  analyticsSingleton.averageKeypressesEveryXSecondsForPastSeconds(seconds))
-            analyticsItems.append(analyticsItem)
-        }
+        let analyticsItem = AnalyticsItem(amountOfTime: seconds,
+                totalKeyPresses: KeyAnalytics.shared.totalKeypressesInPastSeconds(seconds),
+                averageKeyPresses: KeyAnalytics.shared.averageKeypressesEveryXSecondsForPastSeconds(seconds))
+        analyticsItems.append(analyticsItem)
     }
 }
 

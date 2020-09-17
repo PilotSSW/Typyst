@@ -61,19 +61,19 @@ class AppUI {
     @objc func loadOlympiaSM3(_ sender: Any?) {
         App.instance.setCurrentTypeWriter(model: Typewriter.Model.Olympia_SM3)
         deselectAllTypewritersInMenu()
-        (sender as? NSMenuItem)?.state =  .on
+        (sender as? NSMenuItem)?.state = .on
     }
 
     @objc func loadRoyalModelP(_ sender: Any?) {
         App.instance.setCurrentTypeWriter(model: Typewriter.Model.Royal_Model_P)
         deselectAllTypewritersInMenu()
-        (sender as? NSMenuItem)?.state =  .on
+        (sender as? NSMenuItem)?.state = .on
     }
 
     @objc func loadSmithCoronaSilent(_ sender: Any?) {
         App.instance.setCurrentTypeWriter(model: Typewriter.Model.Smith_Corona_Silent)
         deselectAllTypewritersInMenu()
-        (sender as? NSMenuItem)?.state =  .on
+        (sender as? NSMenuItem)?.state = .on
     }
 
     @objc private func deselectAllTypewritersInMenu() {

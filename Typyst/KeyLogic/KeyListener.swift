@@ -21,7 +21,7 @@ class KeyListener {
         keyListeners.removeAll()
     }
 
-    static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent?{
+    static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
@@ -50,7 +50,7 @@ class KeyListener {
         for eventType in KeyListener.eventTypes {
             self.keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                if event.timeSinceEvent <= 2.0  { // Don't play sounds that were triggered more than 2 seconds ago.
+                if event.timeSinceEvent <= 0.75  { // Don't play sounds that were triggered more than 2 seconds ago.
                     if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
                         if AppDebugSettings.debugKeypresses {
                             NSLog("Key: \(keyPressed.0) - \(keyPressed.1)")

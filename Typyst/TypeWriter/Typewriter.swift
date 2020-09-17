@@ -37,7 +37,7 @@ class Typewriter {
 
         KeyListener.instance.listenForAllKeyPresses(completion: { [weak self] (keyEvent) in
             self?.assignKeyPresses(for: keyEvent)
-            KeyAnalytics.shared?.logEvent(keyEvent)
+            KeyAnalytics.shared.logEvent(keyEvent)
         })
 
         Sounds.instance.loadSounds(for: model, completion: {
