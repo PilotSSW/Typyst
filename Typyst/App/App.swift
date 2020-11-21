@@ -35,22 +35,7 @@ class App {
         loadTypeWriter()
         ui.setupApplicationUI()
         if !AppDelegate.isAccessibilityAdded() {
-            ui.keyCaptureUnavailableAlert(){ [weak self] modalResponse in
-                guard let self = self else { return }
-                NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
-                self.ui.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { [weak self] (modalBody) in
-                    // Check that the app has permission to listen for key events
-                    let timer = RepeatingTimer(timeInterval: 0.5)
-                    timer.eventHandler = { [weak self, weak timer] in
-                        if AppDelegate.isAccessibilityAdded() {
-                            NSApplication.shared.stopModal()
-                            timer?.suspend()
-                            self?.ui.typystAddedToAccessibility()
-                        }
-                    }
-                    timer.resume()
-                })
-            }
+            askUserToAllowSystemAccessibility()
         }
     }
 
@@ -82,6 +67,32 @@ class App {
     }
     
     func setVolumeTo(_ volume: Double) {
-        Sounds.instance.volume = volume
+        loadedTypewriter?.sounds.volume = volume
+    }
+
+    private func askUserToAllowSystemAccessibility() {
+        ui.keyCaptureUnavailableAlert(){ [weak self] modalResponse in
+            guard let self = self else { return }
+            NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
+            self.ui.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { [weak self] (modalBody) in
+                guard let self = self else { return }
+                // Check that the app has permission to listen for key events
+                self.listenForSystemPrefsAccessibilityAdded()
+            })
+        }
+    }
+
+    private func listenForSystemPrefsAccessibilityAdded() {
+        let timer = RepeatingTimer(timeInterval: 0.5)
+        timer.eventHandler = { [weak self, weak timer] in
+            guard let self = self else { return }
+            if AppDelegate.isAccessibilityAdded() {
+                NSApplication.shared.stopModal()
+                timer?.suspend()
+                timer = nil
+                self.ui.typystAddedToAccessibility()
+            }
+        }
+        timer.resume()
     }
 }

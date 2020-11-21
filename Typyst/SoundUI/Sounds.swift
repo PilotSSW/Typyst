@@ -7,8 +7,7 @@ import Foundation
 import SwiftySound
 
 class Sounds {
-    static let instance = Sounds()
-    private var soundSets = [Sounds.AvailableSoundSets: [Sound]]()
+    private var soundSets = [Sounds.AvailableSoundSets: [Sound]]() 
     var volume: Double {
         get {
             let sounds = soundSets.values.flatMap({ $0 })
@@ -24,8 +23,28 @@ class Sounds {
         }
     }
 
-    private init() {
+    init() {
 
+    }
+
+    private func getSoundSet(location: String, errorHandler: (([SoundError]) -> Void)?) -> [Sound] {
+        var sounds = [Sound]()
+        var soundsNotFound = [SoundError]()
+
+        Bundle.main.urls(forResourcesWithExtension: nil, subdirectory: location)?.forEach({
+            if let keySound = Sound(url: $0) {
+                keySound.prepare()
+                sounds.append(keySound)
+            }
+            else {
+                soundsNotFound.append(SoundError(path: $0.relativePath, kind: .soundNotFound))
+            }
+        })
+
+        if soundsNotFound.count > 0 {
+            errorHandler?(soundsNotFound)
+        }
+        return sounds
     }
 
     func loadSounds(for model: Typewriter.Model, completion: (() -> ())?, errorHandler: (([SoundError]) -> ())?) {
@@ -36,6 +55,10 @@ class Sounds {
             soundSets[key] = result
         })
         completion?()
+    }
+
+    func unloadSounds() {
+        soundSets.removeAll()
     }
 
     func playSound(for soundSet: Sounds.AvailableSoundSets, completion: (() -> ())? = nil) {
@@ -55,26 +78,6 @@ class Sounds {
                 completion?()
             })
         }
-    }
-
-    func getSoundSet(location: String, errorHandler: (([SoundError]) -> Void)?) -> [Sound] {
-        var sounds = [Sound]()
-        var soundsNotFound = [SoundError]()
-
-        Bundle.main.urls(forResourcesWithExtension: nil, subdirectory: location)?.forEach({
-            if let keySound = Sound(url: $0) {
-                keySound.prepare()
-                sounds.append(keySound)
-            }
-            else {
-                soundsNotFound.append(SoundError(path: $0.relativePath, kind: .soundNotFound))
-            }
-        })
-
-        if soundsNotFound.count > 0 {
-            errorHandler?(soundsNotFound)
-        }
-        return sounds
     }
 
     enum AvailableSoundSets: String, CaseIterable {

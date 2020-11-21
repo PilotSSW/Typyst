@@ -50,7 +50,7 @@ class KeyListener {
         for eventType in KeyListener.eventTypes {
             self.keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                if event.timeSinceEvent <= 0.75  { // Don't play sounds that were triggered more than 2 seconds ago.
+                if event.timeSinceEvent <= 0.75  {
                     if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
                         if AppDebugSettings.debugKeypresses {
                             NSLog("Key: \(keyPressed.0) - \(keyPressed.1)")
