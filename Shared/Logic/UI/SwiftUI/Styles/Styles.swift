@@ -19,8 +19,8 @@ struct GradientButtonStyle: ButtonStyle {
             .foregroundColor(textColor)
             .padding()
             .background(LinearGradient(gradient: Gradient(colors: [primaryColor, secondaryColor]),
-                                       startPoint: .leading,
-                                       endPoint: .trailing))
+                                       startPoint: .top,
+                                       endPoint: .bottom))
             .cornerRadius(24.0)
     }
 }

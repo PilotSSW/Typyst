@@ -11,11 +11,11 @@ struct KeyboardView: View, Loggable {
     @StateObject var viewModel: KeyboardViewModel
 
     var body: some View {
-        GeometryReader { viewDimensions in
-            let _ = viewModel.set(viewDimensions)
-            let _ = logEvent(.trace, "Rendering keyboard view")
+        ZStack {
+            GeometryReader { viewDimensions in
+                let _ = viewModel.set(viewDimensions)
+                let _ = logEvent(.trace, "Rendering keyboard view")
 
-            ZStack {
                 RoundedRectangle(cornerRadius: viewDimensions.size.width / 18)
                     .fill(TypeWriterColor.RoyalModelP.background.opacity(0.66))
 
@@ -35,9 +35,12 @@ struct KeyboardView: View, Loggable {
                 }
             }
         }
-        .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
-               minHeight: 75, idealHeight: 250, maxHeight: 450,
+        .frame(maxWidth: .infinity,
+               minHeight: 300, maxHeight: .infinity,
                alignment: .center)
+//            .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
+//                   minHeight: 75, idealHeight: 250, maxHeight: 450,
+//                   alignment: .center)
     }
 }
 

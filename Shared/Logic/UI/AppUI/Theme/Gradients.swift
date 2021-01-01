@@ -13,8 +13,8 @@ class AppGradients {
     public static var cardOutlineGradient: LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [AppColor.cardOutlinePrimary, AppColor.cardOutlineSecondary]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+            startPoint: .top,
+            endPoint: .bottom
         )
     }
 
@@ -27,8 +27,8 @@ class AppGradients {
 
         return LinearGradient(
             gradient: Gradient(colors: colors),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+            startPoint: .top,
+            endPoint: .bottom
         )
     }
 }

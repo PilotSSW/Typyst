@@ -49,11 +49,25 @@ struct TypystApp: App {
         .onChange(of: scenePhase, perform: { phase in
             viewModel.handleScenePhaseChange(phase)
         })
+
 //        .commands {
 //            ReplacementMenuCommands()
 //            MainMenuCommands()
 //        }
+        WindowGroup {
+            ZStack {
+                VisualEffectBlur(material: .underWindowBackground,
+                                 blendingMode: .behindWindow,
+                                 state: .active)
 
+
+            }
+            .background(WindowAccessor(window: $window))
+            .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
+                   minHeight: 300, idealHeight: 1880, maxHeight: 3840)
+        }
+        .windowStyle(HiddenTitleBarWindowStyle())
+        .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
         #elseif os(iOS)
         WindowGroup {
             AppWindowView()

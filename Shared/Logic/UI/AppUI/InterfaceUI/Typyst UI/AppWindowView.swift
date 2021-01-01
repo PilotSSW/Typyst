@@ -12,6 +12,8 @@ struct AppWindowView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var alertsService: AlertsService
 
+    @State var string = ""
+
     var body: some View {
         ZStack(alignment: .top) {
             Rectangle()
@@ -27,6 +29,10 @@ struct AppWindowView: View {
                     .padding(.horizontal, 12)
                     .frame(minHeight: 800)
                     .layoutPriority(2)
+
+                #if os(iOS)
+                TextField("Some Text", text: $string)
+                #endif
 
                 Spacer()
                     .frame(minHeight: 24)
