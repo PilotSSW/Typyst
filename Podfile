@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :macos, '10.13'
+platform :macos, '11.0'
 
 target 'Typyst' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks

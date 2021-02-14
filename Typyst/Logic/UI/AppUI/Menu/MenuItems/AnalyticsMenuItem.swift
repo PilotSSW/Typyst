@@ -106,7 +106,6 @@ class AnalyticsMenuItemViewModel {
     }
 
     func updateItems() {
-        //guard let analyticsShared = KeyAnalytics.shared else { return }
         analyticsItems.removeAll()
 
         let seconds = KeyAnalytics.shared.currentAnalyticsIntervals

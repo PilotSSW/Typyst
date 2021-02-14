@@ -12,10 +12,9 @@ import Foundation
 
 class AppUI {
     let menuBarIcon = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    var menu: NSMenu
+    var menu: NSMenu = NSMenu()
 
     init() {
-        menu = NSMenu()
         menuBarIcon.menu = menu
         menuBarIcon.target = self
     }
@@ -33,13 +32,7 @@ class AppUI {
             button.image?.size.width = 16
         }
 
-        constructMenu()
-    }
-
-    @objc func constructMenu(_ sender: Any? = nil) {
         menu = AppMenu.shared.constructMenu()
-        menuBarIcon.menu = menu
-        menuBarIcon.target = self
     }
 
     @objc func setVolume(slider: NSSlider) {

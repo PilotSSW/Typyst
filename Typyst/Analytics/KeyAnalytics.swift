@@ -44,7 +44,7 @@ class KeyAnalytics {
         }
     }
 
-    public func reset() {
+    @objc public func reset() {
         keypresses.removeAll()
     }
 
