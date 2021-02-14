@@ -50,7 +50,7 @@ class AppPersistence {
                 try context.save()
             } catch {
                 // Customize this code block to include application-specific recovery steps.
-                return App.instance.ui.couldntSaveAppStateAlert(error as NSError, sender as! NSApplication) 
+                return App.instance.ui.alerts.errors.couldntSaveAppStateAlert(error as NSError, sender as! NSApplication)
             }
         }
 

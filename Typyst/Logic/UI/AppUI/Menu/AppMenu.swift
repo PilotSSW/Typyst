@@ -78,12 +78,12 @@ class AppMenu {
 
         menuOptions.forEach({ menu.addItem($0) })
 
-        menu.items.forEach({
-            if ![99, 98, 97].contains($0.tag) {
-                $0.target = App.instance.ui
-                $0.isEnabled = AppDelegate.isAccessibilityAdded()
-            }
-        })
+//        menu.items.forEach({
+//            if ![99, 98, 97].contains($0.tag) {
+//                $0.target = App.instance.ui
+//                $0.isEnabled = AppDelegate.isAccessibilityAdded()
+//            }
+//        })
 
 //        AppSettings.shared.onLogUsageAnalyticsChanged({ [weak self] (enabled) in
 //            guard let self = self else { return }

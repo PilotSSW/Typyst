@@ -51,8 +51,8 @@ class App {
         AppSettings.selectedTypewriter = model.rawValue
         unloadTypewriter()
         loadedTypewriter = Typewriter(model: model, errorHandler: { [weak self] (soundErrors) in
-            guard let strongSelf = self else { return }
-            strongSelf.ui.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
+            guard let self = self else { return }
+            self.ui.alerts.errors.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
         })
     }
 
@@ -71,10 +71,10 @@ class App {
     }
 
     private func askUserToAllowSystemAccessibility() {
-        ui.keyCaptureUnavailableAlert(){ [weak self] modalResponse in
+        ui.alerts.keyboardAccessibility.keyCaptureUnavailableAlert(){ [weak self] modalResponse in
             guard let self = self else { return }
             NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
-            self.ui.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { [weak self] (modalBody) in
+            self.ui.alerts.keyboardAccessibility.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { [weak self] (modalBody) in
                 guard let self = self else { return }
                 // Check that the app has permission to listen for key events
                 self.listenForSystemPrefsAccessibilityAdded()
@@ -90,7 +90,7 @@ class App {
                 NSApplication.shared.stopModal()
                 timer?.suspend()
                 timer = nil
-                self.ui.typystAddedToAccessibility()
+                self.ui.alerts.keyboardAccessibility.typystAddedToAccessibility()
             }
         }
         timer.resume()
