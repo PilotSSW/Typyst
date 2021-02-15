@@ -47,14 +47,14 @@ class Sounds {
         return sounds
     }
 
-    func loadSounds(for model: Typewriter.Model, completion: (() -> ())?, errorHandler: (([SoundError]) -> ())?) {
+    func loadSounds(for model: TypeWriter.Model, completion: ((Sounds) -> ())?, errorHandler: (([SoundError]) -> ())?) {
         // Load KeyUp sounds
         Sounds.AvailableSoundSets.allCases.forEach({
             let key = $0
             let result = getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)", errorHandler: errorHandler)
             soundSets[key] = result
         })
-        completion?()
+        completion?(self)
     }
 
     func unloadSounds() {

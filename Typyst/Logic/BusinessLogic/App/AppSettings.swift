@@ -13,12 +13,22 @@ class AppSettings {
 
     }
 
-    static var selectedTypewriter: String? {
+    static var logErrorsAndCrashes: Bool {
         get {
-            UserDefaults.standard.string(forKey: "selectedTypewriter")
+            UserDefaults.standard.bool(forKey: "logToFirebase")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "selectedTypewriter")
+            UserDefaults.standard.set(newValue, forKey: "logToFirebase")
+        }
+    }
+
+    static var logUsageAnalytics: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "logUsageAnalytics")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "logUsageAnalytics")
+            shared.analyticsUsageChanged.forEach({ $0(newValue) })
         }
     }
 
@@ -40,12 +50,12 @@ class AppSettings {
         }
     }
 
-    static var simulatePaperFeed: Bool {
+    static var selectedTypewriter: String? {
         get {
-            UserDefaults.standard.bool(forKey: "paperFeedEnabled")
+            UserDefaults.standard.string(forKey: "selectedTypewriter")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "paperFeedEnabled")
+            UserDefaults.standard.set(newValue, forKey: "selectedTypewriter")
         }
     }
 
@@ -58,22 +68,21 @@ class AppSettings {
         }
     }
 
-    static var logUsageAnalytics: Bool {
+    static var simulatePaperFeed: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "logUsageAnalytics")
+            UserDefaults.standard.bool(forKey: "paperFeedEnabled")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "logUsageAnalytics")
-            shared.analyticsUsageChanged.forEach({ $0(newValue) })
+            UserDefaults.standard.set(newValue, forKey: "paperFeedEnabled")
         }
     }
 
-    static var logErrorsAndCrashes: Bool {
+    static var volumeSetting: Double {
         get {
-            UserDefaults.standard.bool(forKey: "logToFirebase")
+            UserDefaults.standard.double(forKey: "mainVolumeValue")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "logToFirebase")
+            UserDefaults.standard.set(newValue, forKey: "mainVolumeValue")
         }
     }
 

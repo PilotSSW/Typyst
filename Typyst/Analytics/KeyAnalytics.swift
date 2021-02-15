@@ -21,15 +21,15 @@ class KeyAnalytics {
     private let timer: RepeatingTimer
     private var analyticsStartTime: Date
 
-    private var keypresses: [KeyEventByTime] = []
+    private var keyPresses: [KeyEventByTime] = []
 
     private init() {
-        self.timer = RepeatingTimer(timeInterval: 60)
         analyticsStartTime = Date()
+        timer = RepeatingTimer(timeInterval: 60)
         timer.eventHandler = { [weak self] in
             guard let self = self else { return }
             self.currentAnalyticsIntervals = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(abs(self.analyticsStartTime.timeIntervalSinceNow))
-            self.keypresses.removeAll(where: { abs($0.1.timeIntervalSinceNow) > 86400 })
+            self.keyPresses.removeAll(where: { abs($0.1.timeIntervalSinceNow) > 86400 })
         }
         timer.resume()
     }
@@ -40,19 +40,19 @@ class KeyAnalytics {
 
     public func logEvent(_ event: KeyEvent) {
         if AppSettings.logUsageAnalytics {
-            keypresses.append((event, Date()))
+            keyPresses.append((event, Date()))
         }
     }
 
     @objc public func reset() {
-        keypresses.removeAll()
+        keyPresses.removeAll()
     }
 
     public func keypressesInPast(_ seconds: Double) -> [KeyEventByTime] {
         let currentTime = Date()
         let startingTime = Date(timeInterval: -seconds, since: currentTime)
 
-        return keypresses.filter({ $0.1 >= startingTime && $0.0.1 == .keyDown })
+        return keyPresses.filter({ $0.1 >= startingTime && $0.0.direction == .keyDown })
     }
 
     public func totalKeypressesInPastSeconds(_ seconds: Double) -> Int {

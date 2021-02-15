@@ -7,8 +7,8 @@ import AppKit
 import Cocoa
 import Foundation
 
-class AnalyticsMenuItemView {
-    let viewModel = AnalyticsMenuItemViewModel()
+class AnalyticsInfoView {
+    let viewModel = AnalyticsInfoViewModel()
     let view = NSStackView(frame: CGRect(x: 0, y: 0, width: 500, height: 350))
 
     init() {
@@ -81,8 +81,8 @@ class AnalyticsMenuItemView {
     }
 }
 
-class AnalyticsMenuItemViewModel {
-    var analyticsItems = [AnalyticsItem]()
+class AnalyticsInfoViewModel {
+    var analyticsItems = [AnalyticsInfo]()
     var analyticsItemsUpdated: ((Int) -> Void)? = nil
 
     let timer = RepeatingTimer(timeInterval: 0.5)
@@ -116,14 +116,14 @@ class AnalyticsMenuItemViewModel {
     }
 
     func pushAnalyticsItemForTime(seconds: Double) {
-        let analyticsItem = AnalyticsItem(amountOfTime: seconds,
+        let analyticsItem = AnalyticsInfo(amountOfTime: seconds,
                 totalKeyPresses: KeyAnalytics.shared.totalKeypressesInPastSeconds(seconds),
                 averageKeyPresses: KeyAnalytics.shared.averageKeypressesEveryXSecondsForPastSeconds(seconds))
         analyticsItems.append(analyticsItem)
     }
 }
 
-struct AnalyticsItem {
+struct AnalyticsInfo {
     let amountOfTime: Double
     let totalKeyPresses: Int
     let averageKeyPresses: Double

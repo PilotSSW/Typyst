@@ -6,7 +6,7 @@
 import Foundation
 import HotKey
 
-typealias KeyEvent = (Key, NSEvent.EventType)
+
 class KeyListener {
     static let instance = KeyListener()
     static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
@@ -25,7 +25,7 @@ class KeyListener {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
-            return (keyPressed, event.type)
+            return KeyEvent(keyPressed, event.type)
         }
         
         return nil
@@ -34,7 +34,7 @@ class KeyListener {
     // Listen for key presses in Typyst
     func listenForLocalKeyPresses(completion: ((KeyEvent) -> ())?) {
         for eventType in KeyListener.eventTypes {
-            self.keyListeners.append(
+            keyListeners.append(
             NSEvent.addLocalMonitorForEvents(matching: eventType) { (event) -> NSEvent in
                 if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
                     completion?(keyPressed)
@@ -48,12 +48,12 @@ class KeyListener {
     // Listen for key presses in other apps
     func listenForGlobalKeyPresses(completion: ((KeyEvent) -> ())?) {
         for eventType in KeyListener.eventTypes {
-            self.keyListeners.append(
+            keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
                 if event.timeSinceEvent <= 0.75  {
                     if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
                         if AppDebugSettings.debugKeypresses {
-                            NSLog("Key: \(keyPressed.0) - \(keyPressed.1)")
+                            NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
                         }
                         completion?(keyPressed)
                     }
@@ -63,7 +63,7 @@ class KeyListener {
         }
     }
 
-    func listenForAllKeyPresses(completion: (((Key, NSEvent.EventType)) -> ())?) {
+    func listenForAllKeyPresses(completion: ((KeyEvent) -> ())?) {
         listenForLocalKeyPresses(completion: completion)
         listenForGlobalKeyPresses(completion: completion)
     }
