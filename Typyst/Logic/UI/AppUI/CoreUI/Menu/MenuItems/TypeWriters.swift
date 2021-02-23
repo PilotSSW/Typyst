@@ -18,29 +18,35 @@ class MenuItemsTypeWriters {
         NSMenuItem.separator()
     ]}
 
-    private var sectionHeader: NSMenuItem = {
+    private lazy var sectionHeader: NSMenuItem = {
         let section = NSMenuItem(title: "Choose a TypeWriter", action: nil, keyEquivalent: "")
         section.isEnabled = false
         section.tag = 2
         return section
     }()
 
-    private var coronaSilent: NSMenuItem {
+    private lazy var coronaSilent: NSMenuItem = {
         let coronaSilentRow = NSMenuItem(title: "Smith Corona Silent", action: #selector(AppMenu.loadSmithCoronaSilent(_:)), keyEquivalent: "S")
         coronaSilentRow.state = App.instance.core.loadedTypewriter?.model == .Smith_Corona_Silent ? .on : .off
         return coronaSilentRow
-    }
+    }()
 
-    private var olympiaSM3: NSMenuItem {
+    private lazy var olympiaSM3: NSMenuItem = {
         let olympiaRow = NSMenuItem(title: "Olympia SM3", action: #selector(AppMenu.loadOlympiaSM3(_:)), keyEquivalent: "O")
         olympiaRow.state = App.instance.core.loadedTypewriter?.model == .Olympia_SM3 ? .on : .off
         return olympiaRow
-    }
+    }()
 
-    private var royalModelP: NSMenuItem {
+    private lazy var royalModelP: NSMenuItem = {
         let royalModelPRow = NSMenuItem(title: "Royal Model P", action: #selector(AppMenu.loadRoyalModelP(_:)), keyEquivalent: "P")
         royalModelPRow.state = App.instance.core.loadedTypewriter?.model == .Royal_Model_P ? .on : .off
         return royalModelPRow
+    }()
+
+    func getItems() {
+        var royalItem = royalModelP
+
+        print(royalModelP)
     }
 }
 

@@ -36,7 +36,6 @@
 		6EF6BBB466B54B4B1E1A5E4D /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B36234D56CBA9D7D6FC0 /* TypeWriter.swift */; };
 		6EF6BBEE457E9F38B3926A06 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B38665A653B2213CCC13 /* SoundError.swift */; };
 		6EF6BD3F95123D40A461C9C4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B566D0D0210CAB5A4862 /* App.swift */; };
-		6EF6BD667B3D51742E16BBA6 /* AppMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BB290870631643FA1880 /* AppMenuBar.swift */; };
 		6EF6BD90D1FB9363A880C30E /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B9E74515C9B0AA388E23 /* TypeWriterState.swift */; };
 		6EF6BE15A4240765FB58D5D3 /* VolumeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B4B95C3B08E8A83C6E54 /* VolumeSettings.swift */; };
 		6EF6BE453456672AC26A2B55 /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BB8590160BBC307F576F /* AppUI.swift */; };
@@ -114,7 +113,6 @@
 		6EF6BAEA5C9768B041254501 /* AnalyticsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsInfo.swift; sourceTree = "<group>"; };
 		6EF6BAEE227912C1ADA5F03B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6EF6BB1230A11180AF838642 /* KeyListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyListener.swift; sourceTree = "<group>"; };
-		6EF6BB290870631643FA1880 /* AppMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMenuBar.swift; sourceTree = "<group>"; };
 		6EF6BB8590160BBC307F576F /* AppUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUI.swift; sourceTree = "<group>"; };
 		6EF6BBC1AA3FE42FDF845CED /* TypeWriterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterSettings.swift; sourceTree = "<group>"; };
 		6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEventExtension.swift; sourceTree = "<group>"; };
@@ -253,10 +251,10 @@
 			children = (
 				6EF6B1A9A6DE5E4F1DF34DD8 /* AnalyticsSettings.swift */,
 				6EF6B96AF3CFC1E06FE8E49A /* AppSettingsMenuItems.swift */,
+				6EF6BA6605B457790F399538 /* CoreMenuItems.swift */,
 				6EF6BE1B7FFF5E36DACCAF4A /* TypeWriters.swift */,
 				6EF6BBC1AA3FE42FDF845CED /* TypeWriterSettings.swift */,
 				6EF6B4B95C3B08E8A83C6E54 /* VolumeSettings.swift */,
-				6EF6BA6605B457790F399538 /* CoreMenuItems.swift */,
 			);
 			path = MenuItems;
 			sourceTree = "<group>";
@@ -292,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				6EF6B0E2AEA1C73556F648D5 /* AppMenu.swift */,
-				6EF6BB290870631643FA1880 /* AppMenuBar.swift */,
 				6EF6B54D0840573DDE9C8B50 /* MenuItems */,
 			);
 			path = Menu;
@@ -705,7 +702,6 @@
 				6EF6B8817C44530F59E75272 /* AppSettingsMenuItems.swift in Sources */,
 				6EF6BE15A4240765FB58D5D3 /* VolumeSettings.swift in Sources */,
 				6EF6B69042E8A8BDE66F81BC /* AnalyticsSettings.swift in Sources */,
-				6EF6BD667B3D51742E16BBA6 /* AppMenuBar.swift in Sources */,
 				6EF6BB542F18D78A4E4ED489 /* CoreMenuItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

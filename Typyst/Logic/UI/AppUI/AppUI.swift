@@ -13,7 +13,6 @@ import Foundation
 class AppUI {
     var alerts = Alerts()
     var appMenu: AppMenu?
-    var appMenuBar: AppMenuBar?
 
     init() {
 
@@ -22,9 +21,6 @@ class AppUI {
     func setup() {
         appMenu = AppMenu()
         appMenu?.constructMenu()
-        if let menu = appMenu?.menu {
-            NSApp.mainMenu = menu
-            appMenuBar = AppMenuBar(menu: menu)
-        }
+        appMenu?.attachToOSMenuBar()
     }
 }

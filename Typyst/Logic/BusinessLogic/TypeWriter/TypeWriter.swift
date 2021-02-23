@@ -39,5 +39,6 @@ class TypeWriter {
 
     deinit {
         sounds.playSound(for: .LidDown)
+        sounds.unloadSounds()
     }
 }

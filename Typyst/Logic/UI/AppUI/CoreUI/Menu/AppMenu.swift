@@ -8,7 +8,6 @@ import Cocoa
 import AppKit
 import SwiftUI
 
-
 class AppMenu {
     let analyticsMenuItems = MenuItemsAnalyticsItems()
     let appMenuItems = MenuItemsAppSettings()
@@ -17,16 +16,22 @@ class AppMenu {
     let typeWriterSettingsMenuItems = MenuItemsTypeWriterSettings()
     let volumeMenuItems = MenuItemsVolumeSettings()
 
-    let menu = NSMenu()
+    let menu: NSMenu = NSMenu()
+    let statusBarIcon = NSStatusBar.system.statusItem(withLength: 18)
 
     init() {
         menu.title = "Typyst"
         menu.autoenablesItems = true
         menu.allowsContextMenuPlugIns = true
         menu.showsStateColumn = true
+
+//        AppSettings.shared.onLogUsageAnalyticsChanged({ [weak self] (enabled) in
+//            guard let self = self else { return }
+//            self.enableAnalyticsItem(enabled, menu: menu)
+//        })
     }
 
-    func constructMenu() -> NSMenu {
+    func constructMenu() {
         let menuOptions: [NSMenuItem] = getMenuItems()
         menuOptions.forEach({
             // Case: Items that should never be disabled / have their isEnabled changed
@@ -39,13 +44,16 @@ class AppMenu {
             }
             menu.addItem($0)
         })
-        menu.autoenablesItems = true
-//        AppSettings.shared.onLogUsageAnalyticsChanged({ [weak self] (enabled) in
-//            guard let self = self else { return }
-//            self.enableAnalyticsItem(enabled, menu: menu)
-//        })
+    }
 
-        return menu
+    func attachToOSMenuBar() {
+        statusBarIcon.menu = menu
+
+        if let button = statusBarIcon.button {
+            button.image = NSImage(named: "AppIcon")
+            button.image?.size = NSSize(width: 16.0, height: 16.0)
+            button.image?.isTemplate = false
+        }
     }
 
     func getMenuItems() -> [NSMenuItem] {
