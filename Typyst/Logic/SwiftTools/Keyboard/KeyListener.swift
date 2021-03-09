@@ -50,13 +50,13 @@ class KeyListener {
         for eventType in KeyListener.eventTypes {
             keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                if event.timeSinceEvent <= 0.75  {
-                    if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
-                        if AppDebugSettings.debugKeypresses {
-                            NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
-                        }
-                        completion?(keyPressed)
+                if event.timeSinceEvent <= 0.75,
+                   let keyPressed = KeyListener.determineKeyPressedFrom(event) {
+                    let debugSettings = AppDebugSettings.shared
+                    if debugSettings.debugKeypresses && debugSettings.debugKeypresses {
+                        NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
                     }
+                    completion?(keyPressed)
                 }
 
             } as Any)

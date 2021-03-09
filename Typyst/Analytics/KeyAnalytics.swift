@@ -39,7 +39,7 @@ class KeyAnalytics {
     }
 
     public func logEvent(_ event: KeyEvent) {
-        if AppSettings.logUsageAnalytics {
+        if AppSettings.shared.logUsageAnalytics {
             keyPresses.append((event, Date()))
         }
     }

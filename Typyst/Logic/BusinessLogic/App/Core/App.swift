@@ -28,7 +28,7 @@ class App {
 
     func setup() {
         #if DEBUG
-        AppDebugSettings.debugGlobal = true
+        AppDebugSettings.shared.debugGlobal = true
         #endif
 
         core.setup()

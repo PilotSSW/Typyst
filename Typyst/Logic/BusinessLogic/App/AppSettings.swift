@@ -3,87 +3,84 @@
 // Copyright (c) 2020 wickedPropeller. All rights reserved.
 //
 
+import Combine
 import Foundation
+import SwiftUI
 
-class AppSettings {
+@dynamicMemberLookup
+class AppSettings: ObservableObject {
+    enum Keys {
+        static let logToFirebase = "logToFirebase"
+        static let logUsageAnalytics = "logUsageAnalytics"
+        static let mainVolumeValue = "mainVolumeValue"
+        static let paperFeed = "paperFeedEnabled"
+        static let paperReturn = "paperReturnEnabled"
+        static let runAsMenubarApp = "runAsMenuBarApp"
+        static let selectedTypewriter = "selectedTypewriter"
+        static let showMainWindow = "showMainWindow"
+        static let showModalNotifications = "showModalNotifications"
+    }
+
     public static let shared = AppSettings()
-    private var analyticsUsageChanged = [((Bool) -> Void)]()
+    fileprivate private(set) var analyticsUsageChanged = [((Bool) -> Void)]()
 
     private init() {
 
     }
 
-    static var logErrorsAndCrashes: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "logToFirebase")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "logToFirebase")
-        }
-    }
-
-    static var logUsageAnalytics: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "logUsageAnalytics")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "logUsageAnalytics")
-            shared.analyticsUsageChanged.forEach({ $0(newValue) })
+    subscript(dynamicMember member: String) -> Any? {
+        switch member {
+        case Keys.logToFirebase: return logErrorsAndCrashes
+        case Keys.logUsageAnalytics: return logUsageAnalytics
+        case Keys.mainVolumeValue: return volumeSetting
+        case Keys.paperFeed: return paperFeedEnabled
+        case Keys.paperReturn: return paperReturnEnabled
+        case Keys.runAsMenubarApp: return runAsMenubarApp
+        case Keys.selectedTypewriter: return selectedTypewriter
+        case Keys.showMainWindow: return showMainWindow
+        case Keys.showModalNotifications: return showModalNotifications
+        default:
+            return nil
         }
     }
 
-    static var paperFeedEnabled: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "paperFeedEnabled")
-        }
-        set{
-            UserDefaults.standard.set(newValue, forKey: "paperFeedEnabled")
+    @Published var logErrorsAndCrashes: Bool = UserDefaults.standard.bool(forKey: Keys.logToFirebase) {
+        didSet { UserDefaults.standard.set(logErrorsAndCrashes, forKey: Keys.logToFirebase) }
+    }
+
+    @Published var logUsageAnalytics: Bool = UserDefaults.standard.bool(forKey: Keys.logUsageAnalytics) {
+        didSet {
+            UserDefaults.standard.set(logUsageAnalytics, forKey: Keys.logUsageAnalytics)
+            AppSettings.shared.analyticsUsageChanged.forEach({ $0(logUsageAnalytics) })
         }
     }
 
-    static var paperReturnEnabled: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "paperReturnEnabled")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "paperReturnEnabled")
-        }
+    @Published var paperFeedEnabled: Bool = UserDefaults.standard.bool(forKey: Keys.paperFeed) {
+        didSet { UserDefaults.standard.set(paperFeedEnabled, forKey: Keys.paperFeed) }
     }
 
-    static var selectedTypewriter: String? {
-        get {
-            UserDefaults.standard.string(forKey: "selectedTypewriter")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "selectedTypewriter")
-        }
+    @Published var paperReturnEnabled: Bool = UserDefaults.standard.bool(forKey: Keys.paperReturn) {
+        didSet { UserDefaults.standard.set(paperReturnEnabled, forKey: Keys.paperReturn) }
     }
 
-    static var showModalNotifications: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "showModalNotifications")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "showModalNotifications")
-        }
+    @Published var runAsMenubarApp: Bool = UserDefaults.standard.bool(forKey: Keys.runAsMenubarApp) {
+        didSet { UserDefaults.standard.set(runAsMenubarApp, forKey: Keys.runAsMenubarApp) }
     }
 
-    static var simulatePaperFeed: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "paperFeedEnabled")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "paperFeedEnabled")
-        }
+    @Published var selectedTypewriter: String? = UserDefaults.standard.string(forKey: Keys.selectedTypewriter) {
+        didSet { UserDefaults.standard.set(selectedTypewriter, forKey: Keys.selectedTypewriter) }
     }
 
-    static var volumeSetting: Double {
-        get {
-            UserDefaults.standard.double(forKey: "mainVolumeValue")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "mainVolumeValue")
-        }
+    @Published var showMainWindow: Bool = UserDefaults.standard.bool(forKey: Keys.showMainWindow) {
+        didSet { UserDefaults.standard.set(showMainWindow, forKey: Keys.showMainWindow) }
+    }
+
+    @Published var showModalNotifications: Bool = UserDefaults.standard.bool(forKey: Keys.showModalNotifications) {
+        didSet { UserDefaults.standard.set(showModalNotifications, forKey: Keys.showModalNotifications) }
+    }
+
+    @Published var volumeSetting: Double = UserDefaults.standard.double(forKey: Keys.mainVolumeValue) {
+        didSet { UserDefaults.standard.set(volumeSetting, forKey: Keys.mainVolumeValue) }
     }
 
     func onLogUsageAnalyticsChanged(_ event: @escaping ((Bool) -> Void)) {
@@ -99,22 +96,32 @@ class AppSettings {
     }
 }
 
-class AppDebugSettings {
-    static var debugGlobal: Bool {
-        get {
-            UserDefaults.standard.bool(forKey: "debugGlobal")
-        }
-        set{
-            UserDefaults.standard.set(newValue, forKey: "debugGlobal")
-        }
+@dynamicMemberLookup
+class AppDebugSettings: ObservableObject {
+    enum Keys {
+        static let debugGlobal = "debugGlobal"
+        static let debugKeypresses = "debugKeypresses"
+    }
+    public static let shared = AppDebugSettings()
+
+    private init() {
+
     }
 
-    static var debugKeypresses: Bool {
-        get {
-            debugGlobal && UserDefaults.standard.bool(forKey: "debugKeypresses")
-        }
-        set{
-            UserDefaults.standard.set(newValue, forKey: "debugKeypresses")
+    @Published var debugGlobal: Bool = UserDefaults.standard.bool(forKey: Keys.debugGlobal) {
+        didSet { UserDefaults.standard.set(debugGlobal, forKey: Keys.debugGlobal) }
+    }
+
+    @Published var debugKeypresses: Bool = UserDefaults.standard.bool(forKey: Keys.debugKeypresses) {
+        didSet { UserDefaults.standard.set(debugKeypresses, forKey: Keys.debugKeypresses) }
+    }
+
+    subscript(dynamicMember member: String) -> Any? {
+        switch member {
+        case Keys.debugGlobal: return debugGlobal
+        case Keys.debugKeypresses: return debugKeypresses
+        default:
+            return nil
         }
     }
 }

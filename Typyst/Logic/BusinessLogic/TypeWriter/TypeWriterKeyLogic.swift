@@ -73,7 +73,7 @@ class TypeWriterKeyLogic {
     func handleEnter(for keyPressed: KeyEvent, sounds: Sounds) {
         if state.isLineIndexIsOnLastLine {
             state.resetLineIndex()
-            if AppSettings.paperFeedEnabled {
+            if AppSettings.shared.paperFeedEnabled {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak sounds] in
                     guard let sounds = sounds else { return }
                     sounds.playSound(for: .PaperLoad, completion: { [weak sounds] in
@@ -115,7 +115,7 @@ class TypeWriterKeyLogic {
             state.resetCursorIndex()
             state.newLine()
 
-            if AppSettings.paperReturnEnabled {
+            if AppSettings.shared.paperReturnEnabled {
                 sounds.playSound(for: .Bell, completion: { [weak sounds] in
                     guard let sounds = sounds else { return }
                     sounds.playSound(from: [

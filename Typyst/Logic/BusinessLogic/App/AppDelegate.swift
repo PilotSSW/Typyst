@@ -20,11 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
 
-        if AppSettings.logErrorsAndCrashes {
+        if AppSettings.shared.logErrorsAndCrashes {
             FirebaseApp.configure()
         }
-        
-        NSApp.setActivationPolicy(.accessory)
+
+        AppDelegate.runAsMenubarApp(AppSettings.shared.runAsMenubarApp)
 
         App.instance.setup()
     }
@@ -46,6 +46,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension AppDelegate {
+    static func runAsMenubarApp(_ bool: Bool) {
+        NSApp.setActivationPolicy(bool ? .accessory : .regular)
+    }
+
     static func isAccessibilityAdded() -> Bool {
         // Ensure key capture events are available or alert user
         let opts = NSDictionary(object: kCFBooleanTrue as Any,

@@ -9,7 +9,7 @@ import Foundation
 
 class UserInfoAlerts {
     @objc func typeWriterSoundsLoadedAlert(_ soundSets: [String]) {
-        if AppSettings.showModalNotifications {
+        if AppSettings.shared.showModalNotifications {
             let alert = NSAlert()
             alert.messageText = "Loaded sounds"
 
