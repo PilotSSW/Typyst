@@ -4,10 +4,10 @@
 //
 
 import AppKit
+import Combine
 import Foundation
 
 class MenuItemsVolumeSettings {
-
     var items: [NSMenuItem] {[
         sectionHeader,
         volumeSlider,
@@ -31,6 +31,10 @@ class MenuItemsVolumeSettings {
         slider.target = self
         slider.doubleValue = AppSettings.shared.volumeSetting
         slider.isEnabled = AppDelegate.isAccessibilityAdded()
+
+        AppSettings.shared.$volumeSetting
+            .sink { slider.doubleValue = $0 }
+            .store(in: &App.instance.subscriptions)
 
         return slider
     }()

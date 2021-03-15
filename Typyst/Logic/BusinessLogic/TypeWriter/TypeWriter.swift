@@ -12,7 +12,7 @@ import HotKey
 import SwiftUI
 import SwiftySound
 
-class TypeWriter: ObservableObject {
+class TypeWriter {
     enum Model: String, CaseIterable {
         case Olympia_SM3 = "Olympia_SM3"
         case Royal_Model_P = "Royal_Model_P"

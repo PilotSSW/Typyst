@@ -26,18 +26,27 @@ class MenuItemsAppSettings {
     lazy var modalNotifications: NSMenuItem = {
         let menuItemMN = NSMenuItem(title: "Show modal notifications", action: #selector(AppMenu.setShowModalNotifications(_:)), keyEquivalent: "3")
         menuItemMN.state = AppSettings.shared.showModalNotifications ? .on : .off
+        AppSettings.shared.$showModalNotifications
+            .sink { menuItemMN.state = $0 ? .on : .off }
+            .store(in: &App.instance.subscriptions)
         return menuItemMN
     }()
 
     lazy var reportErrors: NSMenuItem = {
         let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppMenu.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
         menuItemFirebase.state = AppSettings.shared.logUsageAnalytics ? .on : .off
+        AppSettings.shared.$logErrorsAndCrashes
+            .sink { menuItemFirebase.state = $0 ? .on : .off }
+            .store(in: &App.instance.subscriptions)
         return menuItemFirebase
     }()
 
     lazy var showMainWindow: NSMenuItem = {
         let menuItemMainWindow = NSMenuItem(title: "Show main window", action: #selector(AppMenu.showMainWindow(_:)), keyEquivalent: "1")
         menuItemMainWindow.state = AppSettings.shared.showMainWindow ? .on : .off
+        AppSettings.shared.$showMainWindow
+            .sink { menuItemMainWindow.state = $0 ? .on : .off }
+            .store(in: &App.instance.subscriptions)
         return menuItemMainWindow
     }()
 }

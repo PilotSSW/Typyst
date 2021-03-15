@@ -29,12 +29,18 @@ class MenuItemsTypeWriterSettings {
         let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: nil, keyEquivalent: "1")
         menuItemPR.state = AppSettings.shared.paperReturnEnabled ? .on : .off
         menuItemPR.action = #selector(AppMenu.setPaperReturnEnabled(_:))
+        AppSettings.shared.$paperReturnEnabled
+            .sink { menuItemPR.state = $0 ? .on : .off }
+            .store(in: &App.instance.subscriptions)
         return menuItemPR
     }()
 
     lazy var paperFeed: NSMenuItem = {
         let menuItemPF = NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppMenu.setPaperFeedEnabled(_:)), keyEquivalent: "2")
         menuItemPF.state = AppSettings.shared.paperFeedEnabled ? .on : .off
+        AppSettings.shared.$paperFeedEnabled
+            .sink { menuItemPF.state = $0 ? .on : .off }
+            .store(in: &App.instance.subscriptions)
         return menuItemPF
     }()
 }

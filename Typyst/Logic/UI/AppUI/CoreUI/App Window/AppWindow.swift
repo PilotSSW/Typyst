@@ -12,25 +12,54 @@ class AppWindow {
     var controller: NSWindowController
 
     init() {
+        // Create the window and set the content view.
+        mainWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 0, height: 0),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered,
+            defer: false)
+//        let mainContentView = NSView(frame: NSRect(origin: .zero,
+//                                               size: CGSize(width: 400,
+//                                                            height: 400)))
+//        mainContentView.widthAnchor.constraint(equalToConstant: 500).isActive = true
+//        mainContentView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+//        mainWindow.contentView = mainContentView
+
+        // Setup blur background
+//        let visualEffect = NSVisualEffectView()
+//        visualEffect.blendingMode = .behindWindow
+//        visualEffect.state = .active
+//        visualEffect.material = .underWindowBackground
+////        mainWindow.contentView?.addSubview(visualEffect)
+//        mainWindow.contentView = visualEffect
+
+        mainWindow.titlebarAppearsTransparent = true
+        mainWindow.styleMask.insert(.fullSizeContentView)
+
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = MainView()
             .environment(\.managedObjectContext,
                          App.instance.persistence.persistentContainer.viewContext)
+        let mainView = NSHostingView(rootView: contentView)
+        mainWindow.contentView = mainView
+//        mainWindow.contentView?.addSubview(mainView)
+//        mainContentView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
+//        mainContentView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor).isActive = true
+//        mainContentView.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
+//        mainContentView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
 
-        // Create the window and set the content view.
-        mainWindow = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 0, height: 0),
-                styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-                backing: .buffered,
-                defer: false)
-        mainWindow.center()
+        // Set properties
+        //mainWindow.center()
+        mainWindow.isMovableByWindowBackground = true
         mainWindow.setFrameAutosaveName("Main Window")
-        mainWindow.contentView = NSHostingView(rootView: contentView)
+
+        // Setup translucency
         mainWindow.isOpaque = false
         mainWindow.backgroundColor = NSColor.clear.shadow(withLevel: 0.25)
-        mainWindow.makeKeyAndOrderFront(nil)
 
+        // Fire it up!
+        mainWindow.makeKeyAndOrderFront(nil)
         controller = NSWindowController(window: mainWindow)
     }
 
@@ -40,34 +69,5 @@ class AppWindow {
 
     func closeWindow() {
         controller.close()
-    }
-}
-
-struct MainView: View {
-
-    @ViewBuilder
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.white.opacity(0.33))
-                .blendMode(.exclusion)
-                .blur(radius: 24, opaque: false)
-
-            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
-                VStack(alignment: .center) {
-                    Spacer(minLength: 6)
-                    TypeWriterMenu(options: TypeWriterMenuOptions.typeWriters)
-                        .shadow(color: AppColor.objectShadow, radius: 3)
-                    Spacer(minLength: 24)
-                    SettingsMenu()
-                        .shadow(color: AppColor.objectShadow, radius: 3)
-                    Spacer(minLength: 6)
-                }
-            })
-            .animation(.easeInOut)
-        }
-        .frame(minWidth: 320, idealWidth: 400, maxWidth: 1920,
-               minHeight: 240, idealHeight: 800, maxHeight: 3840,
-               alignment: .center)
     }
 }

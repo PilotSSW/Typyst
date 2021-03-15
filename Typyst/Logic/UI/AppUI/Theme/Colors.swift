@@ -8,29 +8,35 @@ import SwiftUI
 
 class AppColor {
     /**
-     * TypeWriter Menu
+     * Backgrounds
      */
-    public static var typeWriterMenuBackground: Color {
-        Color("MenuBackground")
+
+    public static var primaryBackground: Color {
+        Color("Backgrounds/Primary")
+    }
+
+    public static var secondaryBackground: Color {
+        Color("Backgrounds/Secondary")
+    }
+
+    public static var tertiaryBackground: Color {
+        Color("Backgrounds/Tertiary")
     }
 
     /**
-     * TypeWriter Menu Card
+     * Objects
      */
-    public static var selectedHeaderBackground: Color {
-        Color("TypeWriterCard/SelectedHeaderBackground")
-    }
 
-    public static var typeWriterCardBodyBackground: Color {
-        Color("TypeWriterCard/BodyBackground")
+    public static var selectedHeaderBackground: Color {
+        Color("Objects/SelectedHeaderBackground")
     }
 
     public static var typeWriterCardHeaderBackground: Color {
-        Color("TypeWriterCard/HeaderBackground")
+        Color("Objects/HeaderBackground")
     }
 
-    public static var typeWriterCardImageBackground: Color {
-        Color("TypeWriterCard/ImageBackground")
+    public static var ImageBackground: Color {
+        Color("Objects/ImageBackground")
     }
 
     /**
@@ -51,7 +57,22 @@ class AppColor {
         Color("Text/Body")
     }
 
+    public static var textBodyLight: Color {
+        Color("Text/BodyLight")
+    }
+
     public static var textHeader: Color {
         Color("Text/Header")
+    }
+
+    /**
+     * UI Elements
+     */
+     public static var buttonPrimary: Color {
+         Color("ButtonPrimary")
+     }
+
+    public static var buttonSecondary: Color {
+        Color("ButtonSecondary")
     }
 }

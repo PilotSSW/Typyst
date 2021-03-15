@@ -33,8 +33,9 @@ class MenuItemsCore {
 
     lazy var quitApp: NSMenuItem = {
         let menuItemQuit = NSMenuItem(title: "Quit Typyst", action: #selector(App.quit(_:)), keyEquivalent: "q")
+        menuItemQuit.target = App.instance
         menuItemQuit.isEnabled = true
-        menuItemQuit.tag = 1
+        menuItemQuit.tag = 2
 
         return menuItemQuit
     }()
@@ -43,10 +44,6 @@ class MenuItemsCore {
 // Core Menu Items
 extension AppMenu {
     @objc func openEmailClient(_ sender: Any?) {
-        let service = NSSharingService(named: NSSharingService.Name.composeEmail)
-        service?.recipients = ["pilotssw@gmail.com"]
-        service?.subject = "Oh no! Something in Typyst isn't working correctly"
-        service?.perform(withItems: ["Test Mail body"])
-        NSWorkspace.shared.launchApplication("Mail")
+        App.instance.emailSupport()
     }
 }

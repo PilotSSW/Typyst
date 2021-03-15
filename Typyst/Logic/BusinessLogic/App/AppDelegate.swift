@@ -18,13 +18,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection10.bundle")?.load()
         #endif
 
-        UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
+//        UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
 
         if AppSettings.shared.logErrorsAndCrashes {
             FirebaseApp.configure()
         }
-
-        AppDelegate.runAsMenubarApp(AppSettings.shared.runAsMenubarApp)
 
         App.instance.setup()
     }

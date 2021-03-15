@@ -8,8 +8,8 @@ target 'Typyst' do
   # Pods for Typyst
   pod 'HotKey'
   pod 'SwiftySound'
-  pod 'FirebaseCore'
-  pod 'Firebase/Crashlytics'
+#  pod 'FirebaseCore'
+#  pod 'Firebase/Crashlytics'
 
   target 'TypystTests' do
     inherit! :search_paths
