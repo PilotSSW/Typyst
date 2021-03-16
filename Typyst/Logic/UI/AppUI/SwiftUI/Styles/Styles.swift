@@ -20,6 +20,6 @@ struct GradientButtonStyle: ButtonStyle {
             .padding()
             .background(LinearGradient(gradient: Gradient(colors: [primaryColor, secondaryColor]),
                                        startPoint: .leading, endPoint: .trailing))
-            .cornerRadius(15.0)
+            .cornerRadius(24.0)
     }
 }

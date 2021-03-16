@@ -13,30 +13,34 @@ struct TypeWriterImageButton: View {
     var body: some View {
         Button(action: onClick) {
             ZStack {
-//                RoundedRectangle(cornerRadius: 24, style: .continuous)
-//                    .fill(AppColor.ImageBackground)
-//                    .blendMode(.color)
-//                    .blur(radius: 36, opaque: false)
-//
-//                Image(imagePath)
-//                    .resizable()
-//                    .scaledToFit()
-//                    .opacity(0.99)
-//                    .blur(radius: 36)
-//                    .blendMode(.overlay)
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .fill(AppColor.ImageBackground)
+                    .blendMode(.saturation)
+                    .blur(radius: 36, opaque: false)
 
                 Image(imagePath)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(minWidth: 200, maxWidth: 600,
-                           minHeight: 200, maxHeight: 600,
+                    .scaledToFill()
+                    .blendMode(.saturation)
+                    .blur(radius: 36)
+                    .opacity(0.5)
+                    .frame(minWidth: 0, maxWidth: .infinity,
+                           minHeight: 0, maxHeight: .infinity,
                            alignment: .center)
+
+                Image(imagePath)
+                    .resizable()
                     .scaledToFit()
+                    .blendMode(.overlay)
+                    .shadow(color: AppColor.objectShadow, radius: 16)
+                    .padding(.horizontal, 18)
+                    .frame(minWidth: 200, maxWidth: .infinity,
+                           minHeight: 200, maxHeight: .infinity,
+                           alignment: .center)
+
             }
-            .shadow(color: AppColor.objectShadow, radius: 8, x: 0, y: 0)
         }
         .buttonStyle(PlainButtonStyle())
-//        .padding(.horizontal, 18)
     }
 }
 

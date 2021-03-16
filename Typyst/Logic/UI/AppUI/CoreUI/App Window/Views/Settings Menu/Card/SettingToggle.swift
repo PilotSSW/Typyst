@@ -29,7 +29,7 @@ struct SettingToggle: View {
                 .toggleStyle(SwitchToggleStyle(tint: AppColor.buttonPrimary))
                 .frame(maxHeight: .infinity, alignment: .trailing)
                 .accentColor(AppColor.buttonPrimary)
-                .shadow(color: AppColor.objectShadow, radius: 4)
+                .shadow(color: AppColor.objectShadow, radius: 2)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }

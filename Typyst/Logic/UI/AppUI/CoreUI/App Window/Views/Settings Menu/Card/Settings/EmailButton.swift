@@ -24,7 +24,9 @@ struct EmailButton: View {
         .buttonStyle(GradientButtonStyle(primaryColor: AppColor.buttonSecondary,
                                          secondaryColor: AppColor.buttonPrimary))
         .accentColor(AppColor.buttonPrimary)
-//        .frame(alignment: .center)
+        .overlay(RoundedRectangle(cornerRadius: 24,
+                                  style: .continuous)
+                    .strokeBorder(AppColor.buttonTertiary, lineWidth:3.0, antialiased: true))
         .padding(6)
         .shadow(color: AppColor.objectShadow,
                 radius: 4)

@@ -13,7 +13,10 @@ struct TypeWriterCard: View {
 
     var body: some View {
         VStack(alignment: .center, content: {
-            Spacer(minLength: 12)
+            Spacer()
+                .frame(height: 4)
+                .layoutPriority(3)
+
             TypeWriterCardHeader(infoURL: optionInfo.infoURL,
                                  maker: optionInfo.maker,
                                  model: optionInfo.model,
@@ -21,8 +24,14 @@ struct TypeWriterCard: View {
 
             TypeWriterImageButton(onClick: optionInfo.onClick,
                                   imagePath: optionInfo.image)
+                .layoutPriority(1)
+
+            Spacer()
+
             TypeWriterCardBody(description: optionInfo.description)
-            Spacer(minLength: 12)
+                .layoutPriority(2)
+
+            Spacer()
         })
         .asChildCard(withColor: AppColor.secondaryBackground)
     }

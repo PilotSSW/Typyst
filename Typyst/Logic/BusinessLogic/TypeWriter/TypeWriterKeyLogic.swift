@@ -73,6 +73,8 @@ class TypeWriterKeyLogic {
     func handleEnter(for keyPressed: KeyEvent, sounds: Sounds) {
         if state.isLineIndexIsOnLastLine {
             state.resetLineIndex()
+            sounds.playSound(from: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
+
             if AppSettings.shared.paperFeedEnabled {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak sounds] in
                     guard let sounds = sounds else { return }
@@ -81,9 +83,6 @@ class TypeWriterKeyLogic {
                         sounds.playSound(for: .PaperFeed)
                     })
                 }
-            }
-            else {
-                sounds.playSound(from: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
             }
         }
         else {
@@ -102,11 +101,11 @@ class TypeWriterKeyLogic {
     }
 
     func handleKeyPress(for keyPressed: KeyEvent, sounds: Sounds) {
-        if keyPressed.direction == .keyUp {
-            sounds.playSound(for: .KeyUp)
-        } else {
+        if keyPressed.direction == .keyDown {
             state.incrementCursor()
             sounds.playSound(for: .KeyDown)
+        } else {
+            sounds.playSound(for: .KeyUp)
         }
     }
 
@@ -136,19 +135,22 @@ class TypeWriterKeyLogic {
     }
 
     func handleSpace(for keyPressed: KeyEvent, sounds: Sounds) {
-        state.incrementCursor()
-        keyPressed.direction == .keyUp ?
-            sounds.playSound(for: .SpaceUp) :
+        if keyPressed.direction == .keyDown {
+            state.incrementCursor()
             sounds.playSound(for: .SpaceDown)
+        }
+        else {
+            sounds.playSound(for: .SpaceUp)
+        }
     }
 
     func handleTab(for keyPressed: KeyEvent, sounds: Sounds) {
-        if keyPressed.direction == .keyUp {
-            sounds.playSound(for: .TabUp)
-        }
-        else {
+        if keyPressed.direction == .keyDown{
             state.incrementCursor(numberOfPositions: 5)
             sounds.playSound(for: .TabDown)
+        }
+        else {
+            sounds.playSound(for: .TabUp)
         }
     }
 }

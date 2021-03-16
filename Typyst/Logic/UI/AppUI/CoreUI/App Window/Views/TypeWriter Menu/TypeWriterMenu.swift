@@ -14,22 +14,24 @@ struct TypeWriterMenu: View {
         VStack(alignment: .center) {
             Spacer(minLength: 8)
             TypeWriterMenuHeader()
-            List {
-                ForEach(options, id: \.name) { option in
-                    TypeWriterCard(optionInfo: option)
+            ScrollView(showsIndicators: false) {
+                Spacer()
+                    .frame(height: 8)
+                VStack(spacing: 16) {
+                    ForEach(options, id: \.name) { option in
+                        TypeWriterCard(optionInfo: option)
+                            .layoutPriority(1)
+                    }
                 }
-                .background(Color.clear)
-                .clipped(antialiased: true)
-                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                Spacer()
+                    .frame(height: 8)
             }
-            .background(Color.clear)
-            .clipped(antialiased: true)
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-
-            Spacer(minLength: 8)
+            .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous)
+                        .inset(by: 8))
+            .padding(.top, -8)
         }
         .asParentCard(withColor: AppColor.primaryBackground)
-//        .frame(minHeight: 650)
+        .frame(minHeight: 500, maxHeight: 1000)
     }
 }
 

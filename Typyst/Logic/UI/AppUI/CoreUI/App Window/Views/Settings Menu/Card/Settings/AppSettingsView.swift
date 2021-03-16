@@ -20,14 +20,16 @@ struct AppSettingsView: View {
                 .shadow(color: AppColor.textShadow,
                         radius: 4)
             Spacer()
-                .frame(width: .infinity, height: 14, alignment: .center)
+                .frame(height: 14,
+                       alignment: .center)
 
             SettingToggle(settingName: "Show modal notifications",
                           setting: $appSettings.showModalNotifications)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
             Spacer()
-                .frame(width: .infinity, height: 8, alignment: .center)
+                .frame(height: 8,
+                       alignment: .center)
 
             SettingToggle(settingName: "Log Errors and Crashes",
                           setting: $appSettings.logErrorsAndCrashes)

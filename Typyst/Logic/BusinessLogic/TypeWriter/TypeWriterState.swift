@@ -5,12 +5,12 @@
 
 import Foundation
 
-class TypeWriterState {
-    private(set) var cursorIndex = 0
-    private(set) var marginWidth = 80
+class TypeWriterState: ObservableObject {
+    @Published var cursorIndex = 0
+    @Published var marginWidth = 80
 
-    private(set) var lineIndex = 0
-    private(set) var linesPerPage = 25
+    @Published var lineIndex = 0
+    @Published var linesPerPage = 25
 
     private(set) var shiftIsPressed = false
     private(set) var capsOn         = false
@@ -25,7 +25,7 @@ class TypeWriterState {
 
     func incrementCursor(numberOfPositions: Int = 1) {
         if cursorIndex >= 0 {
-            lineIndex += numberOfPositions
+            cursorIndex += numberOfPositions
         }
     }
 

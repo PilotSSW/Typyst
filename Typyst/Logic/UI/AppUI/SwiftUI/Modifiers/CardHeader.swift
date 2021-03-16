@@ -31,8 +31,8 @@ extension View {
 
     func asStyledCardHeader(withBackgroundColor color: Color) -> some View {
         modifier(CardHeader(backgroundColor: color))
-            .padding(.horizontal, 8)
-            .shadow(color: AppColor.objectShadow, radius: 6, x: 0, y: 0)
+            .shadow(color: AppColor.objectShadow, radius: 4, x: 0, y: 0)
+            .padding(8)
             .frame(maxHeight: 52)
     }
 }

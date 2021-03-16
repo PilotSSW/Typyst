@@ -68,11 +68,15 @@ class AppColor {
     /**
      * UI Elements
      */
-     public static var buttonPrimary: Color {
-         Color("ButtonPrimary")
-     }
+    public static var buttonPrimary: Color {
+        Color("ButtonPrimary")
+    }
 
     public static var buttonSecondary: Color {
         Color("ButtonSecondary")
+    }
+
+    public static var buttonTertiary: Color {
+        Color("ButtonTertiary")
     }
 }

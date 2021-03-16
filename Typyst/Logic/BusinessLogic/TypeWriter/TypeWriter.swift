@@ -12,7 +12,7 @@ import HotKey
 import SwiftUI
 import SwiftySound
 
-class TypeWriter {
+class TypeWriter: ObservableObject {
     enum Model: String, CaseIterable {
         case Olympia_SM3 = "Olympia_SM3"
         case Royal_Model_P = "Royal_Model_P"
@@ -26,19 +26,25 @@ class TypeWriter {
     private let sounds: Sounds
 
     var keyLogic: TypeWriterKeyLogic
-    var state: TypeWriterState
+    @Published var state: TypeWriterState
 
     init(model: Model, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?, completion: (() -> Void)?) {
         self.model = model
 
-        sounds = Sounds()
+        let so = Sounds()
+        sounds = so
         sounds.loadSounds(for: model, completion: { loadedSounds in
             loadedSounds.volume = AppSettings.shared.volumeSetting
             loadedSounds.playSound(for: .LidUp)
         }, errorHandler: errorHandler)
 
-        state = TypeWriterState(marginWidth: marginWidth)
-        keyLogic = TypeWriterKeyLogic(state: state, sounds: sounds)
+        AppSettings.shared.$volumeSetting
+            .sink { so.volume = $0 }
+            .store(in: &App.instance.subscriptions)
+
+        let st = TypeWriterState(marginWidth: marginWidth)
+        state = st
+        keyLogic = TypeWriterKeyLogic(state: st, sounds: sounds)
         completion?()
     }
 
