@@ -21,7 +21,7 @@ struct TitleCard: View {
                 .frame(minWidth: 200, maxWidth: .infinity,
                        minHeight: 200, maxHeight: .infinity,
                        alignment: .center)
-                .shadow(color: AppColor.objectShadow,
+                .shadow(color: AppColor.objectShadowDark,
                         radius: 16)
                 .padding(.all, 12)
                 .layoutPriority(1)

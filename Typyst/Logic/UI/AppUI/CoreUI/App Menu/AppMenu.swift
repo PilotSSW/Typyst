@@ -9,7 +9,7 @@ import AppKit
 import SwiftUI
 
 class AppMenu {
-    let analyticsMenuItems = MenuItemsAnalyticsItems()
+//    let analyticsMenuItems = MenuItemsAnalyticsItems()
     let appMenuItems = MenuItemsAppSettings()
     let coreMenuItems = MenuItemsCore()
     let typeWriterMenuItems = MenuItemsTypeWriters()
@@ -62,7 +62,7 @@ class AppMenu {
             typeWriterMenuItems.items,
             typeWriterSettingsMenuItems.items,
             appMenuItems.items,
-            analyticsMenuItems.items,
+//            analyticsMenuItems.items,
             coreMenuItems.items
         ].flatMap({ $0 })
     }

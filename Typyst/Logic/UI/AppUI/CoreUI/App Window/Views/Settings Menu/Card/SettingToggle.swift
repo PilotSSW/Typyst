@@ -19,6 +19,7 @@ struct SettingToggle: View {
             Text(settingName)
                 .lineLimit(nil)
                 .multilineTextAlignment(.leading)
+                .allowsTightening(true)
                 .foregroundColor(AppColor.textBody)
                 .font(.title3)
                 .frame(maxHeight: .infinity, alignment: .leading)
@@ -29,17 +30,9 @@ struct SettingToggle: View {
                 .toggleStyle(SwitchToggleStyle(tint: AppColor.buttonPrimary))
                 .frame(maxHeight: .infinity, alignment: .trailing)
                 .accentColor(AppColor.buttonPrimary)
-                .shadow(color: AppColor.objectShadow, radius: 2)
+                .shadow(color: AppColor.objectShadowDark, radius: 2)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
 
-//struct SettingToggle_Previews: PreviewProvider {
-//    @ObservedObject
-//    var appSettings: AppSettings = AppSettings.shared
-//
-//    static var previews: some View {
-//        SettingToggle(setting: appSettings.$paperFeedEnabled)
-//    }
-//}

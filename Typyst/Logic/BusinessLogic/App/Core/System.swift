@@ -24,7 +24,6 @@ class SystemFunctions {
             if AppDelegate.isAccessibilityAdded() {
                 NSApplication.shared.stopModal()
                 timer.suspend()
-                //timer = nil
                 App.instance.ui.alerts.keyboardAccessibility.typystAddedToAccessibility()
             }
         }

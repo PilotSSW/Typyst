@@ -24,7 +24,7 @@ class Sounds {
     }
 
     init() {
-
+        Sound.playersPerSound = 2
     }
 
     private func getSoundSet(location: String, errorHandler: (([SoundError]) -> Void)?) -> [Sound] {
@@ -49,12 +49,15 @@ class Sounds {
 
     func loadSounds(for model: TypeWriter.Model, completion: ((Sounds) -> ())?, errorHandler: (([SoundError]) -> ())?) {
         // Load KeyUp sounds
-        Sounds.AvailableSoundSets.allCases.forEach({
-            let key = $0
-            let result = getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)", errorHandler: errorHandler)
-            soundSets[key] = result
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            Sounds.AvailableSoundSets.allCases.forEach({
+                let key = $0
+                let result = self.getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)", errorHandler: errorHandler)
+                self.soundSets[key] = result
+            })
+            completion?(self)
         })
-        completion?(self)
     }
 
     func unloadSounds() {
@@ -62,22 +65,28 @@ class Sounds {
     }
 
     func playSound(for soundSet: Sounds.AvailableSoundSets, completion: (() -> ())? = nil) {
-        if let sounds = soundSets[soundSet] {
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            if let sounds = self.soundSets[soundSet] {
+                if let sound: Sound = sounds.randomElement() {
+                    sound.play(completion: { event in
+                        completion?()
+                    })
+                }
+            }
+        })
+    }
+
+    func playSound(fromOneOfAny sets: [Sounds.AvailableSoundSets], completion: (() -> ())? = nil) {
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            let sounds:[Sound] = sets.compactMap({ self.soundSets[$0] }).flatMap({ $0 })
             if let sound: Sound = sounds.randomElement() {
                 sound.play(completion: { event in
                     completion?()
                 })
             }
-        }
-    }
-
-    func playSound(from sets: [Sounds.AvailableSoundSets], completion: (() -> ())? = nil) {
-        let sounds:[Sound] = sets.compactMap({ soundSets[$0] }).flatMap({ $0 })
-        if let sound: Sound = sounds.randomElement() {
-            sound.play(completion: { event in
-                completion?()
-            })
-        }
+        })
     }
 
     enum AvailableSoundSets: String, CaseIterable {

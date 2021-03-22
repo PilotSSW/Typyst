@@ -38,7 +38,7 @@ struct TypeWriterCardHeader: View {
             })
             .frame(width: 185)
             .asStyledCardHeader(withBackgroundColor: isSelected
-                ? AppColor.selectedHeaderBackground
+                ? AppColor.buttonPrimary
                 : AppColor.typeWriterCardHeaderBackground)
         }
     }

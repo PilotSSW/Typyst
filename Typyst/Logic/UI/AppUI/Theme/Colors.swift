@@ -42,8 +42,12 @@ class AppColor {
     /**
      * Shadows
      */
-    public static var objectShadow: Color {
-        Color("Shadows/Object")
+    public static var objectShadowDark: Color {
+        Color("Shadows/ObjectDark")
+    }
+
+    public static var objectShadowLight: Color {
+        Color("Shadows/ObjectLight")
     }
 
     public static var textShadow: Color {
@@ -68,6 +72,10 @@ class AppColor {
     /**
      * UI Elements
      */
+    public static var buttonBorder: Color {
+        Color("ButtonBorder")
+    }
+    
     public static var buttonPrimary: Color {
         Color("ButtonPrimary")
     }
@@ -78,5 +86,9 @@ class AppColor {
 
     public static var buttonTertiary: Color {
         Color("ButtonTertiary")
+    }
+
+    public static var buttonWarning: Color {
+        Color("ButtonWarning")
     }
 }

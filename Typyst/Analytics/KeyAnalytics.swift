@@ -3,101 +3,98 @@
 // Copyright (c) 2020 wickedPropeller. All rights reserved.
 //
 
+import Combine
 import Foundation
 import HotKey
 
-enum TimeAmount {
-    case seconds
-    case minutes
-    case hours
-    case days
-}
-
 class KeyAnalytics {
-    typealias KeyEventByTime = (KeyEvent, Date)
+    enum State {
+        case logging
+        case inactive
+    }
+    public private(set) var state: State = .inactive
     public static let shared: KeyAnalytics = KeyAnalytics()
 
-    public internal(set) var currentAnalyticsIntervals: [Double] = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(0)
-    private let timer: RepeatingTimer
-    private var analyticsStartTime: Date
-
+    private typealias KeyEventByTime = (AnonymousKeyEvent, Date)
     private var keyPresses: [KeyEventByTime] = []
+    private var keyListenerCallback: (KeyEvent) -> Void
+
+    private var timerInterval: TimeInterval = 600
+    private var removeOldKeyEventsTimer: RepeatingTimer? {
+        didSet {
+            removeOldKeyEventsTimer?.eventHandler = { [weak self] in
+                guard let self = self else { return }
+                self.keyPresses.removeAll(where: { abs($0.1.timeIntervalSinceNow) > 86400 })
+            }
+        }
+    }
 
     private init() {
-        analyticsStartTime = Date()
-        timer = RepeatingTimer(timeInterval: 60)
-        timer.eventHandler = { [weak self] in
-            guard let self = self else { return }
-            self.currentAnalyticsIntervals = KeyAnalytics.getAnalyticsIntervalsForTimeRunning(abs(self.analyticsStartTime.timeIntervalSinceNow))
-            self.keyPresses.removeAll(where: { abs($0.1.timeIntervalSinceNow) > 86400 })
+        keyListenerCallback = { (keyEvent) in
+            KeyAnalytics.shared.logEvent(keyEvent)
         }
-        timer.resume()
+        KeyListener.instance.listenForAllKeyPresses(completion: keyListenerCallback)
+
+        if (AppSettings.shared.logUsageAnalytics) { startTracking() }
+        AppSettings.shared.$logUsageAnalytics
+            .sink { [weak self] in
+                guard let self = self else { return }
+                $0 ? self.startTracking() : self.stopTracking()
+            }
+            .store(in: &App.instance.subscriptions)
     }
 
     deinit {
-        timer.suspend()
+        stopTracking()
     }
 
-    public func logEvent(_ event: KeyEvent) {
-        if AppSettings.shared.logUsageAnalytics {
-            keyPresses.append((event, Date()))
-        }
-    }
-
-    @objc public func reset() {
-        keyPresses.removeAll()
-    }
-
-    public func keypressesInPast(_ seconds: Double) -> [KeyEventByTime] {
-        let currentTime = Date()
-        let startingTime = Date(timeInterval: -seconds, since: currentTime)
-
-        return keyPresses.filter({ $0.1 >= startingTime && $0.0.direction == .keyDown })
-    }
-
-    public func totalKeypressesInPastSeconds(_ seconds: Double) -> Int {
-        keypressesInPast(seconds).count
-    }
-
-    public func averageKeypressesEveryXSecondsForPastSeconds(_ seconds: Double) -> Double {
-        Double(keypressesInPast(seconds).count) / seconds
-    }
-
-    public func defaultAnalytics() -> [(Int, Double)] {
-        currentAnalyticsIntervals.map({ (totalKeypressesInPastSeconds($0), averageKeypressesEveryXSecondsForPastSeconds($0)) })
-    }
-
-    static private func getAnalyticsIntervalsForTimeRunning(_ totalUptime: Double) -> [Double] {
-        switch totalUptime {
-        case 0...120: return [5, 15, 30, 45, 60]
-        case 120...300: return [15, 30, 60, 90, 120]
-        case 300...600: return [15, 30, 60, 150, 300]
-        case 600...1800: return [15, 60, 120, 300, 600]
-        case 1800...3600: return [15, 60, 300, 600, 1800]
-        case 3600...14400: return [15, 60, 300, 600, 3600]
-        case 14400...86400: return [15, 60, 600, 3600, 14400]
-        case let x where x > 86400: return [15, 60, 600, 3600, 7200, 86400]
-        default: return []
+    func logEvent(_ event: KeyEvent) {
+        if (state == .logging && AppSettings.shared.logUsageAnalytics) {
+            keyPresses.append((event.asAnonymousKeyEvent(), Date()))
         }
     }
 }
 
-class TimeHelper {
-    struct TimeAmount {
-        let days: Int
-        let hours: Int
-        let minutes: Int
-        let seconds: Double
-    }
-    static func daysHoursMinutesSecondsFromTotalSeconds(_ totalSeconds: Double) -> TimeAmount {
-        var seconds = totalSeconds
-        let days = Int(seconds / 86400)
-        seconds = seconds.truncatingRemainder(dividingBy: 86400)
-        let hours = Int(seconds) / 3600
-        seconds = seconds.truncatingRemainder(dividingBy: 3600)
-        let minutes = Int(seconds) / 60
-        seconds = seconds.truncatingRemainder(dividingBy: 60)
+extension KeyAnalytics {
+    private func startTracking() {
+        if (state == .logging) { return }
 
-        return TimeAmount(days: days, hours: hours, minutes: minutes, seconds: seconds)
+        removeOldKeyEventsTimer = RepeatingTimer(timeInterval: timerInterval)
+        removeOldKeyEventsTimer?.resume()
+        state = .logging
+    }
+
+    private func stopTracking() {
+        if (state == .inactive) { return }
+
+        removeOldKeyEventsTimer?.suspend()
+        state = .inactive
+    }
+
+    func reset() {
+        keyPresses.removeAll()
+    }
+
+    func isInactive() -> Bool {
+        state == .inactive && keyPresses.count == 0
+    }
+}
+
+// Querying functions
+extension KeyAnalytics {
+    private func keypressesInPast(_ seconds: Double) -> [KeyEventByTime] {
+        let currentTime = Date()
+        return keyPresses.filter({ $0.1.distance(to: currentTime) <= seconds })
+    }
+
+    public func totalKeypressesInPastSeconds(_ seconds: Double) -> Int {
+        let kp = keypressesInPast(seconds)
+        let kpLetter = kp.filter({ $0.0.direction == .keyDown }).count
+        let kpFlags = kp.filter({ $0.0.direction == .flagsChanged}).count / 2
+        return kpLetter + kpFlags
+    }
+
+    public func averageKeypressesEveryXSecondsForPastSeconds(_ seconds: Double) -> Double {
+        Double(totalKeypressesInPastSeconds(seconds)) / seconds
     }
 }

@@ -24,7 +24,7 @@ struct VolumeSetting: View {
                 Image(systemName: "minus")
                 Slider(value: $appSettings.volumeSetting)
                     .accentColor(AppColor.buttonPrimary)
-                    .shadow(color: AppColor.objectShadow, radius: 4)
+                    .shadow(color: AppColor.objectShadowDark, radius: 4)
                 Image(systemName: "plus")
             }
         }

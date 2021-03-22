@@ -32,7 +32,7 @@ struct TypeWriterImageButton: View {
                     .resizable()
                     .scaledToFit()
                     .blendMode(.overlay)
-                    .shadow(color: AppColor.objectShadow, radius: 16)
+                    .shadow(color: AppColor.objectShadowDark, radius: 16)
                     .padding(.horizontal, 18)
                     .frame(minWidth: 200, maxWidth: .infinity,
                            minHeight: 200, maxHeight: .infinity,

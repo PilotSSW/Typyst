@@ -10,14 +10,28 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            Spacer()
-                .frame(height: 4)
-            Typyst()
-                .frame(minHeight: 800, maxHeight: .infinity)
+        ZStack {
+            Rectangle()
+                .fill(AppColor.primaryBackground)
+                .blur(radius: 48)
+
+            VStack {
+                Spacer()
+                    .frame(height: 4)
+                ScrollView(.vertical, showsIndicators: false) {
+
+                    Typyst()
+                        .frame(minHeight: 800, maxHeight: .infinity)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity,
+                       alignment: .center)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity,
+                   alignment: .center)
         }
         .frame(minWidth: 300, idealWidth: 320, maxWidth: 450,
                minHeight: 300, idealHeight: 1880, maxHeight: 3840)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

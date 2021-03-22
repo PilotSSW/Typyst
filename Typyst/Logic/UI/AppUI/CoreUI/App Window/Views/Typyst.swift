@@ -9,18 +9,23 @@
 import SwiftUI
 
 struct Typyst: View {
+    @ObservedObject
+    var appSettings = AppSettings.shared
+
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
+        VStack(alignment: .center, spacing: 24) {
             TitleCard()
-                .shadow(color: AppColor.objectShadow, radius: 3)
                 .layoutPriority(1)
 
+            if (appSettings.logUsageAnalytics) {
+                AnalyticsInfoCard()
+                    .layoutPriority(1)
+            }
+
             TypeWriterMenu(options: TypeWriterMenuOptions.typeWriters)
-                .shadow(color: AppColor.objectShadow, radius: 3)
                 .layoutPriority(2)
 
             SettingsMenu()
-                .shadow(color: AppColor.objectShadow, radius: 3)
                 .layoutPriority(1)
 
             Spacer(minLength: 4)

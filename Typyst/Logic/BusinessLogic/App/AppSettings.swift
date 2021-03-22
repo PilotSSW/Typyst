@@ -10,6 +10,7 @@ import SwiftUI
 @dynamicMemberLookup
 class AppSettings: ObservableObject {
     enum Keys {
+        static let bell = "bell"
         static let logToFirebase = "logToFirebase"
         static let logUsageAnalytics = "logUsageAnalytics"
         static let mainVolumeValue = "mainVolumeValue"
@@ -30,6 +31,7 @@ class AppSettings: ObservableObject {
 
     subscript(dynamicMember member: String) -> Any? {
         switch member {
+            case Keys.bell: return bell
         case Keys.logToFirebase: return logErrorsAndCrashes
         case Keys.logUsageAnalytics: return logUsageAnalytics
         case Keys.mainVolumeValue: return volumeSetting
@@ -42,6 +44,10 @@ class AppSettings: ObservableObject {
         default:
             return nil
         }
+    }
+
+    @Published var bell: Bool = UserDefaults.standard.bool(forKey: Keys.bell) {
+        didSet { UserDefaults.standard.set(bell, forKey: Keys.bell) }
     }
 
     @Published var logErrorsAndCrashes: Bool = UserDefaults.standard.bool(forKey: Keys.logToFirebase) {

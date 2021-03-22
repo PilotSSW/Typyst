@@ -37,4 +37,38 @@ class KeySets {
 
     static let bell: [Key] =
             [.home, .help]
+
+    enum KeySetType {
+        case letter
+        case shift
+        case number
+        case commandControlOption
+        case keypad
+        case functionKey
+        case special
+        case bell
+    }
+
+    static func keyIsOfKeySet(_ key: Key) -> KeySetType? {
+        switch (key) {
+        case let key where KeySets.letters.contains(key):
+            return KeySetType.letter
+        case let key where KeySets.shift.contains(key):
+            return KeySetType.shift
+        case let key where KeySets.numbers.contains(key):
+            return KeySetType.number
+        case let key where KeySets.commands.contains(key):
+            return KeySetType.commandControlOption
+        case let key where KeySets.keypads.contains(key):
+            return KeySetType.keypad
+        case let key where KeySets.functions.contains(key):
+            return KeySetType.functionKey
+        case let key where KeySets.special.contains(key):
+            return KeySetType.special
+        case let key where KeySets.bell.contains(key):
+            return KeySetType.bell
+        default:
+            return nil
+        }
+    }
 }

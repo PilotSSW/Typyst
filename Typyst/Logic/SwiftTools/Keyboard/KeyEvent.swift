@@ -14,4 +14,18 @@ class KeyEvent {
         self.key = key
         self.direction = direction
     }
+
+    func asAnonymousKeyEvent() -> AnonymousKeyEvent {
+        AnonymousKeyEvent(self)
+    }
+}
+
+class AnonymousKeyEvent {
+    var keySet: KeySets.KeySetType?
+    var direction: NSEvent.EventType
+
+    init(_ keyEvent: KeyEvent) {
+        keySet = KeySets.keyIsOfKeySet(keyEvent.key)
+        direction = keyEvent.direction
+    }
 }

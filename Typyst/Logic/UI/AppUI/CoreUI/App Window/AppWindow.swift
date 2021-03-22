@@ -14,43 +14,25 @@ class AppWindow {
     init() {
         // Create the window and set the content view.
         mainWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 0, height: 0),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 340),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView, .borderless],
             backing: .buffered,
             defer: false)
-//        let mainContentView = NSView(frame: NSRect(origin: .zero,
-//                                               size: CGSize(width: 400,
-//                                                            height: 400)))
-//        mainContentView.widthAnchor.constraint(equalToConstant: 500).isActive = true
-//        mainContentView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-//        mainWindow.contentView = mainContentView
+        mainWindow.setContentSize(NSSize(width: 300, height: 340))
+        //mainWindow.center()
 
-        // Setup blur background
-//        let visualEffect = NSVisualEffectView()
-//        visualEffect.blendingMode = .behindWindow
-//        visualEffect.state = .active
-//        visualEffect.material = .underWindowBackground
-////        mainWindow.contentView?.addSubview(visualEffect)
-//        mainWindow.contentView = visualEffect
-
-        mainWindow.titlebarAppearsTransparent = true
-        mainWindow.styleMask.insert(.fullSizeContentView)
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = MainView()
             .environment(\.managedObjectContext,
                          App.instance.persistence.persistentContainer.viewContext)
-        let mainView = NSHostingView(rootView: contentView)
-        mainWindow.contentView = mainView
-//        mainWindow.contentView?.addSubview(mainView)
-//        mainContentView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
-//        mainContentView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor).isActive = true
-//        mainContentView.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
-//        mainContentView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
+//        let mainView = NSHostingView(rootView: contentView)
+//        mainWindow.contentView = mainView
+        mainWindow.contentViewController = NSHostingController(rootView: contentView)
 
         // Set properties
-        //mainWindow.center()
+        mainWindow.titlebarAppearsTransparent = true
         mainWindow.isMovableByWindowBackground = true
         mainWindow.setFrameAutosaveName("Main Window")
 

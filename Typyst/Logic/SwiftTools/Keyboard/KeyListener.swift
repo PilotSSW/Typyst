@@ -11,9 +11,9 @@ class KeyListener {
     static let instance = KeyListener()
     static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
 
-    var keyListeners = [Any]()
+    private var keyListeners = [Any]()
 
-    private init(){
+    private init() {
 
     }
 
@@ -66,6 +66,10 @@ class KeyListener {
     func listenForAllKeyPresses(completion: ((KeyEvent) -> ())?) {
         listenForLocalKeyPresses(completion: completion)
         listenForGlobalKeyPresses(completion: completion)
+    }
+
+    func removeAll() {
+        keyListeners.removeAll()
     }
 }
 

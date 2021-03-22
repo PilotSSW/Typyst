@@ -17,19 +17,19 @@ struct EmailButton: View {
                 Image(systemName: "mail")
                 Text("Email Typyst Support")
                     .font(.title3)
+                    .foregroundColor(AppColor.textBody)
                     .shadow(color: AppColor.textShadow,
                             radius: 4)
             }
         }
-        .buttonStyle(GradientButtonStyle(primaryColor: AppColor.buttonSecondary,
-                                         secondaryColor: AppColor.buttonPrimary))
-        .accentColor(AppColor.buttonPrimary)
-        .overlay(RoundedRectangle(cornerRadius: 24,
-                                  style: .continuous)
-                    .strokeBorder(AppColor.buttonTertiary, lineWidth:3.0, antialiased: true))
+//        .buttonStyle(GradientButtonStyle(primaryColor: AppColor.buttonSecondary,
+//                                         secondaryColor: AppColor.buttonPrimary))
+        .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonTertiary))
+//        .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous)
+//                 .strokeBorder(AppColor.buttonBorder, lineWidth:3.0, antialiased: true))
         .padding(6)
-        .shadow(color: AppColor.objectShadow,
-                radius: 4)
+//        .shadow(color: AppColor.objectShadowDark,
+//                radius: 4)
     }
 }
 

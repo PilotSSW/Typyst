@@ -22,17 +22,25 @@ struct TypeWriterSettings: View {
                         radius: 4)
 
             Spacer()
-                .frame(maxWidth: .infinity, idealHeight: 14, alignment: .center)
+                .frame(height: 14, alignment: .center)
+
+            SettingToggle(settingName: "Simulate Bell on Newline",
+                          setting: $appSettings.bell)
+                .frame(maxWidth: .infinity, alignment: .center)
+
+            Spacer()
+                .frame(height: 8, alignment: .center)
 
             SettingToggle(settingName: "Simulate Paper Feed",
                           setting: $appSettings.paperFeedEnabled)
                 .frame(maxWidth: .infinity, alignment: .center)
 
             Spacer()
-                .frame(maxWidth: .infinity, idealHeight: 8, alignment: .center)
+                .frame(height: 8, alignment: .center)
 
             SettingToggle(settingName: "Simulate Paper Return",
                           setting: $appSettings.paperReturnEnabled)
+                .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 }

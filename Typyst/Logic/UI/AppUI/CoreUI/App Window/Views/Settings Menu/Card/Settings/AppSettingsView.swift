@@ -35,6 +35,14 @@ struct AppSettingsView: View {
                           setting: $appSettings.logErrorsAndCrashes)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
+            Spacer()
+                    .frame(height: 8,
+                           alignment: .center)
+
+            SettingToggle(settingName: "Allow logging for typing analytics",
+                          setting: $appSettings.logUsageAnalytics)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+
 //            SettingToggle(settingName: "Show Dock Icon",
 //                          setting: $appSettings.runAsMenubarApp)
         }

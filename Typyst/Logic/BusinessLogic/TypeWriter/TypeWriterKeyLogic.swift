@@ -15,8 +15,11 @@ class TypeWriterKeyLogic {
         KeyListener.instance.listenForAllKeyPresses(completion: { [weak self] (keyEvent) in
             guard let self = self else { return }
             self.assignKeyPresses(for: keyEvent, sounds: sounds)
-            KeyAnalytics.shared.logEvent(keyEvent)
         })
+    }
+
+    deinit {
+        KeyListener.instance.removeAll()
     }
 
     func assignKeyPresses(for keyPressed: KeyEvent, sounds: Sounds) {
@@ -73,7 +76,7 @@ class TypeWriterKeyLogic {
     func handleEnter(for keyPressed: KeyEvent, sounds: Sounds) {
         if state.isLineIndexIsOnLastLine {
             state.resetLineIndex()
-            sounds.playSound(from: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
+            sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
 
             if AppSettings.shared.paperFeedEnabled {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak sounds] in
@@ -89,7 +92,7 @@ class TypeWriterKeyLogic {
             // Only count the key press once - not on both up and down
             if keyPressed.direction == .keyDown {
                 state.newLine()
-                sounds.playSound(from: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
+                sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
             }
         }   
     }
@@ -114,14 +117,18 @@ class TypeWriterKeyLogic {
             state.resetCursorIndex()
             state.newLine()
 
-            if AppSettings.shared.paperReturnEnabled {
-                sounds.playSound(for: .Bell, completion: { [weak sounds] in
-                    guard let sounds = sounds else { return }
-                    sounds.playSound(from: [
+            let paperReturnCB = { [weak sounds] in
+                guard let sounds = sounds else { return }
+                if AppSettings.shared.paperReturnEnabled {
+                    sounds.playSound(fromOneOfAny: [
                         .SingleLineReturn, .DoubleLineReturn, .TripleLineReturn
                     ])
-                })
+                }
             }
+
+            AppSettings.shared.bell
+                ? sounds.playSound(for: .Bell, completion: paperReturnCB)
+                : paperReturnCB()
         }
     }
 

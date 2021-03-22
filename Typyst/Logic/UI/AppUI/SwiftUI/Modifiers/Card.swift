@@ -14,16 +14,13 @@ struct Card: ViewModifier {
         ZStack(alignment: .center, content: {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(backgroundColor)
-                .padding(.horizontal, 8)
-                .shadow(color: AppColor.objectShadow, radius: 6, x: 0, y: 0)
+                .shadow(color: AppColor.objectShadowDark, radius: 8, x: 0, y: 0)
 
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .strokeBorder(AppColor.tertiaryBackground, lineWidth: 1.5, antialiased: true)
-                .padding(.horizontal, 8)
-                .shadow(color: AppColor.objectShadow, radius: 6, x: 0, y: 0)
+                .strokeBorder(AppColor.tertiaryBackground, lineWidth: 1.0, antialiased: true)
+                .shadow(color: AppColor.objectShadowDark, radius: 1, x: 0, y: 0)
 
             content
-                .padding(.horizontal, 8)
                 .clipped(antialiased: true)
         })
     }
@@ -36,9 +33,11 @@ extension View {
 
     func asParentCard(withColor color: Color) -> some View {
         modifier(Card(backgroundColor: color))
+            .padding(.horizontal, 8)
     }
 
     func asChildCard(withColor color: Color) -> some View {
         modifier(Card(backgroundColor: color))
+            .padding(.horizontal, 8)
     }
 }
