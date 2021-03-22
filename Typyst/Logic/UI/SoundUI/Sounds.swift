@@ -7,7 +7,7 @@ import Foundation
 import SwiftySound
 
 class Sounds {
-    private var soundSets = [Sounds.AvailableSoundSets: [Sound]]() 
+    private(set) var soundSets = [Sounds.AvailableSoundSets: [Sound]]()
     var volume: Double {
         get {
             let sounds = soundSets.values.flatMap({ $0 })

@@ -30,8 +30,11 @@ class AppCore: ObservableObject {
         unloadTypewriter()
         loadedTypewriter = TypeWriter(model: model, errorHandler: { (soundErrors) in
             App.instance.ui.alerts.errors.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
-        }) {
-
+        }) { loadedSounds in
+            App.instance.ui.alerts.userInfo.typeWriterSoundsLoadedAlert(
+                loadedSounds.soundSets.keys
+                    .map({ $0.rawValue })
+                    .sorted(by: <))
         }
     }
 

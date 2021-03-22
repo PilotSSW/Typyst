@@ -28,7 +28,7 @@ class TypeWriter: ObservableObject {
     var keyLogic: TypeWriterKeyLogic
     @Published var state: TypeWriterState
 
-    init(model: Model, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?, completion: (() -> Void)?) {
+    init(model: Model, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?, completion: ((Sounds) -> Void)?) {
         self.model = model
 
         let so = Sounds()
@@ -36,6 +36,7 @@ class TypeWriter: ObservableObject {
         sounds.loadSounds(for: model, completion: { loadedSounds in
             loadedSounds.volume = AppSettings.shared.volumeSetting
             loadedSounds.playSound(for: .LidUp)
+            completion?(loadedSounds)
         }, errorHandler: errorHandler)
 
         AppSettings.shared.$volumeSetting
@@ -45,7 +46,6 @@ class TypeWriter: ObservableObject {
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
         keyLogic = TypeWriterKeyLogic(state: st, sounds: sounds)
-        completion?()
     }
 
     internal func setVolume(_ volume: Double) {
@@ -54,6 +54,10 @@ class TypeWriter: ObservableObject {
 
     deinit {
         sounds.playSound(for: .LidDown)
-        sounds.unloadSounds()
+
+        DispatchQueue.main.async(execute: { [weak self] in
+            guard let self = self else { return }
+            self.sounds.unloadSounds()
+        })
     }
 }
