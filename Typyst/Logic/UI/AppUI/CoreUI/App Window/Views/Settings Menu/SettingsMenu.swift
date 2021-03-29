@@ -11,7 +11,6 @@ import SwiftUI
 struct SettingsMenu: View {
     var body: some View {
         VStack(alignment: .center) {
-//            Spacer(minLength: 8)
             SettingsMenuHeader()
             SettingsCard()
             Spacer(minLength: 8)

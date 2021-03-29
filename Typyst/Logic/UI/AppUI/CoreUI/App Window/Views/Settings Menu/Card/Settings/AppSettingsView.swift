@@ -20,6 +20,11 @@ struct AppSettingsView: View {
 
             Spacer().frame(height: 14)
 
+            SettingToggle(settingName: "Allow Typing Statistics",
+                          setting: $appSettings.logUsageAnalytics)
+
+            Spacer().frame(height: 8)
+
             SettingToggle(settingName: "Show modal notifications",
                           setting: $appSettings.showModalNotifications)
 
@@ -27,11 +32,6 @@ struct AppSettingsView: View {
 
             SettingToggle(settingName: "Log Errors and Crashes",
                           setting: $appSettings.logErrorsAndCrashes)
-
-            Spacer().frame(height: 8)
-
-            SettingToggle(settingName: "Allow logging for typing analytics",
-                          setting: $appSettings.logUsageAnalytics)
 
             Spacer().frame(height: 8)
 
