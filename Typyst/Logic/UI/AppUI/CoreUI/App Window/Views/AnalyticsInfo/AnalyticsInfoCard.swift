@@ -11,34 +11,34 @@ import SwiftUI
 struct AnalyticsInfoCard: View {
     @ObservedObject
     var viewModel = AnalyticsInfoCardViewModel()
+    var showInfo: Bool {
+        viewModel.state == .logging
+    }
 
     var body: some View {
-        VStack {
-            if (viewModel.state == .inactive) {
-                Text("See your typing speed")
-                    .lineLimit(nil)
-                    .multilineTextAlignment(.center)
-                    .asStyledText(with: .title)
-                    .padding(8)
-                    .asParentCard(withColor: AppColor.cardSecondaryBackground)
-            }
-            else {
-                Text("Your amazing typing skills over the past: ")
-                    .lineLimit(nil)
-                    .multilineTextAlignment(.center)
-                    .asStyledText(with: .title)
-                    .padding(8)
-                    .asParentCard(withColor: AppColor.cardSecondaryBackground)
+        VStack(spacing: 8) {
+            Text(showInfo
+                  ? "Your amazing typing skills over the past: "
+                  : "See your typing speed")
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                .asStyledText(with: .title)
+                .padding(8)
+                .frame(maxWidth: .infinity,
+                       minHeight: 60, maxHeight: 60)
+                .asParentCard(withColor: AppColor.cardSecondaryBackground)
+                .layoutPriority(2)
 
+            if (showInfo) {
                 ForEach(viewModel.analyticsInfoItems, id:\.timeElapsed) { analyticsInfo in
                     AnalyticsInfoView(viewModel: analyticsInfo)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .layoutPriority(1)
                 }
             }
 
             AnalyticsInfoControls(viewModel: viewModel)
+                .layoutPriority(3)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.vertical, 8)
         .asParentCard(withColor: AppColor.cardPrimaryBackground)
     }

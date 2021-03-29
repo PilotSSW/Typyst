@@ -14,9 +14,6 @@ struct AnalyticsInfoControls: View {
 
     var body: some View {
         HStack() {
-            Spacer()
-                .frame(minWidth: 12, maxWidth: .infinity)
-
             AnalyticsInfoControlButton(text: "Start",
                                     backgroundColor: AppColor.buttonPrimary,
                                     action: { viewModel.startTimer() })
@@ -37,16 +34,11 @@ struct AnalyticsInfoControls: View {
                                     backgroundColor: AppColor.buttonTertiary,
                                     action: { viewModel.reset() })
                 .layoutPriority(1)
-
-            Spacer()
-                .frame(minWidth: 12, maxWidth: .infinity)
-
         }
         .padding(12)
-        .frame(minWidth: 200, maxWidth: 400,
-               minHeight: 72, maxHeight: 114,
-               alignment: .center)
         .asParentCard(withColor: AppColor.cardSecondaryBackground)
+        .frame(minHeight: 72, maxHeight: 114,
+               alignment: .center)
     }
 }
 

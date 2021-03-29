@@ -55,7 +55,8 @@ struct NeumorphicButtonStyle: ButtonStyle {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .fill(backgroundColor)
                         .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                 .strokeBorder(AppColor.buttonBorder, lineWidth:3.0, antialiased: true))
+                                    .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
+                                                  lineWidth: 1.5, antialiased: true))
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             )

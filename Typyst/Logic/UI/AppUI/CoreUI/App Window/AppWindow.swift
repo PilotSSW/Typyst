@@ -14,12 +14,12 @@ class AppWindow {
     init() {
         // Create the window and set the content view.
         mainWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 300, height: 340),
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 640),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
 //                        , .borderless],
             backing: .buffered,
             defer: false)
-        mainWindow.setContentSize(NSSize(width: 300, height: 340))
+        mainWindow.setContentSize(NSSize(width: 300, height: 640))
         //mainWindow.center()
 
 

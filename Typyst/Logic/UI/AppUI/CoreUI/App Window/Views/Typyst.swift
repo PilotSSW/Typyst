@@ -15,23 +15,21 @@ struct Typyst: View {
     var body: some View {
         VStack(alignment: .center, spacing: 24) {
             TitleCard()
-                .layoutPriority(1)
+                .layoutPriority(2)
 
             if (appSettings.logUsageAnalytics) {
                 AnalyticsInfoCard()
-                    .layoutPriority(1)
+                    .layoutPriority(3)
             }
 
             TypeWriterMenu()
-                .layoutPriority(2)
+                .layoutPriority(4)
 
             SettingsMenu()
                 .layoutPriority(1)
-
-            Spacer(minLength: 4)
         }
         .frame(minWidth: 300, idealWidth: 320, maxWidth: 450,
-               minHeight: 600, maxHeight: .infinity,
+               minHeight: 320, maxHeight: .infinity,
                alignment: .center)
         .animation(.interactiveSpring(response: 0.25,
                                       dampingFraction: 0.9,

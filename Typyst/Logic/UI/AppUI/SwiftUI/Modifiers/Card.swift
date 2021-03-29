@@ -14,14 +14,16 @@ struct Card: ViewModifier {
         ZStack(alignment: .center, content: {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(backgroundColor)
+                .layoutPriority(1)
 
             if (showStrokeBorder) {
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
                     .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 2.0, antialiased: true)
+                    .layoutPriority(2)
             }
 
             content
-//                .clipped(antialiased: true)
+                .layoutPriority(3)
         })
     }
 }

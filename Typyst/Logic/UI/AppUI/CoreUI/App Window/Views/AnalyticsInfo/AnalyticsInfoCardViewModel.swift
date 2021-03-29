@@ -11,7 +11,7 @@ class AnalyticsInfoCardViewModel: ObservableObject {
         case logging
         case inactive
     }
-    private(set) var state: State = .inactive
+    @Published private(set) var state: State = .inactive
 
     private(set) var analyticsStartTime: Date?
     private(set) var currentAnalyticsIntervals = [Double]()
@@ -76,11 +76,14 @@ class AnalyticsInfoCardViewModel: ObservableObject {
         if state == .inactive { return }
 
         timer?.cancel()
+        updateItems()
+
         state = .inactive
     }
 
     func reset() {
         TypingStats.shared.reset()
         analyticsStartTime = Date()
+        updateItems()
     }
 }

@@ -16,7 +16,7 @@ struct TypeWriterMenu: View {
                 .padding(.bottom, 8)
         }
         .asParentCard(withColor: AppColor.cardPrimaryBackground)
-        .frame(minHeight: 500, maxHeight: 1000)
+        .frame(minHeight: 280, maxHeight: 550)
     }
 }
 

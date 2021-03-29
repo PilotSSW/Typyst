@@ -27,8 +27,6 @@ struct TypeWriterMenuScrollableSelector: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous).inset(by: 4))
         .asParentCard(withColor: AppColor.cardSecondaryBackground)
-
-//                    .inset(by: 8))
     }
 }
 

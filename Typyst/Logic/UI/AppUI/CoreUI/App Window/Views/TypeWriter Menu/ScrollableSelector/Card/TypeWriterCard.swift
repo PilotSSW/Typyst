@@ -28,6 +28,9 @@ struct TypeWriterCard: View {
 
             Spacer()
 
+            Divider()
+                .padding(.horizontal, 24)
+
             TypeWriterCardBody(description: optionInfo.description)
                 .layoutPriority(2)
 

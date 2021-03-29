@@ -57,7 +57,7 @@
 		6EF6BB75E59D5CA596CE9AC1 /* NSEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BCB1662C8049440D7965 /* NSEventExtension.swift */; };
 		6EF6BBB466B54B4B1E1A5E4D /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B36234D56CBA9D7D6FC0 /* TypeWriter.swift */; };
 		6EF6BBEE457E9F38B3926A06 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B38665A653B2213CCC13 /* SoundError.swift */; };
-		6EF6BC5545312F8853CFB3AA /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B9D6573E0CC11BD7FC8E /* Neumorphic.swift */; };
+		6EF6BC5545312F8853CFB3AA /* NeumorphicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B9D6573E0CC11BD7FC8E /* NeumorphicButton.swift */; };
 		6EF6BC76BF849709B546E6F7 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B80EB3C615ED9980CBDE /* AppSettingsView.swift */; };
 		6EF6BD3F95123D40A461C9C4 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B566D0D0210CAB5A4862 /* App.swift */; };
 		6EF6BD90D1FB9363A880C30E /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B9E74515C9B0AA388E23 /* TypeWriterState.swift */; };
@@ -163,7 +163,7 @@
 		6EF6B9295E6583F4A8FA6782 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		6EF6B96AF3CFC1E06FE8E49A /* AppSettingsMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingsMenuItems.swift; sourceTree = "<group>"; };
 		6EF6B986BD58037385A13CD0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6EF6B9D6573E0CC11BD7FC8E /* Neumorphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
+		6EF6B9D6573E0CC11BD7FC8E /* NeumorphicButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeumorphicButton.swift; sourceTree = "<group>"; };
 		6EF6B9E51419CF7F84B0E783 /* Sounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 		6EF6B9E74515C9B0AA388E23 /* TypeWriterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterState.swift; sourceTree = "<group>"; };
 		6EF6BA6605B457790F399538 /* CoreMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMenuItems.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		6EF6B1285EE91FD0E4911760 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				6EF6B9D6573E0CC11BD7FC8E /* Neumorphic.swift */,
+				6EF6B9D6573E0CC11BD7FC8E /* NeumorphicButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -514,11 +514,11 @@
 		6EF6BA6FD1B28136004D1DAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A3401D0125FD4FCB00800BA8 /* Typyst.swift */,
 				6EF6B4588959FEF22E80EBA2 /* Title Card */,
 				6EF6B77C50EDC43AE432A519 /* AnalyticsInfo */,
 				6EF6B1041299F5F68B974A77 /* TypeWriter Menu */,
 				6EF6B14611D9227C0B81AF50 /* Settings Menu */,
-				A3401D0125FD4FCB00800BA8 /* Typyst.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1040,7 +1040,7 @@
 				6EF6B1053CCE2239D055346D /* AnalyticsInfoControls.swift in Sources */,
 				6EF6B5D12C2FF3365AE00381 /* AnalyticsInfoView.swift in Sources */,
 				6EF6BE68817C83259677255C /* AnalyticsInfoControlButton.swift in Sources */,
-				6EF6BC5545312F8853CFB3AA /* Neumorphic.swift in Sources */,
+				6EF6BC5545312F8853CFB3AA /* NeumorphicButton.swift in Sources */,
 				6EF6B4F8757B86CF2987E4ED /* NeumorphicShadow.swift in Sources */,
 				6EF6B738E5610540B268328A /* AnalyticsInfoCardViewModel.swift in Sources */,
 				6EF6B9A8E114479469053165 /* AnalyticsInfoViewModel.swift in Sources */,

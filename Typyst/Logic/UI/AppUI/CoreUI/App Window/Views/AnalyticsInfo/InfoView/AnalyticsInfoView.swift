@@ -17,7 +17,7 @@ struct AnalyticsInfoView: View {
             Text(viewModel.textBody.totalUptimeText)
                 .fontWeight(.semibold)
                 .lineLimit(nil)
-                .asStyledText(with:.title)
+                .asStyledText(with:.title2)
                 .layoutPriority(1)
 
             Divider()
@@ -35,7 +35,7 @@ struct AnalyticsInfoView: View {
                 .lineLimit(nil)
                 .asStyledText(with:.title3)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity)
         .padding(.vertical, 8)
         .asParentCard(withColor: AppColor.cardSecondaryBackground)
     }

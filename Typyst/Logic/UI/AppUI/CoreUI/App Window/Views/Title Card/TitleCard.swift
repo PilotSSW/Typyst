@@ -32,6 +32,9 @@ struct TitleCard: View {
                 .padding(.bottom, 12)
             }
         }
+//        .frame(maxWidth: .infinity,
+//               maxHeight: .infinity,
+//               alignment: .center)
         .asParentCard(withColor: AppColor.cardPrimaryBackground)
     }
 }

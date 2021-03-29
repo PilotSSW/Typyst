@@ -17,4 +17,18 @@ class AppGradients {
             endPoint: .bottomTrailing
         )
     }
+
+    public static func buttonOutlineGradient(isPressed: Bool = false) -> LinearGradient {
+        var colors: [Color] {
+            isPressed
+                ? [AppColor.cardOutlineSecondary, AppColor.cardOutlinePrimary]
+                : [AppColor.cardOutlinePrimary, AppColor.cardOutlineSecondary]
+        }
+
+        return LinearGradient(
+            gradient: Gradient(colors: colors),
+            startPoint: UnitPoint(x: 0.0, y: 0.0),
+            endPoint: .bottomTrailing
+        )
+    }
 }
