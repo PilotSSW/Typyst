@@ -30,7 +30,7 @@ class TypeWriterKeyLogic {
 
         switch(keyPressed.key, keyPressed.direction) {
         case (Key.shift, _):
-            handleShift(sounds: sounds); break
+            handleShift(for: keyPressed, sounds: sounds); break
         case (Key.space, _):
             handleSpace(for: keyPressed, sounds: sounds); break
         case (Key.return, _): fallthrough
@@ -132,13 +132,10 @@ class TypeWriterKeyLogic {
         }
     }
 
-    func handleShift(sounds: Sounds) {
-        state.shiftIsPressed == false ?
-            sounds.playSound(for: .ShiftDown) :
-            sounds.playSound(for: .ShiftUp)
-
-        // Flag key directions aren't tracked - we need to do that.
-        state.setShift()
+    func handleShift(for keyPressed: KeyEvent, sounds: Sounds) {
+        keyPressed.direction == .keyDown
+            ? sounds.playSound(for: .ShiftDown)
+            : sounds.playSound(for: .ShiftUp)
     }
 
     func handleSpace(for keyPressed: KeyEvent, sounds: Sounds) {

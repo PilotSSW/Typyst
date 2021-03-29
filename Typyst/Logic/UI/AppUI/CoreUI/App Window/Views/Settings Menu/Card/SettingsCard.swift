@@ -33,8 +33,8 @@ struct SettingsCard: View {
         }
         .padding(.horizontal, 18)
         .padding(.top, 18)
-        .padding(.bottom, 6)
-        .asChildCard(withColor: AppColor.secondaryBackground)
+        .padding(.bottom, 18)
+        .asParentCard(withColor: AppColor.cardSecondaryBackground)
     }
 }
 

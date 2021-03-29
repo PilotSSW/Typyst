@@ -12,7 +12,7 @@ class TypeWriterState: ObservableObject {
     @Published var lineIndex = 0
     @Published var linesPerPage = 25
 
-    private(set) var shiftIsPressed = false
+//    private(set) var shiftIsPressed = false
     private(set) var capsOn         = false
 
     init(marginWidth: Int = 80) {
@@ -47,7 +47,7 @@ class TypeWriterState: ObservableObject {
         capsOn = !capsOn
     }
 
-    func setShift() {
-        shiftIsPressed = !shiftIsPressed
-    }
+//    func setShift() {
+//        shiftIsPressed = !shiftIsPressed
+//    }
 }

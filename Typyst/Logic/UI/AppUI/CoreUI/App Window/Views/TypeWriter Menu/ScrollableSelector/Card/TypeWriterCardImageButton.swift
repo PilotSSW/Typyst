@@ -13,17 +13,17 @@ struct TypeWriterImageButton: View {
     var body: some View {
         Button(action: onClick) {
             ZStack {
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .fill(AppColor.ImageBackground)
-                    .blendMode(.saturation)
-                    .blur(radius: 36, opaque: false)
+//                RoundedRectangle(cornerRadius: 24, style: .continuous)
+//                    .fill(AppColor.ImageBackground)
+//                    .blendMode(.saturation)
+//                    .blur(radius: 24, opaque: false)
 
                 Image(imagePath)
                     .resizable()
                     .scaledToFill()
                     .blendMode(.saturation)
-                    .blur(radius: 36)
-                    .opacity(0.5)
+                    .blur(radius: 24)
+                    .opacity(0.25)
                     .frame(minWidth: 0, maxWidth: .infinity,
                            minHeight: 0, maxHeight: .infinity,
                            alignment: .center)
@@ -31,8 +31,7 @@ struct TypeWriterImageButton: View {
                 Image(imagePath)
                     .resizable()
                     .scaledToFit()
-                    .blendMode(.overlay)
-                    .shadow(color: AppColor.objectShadowDark, radius: 16)
+                    .shadow(color: AppColor.objectShadowDark, radius: 8)
                     .padding(.horizontal, 18)
                     .frame(minWidth: 200, maxWidth: .infinity,
                            minHeight: 200, maxHeight: .infinity,

@@ -10,39 +10,33 @@ import SwiftUI
 
 struct AnalyticsInfoView: View {
     @ObservedObject
-    var analyticsInfo: AnalyticsInfo
-
-    var textBody: AnalyticsInfoTextBody {
-        analyticsInfo.getAsTextBody()
-    }
+    var viewModel: AnalyticsInfoViewModel
 
     var body: some View {
         VStack {
-            Text(textBody.totalUptimeText)
-                .font(.title)
+            Text(viewModel.textBody.totalUptimeText)
                 .fontWeight(.semibold)
                 .lineLimit(nil)
-                .foregroundColor(AppColor.textBody)
-                .shadow(color: AppColor.textShadow, radius: 4)
+                .asStyledText(with:.title)
                 .layoutPriority(1)
 
-            Spacer()
-                .frame(maxHeight: 10)
+            Divider()
+                .padding(.horizontal, 24)
 
-            Text(textBody.totalKeyPressesText)
-                .font(.title3)
+            Text(viewModel.textBody.totalKeyPressesText)
                 .lineLimit(nil)
-                .foregroundColor(AppColor.textBody)
-                .shadow(color: AppColor.textShadow, radius: 4)
+                .asStyledText(with:.title3)
 
-            Text(textBody.averageKeyPressesText)
-                .font(.title3)
+            Text(viewModel.textBody.averageKeyPressesPerMinuteText)
                 .lineLimit(nil)
-                .foregroundColor(AppColor.textBody)
-                .shadow(color: AppColor.textShadow, radius: 4)
+                .asStyledText(with:.title3)
+
+            Text(viewModel.textBody.averageKeyPressesPerSecondText)
+                .lineLimit(nil)
+                .asStyledText(with:.title3)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.vertical, 8)
-        .asChildCard(withColor: AppColor.secondaryBackground)
-
+        .asParentCard(withColor: AppColor.cardSecondaryBackground)
     }
 }

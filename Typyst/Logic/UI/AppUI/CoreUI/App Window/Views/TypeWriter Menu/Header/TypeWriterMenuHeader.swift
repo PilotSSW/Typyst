@@ -11,12 +11,10 @@ struct TypeWriterMenuHeader: View {
         VStack(alignment: .center) {
             Spacer(minLength: 6)
             Text("Choose a TypeWriter")
-                .font(.largeTitle)
-                .foregroundColor(AppColor.textHeader)
-                .shadow(color: AppColor.textShadow, radius: 8)
+                .asStyledText(with: .largeTitle)
             Spacer(minLength: 6)
         }
-        .asStyledCardHeader(withBackgroundColor: AppColor.secondaryBackground)
+        .asStyledCardHeader(withBackgroundColor: AppColor.cardSecondaryBackground)
     }
 }
 

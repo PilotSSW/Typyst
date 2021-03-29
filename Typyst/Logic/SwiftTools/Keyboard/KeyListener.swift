@@ -8,8 +8,9 @@ import HotKey
 
 
 class KeyListener {
-    static let instance = KeyListener()
-    static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
+    internal static let instance = KeyListener()
+    internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
+    internal static let modifiers: [NSEvent.ModifierFlags] = [.capsLock, .command, .control, .function, .help, .numericPad, .option, .shift]
 
     private var keyListeners = [Any]()
 
@@ -21,18 +22,18 @@ class KeyListener {
         keyListeners.removeAll()
     }
 
-    static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
+    internal static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
-            return KeyEvent(keyPressed, event.type)
+            return KeyEvent(keyPressed, event.type, event.modifierFlags)
         }
         
         return nil
     }
 
     // Listen for key presses in Typyst
-    func listenForLocalKeyPresses(completion: ((KeyEvent) -> ())?) {
+    internal func listenForLocalKeyPresses(completion: ((KeyEvent) -> ())?) {
         for eventType in KeyListener.eventTypes {
             keyListeners.append(
             NSEvent.addLocalMonitorForEvents(matching: eventType) { (event) -> NSEvent in
@@ -46,7 +47,7 @@ class KeyListener {
     }
 
     // Listen for key presses in other apps
-    func listenForGlobalKeyPresses(completion: ((KeyEvent) -> ())?) {
+    internal func listenForGlobalKeyPresses(completion: ((KeyEvent) -> ())?) {
         for eventType in KeyListener.eventTypes {
             keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
@@ -63,12 +64,12 @@ class KeyListener {
         }
     }
 
-    func listenForAllKeyPresses(completion: ((KeyEvent) -> ())?) {
+    internal func listenForAllKeyPresses(completion: ((KeyEvent) -> ())?) {
         listenForLocalKeyPresses(completion: completion)
         listenForGlobalKeyPresses(completion: completion)
     }
 
-    func removeAll() {
+    internal func removeAll() {
         keyListeners.removeAll()
     }
 }

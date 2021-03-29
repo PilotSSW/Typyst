@@ -10,15 +10,17 @@ import SwiftUI
 
 struct CardHeader: ViewModifier {
     var backgroundColor: Color
+
     func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(backgroundColor)
 
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .strokeBorder(AppColor.tertiaryBackground, lineWidth: 1.0, antialiased: true)
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 2.0, antialiased: true)
 
             content
+//                .clipped(antialiased: true)
                 .frame(height: 40)
         }
     }
@@ -31,9 +33,9 @@ extension View {
 
     func asStyledCardHeader(withBackgroundColor color: Color) -> some View {
         modifier(CardHeader(backgroundColor: color))
-            .shadow(color: AppColor.objectShadowDark, radius: 4, x: 0, y: 0)
+            .neumorphicShadow()
             .padding(8)
-            .frame(maxHeight: 52)
+            .frame(maxHeight: 56)
     }
 }
 

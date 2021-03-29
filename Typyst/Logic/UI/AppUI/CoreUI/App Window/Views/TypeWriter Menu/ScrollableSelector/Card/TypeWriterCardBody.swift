@@ -12,10 +12,7 @@ struct TypeWriterCardBody: View {
     var body: some View {
         Text(description)
             .multilineTextAlignment(.center)
-            .font(.body)
-            .foregroundColor(AppColor.textBody)
+            .asStyledText()
             .padding(.horizontal, 12)
-            .shadow(color: AppColor.textShadow,
-                    radius: 5, x: 0, y: 0)
     }
 }

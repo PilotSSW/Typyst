@@ -32,7 +32,7 @@ struct TitleCard: View {
                 .padding(.bottom, 12)
             }
         }
-        .asParentCard(withColor: AppColor.primaryBackground)
+        .asParentCard(withColor: AppColor.cardPrimaryBackground)
     }
 }
 

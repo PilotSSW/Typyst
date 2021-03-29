@@ -15,36 +15,30 @@ struct AppSettingsView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             Text("App Settings")
-                .font(.title)
-                .foregroundColor(AppColor.textBody)
-                .shadow(color: AppColor.textShadow,
-                        radius: 4)
-            Spacer()
-                .frame(height: 14,
-                       alignment: .center)
+                .bold()
+                .asStyledText(with: .title)
+
+            Spacer().frame(height: 14)
 
             SettingToggle(settingName: "Show modal notifications",
                           setting: $appSettings.showModalNotifications)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
-            Spacer()
-                .frame(height: 8,
-                       alignment: .center)
+            Spacer().frame(height: 8)
 
             SettingToggle(settingName: "Log Errors and Crashes",
                           setting: $appSettings.logErrorsAndCrashes)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
-            Spacer()
-                    .frame(height: 8,
-                           alignment: .center)
+            Spacer().frame(height: 8)
 
             SettingToggle(settingName: "Allow logging for typing analytics",
                           setting: $appSettings.logUsageAnalytics)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+
+            Spacer().frame(height: 8)
 
 //            SettingToggle(settingName: "Show Dock Icon",
 //                          setting: $appSettings.runAsMenubarApp)
+
+//            Spacer().frame(height: 8)
         }
         .frame(minWidth: 200, maxWidth: .infinity)
     }

@@ -15,32 +15,25 @@ struct TypeWriterSettings: View {
     var body: some View {
         VStack {
             Text("TypeWriter Settings")
-                .font(.title)
-                .foregroundColor(AppColor.textBody)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .shadow(color: AppColor.textShadow,
-                        radius: 4)
+                .bold()
+                .asStyledText(with: .title)
 
-            Spacer()
-                .frame(height: 14, alignment: .center)
+            Spacer().frame(height: 14)
 
             SettingToggle(settingName: "Simulate Bell on Newline",
                           setting: $appSettings.bell)
-                .frame(maxWidth: .infinity, alignment: .center)
 
-            Spacer()
-                .frame(height: 8, alignment: .center)
+            Spacer().frame(height: 8)
 
             SettingToggle(settingName: "Simulate Paper Feed",
                           setting: $appSettings.paperFeedEnabled)
-                .frame(maxWidth: .infinity, alignment: .center)
 
-            Spacer()
-                .frame(height: 8, alignment: .center)
+            Spacer().frame(height: 8)
 
             SettingToggle(settingName: "Simulate Paper Return",
                           setting: $appSettings.paperReturnEnabled)
-                .frame(maxWidth: .infinity, alignment: .center)
+
+            Spacer().frame(height: 8)
         }
     }
 }

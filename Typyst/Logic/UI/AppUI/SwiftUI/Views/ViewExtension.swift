@@ -10,11 +10,21 @@ import Foundation
 import SwiftUI
 
 extension View {
+    func inverseMask<Mask>(_ mask: Mask) -> some View where Mask: View {
+        // 2
+        self.mask(mask
+          .foregroundColor(.black)
+          .background(Color.white)
+          .compositingGroup()
+          .luminanceToAlpha()
+        )
+    }
+
     func multicolorGlow() -> some View {
         ZStack {
             ForEach(0..<2) { i in
                 Rectangle()
-                    .fill(AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center))
+                    .fill(AngularGradient(gradient: Gradient(colors: [.red, .orange, .yellow, .green, .blue, .purple, .red]), center: .center))
                     .frame(width: 400, height: 300)
                     .mask(self.blur(radius: 20))
                     .overlay(self.blur(radius: 5 - CGFloat(i * 5)))

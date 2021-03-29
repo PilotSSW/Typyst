@@ -10,14 +10,14 @@ import SwiftUI
 
 struct AnalyticsInfoControls: View {
     @ObservedObject
-    var viewModel: AnalyticsInfoViewModel
+    var viewModel: AnalyticsInfoCardViewModel
 
     var body: some View {
         HStack() {
             Spacer()
                 .frame(minWidth: 12, maxWidth: .infinity)
 
-            AnalyticsInfoViewButton(text: "Start",
+            AnalyticsInfoControlButton(text: "Start",
                                     backgroundColor: AppColor.buttonPrimary,
                                     action: { viewModel.startTimer() })
                     .layoutPriority(1)
@@ -25,7 +25,7 @@ struct AnalyticsInfoControls: View {
             Spacer()
                 .frame(minWidth: 12, maxWidth: 24)
 
-            AnalyticsInfoViewButton(text: "Stop",
+            AnalyticsInfoControlButton(text: "Stop",
                                     backgroundColor: AppColor.buttonWarning,
                                     action: { viewModel.stopTimer() })
                 .layoutPriority(1)
@@ -33,7 +33,7 @@ struct AnalyticsInfoControls: View {
             Spacer()
                 .frame(minWidth: 12, maxWidth: 24)
 
-            AnalyticsInfoViewButton(text: "Reset",
+            AnalyticsInfoControlButton(text: "Reset",
                                     backgroundColor: AppColor.buttonTertiary,
                                     action: { viewModel.reset() })
                 .layoutPriority(1)
@@ -46,12 +46,12 @@ struct AnalyticsInfoControls: View {
         .frame(minWidth: 200, maxWidth: 400,
                minHeight: 72, maxHeight: 114,
                alignment: .center)
-        .asChildCard(withColor: AppColor.secondaryBackground)
+        .asParentCard(withColor: AppColor.cardSecondaryBackground)
     }
 }
 
 struct AnalyticsInfoControls_Previews: PreviewProvider {
     static var previews: some View {
-        AnalyticsInfoControls(viewModel: AnalyticsInfoViewModel())
+        AnalyticsInfoControls(viewModel: AnalyticsInfoCardViewModel())
     }
 }

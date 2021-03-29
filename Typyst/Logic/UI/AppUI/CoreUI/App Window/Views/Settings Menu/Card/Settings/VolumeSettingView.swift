@@ -17,14 +17,12 @@ struct VolumeSetting: View {
             Text("Main Volume")
                 .lineLimit(nil)
                 .multilineTextAlignment(.leading)
-                .foregroundColor(AppColor.textBody)
-                .font(.title3)
-                .shadow(color: AppColor.textShadow, radius: 4)
+                .asStyledText(with: .title3)
             HStack {
                 Image(systemName: "minus")
                 Slider(value: $appSettings.volumeSetting)
                     .accentColor(AppColor.buttonPrimary)
-                    .shadow(color: AppColor.objectShadowDark, radius: 4)
+//                    .neumorphicShadow()
                 Image(systemName: "plus")
             }
         }

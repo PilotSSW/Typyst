@@ -16,18 +16,17 @@ struct EmailButton: View {
             HStack(spacing: 4) {
                 Image(systemName: "mail")
                 Text("Email Typyst Support")
-                    .font(.title3)
-                    .foregroundColor(AppColor.textBody)
-                    .shadow(color: AppColor.textShadow,
-                            radius: 4)
+                    .bold()
+                    .asStyledText(with: .title3)
             }
+            .padding(.horizontal, 8)
         }
 //        .buttonStyle(GradientButtonStyle(primaryColor: AppColor.buttonSecondary,
 //                                         secondaryColor: AppColor.buttonPrimary))
         .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonTertiary))
 //        .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous)
 //                 .strokeBorder(AppColor.buttonBorder, lineWidth:3.0, antialiased: true))
-        .padding(6)
+//        .padding(6)
 //        .shadow(color: AppColor.objectShadowDark,
 //                radius: 4)
     }

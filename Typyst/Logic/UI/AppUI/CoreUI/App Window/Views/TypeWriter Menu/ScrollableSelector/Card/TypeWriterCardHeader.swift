@@ -24,19 +24,17 @@ struct TypeWriterCardHeader: View {
         Link(destination: infoURL) {
             HStack(content: {
                 Text(maker)
-                    .font(.headline)
                     .bold()
-                    .foregroundColor(AppColor.textHeader)
+                    .asStyledHeader()
                 Text("-")
-                    .font(.headline)
                     .bold()
-                    .foregroundColor(AppColor.textHeader)
+                    .asStyledHeader()
                 Text(modelName)
-                    .font(.headline)
                     .bold()
-                    .foregroundColor(AppColor.textHeader)
+                    .asStyledHeader()
             })
-            .frame(width: 185)
+            .padding(.vertical, 12)
+            .padding(.horizontal, 20)
             .asStyledCardHeader(withBackgroundColor: isSelected
                 ? AppColor.buttonPrimary
                 : AppColor.typeWriterCardHeaderBackground)

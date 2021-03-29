@@ -22,7 +22,7 @@ struct Typyst: View {
                     .layoutPriority(1)
             }
 
-            TypeWriterMenu(options: TypeWriterMenuOptions.typeWriters)
+            TypeWriterMenu()
                 .layoutPriority(2)
 
             SettingsMenu()

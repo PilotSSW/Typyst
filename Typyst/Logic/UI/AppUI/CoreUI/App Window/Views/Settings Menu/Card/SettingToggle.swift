@@ -18,19 +18,16 @@ struct SettingToggle: View {
         HStack(alignment: .center, spacing: 4) {
             Text(settingName)
                 .lineLimit(nil)
-                .multilineTextAlignment(.leading)
-                .allowsTightening(true)
-                .foregroundColor(AppColor.textBody)
-                .font(.title3)
+//                .multilineTextAlignment(.leading)
+                .asStyledText(with: .title3)
                 .frame(maxHeight: .infinity, alignment: .leading)
-                .shadow(color: AppColor.textShadow, radius: 2)
             Spacer(minLength: 0)
                 .background(Color.clear)
             Toggle(isOn: $setting) {}
                 .toggleStyle(SwitchToggleStyle(tint: AppColor.buttonPrimary))
                 .frame(maxHeight: .infinity, alignment: .trailing)
                 .accentColor(AppColor.buttonPrimary)
-                .shadow(color: AppColor.objectShadowDark, radius: 2)
+                .shadow(color: AppColor.objectShadowLight, radius: 1)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }

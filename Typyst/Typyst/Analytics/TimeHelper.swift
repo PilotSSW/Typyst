@@ -42,3 +42,4 @@ class TimeHelper {
         return TimeAmount(days: days, hours: hours, minutes: minutes, seconds: remainingSeconds)
     }
 }
+

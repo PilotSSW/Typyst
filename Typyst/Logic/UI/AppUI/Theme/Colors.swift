@@ -11,16 +11,28 @@ class AppColor {
      * Backgrounds
      */
 
-    public static var primaryBackground: Color {
-        Color("Backgrounds/Primary")
+    public static var cardPrimaryBackground: Color {
+        Color("Cards/Backgrounds/Primary")
     }
 
-    public static var secondaryBackground: Color {
-        Color("Backgrounds/Secondary")
+    public static var cardSecondaryBackground: Color {
+        Color("Cards/Backgrounds/Secondary")
     }
 
-    public static var tertiaryBackground: Color {
-        Color("Backgrounds/Tertiary")
+    public static var cardTertiaryBackground: Color {
+        Color("Cards/Backgrounds/Tertiary")
+    }
+
+    /**
+     * Cards
+     */
+
+    public static var cardOutlinePrimary: Color {
+        Color("Cards/Outlines/Primary")
+    }
+
+    public static var cardOutlineSecondary: Color {
+        Color("Cards/Outlines/Secondary")
     }
 
     /**
@@ -73,22 +85,22 @@ class AppColor {
      * UI Elements
      */
     public static var buttonBorder: Color {
-        Color("ButtonBorder")
+        Color("Buttons/Border")
     }
     
     public static var buttonPrimary: Color {
-        Color("ButtonPrimary")
+        Color("Buttons/Primary")
     }
 
     public static var buttonSecondary: Color {
-        Color("ButtonSecondary")
+        Color("Buttons/Secondary")
     }
 
     public static var buttonTertiary: Color {
-        Color("ButtonTertiary")
+        Color("Buttons/Tertiary")
     }
 
     public static var buttonWarning: Color {
-        Color("ButtonWarning")
+        Color("Buttons/Warning")
     }
 }

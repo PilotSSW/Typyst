@@ -10,13 +10,34 @@ class KeyEvent {
     var key: Key
     var direction: NSEvent.EventType
 
-    init(_ key: Key, _ direction: NSEvent.EventType) {
+    init(_ key: Key, _ direction: NSEvent.EventType, _ modifiers: NSEvent.ModifierFlags) {
         self.key = key
-        self.direction = direction
-    }
+
+        if (!KeyEvent.isFlagsChangedKey(key)) {
+            self.direction = direction
+        }
+        else {
+            if (modifiers.rawValue == 256) {
+                self.direction = .keyUp
+            }
+            else {
+                self.direction = .keyDown
+            }
+        }
+    }   
 
     func asAnonymousKeyEvent() -> AnonymousKeyEvent {
         AnonymousKeyEvent(self)
+    }
+
+    static func isFlagsChangedKey(_ key: Key) -> Bool {
+        switch(key) {
+            case .command, .rightCommand, .control, .rightControl, .function,
+                 .help, .option, .rightOption, .shift, .rightShift:
+                return true
+            default:
+                return false
+        }
     }
 }
 

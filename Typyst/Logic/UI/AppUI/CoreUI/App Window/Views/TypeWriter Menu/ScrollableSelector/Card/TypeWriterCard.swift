@@ -33,7 +33,7 @@ struct TypeWriterCard: View {
 
             Spacer()
         })
-        .asChildCard(withColor: AppColor.secondaryBackground)
+        .asChildCard(withColor: AppColor.cardTertiaryBackground)
     }
 }
 

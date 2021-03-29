@@ -11,12 +11,12 @@ import SwiftUI
 struct SettingsMenu: View {
     var body: some View {
         VStack(alignment: .center) {
-            Spacer(minLength: 8)
+//            Spacer(minLength: 8)
             SettingsMenuHeader()
             SettingsCard()
             Spacer(minLength: 8)
         }
-        .asParentCard(withColor: AppColor.primaryBackground)
+        .asParentCard(withColor: AppColor.cardPrimaryBackground)
     }
 }
 

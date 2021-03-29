@@ -12,12 +12,11 @@ struct MainView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(AppColor.primaryBackground)
+                .fill(Color(.displayP3, red: 230, green: 230, blue: 230, opacity: 0.88))
                 .blur(radius: 48)
+                .opacity(0.5)
 
             VStack {
-                Spacer()
-                    .frame(height: 4)
                 ScrollView(.vertical, showsIndicators: false) {
 
                     Typyst()
@@ -31,7 +30,6 @@ struct MainView: View {
         }
         .frame(minWidth: 300, idealWidth: 320, maxWidth: 450,
                minHeight: 300, idealHeight: 1880, maxHeight: 3840)
-        .edgesIgnoringSafeArea(.all)
     }
 }
 

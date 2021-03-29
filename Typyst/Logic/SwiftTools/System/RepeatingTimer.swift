@@ -12,16 +12,18 @@ import Foundation
 /// crashes that occur from calling resume multiple times on a timer that is
 /// already resumed (noted by https://github.com/SiftScience/sift-ios/issues/52
 class RepeatingTimer {
-
+    let leeway: DispatchTimeInterval
     let timeInterval: TimeInterval
 
-    init(timeInterval: TimeInterval) {
+
+    init(timeInterval: TimeInterval, leeway: DispatchTimeInterval = .milliseconds(10)) {
         self.timeInterval = timeInterval
+        self.leeway = leeway
     }
 
     private lazy var timer: DispatchSourceTimer = {
         let t = DispatchSource.makeTimerSource()
-        t.schedule(deadline: .now() + self.timeInterval, repeating: self.timeInterval, leeway: .milliseconds(333))
+        t.schedule(deadline: .now() + self.timeInterval, repeating: self.timeInterval, leeway: leeway)
         t.setEventHandler(handler: { [weak self] in
             self?.eventHandler?()
         })

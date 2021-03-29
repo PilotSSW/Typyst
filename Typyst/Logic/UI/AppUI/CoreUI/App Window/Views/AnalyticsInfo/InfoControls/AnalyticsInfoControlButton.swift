@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-struct AnalyticsInfoViewButton: View {
+struct AnalyticsInfoControlButton: View {
     var text: String = ""
     var backgroundColor: Color
     var action: () -> Void
@@ -14,10 +14,8 @@ struct AnalyticsInfoViewButton: View {
     var body: some View {
         Button(action: action) {
             Text(text)
-                .font(.title3)
                 .bold()
-                .foregroundColor(AppColor.textBody)
-                .shadow(color: AppColor.textShadow, radius: 6)
+                .asStyledText(with: .title3)
                 .frame(minWidth: 55, maxWidth: 105,
                        minHeight: 48, maxHeight: 90,
                        alignment: .center)
