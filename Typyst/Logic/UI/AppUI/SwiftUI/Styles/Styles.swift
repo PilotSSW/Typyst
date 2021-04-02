@@ -51,14 +51,14 @@ struct NeumorphicButtonStyle: ButtonStyle {
                                 radius: configuration.isPressed ? radiusPressed : radiusUnpressed,
                                 x: configuration.isPressed ? -xPressed : xUnpressed,
                                 y: configuration.isPressed ? -yPressed : yUnpressed)
-                        .blendMode(.luminosity)
+                        .blendMode(.overlay)
+
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .fill(backgroundColor)
                         .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
                                     .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
                                                   lineWidth: 1.5, antialiased: true))
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
             )
             .scaleEffect(configuration.isPressed ? 0.92 : 1)
             .animation(.interactiveSpring())

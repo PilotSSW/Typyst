@@ -13,28 +13,34 @@ struct TypeWriterCard: View {
 
     var body: some View {
         VStack(alignment: .center, content: {
-            Spacer()
-                .frame(height: 4)
+            TypeWriterCardHeader(
+                maker: optionInfo.model.maker,
+                model: optionInfo.model.model,
+                modelName: optionInfo.model.name,
+                onClick: optionInfo.onClick)
                 .layoutPriority(3)
 
-            TypeWriterCardHeader(infoURL: optionInfo.infoURL,
-                                 maker: optionInfo.maker,
-                                 model: optionInfo.model,
-                                 modelName: optionInfo.name)
+            if let imagePath = optionInfo.model.image {
+                TypeWriterImageButton(onClick: optionInfo.onClick,
+                                      imagePath: imagePath)
+                    .layoutPriority(2)
 
-            TypeWriterImageButton(onClick: optionInfo.onClick,
-                                  imagePath: optionInfo.image)
-                .layoutPriority(1)
+                Spacer()
+                    .frame(height: 12)
+                    .layoutPriority(4)
+            }
 
-            Spacer()
+            if let description = optionInfo.model.description {
+                Divider()
+                    .padding(.horizontal, 24)
 
-            Divider()
-                .padding(.horizontal, 24)
+                TypeWriterCardBody(description: description)
+                    .layoutPriority(1)
 
-            TypeWriterCardBody(description: optionInfo.description)
-                .layoutPriority(2)
-
-            Spacer()
+                Spacer()
+                    .frame(height: 12)
+                    .layoutPriority(4)
+            }
         })
         .asChildCard(withColor: AppColor.cardTertiaryBackground)
     }
@@ -43,7 +49,7 @@ struct TypeWriterCard: View {
 struct TypeWriterCard_Previews: PreviewProvider {
     static var previews: some View {
         VStack(alignment: .center, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-            ForEach(TypeWriterMenuOptions.typeWriters, id: \.name) { optionInfo in
+            ForEach(TypeWriterMenuOptions.typeWriters, id: \.model.name) { optionInfo in
                 TypeWriterCard(optionInfo: optionInfo)
             }
         })

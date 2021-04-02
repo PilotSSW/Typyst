@@ -25,7 +25,7 @@ class AppCore: ObservableObject {
         loadTypeWriter()
     }
 
-    func setCurrentTypeWriter(model: TypeWriter.Model) {
+    func setCurrentTypeWriter(model: TypeWriterModel.ModelType) {
         AppSettings.shared.selectedTypewriter = model.rawValue
         unloadTypewriter()
         loadedTypewriter = TypeWriter(model: model, errorHandler: { (soundErrors) in
@@ -40,7 +40,7 @@ class AppCore: ObservableObject {
 
     func loadTypeWriter() {
         if let modelString = AppSettings.shared.selectedTypewriter,
-           let model = TypeWriter.Model.init(rawValue: modelString) {
+           let model = TypeWriterModel.ModelType.init(rawValue: modelString) {
             setCurrentTypeWriter(model: model)
             return
         }

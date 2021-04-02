@@ -26,10 +26,30 @@ class KeyListener {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
-            return KeyEvent(keyPressed, event.type, event.modifierFlags)
+            var isRepeat = false
+            if (event.type != .flagsChanged) {
+                isRepeat = event.isARepeat
+            }
+            return KeyEvent(keyPressed, event.type, event.modifierFlags, isRepeat: isRepeat)
         }
         
         return nil
+    }
+
+    internal static func handleEvent(_ event: NSEvent, completion: ((KeyEvent) -> Void)?)  {
+        DispatchQueue.global(qos: .userInteractive).async(execute: {
+            if event.timeSinceEvent <= 0.75,
+               let keyPressed = KeyListener.determineKeyPressedFrom(event) {
+                let debugSettings = AppDebugSettings.shared
+                if debugSettings.debugKeypresses && debugSettings.debugKeypresses {
+                    NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
+                }
+
+                DispatchQueue.main.async(execute: {
+                    completion?(keyPressed)
+                })
+            }
+        })
     }
 
     // Listen for key presses in Typyst
@@ -37,10 +57,7 @@ class KeyListener {
         for eventType in KeyListener.eventTypes {
             keyListeners.append(
             NSEvent.addLocalMonitorForEvents(matching: eventType) { (event) -> NSEvent in
-                if let keyPressed = KeyListener.determineKeyPressedFrom(event) {
-                    completion?(keyPressed)
-                }
-
+                KeyListener.handleEvent(event, completion: completion)
                 return event
             } as Any)
         }
@@ -51,15 +68,7 @@ class KeyListener {
         for eventType in KeyListener.eventTypes {
             keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                if event.timeSinceEvent <= 0.75,
-                   let keyPressed = KeyListener.determineKeyPressedFrom(event) {
-                    let debugSettings = AppDebugSettings.shared
-                    if debugSettings.debugKeypresses && debugSettings.debugKeypresses {
-                        NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
-                    }
-                    completion?(keyPressed)
-                }
-
+                KeyListener.handleEvent(event, completion: completion)
             } as Any)
         }
     }

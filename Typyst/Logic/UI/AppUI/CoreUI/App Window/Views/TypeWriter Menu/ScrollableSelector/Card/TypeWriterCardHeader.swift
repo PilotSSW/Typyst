@@ -8,10 +8,11 @@ import Foundation
 import SwiftUI
 
 struct TypeWriterCardHeader: View {
-    var infoURL: URL
+//    var infoURL: URL
     var maker: String
-    var model: TypeWriter.Model
+    var model: TypeWriterModel.ModelType
     var modelName: String
+    var onClick: (() -> Void)? = nil
 
     @ObservedObject
     var appSettings: AppSettings = AppSettings.shared
@@ -21,13 +22,12 @@ struct TypeWriterCardHeader: View {
     }
 
     var body: some View {
-        Link(destination: infoURL) {
+        Button(action: onClick ?? {}, label: {
             HStack(content: {
                 Text(maker)
                     .bold()
                     .asStyledHeader()
                 Text("-")
-                    .bold()
                     .asStyledHeader()
                 Text(modelName)
                     .bold()
@@ -36,16 +36,16 @@ struct TypeWriterCardHeader: View {
             .padding(.vertical, 12)
             .padding(.horizontal, 20)
             .asStyledCardHeader(withBackgroundColor: isSelected
-                ? AppColor.buttonPrimary
-                : AppColor.typeWriterCardHeaderBackground)
-        }
+                                    ? AppColor.buttonPrimary
+                                    : AppColor.typeWriterCardHeaderBackground)
+        })
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
 struct TypeWriterCardHeader_Previews: PreviewProvider {
     static var previews: some View {
-        TypeWriterCardHeader(infoURL: URL(string: "www.google.com")!,
-                             maker: "Smith-Corona",
+        TypeWriterCardHeader(maker: "Smith-Corona",
                              model: .Smith_Corona_Silent,
                              modelName: "Silent")
     }

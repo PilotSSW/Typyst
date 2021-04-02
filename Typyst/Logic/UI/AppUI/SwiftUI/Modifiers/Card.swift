@@ -8,22 +8,42 @@ import SwiftUI
 
 struct Card: ViewModifier {
     var backgroundColor: Color
+    var cornerRadius: CGFloat = 24
+    var insetBackgroundColor: Color = AppColor.cardOutlineRoundedScrollerBackground
+    var insetSize: CGFloat = 4.0
+    var padding: CGFloat = 0.0
+    var showInsetStrokeBorder: Bool = false
     var showStrokeBorder: Bool = true
 
     func body(content: Content) -> some View {
         ZStack(alignment: .center, content: {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(backgroundColor)
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(showInsetStrokeBorder
+                        ? AppColor.buttonBorder
+                        : backgroundColor)
                 .layoutPriority(1)
 
             if (showStrokeBorder) {
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 2.0, antialiased: true)
+                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                    .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 1.66, antialiased: true)
                     .layoutPriority(2)
             }
 
+            if (showInsetStrokeBorder) {
+                RoundedRectangle(cornerRadius: cornerRadius - insetSize, style: .continuous)
+                    .fill(backgroundColor)
+                    .padding(insetSize)
+                    .layoutPriority(3)
+
+                RoundedRectangle(cornerRadius: cornerRadius - insetSize, style: .continuous)
+                    .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 0.66, antialiased: true)
+                    .opacity(0.66)
+                    .padding(insetSize)
+                    .layoutPriority(3)
+            }
+
             content
-                .layoutPriority(3)
+                .layoutPriority(4)
         })
     }
 }
@@ -40,7 +60,13 @@ extension View {
     }
 
     func asChildCard(withColor color: Color) -> some View {
-        modifier(Card(backgroundColor: color, showStrokeBorder: false))
+        modifier(Card(backgroundColor: color, cornerRadius: 20, showStrokeBorder: false))
             .neumorphicShadow()
+    }
+
+    func asScrollableCard(withColor color: Color) -> some View {
+        modifier(Card(backgroundColor: color, showInsetStrokeBorder: true))
+            .neumorphicShadow()
+            .padding(.horizontal, 8)
     }
 }

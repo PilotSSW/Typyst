@@ -46,13 +46,13 @@ class MenuItemsTypeWriters {
         return royalModelPRow
     }()
 
-    private func registerMenuUpdateOnTypeWriterChange(_ nsMenuItem: NSMenuItem, model: TypeWriter.Model) {
+    private func registerMenuUpdateOnTypeWriterChange(_ nsMenuItem: NSMenuItem, model: TypeWriterModel.ModelType) {
         App.instance.core.registerActionOnTypeWriterChange({ typeWriter in
             self.updateMenuOption(nsMenuItem, menuModel: model, chosenModel: typeWriter?.model)
         })
     }
 
-    private func updateMenuOption(_ sender: Any?, menuModel: TypeWriter.Model, chosenModel: TypeWriter.Model?) {
+    private func updateMenuOption(_ sender: Any?, menuModel: TypeWriterModel.ModelType, chosenModel: TypeWriterModel.ModelType?) {
         (sender as? NSMenuItem)?.state = menuModel == chosenModel ? .on : .off
     }
 }
@@ -60,14 +60,14 @@ class MenuItemsTypeWriters {
 // TypeWriter Menu Items
 extension AppMenu {
     @objc func loadOlympiaSM3(_ sender: Any?) {
-        App.instance.core.setCurrentTypeWriter(model: TypeWriter.Model.Olympia_SM3)
+        App.instance.core.setCurrentTypeWriter(model: TypeWriterModel.ModelType.Olympia_SM3)
     }
 
     @objc func loadRoyalModelP(_ sender: Any?) {
-        App.instance.core.setCurrentTypeWriter(model: TypeWriter.Model.Royal_Model_P)
+        App.instance.core.setCurrentTypeWriter(model: TypeWriterModel.ModelType.Royal_Model_P)
     }
 
     @objc func loadSmithCoronaSilent(_ sender: Any?) {
-        App.instance.core.setCurrentTypeWriter(model: TypeWriter.Model.Smith_Corona_Silent)
+        App.instance.core.setCurrentTypeWriter(model: TypeWriterModel.ModelType.Smith_Corona_Silent)
     }
 }

@@ -16,8 +16,8 @@ struct StyledText: ViewModifier {
             .foregroundColor(textColor)
             .lineSpacing(1.33)
             .allowsTightening(true)
-            .minimumScaleFactor(0.8)
-            .shadow(color: AppColor.textShadow, radius: 3)
+            .minimumScaleFactor(0.85)
+            .shadow(color: AppColor.textShadow, radius: 2)
 
         return newView
     }

@@ -16,12 +16,10 @@ class AppWindow {
         mainWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 640),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-//                        , .borderless],
             backing: .buffered,
             defer: false)
         mainWindow.setContentSize(NSSize(width: 300, height: 640))
         //mainWindow.center()
-
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
@@ -34,7 +32,7 @@ class AppWindow {
 
         // Set properties
         mainWindow.titlebarAppearsTransparent = true
-        mainWindow.isMovableByWindowBackground = true
+        mainWindow.isMovableByWindowBackground = false
         mainWindow.setFrameAutosaveName("Main Window")
 
         // Setup translucency

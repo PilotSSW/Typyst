@@ -23,6 +23,8 @@ class TypeWriterKeyLogic {
     }
 
     func assignKeyPresses(for keyPressed: KeyEvent, sounds: Sounds) {
+        if (keyPressed.isRepeat) { return }
+
         handlePaperReturn(for: keyPressed, sounds: sounds)
 
         // These should be ordered by likelihood they were the key pressed. The fewer the searches, the faster the

@@ -9,9 +9,11 @@ import HotKey
 class KeyEvent {
     var key: Key
     var direction: NSEvent.EventType
+    var isRepeat: Bool
 
-    init(_ key: Key, _ direction: NSEvent.EventType, _ modifiers: NSEvent.ModifierFlags) {
+    init(_ key: Key, _ direction: NSEvent.EventType, _ modifiers: NSEvent.ModifierFlags, isRepeat: Bool = false) {
         self.key = key
+        self.isRepeat = isRepeat
 
         if (!KeyEvent.isFlagsChangedKey(key)) {
             self.direction = direction
@@ -44,9 +46,11 @@ class KeyEvent {
 class AnonymousKeyEvent {
     var keySet: KeySets.KeySetType?
     var direction: NSEvent.EventType
+    var isRepeat: Bool
 
-    init(_ keyEvent: KeyEvent) {
+    init(_ keyEvent: KeyEvent, isRepeat: Bool = false) {
         keySet = KeySets.keyIsOfKeySet(keyEvent.key)
         direction = keyEvent.direction
+        self.isRepeat = isRepeat
     }
 }

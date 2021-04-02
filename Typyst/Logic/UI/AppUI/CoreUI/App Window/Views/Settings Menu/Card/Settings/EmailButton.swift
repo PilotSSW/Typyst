@@ -21,7 +21,7 @@ struct EmailButton: View {
             }
             .padding(.horizontal, 8)
         }
-        .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonTertiary))
+        .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonSecondary))
     }
 }
 

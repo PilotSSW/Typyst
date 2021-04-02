@@ -23,6 +23,10 @@ class AppColor {
         Color("Cards/Backgrounds/Tertiary")
     }
 
+    public static var cardOutlineRoundedScrollerBackground: Color {
+        Color("Cards/Backgrounds/RoundedScrollerBackground")
+    }
+
     /**
      * Cards
      */
@@ -34,6 +38,7 @@ class AppColor {
     public static var cardOutlineSecondary: Color {
         Color("Cards/Outlines/Secondary")
     }
+
 
     /**
      * Objects

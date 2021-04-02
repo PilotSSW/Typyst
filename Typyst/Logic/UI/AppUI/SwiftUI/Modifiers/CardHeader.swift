@@ -17,10 +17,9 @@ struct CardHeader: ViewModifier {
                 .fill(backgroundColor)
 
             RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 2.0, antialiased: true)
+                .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 1.33, antialiased: true)
 
             content
-//                .clipped(antialiased: true)
                 .frame(height: 40)
         }
     }

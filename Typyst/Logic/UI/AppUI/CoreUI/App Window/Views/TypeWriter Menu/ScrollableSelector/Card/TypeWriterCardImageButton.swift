@@ -17,6 +17,8 @@ struct TypeWriterImageButton: View {
 //                    .fill(AppColor.ImageBackground)
 //                    .blendMode(.saturation)
 //                    .blur(radius: 1, opaque: false)
+//                    .layoutPriority(1)
+
 
                 Image(imagePath)
                     .resizable()
@@ -24,21 +26,22 @@ struct TypeWriterImageButton: View {
                     .blendMode(.destinationOver)
                     .opacity(0.66)
                     .blur(radius: 16)
-                    .frame(minWidth: 0, maxWidth: .infinity,
-                           minHeight: 0, maxHeight: .infinity,
-                           alignment: .center)
+                    .layoutPriority(2)
+
 
                 Image(imagePath)
                     .resizable()
                     .scaledToFit()
                     .shadow(color: AppColor.objectShadowDark, radius: 6)
                     .padding(.horizontal, 18)
-                    .frame(minWidth: 200, maxWidth: .infinity,
-                           minHeight: 200, maxHeight: .infinity,
-                           alignment: .center)
+                    .layoutPriority(3)
+                    .padding(8)
             }
         }
         .buttonStyle(PlainButtonStyle())
+        .frame(minWidth: 60,
+               minHeight: 60,
+               alignment: .center)
     }
 }
 

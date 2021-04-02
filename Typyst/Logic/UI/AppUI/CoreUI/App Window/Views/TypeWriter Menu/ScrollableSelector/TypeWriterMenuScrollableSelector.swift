@@ -16,17 +16,17 @@ struct TypeWriterMenuScrollableSelector: View {
             Spacer()
                 .frame(height: 4)
             VStack(spacing: 8) {
-                ForEach(options, id: \.name) { option in
+                ForEach(Array(options.enumerated()), id: \.offset) { (index, option) in
                     TypeWriterCard(optionInfo: option)
                         .padding(.horizontal, 4)
-                        .layoutPriority(1)
+                        .layoutPriority(Double(index))
                 }
             }
             Spacer()
                 .frame(height: 4)
         }
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous).inset(by: 4))
-        .asParentCard(withColor: AppColor.cardSecondaryBackground)
+        .asScrollableCard(withColor: AppColor.cardSecondaryBackground)
     }
 }
 
