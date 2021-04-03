@@ -59,7 +59,7 @@ class TypeWriterModel {
 //                Why Hello there
 //                """
         ],
-        .Smith_Corona_Silent: [
+        .Royal_Model_P: [
             "name": "Model P",
             "maker": "Royal",
             "image": "RoyalModelP",
@@ -69,7 +69,7 @@ class TypeWriterModel {
                 This portable Royal Typewriter was manufactured by the Royal Typewriter Company in 1933. The portable Royal came in several variants of the “Quiet DeLuxe” including this model A. The model has the serial number A373262, dating it to 1933. The typewriter has a four row QWERTY keyboard with right and left shift keys and variable touch control.
                 """
         ],
-        .Royal_Model_P: [
+        .Smith_Corona_Silent: [
             "name": "Silent",
             "maker": "Smith-Corona",
             "image": "SmithCoronaSilent",

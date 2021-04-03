@@ -49,7 +49,7 @@ class TypeWriter: ObservableObject {
     deinit {
         sounds.playSound(for: .LidDown)
 
-        DispatchQueue.main.async(execute: { [weak self] in
+        DispatchQueue.global(qos: .default).async(execute: { [weak self] in
             guard let self = self else { return }
             self.sounds.unloadSounds()
         })

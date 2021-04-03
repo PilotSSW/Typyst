@@ -27,7 +27,11 @@ class Sounds {
         Sound.playersPerSound = 1
     }
 
-    private func getSoundSet(location: String, errorHandler: (([SoundError]) -> Void)?) -> [Sound] {
+    deinit {
+        unloadSounds()
+    }
+
+    private func getSoundSet(location: String) -> ([Sound], [SoundError]) {
         var sounds = [Sound]()
         var soundsNotFound = [SoundError]()
 
@@ -41,23 +45,27 @@ class Sounds {
             }
         })
 
-        if soundsNotFound.count > 0 {
-            DispatchQueue.main.async(execute: {
-                errorHandler?(soundsNotFound)
-            })
-        }
-        return sounds
+        return (sounds, soundsNotFound)
     }
 
     func loadSounds(for model: TypeWriterModel.ModelType, completion: ((Sounds) -> ())?, errorHandler: (([SoundError]) -> ())?) {
+        var soundErrors = [SoundError]()
+
         // Load KeyUp sounds
         DispatchQueue.global(qos: .userInitiated).async(execute: { [weak self] in
             guard let self = self else { return }
             Sounds.AvailableSoundSets.allCases.forEach({
                 let key = $0
-                let result = self.getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)", errorHandler: errorHandler)
-                self.soundSets[key] = result
+                let result = self.getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)")
+                self.soundSets[key] = result.0
+                soundErrors.append(contentsOf: result.1)
             })
+
+            if soundErrors.count > 0 {
+                DispatchQueue.main.async(execute: {
+                    errorHandler?(soundErrors)
+                })
+            }
 
             DispatchQueue.main.async(execute: { [weak self] in
                 guard let self = self else { return }

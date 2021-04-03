@@ -23,16 +23,20 @@ struct TypeWriterInfo: View {
                 Spacer()
                 Text("Margin Width: \(state.marginWidth)")
                     .asLightStyledText(with: .headline)
+                    .layoutPriority(2)
                 Text("Lines per Page: \(state.linesPerPage)")
                     .asLightStyledText(with: .headline)
+                    .layoutPriority(2)
                 Spacer()
             }
             HStack {
                 Spacer()
                 Text("Cursor Position: \(state.cursorIndex)")
                     .asLightStyledText(with: .title3)
+                    .layoutPriority(2)
                 Text("Current Line: \(state.lineIndex)")
                     .asLightStyledText(with: .title3)
+                    .layoutPriority(2)
                 Spacer()
             }
         }

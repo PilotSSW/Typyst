@@ -19,7 +19,7 @@ struct TypeWriterMenuScrollableSelector: View {
                 ForEach(Array(options.enumerated()), id: \.offset) { (index, option) in
                     TypeWriterCard(optionInfo: option)
                         .padding(.horizontal, 4)
-                        .layoutPriority(Double(index))
+                        .layoutPriority(Double(options.count - index))
                 }
             }
             Spacer()

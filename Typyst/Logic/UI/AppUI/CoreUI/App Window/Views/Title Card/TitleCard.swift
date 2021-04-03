@@ -16,7 +16,6 @@ struct TitleCard: View {
         VStack {
             Image("TypystIcon")
                 .resizable()
-                .aspectRatio(1.0, contentMode: .fit)
                 .scaledToFit()
                 .frame(minWidth: 200, maxWidth: .infinity,
                        minHeight: 200, maxHeight: .infinity,
@@ -28,8 +27,9 @@ struct TitleCard: View {
             Spacer()
             if let typeWriter = typeWriter {
                 TypeWriterInfo(state: typeWriter.state)
-                .padding(.horizontal, 12)
-                .padding(.bottom, 12)
+                    .padding(.bottom, 12)
+                    .layoutPriority(2)
+                    .padding(.horizontal, 8)
             }
         }
         .asParentCard(withColor: AppColor.cardPrimaryBackground)

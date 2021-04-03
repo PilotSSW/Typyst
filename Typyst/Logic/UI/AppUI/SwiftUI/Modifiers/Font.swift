@@ -12,11 +12,11 @@ struct StyledText: ViewModifier {
 
     func body(content: Content) -> some View {
         let newView = content
-            .font(.custom("AmericanTypewriter", size: 16, relativeTo: textStyle))
+            .font(.custom("AmericanTypewriter", size: 14, relativeTo: textStyle))
             .foregroundColor(textColor)
             .lineSpacing(1.33)
             .allowsTightening(true)
-            .minimumScaleFactor(0.85)
+            .minimumScaleFactor(0.88)
             .shadow(color: AppColor.textShadow, radius: 2)
 
         return newView
