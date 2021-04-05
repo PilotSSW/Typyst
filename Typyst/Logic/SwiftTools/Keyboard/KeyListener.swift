@@ -41,8 +41,9 @@ class KeyListener {
             if event.timeSinceEvent <= 0.75,
                let keyPressed = KeyListener.determineKeyPressedFrom(event) {
                 let debugSettings = AppDebugSettings.shared
-                if debugSettings.debugKeypresses && debugSettings.debugKeypresses {
+                if debugSettings.debugGlobal && debugSettings.debugKeypresses {
                     NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
+                    NSLog("Event: \(event)")
                 }
 
                 DispatchQueue.main.async(execute: {

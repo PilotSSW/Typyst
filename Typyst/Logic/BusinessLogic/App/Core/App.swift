@@ -6,16 +6,16 @@
 import AppKit
 import Combine
 import Foundation
-import FirebaseCore
-import FirebaseCoreDiagnostics
-import FirebaseCrashlytics
-import FirebaseInstallations
+
 
 class App: ObservableObject {
     static let instance: App = App()
     @Published private(set) var core = AppCore()
     @Published private(set) var ui = AppUI()
     @Published private(set) var persistence = AppPersistence()
+
+    @Published private(set) var firebase = FireBaseWrapper()
+
     var subscriptions = Set<AnyCancellable>()
 
     var showModals: Bool = true
@@ -33,17 +33,13 @@ class App: ObservableObject {
         AppDebugSettings.shared.debugGlobal = true
         #endif
 
+        firebase.setup()
         core.setup()
         ui.setup()
 
         if !AppDelegate.isAccessibilityAdded() {
             SystemFunctions.askUserToAllowSystemAccessibility()
         }
-
-        AppDelegate.runAsMenubarApp(AppSettings.shared.runAsMenubarApp)
-        AppSettings.shared.$runAsMenubarApp
-            .sink { AppDelegate.runAsMenubarApp(!$0) }
-            .store(in: &App.instance.subscriptions)
     }
 
     @objc func quit(_ sender: Any?) {

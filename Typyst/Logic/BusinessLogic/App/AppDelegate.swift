@@ -7,22 +7,16 @@
 //
 
 import Cocoa
-import FirebaseCore
-import FirebaseCrashlytics
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        #if DEBUG
-//        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection10.bundle")?.load()
-//        #endif
+        #if DEBUG
+        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection10.bundle")?.load()
+        #endif
 
-//        UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
-
-//        if AppSettings.shared.logErrorsAndCrashes {
-//            FirebaseApp.configure()
-//        }
+        UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
 
         App.instance.setup()
     }

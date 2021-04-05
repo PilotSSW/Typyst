@@ -20,8 +20,16 @@ class AppUI {
     }
 
     func setup() {
+        setupDockIcon()
         setupMenu()
         setupMainWindow()
+    }
+
+    private func setupDockIcon() {
+        AppDelegate.runAsMenubarApp(AppSettings.shared.runAsMenubarApp)
+        AppSettings.shared.$runAsMenubarApp
+            .sink { AppDelegate.runAsMenubarApp(!$0) }
+            .store(in: &App.instance.subscriptions)
     }
 
     private func setupMenu() {
