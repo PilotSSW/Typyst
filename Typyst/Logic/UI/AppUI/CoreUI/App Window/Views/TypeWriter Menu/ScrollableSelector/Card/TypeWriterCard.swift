@@ -19,11 +19,13 @@ struct TypeWriterCard: View {
                 modelName: optionInfo.model.name,
                 onClick: optionInfo.onClick)
                 .layoutPriority(3)
+                .zIndex(3)
 
             if let imagePath = optionInfo.model.image {
                 TypeWriterImageButton(onClick: optionInfo.onClick,
                                       imagePath: imagePath)
                     .layoutPriority(2)
+                    .zIndex(1)
 
                 Spacer()
                     .frame(height: 12)
@@ -33,15 +35,18 @@ struct TypeWriterCard: View {
             if let description = optionInfo.model.description {
                 Divider()
                     .padding(.horizontal, 24)
+                    .zIndex(2)
 
                 TypeWriterCardBody(description: description)
                     .layoutPriority(1)
+                    .zIndex(2)
 
                 Spacer()
                     .frame(height: 12)
                     .layoutPriority(4)
             }
         })
+        .clipped(antialiased: true)
         .asChildCard(withColor: AppColor.cardTertiaryBackground)
     }
 }

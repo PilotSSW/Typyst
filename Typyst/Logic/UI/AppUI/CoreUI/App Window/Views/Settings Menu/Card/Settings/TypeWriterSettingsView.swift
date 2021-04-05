@@ -25,6 +25,11 @@ struct TypeWriterSettings: View {
 
             Spacer().frame(height: 8)
 
+            SettingToggle(settingName: "Simulate Lid Open and Close",
+                          setting: $appSettings.lidOpenClose)
+
+            Spacer().frame(height: 8)
+
             SettingToggle(settingName: "Simulate Paper Feed",
                           setting: $appSettings.paperFeedEnabled)
 
@@ -33,7 +38,7 @@ struct TypeWriterSettings: View {
             SettingToggle(settingName: "Simulate Paper Return",
                           setting: $appSettings.paperReturnEnabled)
 
-            Spacer().frame(height: 8)
+            Spacer().frame(height: 14)
         }
     }
 }

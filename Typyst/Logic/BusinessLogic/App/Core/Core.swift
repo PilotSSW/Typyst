@@ -27,15 +27,22 @@ class AppCore: ObservableObject {
 
     func setCurrentTypeWriter(model: TypeWriterModel.ModelType) {
         AppSettings.shared.selectedTypewriter = model.rawValue
-        unloadTypewriter()
-        loadedTypewriter = TypeWriter(model: model, errorHandler: { (soundErrors) in
-            App.instance.ui.alerts.errors.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
-        }) { loadedSounds in
-            App.instance.ui.alerts.userInfo.typeWriterSoundsLoadedAlert(
-                loadedSounds.soundSets.keys
-                    .map({ $0.rawValue })
-                    .sorted(by: <))
+
+        let loadCB = { [weak self] in
+            guard let self = self else { return }
+            self.loadedTypewriter = TypeWriter(model: model, errorHandler: { (soundErrors) in
+                App.instance.ui.alerts.errors.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
+            }) { loadedSounds in
+                App.instance.ui.alerts.userInfo.typeWriterSoundsLoadedAlert(
+                    loadedSounds.soundSets.keys
+                        .map({ $0.rawValue })
+                        .sorted(by: <))
+            }
         }
+
+        loadedTypewriter == nil
+            ? loadCB()
+            : unloadTypewriter(loadCB)
     }
 
     func loadTypeWriter() {
@@ -48,8 +55,12 @@ class AppCore: ObservableObject {
         setCurrentTypeWriter(model: TypeWriter.defaultTypeWriter)
     }
 
-    func unloadTypewriter() {
-        loadedTypewriter = nil
+    func unloadTypewriter(_ completion: (() -> Void)? = nil) {
+        loadedTypewriter?.tearDown() { [weak self] in
+            guard let self = self else { return }
+            self.loadedTypewriter = nil
+            completion?()
+        }
     }
 
     func setVolumeTo(_ volume: Double) {

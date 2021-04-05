@@ -11,6 +11,7 @@ import SwiftUI
 class AppSettings: ObservableObject {
     enum Keys {
         static let bell = "bell"
+        static let lidOpenClose = "lidOpenClose"
         static let logToFirebase = "logToFirebase"
         static let logUsageAnalytics = "logUsageAnalytics"
         static let mainVolumeValue = "mainVolumeValue"
@@ -50,8 +51,12 @@ class AppSettings: ObservableObject {
         didSet { UserDefaults.standard.set(bell, forKey: Keys.bell) }
     }
 
-    @Published var logErrorsAndCrashes: Bool = UserDefaults.standard.bool(forKey: Keys.logToFirebase) {
+    @Published var logErrorsAndCrashes: Bool = UserDefaults.standard.bool(forKey: Keys.lidOpenClose) {
         didSet { UserDefaults.standard.set(logErrorsAndCrashes, forKey: Keys.logToFirebase) }
+    }
+
+    @Published var lidOpenClose: Bool = UserDefaults.standard.bool(forKey: Keys.lidOpenClose) {
+        didSet { UserDefaults.standard.set(lidOpenClose, forKey: Keys.lidOpenClose) }
     }
 
     @Published var logUsageAnalytics: Bool = UserDefaults.standard.bool(forKey: Keys.logUsageAnalytics) {

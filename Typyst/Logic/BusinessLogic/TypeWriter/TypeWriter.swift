@@ -29,7 +29,9 @@ class TypeWriter: ObservableObject {
         sounds = so
         sounds.loadSounds(for: model, completion: { loadedSounds in
             loadedSounds.volume = AppSettings.shared.volumeSetting
-            loadedSounds.playSound(for: .LidUp)
+            if AppSettings.shared.lidOpenClose {
+                loadedSounds.playSound(for: .LidUp)
+            }
             completion?(loadedSounds)
         }, errorHandler: errorHandler)
 
@@ -46,12 +48,20 @@ class TypeWriter: ObservableObject {
         sounds.volume = volume
     }
 
-    deinit {
-        sounds.playSound(for: .LidDown)
-
-        DispatchQueue.global(qos: .default).async(execute: { [weak self] in
+    internal func tearDown(_ completion: (() -> Void)?) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.sounds.unloadSounds()
-        })
+            let sounds = self.sounds
+            if AppSettings.shared.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
+                sounds.playSound(for: .LidDown) {
+                    sounds.unloadSounds()
+                    completion?()
+                }
+            }
+            else {
+                sounds.unloadSounds()
+                completion?()
+            }
+        }
     }
 }

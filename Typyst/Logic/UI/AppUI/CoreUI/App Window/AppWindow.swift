@@ -4,6 +4,7 @@
 //
 
 import AppKit
+import Combine
 import Foundation
 import SwiftUI
 
@@ -42,13 +43,27 @@ class AppWindow {
         // Fire it up!
         mainWindow.makeKeyAndOrderFront(nil)
         controller = NSWindowController(window: mainWindow)
+
+        NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)
+            .sink { [weak self] (notification) in
+                guard let self = self else { return }
+                if let window = notification.object as? NSWindow, window == self.mainWindow {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
+                        guard let self = self else { return }
+                        AppSettings.shared.showMainWindow = self.mainWindow.isVisible
+                    })
+                }
+            }
+            .store(in: &App.instance.subscriptions)
     }
 
     func showWindow() {
         controller.showWindow(nil)
+        App.instance.ui.appMenu?.appMenuItems.showMainWindow.state = .on
     }
 
     func closeWindow() {
         controller.close()
+        App.instance.ui.appMenu?.appMenuItems.showMainWindow.state = .off
     }
 }

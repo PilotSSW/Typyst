@@ -16,20 +16,25 @@ struct SettingsCard: View {
     var body: some View {
         VStack(alignment: .center) {
             VolumeSetting(appSettings: appSettings)
+                .layoutPriority(1)
+
+            Divider()
+                .padding(.bottom, 12)
+
+            TypeWriterSettings()
+                .layoutPriority(1)
+
+            Divider()
+                .padding(.bottom, 12)
+
+            AppSettingsView()
+                .layoutPriority(1)
 
             Divider()
                 .padding(.bottom, 6)
 
-            TypeWriterSettings()
-
-            Divider()
-                .padding(.vertical, 6)
-
-            AppSettingsView()
-
-            Divider()
-
             EmailButton()
+                .layoutPriority(1)
         }
         .padding(.horizontal, 18)
         .padding(.top, 18)

@@ -106,6 +106,11 @@ class Sounds {
         })
     }
 
+    func hasSoundFromSoundset(_ soundSet: AvailableSoundSets) -> Bool {
+        let sounds = soundSets[soundSet]
+        return sounds != nil && sounds?.count ?? 0 > 0
+    }
+
     enum AvailableSoundSets: String, CaseIterable {
         case BackspaceUp = "BackspaceUp"
         case BackspaceDown = "BackspaceDown"
@@ -134,5 +139,10 @@ class Sounds {
         case TabDown = "TabDown"
         case TabUp = "TabUp"
         case TripleLineReturn = "TripleLineReturn"
+    }
+
+    enum extendedSoundSets: String, CaseIterable {
+        case aUp = "aUp"
+        case aDown = "aDown"
     }
 }
