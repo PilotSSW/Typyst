@@ -42,9 +42,3 @@ struct TypeWriterInfo: View {
         }
     }
 }
-
-//struct TypeWriterInfo_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TypeWriterInfo()
-//    }
-//}

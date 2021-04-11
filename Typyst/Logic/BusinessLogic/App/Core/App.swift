@@ -7,18 +7,14 @@ import AppKit
 import Combine
 import Foundation
 
-
 class App: ObservableObject {
     static let instance: App = App()
     @Published private(set) var core = AppCore()
+    @Published private(set) var logging = Logging()
     @Published private(set) var ui = AppUI()
     @Published private(set) var persistence = AppPersistence()
 
-    @Published private(set) var firebase = FireBaseWrapper()
-
     var subscriptions = Set<AnyCancellable>()
-
-    var showModals: Bool = true
 
     private init() {
         
@@ -29,11 +25,7 @@ class App: ObservableObject {
     }
 
     func setup() {
-        #if DEBUG
-        AppDebugSettings.shared.debugGlobal = true
-        #endif
-
-        firebase.setup()
+        logging.setup()
         core.setup()
         ui.setup()
 

@@ -8,18 +8,32 @@ import HotKey
 
 class TypeWriterKeyLogic {
     let state: TypeWriterState
+    private(set) var keyListenerTag = "TypeWriterLogic"
+    private var keyListenerCompletion: ((KeyEvent) -> Void)? {
+        didSet {
+            let _ = KeyListener.instance.removeListenerCallback(withTag: keyListenerTag)
+            if let completion = keyListenerCompletion {
+                let _ = KeyListener.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
+            }
+        }
+    }
 
-    init(state: TypeWriterState, sounds: Sounds) {
+    init(modelType: TypeWriterModel.ModelType, state: TypeWriterState, sounds: Sounds) {
         self.state = state
 
-        KeyListener.instance.listenForAllKeyPresses(completion: { [weak self] (keyEvent) in
+        self.keyListenerCompletion = { [weak self] keyEvent in
             guard let self = self else { return }
-            self.assignKeyPresses(for: keyEvent, sounds: sounds)
-        })
+            DispatchQueue.main.async(execute: {
+                self.assignKeyPresses(for: keyEvent, sounds: sounds)
+            })
+        }
+        if let completion = keyListenerCompletion {
+            let _ = KeyListener.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
+        }
     }
 
     deinit {
-        KeyListener.instance.removeAll()
+        keyListenerCompletion = nil
     }
 
     func assignKeyPresses(for keyPressed: KeyEvent, sounds: Sounds) {
@@ -81,7 +95,7 @@ class TypeWriterKeyLogic {
             sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
 
             if AppSettings.shared.paperFeedEnabled {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak sounds] in
+                DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) { [weak sounds] in
                     guard let sounds = sounds else { return }
                     sounds.playSound(for: .PaperLoad, completion: { [weak sounds] in
                         guard let sounds = sounds else { return }

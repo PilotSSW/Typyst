@@ -11,6 +11,9 @@ import SwiftUI
 struct AppSettingsView: View {
     @ObservedObject
     var appSettings: AppSettings = AppSettings.shared
+
+    @ObservedObject
+    var appDebugSettings: AppDebugSettings = AppDebugSettings.shared
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -19,6 +22,13 @@ struct AppSettingsView: View {
                 .asStyledText(with: .title)
 
             Spacer().frame(height: 14)
+
+            #if DEBUG
+            SettingToggle(settingName: "Enable debug options",
+                          setting: $appDebugSettings.debugGlobal)
+
+            Spacer().frame(height: 8)
+            #endif
 
             SettingToggle(settingName: "Allow Typing Statistics",
                           setting: $appSettings.logUsageAnalytics)

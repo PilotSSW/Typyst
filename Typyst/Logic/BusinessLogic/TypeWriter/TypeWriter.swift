@@ -14,20 +14,20 @@ import SwiftySound
 
 class TypeWriter: ObservableObject {
     static let defaultTypeWriter: TypeWriterModel.ModelType = .Royal_Model_P
-    let model: TypeWriterModel.ModelType
-    var modelFilePath: String { "Soundsets/\(String(describing: model))/ "}
+    let modelType: TypeWriterModel.ModelType
+    var modelFilePath: String { "Soundsets/\(String(describing: modelType))/ "}
 
     private let sounds: Sounds
 
     var keyLogic: TypeWriterKeyLogic
     @Published var state: TypeWriterState
 
-    init(model: TypeWriterModel.ModelType, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?, completion: ((Sounds) -> Void)?) {
-        self.model = model
+    init(modelType: TypeWriterModel.ModelType, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?, completion: ((Sounds) -> Void)?) {
+        self.modelType = modelType
 
         let so = Sounds()
         sounds = so
-        sounds.loadSounds(for: model, completion: { loadedSounds in
+        sounds.loadSounds(for: modelType, completion: { loadedSounds in
             loadedSounds.volume = AppSettings.shared.volumeSetting
             if AppSettings.shared.lidOpenClose {
                 loadedSounds.playSound(for: .LidUp)
@@ -41,7 +41,7 @@ class TypeWriter: ObservableObject {
 
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
-        keyLogic = TypeWriterKeyLogic(state: st, sounds: sounds)
+        keyLogic = TypeWriterKeyLogic(modelType: modelType, state: st, sounds: sounds)
     }
 
     internal func setVolume(_ volume: Double) {

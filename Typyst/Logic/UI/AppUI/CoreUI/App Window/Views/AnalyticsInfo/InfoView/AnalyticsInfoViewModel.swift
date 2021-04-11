@@ -7,7 +7,15 @@ import Combine
 import Foundation
 
 class AnalyticsInfoViewModel: ObservableObject {
-    var keyListenerCompletion: ((KeyEvent) -> Void)?
+    private(set) var keyListenerTag = "AnalyticsViewModel"
+    var keyListenerCompletion: ((KeyEvent) -> Void)? {
+        didSet {
+            let _ = KeyListener.instance.removeListenerCallback(withTag: keyListenerTag)
+            if let completion = keyListenerCompletion {
+                let _ = KeyListener.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
+            }
+        }
+    }
     @Published var timeElapsed: Double
     @Published var totalKeyPresses: Int
     @Published var averageKeyPressesPerMinute: Double
@@ -28,11 +36,19 @@ class AnalyticsInfoViewModel: ObservableObject {
 
         keyListenerCompletion = { [weak self] keyEvent in
             guard let self = self else { return }
-            if (keyEvent.direction == .keyDown) {
-                self.totalKeyPresses += 1
+            DispatchQueue.main.async {
+                if (keyEvent.direction == .keyDown) {
+                    self.totalKeyPresses += 1
+                }
             }
         }
-        KeyListener.instance.listenForAllKeyPresses(completion: keyListenerCompletion)
+        if let completion = keyListenerCompletion {
+            let _ = KeyListener.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
+        }
+    }
+
+    deinit {
+        keyListenerCompletion = nil
     }
 
     func update(timeElapsed: Double) {

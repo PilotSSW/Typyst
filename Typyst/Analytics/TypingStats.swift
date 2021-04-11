@@ -35,7 +35,7 @@ class TypingStats {
         keyPresses.reserveCapacity(25000)
 
         keyListenerCallback = { (keyEvent) in TypingStats.shared.logEvent(keyEvent) }
-        KeyListener.instance.listenForAllKeyPresses(completion: keyListenerCallback)
+        let _ = KeyListener.instance.registerKeyPressCallback(withTag: "stats", completion: keyListenerCallback)
 
         removeOldKeyEventsTimer = RepeatingTimer(timeInterval: removeOldKeyEventsTimerInterval, leeway: .seconds(10))
         removeOldKeyEventsTimer?.resume()

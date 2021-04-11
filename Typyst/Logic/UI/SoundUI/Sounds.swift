@@ -41,7 +41,9 @@ class Sounds {
                 sounds.append(keySound)
             }
             else {
-                soundsNotFound.append(SoundError(path: $0.relativePath, kind: .soundNotFound))
+                let error = SoundError(path: $0.relativePath, kind: .soundNotFound)
+                App.instance.logging.log(error: error)
+                soundsNotFound.append(error)
             }
         })
 

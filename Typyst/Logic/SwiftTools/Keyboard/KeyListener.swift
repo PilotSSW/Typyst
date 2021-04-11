@@ -6,23 +6,57 @@
 import Foundation
 import HotKey
 
-
 class KeyListener {
+    enum KeyPressEnvironment {
+        case all
+        case global
+        case local
+    }
+
     internal static let instance = KeyListener()
     internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
     internal static let modifiers: [NSEvent.ModifierFlags] = [.capsLock, .command, .control, .function, .help, .numericPad, .option, .shift]
 
-    private var keyListeners = [Any]()
+    private var localKPCB = [String: ((KeyEvent) -> Void)]()
+    private var globalKPCB = [String: ((KeyEvent) -> Void)]()
 
     private init() {
-
+        listenForAllKeyPresses()
     }
 
     deinit {
-        keyListeners.removeAll()
+        localKPCB.removeAll()
+        globalKPCB.removeAll()
     }
 
-    internal static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
+    internal func registerLocalKeyPressCallback(withTag tag: String, completion: @escaping (KeyEvent) -> Void) -> Bool {
+        if localKPCB[tag] != nil { return false }
+        localKPCB[tag] = completion
+        return true
+    }
+
+    internal func registerGlobalKeyPressCallback(withTag tag: String, completion: @escaping (KeyEvent) -> Void) -> Bool {
+        if globalKPCB[tag] != nil { return false }
+        globalKPCB[tag] = completion
+        return true
+    }
+
+    internal func registerKeyPressCallback(withTag tag: String, completion: @escaping (KeyEvent) -> Void) -> Bool {
+        let val1 = registerLocalKeyPressCallback(withTag: tag, completion: completion)
+        let val2 = registerGlobalKeyPressCallback(withTag: tag, completion: completion)
+        return val1 && val2
+    }
+
+    internal func removeListenerCallback(withTag tag: String) -> Bool {
+        let val1 = localKPCB.removeValue(forKey: tag)
+        let val2 = globalKPCB.removeValue(forKey: tag)
+        return val1 != nil && val2 != nil
+    }
+}
+
+// MARK: Logic for determining and handling keypresses
+extension KeyListener {
+    private static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
@@ -32,55 +66,63 @@ class KeyListener {
             }
             return KeyEvent(keyPressed, event.type, event.modifierFlags, isRepeat: isRepeat)
         }
-        
+
         return nil
     }
 
-    internal static func handleEvent(_ event: NSEvent, completion: ((KeyEvent) -> Void)?)  {
+    private static func handleEvent(_ event: NSEvent, _ environment: KeyPressEnvironment) {
         DispatchQueue.global(qos: .userInteractive).async(execute: {
-            if event.timeSinceEvent <= 0.75,
-               let keyPressed = KeyListener.determineKeyPressedFrom(event) {
-                let debugSettings = AppDebugSettings.shared
-                if debugSettings.debugGlobal && debugSettings.debugKeypresses {
-                    NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
-                    NSLog("Event: \(event)")
-                }
+            do {
+                if event.timeSinceEvent <= 0.75,
+                   let keyPressed = KeyListener.determineKeyPressedFrom(event) {
 
-                DispatchQueue.main.async(execute: {
-                    completion?(keyPressed)
-                })
+                    // Handle debug
+                    let debugSettings = AppDebugSettings.shared
+                    if debugSettings.debugGlobal && debugSettings.debugKeypresses {
+                        // Never ever log this in production
+                        NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
+                        NSLog("Event: \(event)")
+                    }
+
+                    // Handle key presses and send actions to rest of app
+                    if environment == .local {
+                        instance.localKPCB.values.forEach { $0(keyPressed) }
+                    }
+                    else if environment == .global {
+                        instance.globalKPCB.values.forEach({ $0(keyPressed) })
+                    }
+                }
+            }
+            catch {
+                App.instance.logging.log(.error, "Was unable to handle key press event", error: error)
             }
         })
     }
+}
 
+extension KeyListener {
     // Listen for key presses in Typyst
-    internal func listenForLocalKeyPresses(completion: ((KeyEvent) -> ())?) {
+    private func listenForLocalKeyPresses() {
         for eventType in KeyListener.eventTypes {
-            keyListeners.append(
             NSEvent.addLocalMonitorForEvents(matching: eventType) { (event) -> NSEvent in
-                KeyListener.handleEvent(event, completion: completion)
+                KeyListener.handleEvent(event, .local)
                 return event
-            } as Any)
+            }
         }
     }
 
     // Listen for key presses in other apps
-    internal func listenForGlobalKeyPresses(completion: ((KeyEvent) -> ())?) {
+    private func listenForGlobalKeyPresses() {
         for eventType in KeyListener.eventTypes {
-            keyListeners.append(
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                KeyListener.handleEvent(event, completion: completion)
-            } as Any)
+                KeyListener.handleEvent(event, .global)
+            }
         }
     }
 
-    internal func listenForAllKeyPresses(completion: ((KeyEvent) -> ())?) {
-        listenForLocalKeyPresses(completion: completion)
-        listenForGlobalKeyPresses(completion: completion)
-    }
-
-    internal func removeAll() {
-        keyListeners.removeAll()
+    private func listenForAllKeyPresses() {
+        listenForLocalKeyPresses()
+        listenForGlobalKeyPresses()
     }
 }
 

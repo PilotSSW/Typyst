@@ -6,10 +6,12 @@ target 'Typyst' do
   use_frameworks!
 
   # Pods for Typyst
+  # pod 'Crashlytics'
+  # pod 'FirebaseCore'
+  # pod 'Firebase/Analytics'
   pod 'HotKey'
+  pod 'SwiftyBeaver'
   pod 'SwiftySound'
-#  pod 'FirebaseCore'
-#  pod 'Firebase/Crashlytics'
 
   target 'TypystTests' do
     inherit! :search_paths

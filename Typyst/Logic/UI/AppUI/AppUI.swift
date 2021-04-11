@@ -30,12 +30,16 @@ class AppUI {
         AppSettings.shared.$runAsMenubarApp
             .sink { AppDelegate.runAsMenubarApp(!$0) }
             .store(in: &App.instance.subscriptions)
+
+        App.instance.logging.log(.trace, "Dock Icon setup")
     }
 
     private func setupMenu() {
         appMenu = AppMenu()
         appMenu?.constructMenu()
         appMenu?.attachToOSMenuBar()
+
+        App.instance.logging.log(.trace, "Menu setup")
     }
 
     private func setupMainWindow() {
@@ -44,6 +48,7 @@ class AppUI {
             if AppSettings.shared.showMainWindow {
                 App.instance.ui.appWindow?.showWindow()
             }
+            App.instance.logging.log(.trace, "Main window setup")
         })
     }
 }

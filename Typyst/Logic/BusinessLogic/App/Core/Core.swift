@@ -23,14 +23,15 @@ class AppCore: ObservableObject {
 
     func setup() {
         loadTypeWriter()
+        App.instance.logging.log(.debug, "Core setup")
     }
 
-    func setCurrentTypeWriter(model: TypeWriterModel.ModelType) {
-        AppSettings.shared.selectedTypewriter = model.rawValue
+    func setCurrentTypeWriter(modelType: TypeWriterModel.ModelType) {
+        AppSettings.shared.selectedTypewriter = modelType.rawValue
 
         let loadCB = { [weak self] in
             guard let self = self else { return }
-            self.loadedTypewriter = TypeWriter(model: model, errorHandler: { (soundErrors) in
+            self.loadedTypewriter = TypeWriter(modelType: modelType, errorHandler: { (soundErrors) in
                 App.instance.ui.alerts.errors.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
             }) { loadedSounds in
                 App.instance.ui.alerts.userInfo.typeWriterSoundsLoadedAlert(
@@ -47,12 +48,12 @@ class AppCore: ObservableObject {
 
     func loadTypeWriter() {
         if let modelString = AppSettings.shared.selectedTypewriter,
-           let model = TypeWriterModel.ModelType.init(rawValue: modelString) {
-            setCurrentTypeWriter(model: model)
+           let modelType = TypeWriterModel.ModelType.init(rawValue: modelString) {
+            setCurrentTypeWriter(modelType: modelType)
             return
         }
 
-        setCurrentTypeWriter(model: TypeWriter.defaultTypeWriter)
+        setCurrentTypeWriter(modelType: TypeWriter.defaultTypeWriter)
     }
 
     func unloadTypewriter(_ completion: (() -> Void)? = nil) {
