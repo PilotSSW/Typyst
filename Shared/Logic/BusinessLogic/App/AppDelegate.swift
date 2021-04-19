@@ -22,12 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-        // Save changes in the application's managed object context before the application terminates.
         AppCore.instance.persistence.saveContext(sender)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
         AppCore.instance.typeWriterHandler.unloadTypewriter()
     }
 
@@ -39,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate {
     static func runAsMenubarApp(_ bool: Bool) {
-        NSAppCore.setActivationPolicy(bool ? .accessory : .regular)
+        NSApp.setActivationPolicy(bool ? .accessory : .regular)
     }
 
     static func isAccessibilityAdded() -> Bool {

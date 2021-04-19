@@ -24,6 +24,8 @@
 		A34B30D7262D305100C64B4C /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
 		A34B30DD262D311400C64B4C /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728E262355D600E32B91 /* AppCore.swift */; };
 		A34B30EE262D328C00C64B4C /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7275262355D600E32B91 /* AppUI.swift */; };
+		A36D252E262DD5B10069E668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7290262355D600E32B91 /* AppDelegate.swift */; };
+		A36D2535262DE7090069E668 /* TypystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D2534262DE7090069E668 /* TypystApp.swift */; };
 		A3975BE52627EC46001DFD47 /* TypeWriterKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3975C172627F052001DFD47 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728A262355D600E32B91 /* AppSettings.swift */; };
@@ -33,9 +35,7 @@
 		A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71C32623523400E32B91 /* Tests_iOS.swift */; };
 		A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71CE2623523400E32B91 /* Tests_macOS.swift */; };
 		A3FA71D52623523400E32B91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71A82623523300E32B91 /* ContentView.swift */; };
-		A3FA71D62623523400E32B91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71A82623523300E32B91 /* ContentView.swift */; };
 		A3FA71D72623523400E32B91 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71A92623523300E32B91 /* Persistence.swift */; };
-		A3FA71D82623523400E32B91 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71A92623523300E32B91 /* Persistence.swift */; };
 		A3FA72262623554700E32B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA72212623554700E32B91 /* Assets.xcassets */; };
 		A3FA72272623554700E32B91 /* Typyst.beaver in Resources */ = {isa = PBXBuildFile; fileRef = A3FA72222623554700E32B91 /* Typyst.beaver */; };
 		A3FA72282623554700E32B91 /* Typyst.beaver in Resources */ = {isa = PBXBuildFile; fileRef = A3FA72222623554700E32B91 /* Typyst.beaver */; };
@@ -169,8 +169,6 @@
 		A3FA76D726237DA900E32B91 /* TypingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76D526237DA900E32B91 /* TypingStats.swift */; };
 		A3FA76DD26237DB600E32B91 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76DC26237DB600E32B91 /* TimeHelper.swift */; };
 		A3FA76DE26237DB600E32B91 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76DC26237DB600E32B91 /* TimeHelper.swift */; };
-		A3FA77322623A14800E32B91 /* TypystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA77232623935600E32B91 /* TypystApp.swift */; };
-		A3FA773B2623A15600E32B91 /* TypystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA77232623935600E32B91 /* TypystApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +221,7 @@
 		A34B307A262B29BC00C64B4C /* ModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierFlags.swift; sourceTree = "<group>"; };
 		A34B3086262B29C900C64B4C /* iOSModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSModifierFlags.swift; sourceTree = "<group>"; };
 		A34B308D262B29D600C64B4C /* MacOSModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSModifierFlags.swift; sourceTree = "<group>"; };
+		A36D2534262DE7090069E668 /* TypystApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypystApp.swift; sourceTree = "<group>"; };
 		A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TypeWriterKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		A3975BE22627EC46001DFD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,7 +320,6 @@
 		A3FA76BE26237C6E00E32B91 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		A3FA76D526237DA900E32B91 /* TypingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingStats.swift; sourceTree = "<group>"; };
 		A3FA76DC26237DB600E32B91 /* TimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
-		A3FA77232623935600E32B91 /* TypystApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypystApp.swift; sourceTree = "<group>"; };
 		D1EE37913B0A76C3562E5ABC /* Pods-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (iOS).release.xcconfig"; path = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		F7177D77ED2CF43E0F2870E6 /* Pods-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -443,9 +441,6 @@
 				A3FA72222623554700E32B91 /* Typyst.beaver */,
 				A3FA72202623554600E32B91 /* Typyst.entitlements */,
 				A3FA76BC26237C6E00E32B91 /* Typyst.xcdatamodeld */,
-				A3FA71A82623523300E32B91 /* ContentView.swift */,
-				A3FA77232623935600E32B91 /* TypystApp.swift */,
-				A3FA71A92623523300E32B91 /* Persistence.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -500,6 +495,9 @@
 		A3FA7235262355D600E32B91 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				A36D2534262DE7090069E668 /* TypystApp.swift */,
+				A3FA71A82623523300E32B91 /* ContentView.swift */,
+				A3FA71A92623523300E32B91 /* Persistence.swift */,
 				A3FA729A262355D600E32B91 /* SwiftTools */,
 				A3FA7288262355D600E32B91 /* BusinessLogic */,
 				A3FA7236262355D600E32B91 /* UI */,
@@ -1233,7 +1231,6 @@
 				A3FA732B262355D700E32B91 /* RepeatingTimer.swift in Sources */,
 				A3FA71D72623523400E32B91 /* Persistence.swift in Sources */,
 				A3FA72CB262355D700E32B91 /* TypeWriterCardImageButton.swift in Sources */,
-				A3FA773B2623A15600E32B91 /* TypystApp.swift in Sources */,
 				A3FA72C1262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
 				A3FA7307262355D700E32B91 /* Styles.swift in Sources */,
 				A3FA72D7262355D700E32B91 /* SettingToggle.swift in Sources */,
@@ -1249,6 +1246,7 @@
 				A3FA730B262355D700E32B91 /* ViewExtension.swift in Sources */,
 				A3FA72D5262355D700E32B91 /* TitleCard.swift in Sources */,
 				A3FA72BB262355D700E32B91 /* AnalyticsInfoCardViewModel.swift in Sources */,
+				A36D2535262DE7090069E668 /* TypystApp.swift in Sources */,
 				A34B3087262B29CA00C64B4C /* iOSModifierFlags.swift in Sources */,
 				A3FA72A7262355D700E32B91 /* AnalyticsInfoViewAppKit.swift in Sources */,
 				A3FA7325262355D700E32B91 /* SwiftExtensions.swift in Sources */,
@@ -1300,6 +1298,7 @@
 				A3FA7302262355D700E32B91 /* Labels.swift in Sources */,
 				A3FA72EA262355D700E32B91 /* TypeWriterSettings.swift in Sources */,
 				A3FA72FC262355D700E32B91 /* CardHeader.swift in Sources */,
+				A36D252E262DD5B10069E668 /* AppDelegate.swift in Sources */,
 				A3FA731A262355D700E32B91 /* TypeWriterState.swift in Sources */,
 				A3FA72CA262355D700E32B91 /* TypeWriterCardBody.swift in Sources */,
 				A3FA72F4262355D700E32B91 /* AppMenu.swift in Sources */,
@@ -1311,9 +1310,7 @@
 				A3FA72D4262355D700E32B91 /* TypeWriterInfo.swift in Sources */,
 				A3FA72E4262355D700E32B91 /* SettingsMenuHeader.swift in Sources */,
 				A3FA732C262355D700E32B91 /* RepeatingTimer.swift in Sources */,
-				A3FA71D82623523400E32B91 /* Persistence.swift in Sources */,
 				A3FA72CC262355D700E32B91 /* TypeWriterCardImageButton.swift in Sources */,
-				A3FA77322623A14800E32B91 /* TypystApp.swift in Sources */,
 				A3FA72C2262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
 				A3FA7308262355D700E32B91 /* Styles.swift in Sources */,
 				A34B3073262B290700C64B4C /* Key.swift in Sources */,
@@ -1357,7 +1354,6 @@
 				A3FA76C026237C6E00E32B91 /* Typyst.xcdatamodeld in Sources */,
 				A3FA7332262355D700E32B91 /* KeyEvent.swift in Sources */,
 				A3FA72E0262355D700E32B91 /* AppSettingsView.swift in Sources */,
-				A3FA71D62623523400E32B91 /* ContentView.swift in Sources */,
 				A3FA72C0262355D700E32B91 /* AnalyticsInfoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1620,6 +1616,25 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AppKit\"",
+					"-framework",
+					"\"Carbon\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"HotKey\"",
+					"-framework",
+					"\"SwiftyBeaver\"",
+					"-framework",
+					"\"SwiftySound\"",
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = macosx;
