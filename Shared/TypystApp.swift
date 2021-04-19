@@ -12,6 +12,7 @@ struct TypystApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
+        #if os(macOS)
         WindowGroup {
             ContentView()
                 .visualEffect(material: .contentBackground)
@@ -19,11 +20,11 @@ struct TypystApp: App {
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
+        #endif
 
         #if os(iOS)
         WindowGroup {
-            TextField()
-                .visualEffect(material: .contentBackground)
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         #endif

@@ -4,9 +4,6 @@
 //
 
 import Foundation
-#if os(macOS)
-import HotKey
-#endif
 
 class TypeWriterKeyLogic {
     let state: TypeWriterState

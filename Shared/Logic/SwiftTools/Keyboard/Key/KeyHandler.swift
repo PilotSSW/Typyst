@@ -26,7 +26,7 @@ final class KeyHandler {
         handlers.removeValue(forKey: tag) != nil
     }
 
-    internal static func handleEvent(_ event: KeyEvent, _ completion: (() -> Void)? = nil) {
+    internal static func handleEvent(_ event: KeyEvent, _ completion: ((KeyEvent) -> Void)? = nil) {
         DispatchQueue.global(qos: .userInteractive).async(execute: {
             if event.timeSinceEvent <= 0.75 {
                 // Handle debug
@@ -40,7 +40,7 @@ final class KeyHandler {
                 instance.handlers.values.forEach({
                     $0(event)
                 })
-                completion?()
+                completion?(event)
             }
         })
     }

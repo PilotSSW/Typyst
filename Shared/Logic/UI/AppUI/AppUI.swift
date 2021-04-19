@@ -6,19 +6,24 @@
 //  Copyright © 2020 wickedPropeller. All rights reserved.
 //
 
+#if os(macOS)
 import AppKit
 import Cocoa
+#endif
 import Foundation
 
 class AppUI {
+    #if os(macOS)
     var alerts = Alerts()
     var appMenu: AppMenu?
     var appWindow: AppWindow?
+    #endif
 
     init() {
 
     }
 
+    #if os(macOS)
     func setup() {
         setupDockIcon()
         setupMenu()
@@ -51,4 +56,5 @@ class AppUI {
             AppCore.instance.logging.log(.trace, "Main window setup")
         })
     }
+    #endif
 }

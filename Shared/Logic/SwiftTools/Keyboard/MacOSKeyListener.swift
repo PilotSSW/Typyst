@@ -17,8 +17,8 @@ class MacOSKeyListener {
     internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
     internal static let modifiers: [NSEvent.ModifierFlags] = [.capsLock, .command, .control, .function, .help, .numericPad, .option, .shift]
 
-    private var localKPCB = [String: ((KeyEvent) -> Void)]
-    private var globalKPCB = [String: ((KeyEvent) -> Void)]
+    private var localKPCB = [String: ((KeyEvent) -> Void)]()
+    private var globalKPCB = [String: ((KeyEvent) -> Void)]()
 
     private init() {
         listenForAllKeyPresses()
@@ -61,10 +61,16 @@ extension MacOSKeyListener {
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
             var isRepeat = false
+            var direction: KeyEvent.KeyDirection = .keyDown
             if (event.type != .flagsChanged) {
                 isRepeat = event.isARepeat
             }
-            return KeyEvent(keyPressed, event.type, event.modifierFlags, isRepeat: isRepeat)
+            else {
+                direction = event.type == .keyUp
+                    ? .keyUp
+                    : .keyDown
+            }
+            return KeyEvent(keyPressed, direction, ModifierFlags(event.modifierFlags), isRepeat: isRepeat)
         }
 
         return nil
@@ -72,7 +78,7 @@ extension MacOSKeyListener {
 
     private static func handleEvent(_ event: NSEvent, _ environment: KeyPressEnvironment) {
         if let keyEvent = determineKeyPressedFrom(event) {
-            KeyHandler.handleEvent(event) {
+            KeyHandler.handleEvent(keyEvent) { keyPressed in 
                 // Handle key presses and send actions to rest of app
                 if environment == .local {
                     instance.localKPCB.values.forEach { $0(keyPressed) }

@@ -22,13 +22,25 @@ class TypeWriterMenuOption {
 
 class TypeWriterMenuOptions {
     static var sm3 = TypeWriterMenuOption(.Olympia_SM3,
-        onClick: ({  AppCore.instance.ui.appMenu?.loadOlympiaSM3(nil) }))
+                                          onClick: ({
+                                            #if os(macOS)
+                                            AppCore.instance.ui.appMenu?.loadOlympiaSM3(nil)
+                                            #endif
+                                          }))
 
     static var modelP = TypeWriterMenuOption(.Royal_Model_P,
-        onClick: ({  AppCore.instance.ui.appMenu?.loadRoyalModelP(nil) }))
+        onClick: ({
+            #if os(macOS)
+            AppCore.instance.ui.appMenu?.loadRoyalModelP(nil)
+            #endif
+        }))
 
     static var silent = TypeWriterMenuOption(.Smith_Corona_Silent,
-        onClick: ({  AppCore.instance.ui.appMenu?.loadSmithCoronaSilent(nil)}))
+        onClick: ({
+            #if os(macOS)
+            AppCore.instance.ui.appMenu?.loadSmithCoronaSilent(nil)
+            #endif
+        }))
 
     static var typeWriters: [TypeWriterMenuOption]{
         [ sm3, modelP, silent ]

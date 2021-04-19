@@ -18,7 +18,9 @@ import UIKit
 import Foundation
 
 extension ModifierFlags {
-    public convenience init(_ flags: UIKeyModifierFlags) {
+    public init(_ flags: UIKeyModifierFlags) {
+        self.init()
+
         if flags.contains(.alphaShift) {
             insert(.capsLock)
         }

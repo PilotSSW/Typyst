@@ -20,6 +20,10 @@
 		A34B309A262B29DD00C64B4C /* ModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B307A262B29BC00C64B4C /* ModifierFlags.swift */; };
 		A34B30A5262D1FD700C64B4C /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A3262355D600E32B91 /* KeySets.swift */; };
 		A34B30B0262D2A2800C64B4C /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyHandler.swift */; };
+		A34B30C0262D2FA500C64B4C /* MacOSKeyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A2262355D600E32B91 /* MacOSKeyListener.swift */; };
+		A34B30D7262D305100C64B4C /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
+		A34B30DD262D311400C64B4C /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728E262355D600E32B91 /* AppCore.swift */; };
+		A34B30EE262D328C00C64B4C /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7275262355D600E32B91 /* AppUI.swift */; };
 		A3975BE52627EC46001DFD47 /* TypeWriterKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3975C172627F052001DFD47 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728A262355D600E32B91 /* AppSettings.swift */; };
@@ -40,7 +44,6 @@
 		A3FA72A7262355D700E32B91 /* AnalyticsInfoViewAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA723C262355D600E32B91 /* AnalyticsInfoViewAppKit.swift */; };
 		A3FA72A8262355D700E32B91 /* AnalyticsInfoViewAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA723C262355D600E32B91 /* AnalyticsInfoViewAppKit.swift */; };
 		A3FA72AA262355D700E32B91 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA723F262355D600E32B91 /* ErrorAlerts.swift */; };
-		A3FA72AB262355D700E32B91 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7240262355D600E32B91 /* Alert.swift */; };
 		A3FA72AC262355D700E32B91 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7240262355D600E32B91 /* Alert.swift */; };
 		A3FA72AE262355D700E32B91 /* KeyboardAccessibilityAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7241262355D600E32B91 /* KeyboardAccessibilityAlerts.swift */; };
 		A3FA72B0262355D700E32B91 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7242262355D600E32B91 /* UserInfoAlerts.swift */; };
@@ -104,7 +107,6 @@
 		A3FA72F0262355D700E32B91 /* AnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7272262355D600E32B91 /* AnalyticsSettings.swift */; };
 		A3FA72F2262355D700E32B91 /* CoreMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7273262355D600E32B91 /* CoreMenuItems.swift */; };
 		A3FA72F4262355D700E32B91 /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7274262355D600E32B91 /* AppMenu.swift */; };
-		A3FA72F5262355D700E32B91 /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7275262355D600E32B91 /* AppUI.swift */; };
 		A3FA72F6262355D700E32B91 /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7275262355D600E32B91 /* AppUI.swift */; };
 		A3FA72F7262355D700E32B91 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7277262355D600E32B91 /* Gradients.swift */; };
 		A3FA72F8262355D700E32B91 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7277262355D600E32B91 /* Gradients.swift */; };
@@ -133,7 +135,6 @@
 		A3FA7311262355D700E32B91 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* Core.swift */; };
 		A3FA7312262355D700E32B91 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* Core.swift */; };
 		A3FA7314262355D700E32B91 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728E262355D600E32B91 /* AppCore.swift */; };
-		A3FA7316262355D700E32B91 /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728F262355D600E32B91 /* AppPersistence.swift */; };
 		A3FA7319262355D700E32B91 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
 		A3FA731A262355D700E32B91 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
 		A3FA731B262355D700E32B91 /* TypeWriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7293262355D600E32B91 /* TypeWriterModel.swift */; };
@@ -151,7 +152,6 @@
 		A3FA732A262355D700E32B91 /* SystemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729F262355D600E32B91 /* SystemFunctions.swift */; };
 		A3FA732B262355D700E32B91 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A0262355D600E32B91 /* RepeatingTimer.swift */; };
 		A3FA732C262355D700E32B91 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A0262355D600E32B91 /* RepeatingTimer.swift */; };
-		A3FA732D262355D700E32B91 /* MacOSKeyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A2262355D600E32B91 /* MacOSKeyListener.swift */; };
 		A3FA7330262355D700E32B91 /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A3262355D600E32B91 /* KeySets.swift */; };
 		A3FA7331262355D700E32B91 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
 		A3FA7332262355D700E32B91 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
@@ -1226,6 +1226,7 @@
 				A3FA72A5262355D700E32B91 /* Sounds.swift in Sources */,
 				A3FA730D262355D700E32B91 /* AppSettings.swift in Sources */,
 				A3FA72B9262355D700E32B91 /* AnalyticsInfoCard.swift in Sources */,
+				A34B30DD262D311400C64B4C /* AppCore.swift in Sources */,
 				A3FA72D1262355D700E32B91 /* Typyst.swift in Sources */,
 				A3FA72D3262355D700E32B91 /* TypeWriterInfo.swift in Sources */,
 				A3FA72E3262355D700E32B91 /* SettingsMenuHeader.swift in Sources */,
@@ -1244,6 +1245,7 @@
 				A3FA72DD262355D700E32B91 /* EmailButton.swift in Sources */,
 				A3FA7329262355D700E32B91 /* SystemFunctions.swift in Sources */,
 				A3FA72F7262355D700E32B91 /* Gradients.swift in Sources */,
+				A34B30EE262D328C00C64B4C /* AppUI.swift in Sources */,
 				A3FA730B262355D700E32B91 /* ViewExtension.swift in Sources */,
 				A3FA72D5262355D700E32B91 /* TitleCard.swift in Sources */,
 				A3FA72BB262355D700E32B91 /* AnalyticsInfoCardViewModel.swift in Sources */,
@@ -1258,11 +1260,9 @@
 				A34B3055262B27DE00C64B4C /* Key.swift in Sources */,
 				A3FA72E5262355D700E32B91 /* SettingsMenu.swift in Sources */,
 				A3FA72C3262355D700E32B91 /* TypeWriterMenu.swift in Sources */,
+				A34B30D7262D305100C64B4C /* TypeWriter.swift in Sources */,
 				A3FA7311262355D700E32B91 /* Core.swift in Sources */,
-				A3FA72AB262355D700E32B91 /* Alert.swift in Sources */,
-				A3FA72F5262355D700E32B91 /* AppUI.swift in Sources */,
 				A3FA72B7262355D700E32B91 /* AnalyticsInfoControlButton.swift in Sources */,
-				A3FA732D262355D700E32B91 /* MacOSKeyListener.swift in Sources */,
 				A3FA76DD26237DB600E32B91 /* TimeHelper.swift in Sources */,
 				A3FA76BF26237C6E00E32B91 /* Typyst.xcdatamodeld in Sources */,
 				A3FA7331262355D700E32B91 /* KeyEvent.swift in Sources */,
@@ -1306,6 +1306,7 @@
 				A3FA72A6262355D700E32B91 /* Sounds.swift in Sources */,
 				A3FA730E262355D700E32B91 /* AppSettings.swift in Sources */,
 				A3FA72BA262355D700E32B91 /* AnalyticsInfoCard.swift in Sources */,
+				A34B30C0262D2FA500C64B4C /* MacOSKeyListener.swift in Sources */,
 				A3FA72D2262355D700E32B91 /* Typyst.swift in Sources */,
 				A3FA72D4262355D700E32B91 /* TypeWriterInfo.swift in Sources */,
 				A3FA72E4262355D700E32B91 /* SettingsMenuHeader.swift in Sources */,
@@ -1317,7 +1318,6 @@
 				A3FA7308262355D700E32B91 /* Styles.swift in Sources */,
 				A34B3073262B290700C64B4C /* Key.swift in Sources */,
 				A3FA72D8262355D700E32B91 /* SettingToggle.swift in Sources */,
-				A3FA7316262355D700E32B91 /* AppPersistence.swift in Sources */,
 				A3FA72C6262355D700E32B91 /* TypeWriterCardHeader.swift in Sources */,
 				A3FA7300262355D700E32B91 /* Card.swift in Sources */,
 				A3FA7314262355D700E32B91 /* AppCore.swift in Sources */,

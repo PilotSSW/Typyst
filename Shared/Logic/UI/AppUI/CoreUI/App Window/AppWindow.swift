@@ -24,12 +24,12 @@ class AppWindow {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = MainView()
-            .environment(\.managedObjectContext,
-                         AppCore.instance.persistence.persistentContainer.viewContext)
+//        let contentView = MainView()
+//            .environment(\.managedObjectContext,
+//                         AppCore.instance.persistence.persistentContainer.viewContext)
 //        let mainView = NSHostingView(rootView: contentView)
 //        mainWindow.contentView = mainView
-        mainWindow.contentViewController = NSHostingController(rootView: contentView)
+//        mainWindow.contentViewController = NSHostingController(rootView: contentView)
 
         // Set properties
         mainWindow.titlebarAppearsTransparent = true

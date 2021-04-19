@@ -6,8 +6,8 @@ import Foundation
 import UIKit
 
 extension Key {
-    convenience init?(_ key: UIKey) {
-        self.init(string: key.keyCode)
+    public init?(_ key: UIKey) {
+        self.init(keyCode: key.keyCode)
     }
 
     public init?(keyCode: UIKeyboardHIDUsage) {
@@ -78,7 +78,7 @@ extension Key {
         case .keyboardCapsLock: self = .capsLock
 
         /* Function Keys */
-        case .keyboardF: self = .function
+//        case .keyboardF: self = .function
         case .keyboardF1: self = .f1
         case .keyboardF2: self = .f2
         case .keyboardF3: self = .f3
@@ -136,7 +136,6 @@ extension Key {
 //        case .keyboardNonUSBackslash: self = .
 //        case .keyboardApplication: self = .
 //        case keyboardPower: self = .
-        case .keyboardEqualSign: self = .equal
 
         /* Additional keys */
 //        case keyboardExecute: self = .
@@ -190,20 +189,18 @@ extension Key {
 //        case keyboardLANG7 = 150 /* LANG7 */
 //        case keyboardLANG8 = 151 /* LANG8 */
 //        case keyboardLANG9 = 152 /* LANG9 */
-        case keyboardAlternateErase: self = .forwardDelete
+        case .keyboardAlternateErase: self = .forwardDelete
 //        case keyboardSysReqOrAttention = 154 /* SysReq/Attention */
 //        case keyboardCancel = 155 /* Cancel */
-        case keyboardClear: self = .keypadClear
+        case .keyboardClear: self = .keypadClear
 //        case keyboardPrior = 157 /* Prior */
-        case keyboardReturn: self = .return
+        case .keyboardReturn: self = .return
 //        case keyboardSeparator = 159 /* Separator */
 //        case keyboardOut = 160 /* Out */
 //        case keyboardOper = 161 /* Oper */
 //        case keyboardClearOrAgain = 162 /* Clear/Again */
 //        case keyboardCrSelOrProps = 163 /* CrSel/Props */
 //        case keyboardExSel = 164 /* ExSel */
-        case .keyboardDeleteForward: self = .forwardDelete
-        case .keyboardReturn: self = .keypadEnter
 
         /* 0xA5-0xDF: Reserved */
         case .keyboardLeftControl: self = .control

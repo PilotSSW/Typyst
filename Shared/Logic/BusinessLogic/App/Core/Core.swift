@@ -32,12 +32,16 @@ class TypeWriterHandler: ObservableObject {
         let loadCB = { [weak self] in
             guard let self = self else { return }
             self.loadedTypewriter = TypeWriter(modelType: modelType, errorHandler: { (soundErrors) in
+                #if os(macOS)
                 AppCore.instance.ui.alerts.errors.couldntFindSoundsAlert(sounds: soundErrors.map({ $0.localizedDescription }))
+                #endif
             }) { loadedSounds in
+                #if os(macOS)
                 AppCore.instance.ui.alerts.userInfo.typeWriterSoundsLoadedAlert(
                     loadedSounds.soundSets.keys
                         .map({ $0.rawValue })
                         .sorted(by: <))
+                #endif
             }
         }
 

@@ -3,4 +3,326 @@
    uuid = "B3E7F696-6D3B-442E-A2A5-EF4A05CA34A6"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19F9AABC-6BAB-49B1-939F-3239CB8FEF66"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "19F9AABC-6BAB-49B1-939F-3239CB8FEF66 - 16599e9ef9ab14aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Typyst.MacOSKeyListener.(handleEvent in _D3A6CBF26B84F90DBAE68ADC02386D75)(__C.NSEvent, Typyst.MacOSKeyListener.KeyPressEnvironment) -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "19F9AABC-6BAB-49B1-939F-3239CB8FEF66 - 4bdc9f48c5fcc80"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Typyst.KeyEvent) -&gt; () in static Typyst.MacOSKeyListener.(handleEvent in _D3A6CBF26B84F90DBAE68ADC02386D75)(__C.NSEvent, Typyst.MacOSKeyListener.KeyPressEnvironment) -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26990BE7-84FE-490B-9B07-462DF7DF2FA6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F1907F4-B431-49D1-8910-102ED641D5E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C973B2D0-C3F3-4DDE-926A-167719BF3047"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49BE6D3E-5D21-4A18-83A5-460E859EDF64"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D997FCF6-2CC2-4297-A60C-6E8010567D0F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/Key/KeyHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "handleEvent(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14577D16-0AF9-4B17-8D5E-1D92B098B4F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/Key/KeyHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "handleEvent(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "14577D16-0AF9-4B17-8D5E-1D92B098B4F3 - 54652027267f82fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in static Typyst.KeyHandler.handleEvent(Typyst.KeyEvent, Swift.Optional&lt;(Typyst.KeyEvent) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/Key/KeyHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "1289">
+               </Location>
+               <Location
+                  uuid = "14577D16-0AF9-4B17-8D5E-1D92B098B4F3 - b2fe3b4d1c7c6d73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Typyst.KeyEvent) -&gt; ()) -&gt; () in closure #1 () -&gt; () in static Typyst.KeyHandler.handleEvent(Typyst.KeyEvent, Swift.Optional&lt;(Typyst.KeyEvent) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/Key/KeyHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BAE9674-1197-4E22-BB3F-7B8E87969C47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBED22DD-2468-43B2-A86D-64E9973FBE80"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "FBED22DD-2468-43B2-A86D-64E9973FBE80 - ec57227a15bd280a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Typyst.MacOSKeyListener.(listenForLocalKeyPresses in _D3A6CBF26B84F90DBAE68ADC02386D75)() -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "346">
+               </Location>
+               <Location
+                  uuid = "FBED22DD-2468-43B2-A86D-64E9973FBE80 - a338c98b5cce9ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSEvent) -&gt; __C.NSEvent in Typyst.MacOSKeyListener.(listenForLocalKeyPresses in _D3A6CBF26B84F90DBAE68ADC02386D75)() -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77AC1FC8-8596-4BD7-BFFD-F70CF7E7FECD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "77AC1FC8-8596-4BD7-BFFD-F70CF7E7FECD - 34296ba79fe4c06e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Typyst.MacOSKeyListener.(listenForGlobalKeyPresses in _D3A6CBF26B84F90DBAE68ADC02386D75)() -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "346">
+               </Location>
+               <Location
+                  uuid = "77AC1FC8-8596-4BD7-BFFD-F70CF7E7FECD - fb310ec0b88d9bcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSEvent) -&gt; () in Typyst.MacOSKeyListener.(listenForGlobalKeyPresses in _D3A6CBF26B84F90DBAE68ADC02386D75)() -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0618C479-F442-4112-87CD-AE0F42395F0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D79EC3D1-A385-405B-8F6D-D39A8196C898"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
