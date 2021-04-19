@@ -8,6 +8,8 @@ target 'Typyst (iOS)' do
 
   # Pods for Typyst (iOS)
   # pod 'HotKey'
+  pod 'Keyboard-Kit
+'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 end

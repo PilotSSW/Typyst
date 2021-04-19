@@ -8,8 +8,6 @@
 
 import Combine
 import Foundation
-import HotKey
-import SwiftUI
 import SwiftySound
 
 class TypeWriter: ObservableObject {

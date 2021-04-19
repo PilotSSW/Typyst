@@ -3,22 +3,22 @@
 // Copyright (c) 2020 wickedPropeller. All rights reserved.
 //
 
+import AppKit
 import Foundation
-import HotKey
 
-class KeyListener {
+class MacOSKeyListener {
     enum KeyPressEnvironment {
         case all
         case global
         case local
     }
 
-    internal static let instance = KeyListener()
+    internal static let instance = MacOSKeyListener()
     internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
     internal static let modifiers: [NSEvent.ModifierFlags] = [.capsLock, .command, .control, .function, .help, .numericPad, .option, .shift]
 
-    private var localKPCB = [String: ((KeyEvent) -> Void)]()
-    private var globalKPCB = [String: ((KeyEvent) -> Void)]()
+    private var localKPCB = [String: ((KeyEvent) -> Void)]
+    private var globalKPCB = [String: ((KeyEvent) -> Void)]
 
     private init() {
         listenForAllKeyPresses()
@@ -55,7 +55,7 @@ class KeyListener {
 }
 
 // MARK: Logic for determining and handling keypresses
-extension KeyListener {
+extension MacOSKeyListener {
     private static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
@@ -71,41 +71,26 @@ extension KeyListener {
     }
 
     private static func handleEvent(_ event: NSEvent, _ environment: KeyPressEnvironment) {
-        DispatchQueue.global(qos: .userInteractive).async(execute: {
-            do {
-                if event.timeSinceEvent <= 0.75,
-                   let keyPressed = KeyListener.determineKeyPressedFrom(event) {
-
-                    // Handle debug
-                    let debugSettings = AppDebugSettings.shared
-                    if debugSettings.debugGlobal && debugSettings.debugKeypresses {
-                        // Never ever log this in production
-                        NSLog("Key: \(keyPressed.key) - \(keyPressed.direction)")
-                        NSLog("Event: \(event)")
-                    }
-
-                    // Handle key presses and send actions to rest of app
-                    if environment == .local {
-                        instance.localKPCB.values.forEach { $0(keyPressed) }
-                    }
-                    else if environment == .global {
-                        instance.globalKPCB.values.forEach({ $0(keyPressed) })
-                    }
+        if let keyEvent = determineKeyPressedFrom(event) {
+            KeyHandler.handleEvent(event) {
+                // Handle key presses and send actions to rest of app
+                if environment == .local {
+                    instance.localKPCB.values.forEach { $0(keyPressed) }
+                }
+                else if environment == .global {
+                    instance.globalKPCB.values.forEach({ $0(keyPressed) })
                 }
             }
-            catch {
-                AppCore.instance.logging.log(.error, "Was unable to handle key press event", error: error)
-            }
-        })
+        }
     }
 }
 
-extension KeyListener {
+extension MacOSKeyListener {
     // Listen for key presses in Typyst
     private func listenForLocalKeyPresses() {
-        for eventType in KeyListener.eventTypes {
+        for eventType in MacOSKeyListener.eventTypes {
             NSEvent.addLocalMonitorForEvents(matching: eventType) { (event) -> NSEvent in
-                KeyListener.handleEvent(event, .local)
+                MacOSKeyListener.handleEvent(event, .local)
                 return event
             }
         }
@@ -113,9 +98,9 @@ extension KeyListener {
 
     // Listen for key presses in other apps
     private func listenForGlobalKeyPresses() {
-        for eventType in KeyListener.eventTypes {
+        for eventType in MacOSKeyListener.eventTypes {
             NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                KeyListener.handleEvent(event, .global)
+                MacOSKeyListener.handleEvent(event, .global)
             }
         }
     }

@@ -19,5 +19,13 @@ struct TypystApp: App {
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
+
+        #if os(iOS)
+        WindowGroup {
+            TextField()
+                .visualEffect(material: .contentBackground)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        #endif
     }
 }

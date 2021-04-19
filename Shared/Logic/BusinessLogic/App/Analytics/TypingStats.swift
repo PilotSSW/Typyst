@@ -5,7 +5,6 @@
 
 import Combine
 import Foundation
-import HotKey
 
 class TypingStats {
     enum State {
@@ -35,7 +34,7 @@ class TypingStats {
         keyPresses.reserveCapacity(25000)
 
         keyListenerCallback = { (keyEvent) in TypingStats.shared.logEvent(keyEvent) }
-        let _ = KeyListener.instance.registerKeyPressCallback(withTag: "stats", completion: keyListenerCallback)
+        let _ = KeyHandler.instance.registerKeyPressCallback(withTag: "stats", completion: keyListenerCallback)
 
         removeOldKeyEventsTimer = RepeatingTimer(timeInterval: removeOldKeyEventsTimerInterval, leeway: .seconds(10))
         removeOldKeyEventsTimer?.resume()
@@ -97,8 +96,8 @@ extension TypingStats {
 
     public func total(_ kp: [KeyEventByTime]) -> Int {
         let kpLetter = kp.filter({ $0.0.direction == .keyDown }).count
-        let kpFlags = kp.filter({ $0.0.direction == .flagsChanged}).count / 2
-        return kpLetter + kpFlags
+//        let kpFlags = kp.filter({ $0.0.direction == .flagsChanged}).count / 2
+        return kpLetter //+ kpFlags
     }
 
     public func average(total kp: Int, over seconds: Double) -> Double {

@@ -10,9 +10,9 @@ class AnalyticsInfoViewModel: ObservableObject {
     private(set) var keyListenerTag = "AnalyticsViewModel"
     var keyListenerCompletion: ((KeyEvent) -> Void)? {
         didSet {
-            let _ = KeyListener.instance.removeListenerCallback(withTag: keyListenerTag)
+            let _ = KeyHandler.instance.removeListenerCallback(withTag: keyListenerTag)
             if let completion = keyListenerCompletion {
-                let _ = KeyListener.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
+                let _ = KeyHandler.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
             }
         }
     }
@@ -43,7 +43,7 @@ class AnalyticsInfoViewModel: ObservableObject {
             }
         }
         if let completion = keyListenerCompletion {
-            let _ = KeyListener.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
+            let _ = KeyHandler.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
         }
     }
 

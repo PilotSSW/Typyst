@@ -4,20 +4,32 @@
 //
 
 import Foundation
-import HotKey
 
 class KeyEvent {
+    enum KeyDirection {
+        case keyDown
+        case keyUp
+    }
+    
     var key: Key
-    var direction: NSEvent.EventType
+    var direction: KeyDirection
+    var modifiers: ModifierFlags
     var isRepeat: Bool
+    var timestamp: Date
 
-    init(_ key: Key, _ direction: NSEvent.EventType, _ modifiers: NSEvent.ModifierFlags, isRepeat: Bool = false) {
+    var timeSinceEvent: TimeInterval {
+        timestamp.distance(to: Date())
+//        let systemUptimeNow = ProcessInfo.processInfo.systemUptime
+//        return Double(systemUptimeNow - timestamp)
+    }
+
+    init(_ key: Key, _ direction: KeyDirection, _ modifiers: ModifierFlags, isRepeat: Bool = false, timestamp: Date = Date()) {
         self.key = key
         self.isRepeat = isRepeat
+        self.modifiers = modifiers
+        self.timestamp = timestamp
 
-        if (!KeyEvent.isFlagsChangedKey(key)) {
-            self.direction = direction
-        }
+        if (!KeyEvent.isFlagsChangedKey(key)) { self.direction = direction }
         else {
             if (modifiers.rawValue == 256) {
                 self.direction = .keyUp
@@ -26,7 +38,7 @@ class KeyEvent {
                 self.direction = .keyDown
             }
         }
-    }   
+    }
 
     func asAnonymousKeyEvent() -> AnonymousKeyEvent {
         AnonymousKeyEvent(self)
@@ -45,7 +57,7 @@ class KeyEvent {
 
 class AnonymousKeyEvent {
     var keySet: KeySets.KeySetType?
-    var direction: NSEvent.EventType
+    var direction: KeyEvent.KeyDirection
     var isRepeat: Bool
 
     init(_ keyEvent: KeyEvent, isRepeat: Bool = false) {
@@ -54,3 +66,4 @@ class AnonymousKeyEvent {
         self.isRepeat = isRepeat
     }
 }
+
