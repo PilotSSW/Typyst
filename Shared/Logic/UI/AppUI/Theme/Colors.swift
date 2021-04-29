@@ -108,4 +108,11 @@ class AppColor {
     public static var buttonWarning: Color {
         Color("Buttons/Warning")
     }
+
+    /**
+     * Window
+     */
+    public static var windowBackground: Color {
+        Color("Window/Background")
+    }
 }

@@ -14,6 +14,8 @@ struct TypystApp: App {
     let persistenceController = PersistenceController.shared
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State
+    private var window: NSWindow?
     #endif
 
     init() {
@@ -31,15 +33,26 @@ struct TypystApp: App {
     var body: some Scene {
         #if os(macOS)
         WindowGroup {
-            ContentView()
-                .visualEffect(material: .contentBackground)
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ZStack {
+                VisualEffectBlur(material: .underWindowBackground,
+                                 blendingMode: .behindWindow,
+                                 state: .active)
+                ContentView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
+            .background(WindowAccessor(window: $window))
+            .frame(minWidth: 312, idealWidth: 320, maxWidth: 450,
+                   minHeight: 300, idealHeight: 1880, maxHeight: 3840)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
         .onChange(of: scenePhase, perform: { phase in
-            if phase == .active { }
-            else if phase == .inactive { }
+            if phase == .active {
+                AppCore.instance.typeWriterHandler.loadTypeWriter()
+            }
+            else if phase == .inactive {
+
+            }
             else if phase == .background {
                 AppCore.instance.typeWriterHandler.unloadTypewriter()
             }
@@ -48,7 +61,7 @@ struct TypystApp: App {
 
         #if os(iOS)
         WindowGroup {
-            ContentView()
+            MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         #endif

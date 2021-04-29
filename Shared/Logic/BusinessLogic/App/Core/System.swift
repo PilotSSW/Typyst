@@ -8,24 +8,27 @@ import Foundation
 
 class SystemFunctions {
     static func askUserToAllowSystemAccessibility() {
-        AppCore.instance.ui.alerts.keyboardAccessibility.keyCaptureUnavailableAlert(){ modalResponse in
+        let alert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert({
             NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
-            AppCore.instance.ui.alerts.keyboardAccessibility.addToTrustedAppsAlert(userAddedToAccessibilityCompletion: { (modalBody) in
-                // Check that the app has permission to listen for key events
+
+            let alert = KeyboardAccessibilityAlerts.addToSystemAccessibilityInstructions(dismissAction: {
+                AppCore.instance.macOSUI.quit(nil)
+            }, primaryAction: {
                 listenForSystemPrefsAccessibilityAdded()
             })
-        }
+            AppCore.instance.alertsHandler.showAlert(alert)
+        })
+        AppCore.instance.alertsHandler.showAlert(alert)
     }
 
     static func listenForSystemPrefsAccessibilityAdded() {
         let timer = RepeatingTimer(timeInterval: 0.5)
         timer.eventHandler = { [weak timer] in
             guard let timer = timer else { return }
-//            if AppDelegate.isAccessibilityAdded() {
-//                NSApplication.shared.stopModal()
-//                timer.suspend()
-//                AppCore.instance.ui.alerts.keyboardAccessibility.typystAddedToAccessibility()
-//            }
+            if AppDelegate.isAccessibilityAdded() {
+                timer.suspend()
+                AppCore.instance.alertsHandler.showAlert(KeyboardAccessibilityAlerts.successfullyAddedToAccessibility())
+            }
         }
         timer.resume()
     }
