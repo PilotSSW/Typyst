@@ -26,7 +26,7 @@ struct AnalyticsInfoCard: View {
                 .padding(8)
                 .frame(maxWidth: .infinity,
                        minHeight: 60, maxHeight: 60)
-                .asParentCard(withColor: AppColor.cardSecondaryBackground)
+                .asParentCard(withColor: AppColor.cardHeaderBackground)
                 .layoutPriority(2)
 
             if (showInfo) {

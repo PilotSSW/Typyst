@@ -30,10 +30,18 @@ extension View {
         modifier(CardHeader(backgroundColor: color))
     }
 
-    func asStyledCardHeader(withBackgroundColor color: Color) -> some View {
+    func asStyledCardHeader(withBackgroundColor color: Color,
+                            withLeftPadding: CGFloat = 8.0,
+                            withRightPadding: CGFloat = 8.0,
+                            withTopPadding: CGFloat = 8.0,
+                            withBottomPadding: CGFloat = 8.0
+    ) -> some View {
         modifier(CardHeader(backgroundColor: color))
             .neumorphicShadow()
-            .padding(8)
+            .padding(.leading, withLeftPadding)
+            .padding(.trailing, withRightPadding)
+            .padding(.top, withTopPadding)
+            .padding(.bottom, withBottomPadding)
             .frame(maxHeight: 56)
     }
 }

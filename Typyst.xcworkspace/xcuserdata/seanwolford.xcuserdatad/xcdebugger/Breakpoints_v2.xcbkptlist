@@ -132,5 +132,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5630BC98-F802-4C56-B07F-EB1D2C46F5AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "listenForGlobalKeyPresses()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5630BC98-F802-4C56-B07F-EB1D2C46F5AD - 46e67dc7a3d445b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Typyst.MacOSKeyListener.listenForGlobalKeyPresses() -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "430">
+               </Location>
+               <Location
+                  uuid = "5630BC98-F802-4C56-B07F-EB1D2C46F5AD - e81c6f38428fb599"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSEvent) -&gt; () in Typyst.MacOSKeyListener.listenForGlobalKeyPresses() -&gt; ()"
+                  moduleName = "Typyst"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -16,7 +16,7 @@ struct SettingsMenuHeader: View {
                 .asStyledText(with: .largeTitle)
             Spacer(minLength: 6)
         }
-        .asStyledCardHeader(withBackgroundColor: AppColor.cardSecondaryBackground)
+        .asStyledCardHeader(withBackgroundColor: AppColor.cardHeaderBackground, withBottomPadding: 0)
     }
 }
 

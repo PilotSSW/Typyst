@@ -14,7 +14,6 @@ class AppCore: ObservableObject {
 //    @Published private(set) var persistence = AppPersistence()
 
     #if os(macOS)
-    var keyListener: MacOSKeyListener? = nil
     lazy var macOSUI = MacOSUI()
     #endif
 
@@ -29,11 +28,11 @@ class AppCore: ObservableObject {
     }
 
     func setup() {
-        #if os(macOS)
-        keyListener = MacOSKeyListener.instance
-        macOSUI.setup()
-        #endif
         logging.setup()
         typeWriterHandler.setup()
+        #if os(macOS)
+        macOSUI.setup()
+        MacOSKeyListener.instance.listenForAllKeyPresses()
+        #endif
     }
 }

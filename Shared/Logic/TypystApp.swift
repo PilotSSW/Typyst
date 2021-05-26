@@ -14,8 +14,7 @@ struct TypystApp: App {
     let persistenceController = PersistenceController.shared
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @State
-    private var window: NSWindow?
+    @State private var window: NSWindow?
     #endif
 
     init() {
@@ -37,6 +36,7 @@ struct TypystApp: App {
                 VisualEffectBlur(material: .underWindowBackground,
                                  blendingMode: .behindWindow,
                                  state: .active)
+                
                 ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
@@ -44,6 +44,7 @@ struct TypystApp: App {
             .frame(minWidth: 312, idealWidth: 320, maxWidth: 450,
                    minHeight: 300, idealHeight: 1880, maxHeight: 3840)
         }
+
         .windowStyle(HiddenTitleBarWindowStyle())
         .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
         .onChange(of: scenePhase, perform: { phase in

@@ -12,6 +12,7 @@ class MacOSKeyListener {
         case global
         case local
     }
+    internal var keyPressEnvironment: KeyPressEnvironment = .all
 
     internal static let instance = MacOSKeyListener()
     internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
@@ -56,7 +57,7 @@ class MacOSKeyListener {
 
 // MARK: Logic for determining and handling keypresses
 extension MacOSKeyListener {
-    private static func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
+    private func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
@@ -76,15 +77,16 @@ extension MacOSKeyListener {
         return nil
     }
 
-    private static func handleEvent(_ event: NSEvent, _ environment: KeyPressEnvironment) {
+    private func handleEvent(_ event: NSEvent, _ environment: KeyPressEnvironment) {
         if let keyEvent = determineKeyPressedFrom(event) {
-            KeyHandler.handleEvent(keyEvent) { keyPressed in 
+            KeyHandler.handleEvent(keyEvent) { [weak self] keyPressed in
+                guard let self = self else { return }
                 // Handle key presses and send actions to rest of app
-                if environment == .local {
-                    instance.localKPCB.values.forEach { $0(keyPressed) }
+                if environment == .local && (self.keyPressEnvironment == .local || self.keyPressEnvironment == .all) {
+                    self.localKPCB.values.forEach { $0(keyPressed) }
                 }
-                else if environment == .global {
-                    instance.globalKPCB.values.forEach({ $0(keyPressed) })
+                else if environment == .global && (self.keyPressEnvironment == .global || self.keyPressEnvironment == .all) {
+                    self.globalKPCB.values.forEach({ $0(keyPressed) })
                 }
             }
         }
@@ -95,8 +97,8 @@ extension MacOSKeyListener {
     // Listen for key presses in Typyst
     private func listenForLocalKeyPresses() {
         for eventType in MacOSKeyListener.eventTypes {
-            NSEvent.addLocalMonitorForEvents(matching: eventType) { (event) -> NSEvent in
-                MacOSKeyListener.handleEvent(event, .local)
+            NSEvent.addLocalMonitorForEvents(matching: eventType) { [weak self] (event) -> NSEvent in
+                self?.handleEvent(event, .local)
                 return event
             }
         }
@@ -105,13 +107,13 @@ extension MacOSKeyListener {
     // Listen for key presses in other apps
     private func listenForGlobalKeyPresses() {
         for eventType in MacOSKeyListener.eventTypes {
-            NSEvent.addGlobalMonitorForEvents(matching: eventType) { (event) in
-                MacOSKeyListener.handleEvent(event, .global)
+            NSEvent.addGlobalMonitorForEvents(matching: eventType) { [weak self] (event) in
+                self?.handleEvent(event, .global)
             }
         }
     }
 
-    private func listenForAllKeyPresses() {
+    internal func listenForAllKeyPresses() {
         listenForLocalKeyPresses()
         listenForGlobalKeyPresses()
     }

@@ -27,6 +27,10 @@ class AppColor {
         Color("Cards/Backgrounds/RoundedScrollerBackground")
     }
 
+    public static var cardHeaderBackground: Color {
+        Color("Cards/Backgrounds/Header")
+    }
+
     /**
      * Cards
      */

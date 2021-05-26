@@ -36,7 +36,7 @@ class MacOSUI {
     private func setupMenu() {
         appMenu = AppMenu()
         appMenu?.constructMenu()
-        appMenu?.attachToOSMenuBar()
+//        appMenu?.attachToOSMenuBar()
 
         AppCore.instance.logging.log(.trace, "Menu setup")
     }

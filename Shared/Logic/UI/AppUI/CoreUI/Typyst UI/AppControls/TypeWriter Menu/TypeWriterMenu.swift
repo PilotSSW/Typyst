@@ -9,14 +9,31 @@
 import SwiftUI
 
 struct TypeWriterMenu: View {
+    @State private var height: CGFloat = 650
+
     var body: some View {
         VStack(alignment: .center) {
             TypeWriterMenuHeader()
             TypeWriterMenuScrollableSelector(options: TypeWriterMenuOptions.typeWriters)
-                .padding(.bottom, 8)
+            ResizableDragger(backgroundColor: AppColor.cardHeaderBackground)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            let translationHeight = gesture.translation.height
+                            height += translationHeight / 32
+
+                            if height <= 400 {
+                                height = 400
+                            }
+                            else if height >= 1400 {
+                                height = 1400
+                            }
+                        }
+                )
+                    
         }
         .asParentCard(withColor: AppColor.cardPrimaryBackground)
-        .aspectRatio(0.5, contentMode: .fit)
+        .frame(height: height)
     }
 }
 
