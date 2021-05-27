@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SwiftyBeaver-macOS/SwiftyBeaver.framework
+${BUILT_PRODUCTS_DIR}/SwiftySound-macOS/SwiftySound.framework
+${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework

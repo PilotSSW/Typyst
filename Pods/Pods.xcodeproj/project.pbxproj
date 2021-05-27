@@ -1,0 +1,1576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		077F64349DC31ACD0797662D72D19771 /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */; };
+		08022041F67205BA8CBE856C3F2868C0 /* Pods-Typyst (macOS)-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FF459806A7C8AB04E503A1C9502519 /* Pods-Typyst (macOS)-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B3F7514850F55661017B77CB149AA2F /* Pods-Typyst (iOS)-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8284DD2A58C56D9EBC41564B74F209AF /* Pods-Typyst (iOS)-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B3BBE85ABEEBBE419B5B93D94D7E6AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6211DC64EE0C4A583BD39DC77839E732 /* Foundation.framework */; };
+		29784D27868C289298CBBC341C089C58 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6F3033D2CE00620D8E9D6E9392115 /* Key.swift */; };
+		331B5282E8015549AF4B12171ED6BE74 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */; };
+		3A8C4074A1C33731E5A73E137FA8FB64 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */; };
+		3BDFA459949B787FF4BA39DE9BF523AB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D01BB43E360955262D695A80722BA4A /* AppKit.framework */; };
+		5089789292C84FE4F9A451AC4CE2EB36 /* SwiftySound-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7D416A70F4B1112F99887B160A2A54 /* SwiftySound-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5134709B84A8D24976D686243BD8C599 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */; };
+		51EE0D7A65A911F07F96D6FA85819624 /* FilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */; };
+		52E072C0F76D73FB7830155C7666BAB0 /* Pods-Typyst (macOS)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C669D08379876944EC115F2FC2312A /* Pods-Typyst (macOS)-dummy.m */; };
+		53FC0EB21206470D75586CAED82CC4E4 /* SwiftySound-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B894CB5EC0CF0A55FE5147037B482 /* SwiftySound-macOS-dummy.m */; };
+		56763EC306C87683C77818E342777ACC /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */; };
+		617AD8415C7BFE4778E1428A6F9F492C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
+		6329F2E68803BCDBFC3C3A48DF5109E3 /* HotKey-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B66FA24277067DCF54FA24F7E8E018C6 /* HotKey-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AC4797A84F14961BAC5BF9C27B25763 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */; };
+		753C094F16E687CC3C027B49F9A6DE3C /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC7AE2C053EF1CDBED66C1125C62270 /* HotKeysController.swift */; };
+		758C456886CAD60355CF97B82FDED500 /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */; };
+		7608325295CE2CE22C53099D5B155A2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */; };
+		7672C1D40220A535C930E3E9CF863AE7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */; };
+		76EB665D1BE680E8E87144ED9DDE2DD7 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */; };
+		7745CEE67436165A0B67B8EEA2F16AEE /* Pods-Typyst (iOS)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3172B7D08E321D09F7145E61DADFEB06 /* Pods-Typyst (iOS)-dummy.m */; };
+		776CE982ECF08EBAF427736467EEAC75 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */; };
+		7A0FFB1C85FEFD5FD238A263E3046CA0 /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */; };
+		7E33384639D786C791ECC0E8204D0AFD /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */; };
+		7F82FB38D9715563E5A6CDF5C1520F10 /* SwiftyBeaver-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DE088B7B38918F18440F5C701CA9CA /* SwiftyBeaver-macOS-dummy.m */; };
+		83281FD4F7E0DA20F80B47C1781A0624 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B790F3B9E34E045D3D304540642C5 /* Base64.swift */; };
+		8E534754195F8B492F1E85DDF7A98288 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
+		8EF36C9D824A4225E209117AD1DC472F /* SwiftySound-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A80A1CD6F4371F7C4E6B2AD5A0B3C661 /* SwiftySound-iOS-dummy.m */; };
+		98004A5B82745E1220D9D6553B3C6279 /* FilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */; };
+		981D7C5CC82165B40DD13F8A9C9476F4 /* SwiftyBeaver-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA42C22FC6B2E70FEEF712E9FA6D2DCF /* SwiftyBeaver-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BE82DE86F384EAD7B0B42894C0ECD75 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61C54DEE1833DFD2548984D62BA1017 /* Carbon.framework */; };
+		9C995A1C6CEE3603CBD3C829D8ECEF8C /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08609C8A7C12D5BC79B226C99B4391F9 /* HotKey.swift */; };
+		9F8A3804983EC82AD12F51B91DAEAB87 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */; };
+		A3543A70DF8931D1D0C5FA57A6B0FB4B /* HotKey-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9D862BD13F10D1C4EF4E247242B363 /* HotKey-dummy.m */; };
+		AC4C5BB0B2FC7A5418143ADE0E9D35E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
+		AF10DFCACE298381592A1B101DE4D3E2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */; };
+		B1E75E67962EF3891467FAA026346869 /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8664C6239D8E89788443BB6995E5E7 /* NSEventModifierFlags+HotKey.swift */; };
+		B45E369B43DCCA11510365290AA0A22C /* SwiftySound-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67034DFA25922F9281D60ABBE474EA89 /* SwiftySound-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B690623CBB2C64D853AC854EA9B3DD60 /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69383A5F6DD20CBAA145E5B728B427A8 /* KeyCombo.swift */; };
+		BAF678B26FDB5E8D277D5F14C3E169A3 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */; };
+		C4ED7291BDC1419A64AD15D0A2C2C473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */; };
+		C8D6C7A1138324F951F8DA055A4557F6 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B790F3B9E34E045D3D304540642C5 /* Base64.swift */; };
+		CDFF1CFDBA33AF524DA0CDA8C338B44A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
+		E08AB6CBECB2911768CF77215EBB8A84 /* SwiftyBeaver-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559A3A112BD5D1AA979F0EDCED68738 /* SwiftyBeaver-iOS-dummy.m */; };
+		E21BF22106BA915E4AE78481AF4CD027 /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */; };
+		E553F6A59DE9487B29AF377961197EDB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3977F7AAFCF1DDF63296A2E0ED532240 /* AVFoundation.framework */; };
+		E7AD4B3B46302702F55F2692310E2587 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */; };
+		EA6F221160948961E960048145BFE8B3 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */; };
+		F19263E32D28BA19569269E3566458CE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EADDFD65A1B779D36944CBC40893DA /* AVFoundation.framework */; };
+		F371BFC3EFD024F06A0AB702F4D8EB49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */; };
+		F41376FE0C473744917E37EFB093C3A5 /* SwiftyBeaver-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F99B02BF5EE4CE2B4A66D7D7467A2C7B /* SwiftyBeaver-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F73FC4AE6604450245D162924140B412 /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */; };
+		F8D81521647E81303248C2C2394E2287 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3C137B111E5684A41E59F04D8331603F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8198B4CD53FFE0380A2C93CA07E398E;
+			remoteInfo = "SwiftyBeaver-macOS";
+		};
+		43DD72414F79B2045D9050A400D20207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1657B1C164E298BCDD3AE7E8C428882E;
+			remoteInfo = "SwiftyBeaver-iOS";
+		};
+		4D816307826EB43E83BF4476917BAFD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00A7ADFCA135434D9D61E3EBB2D7C5CB;
+			remoteInfo = "SwiftySound-macOS";
+		};
+		95074938D309C27B81EDD249C6E6C673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB4D977E4336D9F2E9E510A33CD1DB6D;
+			remoteInfo = HotKey;
+		};
+		B7D85C5E1AF745B0D6B126FA8EF83A33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69E0094CB392D613B06E78E171658822;
+			remoteInfo = "SwiftySound-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		019B790F3B9E34E045D3D304540642C5 /* Base64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Base64.swift; path = Sources/Base64.swift; sourceTree = "<group>"; };
+		0472116307E881BD934BA8E69BDC3277 /* Pods-Typyst (macOS)-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (macOS)-acknowledgements.plist"; sourceTree = "<group>"; };
+		07A6F3033D2CE00620D8E9D6E9392115 /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Sources/HotKey/Key.swift; sourceTree = "<group>"; };
+		08609C8A7C12D5BC79B226C99B4391F9 /* HotKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HotKey.swift; path = Sources/HotKey/HotKey.swift; sourceTree = "<group>"; };
+		0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = "SwiftyBeaver-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F61F0161DD2E1820034F3B9A9E160F4 /* SwiftySound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftySound.framework; path = "SwiftySound-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Sources/Sound.swift; sourceTree = "<group>"; };
+		185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		19FEA0D0493FB0B88DC122826A71F850 /* SwiftyBeaver-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyBeaver-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1C7D416A70F4B1112F99887B160A2A54 /* SwiftySound-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftySound-iOS-umbrella.h"; sourceTree = "<group>"; };
+		29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES256CBC.swift; path = Sources/AES256CBC.swift; sourceTree = "<group>"; };
+		2B0970DB3184ABD274DF127C83945CEB /* Pods-Typyst (iOS)-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Typyst (iOS)-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2B5043A6BE66D08ED6642A9C34A5A63C /* Pods_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Typyst__iOS_.framework; path = "Pods-Typyst (iOS).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CC7AE2C053EF1CDBED66C1125C62270 /* HotKeysController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HotKeysController.swift; path = Sources/HotKey/HotKeysController.swift; sourceTree = "<group>"; };
+		313AC6D012D22C7DB738AAD9687CACA5 /* SwiftyBeaver-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftyBeaver-macOS-prefix.pch"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch"; sourceTree = "<group>"; };
+		3172B7D08E321D09F7145E61DADFEB06 /* Pods-Typyst (iOS)-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Typyst (iOS)-dummy.m"; sourceTree = "<group>"; };
+		35202DF2FE8BE05C93864C79783FC71F /* Pods-Typyst (iOS)-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (iOS)-Info.plist"; sourceTree = "<group>"; };
+		388B894CB5EC0CF0A55FE5147037B482 /* SwiftySound-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftySound-macOS-dummy.m"; path = "../SwiftySound-macOS/SwiftySound-macOS-dummy.m"; sourceTree = "<group>"; };
+		3977F7AAFCF1DDF63296A2E0ED532240 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		4D06B954B886286D3A03A1D40E240B44 /* SwiftySound-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftySound-macOS.release.xcconfig"; path = "../SwiftySound-macOS/SwiftySound-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SBPlatformDestination.swift; path = Sources/SBPlatformDestination.swift; sourceTree = "<group>"; };
+		4E5A606D9B6AA5487718874BFA2A18C1 /* Pods_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Typyst__macOS_.framework; path = "Pods-Typyst (macOS).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54A4AED0E4C55B26EF2CEED271A06FE1 /* SwiftySound-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftySound-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		5559A3A112BD5D1AA979F0EDCED68738 /* SwiftyBeaver-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyBeaver-iOS-dummy.m"; sourceTree = "<group>"; };
+		5573D126E6F62982656C7452D83137C6 /* Pods-Typyst (iOS)-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Typyst (iOS)-frameworks.sh"; sourceTree = "<group>"; };
+		57C669D08379876944EC115F2FC2312A /* Pods-Typyst (macOS)-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Typyst (macOS)-dummy.m"; sourceTree = "<group>"; };
+		5C599A1045FCF0A11C456286DA62A8BE /* Pods-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		5C7FB3D2109BAD243F82D8ABDE3A3BD0 /* SwiftySound-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SwiftySound-macOS.modulemap"; path = "../SwiftySound-macOS/SwiftySound-macOS.modulemap"; sourceTree = "<group>"; };
+		5ED285463DAB210297E8AD3A255E345A /* SwiftyBeaver-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftyBeaver-macOS.release.xcconfig"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		6211DC64EE0C4A583BD39DC77839E732 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6560F9C9D13C2A2AB7AA288B51F8850D /* SwiftyBeaver-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SwiftyBeaver-iOS.modulemap"; sourceTree = "<group>"; };
+		67034DFA25922F9281D60ABBE474EA89 /* SwiftySound-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftySound-macOS-umbrella.h"; path = "../SwiftySound-macOS/SwiftySound-macOS-umbrella.h"; sourceTree = "<group>"; };
+		68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDestination.swift; path = Sources/FileDestination.swift; sourceTree = "<group>"; };
+		69383A5F6DD20CBAA145E5B728B427A8 /* KeyCombo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyCombo.swift; path = Sources/HotKey/KeyCombo.swift; sourceTree = "<group>"; };
+		6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = "SwiftyBeaver-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79B2D8234F6C1330BBC3F99C79672B30 /* SwiftySound-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftySound-macOS-prefix.pch"; path = "../SwiftySound-macOS/SwiftySound-macOS-prefix.pch"; sourceTree = "<group>"; };
+		7C17CC8BE45D2F40200F66B3A4BA974D /* SwiftySound-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SwiftySound-iOS.modulemap"; sourceTree = "<group>"; };
+		7D501D570B3C10071E00751F522C6BDB /* SwiftyBeaver-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftyBeaver-macOS.debug.xcconfig"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7E8664C6239D8E89788443BB6995E5E7 /* NSEventModifierFlags+HotKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSEventModifierFlags+HotKey.swift"; path = "Sources/HotKey/NSEventModifierFlags+HotKey.swift"; sourceTree = "<group>"; };
+		811B4E1ABA8985CA494E9DE1054874C3 /* SwiftySound-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftySound-macOS.debug.xcconfig"; path = "../SwiftySound-macOS/SwiftySound-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		81EADDFD65A1B779D36944CBC40893DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		8284DD2A58C56D9EBC41564B74F209AF /* Pods-Typyst (iOS)-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Typyst (iOS)-umbrella.h"; sourceTree = "<group>"; };
+		8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyBeaver.swift; path = Sources/SwiftyBeaver.swift; sourceTree = "<group>"; };
+		83B311E10D380EB9694B7B6A12A2487F /* Pods-Typyst (iOS)-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (iOS)-acknowledgements.plist"; sourceTree = "<group>"; };
+		84AD2373DE5F9E0CDB44EB71C8501F74 /* SwiftyBeaver-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SwiftyBeaver-macOS.modulemap"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap"; sourceTree = "<group>"; };
+		855B38565843DB09E1729F9EBFA53FA5 /* Pods-Typyst (macOS)-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Typyst (macOS)-frameworks.sh"; sourceTree = "<group>"; };
+		8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
+		8A498BF661552F26A910D020AE75AE5D /* SwiftyBeaver-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyBeaver-iOS-Info.plist"; sourceTree = "<group>"; };
+		8B5ABF8B0F8FE7B8D27B253DB4999CB2 /* Pods-Typyst (macOS)-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (macOS)-Info.plist"; sourceTree = "<group>"; };
+		8D01BB43E360955262D695A80722BA4A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		90894DBE226BCA7D494AD36C3A798D86 /* Pods-Typyst (iOS).modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Typyst (iOS).modulemap"; sourceTree = "<group>"; };
+		93925FF0E062B0550B2C8987E1EFC69B /* SwiftyBeaver-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyBeaver-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		93FF459806A7C8AB04E503A1C9502519 /* Pods-Typyst (macOS)-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Typyst (macOS)-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A2CCB655A64D943AF92CB617ED2E1731 /* Pods-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleDestination.swift; path = Sources/ConsoleDestination.swift; sourceTree = "<group>"; };
+		A7B24A56AF3738D71636CE8617CF5EE3 /* Pods-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		A7F6C191C480578D90C581C19AB0CAEF /* Pods-Typyst (macOS)-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Typyst (macOS)-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A80A1CD6F4371F7C4E6B2AD5A0B3C661 /* SwiftySound-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftySound-iOS-dummy.m"; sourceTree = "<group>"; };
+		A8893787400A2F578B033DC20D21AA26 /* SwiftySound-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftySound-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AA27349DE9D47A93AA9F5BA1E88FE0D3 /* SwiftyBeaver-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "SwiftyBeaver-macOS-Info.plist"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist"; sourceTree = "<group>"; };
+		AB597E26952BFB0B3DADE02CF72BE17D /* Pods-Typyst (macOS).modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Typyst (macOS).modulemap"; sourceTree = "<group>"; };
+		AB9D862BD13F10D1C4EF4E247242B363 /* HotKey-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HotKey-dummy.m"; sourceTree = "<group>"; };
+		ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseDestination.swift; path = Sources/BaseDestination.swift; sourceTree = "<group>"; };
+		AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleCloudDestination.swift; path = Sources/GoogleCloudDestination.swift; sourceTree = "<group>"; };
+		B056942B922A838495C124B625D2693C /* SwiftySound-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftySound-iOS-prefix.pch"; sourceTree = "<group>"; };
+		B61C54DEE1833DFD2548984D62BA1017 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
+		B66FA24277067DCF54FA24F7E8E018C6 /* HotKey-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HotKey-umbrella.h"; sourceTree = "<group>"; };
+		B76162EECF1FFB054911AA1E22E662F4 /* Pods-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		C30887118EC2DF33D05DCB8E7D6E5AFE /* HotKey-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HotKey-prefix.pch"; sourceTree = "<group>"; };
+		CE6CEA1627FF8DB3791C29947258ACDE /* SwiftyBeaver-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-iOS-prefix.pch"; sourceTree = "<group>"; };
+		D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FilterValidator.swift; path = Sources/FilterValidator.swift; sourceTree = "<group>"; };
+		D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D621A48B950ADDBD0AA286A81DDF7519 /* SwiftySound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftySound.framework; path = "SwiftySound-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71F5A9E7AFA6E2B57DAC9E6A4249A97 /* HotKey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HotKey.release.xcconfig; sourceTree = "<group>"; };
+		D7328DAE32D52E6F5366C8DEB9DF320A /* SwiftySound-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftySound-iOS-Info.plist"; sourceTree = "<group>"; };
+		DB0253F1CAC76DE260F7C923EDCAEC15 /* HotKey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HotKey.debug.xcconfig; sourceTree = "<group>"; };
+		DE20986CCC1E5116D032B9FCAA74CB4B /* SwiftySound-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "SwiftySound-macOS-Info.plist"; path = "../SwiftySound-macOS/SwiftySound-macOS-Info.plist"; sourceTree = "<group>"; };
+		EA42C22FC6B2E70FEEF712E9FA6D2DCF /* SwiftyBeaver-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftyBeaver-macOS-umbrella.h"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-umbrella.h"; sourceTree = "<group>"; };
+		F28E438C776B1C71E6E29805844F0C28 /* HotKey.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HotKey.modulemap; sourceTree = "<group>"; };
+		F2DE088B7B38918F18440F5C701CA9CA /* SwiftyBeaver-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftyBeaver-macOS-dummy.m"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-dummy.m"; sourceTree = "<group>"; };
+		F36B2E7BB4C3E92E4DF7443FAFF3AE3F /* HotKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HotKey.framework; path = HotKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F570CB056F11EF87039E6CAAFD34F4B2 /* HotKey-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HotKey-Info.plist"; sourceTree = "<group>"; };
+		F99B02BF5EE4CE2B4A66D7D7467A2C7B /* SwiftyBeaver-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-iOS-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F2295FB5251664AE38BEB54EEBE164C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F371BFC3EFD024F06A0AB702F4D8EB49 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0F82035D8AB5166970AC9D8AA2A763F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E553F6A59DE9487B29AF377961197EDB /* AVFoundation.framework in Frameworks */,
+				8E534754195F8B492F1E85DDF7A98288 /* Cocoa.framework in Frameworks */,
+				1B3BBE85ABEEBBE419B5B93D94D7E6AB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14C792048A388CBEA9CDFD465EFD3C9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC4C5BB0B2FC7A5418143ADE0E9D35E9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A58F62FD7740C9AEDD74D81F50D9CA5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				617AD8415C7BFE4778E1428A6F9F492C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C66A8F7039A3CF556272FAC685381F6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19263E32D28BA19569269E3566458CE /* AVFoundation.framework in Frameworks */,
+				7608325295CE2CE22C53099D5B155A2B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0B149628D37E88121723F359074F519 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ED7291BDC1419A64AD15D0A2C2C473 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC969627A44DD839E017AD83678B6FF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDFA459949B787FF4BA39DE9BF523AB /* AppKit.framework in Frameworks */,
+				9BE82DE86F384EAD7B0B42894C0ECD75 /* Carbon.framework in Frameworks */,
+				CDFF1CFDBA33AF524DA0CDA8C338B44A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A2701A6918F6DC3C0035B8011E283D2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				81EADDFD65A1B779D36944CBC40893DA /* AVFoundation.framework */,
+				4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		0E3CD7B185EADC897EEC2CAD823AE9AC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5528240D0CE69360B65930D682D74F38 /* Pods-Typyst (iOS) */,
+				4CFFF9A375D8FFC1532B4474FDB1ED13 /* Pods-Typyst (macOS) */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4521E51719463587EB1F35BEAD0C85A1 /* SwiftySound */ = {
+			isa = PBXGroup;
+			children = (
+				101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */,
+				53574D7EE5399933AD9E6EE1C5685C67 /* Support Files */,
+			);
+			name = SwiftySound;
+			path = SwiftySound;
+			sourceTree = "<group>";
+		};
+		4CFFF9A375D8FFC1532B4474FDB1ED13 /* Pods-Typyst (macOS) */ = {
+			isa = PBXGroup;
+			children = (
+				AB597E26952BFB0B3DADE02CF72BE17D /* Pods-Typyst (macOS).modulemap */,
+				A7F6C191C480578D90C581C19AB0CAEF /* Pods-Typyst (macOS)-acknowledgements.markdown */,
+				0472116307E881BD934BA8E69BDC3277 /* Pods-Typyst (macOS)-acknowledgements.plist */,
+				57C669D08379876944EC115F2FC2312A /* Pods-Typyst (macOS)-dummy.m */,
+				855B38565843DB09E1729F9EBFA53FA5 /* Pods-Typyst (macOS)-frameworks.sh */,
+				8B5ABF8B0F8FE7B8D27B253DB4999CB2 /* Pods-Typyst (macOS)-Info.plist */,
+				93FF459806A7C8AB04E503A1C9502519 /* Pods-Typyst (macOS)-umbrella.h */,
+				A2CCB655A64D943AF92CB617ED2E1731 /* Pods-Typyst (macOS).debug.xcconfig */,
+				A7B24A56AF3738D71636CE8617CF5EE3 /* Pods-Typyst (macOS).release.xcconfig */,
+			);
+			name = "Pods-Typyst (macOS)";
+			path = "Target Support Files/Pods-Typyst (macOS)";
+			sourceTree = "<group>";
+		};
+		4EC0D5665BACB3AD0059AC04B7ED20BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F36B2E7BB4C3E92E4DF7443FAFF3AE3F /* HotKey.framework */,
+				2B5043A6BE66D08ED6642A9C34A5A63C /* Pods_Typyst__iOS_.framework */,
+				4E5A606D9B6AA5487718874BFA2A18C1 /* Pods_Typyst__macOS_.framework */,
+				0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */,
+				6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */,
+				0F61F0161DD2E1820034F3B9A9E160F4 /* SwiftySound.framework */,
+				D621A48B950ADDBD0AA286A81DDF7519 /* SwiftySound.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53574D7EE5399933AD9E6EE1C5685C67 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C17CC8BE45D2F40200F66B3A4BA974D /* SwiftySound-iOS.modulemap */,
+				A80A1CD6F4371F7C4E6B2AD5A0B3C661 /* SwiftySound-iOS-dummy.m */,
+				D7328DAE32D52E6F5366C8DEB9DF320A /* SwiftySound-iOS-Info.plist */,
+				B056942B922A838495C124B625D2693C /* SwiftySound-iOS-prefix.pch */,
+				1C7D416A70F4B1112F99887B160A2A54 /* SwiftySound-iOS-umbrella.h */,
+				A8893787400A2F578B033DC20D21AA26 /* SwiftySound-iOS.debug.xcconfig */,
+				54A4AED0E4C55B26EF2CEED271A06FE1 /* SwiftySound-iOS.release.xcconfig */,
+				5C7FB3D2109BAD243F82D8ABDE3A3BD0 /* SwiftySound-macOS.modulemap */,
+				388B894CB5EC0CF0A55FE5147037B482 /* SwiftySound-macOS-dummy.m */,
+				DE20986CCC1E5116D032B9FCAA74CB4B /* SwiftySound-macOS-Info.plist */,
+				79B2D8234F6C1330BBC3F99C79672B30 /* SwiftySound-macOS-prefix.pch */,
+				67034DFA25922F9281D60ABBE474EA89 /* SwiftySound-macOS-umbrella.h */,
+				811B4E1ABA8985CA494E9DE1054874C3 /* SwiftySound-macOS.debug.xcconfig */,
+				4D06B954B886286D3A03A1D40E240B44 /* SwiftySound-macOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftySound-iOS";
+			sourceTree = "<group>";
+		};
+		5528240D0CE69360B65930D682D74F38 /* Pods-Typyst (iOS) */ = {
+			isa = PBXGroup;
+			children = (
+				90894DBE226BCA7D494AD36C3A798D86 /* Pods-Typyst (iOS).modulemap */,
+				2B0970DB3184ABD274DF127C83945CEB /* Pods-Typyst (iOS)-acknowledgements.markdown */,
+				83B311E10D380EB9694B7B6A12A2487F /* Pods-Typyst (iOS)-acknowledgements.plist */,
+				3172B7D08E321D09F7145E61DADFEB06 /* Pods-Typyst (iOS)-dummy.m */,
+				5573D126E6F62982656C7452D83137C6 /* Pods-Typyst (iOS)-frameworks.sh */,
+				35202DF2FE8BE05C93864C79783FC71F /* Pods-Typyst (iOS)-Info.plist */,
+				8284DD2A58C56D9EBC41564B74F209AF /* Pods-Typyst (iOS)-umbrella.h */,
+				5C599A1045FCF0A11C456286DA62A8BE /* Pods-Typyst (iOS).debug.xcconfig */,
+				B76162EECF1FFB054911AA1E22E662F4 /* Pods-Typyst (iOS).release.xcconfig */,
+			);
+			name = "Pods-Typyst (iOS)";
+			path = "Target Support Files/Pods-Typyst (iOS)";
+			sourceTree = "<group>";
+		};
+		62E221E1D1EFC6FFFC7D10CD6C798BC5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6560F9C9D13C2A2AB7AA288B51F8850D /* SwiftyBeaver-iOS.modulemap */,
+				5559A3A112BD5D1AA979F0EDCED68738 /* SwiftyBeaver-iOS-dummy.m */,
+				8A498BF661552F26A910D020AE75AE5D /* SwiftyBeaver-iOS-Info.plist */,
+				CE6CEA1627FF8DB3791C29947258ACDE /* SwiftyBeaver-iOS-prefix.pch */,
+				F99B02BF5EE4CE2B4A66D7D7467A2C7B /* SwiftyBeaver-iOS-umbrella.h */,
+				19FEA0D0493FB0B88DC122826A71F850 /* SwiftyBeaver-iOS.debug.xcconfig */,
+				93925FF0E062B0550B2C8987E1EFC69B /* SwiftyBeaver-iOS.release.xcconfig */,
+				84AD2373DE5F9E0CDB44EB71C8501F74 /* SwiftyBeaver-macOS.modulemap */,
+				F2DE088B7B38918F18440F5C701CA9CA /* SwiftyBeaver-macOS-dummy.m */,
+				AA27349DE9D47A93AA9F5BA1E88FE0D3 /* SwiftyBeaver-macOS-Info.plist */,
+				313AC6D012D22C7DB738AAD9687CACA5 /* SwiftyBeaver-macOS-prefix.pch */,
+				EA42C22FC6B2E70FEEF712E9FA6D2DCF /* SwiftyBeaver-macOS-umbrella.h */,
+				7D501D570B3C10071E00751F522C6BDB /* SwiftyBeaver-macOS.debug.xcconfig */,
+				5ED285463DAB210297E8AD3A255E345A /* SwiftyBeaver-macOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyBeaver-iOS";
+			sourceTree = "<group>";
+		};
+		736C689FCF007E4BF0BDA345B5EEB120 /* HotKey */ = {
+			isa = PBXGroup;
+			children = (
+				08609C8A7C12D5BC79B226C99B4391F9 /* HotKey.swift */,
+				2CC7AE2C053EF1CDBED66C1125C62270 /* HotKeysController.swift */,
+				07A6F3033D2CE00620D8E9D6E9392115 /* Key.swift */,
+				69383A5F6DD20CBAA145E5B728B427A8 /* KeyCombo.swift */,
+				7E8664C6239D8E89788443BB6995E5E7 /* NSEventModifierFlags+HotKey.swift */,
+				F205587D9CF6718650DE179F8782779A /* Support Files */,
+			);
+			name = HotKey;
+			path = HotKey;
+			sourceTree = "<group>";
+		};
+		A76F1C2B123766E057B0208834852FEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				736C689FCF007E4BF0BDA345B5EEB120 /* HotKey */,
+				C13E524BD8461817B3FCE11A3B7BEF00 /* SwiftyBeaver */,
+				4521E51719463587EB1F35BEAD0C85A1 /* SwiftySound */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B33A480500D44CA17C9043CC8141E6EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A2701A6918F6DC3C0035B8011E283D2 /* iOS */,
+				B4864FF998F54699ED60E006F3DBE292 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4864FF998F54699ED60E006F3DBE292 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				8D01BB43E360955262D695A80722BA4A /* AppKit.framework */,
+				3977F7AAFCF1DDF63296A2E0ED532240 /* AVFoundation.framework */,
+				B61C54DEE1833DFD2548984D62BA1017 /* Carbon.framework */,
+				D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */,
+				6211DC64EE0C4A583BD39DC77839E732 /* Foundation.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		C13E524BD8461817B3FCE11A3B7BEF00 /* SwiftyBeaver */ = {
+			isa = PBXGroup;
+			children = (
+				29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */,
+				019B790F3B9E34E045D3D304540642C5 /* Base64.swift */,
+				ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */,
+				A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */,
+				8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */,
+				68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */,
+				185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */,
+				D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */,
+				AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */,
+				4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */,
+				8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */,
+				62E221E1D1EFC6FFFC7D10CD6C798BC5 /* Support Files */,
+			);
+			name = SwiftyBeaver;
+			path = SwiftyBeaver;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				B33A480500D44CA17C9043CC8141E6EB /* Frameworks */,
+				A76F1C2B123766E057B0208834852FEB /* Pods */,
+				4EC0D5665BACB3AD0059AC04B7ED20BE /* Products */,
+				0E3CD7B185EADC897EEC2CAD823AE9AC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		F205587D9CF6718650DE179F8782779A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F28E438C776B1C71E6E29805844F0C28 /* HotKey.modulemap */,
+				AB9D862BD13F10D1C4EF4E247242B363 /* HotKey-dummy.m */,
+				F570CB056F11EF87039E6CAAFD34F4B2 /* HotKey-Info.plist */,
+				C30887118EC2DF33D05DCB8E7D6E5AFE /* HotKey-prefix.pch */,
+				B66FA24277067DCF54FA24F7E8E018C6 /* HotKey-umbrella.h */,
+				DB0253F1CAC76DE260F7C923EDCAEC15 /* HotKey.debug.xcconfig */,
+				D71F5A9E7AFA6E2B57DAC9E6A4249A97 /* HotKey.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HotKey";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		060825EE73971423865DDE0565E0F2BE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5089789292C84FE4F9A451AC4CE2EB36 /* SwiftySound-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		252F676D8BA28D83E26A854AEAFDD1EC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B45E369B43DCCA11510365290AA0A22C /* SwiftySound-macOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65C79E3B163E8B46D52A67BC86197FA8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				981D7C5CC82165B40DD13F8A9C9476F4 /* SwiftyBeaver-macOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A55EF4939E0323E2E10DDF4547DBB6AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08022041F67205BA8CBE856C3F2868C0 /* Pods-Typyst (macOS)-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCDCBA48AE4EEEBC0028627E33EEDE6E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B3F7514850F55661017B77CB149AA2F /* Pods-Typyst (iOS)-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86CE60BF1555823DE98BC5D4354F297 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6329F2E68803BCDBFC3C3A48DF5109E3 /* HotKey-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA6FDFB4CD4BA5D1A3F9952773F60C4C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F41376FE0C473744917E37EFB093C3A5 /* SwiftyBeaver-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		00A7ADFCA135434D9D61E3EBB2D7C5CB /* SwiftySound-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D51F2F48146AAF727B83EA074983117 /* Build configuration list for PBXNativeTarget "SwiftySound-macOS" */;
+			buildPhases = (
+				252F676D8BA28D83E26A854AEAFDD1EC /* Headers */,
+				81EF9455004A4876897A2F4A954041BE /* Sources */,
+				0F82035D8AB5166970AC9D8AA2A763F9 /* Frameworks */,
+				B95F53189900BE45490D57E6A897EA2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftySound-macOS";
+			productName = "SwiftySound-macOS";
+			productReference = D621A48B950ADDBD0AA286A81DDF7519 /* SwiftySound.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		01EC088A4E6BCA40AD85BDA9E5A02D4B /* Pods-Typyst (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FF9FF21339DDD6AE10CBC3DFFFA23B1 /* Build configuration list for PBXNativeTarget "Pods-Typyst (macOS)" */;
+			buildPhases = (
+				A55EF4939E0323E2E10DDF4547DBB6AC /* Headers */,
+				2DF1FFDD6FF5886EEDE27BCB18722F7F /* Sources */,
+				A58F62FD7740C9AEDD74D81F50D9CA5C /* Frameworks */,
+				9642D436EFBDCDBC456C76D91D952B66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA1B2D3A4DA857DA90FBF70CF3C360B7 /* PBXTargetDependency */,
+				995EBB5C52FF09371F9636C911FC3124 /* PBXTargetDependency */,
+				4849C08E35284BFE17A63EB4E1D0F5D8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Typyst (macOS)";
+			productName = "Pods-Typyst (macOS)";
+			productReference = 4E5A606D9B6AA5487718874BFA2A18C1 /* Pods_Typyst__macOS_.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1657B1C164E298BCDD3AE7E8C428882E /* SwiftyBeaver-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F03BECF41A70FBD427FA0E6B7A99D7 /* Build configuration list for PBXNativeTarget "SwiftyBeaver-iOS" */;
+			buildPhases = (
+				FA6FDFB4CD4BA5D1A3F9952773F60C4C /* Headers */,
+				E05A4A3136974DD18C2B906618C58579 /* Sources */,
+				E0B149628D37E88121723F359074F519 /* Frameworks */,
+				703ED6E05483441428B873F4B843B827 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyBeaver-iOS";
+			productName = "SwiftyBeaver-iOS";
+			productReference = 0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		69E0094CB392D613B06E78E171658822 /* SwiftySound-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 272A436FCD04C9E7E72785C27575D634 /* Build configuration list for PBXNativeTarget "SwiftySound-iOS" */;
+			buildPhases = (
+				060825EE73971423865DDE0565E0F2BE /* Headers */,
+				8DDAC85AA728551776804B66FF369608 /* Sources */,
+				C66A8F7039A3CF556272FAC685381F6B /* Frameworks */,
+				B4EA61ACABABDEB65982387D505686BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftySound-iOS";
+			productName = "SwiftySound-iOS";
+			productReference = 0F61F0161DD2E1820034F3B9A9E160F4 /* SwiftySound.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7B748BC4B2EBA1E44F8B0A64752CB15B /* Pods-Typyst (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62A747085FDD6A73485A02DF81D15515 /* Build configuration list for PBXNativeTarget "Pods-Typyst (iOS)" */;
+			buildPhases = (
+				CCDCBA48AE4EEEBC0028627E33EEDE6E /* Headers */,
+				E993989DB86134296FDB00CA076057D2 /* Sources */,
+				0F2295FB5251664AE38BEB54EEBE164C /* Frameworks */,
+				14EB34CB4A3A0BB60A78AD8192A9C232 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				701690C62CE67B3F26942117CAA73F20 /* PBXTargetDependency */,
+				964E77433386250A6A98D15812227FE0 /* PBXTargetDependency */,
+			);
+			name = "Pods-Typyst (iOS)";
+			productName = "Pods-Typyst (iOS)";
+			productReference = 2B5043A6BE66D08ED6642A9C34A5A63C /* Pods_Typyst__iOS_.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B8198B4CD53FFE0380A2C93CA07E398E /* SwiftyBeaver-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 110178CB16BCFFBCC0B35987CAAEB2F6 /* Build configuration list for PBXNativeTarget "SwiftyBeaver-macOS" */;
+			buildPhases = (
+				65C79E3B163E8B46D52A67BC86197FA8 /* Headers */,
+				91ED5010B67ED93B9280822398815E94 /* Sources */,
+				14C792048A388CBEA9CDFD465EFD3C9B /* Frameworks */,
+				B7D063B18061BB4C8A31D5D405753D02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyBeaver-macOS";
+			productName = "SwiftyBeaver-macOS";
+			productReference = 6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DB4D977E4336D9F2E9E510A33CD1DB6D /* HotKey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7CF4E656A9E7278BE7AD5E48841412E /* Build configuration list for PBXNativeTarget "HotKey" */;
+			buildPhases = (
+				F86CE60BF1555823DE98BC5D4354F297 /* Headers */,
+				7CBB17719916DF3020AE21CEEA3DD91C /* Sources */,
+				EC969627A44DD839E017AD83678B6FF2 /* Frameworks */,
+				B29C2900C4DEA03C97EAAA1E92F0C9FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotKey;
+			productName = HotKey;
+			productReference = F36B2E7BB4C3E92E4DF7443FAFF3AE3F /* HotKey.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 4EC0D5665BACB3AD0059AC04B7ED20BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB4D977E4336D9F2E9E510A33CD1DB6D /* HotKey */,
+				7B748BC4B2EBA1E44F8B0A64752CB15B /* Pods-Typyst (iOS) */,
+				01EC088A4E6BCA40AD85BDA9E5A02D4B /* Pods-Typyst (macOS) */,
+				1657B1C164E298BCDD3AE7E8C428882E /* SwiftyBeaver-iOS */,
+				B8198B4CD53FFE0380A2C93CA07E398E /* SwiftyBeaver-macOS */,
+				69E0094CB392D613B06E78E171658822 /* SwiftySound-iOS */,
+				00A7ADFCA135434D9D61E3EBB2D7C5CB /* SwiftySound-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14EB34CB4A3A0BB60A78AD8192A9C232 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		703ED6E05483441428B873F4B843B827 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9642D436EFBDCDBC456C76D91D952B66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B29C2900C4DEA03C97EAAA1E92F0C9FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4EA61ACABABDEB65982387D505686BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7D063B18061BB4C8A31D5D405753D02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B95F53189900BE45490D57E6A897EA2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DF1FFDD6FF5886EEDE27BCB18722F7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E072C0F76D73FB7830155C7666BAB0 /* Pods-Typyst (macOS)-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CBB17719916DF3020AE21CEEA3DD91C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3543A70DF8931D1D0C5FA57A6B0FB4B /* HotKey-dummy.m in Sources */,
+				9C995A1C6CEE3603CBD3C829D8ECEF8C /* HotKey.swift in Sources */,
+				753C094F16E687CC3C027B49F9A6DE3C /* HotKeysController.swift in Sources */,
+				29784D27868C289298CBBC341C089C58 /* Key.swift in Sources */,
+				B690623CBB2C64D853AC854EA9B3DD60 /* KeyCombo.swift in Sources */,
+				B1E75E67962EF3891467FAA026346869 /* NSEventModifierFlags+HotKey.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81EF9455004A4876897A2F4A954041BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				331B5282E8015549AF4B12171ED6BE74 /* Sound.swift in Sources */,
+				53FC0EB21206470D75586CAED82CC4E4 /* SwiftySound-macOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DDAC85AA728551776804B66FF369608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5134709B84A8D24976D686243BD8C599 /* Sound.swift in Sources */,
+				8EF36C9D824A4225E209117AD1DC472F /* SwiftySound-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91ED5010B67ED93B9280822398815E94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				776CE982ECF08EBAF427736467EEAC75 /* AES256CBC.swift in Sources */,
+				83281FD4F7E0DA20F80B47C1781A0624 /* Base64.swift in Sources */,
+				7A0FFB1C85FEFD5FD238A263E3046CA0 /* BaseDestination.swift in Sources */,
+				9F8A3804983EC82AD12F51B91DAEAB87 /* ConsoleDestination.swift in Sources */,
+				6AC4797A84F14961BAC5BF9C27B25763 /* Extensions.swift in Sources */,
+				F73FC4AE6604450245D162924140B412 /* FileDestination.swift in Sources */,
+				BAF678B26FDB5E8D277D5F14C3E169A3 /* Filter.swift in Sources */,
+				98004A5B82745E1220D9D6553B3C6279 /* FilterValidator.swift in Sources */,
+				E7AD4B3B46302702F55F2692310E2587 /* GoogleCloudDestination.swift in Sources */,
+				E21BF22106BA915E4AE78481AF4CD027 /* SBPlatformDestination.swift in Sources */,
+				7F82FB38D9715563E5A6CDF5C1520F10 /* SwiftyBeaver-macOS-dummy.m in Sources */,
+				7E33384639D786C791ECC0E8204D0AFD /* SwiftyBeaver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05A4A3136974DD18C2B906618C58579 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8D81521647E81303248C2C2394E2287 /* AES256CBC.swift in Sources */,
+				C8D6C7A1138324F951F8DA055A4557F6 /* Base64.swift in Sources */,
+				56763EC306C87683C77818E342777ACC /* BaseDestination.swift in Sources */,
+				76EB665D1BE680E8E87144ED9DDE2DD7 /* ConsoleDestination.swift in Sources */,
+				7672C1D40220A535C930E3E9CF863AE7 /* Extensions.swift in Sources */,
+				077F64349DC31ACD0797662D72D19771 /* FileDestination.swift in Sources */,
+				AF10DFCACE298381592A1B101DE4D3E2 /* Filter.swift in Sources */,
+				51EE0D7A65A911F07F96D6FA85819624 /* FilterValidator.swift in Sources */,
+				3A8C4074A1C33731E5A73E137FA8FB64 /* GoogleCloudDestination.swift in Sources */,
+				758C456886CAD60355CF97B82FDED500 /* SBPlatformDestination.swift in Sources */,
+				E08AB6CBECB2911768CF77215EBB8A84 /* SwiftyBeaver-iOS-dummy.m in Sources */,
+				EA6F221160948961E960048145BFE8B3 /* SwiftyBeaver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E993989DB86134296FDB00CA076057D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7745CEE67436165A0B67B8EEA2F16AEE /* Pods-Typyst (iOS)-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4849C08E35284BFE17A63EB4E1D0F5D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftySound-macOS";
+			target = 00A7ADFCA135434D9D61E3EBB2D7C5CB /* SwiftySound-macOS */;
+			targetProxy = 4D816307826EB43E83BF4476917BAFD1 /* PBXContainerItemProxy */;
+		};
+		701690C62CE67B3F26942117CAA73F20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyBeaver-iOS";
+			target = 1657B1C164E298BCDD3AE7E8C428882E /* SwiftyBeaver-iOS */;
+			targetProxy = 43DD72414F79B2045D9050A400D20207 /* PBXContainerItemProxy */;
+		};
+		964E77433386250A6A98D15812227FE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftySound-iOS";
+			target = 69E0094CB392D613B06E78E171658822 /* SwiftySound-iOS */;
+			targetProxy = B7D85C5E1AF745B0D6B126FA8EF83A33 /* PBXContainerItemProxy */;
+		};
+		995EBB5C52FF09371F9636C911FC3124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyBeaver-macOS";
+			target = B8198B4CD53FFE0380A2C93CA07E398E /* SwiftyBeaver-macOS */;
+			targetProxy = 3C137B111E5684A41E59F04D8331603F /* PBXContainerItemProxy */;
+		};
+		DA1B2D3A4DA857DA90FBF70CF3C360B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HotKey;
+			target = DB4D977E4336D9F2E9E510A33CD1DB6D /* HotKey */;
+			targetProxy = 95074938D309C27B81EDD249C6E6C673 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		003132A1B94F582F93DF67599192EF1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93925FF0E062B0550B2C8987E1EFC69B /* SwiftyBeaver-iOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2711DCCD1F068B36EA2710F306F0687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8893787400A2F578B033DC20D21AA26 /* SwiftySound-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftySound;
+				PRODUCT_NAME = SwiftySound;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3896752E1B1D6FEEB51147F455512E2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C599A1045FCF0A11C456286DA62A8BE /* Pods-Typyst (iOS).debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		46AC1C9554A36C7588FD72A81588AC21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D501D570B3C10071E00751F522C6BDB /* SwiftyBeaver-macOS.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4E3AA25A4C3FF9DB6601B7030B7A4D20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B76162EECF1FFB054911AA1E22E662F4 /* Pods-Typyst (iOS).release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		75A8ACE20BF969A8764882A009A094F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19FEA0D0493FB0B88DC122826A71F850 /* SwiftyBeaver-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7670973865DC31C2D4C54171DE0015CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED285463DAB210297E8AD3A255E345A /* SwiftyBeaver-macOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7C72A0ECB24B81802162F9A64DB10B21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7B24A56AF3738D71636CE8617CF5EE3 /* Pods-Typyst (macOS).release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		814E003CB0A0D0FC7D1D7977C7B707A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2CCB655A64D943AF92CB617ED2E1731 /* Pods-Typyst (macOS).debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B433EF297076C8B2D022DEB95E2D5DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54A4AED0E4C55B26EF2CEED271A06FE1 /* SwiftySound-iOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftySound;
+				PRODUCT_NAME = SwiftySound;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		92236969D2CAE522F4C49923D0CA0A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		94D663F2A5E10E3DBA580BD075610152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B9669BA5F3BF25EC372CE81E39FF7CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 811B4E1ABA8985CA494E9DE1054874C3 /* SwiftySound-macOS.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftySound-macOS/SwiftySound-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftySound-macOS/SwiftySound-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/SwiftySound-macOS/SwiftySound-macOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftySound;
+				PRODUCT_NAME = SwiftySound;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BBE4E76ED6464F4BB04873890C351BD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D06B954B886286D3A03A1D40E240B44 /* SwiftySound-macOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftySound-macOS/SwiftySound-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftySound-macOS/SwiftySound-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/SwiftySound-macOS/SwiftySound-macOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftySound;
+				PRODUCT_NAME = SwiftySound;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4125A2AAC0183FC0C901DA8618FC0A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D71F5A9E7AFA6E2B57DAC9E6A4249A97 /* HotKey.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HotKey/HotKey-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HotKey/HotKey-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/HotKey/HotKey.modulemap";
+				PRODUCT_MODULE_NAME = HotKey;
+				PRODUCT_NAME = HotKey;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FE4DEA23EB21E13725D99942F2CA4422 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0253F1CAC76DE260F7C923EDCAEC15 /* HotKey.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HotKey/HotKey-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HotKey/HotKey-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/HotKey/HotKey.modulemap";
+				PRODUCT_MODULE_NAME = HotKey;
+				PRODUCT_NAME = HotKey;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		110178CB16BCFFBCC0B35987CAAEB2F6 /* Build configuration list for PBXNativeTarget "SwiftyBeaver-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46AC1C9554A36C7588FD72A81588AC21 /* Debug */,
+				7670973865DC31C2D4C54171DE0015CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		272A436FCD04C9E7E72785C27575D634 /* Build configuration list for PBXNativeTarget "SwiftySound-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2711DCCD1F068B36EA2710F306F0687A /* Debug */,
+				8B433EF297076C8B2D022DEB95E2D5DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94D663F2A5E10E3DBA580BD075610152 /* Debug */,
+				92236969D2CAE522F4C49923D0CA0A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62A747085FDD6A73485A02DF81D15515 /* Build configuration list for PBXNativeTarget "Pods-Typyst (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3896752E1B1D6FEEB51147F455512E2F /* Debug */,
+				4E3AA25A4C3FF9DB6601B7030B7A4D20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D51F2F48146AAF727B83EA074983117 /* Build configuration list for PBXNativeTarget "SwiftySound-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9669BA5F3BF25EC372CE81E39FF7CCC /* Debug */,
+				BBE4E76ED6464F4BB04873890C351BD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FF9FF21339DDD6AE10CBC3DFFFA23B1 /* Build configuration list for PBXNativeTarget "Pods-Typyst (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814E003CB0A0D0FC7D1D7977C7B707A0 /* Debug */,
+				7C72A0ECB24B81802162F9A64DB10B21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F03BECF41A70FBD427FA0E6B7A99D7 /* Build configuration list for PBXNativeTarget "SwiftyBeaver-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A8ACE20BF969A8764882A009A094F1 /* Debug */,
+				003132A1B94F582F93DF67599192EF1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7CF4E656A9E7278BE7AD5E48841412E /* Build configuration list for PBXNativeTarget "HotKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE4DEA23EB21E13725D99942F2CA4422 /* Debug */,
+				F4125A2AAC0183FC0C901DA8618FC0A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

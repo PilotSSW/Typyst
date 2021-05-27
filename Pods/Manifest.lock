@@ -1,0 +1,24 @@
+PODS:
+  - HotKey (0.1.2)
+  - SwiftyBeaver (1.9.3)
+  - SwiftySound (1.2.0)
+
+DEPENDENCIES:
+  - HotKey
+  - SwiftyBeaver
+  - SwiftySound
+
+SPEC REPOS:
+  trunk:
+    - HotKey
+    - SwiftyBeaver
+    - SwiftySound
+
+SPEC CHECKSUMS:
+  HotKey: ad59450195936c10992438c4210f673de5aee43e
+  SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
+  SwiftySound: 9eb28bb14edb601b40027e44319e0ef8383f88bf
+
+PODFILE CHECKSUM: 0a72aa6b2dbd6ad0193a48594c82d09283034318
+
+COCOAPODS: 1.10.1
