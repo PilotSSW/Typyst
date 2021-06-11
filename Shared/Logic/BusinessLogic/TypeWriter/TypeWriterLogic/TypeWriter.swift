@@ -8,6 +8,7 @@
 
 import Combine
 import Foundation
+import SwiftUI
 import SwiftySound
 
 class TypeWriter: ObservableObject {
@@ -20,26 +21,30 @@ class TypeWriter: ObservableObject {
     var keyLogic: TypeWriterKeyLogic
     @Published var state: TypeWriterState
 
-    init(modelType: TypeWriterModel.ModelType, marginWidth: Int = 80, errorHandler: (([SoundError]) -> ())?, completion: ((Sounds) -> Void)?) {
+    init(modelType: TypeWriterModel.ModelType,
+         marginWidth: Int = 80,
+         keyHandler: KeyHandler,
+         errorHandler: (([SoundError]) -> ())?,
+         completion: ((Sounds) -> Void)?) {
         self.modelType = modelType
 
         let so = Sounds()
         sounds = so
         sounds.loadSounds(for: modelType, completion: { loadedSounds in
-            loadedSounds.volume = AppSettings.shared.volumeSetting
-            if AppSettings.shared.lidOpenClose {
+            loadedSounds.volume = appDependencyContainer.appSettings.volumeSetting
+            if appDependencyContainer.appSettings.lidOpenClose {
                 loadedSounds.playSound(for: .LidUp)
             }
             completion?(loadedSounds)
         }, errorHandler: errorHandler)
 
-        AppSettings.shared.$volumeSetting
+        appDependencyContainer.appSettings.$volumeSetting
             .sink { so.volume = $0 }
-            .store(in: &AppCore.instance.subscriptions)
+            .store(in: &appDependencyContainer.subscriptions)
 
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
-        keyLogic = TypeWriterKeyLogic(modelType: modelType, state: st, sounds: sounds)
+        keyLogic = TypeWriterKeyLogic(modelType: modelType, state: st, sounds: sounds, keyHandler: keyHandler)
     }
 
     internal func setVolume(_ volume: Double) {
@@ -50,15 +55,15 @@ class TypeWriter: ObservableObject {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             let sounds = self.sounds
-            if AppSettings.shared.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
+            if appDependencyContainer.appSettings.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
                 sounds.playSound(for: .LidDown) {
                     sounds.unloadSounds()
-                    completion?()
+                    if let completion = completion { DispatchQueue.main.async(execute: completion) }
                 }
             }
             else {
                 sounds.unloadSounds()
-                completion?()
+                if let completion = completion { DispatchQueue.main.async(execute: completion) }
             }
         }
     }

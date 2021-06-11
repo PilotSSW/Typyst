@@ -39,54 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "797BD742-D829-4EB3-AC0A-F60E7E2A832C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/BusinessLogic/App/Core/System.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "listenForSystemPrefsAccessibilityAdded()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1AEB08BF-AF11-42E7-A1AC-0766CC9EF3DC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/BusinessLogic/App/Core/System.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "listenForSystemPrefsAccessibilityAdded()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "91D41492-E82A-41A3-BEBB-5AC646D4FC25"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/BusinessLogic/App/Core/System.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "listenForSystemPrefsAccessibilityAdded()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3B52DABF-5240-44AF-9631-C347AB9730A7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -135,49 +87,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5630BC98-F802-4C56-B07F-EB1D2C46F5AD"
+            uuid = "CA3E3ED4-2A97-4970-81CF-1E9C74D464F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+            filePath = "Shared/Logic/BusinessLogic/Analytics/KeyEventHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "listenForGlobalKeyPresses()"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "State"
+            landmarkType = "13">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init(modelType:state:sounds:keyHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "5630BC98-F802-4C56-B07F-EB1D2C46F5AD - 46e67dc7a3d445b0"
+                  uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2 - ca1254d3bf762144"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Typyst.MacOSKeyListener.listenForGlobalKeyPresses() -&gt; ()"
+                  symbolName = "closure #1 (Typyst.KeyEvent) -&gt; () in Typyst.TypeWriterKeyLogic.init(modelType: Typyst.TypeWriterModel.ModelType, state: Typyst.TypeWriterState, sounds: Typyst.Sounds, keyHandler: Typyst.KeyHandler) -&gt; Typyst.TypeWriterKeyLogic"
                   moduleName = "Typyst"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/WickedPropellerWork/Projects/Typyst/Typyst-Swift/Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "110"
-                  endingLineNumber = "110"
-                  offsetFromSymbolStart = "430">
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "448">
                </Location>
                <Location
-                  uuid = "5630BC98-F802-4C56-B07F-EB1D2C46F5AD - e81c6f38428fb599"
+                  uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2 - c8038228c068a95c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSEvent) -&gt; () in Typyst.MacOSKeyListener.listenForGlobalKeyPresses() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Typyst.KeyEvent) -&gt; () in Typyst.TypeWriterKeyLogic.init(modelType: Typyst.TypeWriterModel.ModelType, state: Typyst.TypeWriterState, sounds: Typyst.Sounds, keyHandler: Typyst.KeyHandler) -&gt; Typyst.TypeWriterKeyLogic"
                   moduleName = "Typyst"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwolford/Developer/Projects/Wicked%20Propeller%20Work/Projects/Typyst/Shared/Logic/SwiftTools/Keyboard/MacOSKeyListener.swift"
+                  urlString = "file:///Users/seanwolford/Developer/Projects/WickedPropellerWork/Projects/Typyst/Typyst-Swift/Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "110"
-                  endingLineNumber = "110"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
                   offsetFromSymbolStart = "0">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A9AC02B-399B-4BC1-AC8E-87EE2E4138E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/UI/AppUI/CoreUI/Typyst UI/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70CEE841-82B6-4489-B5A0-E260617867C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/BusinessLogic/Analytics/TypingStats.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "allEvents"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

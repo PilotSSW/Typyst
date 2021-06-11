@@ -28,13 +28,10 @@ class KeySets {
     static let commands: [Key] =
         [.command, .rightCommand, .control, .rightControl, .option, .rightOption]
 
-    static let special: [Key] =
-        []
-
     static let shift: [Key] =
         [.shift, .rightShift]
 
-    static let bell: [Key] =
+    static let special: [Key] =
         [.home, .help]
 
     enum KeySetType {
@@ -64,8 +61,8 @@ class KeySets {
             return KeySetType.functionKey
         case let key where KeySets.special.contains(key):
             return KeySetType.special
-        case let key where KeySets.bell.contains(key):
-            return KeySetType.bell
+        case let key where KeySets.special.contains(key):
+            return KeySetType.special
         default:
             return nil
         }

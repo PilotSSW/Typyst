@@ -6,7 +6,7 @@
 import Foundation
 import SwiftySound
 
-class Sounds {
+class Sounds: Loggable {
     private(set) var soundSets = [Sounds.AvailableSoundSets: [Sound]]()
     var volume: Double {
         get {
@@ -42,7 +42,7 @@ class Sounds {
             }
             else {
                 let error = SoundError(path: $0.relativePath, kind: .soundNotFound)
-                AppCore.instance.logging.log(error: error)
+                logEvent(.error, error: error)
                 soundsNotFound.append(error)
             }
         })

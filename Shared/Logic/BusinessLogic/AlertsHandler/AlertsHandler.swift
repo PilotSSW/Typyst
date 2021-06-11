@@ -11,7 +11,7 @@ class AlertsHandler: ObservableObject {
 
     func showAlert(_ alert: Alert, priorityFirstInQueue: Bool = false) {
         let checkedTypes: [AlertType] = [.developer, .userInfo]
-        if checkedTypes.contains(alert.type) && !AppSettings.shared.showModalNotifications {
+        if checkedTypes.contains(alert.type) && !appDependencyContainer.appSettings.showModalNotifications {
             return
         }
 
@@ -31,5 +31,13 @@ class AlertsHandler: ObservableObject {
         if alertQueue.count > 0 {
             currentAlert = alertQueue.remove(at: 0)
         }
+    }
+}
+
+protocol Alertable {}
+extension Alertable {
+    func showAlert(_ alert: Alert, priorityFirstInQueue: Bool = false,
+                   alertsHandler: AlertsHandler = appDependencyContainer.alertsHandler) {
+        alertsHandler.showAlert(alert, priorityFirstInQueue: priorityFirstInQueue)
     }
 }

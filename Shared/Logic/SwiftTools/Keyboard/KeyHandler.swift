@@ -4,11 +4,10 @@
 
 import Foundation
 
-final class KeyHandler {
-    internal static let instance = KeyHandler()
+final class KeyHandler: Loggable {
     private var handlers = [String: ((KeyEvent) -> Void)]()
 
-    private init() {
+    init() {
 
     }
 
@@ -16,30 +15,28 @@ final class KeyHandler {
         handlers.removeAll()
     }
 
-    internal func registerKeyPressCallback(withTag tag: String, completion: @escaping (KeyEvent) -> Void) -> Bool {
-        if handlers[tag] != nil { return false }
+    internal func registerKeyPressCallback(withTag tag: String, completion: @escaping (KeyEvent) -> Void)  {
+        if handlers[tag] != nil { return }
         handlers[tag] = completion
-        return true
     }
 
-    internal func removeListenerCallback(withTag tag: String) -> Bool {
-        handlers.removeValue(forKey: tag) != nil
+    internal func removeListenerCallback(withTag tag: String) {
+        handlers.removeValue(forKey: tag)
     }
 
-    internal static func handleEvent(_ event: KeyEvent, _ completion: ((KeyEvent) -> Void)? = nil) {
-        DispatchQueue.global(qos: .userInteractive).async(execute: {
+    internal func handleEvent(_ event: KeyEvent, _ completion: ((KeyEvent) -> Void)? = nil) {
+        DispatchQueue.global(qos: .userInteractive).async(execute: { [weak self] in
+            guard let self = self else { return }
+
+            // Handle debug
+            let debugSettings = appDependencyContainer.appDebugSettings
+            if debugSettings.debugGlobal && debugSettings.debugKeypresses {
+                // Never ever log this in production
+                self.logEvent(.info, "Event: \(event)")
+            }
+
             if event.timeSinceEvent <= 0.75 {
-                // Handle debug
-                let debugSettings = AppDebugSettings.shared
-                if debugSettings.debugGlobal && debugSettings.debugKeypresses {
-                    // Never ever log this in production
-                    NSLog("Key: \(event.key) - \(event.direction)")
-                    NSLog("Event: \(event)")
-                }
-
-                instance.handlers.values.forEach({
-                    $0(event)
-                })
+                self.handlers.values.forEach({ $0(event) })
                 completion?(event)
             }
         })

@@ -7,36 +7,40 @@ import Combine
 import Foundation
 import SwiftUI
 
-class TypeWriterHandler: ObservableObject {
+class TypeWriterHandler: Alertable, Loggable, ObservableObject {
+    private var keyHandler: KeyHandler? = nil
     @Published private(set) var loadedTypewriter: TypeWriter? {
         didSet { fireAllActionsOnTypeWriterChange(loadedTypewriter) }
     }
     private var onTypewriterDidChange: [((TypeWriter?) -> Void)?] = []
 
-    init() {
-
-    }
-
     deinit {
         unloadTypewriter()
     }
 
-    func setup() {
+    func setup(withKeyHandler kHandler: KeyHandler? = appDependencyContainer.keyHandler) {
+        if let kHandler = kHandler { setKeyHandler(kHandler) }
         loadTypeWriter()
-        AppCore.instance.logging.log(.debug, "Core setup")
+        logEvent(.trace, "TypeWriterHandler setup")
     }
 
     func setCurrentTypeWriter(modelType: TypeWriterModel.ModelType) {
-        AppSettings.shared.selectedTypewriter = modelType.rawValue
+        appDependencyContainer.appSettings.selectedTypewriter = modelType.rawValue
 
         let loadCB = { [weak self] in
-            guard let self = self else { return }
-            self.loadedTypewriter = TypeWriter(modelType: modelType, errorHandler: { (soundErrors) in
-                let sounds = soundErrors.map({ $0.localizedDescription })
-                AppCore.instance.alertsHandler.showAlert(ErrorAlerts.soundsFailedToLoad(sounds))
-            }) { loadedSounds in
+            guard let self = self,
+                  let keyHandler = self.keyHandler
+            else { return }
+
+            self.loadedTypewriter = TypeWriter(modelType: modelType, keyHandler: keyHandler,
+                errorHandler: { [weak self] (soundErrors) in
+                    guard let self = self else { return }
+                    let sounds = soundErrors.map({ $0.localizedDescription })
+                    self.showAlert(ErrorAlerts.soundsFailedToLoad(sounds))
+            }) { [weak self] loadedSounds in
+                guard let self = self else { return }
                 let soundSets = loadedSounds.soundSets.keys.map({ $0.rawValue }).sorted(by: <)
-                AppCore.instance.alertsHandler.showAlert(UserInfoAlerts.soundsLoaded(soundSets))
+                self.showAlert(UserInfoAlerts.soundsLoaded(soundSets))
             }
         }
 
@@ -48,7 +52,7 @@ class TypeWriterHandler: ObservableObject {
     func loadTypeWriter(forceWhenAlreadyLoaded: Bool = false) {
         if loadedTypewriter != nil && !forceWhenAlreadyLoaded { return }
 
-        if let modelString = AppSettings.shared.selectedTypewriter,
+        if let modelString = appDependencyContainer.appSettings.selectedTypewriter,
            let modelType = TypeWriterModel.ModelType.init(rawValue: modelString) {
             setCurrentTypeWriter(modelType: modelType)
             return
@@ -66,7 +70,7 @@ class TypeWriterHandler: ObservableObject {
     }
 
     func setVolumeTo(_ volume: Double) {
-        AppSettings.shared.volumeSetting = volume
+        appDependencyContainer.appSettings.volumeSetting = volume
         loadedTypewriter?.setVolume(volume)
     }
 }
@@ -84,5 +88,15 @@ extension TypeWriterHandler {
         onTypewriterDidChange.forEach({ registeredAction in
             registeredAction?(newTypeWriter)
         })
+    }
+}
+
+extension TypeWriterHandler {
+    public func setKeyHandler(_ keyHandler: KeyHandler) {
+        self.keyHandler = keyHandler
+    }
+
+    public func removeKeyHandler() {
+        keyHandler = nil
     }
 }

@@ -2,9 +2,10 @@
 // Created by Sean Wolford on 4/5/21.
 // Copyright (c) 2021 wickedPropeller. All rights reserved.
 //
-
+import Combine
 import Foundation
 import SwiftyBeaver
+import SwiftUI
 
 class Logging {
     private var log: SwiftyBeaver.Type? = SwiftyBeaver.self
@@ -18,12 +19,8 @@ class Logging {
         case fatal = 5
     }
 
-    init() {
-
-    }
-
-    func setup() {
-        AppSettings.shared.$logErrorsAndCrashes
+    func setup(withStore store: inout Set<AnyCancellable>) {
+        appDependencyContainer.appSettings.$logErrorsAndCrashes
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 let log = self.log
@@ -35,20 +32,23 @@ class Logging {
                     log?.addDestination(console)
                     #endif
 
+                    log?.removeAllDestinations()
+
                     let file = FileDestination()
+                    log?.addDestination(file)
+
                     let cloud = SBPlatformDestination(appID: "Rl1RAR",
                                                       appSecret: "przetal0geBkdUwlkomw8n7qP3trpcc0",
                                                       encryptionKey: "zxzlcCmYwNqirvsmaksV88o7nJeNiktq")
-                    log?.addDestination(file)
                     log?.addDestination(cloud)
                 }
                 else {
-                    self.log = nil
+                    log?.removeAllDestinations()
                 }
             }
-            .store(in: &AppCore.instance.subscriptions)
+            .store(in: &store)
 
-        AppDebugSettings.shared.$debugGlobal
+        appDependencyContainer.appDebugSettings.$debugGlobal
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 self.log?.destinations.forEach({
@@ -58,7 +58,7 @@ class Logging {
                         : .warning
                 })
             }
-            .store(in: &AppCore.instance.subscriptions)
+            .store(in: &store)
     }
 
     func log(_ level: Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
@@ -67,7 +67,7 @@ class Logging {
         if error != nil && (level != .error || level != .fatal) { logType = .error }
 
         // Don't log stuff beneath warning in production unless user is having an issue
-        if !AppDebugSettings.shared.debugGlobal && level.rawValue < Level.warning.rawValue { return }
+        if !appDependencyContainer.appDebugSettings.debugGlobal && level.rawValue < Level.warning.rawValue { return }
 
         if let log = log {
             switch (logType) {
@@ -83,5 +83,14 @@ class Logging {
                 log.error(message, file, function, line: line, context: context)
             }
         }
+    }
+}
+
+protocol Loggable {}
+extension Loggable {
+    func logEvent(_ level: Logging.Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
+                  file: String = #file, function: String = #function, line: Int = #line,
+                  loggerInstance: Logging = appDependencyContainer.logging) {
+        loggerInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
     }
 }

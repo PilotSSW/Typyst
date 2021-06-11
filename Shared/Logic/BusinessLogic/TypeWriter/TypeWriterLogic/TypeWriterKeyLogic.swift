@@ -7,32 +7,25 @@ import Foundation
 
 class TypeWriterKeyLogic {
     let state: TypeWriterState
-    private(set) var keyListenerTag = "TypeWriterLogic"
-    private var keyListenerCompletion: ((KeyEvent) -> Void)? {
-        didSet {
-            let _ = KeyHandler.instance.removeListenerCallback(withTag: keyListenerTag)
-            if let completion = keyListenerCompletion {
-                let _ = KeyHandler.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
-            }
-        }
-    }
+    private let modelType: TypeWriterModel.ModelType
+    private var keyListenerTag: String { "TypeWriterLogic-\(modelType)" }
+    private var keyHandler: KeyHandler
 
-    init(modelType: TypeWriterModel.ModelType, state: TypeWriterState, sounds: Sounds) {
+    init(modelType: TypeWriterModel.ModelType, state: TypeWriterState, sounds: Sounds, keyHandler: KeyHandler) {
+        self.modelType = modelType
         self.state = state
+        self.keyHandler = keyHandler
 
-        self.keyListenerCompletion = { [weak self] keyEvent in
+        keyHandler.registerKeyPressCallback(withTag: keyListenerTag) { [weak self] keyEvent in
             guard let self = self else { return }
             DispatchQueue.main.async(execute: {
                 self.assignKeyPresses(for: keyEvent, sounds: sounds)
             })
         }
-        if let completion = keyListenerCompletion {
-            let _ = KeyHandler.instance.registerKeyPressCallback(withTag: keyListenerTag, completion: completion)
-        }
     }
 
     deinit {
-        keyListenerCompletion = nil
+        keyHandler.removeListenerCallback(withTag: keyListenerTag)
     }
 
     func assignKeyPresses(for keyPressed: KeyEvent, sounds: Sounds) {
@@ -44,28 +37,18 @@ class TypeWriterKeyLogic {
         // sound plays ;)
 
         switch(keyPressed.key, keyPressed.direction) {
-        case (Key.shift, _):
-            handleShift(for: keyPressed, sounds: sounds); break
-        case (Key.space, _):
-            handleSpace(for: keyPressed, sounds: sounds); break
-        case (Key.return, _): fallthrough
-        case (Key.keypadEnter, _):
-            handleEnter(for: keyPressed, sounds: sounds); break
+        case (Key.shift, _): handleShift(for: keyPressed, sounds: sounds); break
+        case (Key.space, _): handleSpace(for: keyPressed, sounds: sounds); break
         case (Key.delete, _): fallthrough
-        case (Key.forwardDelete, _):
-            handleBackspace(for: keyPressed, sounds: sounds); break
-        case (Key.escape, _):
-            handleEscape(for: keyPressed, sounds: sounds); break
-        case (Key.capsLock, _):
-            handleCapsLock(sounds: sounds); break
-        case (Key.tab, _):
-            handleTab(for: keyPressed, sounds: sounds); break
-        case let keyPressed where KeySets.bell.contains(keyPressed.0):
-            sounds.playSound(for: .Bell); break
-        case (Key.keypadClear, _):
-            sounds.playSound(for: .RibbonSelector); break
-//        case let keyPressed where keyPressed.1 == .systemDefined:
-//            sounds.playSound(for: .MarginRelease); break
+        case (Key.forwardDelete, _): handleBackspace(for: keyPressed, sounds: sounds); break
+        case (Key.return, _): fallthrough
+        case (Key.keypadEnter, _): handleEnter(for: keyPressed, sounds: sounds); break
+        case (Key.escape, _): handleEscape(for: keyPressed, sounds: sounds); break
+        case (Key.capsLock, _): handleCapsLock(sounds: sounds); break
+        case (Key.tab, _): handleTab(for: keyPressed, sounds: sounds); break
+        case let keyPressed where KeySets.special.contains(keyPressed.0): sounds.playSound(for: .Bell); break
+        case (Key.function, _): sounds.playSound(for: .RibbonSelector); break
+        case (Key.keypadClear, _): sounds.playSound(for: .MarginRelease); break
         default:
             handleKeyPress(for: keyPressed, sounds: sounds); break
         }
@@ -93,7 +76,7 @@ class TypeWriterKeyLogic {
             state.resetLineIndex()
             sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
 
-            if AppSettings.shared.paperFeedEnabled {
+            if appDependencyContainer.appSettings.paperFeedEnabled {
                 DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) { [weak sounds] in
                     guard let sounds = sounds else { return }
                     sounds.playSound(for: .PaperLoad, completion: { [weak sounds] in
@@ -134,14 +117,14 @@ class TypeWriterKeyLogic {
 
             let paperReturnCB = { [weak sounds] in
                 guard let sounds = sounds else { return }
-                if AppSettings.shared.paperReturnEnabled {
+                if appDependencyContainer.appSettings.paperReturnEnabled {
                     sounds.playSound(fromOneOfAny: [
                         .SingleLineReturn, .DoubleLineReturn, .TripleLineReturn
                     ])
                 }
             }
 
-            AppSettings.shared.bell
+            appDependencyContainer.appSettings.bell
                 ? sounds.playSound(for: .Bell, completion: paperReturnCB)
                 : paperReturnCB()
         }

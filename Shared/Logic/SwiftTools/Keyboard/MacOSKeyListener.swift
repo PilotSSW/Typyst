@@ -6,7 +6,7 @@
 import AppKit
 import Foundation
 
-class MacOSKeyListener {
+final class MacOSKeyListener {
     enum KeyPressEnvironment {
         case all
         case global
@@ -14,16 +14,13 @@ class MacOSKeyListener {
     }
     internal var keyPressEnvironment: KeyPressEnvironment = .all
 
-    internal static let instance = MacOSKeyListener()
     internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]
     internal static let modifiers: [NSEvent.ModifierFlags] = [.capsLock, .command, .control, .function, .help, .numericPad, .option, .shift]
 
+    private var keyHandler: KeyHandler? = nil
+
     private var localKPCB = [String: ((KeyEvent) -> Void)]()
     private var globalKPCB = [String: ((KeyEvent) -> Void)]()
-
-    private init() {
-        listenForAllKeyPresses()
-    }
 
     deinit {
         localKPCB.removeAll()
@@ -57,21 +54,32 @@ class MacOSKeyListener {
 
 // MARK: Logic for determining and handling keypresses
 extension MacOSKeyListener {
+    public func setKeyHandler(_ keyHandler: KeyHandler) {
+        self.keyHandler = keyHandler
+    }
+
+    public func removeKeyHandler() {
+        keyHandler = nil
+    }
+
     private func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
-            var isRepeat = false
             var direction: KeyEvent.KeyDirection = .keyDown
+            var isRepeat = false
+
             if (event.type != .flagsChanged) {
                 isRepeat = event.isARepeat
-            }
-            else {
                 direction = event.type == .keyUp
                     ? .keyUp
                     : .keyDown
             }
-            return KeyEvent(keyPressed, direction, ModifierFlags(event.modifierFlags), isRepeat: isRepeat)
+
+            return KeyEvent(keyPressed,
+                            direction,
+                            ModifierFlags(event.modifierFlags),
+                            isRepeat: isRepeat)
         }
 
         return nil
@@ -79,7 +87,7 @@ extension MacOSKeyListener {
 
     private func handleEvent(_ event: NSEvent, _ environment: KeyPressEnvironment) {
         if let keyEvent = determineKeyPressedFrom(event) {
-            KeyHandler.handleEvent(keyEvent) { [weak self] keyPressed in
+            keyHandler?.handleEvent(keyEvent) { [weak self] keyPressed in
                 guard let self = self else { return }
                 // Handle key presses and send actions to rest of app
                 if environment == .local && (self.keyPressEnvironment == .local || self.keyPressEnvironment == .all) {
