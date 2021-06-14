@@ -7,18 +7,18 @@ import Foundation
 import SwiftUI
 
 struct TypeWriterImageButton: View {
+    @State private var showVectorImage = true
+
     var onClick: () -> Void
     var imagePath: String
 
     var body: some View {
         Button(action: onClick) {
             ZStack {
-//                RoundedRectangle(cornerRadius: 16, style: .continuous)
-//                    .fill(AppColor.ImageBackground)
-//                    .blendMode(.multiply)
-//                    .opacity(0.15)
-//                    .blur(radius: 2, opaque: false)
-//                    .layoutPriority(1)
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(AppColor.ImageBackground)
+                    .blendMode(.multiply)
+                    .layoutPriority(1)
 
                 Image(imagePath)
                     .resizable()
@@ -32,19 +32,34 @@ struct TypeWriterImageButton: View {
 //                    .neumorphicShadow()
                     .layoutPriority(2)
 
-                Image(imagePath)
-                    .resizable()
-                    .scaledToFit()
-                    .shadow(color: AppColor.objectShadowLight, radius: 4)
-                    .padding(.horizontal, 18)
-                    .layoutPriority(3)
-                    .padding(8)
+                if !showVectorImage {
+                    Image("TypeWriterTransparencies/\(imagePath)")
+                        .resizable()
+                        .scaledToFit()
+                        .shadow(color: AppColor.objectShadowLight, radius: 4)
+                        .padding(8)
+                        .layoutPriority(3)
+                }
+
+
+                if showVectorImage {
+                    Image("TypeWriterVectors/\(imagePath)")
+                        .resizable()
+                        .scaledToFit()
+                        .shadow(color: AppColor.objectShadowLight, radius: 4)
+                        .padding(8)
+                        .layoutPriority(3)
+                }
             }
         }
         .buttonStyle(PlainButtonStyle())
         .frame(minWidth: 60,
                minHeight: 60,
                alignment: .center)
+        .onHover(perform: { hovering in
+            showVectorImage = !hovering
+        })
+        .animation(.easeInOut)
     }
 }
 
