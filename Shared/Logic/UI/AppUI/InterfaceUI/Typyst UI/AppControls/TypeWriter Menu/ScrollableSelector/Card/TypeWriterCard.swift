@@ -24,6 +24,8 @@ struct TypeWriterCard: View {
             if let imagePath = optionInfo.model.image {
                 TypeWriterImageButton(onClick: optionInfo.onClick,
                                       imagePath: imagePath)
+                    .padding(.vertical, -4)
+                    .padding(.horizontal, 8)
                     .layoutPriority(2)
                     .zIndex(1)
 
