@@ -69,6 +69,7 @@
 		A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
 		A36F5C542673D4A500E18CCE /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailHandler.swift */; };
 		A36F5C552673D6A300E18CCE /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailHandler.swift */; };
+		A36F5C5826766B3300E18CCE /* NSEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C5726766B3300E18CCE /* NSEventListener.swift */; };
 		A3975BE52627EC46001DFD47 /* TypeWriterKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3975C482627F9E9001DFD47 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
@@ -274,6 +275,7 @@
 		A36F5C4B2673B5C400E18CCE /* MainMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCommands.swift; sourceTree = "<group>"; };
 		A36F5C4E2673B7A500E18CCE /* AppSettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsCommands.swift; sourceTree = "<group>"; };
 		A36F5C532673D4A500E18CCE /* EmailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandler.swift; sourceTree = "<group>"; };
+		A36F5C5726766B3300E18CCE /* NSEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventListener.swift; sourceTree = "<group>"; };
 		A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TypeWriterKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		A3975BE22627EC46001DFD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -551,6 +553,15 @@
 				A36F5C532673D4A500E18CCE /* EmailHandler.swift */,
 			);
 			path = EmailHandler;
+			sourceTree = "<group>";
+		};
+		A36F5C5626766B1700E18CCE /* MacOSKeyListener */ = {
+			isa = PBXGroup;
+			children = (
+				A3FA72A2262355D600E32B91 /* MacOSKeyListener.swift */,
+				A36F5C5726766B3300E18CCE /* NSEventListener.swift */,
+			);
+			path = MacOSKeyListener;
 			sourceTree = "<group>";
 		};
 		A3975BDF2627EC46001DFD47 /* TypeWriterKeyboard */ = {
@@ -973,11 +984,11 @@
 		A3FA72A1262355D600E32B91 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A36F5C5626766B1700E18CCE /* MacOSKeyListener */,
 				A34B305B262B283600C64B4C /* Key */,
 				A3FA72A4262355D600E32B91 /* KeyEvent.swift */,
 				A3FA72A3262355D600E32B91 /* KeySets.swift */,
 				6EF6BD6AC58B612B1AA22F9F /* KeyHandler.swift */,
-				A3FA72A2262355D600E32B91 /* MacOSKeyListener.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -1105,7 +1116,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					A3975BDD2627EC46001DFD47 = {
 						CreatedOnToolsVersion = 12.4;
@@ -1409,6 +1420,7 @@
 				A3FA72C2262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
 				A36D2556262DF6A30069E668 /* TypystApp.swift in Sources */,
 				A3FA7308262355D700E32B91 /* Styles.swift in Sources */,
+				A36F5C5826766B3300E18CCE /* NSEventListener.swift in Sources */,
 				A34B3073262B290700C64B4C /* Key.swift in Sources */,
 				A3FA72D8262355D700E32B91 /* SettingToggle.swift in Sources */,
 				A3FA72C6262355D700E32B91 /* TypeWriterCardHeader.swift in Sources */,
@@ -1746,8 +1758,6 @@
 					"\"Carbon\"",
 					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"HotKey\"",
 					"-framework",
 					"\"SwiftyBeaver\"",
 					"-framework",

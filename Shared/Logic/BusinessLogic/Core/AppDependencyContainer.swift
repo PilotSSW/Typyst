@@ -20,7 +20,7 @@ class AppDependencyContainer: ObservableObject {
 //    @Published private(set) var persistence = AppPersistence()
 
     #if os(macOS)
-    private(set) var macOSKeyListener: MacOSKeyListener
+    private(set) internal var macOSKeyListener: MacOSKeyListener
     //lazy var macOSUI = MacOSUI(self)
     #endif
 
@@ -30,7 +30,6 @@ class AppDependencyContainer: ObservableObject {
         #if os(macOS)
         macOSKeyListener = MacOSKeyListener()
         #endif
-
         completion?(self)
     }
 
@@ -40,15 +39,11 @@ class AppDependencyContainer: ObservableObject {
 
     func setup() {
         logging.setup(withStore: &subscriptions)
+        typeWriterHandler.setup()
+        typingStats.setup(withSubscriptionsStore: &subscriptions)
         #if os(macOS)
         //macOSUI.setup()
-        macOSKeyListener.setKeyHandler(keyHandler)
-        macOSKeyListener.listenForAllKeyPresses()
         #endif
-
-        typeWriterHandler.setup()
-        typingStats.setup(withSubscriptionsStore: &subscriptions,
-                          keyHandler: keyHandler)
     }
 }
 
@@ -57,4 +52,3 @@ internal let appDependencyContainer = AppDependencyContainer() { container in
         container.setup()
     }
 }
-

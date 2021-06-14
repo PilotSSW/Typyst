@@ -23,8 +23,6 @@ class AppSettings: ObservableObject {
         static let showModalNotifications = "showModalNotifications"
     }
 
-//    fileprivate private(set) var analyticsUsageChanged = [((Bool) -> Void)]()
-
     subscript(dynamicMember member: String) -> Any? {
         switch member {
             case Keys.bell: return bell
@@ -55,10 +53,7 @@ class AppSettings: ObservableObject {
     }
 
     @Published var logUsageAnalytics: Bool = UserDefaults.standard.bool(forKey: Keys.logUsageAnalytics) {
-        didSet {
-            UserDefaults.standard.set(logUsageAnalytics, forKey: Keys.logUsageAnalytics)
-            //analyticsUsageChanged.forEach({ $0(logUsageAnalytics) })
-        }
+        didSet { UserDefaults.standard.set(logUsageAnalytics, forKey: Keys.logUsageAnalytics) }
     }
 
     @Published var paperFeedEnabled: Bool = UserDefaults.standard.bool(forKey: Keys.paperFeed) {
@@ -88,18 +83,6 @@ class AppSettings: ObservableObject {
     @Published var volumeSetting: Double = UserDefaults.standard.double(forKey: Keys.mainVolumeValue) {
         didSet { UserDefaults.standard.set(volumeSetting, forKey: Keys.mainVolumeValue) }
     }
-
-//    func onLogUsageAnalyticsChanged(_ event: @escaping ((Bool) -> Void)) {
-//        analyticsUsageChanged.append(event)
-//    }
-//
-//    func removeAllOnLogUsageAnalyticsChangedEvents(_ events: [Int]? = nil) {
-//        if events != nil {
-//            events?.forEach({ _ = analyticsUsageChanged.remove(at: $0) })
-//        } else {
-//            analyticsUsageChanged.removeAll()
-//        }
-//    }
 }
 
 @dynamicMemberLookup

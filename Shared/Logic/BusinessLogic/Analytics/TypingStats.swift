@@ -9,9 +9,8 @@ import Foundation
 final class TypingStats {
     private var keyEventStore: KeyEventStore?
 
-    func setup(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>, keyHandler: KeyHandler) {
-        keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions,
-                                      keyHandler: keyHandler)
+    func setup(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>) {
+        keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions)
     }
 
     func reset() {

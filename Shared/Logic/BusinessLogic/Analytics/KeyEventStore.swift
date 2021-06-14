@@ -34,7 +34,8 @@ final class KeyEventStore {
         }
     }
 
-    init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>, keyHandler: KeyHandler) {
+    init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
+         keyHandler: KeyHandler = appDependencyContainer.keyHandler) {
         self.keyHandler = keyHandler
         keyPresses.reserveCapacity(25000)
 
@@ -72,7 +73,7 @@ final class KeyEventStore {
     }
 }
 
-// State Controls and Getters
+/// Mark: State Controls and Getters
 extension KeyEventStore {
     internal func startTracking() {
         if (state == .logging) { return }
@@ -95,6 +96,7 @@ extension KeyEventStore {
     }
 }
 
+/// Mark: Query functions
 extension KeyEventStore: Hashable {
     var hashValue: Int {
         createdAt.hashValue + keyPresses.count

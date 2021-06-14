@@ -26,14 +26,13 @@ class Logging {
                 let log = self.log
 
                 if isEnabled {
+                    log?.removeAllDestinations()
+
                     #if debug
                     let console = ConsoleDestination()
                     console.format = "$DHH:mm:ss$d $L $M"//"$J"
                     log?.addDestination(console)
-                    #endif
-
-                    log?.removeAllDestinations()
-
+                    #else
                     let file = FileDestination()
                     log?.addDestination(file)
 
@@ -41,6 +40,7 @@ class Logging {
                                                       appSecret: "przetal0geBkdUwlkomw8n7qP3trpcc0",
                                                       encryptionKey: "zxzlcCmYwNqirvsmaksV88o7nJeNiktq")
                     log?.addDestination(cloud)
+                    #endif
                 }
                 else {
                     log?.removeAllDestinations()
