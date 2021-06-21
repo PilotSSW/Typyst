@@ -60,7 +60,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
                                                   lineWidth: 1.5, antialiased: true))
                 }
             )
-            .scaleEffect(configuration.isPressed ? 0.92 : 1)
-            .animation(.interactiveSpring())
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .animation(.easeOut(duration: 0.15))
     }
 }

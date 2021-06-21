@@ -37,7 +37,7 @@ struct AnalyticsInfoControls: View {
         }
         .padding(12)
         .asParentCard(withColor: AppColor.cardSecondaryBackground)
-        .frame(minHeight: 72, maxHeight: 114,
+        .frame(maxWidth: .infinity, minHeight: 72, maxHeight: 114,
                alignment: .center)
     }
 }

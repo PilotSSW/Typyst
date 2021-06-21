@@ -27,12 +27,9 @@ struct InterfaceAndControls: View {
             SettingsMenu()
                 .layoutPriority(1)
         }
-        .frame(minWidth: 300, idealWidth: 320, maxWidth: 450,
+        .frame(minWidth: 300, idealWidth: 320, //maxWidth: 450,
                minHeight: 320, maxHeight: .infinity,
                alignment: .center)
-        .animation(.interactiveSpring(response: 0.25,
-                                      dampingFraction: 0.9,
-                                      blendDuration: 0.05))
     }
 }
 

@@ -17,7 +17,7 @@ struct AnalyticsInfoControlButton: View {
                 .bold()
                 .asStyledText(with: .title3)
                 .frame(minWidth: 55, maxWidth: 105,
-                       minHeight: 48, maxHeight: 90,
+                       minHeight: 24, maxHeight: 90,
                        alignment: .center)
         }
         .buttonStyle(NeumorphicButtonStyle(backgroundColor: backgroundColor))

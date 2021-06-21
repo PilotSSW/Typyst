@@ -21,13 +21,13 @@ class TypystAppViewModel: ObservableObject {
 
     func handleScenePhaseChange(_ phase: ScenePhase) {
         if phase == .active {
-            appDependencyContainer.typeWriterHandler.loadTypeWriter()
+            //appDependencyContainer.typeWriterHandler.loadTypeWriter()
         }
         else if phase == .inactive {
-
+            //appDependencyContainer.typeWriterHandler.unloadTypewriter()
         }
         else if phase == .background {
-            appDependencyContainer.typeWriterHandler.unloadTypewriter()
+            //appDependencyContainer.typeWriterHandler.unloadTypewriter()
         }
     }
 }
