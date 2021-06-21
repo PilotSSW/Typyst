@@ -11,6 +11,7 @@
 		5F10FDDD0B0A744DEEFEF7D4 /* Pods_Typyst__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBCE4C59C405EC8053DA08D /* Pods_Typyst__macOS_.framework */; };
 		6EF6B02E21391C6CF85E1924 /* AnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B7AFD42AE264276346B7 /* AnalyticsSettings.swift */; };
 		6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
+		6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
 		6EF6B1D20C73B4DDE63B477F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* ContentView.swift */; };
 		6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BAE62F54493636996EBC /* WindowAccessor.swift */; };
 		6EF6B23233FB92652D7EE067 /* CoreMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */; };
@@ -22,7 +23,7 @@
 		6EF6B84F88E113673D7382BC /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0D1BDF8AD035019D339 /* AppSettings.swift */; };
 		6EF6B8889205E3C78C0A30C5 /* KeyboardAccessibilityAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B3FCB4B8BC07BC2B32ED /* KeyboardAccessibilityAlerts.swift */; };
 		6EF6B899065B8528AB03A09A /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA8E1044964D2F8CBBA6 /* AlertItem.swift */; };
-		6EF6B89D087AD443C302E17C /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyHandler.swift */; };
+		6EF6B89D087AD443C302E17C /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */; };
 		6EF6B8CC8BD600A17EF9ACDC /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BB13EDFB032BE23771D7 /* AppMenu.swift */; };
 		6EF6B8D0289848E8B5A4ABD8 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0D1BDF8AD035019D339 /* AppSettings.swift */; };
 		6EF6B8F51A49ECC6476BE489 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0D1BDF8AD035019D339 /* AppSettings.swift */; };
@@ -35,6 +36,7 @@
 		6EF6BC5CCEA4567798766DC8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF738F13EF32973D1724 /* Alert.swift */; };
 		6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF738F13EF32973D1724 /* Alert.swift */; };
 		6EF6BCCC75740FA2E89CDD52 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC20AA9A6FDFA2F75026 /* ErrorAlerts.swift */; };
+		6EF6BD04FF0F0E68BC1D5C49 /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
 		6EF6BD57B8A92F15FDF29034 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
 		6EF6BD7C5675215A2D281174 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
 		6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
@@ -52,11 +54,27 @@
 		A34B3094262B29D900C64B4C /* MacOSModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B308D262B29D600C64B4C /* MacOSModifierFlags.swift */; };
 		A34B309A262B29DD00C64B4C /* ModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B307A262B29BC00C64B4C /* ModifierFlags.swift */; };
 		A34B30A5262D1FD700C64B4C /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A3262355D600E32B91 /* KeySets.swift */; };
-		A34B30B0262D2A2800C64B4C /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyHandler.swift */; };
+		A34B30B0262D2A2800C64B4C /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */; };
 		A34B30C0262D2FA500C64B4C /* MacOSKeyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A2262355D600E32B91 /* MacOSKeyListener.swift */; };
 		A34B30D7262D305100C64B4C /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
 		A34B470A2630E1F80069229E /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7285262355D600E32B91 /* VisualEffectBackground.swift */; };
-		A3668DF5262FD11500764DB8 /* AlertsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668DF4262FD11500764DB8 /* AlertsHandler.swift */; };
+		A35C06B1267AC14100EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
+		A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
+		A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
+		A35C06B4267AC14500EFC9A0 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
+		A35C06B5267AC14600EFC9A0 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
+		A35C06B6267AC15800EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
+		A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
+		A35C06B8267AC16D00EFC9A0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
+		A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
+		A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
+		A35C06BB267AC1BB00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
+		A35C06BC267AC1C500EFC9A0 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */; };
+		A35C06BD267AC1C600EFC9A0 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */; };
+		A35C06BE267AC1C700EFC9A0 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */; };
+		A35C06BF267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterService.swift */; };
+		A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterService.swift */; };
+		A3668DF5262FD11500764DB8 /* AlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668DF4262FD11500764DB8 /* AlertsService.swift */; };
 		A3668E11262FD84400764DB8 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668E10262FD84400764DB8 /* AlertsView.swift */; };
 		A3668E12262FD84400764DB8 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668E10262FD84400764DB8 /* AlertsView.swift */; };
 		A36D2535262DE7090069E668 /* TypystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D2534262DE7090069E668 /* TypystApp.swift */; };
@@ -67,8 +85,8 @@
 		A36F5C4F2673B7A500E18CCE /* AppSettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C4E2673B7A500E18CCE /* AppSettingsCommands.swift */; };
 		A36F5C502673B7A500E18CCE /* AppSettingsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C4E2673B7A500E18CCE /* AppSettingsCommands.swift */; };
 		A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
-		A36F5C542673D4A500E18CCE /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailHandler.swift */; };
-		A36F5C552673D6A300E18CCE /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailHandler.swift */; };
+		A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
+		A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C5826766B3300E18CCE /* NSEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C5726766B3300E18CCE /* NSEventListener.swift */; };
 		A3975BE52627EC46001DFD47 /* TypeWriterKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
@@ -76,7 +94,7 @@
 		A3975C642627FEA6001DFD47 /* TypingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76D526237DA900E32B91 /* TypingStats.swift */; };
 		A3975CA72627FF2A001DFD47 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
 		A3A2334D26324C7900B9B527 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
-		A3DEAF15262FE8D900470937 /* AlertsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668DF4262FD11500764DB8 /* AlertsHandler.swift */; };
+		A3DEAF15262FE8D900470937 /* AlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668DF4262FD11500764DB8 /* AlertsService.swift */; };
 		A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
 		A3F3F66B266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
 		A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71C32623523400E32B91 /* Tests_iOS.swift */; };
@@ -109,8 +127,6 @@
 		A3FA72C8262355D700E32B91 /* TypeWriterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7256262355D600E32B91 /* TypeWriterCard.swift */; };
 		A3FA72C9262355D700E32B91 /* TypeWriterCardBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7257262355D600E32B91 /* TypeWriterCardBody.swift */; };
 		A3FA72CA262355D700E32B91 /* TypeWriterCardBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7257262355D600E32B91 /* TypeWriterCardBody.swift */; };
-		A3FA72CB262355D700E32B91 /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7258262355D600E32B91 /* TypeWriterCardImageButton.swift */; };
-		A3FA72CC262355D700E32B91 /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7258262355D600E32B91 /* TypeWriterCardImageButton.swift */; };
 		A3FA72CD262355D700E32B91 /* TypeWriterMenuScrollableSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7259262355D600E32B91 /* TypeWriterMenuScrollableSelector.swift */; };
 		A3FA72CE262355D700E32B91 /* TypeWriterMenuScrollableSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7259262355D600E32B91 /* TypeWriterMenuScrollableSelector.swift */; };
 		A3FA72CF262355D700E32B91 /* TypeWriterMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA725B262355D600E32B91 /* TypeWriterMenuHeader.swift */; };
@@ -158,8 +174,8 @@
 		A3FA730A262355D700E32B91 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7285262355D600E32B91 /* VisualEffectBackground.swift */; };
 		A3FA730B262355D700E32B91 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7287262355D600E32B91 /* ViewExtension.swift */; };
 		A3FA730C262355D700E32B91 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7287262355D600E32B91 /* ViewExtension.swift */; };
-		A3FA7311262355D700E32B91 /* TypeWriterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterHandler.swift */; };
-		A3FA7312262355D700E32B91 /* TypeWriterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterHandler.swift */; };
+		A3FA7311262355D700E32B91 /* TypeWriterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterService.swift */; };
+		A3FA7312262355D700E32B91 /* TypeWriterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterService.swift */; };
 		A3FA7319262355D700E32B91 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
 		A3FA731A262355D700E32B91 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
 		A3FA731B262355D700E32B91 /* TypeWriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7293262355D600E32B91 /* TypeWriterModel.swift */; };
@@ -238,6 +254,7 @@
 		3BBCE4C59C405EC8053DA08D /* Pods_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typyst__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CC136D92D4DA44C61498EC /* Pods-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (macOS).release.xcconfig"; path = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		4ECA4E8F0087CEE16CFECEB3 /* Pods_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typyst__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCardImageButton.swift; sourceTree = "<group>"; };
 		6EF6B0B558DDAB48D3D68F56 /* MacOSUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSUI.swift; sourceTree = "<group>"; };
 		6EF6B0D1BDF8AD035019D339 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		6EF6B2072E681180EE0569D2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -255,7 +272,7 @@
 		6EF6BAE62F54493636996EBC /* WindowAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
 		6EF6BB13EDFB032BE23771D7 /* AppMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
 		6EF6BC20AA9A6FDFA2F75026 /* ErrorAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlerts.swift; sourceTree = "<group>"; };
-		6EF6BD6AC58B612B1AA22F9F /* KeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHandler.swift; sourceTree = "<group>"; };
+		6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMenuItems.swift; sourceTree = "<group>"; };
 		6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoAlerts.swift; sourceTree = "<group>"; };
@@ -269,12 +286,12 @@
 		A34B307A262B29BC00C64B4C /* ModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierFlags.swift; sourceTree = "<group>"; };
 		A34B3086262B29C900C64B4C /* iOSModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSModifierFlags.swift; sourceTree = "<group>"; };
 		A34B308D262B29D600C64B4C /* MacOSModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSModifierFlags.swift; sourceTree = "<group>"; };
-		A3668DF4262FD11500764DB8 /* AlertsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsHandler.swift; sourceTree = "<group>"; };
+		A3668DF4262FD11500764DB8 /* AlertsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsService.swift; sourceTree = "<group>"; };
 		A3668E10262FD84400764DB8 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
 		A36D2534262DE7090069E668 /* TypystApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypystApp.swift; sourceTree = "<group>"; };
 		A36F5C4B2673B5C400E18CCE /* MainMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCommands.swift; sourceTree = "<group>"; };
 		A36F5C4E2673B7A500E18CCE /* AppSettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsCommands.swift; sourceTree = "<group>"; };
-		A36F5C532673D4A500E18CCE /* EmailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandler.swift; sourceTree = "<group>"; };
+		A36F5C532673D4A500E18CCE /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		A36F5C5726766B3300E18CCE /* NSEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventListener.swift; sourceTree = "<group>"; };
 		A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TypeWriterKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
@@ -307,7 +324,6 @@
 		A3FA7255262355D600E32B91 /* TypeWriterCardHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCardHeader.swift; sourceTree = "<group>"; };
 		A3FA7256262355D600E32B91 /* TypeWriterCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCard.swift; sourceTree = "<group>"; };
 		A3FA7257262355D600E32B91 /* TypeWriterCardBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCardBody.swift; sourceTree = "<group>"; };
-		A3FA7258262355D600E32B91 /* TypeWriterCardImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCardImageButton.swift; sourceTree = "<group>"; };
 		A3FA7259262355D600E32B91 /* TypeWriterMenuScrollableSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterMenuScrollableSelector.swift; sourceTree = "<group>"; };
 		A3FA725B262355D600E32B91 /* TypeWriterMenuHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterMenuHeader.swift; sourceTree = "<group>"; };
 		A3FA725C262355D600E32B91 /* InterfaceAndControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceAndControls.swift; sourceTree = "<group>"; };
@@ -332,7 +348,7 @@
 		A3FA7284262355D600E32B91 /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		A3FA7285262355D600E32B91 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
 		A3FA7287262355D600E32B91 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		A3FA728D262355D600E32B91 /* TypeWriterHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterHandler.swift; sourceTree = "<group>"; };
+		A3FA728D262355D600E32B91 /* TypeWriterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterService.swift; sourceTree = "<group>"; };
 		A3FA7292262355D600E32B91 /* TypeWriterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterState.swift; sourceTree = "<group>"; };
 		A3FA7293262355D600E32B91 /* TypeWriterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterModel.swift; sourceTree = "<group>"; };
 		A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterKeyLogic.swift; sourceTree = "<group>"; };
@@ -435,7 +451,7 @@
 		6EF6B48B50718D3A5BB5D877 /* AlertsHandler */ = {
 			isa = PBXGroup;
 			children = (
-				A3668DF4262FD11500764DB8 /* AlertsHandler.swift */,
+				A3668DF4262FD11500764DB8 /* AlertsService.swift */,
 				6EF6BD55B0607EA5B1981010 /* Alerts */,
 			);
 			path = AlertsHandler;
@@ -550,7 +566,7 @@
 		A36F5C522673D49500E18CCE /* EmailHandler */ = {
 			isa = PBXGroup;
 			children = (
-				A36F5C532673D4A500E18CCE /* EmailHandler.swift */,
+				A36F5C532673D4A500E18CCE /* EmailService.swift */,
 			);
 			path = EmailHandler;
 			sourceTree = "<group>";
@@ -571,6 +587,16 @@
 				A3975BE22627EC46001DFD47 /* Info.plist */,
 			);
 			path = TypeWriterKeyboard;
+			sourceTree = "<group>";
+		};
+		A3AD747E268000EE00181EDB /* KeyLogic */ = {
+			isa = PBXGroup;
+			children = (
+				A34B305B262B283600C64B4C /* Key */,
+				A3FA72A4262355D600E32B91 /* KeyEvent.swift */,
+				A3FA72A3262355D600E32B91 /* KeySets.swift */,
+			);
+			path = KeyLogic;
 			sourceTree = "<group>";
 		};
 		A3F3F668266658AD00046773 /* TypystApp */ = {
@@ -786,7 +812,7 @@
 				A3FA7255262355D600E32B91 /* TypeWriterCardHeader.swift */,
 				A3FA7256262355D600E32B91 /* TypeWriterCard.swift */,
 				A3FA7257262355D600E32B91 /* TypeWriterCardBody.swift */,
-				A3FA7258262355D600E32B91 /* TypeWriterCardImageButton.swift */,
+				6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -931,7 +957,7 @@
 			isa = PBXGroup;
 			children = (
 				A3FA7293262355D600E32B91 /* TypeWriterModel.swift */,
-				A3FA728D262355D600E32B91 /* TypeWriterHandler.swift */,
+				A3FA728D262355D600E32B91 /* TypeWriterService.swift */,
 				A36D2583262E8BB10069E668 /* TypeWriterLogic */,
 			);
 			path = TypeWriter;
@@ -984,11 +1010,9 @@
 		A3FA72A1262355D600E32B91 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A3AD747E268000EE00181EDB /* KeyLogic */,
 				A36F5C5626766B1700E18CCE /* MacOSKeyListener */,
-				A34B305B262B283600C64B4C /* Key */,
-				A3FA72A4262355D600E32B91 /* KeyEvent.swift */,
-				A3FA72A3262355D600E32B91 /* KeySets.swift */,
-				6EF6BD6AC58B612B1AA22F9F /* KeyHandler.swift */,
+				6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -1295,8 +1319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35C06BB267AC1BB00EFC9A0 /* KeyEvent.swift in Sources */,
 				A3975C482627F9E9001DFD47 /* KeyboardViewController.swift in Sources */,
+				A35C06BC267AC1C500EFC9A0 /* KeyboardService.swift in Sources */,
+				A35C06B1267AC14100EFC9A0 /* Key.swift in Sources */,
 				A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */,
+				A35C06B6267AC15800EFC9A0 /* iOSKey.swift in Sources */,
 				6EF6B8D0289848E8B5A4ABD8 /* AppSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1330,7 +1358,6 @@
 				A3FA72E3262355D700E32B91 /* SettingsMenuHeader.swift in Sources */,
 				A3FA732B262355D700E32B91 /* RepeatingTimer.swift in Sources */,
 				A3FA71D72623523400E32B91 /* Persistence.swift in Sources */,
-				A3FA72CB262355D700E32B91 /* TypeWriterCardImageButton.swift in Sources */,
 				A3FA72C1262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
 				A3FA7307262355D700E32B91 /* Styles.swift in Sources */,
 				A3FA72D7262355D700E32B91 /* SettingToggle.swift in Sources */,
@@ -1357,14 +1384,14 @@
 				A3FA7305262355D700E32B91 /* Font.swift in Sources */,
 				A3FA72C7262355D700E32B91 /* TypeWriterCard.swift in Sources */,
 				A3FA72CF262355D700E32B91 /* TypeWriterMenuHeader.swift in Sources */,
-				A3668DF5262FD11500764DB8 /* AlertsHandler.swift in Sources */,
+				A3668DF5262FD11500764DB8 /* AlertsService.swift in Sources */,
 				A34B3055262B27DE00C64B4C /* Key.swift in Sources */,
 				A3FA72E5262355D700E32B91 /* SettingsMenu.swift in Sources */,
 				A3FA72C3262355D700E32B91 /* TypeWriterMenu.swift in Sources */,
 				A34B30D7262D305100C64B4C /* TypeWriter.swift in Sources */,
 				A33D4344263C51E8004669A1 /* ResizableDragger.swift in Sources */,
-				A36F5C542673D4A500E18CCE /* EmailHandler.swift in Sources */,
-				A3FA7311262355D700E32B91 /* TypeWriterHandler.swift in Sources */,
+				A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */,
+				A3FA7311262355D700E32B91 /* TypeWriterService.swift in Sources */,
 				A3FA72B7262355D700E32B91 /* AnalyticsInfoControlButton.swift in Sources */,
 				A3FA76DD26237DB600E32B91 /* TimeHelper.swift in Sources */,
 				A3FA76BF26237C6E00E32B91 /* Typyst.xcdatamodeld in Sources */,
@@ -1373,7 +1400,7 @@
 				A3FA72BF262355D700E32B91 /* AnalyticsInfoViewModel.swift in Sources */,
 				A34B307B262B29BC00C64B4C /* ModifierFlags.swift in Sources */,
 				6EF6BC4BD74E1DF284A10F50 /* iOSKey.swift in Sources */,
-				6EF6B89D087AD443C302E17C /* KeyHandler.swift in Sources */,
+				6EF6B89D087AD443C302E17C /* KeyboardService.swift in Sources */,
 				6EF6B899065B8528AB03A09A /* AlertItem.swift in Sources */,
 				6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */,
 				6EF6BCCC75740FA2E89CDD52 /* ErrorAlerts.swift in Sources */,
@@ -1382,6 +1409,7 @@
 				6EF6B71F34E01EE7820E186E /* ContentView.swift in Sources */,
 				6EF6B84F88E113673D7382BC /* AppSettings.swift in Sources */,
 				6EF6BD57B8A92F15FDF29034 /* AppDependencyContainer.swift in Sources */,
+				6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1404,7 +1432,7 @@
 				A34B309A262B29DD00C64B4C /* ModifierFlags.swift in Sources */,
 				A3FA72FA262355D700E32B91 /* Colors.swift in Sources */,
 				A3F3F66B266658C900046773 /* TypystAppViewModel.swift in Sources */,
-				A3DEAF15262FE8D900470937 /* AlertsHandler.swift in Sources */,
+				A3DEAF15262FE8D900470937 /* AlertsService.swift in Sources */,
 				A3FA7302262355D700E32B91 /* Labels.swift in Sources */,
 				A3FA72FC262355D700E32B91 /* CardHeader.swift in Sources */,
 				A3FA731A262355D700E32B91 /* TypeWriterState.swift in Sources */,
@@ -1416,7 +1444,6 @@
 				A3FA72D4262355D700E32B91 /* TypeWriterInfo.swift in Sources */,
 				A3FA72E4262355D700E32B91 /* SettingsMenuHeader.swift in Sources */,
 				A3FA732C262355D700E32B91 /* RepeatingTimer.swift in Sources */,
-				A3FA72CC262355D700E32B91 /* TypeWriterCardImageButton.swift in Sources */,
 				A3FA72C2262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
 				A36D2556262DF6A30069E668 /* TypystApp.swift in Sources */,
 				A3FA7308262355D700E32B91 /* Styles.swift in Sources */,
@@ -1441,16 +1468,16 @@
 				A3FA7330262355D700E32B91 /* KeySets.swift in Sources */,
 				A3FA7326262355D700E32B91 /* SwiftExtensions.swift in Sources */,
 				A3FA72CE262355D700E32B91 /* TypeWriterMenuScrollableSelector.swift in Sources */,
-				A36F5C552673D6A300E18CCE /* EmailHandler.swift in Sources */,
+				A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */,
 				A3FA7324262355D700E32B91 /* Logging.swift in Sources */,
 				A3FA7328262355D700E32B91 /* NSEventExtension.swift in Sources */,
 				A3FA7306262355D700E32B91 /* Font.swift in Sources */,
 				A3FA72C8262355D700E32B91 /* TypeWriterCard.swift in Sources */,
-				A34B30B0262D2A2800C64B4C /* KeyHandler.swift in Sources */,
+				A34B30B0262D2A2800C64B4C /* KeyboardService.swift in Sources */,
 				A3FA72D0262355D700E32B91 /* TypeWriterMenuHeader.swift in Sources */,
 				A3FA72E6262355D700E32B91 /* SettingsMenu.swift in Sources */,
 				A3FA72C4262355D700E32B91 /* TypeWriterMenu.swift in Sources */,
-				A3FA7312262355D700E32B91 /* TypeWriterHandler.swift in Sources */,
+				A3FA7312262355D700E32B91 /* TypeWriterService.swift in Sources */,
 				A3FA72B8262355D700E32B91 /* AnalyticsInfoControlButton.swift in Sources */,
 				A3FA76DE26237DB600E32B91 /* TimeHelper.swift in Sources */,
 				A3FA76C026237C6E00E32B91 /* Typyst.xcdatamodeld in Sources */,
@@ -1479,6 +1506,7 @@
 				6EF6B23233FB92652D7EE067 /* CoreMenuItems.swift in Sources */,
 				6EF6B8CC8BD600A17EF9ACDC /* AppMenu.swift in Sources */,
 				6EF6B7C9D5272B35C6191AE2 /* MacOSUI.swift in Sources */,
+				6EF6BD04FF0F0E68BC1D5C49 /* TypeWriterCardImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1487,6 +1515,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */,
+				A35C06B8267AC16D00EFC9A0 /* KeyboardViewController.swift in Sources */,
+				A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
+				A35C06BD267AC1C600EFC9A0 /* KeyboardService.swift in Sources */,
+				A35C06B5267AC14600EFC9A0 /* AppDependencyContainer.swift in Sources */,
+				A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */,
+				A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */,
+				A35C06BF267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1494,7 +1529,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
+				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
+				A35C06BE267AC1C700EFC9A0 /* KeyboardService.swift in Sources */,
 				A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */,
+				A35C06B4267AC14500EFC9A0 /* AppDependencyContainer.swift in Sources */,
+				A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1531,7 +1571,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst.TypeWriterKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst.TypeWriterKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1552,7 +1592,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst.TypeWriterKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst.TypeWriterKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1689,7 +1729,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PK75CJKJVR;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1697,7 +1738,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1713,7 +1754,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PK75CJKJVR;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1721,7 +1763,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1737,9 +1779,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = PK75CJKJVR;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -1765,7 +1809,7 @@
 					"-Xlinker",
 					"-interposable",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1779,9 +1823,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = PK75CJKJVR;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -1790,7 +1836,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ssw.wickedPropeller.Typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
