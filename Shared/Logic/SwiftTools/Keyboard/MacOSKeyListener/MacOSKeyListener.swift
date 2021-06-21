@@ -7,12 +7,14 @@ import AppKit
 import Foundation
 
 final class MacOSKeyListener {
+    private let keyboardService: KeyboardService
+    private let nsEventListener = NSEventListener()
+
     enum State {
         case listening
         case idle
     }
     private(set) internal var state: State = .idle
-    private let nsEventListener = NSEventListener()
 
     enum KeyPressEnvironment {
         case all
@@ -31,7 +33,8 @@ final class MacOSKeyListener {
     private var localKPCB = [String: ((KeyEvent) -> Void)]()
     private var globalKPCB = [String: ((KeyEvent) -> Void)]()
 
-    init(shouldAutoRun: Bool = true) {
+    init(shouldAutoRun: Bool = true, keyboardService: KeyboardService = appDependencyContainer.keyboardService) {
+        self.keyboardService = keyboardService
         if shouldAutoRun { start() }
     }
 
@@ -44,13 +47,13 @@ final class MacOSKeyListener {
         if state == .listening { return }
 
         if keyPressEnvironment == .all || keyPressEnvironment == .local {
-            nsEventListener.listenForLocalKeyPresses(completion: { [weak self] event in
+            nsEventListener.listenForLocalKeyPresses(onKeyPress: { [weak self] event in
                 guard let self = self else { return }
                 self.handleEvent(event, .local)
             })
         }
         if keyPressEnvironment == .all || keyPressEnvironment == .global {
-            nsEventListener.listenForGlobalKeyPresses(completion: { [weak self] event in
+            nsEventListener.listenForGlobalKeyPresses(onKeyPress: { [weak self] event in
                 guard let self = self else { return }
                 self.handleEvent(event, .global)
             })
@@ -119,19 +122,21 @@ extension MacOSKeyListener {
     }
 
     private func handleEvent(
-        _ event: NSEvent,
-        _ environment: KeyPressEnvironment,
-        keyHandler: KeyHandler = appDependencyContainer.keyHandler) {
+            _ event: NSEvent,
+            _ environment: KeyPressEnvironment) {
         if let keyEvent = determineKeyPressedFrom(event) {
-            keyHandler.handleEvent(keyEvent) { [weak self] keyPressed in
-                guard let self = self else { return }
-                // Handle key presses and send actions to rest of app
-                if environment == .local && (self.keyPressEnvironment == .local || self.keyPressEnvironment == .all) {
-                    self.localKPCB.values.forEach { $0(keyPressed) }
-                }
-                else if environment == .global && (self.keyPressEnvironment == .global || self.keyPressEnvironment == .all) {
-                    self.globalKPCB.values.forEach({ $0(keyPressed) })
-                }
+            // Handle key presses and send actions to rest of app
+            keyboardService.handleEvent(keyEvent)
+
+            let acceptLocalEvents = keyPressEnvironment == .local || keyPressEnvironment == .all
+            let acceptExternalEvents = keyPressEnvironment == .global || keyPressEnvironment == .all
+
+            // Run any local registered completion handlers
+            if environment == .local && acceptLocalEvents {
+                localKPCB.values.forEach { $0(keyEvent) }
+            }
+            else if environment == .global && acceptExternalEvents {
+                globalKPCB.values.forEach({ $0(keyEvent) })
             }
         }
     }

@@ -4,11 +4,16 @@
 
 import Foundation
 
-final class KeyHandler: Loggable {
+final class KeyboardService: Loggable {
+    private var appSettings: AppSettings
+    private var appDebugSettings: AppDebugSettings
+
     private var handlers = [String: ((KeyEvent) -> Void)]()
 
-    init() {
-
+    init(appSettings: AppSettings,
+         appDebugSettings: AppDebugSettings) {
+        self.appSettings = appSettings
+        self.appDebugSettings = appDebugSettings
     }
 
     deinit {
@@ -29,8 +34,7 @@ final class KeyHandler: Loggable {
             guard let self = self else { return }
 
             // Handle debug
-            let debugSettings = appDependencyContainer.appDebugSettings
-            if debugSettings.debugGlobal && debugSettings.debugKeypresses {
+            if self.appDebugSettings.debugGlobal && self.appDebugSettings.debugKeypresses {
                 // Never ever log this in production
                 self.logEvent(.info, "Event: \(event)")
             }
