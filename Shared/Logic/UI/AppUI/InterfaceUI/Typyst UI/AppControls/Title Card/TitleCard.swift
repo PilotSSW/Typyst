@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 struct TitleCard: View {
-    let typeWriterHandler = appDependencyContainer.typeWriterHandler
+    let typeWriterHandler = appDependencyContainer.typeWriterService
 
     func infoComponent() -> AnyView {
         if let typeWriter = typeWriterHandler.loadedTypewriter {

@@ -47,7 +47,7 @@ class AnalyticsInfoCardViewModel: ObservableObject {
                 ? timeIntervals.count - 2
                 : 0
             let item = AnalyticsInfoViewModel(timeElapsed: timeIntervals[index],
-                                              keyHandler: appDependencyContainer.keyHandler,
+                                              keyHandler: appDependencyContainer.keyboardService,
                                               typingStats: appDependencyContainer.typingStats)
             analyticsInfoItems.append(item)
         }

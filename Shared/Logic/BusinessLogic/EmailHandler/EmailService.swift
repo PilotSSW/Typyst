@@ -14,7 +14,7 @@ import AppKit
 import UIKit
 #endif
 
-struct EmailHandler {
+struct EmailService {
     func emailDeveloper() {
         if let mailtoString = "mailto:support@typyst.app".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
            let mailtoUrl = URL(string: mailtoString) {

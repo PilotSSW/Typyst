@@ -9,8 +9,14 @@ import Foundation
 final class TypingStats {
     private var keyEventStore: KeyEventStore?
 
-    func setup(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>) {
-        keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions)
+    init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
+         keyboardService: KeyboardService,
+         appSettings: AppSettings = appDependencyContainer.appSettings,
+         appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings) {
+        keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions,
+                                      keyboardService: keyboardService,
+                                      appSettings: appSettings,
+                                      appDebugSettings: appDebugSettings)
     }
 
     func reset() {

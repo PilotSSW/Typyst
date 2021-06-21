@@ -22,9 +22,9 @@ class TypeWriterMenuOption {
 }
 
 class TypeWriterMenuOptions {
-    private var typeWriterHandler: TypeWriterHandler
+    private var typeWriterHandler: TypeWriterService
 
-    init(withTypeWriterHandler typeWriterHandler: TypeWriterHandler = appDependencyContainer.typeWriterHandler) {
+    init(withTypeWriterHandler typeWriterHandler: TypeWriterService = appDependencyContainer.typeWriterService) {
         self.typeWriterHandler = typeWriterHandler
     }
 

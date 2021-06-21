@@ -6,17 +6,25 @@
 import Foundation
 
 class TypeWriterKeyLogic {
+    private var appSettings: AppSettings
+    private var keyboardService: KeyboardService
+
     let state: TypeWriterState
     private let modelType: TypeWriterModel.ModelType
     private var keyListenerTag: String { "TypeWriterLogic-\(modelType)" }
-    private var keyHandler: KeyHandler
 
-    init(modelType: TypeWriterModel.ModelType, state: TypeWriterState, sounds: Sounds, keyHandler: KeyHandler) {
+    init(modelType: TypeWriterModel.ModelType,
+         state: TypeWriterState,
+         sounds: Sounds,
+         appSettings: AppSettings,
+         keyboardService: KeyboardService) {
         self.modelType = modelType
         self.state = state
-        self.keyHandler = keyHandler
 
-        keyHandler.registerKeyPressCallback(withTag: keyListenerTag) { [weak self] keyEvent in
+        self.appSettings = appSettings
+        self.keyboardService = keyboardService
+
+        keyboardService.registerKeyPressCallback(withTag: keyListenerTag) { [weak self] keyEvent in
             guard let self = self else { return }
             DispatchQueue.main.async(execute: {
                 self.assignKeyPresses(for: keyEvent, sounds: sounds)
@@ -25,7 +33,7 @@ class TypeWriterKeyLogic {
     }
 
     deinit {
-        keyHandler.removeListenerCallback(withTag: keyListenerTag)
+        keyboardService.removeListenerCallback(withTag: keyListenerTag)
     }
 
     func assignKeyPresses(for keyPressed: KeyEvent, sounds: Sounds) {
@@ -115,16 +123,16 @@ class TypeWriterKeyLogic {
             state.resetCursorIndex()
             state.newLine()
 
-            let paperReturnCB = { [weak sounds] in
-                guard let sounds = sounds else { return }
-                if appDependencyContainer.appSettings.paperReturnEnabled {
+            let paperReturnCB = { [weak self, weak sounds] in
+                guard let self = self, let sounds = sounds else { return }
+                if self.appSettings.paperReturnEnabled {
                     sounds.playSound(fromOneOfAny: [
                         .SingleLineReturn, .DoubleLineReturn, .TripleLineReturn
                     ])
                 }
             }
 
-            appDependencyContainer.appSettings.bell
+            appSettings.bell
                 ? sounds.playSound(for: .Bell, completion: paperReturnCB)
                 : paperReturnCB()
         }

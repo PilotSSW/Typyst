@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var alertsHandler: AlertsHandler = appDependencyContainer.alertsHandler
-    @State var currentAlert: Alert? = appDependencyContainer.alertsHandler.currentAlert
+    @ObservedObject var alertsHandler: AlertsService = appDependencyContainer.alertsService
+    @State var currentAlert: Alert? = appDependencyContainer.alertsService.currentAlert
 
     var body: some View {
         ZStack(alignment: .top) {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 func createSwiftUIAlert(_ alert: Alert?,
-                        alertsHandler: AlertsHandler) -> SwiftUI.Alert {
+                        alertsHandler: AlertsService) -> SwiftUI.Alert {
     if let alert = alert {
         let title = Text(alert.title)
         var message: Text? = nil

@@ -7,7 +7,7 @@ import Combine
 import Foundation
 
 class AnalyticsInfoViewModel: ObservableObject {
-    private let keyHandler: KeyHandler
+    private let keyHandler: KeyboardService
     private(set) var keyListenerTag = "AnalyticsViewModel"
     var keyListenerCompletion: ((KeyEvent) -> Void)? {
         didSet {
@@ -32,7 +32,7 @@ class AnalyticsInfoViewModel: ObservableObject {
          totalKeyPresses: Int = 0,
          averageKeyPressesPerMinute: Double = 0,
          averageKeyPressesPerSecond: Double = 0,
-         keyHandler: KeyHandler = appDependencyContainer.keyHandler,
+         keyHandler: KeyboardService = appDependencyContainer.keyboardService,
          typingStats: TypingStats = appDependencyContainer.typingStats) {
         self.timeElapsed = timeElapsed
         self.totalKeyPresses = totalKeyPresses

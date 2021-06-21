@@ -9,8 +9,11 @@ import Combine
 import Foundation
 
 final class KeyEventStore {
+    private let appSettings: AppSettings
+    private let appDebugSettings: AppDebugSettings
+    private let keyboardService: KeyboardService
+
     private let createdAt = Date()
-    private let keyHandler: KeyHandler
 
     enum State {
         case logging
@@ -35,11 +38,15 @@ final class KeyEventStore {
     }
 
     init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
-         keyHandler: KeyHandler = appDependencyContainer.keyHandler) {
-        self.keyHandler = keyHandler
-        keyPresses.reserveCapacity(25000)
+         keyboardService: KeyboardService = appDependencyContainer.keyboardService,
+         appSettings: AppSettings = appDependencyContainer.appSettings,
+         appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings) {
+        self.appSettings = appSettings
+        self.appDebugSettings = appDebugSettings
+        self.keyboardService = keyboardService
 
-        keyHandler.registerKeyPressCallback(withTag: "stats-\(hashValue)") { [weak self] (keyEvent) in
+        keyPresses.reserveCapacity(25000)
+        keyboardService.registerKeyPressCallback(withTag: "stats-\(hashValue)") { [weak self] (keyEvent) in
             guard let self = self else { return }
             self.logEvent(keyEvent.asAnonymousKeyEvent())
         }
@@ -47,9 +54,9 @@ final class KeyEventStore {
         removeOldKeyEventsTimer = RepeatingTimer(timeInterval: removeOldKeyEventsTimerInterval, leeway: .seconds(10))
         removeOldKeyEventsTimer?.resume()
 
-        if (appDependencyContainer.appSettings.logUsageAnalytics) { startTracking() }
+        if (appSettings.logUsageAnalytics) { startTracking() }
 
-        appDependencyContainer.appSettings.$logUsageAnalytics
+        appSettings.$logUsageAnalytics
         .sink { [weak self] in
             guard let self = self else { return }
             $0 ? self.startTracking() : self.stopTracking()
@@ -58,16 +65,17 @@ final class KeyEventStore {
     }
 
     deinit {
-        keyHandler.removeListenerCallback(withTag: "stats-\(hashValue)")
+        keyboardService.removeListenerCallback(withTag: "stats-\(hashValue)")
         stopTracking()
         removeOldKeyEventsTimer?.suspend()
     }
 
     func logEvent(_ event: AnonymousKeyEvent) {
+        if !(state == .logging && appSettings.logUsageAnalytics) { return }
+
         // Key events come in quickly -- don't lock up the main thread processing each one
         DispatchQueue.main.async(execute: { [weak self] in
             guard let self = self else { return }
-            if !(self.state == .logging && appDependencyContainer.appSettings.logUsageAnalytics) { return }
             self.keyPresses.insert(event)
         })
     }

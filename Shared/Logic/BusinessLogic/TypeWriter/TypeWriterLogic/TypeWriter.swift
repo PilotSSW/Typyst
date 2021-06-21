@@ -12,6 +12,8 @@ import SwiftUI
 import SwiftySound
 
 class TypeWriter: ObservableObject {
+    private var appSettings: AppSettings
+
     static let defaultTypeWriter: TypeWriterModel.ModelType = .Royal_Model_P
     let modelType: TypeWriterModel.ModelType
     var modelFilePath: String { "Soundsets/\(String(describing: modelType))/ "}
@@ -23,28 +25,36 @@ class TypeWriter: ObservableObject {
 
     init(modelType: TypeWriterModel.ModelType,
          marginWidth: Int = 80,
-         keyHandler: KeyHandler,
+         appSettings: AppSettings,
+         subscriptionStore: inout Set<AnyCancellable>,
+         keyboardService: KeyboardService,
          errorHandler: (([SoundError]) -> ())?,
          completion: ((Sounds) -> Void)?) {
         self.modelType = modelType
+        
+        self.appSettings = appSettings
 
         let so = Sounds()
         sounds = so
         sounds.loadSounds(for: modelType, completion: { loadedSounds in
-            loadedSounds.volume = appDependencyContainer.appSettings.volumeSetting
-            if appDependencyContainer.appSettings.lidOpenClose {
+            loadedSounds.volume = appSettings.volumeSetting
+            if appSettings.lidOpenClose {
                 loadedSounds.playSound(for: .LidUp)
             }
             completion?(loadedSounds)
         }, errorHandler: errorHandler)
 
-        appDependencyContainer.appSettings.$volumeSetting
+        appSettings.$volumeSetting
             .sink { so.volume = $0 }
-            .store(in: &appDependencyContainer.subscriptions)
+            .store(in: &subscriptionStore)
 
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
-        keyLogic = TypeWriterKeyLogic(modelType: modelType, state: st, sounds: sounds, keyHandler: keyHandler)
+        keyLogic = TypeWriterKeyLogic(modelType: modelType,
+                                      state: st,
+                                      sounds: sounds,
+                                      appSettings: appSettings,
+                                      keyboardService: keyboardService)
     }
 
     internal func setVolume(_ volume: Double) {
@@ -55,7 +65,7 @@ class TypeWriter: ObservableObject {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             let sounds = self.sounds
-            if appDependencyContainer.appSettings.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
+            if self.appSettings.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
                 sounds.playSound(for: .LidDown) {
                     sounds.unloadSounds()
                     if let completion = completion { DispatchQueue.main.async(execute: completion) }

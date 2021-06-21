@@ -19,8 +19,10 @@ class Logging {
         case fatal = 5
     }
 
-    func setup(withStore store: inout Set<AnyCancellable>) {
-        appDependencyContainer.appSettings.$logErrorsAndCrashes
+    init(withStore store: inout Set<AnyCancellable>,
+         appSettings: AppSettings = appDependencyContainer.appSettings,
+         appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings) {
+        appSettings.$logErrorsAndCrashes
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 let log = self.log
@@ -48,7 +50,7 @@ class Logging {
             }
             .store(in: &store)
 
-        appDependencyContainer.appDebugSettings.$debugGlobal
+        appDebugSettings.$debugGlobal
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 self.log?.destinations.forEach({
