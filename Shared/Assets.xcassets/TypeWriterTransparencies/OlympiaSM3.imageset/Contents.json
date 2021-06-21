@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "OlympiaSM3.png",
+      "filename" : "OlympiaSM3@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "OlympiaSM3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "OlympiaSM3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

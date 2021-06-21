@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "RoyalModelP-vector.png",
+      "filename" : "RoyalModelP-vector@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "RoyalModelP-vector@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "RoyalModelP-vector.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

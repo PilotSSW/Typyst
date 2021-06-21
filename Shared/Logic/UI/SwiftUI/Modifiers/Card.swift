@@ -21,6 +21,7 @@ struct Card: ViewModifier {
                 .fill(showInsetStrokeBorder
                         ? AppColor.buttonBorder
                         : backgroundColor)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .layoutPriority(1)
 
             if (showStrokeBorder) {

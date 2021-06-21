@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Smith Corona Silent - vector.png",
+      "filename" : "Smith Corona Silent - vector@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Smith Corona Silent - vector@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Smith Corona Silent - vector.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

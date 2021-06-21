@@ -15,51 +15,55 @@ struct TypeWriterImageButton: View {
     var body: some View {
         Button(action: onClick) {
             ZStack {
+                Image("TypeWriterTransparencies/\(imagePath)")
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+//                    .scaleEffect(1.15)
+//                    .shadow(color: AppColor.objectShadowLight, radius: 24)
+                    .offset(x: 12, y: 12)
+                    .blur(radius: 40)
+                    .blendMode(.exclusion)
+                    .layoutPriority(2)
+
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(AppColor.ImageBackground)
                     .blendMode(.multiply)
                     .layoutPriority(1)
 
-                Image(imagePath)
-                    .resizable()
-                    .scaledToFit()
-                    .scaleEffect(1.00)
-                    .shadow(color: AppColor.objectShadowLight, radius: 24)
-                    .offset(x: 12, y: 12)
-                    .blur(radius: 40)
-                    .blendMode(.exclusion)
-//                    .opacity(0.8)
-//                    .neumorphicShadow()
-                    .layoutPriority(2)
-
                 if !showVectorImage {
                     Image("TypeWriterTransparencies/\(imagePath)")
+                        .interpolation(.none)
                         .resizable()
                         .scaledToFit()
-                        .shadow(color: AppColor.objectShadowLight, radius: 4)
+                        .scaleEffect(0.93)
+//                        .shadow(color: AppColor.objectShadowLight, radius: 4)
                         .padding(8)
                         .layoutPriority(3)
+                        .animation(.easeIn(duration: 0.1))
                 }
-
 
                 if showVectorImage {
                     Image("TypeWriterVectors/\(imagePath)")
+                        .interpolation(.none)
                         .resizable()
                         .scaledToFit()
-                        .shadow(color: AppColor.objectShadowLight, radius: 4)
+                        .scaleEffect(0.93)
+//                        .shadow(color: AppColor.objectShadowLight, radius: 4)
                         .padding(8)
                         .layoutPriority(3)
+                        .animation(.easeOut(duration: 0.1))
                 }
             }
         }
         .buttonStyle(PlainButtonStyle())
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .circular))
         .frame(minWidth: 60,
                minHeight: 60,
                alignment: .center)
         .onHover(perform: { hovering in
             showVectorImage = !hovering
         })
-        .animation(.easeInOut)
     }
 }
 
