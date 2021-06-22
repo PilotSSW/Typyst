@@ -37,7 +37,6 @@ extension View {
                             withBottomPadding: CGFloat = 8.0
     ) -> some View {
         modifier(CardHeader(backgroundColor: color))
-            .neumorphicShadow()
             .padding(.leading, withLeftPadding)
             .padding(.trailing, withRightPadding)
             .padding(.top, withTopPadding)

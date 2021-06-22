@@ -15,7 +15,7 @@ struct TypeWriterMenuScrollableSelector: View {
         ScrollView(showsIndicators: false) {
             Spacer()
                 .frame(height: 4)
-            VStack(spacing: 8) {
+            VStack(spacing: 12) {
                 ForEach(Array(options.typeWriters.enumerated()), id: \.offset) { (index, option) in
                     TypeWriterCard(optionInfo: option)
                         .padding(.horizontal, 4)

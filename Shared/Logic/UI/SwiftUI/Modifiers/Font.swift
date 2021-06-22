@@ -7,6 +7,7 @@ import Foundation
 import SwiftUI
 
 struct StyledText: ViewModifier {
+    var compressable: Bool = false
     var textStyle: Font.TextStyle
     var textColor: Color = AppColor.textBody
 
@@ -14,9 +15,9 @@ struct StyledText: ViewModifier {
         let newView = content
             .font(.custom("AmericanTypewriter", size: 14, relativeTo: textStyle))
             .foregroundColor(textColor)
-            .lineSpacing(1.33)
-            .allowsTightening(true)
-            .minimumScaleFactor(0.88)
+            .lineSpacing(1.66)
+            .allowsTightening(compressable)
+            .minimumScaleFactor(compressable ? 0.85 : 1)
             .shadow(color: AppColor.textShadow, radius: 2)
 
         return newView
@@ -25,19 +26,28 @@ struct StyledText: ViewModifier {
 
 extension View {
     func asStyledText(with textStyle: Font.TextStyle = .body,
-                      textColor: Color = AppColor.textBody) -> some View {
-        modifier(StyledText(textStyle: textStyle,
-                            textColor: textColor))
+                      textColor: Color = AppColor.textBody,
+                      isCompressable: Bool = false) -> some View {
+        modifier(StyledText(
+            compressable: isCompressable,
+            textStyle: textStyle,
+            textColor: textColor))
     }
 
-    func asLightStyledText(with textStyle: Font.TextStyle = .body) -> some View {
-        modifier(StyledText(textStyle: textStyle,
-                            textColor: AppColor.textBodyLight))
+    func asLightStyledText(with textStyle: Font.TextStyle = .body,
+                           isCompressable: Bool = false) -> some View {
+        modifier(StyledText(
+            compressable: isCompressable,
+            textStyle: textStyle,
+            textColor: AppColor.textBodyLight))
     }
 
     func asStyledHeader(with textStyle: Font.TextStyle = .headline,
-                        textColor: Color = AppColor.textHeader) -> some View {
-        modifier(StyledText(textStyle: textStyle,
-                            textColor: textColor))
+                        textColor: Color = AppColor.textHeader,
+                        isCompressable: Bool = false) -> some View {
+        modifier(StyledText(
+            compressable: isCompressable,
+            textStyle: textStyle,
+            textColor: textColor))
     }
 }

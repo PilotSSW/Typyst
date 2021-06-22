@@ -19,8 +19,6 @@ struct TypeWriterImageButton: View {
                     .interpolation(.none)
                     .resizable()
                     .scaledToFit()
-//                    .scaleEffect(1.15)
-//                    .shadow(color: AppColor.objectShadowLight, radius: 24)
                     .offset(x: 12, y: 12)
                     .blur(radius: 40)
                     .blendMode(.exclusion)
@@ -37,7 +35,6 @@ struct TypeWriterImageButton: View {
                         .resizable()
                         .scaledToFit()
                         .scaleEffect(0.93)
-//                        .shadow(color: AppColor.objectShadowLight, radius: 4)
                         .padding(8)
                         .layoutPriority(3)
                         .animation(.easeIn(duration: 0.1))
@@ -49,10 +46,9 @@ struct TypeWriterImageButton: View {
                         .resizable()
                         .scaledToFit()
                         .scaleEffect(0.93)
-//                        .shadow(color: AppColor.objectShadowLight, radius: 4)
                         .padding(8)
                         .layoutPriority(3)
-                        .animation(.easeOut(duration: 0.1))
+                        .animation(.easeOut(duration: 0.5))
                 }
             }
         }

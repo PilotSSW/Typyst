@@ -13,7 +13,7 @@ struct PrimaryLabel: ViewModifier {
         content
             .font(.largeTitle)
             .foregroundColor(AppColor.textBody)
-            .shadow(color: AppColor.textShadow, radius: 12)
+            .shadow(color: AppColor.textShadow, radius: 4)
             .padding()
     }
 }

@@ -42,7 +42,7 @@ struct TypeWriterCardHeader: View {
             .padding(.horizontal, 20)
             .asStyledCardHeader(withBackgroundColor: isSelected
                                     ? AppColor.buttonPrimary
-                                    : AppColor.typeWriterCardHeaderBackground)
+                                    : AppColor.buttonOvertone)
         })
         .buttonStyle(PlainButtonStyle())
     }

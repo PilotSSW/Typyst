@@ -96,6 +96,10 @@ class AppColor {
     public static var buttonBorder: Color {
         Color("Buttons/Border")
     }
+
+    public static var buttonOvertone: Color {
+        Color("Buttons/Overtone")
+    }
     
     public static var buttonPrimary: Color {
         Color("Buttons/Primary")
