@@ -15,11 +15,8 @@ struct TitleCard: View {
     func infoComponent() -> AnyView {
         if let typeWriter = typeWriterHandler.loadedTypewriter {
             return AnyView(VStack {
-                Spacer()
                 TypeWriterInfo(state: typeWriter.state)
-                    .padding(.bottom, 12)
                     .layoutPriority(2)
-                    .padding(.horizontal, 8)
             })
         }
         else { return AnyView(EmptyView()) }
@@ -30,15 +27,13 @@ struct TitleCard: View {
             Image("TypystIcon")
                 .resizable()
                 .scaledToFit()
-                .frame(minWidth: 200, maxWidth: .infinity,
-                       minHeight: 200, maxHeight: .infinity,
-                       alignment: .center)
-                .shadow(color: AppColor.objectShadowDark,
-                        radius: 16)
-                .padding(.all, 12)
                 .layoutPriority(1)
             infoComponent()
         }
+        .frame(minWidth: 200, maxWidth: .infinity,
+               minHeight: 200, maxHeight: 375,
+               alignment: .center)
+        .padding(.all, 12)
         .asParentCard(withColor: AppColor.cardPrimaryBackground)
     }
 }
@@ -46,5 +41,6 @@ struct TitleCard: View {
 struct TitleCard_Previews: PreviewProvider {
     static var previews: some View {
         TitleCard()
+            .frame(width: 317.0)
     }
 }

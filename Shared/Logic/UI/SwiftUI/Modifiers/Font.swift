@@ -8,6 +8,7 @@ import SwiftUI
 
 struct StyledText: ViewModifier {
     var compressable: Bool = false
+    var lineLimit: Int? = nil
     var textStyle: Font.TextStyle
     var textColor: Color = AppColor.textBody
 
@@ -15,6 +16,7 @@ struct StyledText: ViewModifier {
         let newView = content
             .font(.custom("AmericanTypewriter", size: 14, relativeTo: textStyle))
             .foregroundColor(textColor)
+            .lineLimit(lineLimit)
             .lineSpacing(1.66)
             .allowsTightening(compressable)
             .minimumScaleFactor(compressable ? 0.85 : 1)
@@ -27,26 +29,32 @@ struct StyledText: ViewModifier {
 extension View {
     func asStyledText(with textStyle: Font.TextStyle = .body,
                       textColor: Color = AppColor.textBody,
+                      lineLimit: Int? = nil,
                       isCompressable: Bool = false) -> some View {
         modifier(StyledText(
             compressable: isCompressable,
+            lineLimit: lineLimit,
             textStyle: textStyle,
             textColor: textColor))
     }
 
     func asLightStyledText(with textStyle: Font.TextStyle = .body,
+                           lineLimit: Int? = nil,
                            isCompressable: Bool = false) -> some View {
         modifier(StyledText(
             compressable: isCompressable,
+            lineLimit: lineLimit,
             textStyle: textStyle,
             textColor: AppColor.textBodyLight))
     }
 
     func asStyledHeader(with textStyle: Font.TextStyle = .headline,
                         textColor: Color = AppColor.textHeader,
+                        lineLimit: Int? = nil,
                         isCompressable: Bool = false) -> some View {
         modifier(StyledText(
             compressable: isCompressable,
+            lineLimit: lineLimit,
             textStyle: textStyle,
             textColor: textColor))
     }
