@@ -7,42 +7,31 @@ import Foundation
 import SwiftUI
 
 struct NeumorphicShadow: ViewModifier {
+    @State var shadowIntensity: ShadowIntensity = .light
+
     var radius: CGFloat = 2
-    var x: CGFloat = 0.33
-    var y: CGFloat = 0.33
+    var x: CGFloat = 1.33
+    var y: CGFloat = 1.33
 
     func body(content: Content) -> some View {
-        content
-            .shadow(color: AppColor.objectShadowLight,
+        let lightShadow = AppColor.objectShadowLight.opacity(shadowIntensity.rawValue)
+        let darkShadow = AppColor.objectShadowDark.opacity(shadowIntensity.rawValue)
+
+        return content
+            .shadow(color: lightShadow,
                     radius: radius,
                     x: -x,
                     y: -y)
-            .shadow(color: AppColor.objectShadowDark,
+            .shadow(color: darkShadow,
                     radius: radius,
                     x: x,
                     y: y)
-//            .blendMode(.overlay)
-//            .background(
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-//                        .inverseMask(RoundedRectangle(cornerRadius: 24, style: .continuous))
-//                    .shadow(color: AppColor.objectShadowLight,
-//                            radius: radius,
-//                            x: -x,
-//                            y: -y)
-//                    .shadow(color: AppColor.objectShadowDark,
-//                            radius: radius,
-//                            x: x,
-//                            y: y)
-//                    .blendMode(.overlay)
-//                }
-//            )
-
     }
 }
 
 extension View {
-    func neumorphicShadow(radius: CGFloat = 3, x: CGFloat = 1.33, y: CGFloat = 1.33) -> some View {
-        self.modifier(NeumorphicShadow(radius: radius, x: x, y: y))
+    func neumorphicShadow(shadowIntensity: ShadowIntensity = .light, radius: CGFloat = 3,
+                          x: CGFloat = 1.33, y: CGFloat = 1.33) -> some View {
+        self.modifier(NeumorphicShadow(shadowIntensity: shadowIntensity, radius: radius, x: x, y: y))
     }
 }

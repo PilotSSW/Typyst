@@ -18,14 +18,14 @@ struct SettingToggle: View {
         HStack(alignment: .center, spacing: 4) {
             Text(settingName)
                 .lineLimit(nil)
-                .asStyledText(with: .title3)
+                .asStyledText(with: .title3, isCompressable: true)
                 .frame(maxHeight: .infinity, alignment: .leading)
             Spacer(minLength: 0)
                 .background(Color.clear)
             Toggle(isOn: $setting) {}
                 .toggleStyle(SwitchToggleStyle(tint: AppColor.buttonPrimary))
                 .frame(alignment: .trailing)
-                .shadow(color: AppColor.objectShadowLight, radius: 3)
+                .shadow(color: AppColor.objectShadowLight.opacity(ShadowIntensity.light.rawValue), radius: 3)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }

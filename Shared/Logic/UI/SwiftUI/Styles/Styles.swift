@@ -26,41 +26,76 @@ struct GradientButtonStyle: ButtonStyle {
 }
 
 struct NeumorphicButtonStyle: ButtonStyle {
-    var radiusPressed: CGFloat = 5
-    var radiusUnpressed: CGFloat = 5
-    var xPressed: CGFloat = 2
-    var xUnpressed: CGFloat = 2
-    var yPressed: CGFloat = 2
-    var yUnpressed: CGFloat = 2
+    enum InteractionMode {
+        case noInteraction
+        case isHovering
+        case isPressed
+    }
+    @State var isHovering: Bool = false
 
     var backgroundColor: Color
     var textColor: Color = AppColor.textBody
 
     func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
+        var interactionMode: InteractionMode = .noInteraction
+        if configuration.isPressed { interactionMode = .isPressed }
+        else if (isHovering) { interactionMode = .isHovering }
+
+        var shadowIntensity: ShadowIntensity
+        var shadowRadius: CGFloat
+        var xOffset: CGFloat
+        var yOffSet: CGFloat
+
+        switch (interactionMode) {
+        case .isPressed:
+            shadowIntensity = .mediumStrong
+            shadowRadius = 3.0
+            xOffset = -1.0
+            yOffSet = -3.0
+        case .isHovering:
+            shadowIntensity = .veryStrong
+            shadowRadius = 4.0
+            xOffset = 2.0
+            yOffSet = 4.0
+        case .noInteraction:
+            shadowIntensity = .medium
+            shadowRadius = 2.0
+            xOffset = 1.0
+            yOffSet = 2.0
+        }
+
+        return  configuration.label
             .padding(8)
-            .foregroundColor(textColor)
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .shadow(color: AppColor.objectShadowLight,
-                                radius: configuration.isPressed ? radiusPressed : radiusUnpressed,
-                                x: configuration.isPressed ? xPressed : -xUnpressed,
-                                y: configuration.isPressed ? yPressed : -yUnpressed)
-                        .shadow(color: AppColor.objectShadowDark,
-                                radius: configuration.isPressed ? radiusPressed : radiusUnpressed,
-                                x: configuration.isPressed ? -xPressed : xUnpressed,
-                                y: configuration.isPressed ? -yPressed : yUnpressed)
+                        .fill(backgroundColor)
                         .blendMode(.overlay)
+                        .shadow(color: AppColor.objectShadowLight.opacity(shadowIntensity.rawValue),
+                                radius: shadowRadius,
+                                x: -xOffset,
+                                y: -yOffSet)
+                        .shadow(color: AppColor.objectShadowDark.opacity(shadowIntensity.rawValue),
+                                radius: shadowRadius,
+                                x: xOffset,
+                                y: yOffSet)
 
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(backgroundColor)
+                        .fill(Color.clear)
                         .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
                                     .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
-                                                  lineWidth: 1.5, antialiased: true))
+                                                  lineWidth: 0.75, antialiased: true))
                 }
             )
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .foregroundColor(textColor)
+            .onHover(perform: { isHovering in
+                self.isHovering = isHovering
+            })
+            .scaleEffect(interactionMode == .isPressed
+                             ? 0.95
+                             : interactionMode == .isHovering
+                                 ? 1.025
+                                 : 1.0)
             .animation(.easeOut(duration: 0.15))
     }
 }

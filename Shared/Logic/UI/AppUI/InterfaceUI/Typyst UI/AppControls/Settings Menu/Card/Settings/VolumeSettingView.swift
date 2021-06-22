@@ -22,7 +22,6 @@ struct VolumeSetting: View {
                 Image(systemName: "minus")
                 Slider(value: $appSettings.volumeSetting)
                     .accentColor(AppColor.buttonPrimary)
-//                    .neumorphicShadow()
                 Image(systemName: "plus")
             }
         }

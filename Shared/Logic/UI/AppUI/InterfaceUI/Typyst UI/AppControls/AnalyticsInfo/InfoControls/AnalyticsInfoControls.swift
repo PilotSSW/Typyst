@@ -14,31 +14,41 @@ struct AnalyticsInfoControls: View {
 
     var body: some View {
         HStack() {
-            AnalyticsInfoControlButton(text: "Start",
-                                    backgroundColor: AppColor.buttonPrimary,
-                                    action: { viewModel.startTimer() })
-                    .layoutPriority(1)
+            Spacer()
+                .frame(minWidth: 0, maxWidth: .infinity)
+
+            AnalyticsInfoControlButton(
+                text: "Start",
+                backgroundColor: AppColor.buttonPrimary,
+                action: { viewModel.startTimer() })
+                .layoutPriority(2)
 
             Spacer()
-                .frame(minWidth: 12, maxWidth: 24)
-
-            AnalyticsInfoControlButton(text: "Stop",
-                                    backgroundColor: AppColor.buttonWarning,
-                                    action: { viewModel.stopTimer() })
+                .frame(minWidth: 12, maxWidth: 20)
                 .layoutPriority(1)
+
+            AnalyticsInfoControlButton(
+                text: "Stop",
+                backgroundColor: AppColor.buttonWarning,
+                action: { viewModel.stopTimer() })
+                .layoutPriority(2)
 
             Spacer()
-                .frame(minWidth: 12, maxWidth: 24)
-
-            AnalyticsInfoControlButton(text: "Reset",
-                                    backgroundColor: AppColor.buttonTertiary,
-                                    action: { viewModel.reset() })
+                .frame(minWidth: 12, maxWidth: 20)
                 .layoutPriority(1)
+
+            AnalyticsInfoControlButton(
+                text: "Reset",
+                backgroundColor: AppColor.buttonTertiary,
+                action: { viewModel.reset() })
+                .layoutPriority(2)
+
+            Spacer()
+                .frame(minWidth: 0, maxWidth: .infinity)
         }
-        .padding(12)
+        .padding(8)
         .asParentCard(withColor: AppColor.cardSecondaryBackground)
-        .frame(maxWidth: .infinity, minHeight: 72, maxHeight: 114,
-               alignment: .center)
+
     }
 }
 
