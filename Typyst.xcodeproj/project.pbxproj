@@ -11,6 +11,7 @@
 		5F10FDDD0B0A744DEEFEF7D4 /* Pods_Typyst__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBCE4C59C405EC8053DA08D /* Pods_Typyst__macOS_.framework */; };
 		6EF6B02E21391C6CF85E1924 /* AnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B7AFD42AE264276346B7 /* AnalyticsSettings.swift */; };
 		6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
+		6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
 		6EF6B1D20C73B4DDE63B477F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* ContentView.swift */; };
 		6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BAE62F54493636996EBC /* WindowAccessor.swift */; };
@@ -272,6 +273,7 @@
 		6EF6BAE62F54493636996EBC /* WindowAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
 		6EF6BB13EDFB032BE23771D7 /* AppMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
 		6EF6BC20AA9A6FDFA2F75026 /* ErrorAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlerts.swift; sourceTree = "<group>"; };
+		6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowIntensity.swift; sourceTree = "<group>"; };
 		6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMenuItems.swift; sourceTree = "<group>"; };
 		6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
@@ -926,6 +928,7 @@
 			children = (
 				A3FA7284262355D600E32B91 /* Styles.swift */,
 				A3FA7285262355D600E32B91 /* VisualEffectBackground.swift */,
+				6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -1507,6 +1510,7 @@
 				6EF6B8CC8BD600A17EF9ACDC /* AppMenu.swift in Sources */,
 				6EF6B7C9D5272B35C6191AE2 /* MacOSUI.swift in Sources */,
 				6EF6BD04FF0F0E68BC1D5C49 /* TypeWriterCardImageButton.swift in Sources */,
+				6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
