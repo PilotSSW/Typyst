@@ -54,10 +54,12 @@ class TypeWriterModel {
             "maker": "Olympia",
             "image": "OlympiaSM3",
             "infoURL": "https://www.classictypewriter.com/olympia-sm3-sm4",
-            "description": nil
-//                """
-//                Why Hello there
-//                """
+            "description":
+                """
+                The Olympia SM3 is one in a long line of the SM typewriter series; all of which are workhorses meant to turn out novels of work in typewriter world.
+                These machines are precise, with little play in the platen ensuring consistent and even spacing as the keyheads strike.
+                The spring loaded keys deliver a satisfying thunk as they are pressed and the strike of the keyhead is loud and clear, letting you confidently put words to paper without missed keystrikes.
+                """
         ],
         .Royal_Model_P: [
             "name": "Model P",
@@ -66,7 +68,8 @@ class TypeWriterModel {
             "infoURL": "https://themechanicaltype.blogspot.com/2019/10/a-comprehensive-history-of-royal-model-p.html",
             "description":
                 """
-                This portable Royal Typewriter was manufactured by the Royal Typewriter Company in 1933. The portable Royal came in several variants of the “Quiet DeLuxe” including this model A. The model has the serial number A373262, dating it to 1933. The typewriter has a four row QWERTY keyboard with right and left shift keys and variable touch control.
+                Royal is perhaps one of the better known typewriter manufacturers. Founded in New York in 1904, the company has a long history and produced more than 70 models thoroughout the companies tenure.
+                The Royal Model P(ortable) is an iconic and elegant machine that came in an array of eye-catching colors and was first built in 1926 and first of many models of portables to eventually follow. The model in this photo is the Red Duotone; showcasing the Walnut and Mahogany grain underneath.
                 """
         ],
         .Smith_Corona_Silent: [
@@ -74,10 +77,13 @@ class TypeWriterModel {
             "maker": "Smith-Corona",
             "image": "SmithCoronaSilent",
             "infoURL": "https://americanhistory.si.edu/collections/search/object/nmah_850000",
-            "description": nil
-//                """
-//                Why Hello there
-//                """
+            "description":
+                """
+                Founded as the Smith-Premier Typewriter Company in 1886, this manufacturer would rename several times and eventually merge with the Corona Typewriter Company in 1914. 
+                The Silent and Silent-Super series were produced through-out the late 1940's and much of the 1950's; perhaps one of the more successful models the post world war II era. 
+                These machines are not as silent as the name suggests, but more portable and well-suited to an office desk. The sounds of this typewriter are unique and immediately identifiable by someone whose heard many different typewriters. 
+                Even today, these machines are excellent for writing longer bodies of work, with a relatively small learning curve to operate and a pleasant whirring of mechanical sound under use.
+                """
         ]
     ]
 }
