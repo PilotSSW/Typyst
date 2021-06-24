@@ -8,6 +8,10 @@ import Foundation
 import SwiftUI
 
 class AnalyticsInfoCardViewModel: ObservableObject {
+    private var subscriptions: Set<AnyCancellable>
+    let keyboardService: KeyboardService
+    let typingStats: TypingStats
+
     enum State {
         case logging
         case inactive
@@ -22,7 +26,14 @@ class AnalyticsInfoCardViewModel: ObservableObject {
         .publish(every: 0.99, tolerance: 1.0, on: .main, in: .common)
     private var timer: Cancellable?
 
-    init() {}
+    init(keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
+         typingStats: TypingStats = AppDependencyContainer.get().typingStats,
+         subscriptions: inout Set<AnyCancellable>) {
+        self.keyboardService = keyboardService
+        self.typingStats = typingStats
+        self.subscriptions = subscriptions
+    }
+
     deinit {
         stopTimer()
     }
@@ -47,8 +58,8 @@ class AnalyticsInfoCardViewModel: ObservableObject {
                 ? timeIntervals.count - 2
                 : 0
             let item = AnalyticsInfoViewModel(timeElapsed: timeIntervals[index],
-                                              keyHandler: appDependencyContainer.keyboardService,
-                                              typingStats: appDependencyContainer.typingStats)
+                                              keyHandler: keyboardService,
+                                              typingStats: typingStats)
             analyticsInfoItems.append(item)
         }
 
@@ -69,7 +80,7 @@ class AnalyticsInfoCardViewModel: ObservableObject {
             guard let self = self else { return }
             self.updateItems()
         }
-        .store(in: &appDependencyContainer.subscriptions)
+        .store(in: &subscriptions)
         timer = timerPub.connect()
         state = .logging
     }
@@ -84,7 +95,7 @@ class AnalyticsInfoCardViewModel: ObservableObject {
     }
 
     func reset() {
-        appDependencyContainer.typingStats.reset()
+        typingStats.reset()
         analyticsStartTime = Date()
         updateItems()
     }

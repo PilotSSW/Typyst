@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct InterfaceAndControls: View {
-    @ObservedObject var appSettings = appDependencyContainer.appSettings
+    @ObservedObject var appSettings = RootDependencyContainer.get().appSettings
 
     var body: some View {
         VStack(alignment: .center, spacing: 24) {

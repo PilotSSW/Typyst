@@ -10,10 +10,10 @@ import SwiftUI
 
 struct AppSettingsCommands: View {
     @ObservedObject
-    var appSettings: AppSettings = appDependencyContainer.appSettings
+    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
     @ObservedObject
-    var appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings
+    var appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings
 
     var body: some View {
         VStack {

@@ -31,6 +31,6 @@ struct VolumeSetting: View {
 
 struct VolumeSetting_Previews: PreviewProvider {
     static var previews: some View {
-        VolumeSetting(appSettings: appDependencyContainer.appSettings)
+        VolumeSetting(appSettings: RootDependencyContainer.get().appSettings)
     }
 }

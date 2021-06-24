@@ -27,9 +27,9 @@
 //
 //    lazy var paperReturn: NSMenuItem = {
 //        let menuItemPR = NSMenuItem(title: "Simulate paper return / new line every 80 characters", action: nil, keyEquivalent: "1")
-//        menuItemPR.state = appDependencyContainer.appSettings.paperReturnEnabled ? .on : .off
+//        menuItemPR.state = AppDependencyContainer.get().appSettings.paperReturnEnabled ? .on : .off
 //        menuItemPR.action = #selector(AppMenu.setPaperReturnEnabled(_:))
-//        appDependencyContainer.appSettings.$paperReturnEnabled
+//        AppDependencyContainer.get().appSettings.$paperReturnEnabled
 //            .sink { menuItemPR.state = $0 ? .on : .off }
 //            .store(in: &AppCore.instance.subscriptions)
 //        return menuItemPR
@@ -37,8 +37,8 @@
 //
 //    lazy var paperFeed: NSMenuItem = {
 //        let menuItemPF = NSMenuItem(title: "Simulate paper feed every 25 newlines", action: #selector(AppMenu.setPaperFeedEnabled(_:)), keyEquivalent: "2")
-//        menuItemPF.state = appDependencyContainer.appSettings.paperFeedEnabled ? .on : .off
-//        appDependencyContainer.appSettings.$paperFeedEnabled
+//        menuItemPF.state = AppDependencyContainer.get().appSettings.paperFeedEnabled ? .on : .off
+//        AppDependencyContainer.get().appSettings.$paperFeedEnabled
 //            .sink { menuItemPF.state = $0 ? .on : .off }
 //            .store(in: &AppCore.instance.subscriptions)
 //        return menuItemPF
@@ -48,14 +48,14 @@
 //// TypeWriter Settings Menu Items
 //extension AppMenu {
 //    @objc func setPaperFeedEnabled(_ sender: Any?) {
-//        let enabled = !appDependencyContainer.appSettings.paperFeedEnabled
+//        let enabled = !AppDependencyContainer.get().appSettings.paperFeedEnabled
 //        (sender as? NSMenuItem)?.state = enabled ? .on : .off
-//        appDependencyContainer.appSettings.paperFeedEnabled = enabled
+//        AppDependencyContainer.get().appSettings.paperFeedEnabled = enabled
 //    }
 //
 //    @objc func setPaperReturnEnabled(_ sender: Any?) {
-//        let enabled = !appDependencyContainer.appSettings.paperReturnEnabled
+//        let enabled = !AppDependencyContainer.get().appSettings.paperReturnEnabled
 //        (sender as? NSMenuItem)?.state = enabled ? .on : .off
-//        appDependencyContainer.appSettings.paperReturnEnabled = enabled
+//        AppDependencyContainer.get().appSettings.paperReturnEnabled = enabled
 //    }
 //}

@@ -28,8 +28,8 @@
 //    }
 //
 //    private func setupDockIcon() {
-//        AppDelegate.runAsMenubarApp(appDependencyContainer.appSettings.runAsMenubarApp)
-//        appDependencyContainer.appSettings.$runAsMenubarApp
+//        AppDelegate.runAsMenubarApp(AppDependencyContainer.get().appSettings.runAsMenubarApp)
+//        AppDependencyContainer.get().appSettings.$runAsMenubarApp
 //            .sink { AppDelegate.runAsMenubarApp(!$0) }
 //            .store(in: &appCore.subscriptions)
 //

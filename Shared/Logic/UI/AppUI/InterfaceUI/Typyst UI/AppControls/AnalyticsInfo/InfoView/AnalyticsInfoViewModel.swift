@@ -32,8 +32,8 @@ class AnalyticsInfoViewModel: ObservableObject {
          totalKeyPresses: Int = 0,
          averageKeyPressesPerMinute: Double = 0,
          averageKeyPressesPerSecond: Double = 0,
-         keyHandler: KeyboardService = appDependencyContainer.keyboardService,
-         typingStats: TypingStats = appDependencyContainer.typingStats) {
+         keyHandler: KeyboardService = RootDependencyContainer.get().keyboardService,
+         typingStats: TypingStats = AppDependencyContainer.get().typingStats) {
         self.timeElapsed = timeElapsed
         self.totalKeyPresses = totalKeyPresses
         self.averageKeyPressesPerMinute = averageKeyPressesPerMinute

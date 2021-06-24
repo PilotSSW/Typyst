@@ -38,8 +38,8 @@
 		6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF738F13EF32973D1724 /* Alert.swift */; };
 		6EF6BCCC75740FA2E89CDD52 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC20AA9A6FDFA2F75026 /* ErrorAlerts.swift */; };
 		6EF6BD04FF0F0E68BC1D5C49 /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
-		6EF6BD57B8A92F15FDF29034 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
-		6EF6BD7C5675215A2D281174 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
+		6EF6BD57B8A92F15FDF29034 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
+		6EF6BD7C5675215A2D281174 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
 		6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
 		6EF6BFA5D20E4EEA8E098AC8 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
 		6EF6BFEA0702216CABB96390 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA8E1044964D2F8CBBA6 /* AlertItem.swift */; };
@@ -62,8 +62,8 @@
 		A35C06B1267AC14100EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
 		A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
 		A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
-		A35C06B4267AC14500EFC9A0 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
-		A35C06B5267AC14600EFC9A0 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */; };
+		A35C06B4267AC14500EFC9A0 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
+		A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
 		A35C06B6267AC15800EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
 		A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
 		A35C06B8267AC16D00EFC9A0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
@@ -276,7 +276,7 @@
 		6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowIntensity.swift; sourceTree = "<group>"; };
 		6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMenuItems.swift; sourceTree = "<group>"; };
-		6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoAlerts.swift; sourceTree = "<group>"; };
 		6EF6BF327759F44A0B2D4594 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		6EF6BF738F13EF32973D1724 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -482,7 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				6EF6BF327759F44A0B2D4594 /* System.swift */,
-				6EF6BE87F0F779F575A91213 /* AppDependencyContainer.swift */,
+				6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1411,7 +1411,7 @@
 				6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */,
 				6EF6B71F34E01EE7820E186E /* ContentView.swift in Sources */,
 				6EF6B84F88E113673D7382BC /* AppSettings.swift in Sources */,
-				6EF6BD57B8A92F15FDF29034 /* AppDependencyContainer.swift in Sources */,
+				6EF6BD57B8A92F15FDF29034 /* DependencyContainer.swift in Sources */,
 				6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1499,7 +1499,7 @@
 				6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */,
 				6EF6B8F51A49ECC6476BE489 /* AppSettings.swift in Sources */,
 				6EF6BC229E6CDB43D74C48F2 /* System.swift in Sources */,
-				6EF6BD7C5675215A2D281174 /* AppDependencyContainer.swift in Sources */,
+				6EF6BD7C5675215A2D281174 /* DependencyContainer.swift in Sources */,
 				6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */,
 				6EF6B9174216C245F1E26F2A /* AppSettingsMenuItems.swift in Sources */,
 				6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */,
@@ -1522,7 +1522,7 @@
 				A35C06B8267AC16D00EFC9A0 /* KeyboardViewController.swift in Sources */,
 				A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
 				A35C06BD267AC1C600EFC9A0 /* KeyboardService.swift in Sources */,
-				A35C06B5267AC14600EFC9A0 /* AppDependencyContainer.swift in Sources */,
+				A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */,
 				A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */,
 				A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */,
 				A35C06BF267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
@@ -1537,7 +1537,7 @@
 				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
 				A35C06BE267AC1C700EFC9A0 /* KeyboardService.swift in Sources */,
 				A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */,
-				A35C06B4267AC14500EFC9A0 /* AppDependencyContainer.swift in Sources */,
+				A35C06B4267AC14500EFC9A0 /* DependencyContainer.swift in Sources */,
 				A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

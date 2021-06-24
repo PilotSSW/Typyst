@@ -9,16 +9,14 @@
 import SwiftUI
 
 struct AnalyticsInfoCard: View {
-    @ObservedObject var viewModel = AnalyticsInfoCardViewModel()
+    @ObservedObject var viewModel = AnalyticsInfoCardViewModel(subscriptions: &RootDependencyContainer.get().subscriptions)
     var showInfo: Bool {
         viewModel.state == .logging
     }
 
     var body: some View {
         VStack(spacing: 8) {
-            Text(showInfo
-                  ? "Your amazing typing skills over the past: "
-                  : "See your typing speed")
+            Text(showInfo ? "Your amazing typing skills over the past: " : "See your typing speed")
                 .lineLimit(nil)
                 .multilineTextAlignment(.center)
                 .asStyledText(with: .title)

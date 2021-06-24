@@ -29,10 +29,10 @@
 //
 //        slider.action = #selector(setVolume(slider:))
 //        slider.target = self
-//        slider.doubleValue = appDependencyContainer.appSettings.volumeSetting
+//        slider.doubleValue = AppDependencyContainer.get().appSettings.volumeSetting
 //        slider.isEnabled = AppDelegate.isAccessibilityAdded()
 //
-//        appDependencyContainer.appSettings.$volumeSetting
+//        AppDependencyContainer.get().appSettings.$volumeSetting
 //            .sink { slider.doubleValue = $0 }
 //            .store(in: &AppCore.instance.subscriptions)
 //

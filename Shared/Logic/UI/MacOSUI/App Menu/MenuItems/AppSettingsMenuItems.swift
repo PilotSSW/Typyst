@@ -25,8 +25,8 @@
 //
 //    lazy var modalNotifications: NSMenuItem = {
 //        let menuItemMN = NSMenuItem(title: "Show modal notifications", action: #selector(AppMenu.setShowModalNotifications(_:)), keyEquivalent: "3")
-//        menuItemMN.state = appDependencyContainer.appSettings.showModalNotifications ? .on : .off
-//        appDependencyContainer.appSettings.$showModalNotifications
+//        menuItemMN.state = AppDependencyContainer.get().appSettings.showModalNotifications ? .on : .off
+//        AppDependencyContainer.get().appSettings.$showModalNotifications
 //            .sink { menuItemMN.state = $0 ? .on : .off }
 //            .store(in: &AppCore.instance.subscriptions)
 //        return menuItemMN
@@ -34,8 +34,8 @@
 //
 //    lazy var reportErrors: NSMenuItem = {
 //        let menuItemFirebase = NSMenuItem(title: "Share errors and crashes with developer", action: #selector(AppMenu.setLogErrorsAndCrashes(_:)), keyEquivalent: "0")
-//        menuItemFirebase.state = appDependencyContainer.appSettings.logUsageAnalytics ? .on : .off
-//        appDependencyContainer.appSettings.$logErrorsAndCrashes
+//        menuItemFirebase.state = AppDependencyContainer.get().appSettings.logUsageAnalytics ? .on : .off
+//        AppDependencyContainer.get().appSettings.$logErrorsAndCrashes
 //            .sink { menuItemFirebase.state = $0 ? .on : .off }
 //            .store(in: &AppCore.instance.subscriptions)
 //        return menuItemFirebase
@@ -43,8 +43,8 @@
 //
 ////    lazy var showMainWindow: NSMenuItem = {
 ////        let menuItemMainWindow = NSMenuItem(title: "Show main window", action: #selector(AppMenu.showMainWindow(_:)), keyEquivalent: "1")
-////        menuItemMainWindow.state = appDependencyContainer.appSettings.showMainWindow ? .on : .off
-////        appDependencyContainer.appSettings.$showMainWindow
+////        menuItemMainWindow.state = AppDependencyContainer.get().appSettings.showMainWindow ? .on : .off
+////        AppDependencyContainer.get().appSettings.$showMainWindow
 ////            .sink { menuItemMainWindow.state = $0 ? .on : .off }
 ////            .store(in: &AppCore.instance.subscriptions)
 ////        return menuItemMainWindow
@@ -54,22 +54,22 @@
 //// App Settings Menu Items
 //extension AppMenu {
 //    @objc func setLogErrorsAndCrashes(_ sender: Any?) {
-//        let enabled = !appDependencyContainer.appSettings.logErrorsAndCrashes
+//        let enabled = !AppDependencyContainer.get().appSettings.logErrorsAndCrashes
 //        (sender as? NSMenuItem)?.state = enabled ? .on : .off
-//        appDependencyContainer.appSettings.logErrorsAndCrashes = enabled
+//        AppDependencyContainer.get().appSettings.logErrorsAndCrashes = enabled
 //    }
 //
 //    @objc func setShowModalNotifications(_ sender: Any?) {
-//        let enabled = !appDependencyContainer.appSettings.showModalNotifications
+//        let enabled = !AppDependencyContainer.get().appSettings.showModalNotifications
 //        (sender as? NSMenuItem)?.state = enabled ? .on : .off
-//        appDependencyContainer.appSettings.showModalNotifications = enabled
+//        AppDependencyContainer.get().appSettings.showModalNotifications = enabled
 //    }
 //
 ////    @objc func showMainWindow(_ sender: Any?) {
-////        appDependencyContainer.appSettings.showMainWindow = !appDependencyContainer.appSettings.showMainWindow
-////        (sender as? NSMenuItem)?.state = appDependencyContainer.appSettings.showMainWindow ? .on : .off
+////        AppDependencyContainer.get().appSettings.showMainWindow = !AppDependencyContainer.get().appSettings.showMainWindow
+////        (sender as? NSMenuItem)?.state = AppDependencyContainer.get().appSettings.showMainWindow ? .on : .off
 ////
-////        if appDependencyContainer.appSettings.showMainWindow {
+////        if AppDependencyContainer.get().appSettings.showMainWindow {
 ////            AppCore.instance.ui.appWindow?.showWindow()
 ////        }
 ////        else {

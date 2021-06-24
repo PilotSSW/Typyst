@@ -11,8 +11,8 @@ final class TypingStats {
 
     init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
          keyboardService: KeyboardService,
-         appSettings: AppSettings = appDependencyContainer.appSettings,
-         appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings) {
+         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         appDebugSettings:AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
         keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions,
                                       keyboardService: keyboardService,
                                       appSettings: appSettings,

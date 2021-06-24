@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TypeWriterSettings: View {
     @ObservedObject
-    var appSettings: AppSettings = appDependencyContainer.appSettings
+    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
     var body: some View {
         VStack {

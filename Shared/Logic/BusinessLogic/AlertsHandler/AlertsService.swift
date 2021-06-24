@@ -48,7 +48,7 @@ class AlertsService: Loggable, ObservableObject {
 protocol Alertable {}
 extension Alertable {
     func showAlert(_ alert: Alert, priorityFirstInQueue: Bool = false,
-                   alertsService: AlertsService = appDependencyContainer.alertsService) {
+                   alertsService: AlertsService = AppDependencyContainer.get().alertsService) {
         alertsService.showAlert(alert, priorityFirstInQueue: priorityFirstInQueue)
     }
 }

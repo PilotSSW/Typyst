@@ -7,7 +7,7 @@ import AppKit
 import Foundation
 
 class SystemFunctions {
-    static func askUserToAllowSystemAccessibility(alertsHandler: AlertsService = appDependencyContainer.alertsService) {
+    static func askUserToAllowSystemAccessibility(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService) {
         let alert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert({
             NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
 
@@ -21,7 +21,7 @@ class SystemFunctions {
         alertsHandler.showAlert(alert)
     }
 
-    static func listenForSystemPrefsAccessibilityAdded(alertsHandler: AlertsService = appDependencyContainer.alertsService) {
+    static func listenForSystemPrefsAccessibilityAdded(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService) {
         let timer = RepeatingTimer(timeInterval: 0.5)
         timer.eventHandler = { [weak timer] in
             guard let timer = timer else { return }

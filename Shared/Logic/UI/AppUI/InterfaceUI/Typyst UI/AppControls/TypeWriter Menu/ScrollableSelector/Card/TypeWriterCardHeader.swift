@@ -18,7 +18,7 @@ struct TypeWriterCardHeader: View {
     var showAlert = false
 
     @ObservedObject
-    var appSettings: AppSettings = appDependencyContainer.appSettings
+    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
     var isSelected: Bool {
         $appSettings.selectedTypewriter.wrappedValue == model.rawValue

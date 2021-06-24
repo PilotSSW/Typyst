@@ -8,6 +8,9 @@ import SwiftyBeaver
 import SwiftUI
 
 class Logging {
+    private let appSettings: AppSettings
+    private let appDebugSettings: AppDebugSettings
+    
     private var log: SwiftyBeaver.Type? = SwiftyBeaver.self
 
     enum Level: Int {
@@ -20,8 +23,11 @@ class Logging {
     }
 
     init(withStore store: inout Set<AnyCancellable>,
-         appSettings: AppSettings = appDependencyContainer.appSettings,
-         appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings) {
+         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
+        self.appSettings = appSettings
+        self.appDebugSettings = appDebugSettings
+        
         appSettings.$logErrorsAndCrashes
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
@@ -69,7 +75,7 @@ class Logging {
         if error != nil && (level != .error || level != .fatal) { logType = .error }
 
         // Don't log stuff beneath warning in production unless user is having an issue
-        if !appDependencyContainer.appDebugSettings.debugGlobal && level.rawValue < Level.warning.rawValue { return }
+        if !appDebugSettings.debugGlobal && level.rawValue < Level.warning.rawValue { return }
 
         if let log = log {
             switch (logType) {
@@ -92,7 +98,7 @@ protocol Loggable {}
 extension Loggable {
     func logEvent(_ level: Logging.Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
                   file: String = #file, function: String = #function, line: Int = #line,
-                  loggerInstance: Logging = appDependencyContainer.logging) {
+                  loggerInstance: Logging = RootDependencyContainer.get().logging) {
         loggerInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
     }
 }

@@ -10,10 +10,10 @@ import SwiftUI
 
 struct AppSettingsView: View {
     @ObservedObject
-    var appSettings: AppSettings = appDependencyContainer.appSettings
+    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
     @ObservedObject
-    var appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings
+    var appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {

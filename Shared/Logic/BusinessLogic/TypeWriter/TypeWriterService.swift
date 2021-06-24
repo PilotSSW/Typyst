@@ -14,15 +14,16 @@ class TypeWriterService: Alertable, Loggable, ObservableObject {
 
     @Published private(set) var loadedTypewriter: TypeWriter?
 
-    init(withKeyboardService keyboardService: KeyboardService = appDependencyContainer.keyboardService,
-         appSettings: AppSettings = appDependencyContainer.appSettings,
+    init(withKeyboardService keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
+         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         logger: Logging,
          subscriptionStore: Set<AnyCancellable>) {
         self.subscriptionStore = subscriptionStore
         self.appSettings = appSettings
         self.keyboardService = keyboardService
 
         loadTypeWriter()
-        //logEvent(.trace, "TypeWriterHandler setup")
+        logEvent(.trace, "TypeWriterHandler setup", loggerInstance: logger)
     }
 
     deinit {

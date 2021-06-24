@@ -28,7 +28,7 @@ struct TypystApp: App {
                 
                 ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                    .environmentObject(appDependencyContainer)
+                    .environmentObject(AppDependencyContainer.get())
             }
             .background(WindowAccessor(window: $window))
             .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
@@ -50,7 +50,7 @@ struct TypystApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(appDependencyContainer)
+                .environmentObject(AppDependencyContainer.get())
         }
         .commands {
             ReplacementMenuCommands()

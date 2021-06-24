@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var alertsHandler: AlertsService = appDependencyContainer.alertsService
-    @State var currentAlert: Alert? = appDependencyContainer.alertsService.currentAlert
+    @ObservedObject var alertsHandler: AlertsService = AppDependencyContainer.get().alertsService
+    @State var currentAlert: Alert? = AppDependencyContainer.get().alertsService.currentAlert
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -42,7 +42,7 @@ struct ContentView: View {
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ContentView(currentAlert: appDependencyContainer.alertsHandler.$currentAlert)
+//        ContentView(currentAlert: AppDependencyContainer.get().alertsHandler.$currentAlert)
 //            .frame(width: 300, height: 1400)
 //            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 //    }

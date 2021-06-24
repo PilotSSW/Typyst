@@ -33,7 +33,9 @@ final class MacOSKeyListener {
     private var localKPCB = [String: ((KeyEvent) -> Void)]()
     private var globalKPCB = [String: ((KeyEvent) -> Void)]()
 
-    init(shouldAutoRun: Bool = true, keyboardService: KeyboardService = appDependencyContainer.keyboardService) {
+    init(shouldAutoRun: Bool = true,
+         keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService
+    ) {
         self.keyboardService = keyboardService
         if shouldAutoRun { start() }
     }

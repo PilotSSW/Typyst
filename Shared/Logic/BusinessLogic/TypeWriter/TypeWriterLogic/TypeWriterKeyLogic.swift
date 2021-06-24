@@ -84,7 +84,7 @@ class TypeWriterKeyLogic {
             state.resetLineIndex()
             sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
 
-            if appDependencyContainer.appSettings.paperFeedEnabled {
+            if appSettings.paperFeedEnabled {
                 DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) { [weak sounds] in
                     guard let sounds = sounds else { return }
                     sounds.playSound(for: .PaperLoad, completion: { [weak sounds] in

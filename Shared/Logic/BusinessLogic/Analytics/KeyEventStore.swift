@@ -38,9 +38,9 @@ final class KeyEventStore {
     }
 
     init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
-         keyboardService: KeyboardService = appDependencyContainer.keyboardService,
-         appSettings: AppSettings = appDependencyContainer.appSettings,
-         appDebugSettings: AppDebugSettings = appDependencyContainer.appDebugSettings) {
+         keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
+         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
         self.appSettings = appSettings
         self.appDebugSettings = appDebugSettings
         self.keyboardService = keyboardService

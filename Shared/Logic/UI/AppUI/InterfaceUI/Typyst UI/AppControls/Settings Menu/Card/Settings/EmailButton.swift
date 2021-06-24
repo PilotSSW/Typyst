@@ -11,7 +11,7 @@ import SwiftUI
 struct EmailButton: View {
     var body: some View {
         Button(action: {
-            appDependencyContainer.emailService.emailDeveloper()
+            AppDependencyContainer.get().emailService.emailDeveloper()
         }) {
             HStack(spacing: 4) {
                 Image(systemName: "mail")

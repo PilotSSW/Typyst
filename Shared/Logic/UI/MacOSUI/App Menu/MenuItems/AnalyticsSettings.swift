@@ -8,7 +8,7 @@
 //
 //class MenuItemsAnalyticsItems {
 //    var items: [NSMenuItem] {
-//        appDependencyContainer.appSettings.logUsageAnalytics ? [
+//        AppDependencyContainer.get().appSettings.logUsageAnalytics ? [
 //            sectionHeader,
 //            analyticsEnabled,
 //            analyticsReset,
@@ -30,7 +30,7 @@
 //
 //    lazy var analyticsEnabled: NSMenuItem = {
 //        let item = NSMenuItem(title: "Show typing analytics", action: #selector(AppMenu.setTrackUsageAnalytics(sender:)), keyEquivalent: "9")
-//        item.state = appDependencyContainer.appSettings.logUsageAnalytics ? .on : .off
+//        item.state = AppDependencyContainer.get().appSettings.logUsageAnalytics ? .on : .off
 //        return item
 //    }()
 //
@@ -78,8 +78,8 @@
 // Analytics Menu Items
 //extension AppMenu {
 //    @objc func setTrackUsageAnalytics(sender: Any?) {
-//        let enabled = !appDependencyContainer.appSettings.logUsageAnalytics
+//        let enabled = !AppDependencyContainer.get().appSettings.logUsageAnalytics
 //        (sender as? NSMenuItem)?.state = enabled ? .on : .off
-//        appDependencyContainer.appSettings.logUsageAnalytics = enabled
+//        AppDependencyContainer.get().appSettings.logUsageAnalytics = enabled
 //    }
 //}
