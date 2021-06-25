@@ -24,7 +24,7 @@ class AlertsService: Loggable, ObservableObject {
         let isNonCriticalAlert = [.userInfo].contains(alert.type) && !appSettings.showModalNotifications
         let isIgnoredDeveloperAlert = [.developer].contains(alert.type) && !appDebugSettings.debugGlobal
 
-        if (isNonCriticalAlert && isIgnoredDeveloperAlert) { return }
+        if (isNonCriticalAlert || isIgnoredDeveloperAlert) { return }
 
         if currentAlert != nil {
             priorityFirstInQueue
