@@ -1,33 +1,26 @@
 //
-// Created by Sean Wolford on 4/5/21.
-// Copyright (c) 2021 wickedPropeller. All rights reserved.
+//  SwiftyBeaver.swift
+//  Typyst
 //
+//  Created by Sean Wolford on 6/24/21.
+//
+
 import Combine
 import Foundation
 import SwiftyBeaver
-import SwiftUI
 
-class Logging {
+class SwiftyBeaverLogger {
     private let appSettings: AppSettings
     private let appDebugSettings: AppDebugSettings
-    
-    private var log: SwiftyBeaver.Type? = SwiftyBeaver.self
 
-    enum Level: Int {
-        case trace = 0
-        case debug = 1
-        case info = 2
-        case warning = 3
-        case error = 4
-        case fatal = 5
-    }
+    private var log: SwiftyBeaver.Type? = SwiftyBeaver.self
 
     init(withStore store: inout Set<AnyCancellable>,
          appSettings: AppSettings = RootDependencyContainer.get().appSettings,
          appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
         self.appSettings = appSettings
         self.appDebugSettings = appDebugSettings
-        
+
         appSettings.$logErrorsAndCrashes
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
@@ -69,36 +62,27 @@ class Logging {
             .store(in: &store)
     }
 
-    func log(_ level: Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
+    func log(_ level: Logging.Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
              file: String = #file, function: String = #function, line: Int = #line) {
         var logType = level
         if error != nil && (level != .error || level != .fatal) { logType = .error }
 
         // Don't log stuff beneath warning in production unless user is having an issue
-        if !appDebugSettings.debugGlobal && level.rawValue < Level.warning.rawValue { return }
+        if !appDebugSettings.debugGlobal && level.rawValue < Logging.Level.warning.rawValue { return }
 
         if let log = log {
             switch (logType) {
-            case .trace:
-                log.verbose(message, file, function, line: line, context: context)
-            case .debug:
-                log.debug(message, file, function, line: line, context: context)
-            case .info:
-                log.info(message, file, function, line: line, context: context)
-            case .warning:
-                log.warning(message, file, function, line: line, context: context)
-            case .error, .fatal:
-                log.error(message, file, function, line: line, context: context)
+                case .trace:
+                    log.verbose(message, file, function, line: line, context: context)
+                case .debug:
+                    log.debug(message, file, function, line: line, context: context)
+                case .info:
+                    log.info(message, file, function, line: line, context: context)
+                case .warning:
+                    log.warning(message, file, function, line: line, context: context)
+                case .error, .fatal:
+                    log.error(message, file, function, line: line, context: context)
             }
         }
-    }
-}
-
-protocol Loggable {}
-extension Loggable {
-    func logEvent(_ level: Logging.Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
-                  file: String = #file, function: String = #function, line: Int = #line,
-                  loggerInstance: Logging = RootDependencyContainer.get().logging) {
-        loggerInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
     }
 }

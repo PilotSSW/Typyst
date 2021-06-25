@@ -26,7 +26,7 @@ struct TypystApp: App {
                                  blendingMode: .behindWindow,
                                  state: .active)
                 
-                ContentView()
+                AppWindowView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .environmentObject(AppDependencyContainer.get())
             }

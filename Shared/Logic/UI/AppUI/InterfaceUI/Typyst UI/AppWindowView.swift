@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AppWindowView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var alertsHandler: AlertsService = AppDependencyContainer.get().alertsService
+    @ObservedObject var alertsService: AlertsService = AppDependencyContainer.get().alertsService
     @State var currentAlert: Alert? = AppDependencyContainer.get().alertsService.currentAlert
 
     var body: some View {
@@ -34,8 +34,8 @@ struct ContentView: View {
                     .layoutPriority(1)
             }
         }
-        .alert(item: $currentAlert, content: { alertItem in
-            createSwiftUIAlert(alertItem, alertsHandler: alertsHandler)
+        .alert(item: $alertsService.currentAlert, content: { alertItem in
+            createSwiftUIAlert(alertItem, alertsService: alertsService)
         })
     }
 }

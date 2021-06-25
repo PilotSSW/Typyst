@@ -8,7 +8,7 @@
 import SwiftUI
 
 func createSwiftUIAlert(_ alert: Alert?,
-                        alertsHandler: AlertsService) -> SwiftUI.Alert {
+                        alertsService: AlertsService) -> SwiftUI.Alert {
     if let alert = alert {
         let title = Text(alert.title)
         var message: Text? = nil
@@ -22,7 +22,7 @@ func createSwiftUIAlert(_ alert: Alert?,
         if let primaryText = alert.primaryButtonText {
             primaryButton = .default(Text(primaryText), action: {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                    alertsHandler.dismissCurrentAlert()
+                    alertsService.dismissCurrentAlert()
                     alert.primaryAction?()
                 })
             })
@@ -31,7 +31,7 @@ func createSwiftUIAlert(_ alert: Alert?,
         if let secondaryText = alert.secondaryButtonText {
             secondaryButton = .cancel(Text(secondaryText), action: {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                    alertsHandler.dismissCurrentAlert()
+                    alertsService.dismissCurrentAlert()
                     alert.secondaryAction?()
                 })
             })

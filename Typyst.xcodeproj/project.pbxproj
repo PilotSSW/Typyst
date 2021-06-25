@@ -13,11 +13,11 @@
 		6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
 		6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
-		6EF6B1D20C73B4DDE63B477F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* ContentView.swift */; };
+		6EF6B1D20C73B4DDE63B477F /* AppWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* AppWindowView.swift */; };
 		6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BAE62F54493636996EBC /* WindowAccessor.swift */; };
 		6EF6B23233FB92652D7EE067 /* CoreMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */; };
 		6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2072E681180EE0569D2 /* AppDelegate.swift */; };
-		6EF6B71F34E01EE7820E186E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* ContentView.swift */; };
+		6EF6B71F34E01EE7820E186E /* AppWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* AppWindowView.swift */; };
 		6EF6B76987564BE9166504FC /* VolumeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA79A26B3BD0DA09A62F /* VolumeSettings.swift */; };
 		6EF6B7C9D5272B35C6191AE2 /* MacOSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0B558DDAB48D3D68F56 /* MacOSUI.swift */; };
 		6EF6B83D11F288968BA3AFBD /* TypeWriters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B98DD03A1EA57E71897C /* TypeWriters.swift */; };
@@ -47,6 +47,8 @@
 		A300BB1F2664204B00BB7BA3 /* KeyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */; };
 		A33D4344263C51E8004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
 		A33D4345263C528E004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
+		A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
+		A34602482685551B00BF81D4 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
 		A34B3055262B27DE00C64B4C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
 		A34B3068262B290100C64B4C /* MacOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3061262B286400C64B4C /* MacOSKey.swift */; };
 		A34B3073262B290700C64B4C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
@@ -185,8 +187,8 @@
 		A3FA7320262355D700E32B91 /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
 		A3FA7321262355D700E32B91 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
 		A3FA7322262355D700E32B91 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
-		A3FA7323262355D700E32B91 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* Logging.swift */; };
-		A3FA7324262355D700E32B91 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* Logging.swift */; };
+		A3FA7323262355D700E32B91 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
+		A3FA7324262355D700E32B91 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
 		A3FA7325262355D700E32B91 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3FA7326262355D700E32B91 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3FA7328262355D700E32B91 /* NSEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729D262355D600E32B91 /* NSEventExtension.swift */; };
@@ -261,7 +263,7 @@
 		6EF6B2072E681180EE0569D2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacementMenuCommands.swift; sourceTree = "<group>"; };
 		6EF6B3FCB4B8BC07BC2B32ED /* KeyboardAccessibilityAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAccessibilityAlerts.swift; sourceTree = "<group>"; };
-		6EF6B40036833571C7C304F0 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6EF6B40036833571C7C304F0 /* AppWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWindowView.swift; sourceTree = "<group>"; };
 		6EF6B6AA96D01D832B321871 /* AppSettingsMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingsMenuItems.swift; sourceTree = "<group>"; };
 		6EF6B74B5EDE9E8420A27896 /* TypeWriterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterSettings.swift; sourceTree = "<group>"; };
 		6EF6B7AFD42AE264276346B7 /* AnalyticsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsSettings.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		92ED20838E899B95BB6E84FA /* Pods-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventStore.swift; sourceTree = "<group>"; };
 		A33D4343263C51E8004669A1 /* ResizableDragger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableDragger.swift; sourceTree = "<group>"; };
+		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		A34B3054262B27DE00C64B4C /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		A34B3061262B286400C64B4C /* MacOSKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSKey.swift; sourceTree = "<group>"; };
 		A34B307A262B29BC00C64B4C /* ModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierFlags.swift; sourceTree = "<group>"; };
@@ -356,7 +359,7 @@
 		A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterKeyLogic.swift; sourceTree = "<group>"; };
 		A3FA7295262355D600E32B91 /* TypeWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriter.swift; sourceTree = "<group>"; };
 		A3FA7297262355D600E32B91 /* SoundError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundError.swift; sourceTree = "<group>"; };
-		A3FA7299262355D600E32B91 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		A3FA7299262355D600E32B91 /* LoggingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
 		A3FA729C262355D600E32B91 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		A3FA729D262355D600E32B91 /* NSEventExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEventExtension.swift; sourceTree = "<group>"; };
 		A3FA729F262355D600E32B91 /* SystemFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemFunctions.swift; sourceTree = "<group>"; };
@@ -450,13 +453,13 @@
 			path = MenuItems;
 			sourceTree = "<group>";
 		};
-		6EF6B48B50718D3A5BB5D877 /* AlertsHandler */ = {
+		6EF6B48B50718D3A5BB5D877 /* AlertsService */ = {
 			isa = PBXGroup;
 			children = (
 				A3668DF4262FD11500764DB8 /* AlertsService.swift */,
 				6EF6BD55B0607EA5B1981010 /* Alerts */,
 			);
-			path = AlertsHandler;
+			path = AlertsService;
 			sourceTree = "<group>";
 		};
 		6EF6B7228AA6650F5AAEC0E6 /* MacOSUI */ = {
@@ -534,6 +537,17 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
+		A3460245268554E600BF81D4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6B48B50718D3A5BB5D877 /* AlertsService */,
+				A36F5C522673D49500E18CCE /* EmailService */,
+				A3FA7298262355D600E32B91 /* LoggingService */,
+				A3FA728D262355D600E32B91 /* TypeWriterService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A34B305B262B283600C64B4C /* Key */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,12 +579,12 @@
 			path = TypeWriterLogic;
 			sourceTree = "<group>";
 		};
-		A36F5C522673D49500E18CCE /* EmailHandler */ = {
+		A36F5C522673D49500E18CCE /* EmailService */ = {
 			isa = PBXGroup;
 			children = (
 				A36F5C532673D4A500E18CCE /* EmailService.swift */,
 			);
-			path = EmailHandler;
+			path = EmailService;
 			sourceTree = "<group>";
 		};
 		A36F5C5626766B1700E18CCE /* MacOSKeyListener */ = {
@@ -739,7 +753,7 @@
 		A3FA7243262355D600E32B91 /* Typyst UI */ = {
 			isa = PBXGroup;
 			children = (
-				6EF6B40036833571C7C304F0 /* ContentView.swift */,
+				6EF6B40036833571C7C304F0 /* AppWindowView.swift */,
 				6EF6BF50FBCAC33CAD81EDC0 /* Alerts */,
 				A3FA7246262355D600E32B91 /* AppControls */,
 			);
@@ -945,12 +959,10 @@
 		A3FA7288262355D600E32B91 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				6EF6B48B50718D3A5BB5D877 /* AlertsHandler */,
 				A3FA76D426237DA900E32B91 /* Analytics */,
 				6EF6BBE762745B4F244E1DC9 /* Core */,
 				A3FA7296262355D600E32B91 /* Errors */,
-				A36F5C522673D49500E18CCE /* EmailHandler */,
-				A3FA7298262355D600E32B91 /* Logging */,
+				A3460245268554E600BF81D4 /* Services */,
 				A3FA7291262355D600E32B91 /* TypeWriter */,
 			);
 			path = BusinessLogic;
@@ -960,7 +972,6 @@
 			isa = PBXGroup;
 			children = (
 				A3FA7293262355D600E32B91 /* TypeWriterModel.swift */,
-				A3FA728D262355D600E32B91 /* TypeWriterService.swift */,
 				A36D2583262E8BB10069E668 /* TypeWriterLogic */,
 			);
 			path = TypeWriter;
@@ -974,12 +985,13 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		A3FA7298262355D600E32B91 /* Logging */ = {
+		A3FA7298262355D600E32B91 /* LoggingService */ = {
 			isa = PBXGroup;
 			children = (
-				A3FA7299262355D600E32B91 /* Logging.swift */,
+				A3FA7299262355D600E32B91 /* LoggingService.swift */,
+				A34602462685551B00BF81D4 /* SwiftyBeaver.swift */,
 			);
-			path = Logging;
+			path = LoggingService;
 			sourceTree = "<group>";
 		};
 		A3FA729A262355D600E32B91 /* SwiftTools */ = {
@@ -1340,6 +1352,7 @@
 				A3668E11262FD84400764DB8 /* AlertsView.swift in Sources */,
 				A3FA72E1262355D700E32B91 /* SettingsCard.swift in Sources */,
 				A34B30A5262D1FD700C64B4C /* KeySets.swift in Sources */,
+				A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
 				A3FA7303262355D700E32B91 /* NeumorphicButton.swift in Sources */,
 				A3FA7321262355D700E32B91 /* SoundError.swift in Sources */,
 				A3FA72DB262355D700E32B91 /* VolumeSettingView.swift in Sources */,
@@ -1383,7 +1396,7 @@
 				A34B3087262B29CA00C64B4C /* iOSModifierFlags.swift in Sources */,
 				A3FA7325262355D700E32B91 /* SwiftExtensions.swift in Sources */,
 				A3FA72CD262355D700E32B91 /* TypeWriterMenuScrollableSelector.swift in Sources */,
-				A3FA7323262355D700E32B91 /* Logging.swift in Sources */,
+				A3FA7323262355D700E32B91 /* LoggingService.swift in Sources */,
 				A3FA7305262355D700E32B91 /* Font.swift in Sources */,
 				A3FA72C7262355D700E32B91 /* TypeWriterCard.swift in Sources */,
 				A3FA72CF262355D700E32B91 /* TypeWriterMenuHeader.swift in Sources */,
@@ -1409,7 +1422,7 @@
 				6EF6BCCC75740FA2E89CDD52 /* ErrorAlerts.swift in Sources */,
 				6EF6B8889205E3C78C0A30C5 /* KeyboardAccessibilityAlerts.swift in Sources */,
 				6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */,
-				6EF6B71F34E01EE7820E186E /* ContentView.swift in Sources */,
+				6EF6B71F34E01EE7820E186E /* AppWindowView.swift in Sources */,
 				6EF6B84F88E113673D7382BC /* AppSettings.swift in Sources */,
 				6EF6BD57B8A92F15FDF29034 /* DependencyContainer.swift in Sources */,
 				6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */,
@@ -1464,6 +1477,7 @@
 				A3FA72F8262355D700E32B91 /* Gradients.swift in Sources */,
 				A3FA730C262355D700E32B91 /* ViewExtension.swift in Sources */,
 				A3FA7320262355D700E32B91 /* TypeWriter.swift in Sources */,
+				A34602482685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
 				A34B3094262B29D900C64B4C /* MacOSModifierFlags.swift in Sources */,
 				A3FA72D6262355D700E32B91 /* TitleCard.swift in Sources */,
 				A3FA72BC262355D700E32B91 /* AnalyticsInfoCardViewModel.swift in Sources */,
@@ -1472,7 +1486,7 @@
 				A3FA7326262355D700E32B91 /* SwiftExtensions.swift in Sources */,
 				A3FA72CE262355D700E32B91 /* TypeWriterMenuScrollableSelector.swift in Sources */,
 				A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */,
-				A3FA7324262355D700E32B91 /* Logging.swift in Sources */,
+				A3FA7324262355D700E32B91 /* LoggingService.swift in Sources */,
 				A3FA7328262355D700E32B91 /* NSEventExtension.swift in Sources */,
 				A3FA7306262355D700E32B91 /* Font.swift in Sources */,
 				A3FA72C8262355D700E32B91 /* TypeWriterCard.swift in Sources */,
@@ -1494,7 +1508,7 @@
 				A3668E12262FD84400764DB8 /* AlertsView.swift in Sources */,
 				6EF6B8FBD37741D01911A506 /* KeyboardAccessibilityAlerts.swift in Sources */,
 				6EF6BFA5D20E4EEA8E098AC8 /* UserInfoAlerts.swift in Sources */,
-				6EF6B1D20C73B4DDE63B477F /* ContentView.swift in Sources */,
+				6EF6B1D20C73B4DDE63B477F /* AppWindowView.swift in Sources */,
 				6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */,
 				6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */,
 				6EF6B8F51A49ECC6476BE489 /* AppSettings.swift in Sources */,
@@ -1786,7 +1800,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1830,7 +1844,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
