@@ -121,6 +121,6 @@ class AppColor {
      * Window
      */
     public static var windowBackground: Color {
-        Color("Window/Background")
+        Color("Window/Background").opacity(0.15)
     }
 }
