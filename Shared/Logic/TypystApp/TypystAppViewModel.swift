@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import GBDeviceInfo
 import SwiftUI
 
-class TypystAppViewModel: ObservableObject {
+class TypystAppViewModel: Loggable, ObservableObject {
+    let appDependencyContainer = AppDependencyContainer.get()
+
     init() {
         #if os(macOS)
             #if DEBUG
@@ -19,6 +22,12 @@ class TypystAppViewModel: ObservableObject {
 
         OSHelper.askUserToAllowSystemAccessibility()
         #endif
+
+        logEvent(.info, "App running", context: [
+            GBDeviceInfo.deviceInfo() ?? "Device Info Unavailable",
+            GBDeviceInfo().isIAPAvailable,
+            GBDeviceInfo().isMacAppStoreAvailable
+        ])
     }
 
     func handleScenePhaseChange(_ phase: ScenePhase) {

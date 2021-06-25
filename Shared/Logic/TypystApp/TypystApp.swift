@@ -28,7 +28,7 @@ struct TypystApp: App {
                 
                 AppWindowView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                    .environmentObject(AppDependencyContainer.get())
+                    .environmentObject(viewModel.appDependencyContainer)
             }
             .background(WindowAccessor(window: $window))
             .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
@@ -39,10 +39,10 @@ struct TypystApp: App {
         .onChange(of: scenePhase, perform: { phase in
             viewModel.handleScenePhaseChange(phase)
         })
-        .commands {
-            ReplacementMenuCommands()
-            MainMenuCommands()
-        }
+//        .commands {
+//            ReplacementMenuCommands()
+//            MainMenuCommands()
+//        }
         
         #endif
 
@@ -50,12 +50,12 @@ struct TypystApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(AppDependencyContainer.get())
+                .environmentObject(viewModel.appDependencyContainer)
         }
-        .commands {
-            ReplacementMenuCommands()
-            MainMenuCommands()
-        }
+//        .commands {
+//            ReplacementMenuCommands()
+//            MainMenuCommands()
+//        }
         #endif
     }
 }

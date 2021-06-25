@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GBDeviceInfo
 
 #if os(macOS)
 import AppKit
@@ -16,7 +17,20 @@ import UIKit
 
 struct EmailService {
     func emailDeveloper() {
-        if let mailtoString = "mailto:support@typyst.app".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+        let deviceInfo = GBDeviceInfo.deviceInfo()!
+
+        let body =
+        """
+        Hey there, I am having some problems with Typyst. I am experiencing ...
+
+
+        Here are my machine's specs: \n
+        \(String(describing: deviceInfo))
+        """
+        let subject = "Email Support for Typyst"
+        let link = "mailto:support@typyst.app?subject=\(subject)&body=\(body)"
+
+        if let mailtoString = link.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
            let mailtoUrl = URL(string: mailtoString) {
             #if os(iOS)
             UIApplication.shared.open(mailtoUrl)
