@@ -6,13 +6,18 @@
 import AppKit
 import Foundation
 
-class SystemFunctions {
+class OSHelper {
+
+}
+
+#if os(macOS)
+extension OSHelper {
     static func askUserToAllowSystemAccessibility(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService) {
         let alert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert({
             NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
 
             let alert = KeyboardAccessibilityAlerts.addToSystemAccessibilityInstructions(dismissAction: {
-                //appCore.macOSUI.quit(nil)
+                quitApp()
             }, primaryAction: {
                 listenForSystemPrefsAccessibilityAdded()
             })
@@ -25,11 +30,29 @@ class SystemFunctions {
         let timer = RepeatingTimer(timeInterval: 0.5)
         timer.eventHandler = { [weak timer] in
             guard let timer = timer else { return }
-            if AppDelegate.isAccessibilityAdded() {
+            if isAccessibilityAdded() {
                 timer.suspend()
                 alertsHandler.showAlert(KeyboardAccessibilityAlerts.successfullyAddedToAccessibility())
+
+                return
             }
         }
         timer.resume()
     }
+
+    static func isAccessibilityAdded() -> Bool {
+        // Ensure key capture events are available or alert user
+        let opts = NSDictionary(object: kCFBooleanTrue as Any,
+                                forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString) as CFDictionary
+        return AXIsProcessTrustedWithOptions(opts)
+    }
+
+    static func runAsMenubarApp(_ bool: Bool) {
+        //NSApp.setActivationPolicy(bool ? .accessory : .regular)
+    }
+
+    static func quitApp() {
+        NSApplication.shared.terminate(nil)
+    }
 }
+#endif

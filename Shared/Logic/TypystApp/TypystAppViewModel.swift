@@ -16,6 +16,8 @@ class TypystAppViewModel: ObservableObject {
             #endif
 
             UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
+
+        OSHelper.askUserToAllowSystemAccessibility()
         #endif
     }
 
