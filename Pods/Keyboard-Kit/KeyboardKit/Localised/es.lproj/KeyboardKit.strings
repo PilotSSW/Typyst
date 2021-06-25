@@ -1,0 +1,36 @@
+// Douglas Hill, March 2020
+
+"app_newWindow" = "Nueva ventana";
+"app_settings" = "Ajustes";
+"barButton_action" = "Compartir";
+"barButton_add" = "Añadir";
+"barButton_bookmarks" = "Marcadores";
+"barButton_camera" = "Cámara";
+"barButton_cancel" = "Cancelar";
+"barButton_close" = "Cerrar";
+"barButton_compose" = "Redactar";
+"barButton_done" = "OK"; // A more common translation in Apple string files is Aceptar, but that does not match the iOS button text.
+"barButton_edit" = "Editar"; // A more common translation in Apple string files is Edición, but that does not match the iOS button text.
+"barButton_fastForward" = "Avance rápido";
+"barButton_organize" = "Organizar";
+"barButton_pause" = "Pausa";
+"barButton_play" = "Reproducir";
+"barButton_redo" = "Rehacer";
+"barButton_reply" = "Responder";
+"barButton_rewind" = "Retroceder";
+"barButton_save" = "Guardar";
+"barButton_search" = "Buscar";
+"barButton_stop" = "Detener";
+"barButton_undo" = "Deshacer";
+"delete" = "Eliminar";
+"find_jump" = "Ir a la selección";
+"find_next" = "Buscar siguiente";
+"find_previous" = "Buscar anterior";
+"find_useSelection" = "Usar selección para buscar";
+"navigation_back" = "Atrás";
+"refresh" = "Actualizar";
+"scrollView_zoomIn" = "Ampliar";
+"scrollView_zoomOut" = "Reducir";
+"scrollView_zoomReset" = "Tamaño real";
+"window_close" = "Cerrar ventana";
+"window_cycle" = "Recorrer ventanas";

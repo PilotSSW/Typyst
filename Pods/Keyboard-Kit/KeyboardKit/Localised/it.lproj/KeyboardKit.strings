@@ -1,0 +1,36 @@
+// Douglas Hill, March 2020
+
+"app_newWindow" = "Nuova finestra";
+"app_settings" = "Impostazioni";
+"barButton_action" = "Condividi";
+"barButton_add" = "Aggiungi";
+"barButton_bookmarks" = "Segnalibri";
+"barButton_camera" = "Foto"; // Possible alternative: Fotocamera, which is used in the large content viewer.
+"barButton_cancel" = "Annulla";
+"barButton_close" = "Chiudi";
+"barButton_compose" = "Scrivi";
+"barButton_done" = "Fine";
+"barButton_edit" = "Modifica";
+"barButton_fastForward" = "Avanti veloce";
+"barButton_organize" = "Organizza";
+"barButton_pause" = "Pausa";
+"barButton_play" = "Riproduci";
+"barButton_redo" = "Ripristina";
+"barButton_reply" = "Rispondi";
+"barButton_rewind" = "Riavvolgi";
+"barButton_save" = "Salva";
+"barButton_search" = "Cerca";
+"barButton_stop" = "Interrompi";
+"barButton_undo" = "Annulla";
+"delete" = "Elimina";
+"find_jump" = "Vai alla selezione";
+"find_next" = "Cerca successivo";
+"find_previous" = "Cerca precedente";
+"find_useSelection" = "Usa selezione per cercare";
+"navigation_back" = "Indietro";
+"refresh" = "Aggiorna";
+"scrollView_zoomIn" = "Ingrandisci";
+"scrollView_zoomOut" = "Riduci";
+"scrollView_zoomReset" = "Dimensioni reali";
+"window_close" = "Chiudi finestra";
+"window_cycle" = "Scorri tra le finestre";

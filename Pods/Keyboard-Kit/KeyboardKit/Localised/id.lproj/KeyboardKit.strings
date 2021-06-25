@@ -1,0 +1,36 @@
+// Douglas Hill, March 2020
+
+"app_newWindow" = "Jendela Baru";
+"app_settings" = "Pengaturan";
+"barButton_action" = "Bagikan";
+"barButton_add" = "Tambah";
+"barButton_bookmarks" = "Penanda";
+"barButton_camera" = "Kamera";
+"barButton_cancel" = "Batalkan";
+"barButton_close" = "Tutup";
+"barButton_compose" = "Tulis";
+"barButton_done" = "Selesai";
+"barButton_edit" = "Edit";
+"barButton_fastForward" = "Percepat Maju";
+"barButton_organize" = "Atur";
+"barButton_pause" = "Jeda";
+"barButton_play" = "Putar";
+"barButton_redo" = "Ulang"; // The accessibility label is Ulangi. Went with Ulang to match the Mac menu bar.
+"barButton_reply" = "Balas";
+"barButton_rewind" = "Putar Balik";
+"barButton_save" = "Simpan";
+"barButton_search" = "Cari";
+"barButton_stop" = "Berhenti";
+"barButton_undo" = "Urung";
+"delete" = "Hapus";
+"find_jump" = "Lompat ke Pilihan";
+"find_next" = "Temukan Berikutnya";
+"find_previous" = "Temukan Sebelumnya";
+"find_useSelection" = "Gunakan Pilihan untuk Temukan";
+"navigation_back" = "Kembali";
+"refresh" = "Segarkan";
+"scrollView_zoomIn" = "Perbesar";
+"scrollView_zoomOut" = "Perkecil";
+"scrollView_zoomReset" = "Ukuran Asli";
+"window_close" = "Tutup Jendela";
+"window_cycle" = "Beralih Antarjendela";

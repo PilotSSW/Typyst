@@ -1,0 +1,36 @@
+// Douglas Hill, March 2020
+
+"app_newWindow" = "Új ablak";
+"app_settings" = "Beállítások";
+"barButton_action" = "Megosztás";
+"barButton_add" = "Hozzáadás";
+"barButton_bookmarks" = "Könyvjelzők";
+"barButton_camera" = "Kamera";
+"barButton_cancel" = "Mégsem";
+"barButton_close" = "Bezárás";
+"barButton_compose" = "Írás";
+"barButton_done" = "Kész";
+"barButton_edit" = "Szerkesztés";
+"barButton_fastForward" = "Gyors előretekerés";
+"barButton_organize" = "Szervezés"; // Possible alternative: Rendszerezés
+"barButton_pause" = "Szüneteltetés"; // This matches the iOS TV app, iOS Music app, and Mac Music app. However Szünet is more common in Apple strings files.
+"barButton_play" = "Lejátszás";
+"barButton_redo" = "Ismétlés";
+"barButton_reply" = "Válasz";
+"barButton_rewind" = "Visszatekerés";
+"barButton_save" = "Mentés";
+"barButton_search" = "Keresés";
+"barButton_stop" = "Leállítás";
+"barButton_undo" = "Visszavonás";
+"delete" = "Törlés";
+"find_jump" = "Ugrás a kijelölésre";
+"find_next" = "Következő keresése";
+"find_previous" = "Előző keresése";
+"find_useSelection" = "A kijelölés használata kereséshez"; // This matches TextEdit. More common in Apple strings files: Kijelölés használata a kereséshez
+"navigation_back" = "Vissza";
+"refresh" = "Frissítés";
+"scrollView_zoomIn" = "Nagyítás";
+"scrollView_zoomOut" = "Kicsinyítés";
+"scrollView_zoomReset" = "Tényleges méret";
+"window_close" = "Ablak bezárása";
+"window_cycle" = "Lépkedés az ablakok között";

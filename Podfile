@@ -8,8 +8,7 @@ target 'Typyst (iOS)' do
 
   # Pods for Typyst (iOS)
   # pod 'HotKey'
-  pod 'Keyboard-Kit
-'
+  pod 'Keyboard-Kit'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 end
@@ -21,7 +20,7 @@ target 'Typyst (macOS)' do
   use_frameworks!
 
   # Pods for Typyst (macOS)
-  pod 'HotKey'
+  pod 'GBDeviceInfo'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 end

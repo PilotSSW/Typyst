@@ -7,198 +7,341 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		077F64349DC31ACD0797662D72D19771 /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */; };
-		08022041F67205BA8CBE856C3F2868C0 /* Pods-Typyst (macOS)-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FF459806A7C8AB04E503A1C9502519 /* Pods-Typyst (macOS)-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0B3F7514850F55661017B77CB149AA2F /* Pods-Typyst (iOS)-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8284DD2A58C56D9EBC41564B74F209AF /* Pods-Typyst (iOS)-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B3BBE85ABEEBBE419B5B93D94D7E6AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6211DC64EE0C4A583BD39DC77839E732 /* Foundation.framework */; };
-		29784D27868C289298CBBC341C089C58 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6F3033D2CE00620D8E9D6E9392115 /* Key.swift */; };
-		331B5282E8015549AF4B12171ED6BE74 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */; };
-		3A8C4074A1C33731E5A73E137FA8FB64 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */; };
-		3BDFA459949B787FF4BA39DE9BF523AB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D01BB43E360955262D695A80722BA4A /* AppKit.framework */; };
-		5089789292C84FE4F9A451AC4CE2EB36 /* SwiftySound-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7D416A70F4B1112F99887B160A2A54 /* SwiftySound-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5134709B84A8D24976D686243BD8C599 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */; };
-		51EE0D7A65A911F07F96D6FA85819624 /* FilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */; };
-		52E072C0F76D73FB7830155C7666BAB0 /* Pods-Typyst (macOS)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C669D08379876944EC115F2FC2312A /* Pods-Typyst (macOS)-dummy.m */; };
-		53FC0EB21206470D75586CAED82CC4E4 /* SwiftySound-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B894CB5EC0CF0A55FE5147037B482 /* SwiftySound-macOS-dummy.m */; };
-		56763EC306C87683C77818E342777ACC /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */; };
-		617AD8415C7BFE4778E1428A6F9F492C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
-		6329F2E68803BCDBFC3C3A48DF5109E3 /* HotKey-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B66FA24277067DCF54FA24F7E8E018C6 /* HotKey-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6AC4797A84F14961BAC5BF9C27B25763 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */; };
-		753C094F16E687CC3C027B49F9A6DE3C /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC7AE2C053EF1CDBED66C1125C62270 /* HotKeysController.swift */; };
-		758C456886CAD60355CF97B82FDED500 /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */; };
-		7608325295CE2CE22C53099D5B155A2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */; };
-		7672C1D40220A535C930E3E9CF863AE7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */; };
-		76EB665D1BE680E8E87144ED9DDE2DD7 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */; };
-		7745CEE67436165A0B67B8EEA2F16AEE /* Pods-Typyst (iOS)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3172B7D08E321D09F7145E61DADFEB06 /* Pods-Typyst (iOS)-dummy.m */; };
-		776CE982ECF08EBAF427736467EEAC75 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */; };
-		7A0FFB1C85FEFD5FD238A263E3046CA0 /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */; };
-		7E33384639D786C791ECC0E8204D0AFD /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */; };
-		7F82FB38D9715563E5A6CDF5C1520F10 /* SwiftyBeaver-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DE088B7B38918F18440F5C701CA9CA /* SwiftyBeaver-macOS-dummy.m */; };
-		83281FD4F7E0DA20F80B47C1781A0624 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B790F3B9E34E045D3D304540642C5 /* Base64.swift */; };
-		8E534754195F8B492F1E85DDF7A98288 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
-		8EF36C9D824A4225E209117AD1DC472F /* SwiftySound-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A80A1CD6F4371F7C4E6B2AD5A0B3C661 /* SwiftySound-iOS-dummy.m */; };
-		98004A5B82745E1220D9D6553B3C6279 /* FilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */; };
-		981D7C5CC82165B40DD13F8A9C9476F4 /* SwiftyBeaver-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA42C22FC6B2E70FEEF712E9FA6D2DCF /* SwiftyBeaver-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9BE82DE86F384EAD7B0B42894C0ECD75 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61C54DEE1833DFD2548984D62BA1017 /* Carbon.framework */; };
-		9C995A1C6CEE3603CBD3C829D8ECEF8C /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08609C8A7C12D5BC79B226C99B4391F9 /* HotKey.swift */; };
-		9F8A3804983EC82AD12F51B91DAEAB87 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */; };
-		A3543A70DF8931D1D0C5FA57A6B0FB4B /* HotKey-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9D862BD13F10D1C4EF4E247242B363 /* HotKey-dummy.m */; };
-		AC4C5BB0B2FC7A5418143ADE0E9D35E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
-		AF10DFCACE298381592A1B101DE4D3E2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */; };
-		B1E75E67962EF3891467FAA026346869 /* NSEventModifierFlags+HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8664C6239D8E89788443BB6995E5E7 /* NSEventModifierFlags+HotKey.swift */; };
-		B45E369B43DCCA11510365290AA0A22C /* SwiftySound-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67034DFA25922F9281D60ABBE474EA89 /* SwiftySound-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B690623CBB2C64D853AC854EA9B3DD60 /* KeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69383A5F6DD20CBAA145E5B728B427A8 /* KeyCombo.swift */; };
-		BAF678B26FDB5E8D277D5F14C3E169A3 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */; };
-		C4ED7291BDC1419A64AD15D0A2C2C473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */; };
-		C8D6C7A1138324F951F8DA055A4557F6 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B790F3B9E34E045D3D304540642C5 /* Base64.swift */; };
-		CDFF1CFDBA33AF524DA0CDA8C338B44A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */; };
-		E08AB6CBECB2911768CF77215EBB8A84 /* SwiftyBeaver-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5559A3A112BD5D1AA979F0EDCED68738 /* SwiftyBeaver-iOS-dummy.m */; };
-		E21BF22106BA915E4AE78481AF4CD027 /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */; };
-		E553F6A59DE9487B29AF377961197EDB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3977F7AAFCF1DDF63296A2E0ED532240 /* AVFoundation.framework */; };
-		E7AD4B3B46302702F55F2692310E2587 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */; };
-		EA6F221160948961E960048145BFE8B3 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */; };
-		F19263E32D28BA19569269E3566458CE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EADDFD65A1B779D36944CBC40893DA /* AVFoundation.framework */; };
-		F371BFC3EFD024F06A0AB702F4D8EB49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */; };
-		F41376FE0C473744917E37EFB093C3A5 /* SwiftyBeaver-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F99B02BF5EE4CE2B4A66D7D7467A2C7B /* SwiftyBeaver-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F73FC4AE6604450245D162924140B412 /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */; };
-		F8D81521647E81303248C2C2394E2287 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */; };
+		01ACEDFDE43951B3DBE383EFFD347569 /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B6F211F864C56C1D8B64845FFA1A0743 /* ja.lproj */; };
+		033691983AF3819BC3D882F04E90E6A1 /* ko.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4380067AA2D5807B847E7D96E21F25CD /* ko.lproj */; };
+		077F64349DC31ACD0797662D72D19771 /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCED131D79A32BC18DC02F51C58B3C /* FileDestination.swift */; };
+		085057D797B5565FB194CEB893CF0C1E /* sk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B01A3D9D314B979486F55C8F591412AC /* sk.lproj */; };
+		0A33274C18972DAFE0A655AF9A5F53E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE0E5303E50D5532A578A4737A4AEF3 /* Foundation.framework */; };
+		115547ABFB730EC2F19F0BA44102B37D /* Pods-Typyst (iOS)-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8284DD2A58C56D9EBC41564B74F209AF /* Pods-Typyst (iOS)-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		117D396F2A193B42FA4AD53A646A9A11 /* KeyboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FEF2E6CF46FE9402C17DCE546108CB /* KeyboardTabBarController.swift */; };
+		120191907686C286E6AE3933C1916E61 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956BBEEDE336D3D65FAF8A327CAFFA85 /* CoreServices.framework */; };
+		12B87C7780C2C855673A876D81AF89F0 /* KeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C700936FFECD0F948764BE61BC88BB /* KeyboardTextView.swift */; };
+		173E213C855351F6BC20D36F9FDD5C55 /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1B35CFC132D09D517B603AA6890969BE /* it.lproj */; };
+		18C2F2C5F1675748E774E89B500FB045 /* Keyboard-Kit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DC3D28E005E738C17DB9A1BFB1F30A /* Keyboard-Kit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B0D4938A6A0AB035BD2DF852FC167E6 /* BarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A815F36B854C34589DF62D5350DA610D /* BarButtonItem.m */; };
+		1B3BBE85ABEEBBE419B5B93D94D7E6AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE0E5303E50D5532A578A4737A4AEF3 /* Foundation.framework */; };
+		1D292DBC89CFCF71B76CC0656B37323F /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F873B8F365AE6A91DC0A67C27DBDF7F7 /* id.lproj */; };
+		1E7C29232E9D5B7D01A19BFB8107DF24 /* pt-BR.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDC8E5E4B10E22DCEA4A2DFEA142BA /* pt-BR.lproj */; };
+		210FB3D8F5E84509B35FE93DB11C9E96 /* KeyboardApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC7E725FC5EC6341F453EC3714E741 /* KeyboardApplication.swift */; };
+		22F4EC0971DA96F1323AF2C36E938E6C /* Pods-Typyst (macOS)-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FF459806A7C8AB04E503A1C9502519 /* Pods-Typyst (macOS)-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		253608DD0D0B9864498AE99D119C7F4C /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = D7ADB5BC20CAE0863C48D326BF792EFF /* en.lproj */; };
+		331B5282E8015549AF4B12171ED6BE74 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857CAC92CE43A5C4297C99EC4704F1B /* Sound.swift */; };
+		368A7B477230BED8898C9DE6A461C6F1 /* sv.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2AC635D412FFA1B059B6343326526DDD /* sv.lproj */; };
+		3738F7EBEF61F24641DF8B6C35290415 /* el.lproj in Resources */ = {isa = PBXBuildFile; fileRef = ED1D3621331F30413BA01D60B0F48E05 /* el.lproj */; };
+		3A8C4074A1C33731E5A73E137FA8FB64 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E6FA15ADCFCA4FFC76C623731A289 /* GoogleCloudDestination.swift */; };
+		3E18F9FEB64439E3583D59E3B1F80E3D /* nb.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F9E3BA70CF32F05A176F6A10D88B666F /* nb.lproj */; };
+		4279522A6005E2E02E43471C610C6428 /* KeyboardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE37B588F301D13F31DDD332DF112A1 /* KeyboardScrollView.swift */; };
+		47F7A9A4A9BBBF72B6E247DA75A1D715 /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A0038C2E61B3990C943460AF975A3844 /* fr.lproj */; };
+		493C63C956E7F82862F4E8771DFDEF7A /* Keyboard-Kit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD66EB189CA23BD5A36CA763D803FA /* Keyboard-Kit-dummy.m */; };
+		4D77237AE442CB5C4BBF29C5EDA320DC /* hu.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9CB1E58CC1129753635203D1AEA9E9DB /* hu.lproj */; };
+		4E9C327DC6328803777F3C60DB90FED6 /* GBDeviceInfo_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EDA9791D7BB2565E43A58D989ADCA95 /* GBDeviceInfo_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5089789292C84FE4F9A451AC4CE2EB36 /* SwiftySound-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EC3F118C65506646B902BAA6D3AE1CD /* SwiftySound-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50912A44CEE3765B7BE1B18DC460A14D /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = CB9795CF7D948A0FEF1F1A75B3847A97 /* nl.lproj */; };
+		509FA7DC1A3B00AC5CDAB250DB441D2F /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6B62643682B363C3D3F1BDEDC9E0F3DC /* es.lproj */; };
+		5134709B84A8D24976D686243BD8C599 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A857CAC92CE43A5C4297C99EC4704F1B /* Sound.swift */; };
+		51EE0D7A65A911F07F96D6FA85819624 /* FilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10083A92FC9F40893004E3689F847515 /* FilterValidator.swift */; };
+		528D41BD8E04A3CF06BE5E1CC6914410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C29D50076CE64E5476D73CB7B1ED078 /* Foundation.framework */; };
+		53FC0EB21206470D75586CAED82CC4E4 /* SwiftySound-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7EC4618FFC82FC36393F7EE33CEA8 /* SwiftySound-macOS-dummy.m */; };
+		549E26AE0A760AE716A6BDCB39CC87DB /* fr-CA.lproj in Resources */ = {isa = PBXBuildFile; fileRef = CE868C60C305C94706401574AB5B1904 /* fr-CA.lproj */; };
+		562563577718706ABD677FD0B5599A5B /* fi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8CC2502C353C8B3D437E9A8DF7D6BCB0 /* fi.lproj */; };
+		56763EC306C87683C77818E342777ACC /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B022016F43C85846095E4215A56E40 /* BaseDestination.swift */; };
+		56B4A3A6704BCBF98FE62DEC6432F608 /* InjectableResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6384FC26C48D5C0A175E41067514BEBB /* InjectableResponder.swift */; };
+		5B0D02A7BECD0C2C6A6EA2B1B87444A4 /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A4452E05C5E5490F85BEF3228ED93B7A /* zh-Hant.lproj */; };
+		5E75507B4671B38AFDA372544FC86D4A /* ro.lproj in Resources */ = {isa = PBXBuildFile; fileRef = ED3BD65016E77195EEB7855C31598686 /* ro.lproj */; };
+		6649E26F227759FCE4FEAF466D75B7A4 /* GBDeviceInfoTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE0C7CEFA0F8F739C316C3F6758E82C /* GBDeviceInfoTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		680CD767C83661A99394BD63A35ABC59 /* KeyboardSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1AB9857451AAE13492820523999A6D /* KeyboardSplitViewController.swift */; };
+		6AC4797A84F14961BAC5BF9C27B25763 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17101AA6C2EAF6AEE6116A80C531B34A /* Extensions.swift */; };
+		6B7386C8307CD931396B01E79FEDD304 /* KeyInputStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF28A0158A035F0383A561ADA289E1 /* KeyInputStrings.swift */; };
+		73B42CDE3185F9E067B339A15FF2F23A /* pt-PT.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 60FCDC1EF7398F4721C6B62A9AC75E99 /* pt-PT.lproj */; };
+		758C456886CAD60355CF97B82FDED500 /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FB1E9D9CC7F04EAC0E572EF4B6359 /* SBPlatformDestination.swift */; };
+		7608325295CE2CE22C53099D5B155A2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C29D50076CE64E5476D73CB7B1ED078 /* Foundation.framework */; };
+		7672C1D40220A535C930E3E9CF863AE7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17101AA6C2EAF6AEE6116A80C531B34A /* Extensions.swift */; };
+		76EB665D1BE680E8E87144ED9DDE2DD7 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292C751D3EA0DC69C4FDCBF31003C12 /* ConsoleDestination.swift */; };
+		776CE982ECF08EBAF427736467EEAC75 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035C24AD63355583E6E2E4C8DB24EC61 /* AES256CBC.swift */; };
+		777A38FBE0687CAE0F1E82FF405976A9 /* KeyboardWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543BC74FD8CABC97E5057DEFA0ADCD3 /* KeyboardWindow.swift */; };
+		7A0FFB1C85FEFD5FD238A263E3046CA0 /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B022016F43C85846095E4215A56E40 /* BaseDestination.swift */; };
+		7B18CF75A60564D98BCF1F19EADAED89 /* hr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 13A02C3A84E3BFCA0CFDB1945E0DCF09 /* hr.lproj */; };
+		7E33384639D786C791ECC0E8204D0AFD /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29B95AF0856632A4DFEFE5F0874518 /* SwiftyBeaver.swift */; };
+		7F82FB38D9715563E5A6CDF5C1520F10 /* SwiftyBeaver-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC55412D2FE5B40DB13769BEA760726 /* SwiftyBeaver-macOS-dummy.m */; };
+		83281FD4F7E0DA20F80B47C1781A0624 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA606E6BE2F42010803330AA359E0C60 /* Base64.swift */; };
+		8BE73641FD2A400961FB4C813268350C /* KeyboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E801D86AE46EF803179A1A9FE5713 /* KeyboardTableView.swift */; };
+		8D8E95589A27CBA705C3DB8F351074C6 /* GBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D681DEC600C225DD6FE9D7244B76934A /* GBDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E534754195F8B492F1E85DDF7A98288 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F297799F71D90819CE741E5AF01860A /* Cocoa.framework */; };
+		8EF36C9D824A4225E209117AD1DC472F /* SwiftySound-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A49EFA19723D0F3E79192A94076C18EF /* SwiftySound-iOS-dummy.m */; };
+		8FBC38FAECE71DEEA458964BE2121441 /* KeyboardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7881424480FD0EE7188503608991EA /* KeyboardNavigationController.swift */; };
+		90BB2AD3BED160CA85D369AB4C13668C /* ms.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 393393A8619D131FFD28123BD78F5BD8 /* ms.lproj */; };
+		9399AC0213B2413A906821091B41393B /* GBDeviceInfo_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EA23FEC150DF794A902DADF417C9F4 /* GBDeviceInfo_OSX.m */; };
+		98004A5B82745E1220D9D6553B3C6279 /* FilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10083A92FC9F40893004E3689F847515 /* FilterValidator.swift */; };
+		981D7C5CC82165B40DD13F8A9C9476F4 /* SwiftyBeaver-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F874D0FA3B01D866F241DDC60ABA5881 /* SwiftyBeaver-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E0404C052A3238D8D9A4057B8418FCC /* LocalisedStringKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1467227EC8A75CE9DCA5B12738A50 /* LocalisedStringKeys.swift */; };
+		9F245D46EBE011FE2DB699C8628CEDD7 /* ca.lproj in Resources */ = {isa = PBXBuildFile; fileRef = D1016D105B04B8CBC5C82229B09CDBDE /* ca.lproj */; };
+		9F8A3804983EC82AD12F51B91DAEAB87 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292C751D3EA0DC69C4FDCBF31003C12 /* ConsoleDestination.swift */; };
+		9F9DFD03A2C273BBFCCB1CEDF11D336B /* GBDeviceInfoInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 304A10D0F32F5084378B6EB8265641DB /* GBDeviceInfoInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0E952FD29C9426856E1787FAB89E119 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F297799F71D90819CE741E5AF01860A /* Cocoa.framework */; };
+		A1FDC613545358BD8EF1CF7961A275E1 /* ScrollViewKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358B675B12DED7D128B7CE95940B8C1 /* ScrollViewKeyHandler.swift */; };
+		A6158CA7007F6733E00A16BB9FE8B0E8 /* KeyboardWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978D876AF912415D19487889C53DB89B /* KeyboardWindowScene.swift */; };
+		A86EA5C8BFAE4E0EBE45EEFF2F657264 /* KeyboardKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A775CB1708147613ABB87796D8BECC19 /* KeyboardKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2D924BDF3E88DD2686CA474D4FBBA1 /* Pods-Typyst (iOS)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3172B7D08E321D09F7145E61DADFEB06 /* Pods-Typyst (iOS)-dummy.m */; };
+		AC4C5BB0B2FC7A5418143ADE0E9D35E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F297799F71D90819CE741E5AF01860A /* Cocoa.framework */; };
+		AF10DFCACE298381592A1B101DE4D3E2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BF19375EA353D292C941E62D279873 /* Filter.swift */; };
+		AFAACFBCB73D72E54B4F4DA69B8DB90C /* es-419.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 33217C8F740587D9E0FF5C2D22597765 /* es-419.lproj */; };
+		B0C13F0472303EC0DB4A61BAD1A115BF /* cs.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4B0F9B403756166A8529BCA8AC05B1AB /* cs.lproj */; };
+		B1C3E587EE7954AF591FF792111B8F03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C29D50076CE64E5476D73CB7B1ED078 /* Foundation.framework */; };
+		B2D535F3EC1A37753F597AD6316755BA /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 64C2E34C42DE0B5A4C4405EB40D53B4A /* vi.lproj */; };
+		B3E0DA0E9E2813A0149123CCD1041691 /* GBDeviceInfoTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D8B3A8BE882D1D0B0461E2A4D07936B /* GBDeviceInfoTypes_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B45E369B43DCCA11510365290AA0A22C /* SwiftySound-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F7D1CE7C9DF092587E5732577D351F /* SwiftySound-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4910F73C04A4BD0077185E9CCBAA74A /* GBDeviceInfo_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1074853361EA9D49C5A01389998E53 /* GBDeviceInfo_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6B519542BA4C538175DF2281DAFA922 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F297799F71D90819CE741E5AF01860A /* Cocoa.framework */; };
+		BAF678B26FDB5E8D277D5F14C3E169A3 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BF19375EA353D292C941E62D279873 /* Filter.swift */; };
+		BAFECCF3584FB84E46CC806802BE6F0B /* th.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3D7CD54A8827CDB6170BFCC495A6BE44 /* th.lproj */; };
+		BE24730BB3643BD8420BF49BFD71693A /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8209D49232873B45092AC468753B2F44 /* tr.lproj */; };
+		C2C74F68C3E3ED9094267F40F3A015E5 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A4F0FDFD0F437E5632159565A2F9E206 /* pl.lproj */; };
+		C2FCC62601F3E035EA704B51999083C3 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8105E293E8BDFF792DDF4399F2D7D71 /* TextInput.swift */; };
+		C394122E408A93BCA1F9E183B064B5E2 /* GBDeviceInfo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F3DC4603DC54E1DB3D1D9FE4253F27D7 /* GBDeviceInfo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4692AC9BA89AB1A6779A23D8BF79951 /* en-AU.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 31FA6BDD4045473F8A2F5C279629FF10 /* en-AU.lproj */; };
+		C4ED7291BDC1419A64AD15D0A2C2C473 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C29D50076CE64E5476D73CB7B1ED078 /* Foundation.framework */; };
+		C6AA22E4F64778DCC34D964A8ACF922A /* GBDeviceInfo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C643C324CC549C6A172C26C830858C /* GBDeviceInfo-dummy.m */; };
+		C85B62E199175979F84F231C6E991539 /* KeyboardBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C4D7D3A10A8445B33AEA2627C785E8 /* KeyboardBarButtonItem.swift */; };
+		C8D6C7A1138324F951F8DA055A4557F6 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA606E6BE2F42010803330AA359E0C60 /* Base64.swift */; };
+		CE651168F85D072839D9E542EFAEEFC8 /* ar.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 438A9297DFA0B914718501D83A65C88B /* ar.lproj */; };
+		D4B234AA256C14A1266E0DE43FB2EB18 /* zh-HK.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 58A0A87F34EEEA4758928B00143FCFA8 /* zh-HK.lproj */; };
+		D4E6974A82435858AB3F0F17AA6557E3 /* KeyboardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F950830339D3910276C35C87AB90CA /* KeyboardCollectionView.swift */; };
+		D5153A9541A8452DB58BA1B83ABAB42E /* Pods-Typyst (macOS)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C669D08379876944EC115F2FC2312A /* Pods-Typyst (macOS)-dummy.m */; };
+		D7A234AB6D69AF434831E45AB12D89C4 /* he.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C307C6905D66F7AD2527DE56969D9A46 /* he.lproj */; };
+		D82A7F6A4AF10E27D601381054AFCBFE /* GBDeviceInfo_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8CB2C7177F7E6E75EE97C7B14AF1C0 /* GBDeviceInfo_Common.m */; };
+		D8DA25E20B42387E4D04497EABEDF3EF /* en-GB.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 98339575A3799AF9C0E01E5810B2A320 /* en-GB.lproj */; };
+		DC9F5E3653FE11BE5BB2F9234DC5CCB5 /* da.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C5524557272CA655BDAEB688A9861802 /* da.lproj */; };
+		E08AB6CBECB2911768CF77215EBB8A84 /* SwiftyBeaver-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D01880FCE58453DAEDD734521FED9FBA /* SwiftyBeaver-iOS-dummy.m */; };
+		E21BF22106BA915E4AE78481AF4CD027 /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FB1E9D9CC7F04EAC0E572EF4B6359 /* SBPlatformDestination.swift */; };
+		E553F6A59DE9487B29AF377961197EDB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFEE2D4D85BBB1505CC5E722D9457E6 /* AVFoundation.framework */; };
+		E5A3972BB1AE070CFF6D1DDDF50D8065 /* SelectableCollectionKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AD2178DE3D8E5521219E65962C927 /* SelectableCollectionKeyHandler.swift */; };
+		E5FF5A2E7AE61D0F5A067639562C4FA2 /* GBDeviceInfo_Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 1417C518391EFC62CC422BD13B371FEB /* GBDeviceInfo_Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7AD4B3B46302702F55F2692310E2587 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E6FA15ADCFCA4FFC76C623731A289 /* GoogleCloudDestination.swift */; };
+		EA6F221160948961E960048145BFE8B3 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29B95AF0856632A4DFEFE5F0874518 /* SwiftyBeaver.swift */; };
+		EC9924D09F709485C4A3B7EF5DFA9780 /* KeyCommandCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E31133B17978C7B540D2EA4F167B0 /* KeyCommandCreation.swift */; };
+		EEAED81DF6F1579D397C477192CE71FB /* PointAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570DAD2337CC58001B1A1CDAD3FD32A /* PointAnimator.swift */; };
+		EF6334550DCAE322A2ADB153ABF35B9A /* uk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = ED43A0BAC2EE0EF6C6F2D4B2187C79A3 /* uk.lproj */; };
+		F19263E32D28BA19569269E3566458CE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3858B1ED7FE33ED4B42C35D0B63AB328 /* AVFoundation.framework */; };
+		F41376FE0C473744917E37EFB093C3A5 /* SwiftyBeaver-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C65A0474C4A260CD2270E91578F74E4D /* SwiftyBeaver-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F59BCA02A52D30B6FD817CC9AA74D904 /* KeyboardScrollingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A795076B288389CE25665E78DE47CD /* KeyboardScrollingDelegate.swift */; };
+		F73FC4AE6604450245D162924140B412 /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FCED131D79A32BC18DC02F51C58B3C /* FileDestination.swift */; };
+		F8BC690BC4724C0A6E7A94137BC9DE78 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 36C2978554F6222D291167427B738432 /* de.lproj */; };
+		F8D81521647E81303248C2C2394E2287 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035C24AD63355583E6E2E4C8DB24EC61 /* AES256CBC.swift */; };
+		F999B1FF2F55C999E218B95E4C8BB275 /* LocalisedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F5A227D27A9C1267062659438B562 /* LocalisedStrings.swift */; };
+		FA16C1A90B569CB71150E701177B4E60 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EF2B52C16CA86435F06B8D3C78BA3322 /* zh-Hans.lproj */; };
+		FAE4215C0807C5CEF4536871205A175F /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 96FBF4A3353C77739519313E460BBB70 /* ru.lproj */; };
+		FDEB2E974E1128C8643944180097D1C9 /* BarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6720966F7D0ECFB6A09119F36070E121 /* BarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE21FDC75731FD9A6255537B6F0A69D3 /* hi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 72A2E6CFE785B8C6C0CF0CC57F51FE3E /* hi.lproj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3C137B111E5684A41E59F04D8331603F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B8198B4CD53FFE0380A2C93CA07E398E;
-			remoteInfo = "SwiftyBeaver-macOS";
-		};
-		43DD72414F79B2045D9050A400D20207 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1657B1C164E298BCDD3AE7E8C428882E;
-			remoteInfo = "SwiftyBeaver-iOS";
-		};
-		4D816307826EB43E83BF4476917BAFD1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00A7ADFCA135434D9D61E3EBB2D7C5CB;
-			remoteInfo = "SwiftySound-macOS";
-		};
-		95074938D309C27B81EDD249C6E6C673 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB4D977E4336D9F2E9E510A33CD1DB6D;
-			remoteInfo = HotKey;
-		};
-		B7D85C5E1AF745B0D6B126FA8EF83A33 /* PBXContainerItemProxy */ = {
+		0B2E564CE87B8B0614C80A1AE3C7BDA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 69E0094CB392D613B06E78E171658822;
 			remoteInfo = "SwiftySound-iOS";
 		};
+		22633533F5DB42C2B5568FF1D0E9E6C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8198B4CD53FFE0380A2C93CA07E398E;
+			remoteInfo = "SwiftyBeaver-macOS";
+		};
+		26FAA1F4EEF82CB20087627944301D1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C39835229AAE97B8B43A674C5F34D5A;
+			remoteInfo = "Keyboard-Kit";
+		};
+		B71FA0FF036A5DC78E233623FE123675 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB98E1FC6C2504C46E7DE517B82518B8;
+			remoteInfo = GBDeviceInfo;
+		};
+		C02B4FBFE5399F9F8F986C53BD788D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00A7ADFCA135434D9D61E3EBB2D7C5CB;
+			remoteInfo = "SwiftySound-macOS";
+		};
+		CD8902B2DEBCA56977A9FBFC09A0A660 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1657B1C164E298BCDD3AE7E8C428882E;
+			remoteInfo = "SwiftyBeaver-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		019B790F3B9E34E045D3D304540642C5 /* Base64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Base64.swift; path = Sources/Base64.swift; sourceTree = "<group>"; };
+		00D3C7582E867D620F090B60E358BB59 /* SwiftyBeaver-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyBeaver-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		0358B675B12DED7D128B7CE95940B8C1 /* ScrollViewKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollViewKeyHandler.swift; path = KeyboardKit/ScrollViewKeyHandler.swift; sourceTree = "<group>"; };
+		035C24AD63355583E6E2E4C8DB24EC61 /* AES256CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES256CBC.swift; path = Sources/AES256CBC.swift; sourceTree = "<group>"; };
 		0472116307E881BD934BA8E69BDC3277 /* Pods-Typyst (macOS)-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (macOS)-acknowledgements.plist"; sourceTree = "<group>"; };
-		07A6F3033D2CE00620D8E9D6E9392115 /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Sources/HotKey/Key.swift; sourceTree = "<group>"; };
-		08609C8A7C12D5BC79B226C99B4391F9 /* HotKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HotKey.swift; path = Sources/HotKey/HotKey.swift; sourceTree = "<group>"; };
+		069A4741BCFAB8A4004B5D996BB2003D /* SwiftySound-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "SwiftySound-macOS-Info.plist"; path = "../SwiftySound-macOS/SwiftySound-macOS-Info.plist"; sourceTree = "<group>"; };
+		0A1AB9857451AAE13492820523999A6D /* KeyboardSplitViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardSplitViewController.swift; path = KeyboardKit/KeyboardSplitViewController.swift; sourceTree = "<group>"; };
+		0BFEE2D4D85BBB1505CC5E722D9457E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = "SwiftyBeaver-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F0F5A227D27A9C1267062659438B562 /* LocalisedStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalisedStrings.swift; path = KeyboardKit/LocalisedStrings.swift; sourceTree = "<group>"; };
 		0F61F0161DD2E1820034F3B9A9E160F4 /* SwiftySound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftySound.framework; path = "SwiftySound-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Sources/Sound.swift; sourceTree = "<group>"; };
-		185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
-		19FEA0D0493FB0B88DC122826A71F850 /* SwiftyBeaver-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyBeaver-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		1C7D416A70F4B1112F99887B160A2A54 /* SwiftySound-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftySound-iOS-umbrella.h"; sourceTree = "<group>"; };
-		29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES256CBC.swift; path = Sources/AES256CBC.swift; sourceTree = "<group>"; };
+		10083A92FC9F40893004E3689F847515 /* FilterValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FilterValidator.swift; path = Sources/FilterValidator.swift; sourceTree = "<group>"; };
+		1292C751D3EA0DC69C4FDCBF31003C12 /* ConsoleDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleDestination.swift; path = Sources/ConsoleDestination.swift; sourceTree = "<group>"; };
+		13A02C3A84E3BFCA0CFDB1945E0DCF09 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hr.lproj; path = KeyboardKit/Localised/hr.lproj; sourceTree = "<group>"; };
+		1417C518391EFC62CC422BD13B371FEB /* GBDeviceInfo_Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo_Subclass.h; path = GBDeviceInfo/GBDeviceInfo_Subclass.h; sourceTree = "<group>"; };
+		1616896935E94585DFF1C123B7C4ADB9 /* GBDeviceInfo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GBDeviceInfo.modulemap; sourceTree = "<group>"; };
+		17101AA6C2EAF6AEE6116A80C531B34A /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
+		1B35CFC132D09D517B603AA6890969BE /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = KeyboardKit/Localised/it.lproj; sourceTree = "<group>"; };
+		1FC55412D2FE5B40DB13769BEA760726 /* SwiftyBeaver-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftyBeaver-macOS-dummy.m"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-dummy.m"; sourceTree = "<group>"; };
+		2AC635D412FFA1B059B6343326526DDD /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sv.lproj; path = KeyboardKit/Localised/sv.lproj; sourceTree = "<group>"; };
+		2AFC7E725FC5EC6341F453EC3714E741 /* KeyboardApplication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardApplication.swift; path = KeyboardKit/KeyboardApplication.swift; sourceTree = "<group>"; };
 		2B0970DB3184ABD274DF127C83945CEB /* Pods-Typyst (iOS)-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Typyst (iOS)-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2B5043A6BE66D08ED6642A9C34A5A63C /* Pods_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Typyst__iOS_.framework; path = "Pods-Typyst (iOS).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CC7AE2C053EF1CDBED66C1125C62270 /* HotKeysController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HotKeysController.swift; path = Sources/HotKey/HotKeysController.swift; sourceTree = "<group>"; };
-		313AC6D012D22C7DB738AAD9687CACA5 /* SwiftyBeaver-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftyBeaver-macOS-prefix.pch"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch"; sourceTree = "<group>"; };
+		2C29D50076CE64E5476D73CB7B1ED078 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2FC165ACE46655D07F5319F417383B4C /* SwiftyBeaver-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-iOS-prefix.pch"; sourceTree = "<group>"; };
+		304A10D0F32F5084378B6EB8265641DB /* GBDeviceInfoInterface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfoInterface.h; path = GBDeviceInfo/GBDeviceInfoInterface.h; sourceTree = "<group>"; };
+		31246B030D3B1FFFC1A29AAF9C8E365C /* SwiftySound-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SwiftySound-iOS.modulemap"; sourceTree = "<group>"; };
 		3172B7D08E321D09F7145E61DADFEB06 /* Pods-Typyst (iOS)-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Typyst (iOS)-dummy.m"; sourceTree = "<group>"; };
+		31FA6BDD4045473F8A2F5C279629FF10 /* en-AU.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "en-AU.lproj"; path = "KeyboardKit/Localised/en-AU.lproj"; sourceTree = "<group>"; };
+		33217C8F740587D9E0FF5C2D22597765 /* es-419.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "es-419.lproj"; path = "KeyboardKit/Localised/es-419.lproj"; sourceTree = "<group>"; };
 		35202DF2FE8BE05C93864C79783FC71F /* Pods-Typyst (iOS)-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (iOS)-Info.plist"; sourceTree = "<group>"; };
-		388B894CB5EC0CF0A55FE5147037B482 /* SwiftySound-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftySound-macOS-dummy.m"; path = "../SwiftySound-macOS/SwiftySound-macOS-dummy.m"; sourceTree = "<group>"; };
-		3977F7AAFCF1DDF63296A2E0ED532240 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		4D06B954B886286D3A03A1D40E240B44 /* SwiftySound-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftySound-macOS.release.xcconfig"; path = "../SwiftySound-macOS/SwiftySound-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SBPlatformDestination.swift; path = Sources/SBPlatformDestination.swift; sourceTree = "<group>"; };
+		36C2978554F6222D291167427B738432 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = KeyboardKit/Localised/de.lproj; sourceTree = "<group>"; };
+		3858B1ED7FE33ED4B42C35D0B63AB328 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		393393A8619D131FFD28123BD78F5BD8 /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ms.lproj; path = KeyboardKit/Localised/ms.lproj; sourceTree = "<group>"; };
+		3CCA1115C40B72F20B7203250A8D9198 /* Keyboard-Kit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Keyboard-Kit.release.xcconfig"; sourceTree = "<group>"; };
+		3D7CD54A8827CDB6170BFCC495A6BE44 /* th.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = th.lproj; path = KeyboardKit/Localised/th.lproj; sourceTree = "<group>"; };
+		4380067AA2D5807B847E7D96E21F25CD /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ko.lproj; path = KeyboardKit/Localised/ko.lproj; sourceTree = "<group>"; };
+		438A9297DFA0B914718501D83A65C88B /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ar.lproj; path = KeyboardKit/Localised/ar.lproj; sourceTree = "<group>"; };
+		49FD66EB189CA23BD5A36CA763D803FA /* Keyboard-Kit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Keyboard-Kit-dummy.m"; sourceTree = "<group>"; };
+		4B0F9B403756166A8529BCA8AC05B1AB /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = cs.lproj; path = KeyboardKit/Localised/cs.lproj; sourceTree = "<group>"; };
+		4B4E31133B17978C7B540D2EA4F167B0 /* KeyCommandCreation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyCommandCreation.swift; path = KeyboardKit/KeyCommandCreation.swift; sourceTree = "<group>"; };
+		4CFF28A0158A035F0383A561ADA289E1 /* KeyInputStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyInputStrings.swift; path = KeyboardKit/KeyInputStrings.swift; sourceTree = "<group>"; };
 		4E5A606D9B6AA5487718874BFA2A18C1 /* Pods_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Typyst__macOS_.framework; path = "Pods-Typyst (macOS).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54A4AED0E4C55B26EF2CEED271A06FE1 /* SwiftySound-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftySound-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		5559A3A112BD5D1AA979F0EDCED68738 /* SwiftyBeaver-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyBeaver-iOS-dummy.m"; sourceTree = "<group>"; };
+		4EC3F118C65506646B902BAA6D3AE1CD /* SwiftySound-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftySound-iOS-umbrella.h"; sourceTree = "<group>"; };
+		4F297799F71D90819CE741E5AF01860A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		51F38A7320A9958FD2D9D5FF731FDA94 /* SwiftySound-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftySound-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		52FEF2E6CF46FE9402C17DCE546108CB /* KeyboardTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardTabBarController.swift; path = KeyboardKit/KeyboardTabBarController.swift; sourceTree = "<group>"; };
 		5573D126E6F62982656C7452D83137C6 /* Pods-Typyst (iOS)-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Typyst (iOS)-frameworks.sh"; sourceTree = "<group>"; };
 		57C669D08379876944EC115F2FC2312A /* Pods-Typyst (macOS)-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Typyst (macOS)-dummy.m"; sourceTree = "<group>"; };
+		58A0A87F34EEEA4758928B00143FCFA8 /* zh-HK.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-HK.lproj"; path = "KeyboardKit/Localised/zh-HK.lproj"; sourceTree = "<group>"; };
 		5C599A1045FCF0A11C456286DA62A8BE /* Pods-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
-		5C7FB3D2109BAD243F82D8ABDE3A3BD0 /* SwiftySound-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SwiftySound-macOS.modulemap"; path = "../SwiftySound-macOS/SwiftySound-macOS.modulemap"; sourceTree = "<group>"; };
-		5ED285463DAB210297E8AD3A255E345A /* SwiftyBeaver-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftyBeaver-macOS.release.xcconfig"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		6211DC64EE0C4A583BD39DC77839E732 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6560F9C9D13C2A2AB7AA288B51F8850D /* SwiftyBeaver-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SwiftyBeaver-iOS.modulemap"; sourceTree = "<group>"; };
-		67034DFA25922F9281D60ABBE474EA89 /* SwiftySound-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftySound-macOS-umbrella.h"; path = "../SwiftySound-macOS/SwiftySound-macOS-umbrella.h"; sourceTree = "<group>"; };
-		68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDestination.swift; path = Sources/FileDestination.swift; sourceTree = "<group>"; };
-		69383A5F6DD20CBAA145E5B728B427A8 /* KeyCombo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyCombo.swift; path = Sources/HotKey/KeyCombo.swift; sourceTree = "<group>"; };
+		5F8CB2C7177F7E6E75EE97C7B14AF1C0 /* GBDeviceInfo_Common.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GBDeviceInfo_Common.m; path = GBDeviceInfo/GBDeviceInfo_Common.m; sourceTree = "<group>"; };
+		60FCDC1EF7398F4721C6B62A9AC75E99 /* pt-PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-PT.lproj"; path = "KeyboardKit/Localised/pt-PT.lproj"; sourceTree = "<group>"; };
+		617AC46E5FDBC0810DAFF99240231EA1 /* KeyboardKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeyboardKit.framework; path = "Keyboard-Kit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61EA23FEC150DF794A902DADF417C9F4 /* GBDeviceInfo_OSX.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GBDeviceInfo_OSX.m; path = GBDeviceInfo/GBDeviceInfo_OSX.m; sourceTree = "<group>"; };
+		6384FC26C48D5C0A175E41067514BEBB /* InjectableResponder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InjectableResponder.swift; path = KeyboardKit/InjectableResponder.swift; sourceTree = "<group>"; };
+		6426A9052A49AD54045CE51DB05AF6F4 /* SwiftyBeaver-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyBeaver-iOS-Info.plist"; sourceTree = "<group>"; };
+		64C2E34C42DE0B5A4C4405EB40D53B4A /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = KeyboardKit/Localised/vi.lproj; sourceTree = "<group>"; };
+		6720966F7D0ECFB6A09119F36070E121 /* BarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BarButtonItem.h; path = KeyboardKit/ObjC/BarButtonItem.h; sourceTree = "<group>"; };
 		6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = "SwiftyBeaver-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		79B2D8234F6C1330BBC3F99C79672B30 /* SwiftySound-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftySound-macOS-prefix.pch"; path = "../SwiftySound-macOS/SwiftySound-macOS-prefix.pch"; sourceTree = "<group>"; };
-		7C17CC8BE45D2F40200F66B3A4BA974D /* SwiftySound-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SwiftySound-iOS.modulemap"; sourceTree = "<group>"; };
-		7D501D570B3C10071E00751F522C6BDB /* SwiftyBeaver-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftyBeaver-macOS.debug.xcconfig"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		7E8664C6239D8E89788443BB6995E5E7 /* NSEventModifierFlags+HotKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSEventModifierFlags+HotKey.swift"; path = "Sources/HotKey/NSEventModifierFlags+HotKey.swift"; sourceTree = "<group>"; };
-		811B4E1ABA8985CA494E9DE1054874C3 /* SwiftySound-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftySound-macOS.debug.xcconfig"; path = "../SwiftySound-macOS/SwiftySound-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		81EADDFD65A1B779D36944CBC40893DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		6B62643682B363C3D3F1BDEDC9E0F3DC /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = KeyboardKit/Localised/es.lproj; sourceTree = "<group>"; };
+		6EDA9791D7BB2565E43A58D989ADCA95 /* GBDeviceInfo_Common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo_Common.h; path = GBDeviceInfo/GBDeviceInfo_Common.h; sourceTree = "<group>"; };
+		72A2E6CFE785B8C6C0CF0CC57F51FE3E /* hi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hi.lproj; path = KeyboardKit/Localised/hi.lproj; sourceTree = "<group>"; };
+		78BF19375EA353D292C941E62D279873 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		7C29B95AF0856632A4DFEFE5F0874518 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyBeaver.swift; path = Sources/SwiftyBeaver.swift; sourceTree = "<group>"; };
+		8209D49232873B45092AC468753B2F44 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = KeyboardKit/Localised/tr.lproj; sourceTree = "<group>"; };
 		8284DD2A58C56D9EBC41564B74F209AF /* Pods-Typyst (iOS)-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Typyst (iOS)-umbrella.h"; sourceTree = "<group>"; };
-		8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyBeaver.swift; path = Sources/SwiftyBeaver.swift; sourceTree = "<group>"; };
 		83B311E10D380EB9694B7B6A12A2487F /* Pods-Typyst (iOS)-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (iOS)-acknowledgements.plist"; sourceTree = "<group>"; };
-		84AD2373DE5F9E0CDB44EB71C8501F74 /* SwiftyBeaver-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SwiftyBeaver-macOS.modulemap"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap"; sourceTree = "<group>"; };
 		855B38565843DB09E1729F9EBFA53FA5 /* Pods-Typyst (macOS)-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Typyst (macOS)-frameworks.sh"; sourceTree = "<group>"; };
-		8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
-		8A498BF661552F26A910D020AE75AE5D /* SwiftyBeaver-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyBeaver-iOS-Info.plist"; sourceTree = "<group>"; };
+		85C4D7D3A10A8445B33AEA2627C785E8 /* KeyboardBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardBarButtonItem.swift; path = KeyboardKit/KeyboardBarButtonItem.swift; sourceTree = "<group>"; };
+		8AE0C7CEFA0F8F739C316C3F6758E82C /* GBDeviceInfoTypes_OSX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfoTypes_OSX.h; path = GBDeviceInfo/GBDeviceInfoTypes_OSX.h; sourceTree = "<group>"; };
 		8B5ABF8B0F8FE7B8D27B253DB4999CB2 /* Pods-Typyst (macOS)-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Typyst (macOS)-Info.plist"; sourceTree = "<group>"; };
-		8D01BB43E360955262D695A80722BA4A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		8B71DD78ACBF5DF64FE492451BB00CB7 /* SwiftySound-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftySound-iOS-prefix.pch"; sourceTree = "<group>"; };
+		8CC2502C353C8B3D437E9A8DF7D6BCB0 /* fi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fi.lproj; path = KeyboardKit/Localised/fi.lproj; sourceTree = "<group>"; };
+		8D8B3A8BE882D1D0B0461E2A4D07936B /* GBDeviceInfoTypes_Common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfoTypes_Common.h; path = GBDeviceInfo/GBDeviceInfoTypes_Common.h; sourceTree = "<group>"; };
 		90894DBE226BCA7D494AD36C3A798D86 /* Pods-Typyst (iOS).modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Typyst (iOS).modulemap"; sourceTree = "<group>"; };
-		93925FF0E062B0550B2C8987E1EFC69B /* SwiftyBeaver-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyBeaver-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		92C643C324CC549C6A172C26C830858C /* GBDeviceInfo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GBDeviceInfo-dummy.m"; sourceTree = "<group>"; };
+		92C700936FFECD0F948764BE61BC88BB /* KeyboardTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardTextView.swift; path = KeyboardKit/KeyboardTextView.swift; sourceTree = "<group>"; };
+		938E39FEA9E76D8E3B64C12EA2BAB830 /* GBDeviceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GBDeviceInfo.framework; path = GBDeviceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D64C16C83BBF5D7C118E1AEB19F46F /* SwiftySound-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SwiftySound-macOS.modulemap"; path = "../SwiftySound-macOS/SwiftySound-macOS.modulemap"; sourceTree = "<group>"; };
 		93FF459806A7C8AB04E503A1C9502519 /* Pods-Typyst (macOS)-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Typyst (macOS)-umbrella.h"; sourceTree = "<group>"; };
+		95544CB03FF979250F9B1F9871D86155 /* GBDeviceInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GBDeviceInfo.release.xcconfig; sourceTree = "<group>"; };
+		956BBEEDE336D3D65FAF8A327CAFFA85 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		96FBF4A3353C77739519313E460BBB70 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = KeyboardKit/Localised/ru.lproj; sourceTree = "<group>"; };
+		978D876AF912415D19487889C53DB89B /* KeyboardWindowScene.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardWindowScene.swift; path = KeyboardKit/KeyboardWindowScene.swift; sourceTree = "<group>"; };
+		98339575A3799AF9C0E01E5810B2A320 /* en-GB.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "en-GB.lproj"; path = "KeyboardKit/Localised/en-GB.lproj"; sourceTree = "<group>"; };
+		98FC68E8E9146BA6F1D1B66C78857CAF /* SwiftyBeaver-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftyBeaver-macOS.release.xcconfig"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		9C1074853361EA9D49C5A01389998E53 /* GBDeviceInfo_OSX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo_OSX.h; path = GBDeviceInfo/GBDeviceInfo_OSX.h; sourceTree = "<group>"; };
+		9CB1E58CC1129753635203D1AEA9E9DB /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hu.lproj; path = KeyboardKit/Localised/hu.lproj; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DBDC8E5E4B10E22DCEA4A2DFEA142BA /* pt-BR.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-BR.lproj"; path = "KeyboardKit/Localised/pt-BR.lproj"; sourceTree = "<group>"; };
+		A0038C2E61B3990C943460AF975A3844 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = KeyboardKit/Localised/fr.lproj; sourceTree = "<group>"; };
+		A0BBB674C5493E86B574B4E9D25D9813 /* GBDeviceInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GBDeviceInfo.debug.xcconfig; sourceTree = "<group>"; };
 		A2CCB655A64D943AF92CB617ED2E1731 /* Pods-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
-		A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleDestination.swift; path = Sources/ConsoleDestination.swift; sourceTree = "<group>"; };
+		A2D3BBDE15E393F21BEB34780B4C62F7 /* SwiftyBeaver-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyBeaver-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		A2DC3D28E005E738C17DB9A1BFB1F30A /* Keyboard-Kit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Kit-umbrella.h"; sourceTree = "<group>"; };
+		A3A5F452149EF94D4CB244B2AA842F01 /* SwiftyBeaver-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SwiftyBeaver-macOS.modulemap"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap"; sourceTree = "<group>"; };
+		A4452E05C5E5490F85BEF3228ED93B7A /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "KeyboardKit/Localised/zh-Hant.lproj"; sourceTree = "<group>"; };
+		A49EFA19723D0F3E79192A94076C18EF /* SwiftySound-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftySound-iOS-dummy.m"; sourceTree = "<group>"; };
+		A4F0FDFD0F437E5632159565A2F9E206 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = KeyboardKit/Localised/pl.lproj; sourceTree = "<group>"; };
+		A50E2E066D55C763049B4A13B6E3DDFF /* SwiftyBeaver-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftyBeaver-macOS-prefix.pch"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch"; sourceTree = "<group>"; };
+		A5B022016F43C85846095E4215A56E40 /* BaseDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseDestination.swift; path = Sources/BaseDestination.swift; sourceTree = "<group>"; };
+		A6CB9D151712592E7DE4EFC332A6DA0A /* SwiftySound-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftySound-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		A775CB1708147613ABB87796D8BECC19 /* KeyboardKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KeyboardKit.h; path = KeyboardKit/KeyboardKit.h; sourceTree = "<group>"; };
 		A7B24A56AF3738D71636CE8617CF5EE3 /* Pods-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		A7F6C191C480578D90C581C19AB0CAEF /* Pods-Typyst (macOS)-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Typyst (macOS)-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A80A1CD6F4371F7C4E6B2AD5A0B3C661 /* SwiftySound-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftySound-iOS-dummy.m"; sourceTree = "<group>"; };
-		A8893787400A2F578B033DC20D21AA26 /* SwiftySound-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftySound-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		AA27349DE9D47A93AA9F5BA1E88FE0D3 /* SwiftyBeaver-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "SwiftyBeaver-macOS-Info.plist"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist"; sourceTree = "<group>"; };
+		A815F36B854C34589DF62D5350DA610D /* BarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BarButtonItem.m; path = KeyboardKit/ObjC/BarButtonItem.m; sourceTree = "<group>"; };
+		A857CAC92CE43A5C4297C99EC4704F1B /* Sound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Sources/Sound.swift; sourceTree = "<group>"; };
+		A8F950830339D3910276C35C87AB90CA /* KeyboardCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardCollectionView.swift; path = KeyboardKit/KeyboardCollectionView.swift; sourceTree = "<group>"; };
 		AB597E26952BFB0B3DADE02CF72BE17D /* Pods-Typyst (macOS).modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Typyst (macOS).modulemap"; sourceTree = "<group>"; };
-		AB9D862BD13F10D1C4EF4E247242B363 /* HotKey-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HotKey-dummy.m"; sourceTree = "<group>"; };
-		ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseDestination.swift; path = Sources/BaseDestination.swift; sourceTree = "<group>"; };
-		AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleCloudDestination.swift; path = Sources/GoogleCloudDestination.swift; sourceTree = "<group>"; };
-		B056942B922A838495C124B625D2693C /* SwiftySound-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftySound-iOS-prefix.pch"; sourceTree = "<group>"; };
-		B61C54DEE1833DFD2548984D62BA1017 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
-		B66FA24277067DCF54FA24F7E8E018C6 /* HotKey-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HotKey-umbrella.h"; sourceTree = "<group>"; };
+		AC98C2940D17E6FD7CC3C80AFF72773B /* Keyboard-Kit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Keyboard-Kit.modulemap"; sourceTree = "<group>"; };
+		B01A3D9D314B979486F55C8F591412AC /* sk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sk.lproj; path = KeyboardKit/Localised/sk.lproj; sourceTree = "<group>"; };
+		B3F7D1CE7C9DF092587E5732577D351F /* SwiftySound-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftySound-macOS-umbrella.h"; path = "../SwiftySound-macOS/SwiftySound-macOS-umbrella.h"; sourceTree = "<group>"; };
+		B543BC74FD8CABC97E5057DEFA0ADCD3 /* KeyboardWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardWindow.swift; path = KeyboardKit/KeyboardWindow.swift; sourceTree = "<group>"; };
+		B6F211F864C56C1D8B64845FFA1A0743 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = KeyboardKit/Localised/ja.lproj; sourceTree = "<group>"; };
 		B76162EECF1FFB054911AA1E22E662F4 /* Pods-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
-		C30887118EC2DF33D05DCB8E7D6E5AFE /* HotKey-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HotKey-prefix.pch"; sourceTree = "<group>"; };
-		CE6CEA1627FF8DB3791C29947258ACDE /* SwiftyBeaver-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-iOS-prefix.pch"; sourceTree = "<group>"; };
-		D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FilterValidator.swift; path = Sources/FilterValidator.swift; sourceTree = "<group>"; };
-		D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		BA0CC94A9FF1FF909AB4A0061E6CADD9 /* SwiftySound-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftySound-macOS.release.xcconfig"; path = "../SwiftySound-macOS/SwiftySound-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		BA606E6BE2F42010803330AA359E0C60 /* Base64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Base64.swift; path = Sources/Base64.swift; sourceTree = "<group>"; };
+		BB0A67458035B1BB8957E5FF9C6A30D5 /* SwiftySound-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftySound-macOS.debug.xcconfig"; path = "../SwiftySound-macOS/SwiftySound-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BEE0E5303E50D5532A578A4737A4AEF3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C307C6905D66F7AD2527DE56969D9A46 /* he.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = he.lproj; path = KeyboardKit/Localised/he.lproj; sourceTree = "<group>"; };
+		C3A5F6B711F54C899E2BE5EB4BC6E91D /* Keyboard-Kit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Keyboard-Kit-Info.plist"; sourceTree = "<group>"; };
+		C5524557272CA655BDAEB688A9861802 /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = da.lproj; path = KeyboardKit/Localised/da.lproj; sourceTree = "<group>"; };
+		C570DAD2337CC58001B1A1CDAD3FD32A /* PointAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PointAnimator.swift; path = KeyboardKit/PointAnimator.swift; sourceTree = "<group>"; };
+		C65A0474C4A260CD2270E91578F74E4D /* SwiftyBeaver-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-iOS-umbrella.h"; sourceTree = "<group>"; };
+		CA0AD2178DE3D8E5521219E65962C927 /* SelectableCollectionKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableCollectionKeyHandler.swift; path = KeyboardKit/SelectableCollectionKeyHandler.swift; sourceTree = "<group>"; };
+		CAE37B588F301D13F31DDD332DF112A1 /* KeyboardScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardScrollView.swift; path = KeyboardKit/KeyboardScrollView.swift; sourceTree = "<group>"; };
+		CB9795CF7D948A0FEF1F1A75B3847A97 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = KeyboardKit/Localised/nl.lproj; sourceTree = "<group>"; };
+		CE868C60C305C94706401574AB5B1904 /* fr-CA.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "fr-CA.lproj"; path = "KeyboardKit/Localised/fr-CA.lproj"; sourceTree = "<group>"; };
+		D01880FCE58453DAEDD734521FED9FBA /* SwiftyBeaver-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyBeaver-iOS-dummy.m"; sourceTree = "<group>"; };
+		D098BD592034E8716F28C7C69C42FBA8 /* SwiftyBeaver-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "SwiftyBeaver-macOS-Info.plist"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist"; sourceTree = "<group>"; };
+		D1016D105B04B8CBC5C82229B09CDBDE /* ca.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ca.lproj; path = KeyboardKit/Localised/ca.lproj; sourceTree = "<group>"; };
+		D41C3E411FE504F2E17E9243B9ADC515 /* GBDeviceInfo-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GBDeviceInfo-prefix.pch"; sourceTree = "<group>"; };
+		D4A795076B288389CE25665E78DE47CD /* KeyboardScrollingDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardScrollingDelegate.swift; path = KeyboardKit/KeyboardScrollingDelegate.swift; sourceTree = "<group>"; };
+		D56C5714EF58439054F75212C7B47FE3 /* SwiftySound-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftySound-iOS-Info.plist"; sourceTree = "<group>"; };
 		D621A48B950ADDBD0AA286A81DDF7519 /* SwiftySound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftySound.framework; path = "SwiftySound-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D71F5A9E7AFA6E2B57DAC9E6A4249A97 /* HotKey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HotKey.release.xcconfig; sourceTree = "<group>"; };
-		D7328DAE32D52E6F5366C8DEB9DF320A /* SwiftySound-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftySound-iOS-Info.plist"; sourceTree = "<group>"; };
-		DB0253F1CAC76DE260F7C923EDCAEC15 /* HotKey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HotKey.debug.xcconfig; sourceTree = "<group>"; };
-		DE20986CCC1E5116D032B9FCAA74CB4B /* SwiftySound-macOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "SwiftySound-macOS-Info.plist"; path = "../SwiftySound-macOS/SwiftySound-macOS-Info.plist"; sourceTree = "<group>"; };
-		EA42C22FC6B2E70FEEF712E9FA6D2DCF /* SwiftyBeaver-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftyBeaver-macOS-umbrella.h"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-umbrella.h"; sourceTree = "<group>"; };
-		F28E438C776B1C71E6E29805844F0C28 /* HotKey.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HotKey.modulemap; sourceTree = "<group>"; };
-		F2DE088B7B38918F18440F5C701CA9CA /* SwiftyBeaver-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftyBeaver-macOS-dummy.m"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-dummy.m"; sourceTree = "<group>"; };
-		F36B2E7BB4C3E92E4DF7443FAFF3AE3F /* HotKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HotKey.framework; path = HotKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F570CB056F11EF87039E6CAAFD34F4B2 /* HotKey-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HotKey-Info.plist"; sourceTree = "<group>"; };
-		F99B02BF5EE4CE2B4A66D7D7467A2C7B /* SwiftyBeaver-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-iOS-umbrella.h"; sourceTree = "<group>"; };
+		D681DEC600C225DD6FE9D7244B76934A /* GBDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo.h; path = GBDeviceInfo/GBDeviceInfo.h; sourceTree = "<group>"; };
+		D6D7EC4618FFC82FC36393F7EE33CEA8 /* SwiftySound-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftySound-macOS-dummy.m"; path = "../SwiftySound-macOS/SwiftySound-macOS-dummy.m"; sourceTree = "<group>"; };
+		D7ADB5BC20CAE0863C48D326BF792EFF /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = KeyboardKit/Localised/en.lproj; sourceTree = "<group>"; };
+		D9511FCDBFB5C0517E430C7D9BED9612 /* GBDeviceInfo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GBDeviceInfo-Info.plist"; sourceTree = "<group>"; };
+		DB7881424480FD0EE7188503608991EA /* KeyboardNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardNavigationController.swift; path = KeyboardKit/KeyboardNavigationController.swift; sourceTree = "<group>"; };
+		E1F7DBECBA32D1F90E4F248504F8D3A8 /* SwiftyBeaver-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftyBeaver-macOS.debug.xcconfig"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E8105E293E8BDFF792DDF4399F2D7D71 /* TextInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextInput.swift; path = KeyboardKit/TextInput.swift; sourceTree = "<group>"; };
+		E99AD841299B370ECEC13CA66FFD9BA9 /* Keyboard-Kit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Kit-prefix.pch"; sourceTree = "<group>"; };
+		ED1C2CEBCC33535725CC60444CFE0263 /* Keyboard-Kit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Keyboard-Kit.debug.xcconfig"; sourceTree = "<group>"; };
+		ED1D3621331F30413BA01D60B0F48E05 /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = el.lproj; path = KeyboardKit/Localised/el.lproj; sourceTree = "<group>"; };
+		ED3BD65016E77195EEB7855C31598686 /* ro.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ro.lproj; path = KeyboardKit/Localised/ro.lproj; sourceTree = "<group>"; };
+		ED43A0BAC2EE0EF6C6F2D4B2187C79A3 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = uk.lproj; path = KeyboardKit/Localised/uk.lproj; sourceTree = "<group>"; };
+		EF2B52C16CA86435F06B8D3C78BA3322 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "KeyboardKit/Localised/zh-Hans.lproj"; sourceTree = "<group>"; };
+		F0615420CC068C98E68A244C3314999D /* SwiftyBeaver-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SwiftyBeaver-iOS.modulemap"; sourceTree = "<group>"; };
+		F2FCED131D79A32BC18DC02F51C58B3C /* FileDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDestination.swift; path = Sources/FileDestination.swift; sourceTree = "<group>"; };
+		F30FB1E9D9CC7F04EAC0E572EF4B6359 /* SBPlatformDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SBPlatformDestination.swift; path = Sources/SBPlatformDestination.swift; sourceTree = "<group>"; };
+		F3DC4603DC54E1DB3D1D9FE4253F27D7 /* GBDeviceInfo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GBDeviceInfo-umbrella.h"; sourceTree = "<group>"; };
+		F47E801D86AE46EF803179A1A9FE5713 /* KeyboardTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardTableView.swift; path = KeyboardKit/KeyboardTableView.swift; sourceTree = "<group>"; };
+		F74E6FA15ADCFCA4FFC76C623731A289 /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleCloudDestination.swift; path = Sources/GoogleCloudDestination.swift; sourceTree = "<group>"; };
+		F777DF843A00CED2FFCE62765839D0FD /* SwiftySound-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftySound-macOS-prefix.pch"; path = "../SwiftySound-macOS/SwiftySound-macOS-prefix.pch"; sourceTree = "<group>"; };
+		F873B8F365AE6A91DC0A67C27DBDF7F7 /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = id.lproj; path = KeyboardKit/Localised/id.lproj; sourceTree = "<group>"; };
+		F874D0FA3B01D866F241DDC60ABA5881 /* SwiftyBeaver-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftyBeaver-macOS-umbrella.h"; path = "../SwiftyBeaver-macOS/SwiftyBeaver-macOS-umbrella.h"; sourceTree = "<group>"; };
+		F9E3BA70CF32F05A176F6A10D88B666F /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nb.lproj; path = KeyboardKit/Localised/nb.lproj; sourceTree = "<group>"; };
+		FDB1467227EC8A75CE9DCA5B12738A50 /* LocalisedStringKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalisedStringKeys.swift; path = KeyboardKit/LocalisedStringKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0F2295FB5251664AE38BEB54EEBE164C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F371BFC3EFD024F06A0AB702F4D8EB49 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0F82035D8AB5166970AC9D8AA2A763F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,11 +360,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A58F62FD7740C9AEDD74D81F50D9CA5C /* Frameworks */ = {
+		50F4F454CAEC43BA6AA21951649128CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				617AD8415C7BFE4778E1428A6F9F492C /* Cocoa.framework in Frameworks */,
+				A0E952FD29C9426856E1787FAB89E119 /* Cocoa.framework in Frameworks */,
+				120191907686C286E6AE3933C1916E61 /* CoreServices.framework in Frameworks */,
+				0A33274C18972DAFE0A655AF9A5F53E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56769AF1B52F1EA8F767C9C36981B87D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				528D41BD8E04A3CF06BE5E1CC6914410 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +387,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7A3CEBC96D3EF9C0A5EA35470B3B9A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1C3E587EE7954AF591FF792111B8F03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0B149628D37E88121723F359074F519 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,28 +403,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC969627A44DD839E017AD83678B6FF2 /* Frameworks */ = {
+		E6AD051DC9692F64448633AAED913547 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BDFA459949B787FF4BA39DE9BF523AB /* AppKit.framework in Frameworks */,
-				9BE82DE86F384EAD7B0B42894C0ECD75 /* Carbon.framework in Frameworks */,
-				CDFF1CFDBA33AF524DA0CDA8C338B44A /* Cocoa.framework in Frameworks */,
+				B6B519542BA4C538175DF2281DAFA922 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A2701A6918F6DC3C0035B8011E283D2 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				81EADDFD65A1B779D36944CBC40893DA /* AVFoundation.framework */,
-				4D09FE5017630B761CAA6C948C054697 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		0E3CD7B185EADC897EEC2CAD823AE9AC /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,14 +423,140 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4521E51719463587EB1F35BEAD0C85A1 /* SwiftySound */ = {
+		1CE51583D80965D1DE3D50B1445BF8E7 /* SwiftySound */ = {
 			isa = PBXGroup;
 			children = (
-				101766A0A5C78D17B0196EB9BE7C4C25 /* Sound.swift */,
-				53574D7EE5399933AD9E6EE1C5685C67 /* Support Files */,
+				A857CAC92CE43A5C4297C99EC4704F1B /* Sound.swift */,
+				6905A3557F209A8EF6C35A3A08A84960 /* Support Files */,
 			);
 			name = SwiftySound;
 			path = SwiftySound;
+			sourceTree = "<group>";
+		};
+		233E23335F71A752ECB6731EFEFD8F49 /* SwiftyBeaver */ = {
+			isa = PBXGroup;
+			children = (
+				035C24AD63355583E6E2E4C8DB24EC61 /* AES256CBC.swift */,
+				BA606E6BE2F42010803330AA359E0C60 /* Base64.swift */,
+				A5B022016F43C85846095E4215A56E40 /* BaseDestination.swift */,
+				1292C751D3EA0DC69C4FDCBF31003C12 /* ConsoleDestination.swift */,
+				17101AA6C2EAF6AEE6116A80C531B34A /* Extensions.swift */,
+				F2FCED131D79A32BC18DC02F51C58B3C /* FileDestination.swift */,
+				78BF19375EA353D292C941E62D279873 /* Filter.swift */,
+				10083A92FC9F40893004E3689F847515 /* FilterValidator.swift */,
+				F74E6FA15ADCFCA4FFC76C623731A289 /* GoogleCloudDestination.swift */,
+				F30FB1E9D9CC7F04EAC0E572EF4B6359 /* SBPlatformDestination.swift */,
+				7C29B95AF0856632A4DFEFE5F0874518 /* SwiftyBeaver.swift */,
+				D6DA0F7F3436216B7B811A16DF3C10C7 /* Support Files */,
+			);
+			name = SwiftyBeaver;
+			path = SwiftyBeaver;
+			sourceTree = "<group>";
+		};
+		23C9F058BF0A4BF61E72D07E3ECD6219 /* Keyboard-Kit */ = {
+			isa = PBXGroup;
+			children = (
+				6720966F7D0ECFB6A09119F36070E121 /* BarButtonItem.h */,
+				A815F36B854C34589DF62D5350DA610D /* BarButtonItem.m */,
+				6384FC26C48D5C0A175E41067514BEBB /* InjectableResponder.swift */,
+				2AFC7E725FC5EC6341F453EC3714E741 /* KeyboardApplication.swift */,
+				85C4D7D3A10A8445B33AEA2627C785E8 /* KeyboardBarButtonItem.swift */,
+				A8F950830339D3910276C35C87AB90CA /* KeyboardCollectionView.swift */,
+				A775CB1708147613ABB87796D8BECC19 /* KeyboardKit.h */,
+				DB7881424480FD0EE7188503608991EA /* KeyboardNavigationController.swift */,
+				D4A795076B288389CE25665E78DE47CD /* KeyboardScrollingDelegate.swift */,
+				CAE37B588F301D13F31DDD332DF112A1 /* KeyboardScrollView.swift */,
+				0A1AB9857451AAE13492820523999A6D /* KeyboardSplitViewController.swift */,
+				52FEF2E6CF46FE9402C17DCE546108CB /* KeyboardTabBarController.swift */,
+				F47E801D86AE46EF803179A1A9FE5713 /* KeyboardTableView.swift */,
+				92C700936FFECD0F948764BE61BC88BB /* KeyboardTextView.swift */,
+				B543BC74FD8CABC97E5057DEFA0ADCD3 /* KeyboardWindow.swift */,
+				978D876AF912415D19487889C53DB89B /* KeyboardWindowScene.swift */,
+				4B4E31133B17978C7B540D2EA4F167B0 /* KeyCommandCreation.swift */,
+				4CFF28A0158A035F0383A561ADA289E1 /* KeyInputStrings.swift */,
+				FDB1467227EC8A75CE9DCA5B12738A50 /* LocalisedStringKeys.swift */,
+				0F0F5A227D27A9C1267062659438B562 /* LocalisedStrings.swift */,
+				C570DAD2337CC58001B1A1CDAD3FD32A /* PointAnimator.swift */,
+				0358B675B12DED7D128B7CE95940B8C1 /* ScrollViewKeyHandler.swift */,
+				CA0AD2178DE3D8E5521219E65962C927 /* SelectableCollectionKeyHandler.swift */,
+				E8105E293E8BDFF792DDF4399F2D7D71 /* TextInput.swift */,
+				26156F058FAA61A27C6493C2E710F95D /* Resources */,
+				A2EC9E36D91B1349D7679455465A17C2 /* Support Files */,
+			);
+			name = "Keyboard-Kit";
+			path = "Keyboard-Kit";
+			sourceTree = "<group>";
+		};
+		26156F058FAA61A27C6493C2E710F95D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				438A9297DFA0B914718501D83A65C88B /* ar.lproj */,
+				D1016D105B04B8CBC5C82229B09CDBDE /* ca.lproj */,
+				4B0F9B403756166A8529BCA8AC05B1AB /* cs.lproj */,
+				C5524557272CA655BDAEB688A9861802 /* da.lproj */,
+				36C2978554F6222D291167427B738432 /* de.lproj */,
+				ED1D3621331F30413BA01D60B0F48E05 /* el.lproj */,
+				D7ADB5BC20CAE0863C48D326BF792EFF /* en.lproj */,
+				31FA6BDD4045473F8A2F5C279629FF10 /* en-AU.lproj */,
+				98339575A3799AF9C0E01E5810B2A320 /* en-GB.lproj */,
+				6B62643682B363C3D3F1BDEDC9E0F3DC /* es.lproj */,
+				33217C8F740587D9E0FF5C2D22597765 /* es-419.lproj */,
+				8CC2502C353C8B3D437E9A8DF7D6BCB0 /* fi.lproj */,
+				A0038C2E61B3990C943460AF975A3844 /* fr.lproj */,
+				CE868C60C305C94706401574AB5B1904 /* fr-CA.lproj */,
+				C307C6905D66F7AD2527DE56969D9A46 /* he.lproj */,
+				72A2E6CFE785B8C6C0CF0CC57F51FE3E /* hi.lproj */,
+				13A02C3A84E3BFCA0CFDB1945E0DCF09 /* hr.lproj */,
+				9CB1E58CC1129753635203D1AEA9E9DB /* hu.lproj */,
+				F873B8F365AE6A91DC0A67C27DBDF7F7 /* id.lproj */,
+				1B35CFC132D09D517B603AA6890969BE /* it.lproj */,
+				B6F211F864C56C1D8B64845FFA1A0743 /* ja.lproj */,
+				4380067AA2D5807B847E7D96E21F25CD /* ko.lproj */,
+				393393A8619D131FFD28123BD78F5BD8 /* ms.lproj */,
+				F9E3BA70CF32F05A176F6A10D88B666F /* nb.lproj */,
+				CB9795CF7D948A0FEF1F1A75B3847A97 /* nl.lproj */,
+				A4F0FDFD0F437E5632159565A2F9E206 /* pl.lproj */,
+				9DBDC8E5E4B10E22DCEA4A2DFEA142BA /* pt-BR.lproj */,
+				60FCDC1EF7398F4721C6B62A9AC75E99 /* pt-PT.lproj */,
+				ED3BD65016E77195EEB7855C31598686 /* ro.lproj */,
+				96FBF4A3353C77739519313E460BBB70 /* ru.lproj */,
+				B01A3D9D314B979486F55C8F591412AC /* sk.lproj */,
+				2AC635D412FFA1B059B6343326526DDD /* sv.lproj */,
+				3D7CD54A8827CDB6170BFCC495A6BE44 /* th.lproj */,
+				8209D49232873B45092AC468753B2F44 /* tr.lproj */,
+				ED43A0BAC2EE0EF6C6F2D4B2187C79A3 /* uk.lproj */,
+				64C2E34C42DE0B5A4C4405EB40D53B4A /* vi.lproj */,
+				EF2B52C16CA86435F06B8D3C78BA3322 /* zh-Hans.lproj */,
+				A4452E05C5E5490F85BEF3228ED93B7A /* zh-Hant.lproj */,
+				58A0A87F34EEEA4758928B00143FCFA8 /* zh-HK.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2FC7B2192719269735CDDA57DC3C19FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98FC5B6E3EACEA32CBB1F28E0F0AE86E /* GBDeviceInfo */,
+				23C9F058BF0A4BF61E72D07E3ECD6219 /* Keyboard-Kit */,
+				233E23335F71A752ECB6731EFEFD8F49 /* SwiftyBeaver */,
+				1CE51583D80965D1DE3D50B1445BF8E7 /* SwiftySound */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		49E58E21896C8460F40937CC08101A46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				938E39FEA9E76D8E3B64C12EA2BAB830 /* GBDeviceInfo.framework */,
+				617AC46E5FDBC0810DAFF99240231EA1 /* KeyboardKit.framework */,
+				2B5043A6BE66D08ED6642A9C34A5A63C /* Pods_Typyst__iOS_.framework */,
+				4E5A606D9B6AA5487718874BFA2A18C1 /* Pods_Typyst__macOS_.framework */,
+				6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */,
+				0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */,
+				0F61F0161DD2E1820034F3B9A9E160F4 /* SwiftySound.framework */,
+				D621A48B950ADDBD0AA286A81DDF7519 /* SwiftySound.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		4CFFF9A375D8FFC1532B4474FDB1ED13 /* Pods-Typyst (macOS) */ = {
@@ -300,42 +576,6 @@
 			path = "Target Support Files/Pods-Typyst (macOS)";
 			sourceTree = "<group>";
 		};
-		4EC0D5665BACB3AD0059AC04B7ED20BE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F36B2E7BB4C3E92E4DF7443FAFF3AE3F /* HotKey.framework */,
-				2B5043A6BE66D08ED6642A9C34A5A63C /* Pods_Typyst__iOS_.framework */,
-				4E5A606D9B6AA5487718874BFA2A18C1 /* Pods_Typyst__macOS_.framework */,
-				0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */,
-				6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */,
-				0F61F0161DD2E1820034F3B9A9E160F4 /* SwiftySound.framework */,
-				D621A48B950ADDBD0AA286A81DDF7519 /* SwiftySound.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		53574D7EE5399933AD9E6EE1C5685C67 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7C17CC8BE45D2F40200F66B3A4BA974D /* SwiftySound-iOS.modulemap */,
-				A80A1CD6F4371F7C4E6B2AD5A0B3C661 /* SwiftySound-iOS-dummy.m */,
-				D7328DAE32D52E6F5366C8DEB9DF320A /* SwiftySound-iOS-Info.plist */,
-				B056942B922A838495C124B625D2693C /* SwiftySound-iOS-prefix.pch */,
-				1C7D416A70F4B1112F99887B160A2A54 /* SwiftySound-iOS-umbrella.h */,
-				A8893787400A2F578B033DC20D21AA26 /* SwiftySound-iOS.debug.xcconfig */,
-				54A4AED0E4C55B26EF2CEED271A06FE1 /* SwiftySound-iOS.release.xcconfig */,
-				5C7FB3D2109BAD243F82D8ABDE3A3BD0 /* SwiftySound-macOS.modulemap */,
-				388B894CB5EC0CF0A55FE5147037B482 /* SwiftySound-macOS-dummy.m */,
-				DE20986CCC1E5116D032B9FCAA74CB4B /* SwiftySound-macOS-Info.plist */,
-				79B2D8234F6C1330BBC3F99C79672B30 /* SwiftySound-macOS-prefix.pch */,
-				67034DFA25922F9281D60ABBE474EA89 /* SwiftySound-macOS-umbrella.h */,
-				811B4E1ABA8985CA494E9DE1054874C3 /* SwiftySound-macOS.debug.xcconfig */,
-				4D06B954B886286D3A03A1D40E240B44 /* SwiftySound-macOS.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftySound-iOS";
-			sourceTree = "<group>";
-		};
 		5528240D0CE69360B65930D682D74F38 /* Pods-Typyst (iOS) */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,117 +593,144 @@
 			path = "Target Support Files/Pods-Typyst (iOS)";
 			sourceTree = "<group>";
 		};
-		62E221E1D1EFC6FFFC7D10CD6C798BC5 /* Support Files */ = {
+		6905A3557F209A8EF6C35A3A08A84960 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6560F9C9D13C2A2AB7AA288B51F8850D /* SwiftyBeaver-iOS.modulemap */,
-				5559A3A112BD5D1AA979F0EDCED68738 /* SwiftyBeaver-iOS-dummy.m */,
-				8A498BF661552F26A910D020AE75AE5D /* SwiftyBeaver-iOS-Info.plist */,
-				CE6CEA1627FF8DB3791C29947258ACDE /* SwiftyBeaver-iOS-prefix.pch */,
-				F99B02BF5EE4CE2B4A66D7D7467A2C7B /* SwiftyBeaver-iOS-umbrella.h */,
-				19FEA0D0493FB0B88DC122826A71F850 /* SwiftyBeaver-iOS.debug.xcconfig */,
-				93925FF0E062B0550B2C8987E1EFC69B /* SwiftyBeaver-iOS.release.xcconfig */,
-				84AD2373DE5F9E0CDB44EB71C8501F74 /* SwiftyBeaver-macOS.modulemap */,
-				F2DE088B7B38918F18440F5C701CA9CA /* SwiftyBeaver-macOS-dummy.m */,
-				AA27349DE9D47A93AA9F5BA1E88FE0D3 /* SwiftyBeaver-macOS-Info.plist */,
-				313AC6D012D22C7DB738AAD9687CACA5 /* SwiftyBeaver-macOS-prefix.pch */,
-				EA42C22FC6B2E70FEEF712E9FA6D2DCF /* SwiftyBeaver-macOS-umbrella.h */,
-				7D501D570B3C10071E00751F522C6BDB /* SwiftyBeaver-macOS.debug.xcconfig */,
-				5ED285463DAB210297E8AD3A255E345A /* SwiftyBeaver-macOS.release.xcconfig */,
+				31246B030D3B1FFFC1A29AAF9C8E365C /* SwiftySound-iOS.modulemap */,
+				A49EFA19723D0F3E79192A94076C18EF /* SwiftySound-iOS-dummy.m */,
+				D56C5714EF58439054F75212C7B47FE3 /* SwiftySound-iOS-Info.plist */,
+				8B71DD78ACBF5DF64FE492451BB00CB7 /* SwiftySound-iOS-prefix.pch */,
+				4EC3F118C65506646B902BAA6D3AE1CD /* SwiftySound-iOS-umbrella.h */,
+				51F38A7320A9958FD2D9D5FF731FDA94 /* SwiftySound-iOS.debug.xcconfig */,
+				A6CB9D151712592E7DE4EFC332A6DA0A /* SwiftySound-iOS.release.xcconfig */,
+				93D64C16C83BBF5D7C118E1AEB19F46F /* SwiftySound-macOS.modulemap */,
+				D6D7EC4618FFC82FC36393F7EE33CEA8 /* SwiftySound-macOS-dummy.m */,
+				069A4741BCFAB8A4004B5D996BB2003D /* SwiftySound-macOS-Info.plist */,
+				F777DF843A00CED2FFCE62765839D0FD /* SwiftySound-macOS-prefix.pch */,
+				B3F7D1CE7C9DF092587E5732577D351F /* SwiftySound-macOS-umbrella.h */,
+				BB0A67458035B1BB8957E5FF9C6A30D5 /* SwiftySound-macOS.debug.xcconfig */,
+				BA0CC94A9FF1FF909AB4A0061E6CADD9 /* SwiftySound-macOS.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftyBeaver-iOS";
+			path = "../Target Support Files/SwiftySound-iOS";
 			sourceTree = "<group>";
 		};
-		736C689FCF007E4BF0BDA345B5EEB120 /* HotKey */ = {
+		758E07061AC81FFE4F38564C3D96D849 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				08609C8A7C12D5BC79B226C99B4391F9 /* HotKey.swift */,
-				2CC7AE2C053EF1CDBED66C1125C62270 /* HotKeysController.swift */,
-				07A6F3033D2CE00620D8E9D6E9392115 /* Key.swift */,
-				69383A5F6DD20CBAA145E5B728B427A8 /* KeyCombo.swift */,
-				7E8664C6239D8E89788443BB6995E5E7 /* NSEventModifierFlags+HotKey.swift */,
-				F205587D9CF6718650DE179F8782779A /* Support Files */,
+				1616896935E94585DFF1C123B7C4ADB9 /* GBDeviceInfo.modulemap */,
+				92C643C324CC549C6A172C26C830858C /* GBDeviceInfo-dummy.m */,
+				D9511FCDBFB5C0517E430C7D9BED9612 /* GBDeviceInfo-Info.plist */,
+				D41C3E411FE504F2E17E9243B9ADC515 /* GBDeviceInfo-prefix.pch */,
+				F3DC4603DC54E1DB3D1D9FE4253F27D7 /* GBDeviceInfo-umbrella.h */,
+				A0BBB674C5493E86B574B4E9D25D9813 /* GBDeviceInfo.debug.xcconfig */,
+				95544CB03FF979250F9B1F9871D86155 /* GBDeviceInfo.release.xcconfig */,
 			);
-			name = HotKey;
-			path = HotKey;
+			name = "Support Files";
+			path = "../Target Support Files/GBDeviceInfo";
 			sourceTree = "<group>";
 		};
-		A76F1C2B123766E057B0208834852FEB /* Pods */ = {
+		93785810EBF85793C323967561F0AE11 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				736C689FCF007E4BF0BDA345B5EEB120 /* HotKey */,
-				C13E524BD8461817B3FCE11A3B7BEF00 /* SwiftyBeaver */,
-				4521E51719463587EB1F35BEAD0C85A1 /* SwiftySound */,
+				3858B1ED7FE33ED4B42C35D0B63AB328 /* AVFoundation.framework */,
+				2C29D50076CE64E5476D73CB7B1ED078 /* Foundation.framework */,
 			);
-			name = Pods;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		B33A480500D44CA17C9043CC8141E6EB /* Frameworks */ = {
+		98FC5B6E3EACEA32CBB1F28E0F0AE86E /* GBDeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
-				0A2701A6918F6DC3C0035B8011E283D2 /* iOS */,
-				B4864FF998F54699ED60E006F3DBE292 /* OS X */,
+				F3E70C0EC57D40CFE8FE4B7A040A1203 /* Core */,
+				758E07061AC81FFE4F38564C3D96D849 /* Support Files */,
 			);
-			name = Frameworks;
+			name = GBDeviceInfo;
+			path = GBDeviceInfo;
 			sourceTree = "<group>";
 		};
-		B4864FF998F54699ED60E006F3DBE292 /* OS X */ = {
+		A2EC9E36D91B1349D7679455465A17C2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8D01BB43E360955262D695A80722BA4A /* AppKit.framework */,
-				3977F7AAFCF1DDF63296A2E0ED532240 /* AVFoundation.framework */,
-				B61C54DEE1833DFD2548984D62BA1017 /* Carbon.framework */,
-				D32FBF8DA74B40184ECDE9800550800E /* Cocoa.framework */,
-				6211DC64EE0C4A583BD39DC77839E732 /* Foundation.framework */,
+				AC98C2940D17E6FD7CC3C80AFF72773B /* Keyboard-Kit.modulemap */,
+				49FD66EB189CA23BD5A36CA763D803FA /* Keyboard-Kit-dummy.m */,
+				C3A5F6B711F54C899E2BE5EB4BC6E91D /* Keyboard-Kit-Info.plist */,
+				E99AD841299B370ECEC13CA66FFD9BA9 /* Keyboard-Kit-prefix.pch */,
+				A2DC3D28E005E738C17DB9A1BFB1F30A /* Keyboard-Kit-umbrella.h */,
+				ED1C2CEBCC33535725CC60444CFE0263 /* Keyboard-Kit.debug.xcconfig */,
+				3CCA1115C40B72F20B7203250A8D9198 /* Keyboard-Kit.release.xcconfig */,
 			);
-			name = "OS X";
-			sourceTree = "<group>";
-		};
-		C13E524BD8461817B3FCE11A3B7BEF00 /* SwiftyBeaver */ = {
-			isa = PBXGroup;
-			children = (
-				29D7EF5C2B412D2B9D10940E6B6A2DCA /* AES256CBC.swift */,
-				019B790F3B9E34E045D3D304540642C5 /* Base64.swift */,
-				ABEC374BE1B3D27CB8C57BDAF89D97E9 /* BaseDestination.swift */,
-				A3011F48720F75FBDF2EFBDBF4452019 /* ConsoleDestination.swift */,
-				8570DA95FAE9CAC4E39292B3D201369D /* Extensions.swift */,
-				68849792A038949B8CB0B682F9AF88B8 /* FileDestination.swift */,
-				185F22B24A27722BBCBE36E2AA5B583C /* Filter.swift */,
-				D1867DC7A1E81B3755A59BD94D01882D /* FilterValidator.swift */,
-				AF65F0E0A6472E4E92AFDA4AE8A7419A /* GoogleCloudDestination.swift */,
-				4D1370E01CD6E5CFE7058EBB48D3A6F7 /* SBPlatformDestination.swift */,
-				8379C4418007739B99903044146EC592 /* SwiftyBeaver.swift */,
-				62E221E1D1EFC6FFFC7D10CD6C798BC5 /* Support Files */,
-			);
-			name = SwiftyBeaver;
-			path = SwiftyBeaver;
+			name = "Support Files";
+			path = "../Target Support Files/Keyboard-Kit";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				B33A480500D44CA17C9043CC8141E6EB /* Frameworks */,
-				A76F1C2B123766E057B0208834852FEB /* Pods */,
-				4EC0D5665BACB3AD0059AC04B7ED20BE /* Products */,
+				D47295273F27FDA8ADDA889C9FA89D58 /* Frameworks */,
+				2FC7B2192719269735CDDA57DC3C19FA /* Pods */,
+				49E58E21896C8460F40937CC08101A46 /* Products */,
 				0E3CD7B185EADC897EEC2CAD823AE9AC /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		F205587D9CF6718650DE179F8782779A /* Support Files */ = {
+		D47295273F27FDA8ADDA889C9FA89D58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F28E438C776B1C71E6E29805844F0C28 /* HotKey.modulemap */,
-				AB9D862BD13F10D1C4EF4E247242B363 /* HotKey-dummy.m */,
-				F570CB056F11EF87039E6CAAFD34F4B2 /* HotKey-Info.plist */,
-				C30887118EC2DF33D05DCB8E7D6E5AFE /* HotKey-prefix.pch */,
-				B66FA24277067DCF54FA24F7E8E018C6 /* HotKey-umbrella.h */,
-				DB0253F1CAC76DE260F7C923EDCAEC15 /* HotKey.debug.xcconfig */,
-				D71F5A9E7AFA6E2B57DAC9E6A4249A97 /* HotKey.release.xcconfig */,
+				93785810EBF85793C323967561F0AE11 /* iOS */,
+				FF0F62C8CD3F9AB90A93CFDD8F6E0563 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6DA0F7F3436216B7B811A16DF3C10C7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0615420CC068C98E68A244C3314999D /* SwiftyBeaver-iOS.modulemap */,
+				D01880FCE58453DAEDD734521FED9FBA /* SwiftyBeaver-iOS-dummy.m */,
+				6426A9052A49AD54045CE51DB05AF6F4 /* SwiftyBeaver-iOS-Info.plist */,
+				2FC165ACE46655D07F5319F417383B4C /* SwiftyBeaver-iOS-prefix.pch */,
+				C65A0474C4A260CD2270E91578F74E4D /* SwiftyBeaver-iOS-umbrella.h */,
+				00D3C7582E867D620F090B60E358BB59 /* SwiftyBeaver-iOS.debug.xcconfig */,
+				A2D3BBDE15E393F21BEB34780B4C62F7 /* SwiftyBeaver-iOS.release.xcconfig */,
+				A3A5F452149EF94D4CB244B2AA842F01 /* SwiftyBeaver-macOS.modulemap */,
+				1FC55412D2FE5B40DB13769BEA760726 /* SwiftyBeaver-macOS-dummy.m */,
+				D098BD592034E8716F28C7C69C42FBA8 /* SwiftyBeaver-macOS-Info.plist */,
+				A50E2E066D55C763049B4A13B6E3DDFF /* SwiftyBeaver-macOS-prefix.pch */,
+				F874D0FA3B01D866F241DDC60ABA5881 /* SwiftyBeaver-macOS-umbrella.h */,
+				E1F7DBECBA32D1F90E4F248504F8D3A8 /* SwiftyBeaver-macOS.debug.xcconfig */,
+				98FC68E8E9146BA6F1D1B66C78857CAF /* SwiftyBeaver-macOS.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/HotKey";
+			path = "../Target Support Files/SwiftyBeaver-iOS";
+			sourceTree = "<group>";
+		};
+		F3E70C0EC57D40CFE8FE4B7A040A1203 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D681DEC600C225DD6FE9D7244B76934A /* GBDeviceInfo.h */,
+				6EDA9791D7BB2565E43A58D989ADCA95 /* GBDeviceInfo_Common.h */,
+				5F8CB2C7177F7E6E75EE97C7B14AF1C0 /* GBDeviceInfo_Common.m */,
+				9C1074853361EA9D49C5A01389998E53 /* GBDeviceInfo_OSX.h */,
+				61EA23FEC150DF794A902DADF417C9F4 /* GBDeviceInfo_OSX.m */,
+				1417C518391EFC62CC422BD13B371FEB /* GBDeviceInfo_Subclass.h */,
+				304A10D0F32F5084378B6EB8265641DB /* GBDeviceInfoInterface.h */,
+				8D8B3A8BE882D1D0B0461E2A4D07936B /* GBDeviceInfoTypes_Common.h */,
+				8AE0C7CEFA0F8F739C316C3F6758E82C /* GBDeviceInfoTypes_OSX.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		FF0F62C8CD3F9AB90A93CFDD8F6E0563 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				0BFEE2D4D85BBB1505CC5E722D9457E6 /* AVFoundation.framework */,
+				4F297799F71D90819CE741E5AF01860A /* Cocoa.framework */,
+				956BBEEDE336D3D65FAF8A327CAFFA85 /* CoreServices.framework */,
+				BEE0E5303E50D5532A578A4737A4AEF3 /* Foundation.framework */,
+			);
+			name = "OS X";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +752,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4415C5C87FE5C4841D805607FF78003F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F4EC0971DA96F1323AF2C36E938E6C /* Pods-Typyst (macOS)-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65C79E3B163E8B46D52A67BC86197FA8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,27 +768,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A55EF4939E0323E2E10DDF4547DBB6AC /* Headers */ = {
+		77E0E03CE8DB9C4B2E4BED66FD997361 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08022041F67205BA8CBE856C3F2868C0 /* Pods-Typyst (macOS)-umbrella.h in Headers */,
+				C394122E408A93BCA1F9E183B064B5E2 /* GBDeviceInfo-umbrella.h in Headers */,
+				8D8E95589A27CBA705C3DB8F351074C6 /* GBDeviceInfo.h in Headers */,
+				4E9C327DC6328803777F3C60DB90FED6 /* GBDeviceInfo_Common.h in Headers */,
+				B4910F73C04A4BD0077185E9CCBAA74A /* GBDeviceInfo_OSX.h in Headers */,
+				E5FF5A2E7AE61D0F5A067639562C4FA2 /* GBDeviceInfo_Subclass.h in Headers */,
+				9F9DFD03A2C273BBFCCB1CEDF11D336B /* GBDeviceInfoInterface.h in Headers */,
+				B3E0DA0E9E2813A0149123CCD1041691 /* GBDeviceInfoTypes_Common.h in Headers */,
+				6649E26F227759FCE4FEAF466D75B7A4 /* GBDeviceInfoTypes_OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CCDCBA48AE4EEEBC0028627E33EEDE6E /* Headers */ = {
+		E2096D99F94EB2A95836E70BDC3D3AA3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B3F7514850F55661017B77CB149AA2F /* Pods-Typyst (iOS)-umbrella.h in Headers */,
+				FDEB2E974E1128C8643944180097D1C9 /* BarButtonItem.h in Headers */,
+				18C2F2C5F1675748E774E89B500FB045 /* Keyboard-Kit-umbrella.h in Headers */,
+				A86EA5C8BFAE4E0EBE45EEFF2F657264 /* KeyboardKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F86CE60BF1555823DE98BC5D4354F297 /* Headers */ = {
+		ED08B5024ECDCA459896FAC837D6BB7C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6329F2E68803BCDBFC3C3A48DF5109E3 /* HotKey-umbrella.h in Headers */,
+				115547ABFB730EC2F19F0BA44102B37D /* Pods-Typyst (iOS)-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,19 +832,19 @@
 		};
 		01EC088A4E6BCA40AD85BDA9E5A02D4B /* Pods-Typyst (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7FF9FF21339DDD6AE10CBC3DFFFA23B1 /* Build configuration list for PBXNativeTarget "Pods-Typyst (macOS)" */;
+			buildConfigurationList = 946B3CFEAB15C5274DFAF7A8EAFFBD9C /* Build configuration list for PBXNativeTarget "Pods-Typyst (macOS)" */;
 			buildPhases = (
-				A55EF4939E0323E2E10DDF4547DBB6AC /* Headers */,
-				2DF1FFDD6FF5886EEDE27BCB18722F7F /* Sources */,
-				A58F62FD7740C9AEDD74D81F50D9CA5C /* Frameworks */,
-				9642D436EFBDCDBC456C76D91D952B66 /* Resources */,
+				4415C5C87FE5C4841D805607FF78003F /* Headers */,
+				408D02260777BAE68BAB4456D6D47DD9 /* Sources */,
+				E6AD051DC9692F64448633AAED913547 /* Frameworks */,
+				DF3F87924E32CB7EF3ABB89DA864535E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DA1B2D3A4DA857DA90FBF70CF3C360B7 /* PBXTargetDependency */,
-				995EBB5C52FF09371F9636C911FC3124 /* PBXTargetDependency */,
-				4849C08E35284BFE17A63EB4E1D0F5D8 /* PBXTargetDependency */,
+				194F307FDD407CE332CF67DDC0C6D070 /* PBXTargetDependency */,
+				6DF2F3A96C8B9D184439915E30BA3276 /* PBXTargetDependency */,
+				F81691EAE69AAA6A96C9CAB4708DD887 /* PBXTargetDependency */,
 			);
 			name = "Pods-Typyst (macOS)";
 			productName = "Pods-Typyst (macOS)";
@@ -585,6 +869,24 @@
 			productReference = 0CAFC29805E4DC1D8371E6F034AA9E0E /* SwiftyBeaver.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		1C39835229AAE97B8B43A674C5F34D5A /* Keyboard-Kit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D729136AC36B3410B1AA2C3980C9E63 /* Build configuration list for PBXNativeTarget "Keyboard-Kit" */;
+			buildPhases = (
+				E2096D99F94EB2A95836E70BDC3D3AA3 /* Headers */,
+				7F774FC539B76A9279BE5F5A03106BD1 /* Sources */,
+				C7A3CEBC96D3EF9C0A5EA35470B3B9A9 /* Frameworks */,
+				A65FF8BFF42483AB8DD3C290F8080265 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Keyboard-Kit";
+			productName = "Keyboard-Kit";
+			productReference = 617AC46E5FDBC0810DAFF99240231EA1 /* KeyboardKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		69E0094CB392D613B06E78E171658822 /* SwiftySound-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 272A436FCD04C9E7E72785C27575D634 /* Build configuration list for PBXNativeTarget "SwiftySound-iOS" */;
@@ -605,18 +907,19 @@
 		};
 		7B748BC4B2EBA1E44F8B0A64752CB15B /* Pods-Typyst (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62A747085FDD6A73485A02DF81D15515 /* Build configuration list for PBXNativeTarget "Pods-Typyst (iOS)" */;
+			buildConfigurationList = 0A738980453A721DE72EE76AA3BE3284 /* Build configuration list for PBXNativeTarget "Pods-Typyst (iOS)" */;
 			buildPhases = (
-				CCDCBA48AE4EEEBC0028627E33EEDE6E /* Headers */,
-				E993989DB86134296FDB00CA076057D2 /* Sources */,
-				0F2295FB5251664AE38BEB54EEBE164C /* Frameworks */,
-				14EB34CB4A3A0BB60A78AD8192A9C232 /* Resources */,
+				ED08B5024ECDCA459896FAC837D6BB7C /* Headers */,
+				7A9B688900B6B6B8EDCEB92FAEDA8A16 /* Sources */,
+				56769AF1B52F1EA8F767C9C36981B87D /* Frameworks */,
+				E784102C62AAC683FD40260D09C00F35 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				701690C62CE67B3F26942117CAA73F20 /* PBXTargetDependency */,
-				964E77433386250A6A98D15812227FE0 /* PBXTargetDependency */,
+				4DAE086A3C34A725A974A0DA248C88DC /* PBXTargetDependency */,
+				2DABFEACB5C6F96DEF451FA2655AC822 /* PBXTargetDependency */,
+				74CA66CD402546AB03CB99980A9A06D5 /* PBXTargetDependency */,
 			);
 			name = "Pods-Typyst (iOS)";
 			productName = "Pods-Typyst (iOS)";
@@ -641,22 +944,22 @@
 			productReference = 6997997FD158F24A0779219C2867B6E0 /* SwiftyBeaver.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DB4D977E4336D9F2E9E510A33CD1DB6D /* HotKey */ = {
+		BB98E1FC6C2504C46E7DE517B82518B8 /* GBDeviceInfo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7CF4E656A9E7278BE7AD5E48841412E /* Build configuration list for PBXNativeTarget "HotKey" */;
+			buildConfigurationList = 1044677DB1814D48DBD618E54D985086 /* Build configuration list for PBXNativeTarget "GBDeviceInfo" */;
 			buildPhases = (
-				F86CE60BF1555823DE98BC5D4354F297 /* Headers */,
-				7CBB17719916DF3020AE21CEEA3DD91C /* Sources */,
-				EC969627A44DD839E017AD83678B6FF2 /* Frameworks */,
-				B29C2900C4DEA03C97EAAA1E92F0C9FE /* Resources */,
+				77E0E03CE8DB9C4B2E4BED66FD997361 /* Headers */,
+				9C5DB53069ED3250A1156F962F0E51CD /* Sources */,
+				50F4F454CAEC43BA6AA21951649128CD /* Frameworks */,
+				AC996D0C2443095DCF7463CEA1FDA47B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HotKey;
-			productName = HotKey;
-			productReference = F36B2E7BB4C3E92E4DF7443FAFF3AE3F /* HotKey.framework */;
+			name = GBDeviceInfo;
+			productName = GBDeviceInfo;
+			productReference = 938E39FEA9E76D8E3B64C12EA2BAB830 /* GBDeviceInfo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -677,11 +980,12 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4EC0D5665BACB3AD0059AC04B7ED20BE /* Products */;
+			productRefGroup = 49E58E21896C8460F40937CC08101A46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB4D977E4336D9F2E9E510A33CD1DB6D /* HotKey */,
+				BB98E1FC6C2504C46E7DE517B82518B8 /* GBDeviceInfo */,
+				1C39835229AAE97B8B43A674C5F34D5A /* Keyboard-Kit */,
 				7B748BC4B2EBA1E44F8B0A64752CB15B /* Pods-Typyst (iOS) */,
 				01EC088A4E6BCA40AD85BDA9E5A02D4B /* Pods-Typyst (macOS) */,
 				1657B1C164E298BCDD3AE7E8C428882E /* SwiftyBeaver-iOS */,
@@ -693,13 +997,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		14EB34CB4A3A0BB60A78AD8192A9C232 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		703ED6E05483441428B873F4B843B827 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -707,14 +1004,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9642D436EFBDCDBC456C76D91D952B66 /* Resources */ = {
+		A65FF8BFF42483AB8DD3C290F8080265 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE651168F85D072839D9E542EFAEEFC8 /* ar.lproj in Resources */,
+				9F245D46EBE011FE2DB699C8628CEDD7 /* ca.lproj in Resources */,
+				B0C13F0472303EC0DB4A61BAD1A115BF /* cs.lproj in Resources */,
+				DC9F5E3653FE11BE5BB2F9234DC5CCB5 /* da.lproj in Resources */,
+				F8BC690BC4724C0A6E7A94137BC9DE78 /* de.lproj in Resources */,
+				3738F7EBEF61F24641DF8B6C35290415 /* el.lproj in Resources */,
+				C4692AC9BA89AB1A6779A23D8BF79951 /* en-AU.lproj in Resources */,
+				D8DA25E20B42387E4D04497EABEDF3EF /* en-GB.lproj in Resources */,
+				253608DD0D0B9864498AE99D119C7F4C /* en.lproj in Resources */,
+				AFAACFBCB73D72E54B4F4DA69B8DB90C /* es-419.lproj in Resources */,
+				509FA7DC1A3B00AC5CDAB250DB441D2F /* es.lproj in Resources */,
+				562563577718706ABD677FD0B5599A5B /* fi.lproj in Resources */,
+				549E26AE0A760AE716A6BDCB39CC87DB /* fr-CA.lproj in Resources */,
+				47F7A9A4A9BBBF72B6E247DA75A1D715 /* fr.lproj in Resources */,
+				D7A234AB6D69AF434831E45AB12D89C4 /* he.lproj in Resources */,
+				FE21FDC75731FD9A6255537B6F0A69D3 /* hi.lproj in Resources */,
+				7B18CF75A60564D98BCF1F19EADAED89 /* hr.lproj in Resources */,
+				4D77237AE442CB5C4BBF29C5EDA320DC /* hu.lproj in Resources */,
+				1D292DBC89CFCF71B76CC0656B37323F /* id.lproj in Resources */,
+				173E213C855351F6BC20D36F9FDD5C55 /* it.lproj in Resources */,
+				01ACEDFDE43951B3DBE383EFFD347569 /* ja.lproj in Resources */,
+				033691983AF3819BC3D882F04E90E6A1 /* ko.lproj in Resources */,
+				90BB2AD3BED160CA85D369AB4C13668C /* ms.lproj in Resources */,
+				3E18F9FEB64439E3583D59E3B1F80E3D /* nb.lproj in Resources */,
+				50912A44CEE3765B7BE1B18DC460A14D /* nl.lproj in Resources */,
+				C2C74F68C3E3ED9094267F40F3A015E5 /* pl.lproj in Resources */,
+				1E7C29232E9D5B7D01A19BFB8107DF24 /* pt-BR.lproj in Resources */,
+				73B42CDE3185F9E067B339A15FF2F23A /* pt-PT.lproj in Resources */,
+				5E75507B4671B38AFDA372544FC86D4A /* ro.lproj in Resources */,
+				FAE4215C0807C5CEF4536871205A175F /* ru.lproj in Resources */,
+				085057D797B5565FB194CEB893CF0C1E /* sk.lproj in Resources */,
+				368A7B477230BED8898C9DE6A461C6F1 /* sv.lproj in Resources */,
+				BAFECCF3584FB84E46CC806802BE6F0B /* th.lproj in Resources */,
+				BE24730BB3643BD8420BF49BFD71693A /* tr.lproj in Resources */,
+				EF6334550DCAE322A2ADB153ABF35B9A /* uk.lproj in Resources */,
+				B2D535F3EC1A37753F597AD6316755BA /* vi.lproj in Resources */,
+				FA16C1A90B569CB71150E701177B4E60 /* zh-Hans.lproj in Resources */,
+				5B0D02A7BECD0C2C6A6EA2B1B87444A4 /* zh-Hant.lproj in Resources */,
+				D4B234AA256C14A1266E0DE43FB2EB18 /* zh-HK.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B29C2900C4DEA03C97EAAA1E92F0C9FE /* Resources */ = {
+		AC996D0C2443095DCF7463CEA1FDA47B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -742,27 +1078,66 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		2DF1FFDD6FF5886EEDE27BCB18722F7F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		DF3F87924E32CB7EF3ABB89DA864535E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52E072C0F76D73FB7830155C7666BAB0 /* Pods-Typyst (macOS)-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7CBB17719916DF3020AE21CEEA3DD91C /* Sources */ = {
+		E784102C62AAC683FD40260D09C00F35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		408D02260777BAE68BAB4456D6D47DD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3543A70DF8931D1D0C5FA57A6B0FB4B /* HotKey-dummy.m in Sources */,
-				9C995A1C6CEE3603CBD3C829D8ECEF8C /* HotKey.swift in Sources */,
-				753C094F16E687CC3C027B49F9A6DE3C /* HotKeysController.swift in Sources */,
-				29784D27868C289298CBBC341C089C58 /* Key.swift in Sources */,
-				B690623CBB2C64D853AC854EA9B3DD60 /* KeyCombo.swift in Sources */,
-				B1E75E67962EF3891467FAA026346869 /* NSEventModifierFlags+HotKey.swift in Sources */,
+				D5153A9541A8452DB58BA1B83ABAB42E /* Pods-Typyst (macOS)-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A9B688900B6B6B8EDCEB92FAEDA8A16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB2D924BDF3E88DD2686CA474D4FBBA1 /* Pods-Typyst (iOS)-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F774FC539B76A9279BE5F5A03106BD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B0D4938A6A0AB035BD2DF852FC167E6 /* BarButtonItem.m in Sources */,
+				56B4A3A6704BCBF98FE62DEC6432F608 /* InjectableResponder.swift in Sources */,
+				493C63C956E7F82862F4E8771DFDEF7A /* Keyboard-Kit-dummy.m in Sources */,
+				210FB3D8F5E84509B35FE93DB11C9E96 /* KeyboardApplication.swift in Sources */,
+				C85B62E199175979F84F231C6E991539 /* KeyboardBarButtonItem.swift in Sources */,
+				D4E6974A82435858AB3F0F17AA6557E3 /* KeyboardCollectionView.swift in Sources */,
+				8FBC38FAECE71DEEA458964BE2121441 /* KeyboardNavigationController.swift in Sources */,
+				F59BCA02A52D30B6FD817CC9AA74D904 /* KeyboardScrollingDelegate.swift in Sources */,
+				4279522A6005E2E02E43471C610C6428 /* KeyboardScrollView.swift in Sources */,
+				680CD767C83661A99394BD63A35ABC59 /* KeyboardSplitViewController.swift in Sources */,
+				117D396F2A193B42FA4AD53A646A9A11 /* KeyboardTabBarController.swift in Sources */,
+				8BE73641FD2A400961FB4C813268350C /* KeyboardTableView.swift in Sources */,
+				12B87C7780C2C855673A876D81AF89F0 /* KeyboardTextView.swift in Sources */,
+				777A38FBE0687CAE0F1E82FF405976A9 /* KeyboardWindow.swift in Sources */,
+				A6158CA7007F6733E00A16BB9FE8B0E8 /* KeyboardWindowScene.swift in Sources */,
+				EC9924D09F709485C4A3B7EF5DFA9780 /* KeyCommandCreation.swift in Sources */,
+				6B7386C8307CD931396B01E79FEDD304 /* KeyInputStrings.swift in Sources */,
+				9E0404C052A3238D8D9A4057B8418FCC /* LocalisedStringKeys.swift in Sources */,
+				F999B1FF2F55C999E218B95E4C8BB275 /* LocalisedStrings.swift in Sources */,
+				EEAED81DF6F1579D397C477192CE71FB /* PointAnimator.swift in Sources */,
+				A1FDC613545358BD8EF1CF7961A275E1 /* ScrollViewKeyHandler.swift in Sources */,
+				E5A3972BB1AE070CFF6D1DDDF50D8065 /* SelectableCollectionKeyHandler.swift in Sources */,
+				C2FCC62601F3E035EA704B51999083C3 /* TextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +1178,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C5DB53069ED3250A1156F962F0E51CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AA22E4F64778DCC34D964A8ACF922A /* GBDeviceInfo-dummy.m in Sources */,
+				D82A7F6A4AF10E27D601381054AFCBFE /* GBDeviceInfo_Common.m in Sources */,
+				9399AC0213B2413A906821091B41393B /* GBDeviceInfo_OSX.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E05A4A3136974DD18C2B906618C58579 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -822,53 +1207,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E993989DB86134296FDB00CA076057D2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7745CEE67436165A0B67B8EEA2F16AEE /* Pods-Typyst (iOS)-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4849C08E35284BFE17A63EB4E1D0F5D8 /* PBXTargetDependency */ = {
+		194F307FDD407CE332CF67DDC0C6D070 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "SwiftySound-macOS";
-			target = 00A7ADFCA135434D9D61E3EBB2D7C5CB /* SwiftySound-macOS */;
-			targetProxy = 4D816307826EB43E83BF4476917BAFD1 /* PBXContainerItemProxy */;
+			name = GBDeviceInfo;
+			target = BB98E1FC6C2504C46E7DE517B82518B8 /* GBDeviceInfo */;
+			targetProxy = B71FA0FF036A5DC78E233623FE123675 /* PBXContainerItemProxy */;
 		};
-		701690C62CE67B3F26942117CAA73F20 /* PBXTargetDependency */ = {
+		2DABFEACB5C6F96DEF451FA2655AC822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SwiftyBeaver-iOS";
 			target = 1657B1C164E298BCDD3AE7E8C428882E /* SwiftyBeaver-iOS */;
-			targetProxy = 43DD72414F79B2045D9050A400D20207 /* PBXContainerItemProxy */;
+			targetProxy = CD8902B2DEBCA56977A9FBFC09A0A660 /* PBXContainerItemProxy */;
 		};
-		964E77433386250A6A98D15812227FE0 /* PBXTargetDependency */ = {
+		4DAE086A3C34A725A974A0DA248C88DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "SwiftySound-iOS";
-			target = 69E0094CB392D613B06E78E171658822 /* SwiftySound-iOS */;
-			targetProxy = B7D85C5E1AF745B0D6B126FA8EF83A33 /* PBXContainerItemProxy */;
+			name = "Keyboard-Kit";
+			target = 1C39835229AAE97B8B43A674C5F34D5A /* Keyboard-Kit */;
+			targetProxy = 26FAA1F4EEF82CB20087627944301D1D /* PBXContainerItemProxy */;
 		};
-		995EBB5C52FF09371F9636C911FC3124 /* PBXTargetDependency */ = {
+		6DF2F3A96C8B9D184439915E30BA3276 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SwiftyBeaver-macOS";
 			target = B8198B4CD53FFE0380A2C93CA07E398E /* SwiftyBeaver-macOS */;
-			targetProxy = 3C137B111E5684A41E59F04D8331603F /* PBXContainerItemProxy */;
+			targetProxy = 22633533F5DB42C2B5568FF1D0E9E6C5 /* PBXContainerItemProxy */;
 		};
-		DA1B2D3A4DA857DA90FBF70CF3C360B7 /* PBXTargetDependency */ = {
+		74CA66CD402546AB03CB99980A9A06D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = HotKey;
-			target = DB4D977E4336D9F2E9E510A33CD1DB6D /* HotKey */;
-			targetProxy = 95074938D309C27B81EDD249C6E6C673 /* PBXContainerItemProxy */;
+			name = "SwiftySound-iOS";
+			target = 69E0094CB392D613B06E78E171658822 /* SwiftySound-iOS */;
+			targetProxy = 0B2E564CE87B8B0614C80A1AE3C7BDA4 /* PBXContainerItemProxy */;
+		};
+		F81691EAE69AAA6A96C9CAB4708DD887 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftySound-macOS";
+			target = 00A7ADFCA135434D9D61E3EBB2D7C5CB /* SwiftySound-macOS */;
+			targetProxy = C02B4FBFE5399F9F8F986C53BD788D47 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		003132A1B94F582F93DF67599192EF1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93925FF0E062B0550B2C8987E1EFC69B /* SwiftyBeaver-iOS.release.xcconfig */;
+			baseConfigurationReference = A2D3BBDE15E393F21BEB34780B4C62F7 /* SwiftyBeaver-iOS.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -901,114 +1284,7 @@
 			};
 			name = Release;
 		};
-		2711DCCD1F068B36EA2710F306F0687A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8893787400A2F578B033DC20D21AA26 /* SwiftySound-iOS.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS.modulemap";
-				PRODUCT_MODULE_NAME = SwiftySound;
-				PRODUCT_NAME = SwiftySound;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3896752E1B1D6FEEB51147F455512E2F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C599A1045FCF0A11C456286DA62A8BE /* Pods-Typyst (iOS).debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		46AC1C9554A36C7588FD72A81588AC21 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D501D570B3C10071E00751F522C6BDB /* SwiftyBeaver-macOS.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyBeaver;
-				PRODUCT_NAME = SwiftyBeaver;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		4E3AA25A4C3FF9DB6601B7030B7A4D20 /* Release */ = {
+		01A325C618295B49B8D3AE3AE5DD8891 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B76162EECF1FFB054911AA1E22E662F4 /* Pods-Typyst (iOS).release.xcconfig */;
 			buildSettings = {
@@ -1046,114 +1322,7 @@
 			};
 			name = Release;
 		};
-		75A8ACE20BF969A8764882A009A094F1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19FEA0D0493FB0B88DC122826A71F850 /* SwiftyBeaver-iOS.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyBeaver;
-				PRODUCT_NAME = SwiftyBeaver;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7670973865DC31C2D4C54171DE0015CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ED285463DAB210297E8AD3A255E345A /* SwiftyBeaver-macOS.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyBeaver;
-				PRODUCT_NAME = SwiftyBeaver;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7C72A0ECB24B81802162F9A64DB10B21 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7B24A56AF3738D71636CE8617CF5EE3 /* Pods-Typyst (macOS).release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		814E003CB0A0D0FC7D1D7977C7B707A0 /* Debug */ = {
+		0C55AAEB6DB881C1964E97BB2E1A2334 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2CCB655A64D943AF92CB617ED2E1731 /* Pods-Typyst (macOS).debug.xcconfig */;
 			buildSettings = {
@@ -1190,9 +1359,331 @@
 			};
 			name = Debug;
 		};
+		22296B332DF2E46F97A6A4CF4B3699F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CCA1115C40B72F20B7203250A8D9198 /* Keyboard-Kit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Keyboard-Kit/Keyboard-Kit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Keyboard-Kit/Keyboard-Kit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Keyboard-Kit/Keyboard-Kit.modulemap";
+				PRODUCT_MODULE_NAME = KeyboardKit;
+				PRODUCT_NAME = KeyboardKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2711DCCD1F068B36EA2710F306F0687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51F38A7320A9958FD2D9D5FF731FDA94 /* SwiftySound-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftySound-iOS/SwiftySound-iOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftySound;
+				PRODUCT_NAME = SwiftySound;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		404567A2DC6E2629EE3174BEA604419C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7B24A56AF3738D71636CE8617CF5EE3 /* Pods-Typyst (macOS).release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		46AC1C9554A36C7588FD72A81588AC21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1F7DBECBA32D1F90E4F248504F8D3A8 /* SwiftyBeaver-macOS.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		632E0B5E616A3C5BD5F8EBFC984CEFCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0BBB674C5493E86B574B4E9D25D9813 /* GBDeviceInfo.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GBDeviceInfo/GBDeviceInfo-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GBDeviceInfo/GBDeviceInfo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/GBDeviceInfo/GBDeviceInfo.modulemap";
+				PRODUCT_MODULE_NAME = GBDeviceInfo;
+				PRODUCT_NAME = GBDeviceInfo;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		75A8ACE20BF969A8764882A009A094F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00D3C7582E867D620F090B60E358BB59 /* SwiftyBeaver-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-iOS/SwiftyBeaver-iOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7670973865DC31C2D4C54171DE0015CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98FC68E8E9146BA6F1D1B66C78857CAF /* SwiftyBeaver-macOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftyBeaver-macOS/SwiftyBeaver-macOS.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyBeaver;
+				PRODUCT_NAME = SwiftyBeaver;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		836C84E1D44AA5AAD8237A67AF13B6AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C599A1045FCF0A11C456286DA62A8BE /* Pods-Typyst (iOS).debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		89E146998E493389E5C03244FFCE9423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95544CB03FF979250F9B1F9871D86155 /* GBDeviceInfo.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GBDeviceInfo/GBDeviceInfo-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GBDeviceInfo/GBDeviceInfo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/GBDeviceInfo/GBDeviceInfo.modulemap";
+				PRODUCT_MODULE_NAME = GBDeviceInfo;
+				PRODUCT_NAME = GBDeviceInfo;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		8B433EF297076C8B2D022DEB95E2D5DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54A4AED0E4C55B26EF2CEED271A06FE1 /* SwiftySound-iOS.release.xcconfig */;
+			baseConfigurationReference = A6CB9D151712592E7DE4EFC332A6DA0A /* SwiftySound-iOS.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1357,7 +1848,7 @@
 		};
 		B9669BA5F3BF25EC372CE81E39FF7CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 811B4E1ABA8985CA494E9DE1054874C3 /* SwiftySound-macOS.debug.xcconfig */;
+			baseConfigurationReference = BB0A67458035B1BB8957E5FF9C6A30D5 /* SwiftySound-macOS.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1392,7 +1883,7 @@
 		};
 		BBE4E76ED6464F4BB04873890C351BD0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D06B954B886286D3A03A1D40E240B44 /* SwiftySound-macOS.release.xcconfig */;
+			baseConfigurationReference = BA0CC94A9FF1FF909AB4A0061E6CADD9 /* SwiftySound-macOS.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1425,71 +1916,36 @@
 			};
 			name = Release;
 		};
-		F4125A2AAC0183FC0C901DA8618FC0A3 /* Release */ = {
+		D5F91F2907AB7589B49CE577E198B389 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D71F5A9E7AFA6E2B57DAC9E6A4249A97 /* HotKey.release.xcconfig */;
+			baseConfigurationReference = ED1C2CEBCC33535725CC60444CFE0263 /* Keyboard-Kit.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HotKey/HotKey-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HotKey/HotKey-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Keyboard-Kit/Keyboard-Kit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Keyboard-Kit/Keyboard-Kit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/HotKey/HotKey.modulemap";
-				PRODUCT_MODULE_NAME = HotKey;
-				PRODUCT_NAME = HotKey;
-				SDKROOT = macosx;
+				MODULEMAP_FILE = "Target Support Files/Keyboard-Kit/Keyboard-Kit.modulemap";
+				PRODUCT_MODULE_NAME = KeyboardKit;
+				PRODUCT_NAME = KeyboardKit;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FE4DEA23EB21E13725D99942F2CA4422 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB0253F1CAC76DE260F7C923EDCAEC15 /* HotKey.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HotKey/HotKey-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HotKey/HotKey-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/HotKey/HotKey.modulemap";
-				PRODUCT_MODULE_NAME = HotKey;
-				PRODUCT_NAME = HotKey;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1498,6 +1954,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A738980453A721DE72EE76AA3BE3284 /* Build configuration list for PBXNativeTarget "Pods-Typyst (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				836C84E1D44AA5AAD8237A67AF13B6AD /* Debug */,
+				01A325C618295B49B8D3AE3AE5DD8891 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1044677DB1814D48DBD618E54D985086 /* Build configuration list for PBXNativeTarget "GBDeviceInfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632E0B5E616A3C5BD5F8EBFC984CEFCF /* Debug */,
+				89E146998E493389E5C03244FFCE9423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		110178CB16BCFFBCC0B35987CAAEB2F6 /* Build configuration list for PBXNativeTarget "SwiftyBeaver-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1525,15 +1999,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62A747085FDD6A73485A02DF81D15515 /* Build configuration list for PBXNativeTarget "Pods-Typyst (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3896752E1B1D6FEEB51147F455512E2F /* Debug */,
-				4E3AA25A4C3FF9DB6601B7030B7A4D20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7D51F2F48146AAF727B83EA074983117 /* Build configuration list for PBXNativeTarget "SwiftySound-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1543,11 +2008,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7FF9FF21339DDD6AE10CBC3DFFFA23B1 /* Build configuration list for PBXNativeTarget "Pods-Typyst (macOS)" */ = {
+		7D729136AC36B3410B1AA2C3980C9E63 /* Build configuration list for PBXNativeTarget "Keyboard-Kit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				814E003CB0A0D0FC7D1D7977C7B707A0 /* Debug */,
-				7C72A0ECB24B81802162F9A64DB10B21 /* Release */,
+				D5F91F2907AB7589B49CE577E198B389 /* Debug */,
+				22296B332DF2E46F97A6A4CF4B3699F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		946B3CFEAB15C5274DFAF7A8EAFFBD9C /* Build configuration list for PBXNativeTarget "Pods-Typyst (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C55AAEB6DB881C1964E97BB2E1A2334 /* Debug */,
+				404567A2DC6E2629EE3174BEA604419C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1557,15 +2031,6 @@
 			buildConfigurations = (
 				75A8ACE20BF969A8764882A009A094F1 /* Debug */,
 				003132A1B94F582F93DF67599192EF1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A7CF4E656A9E7278BE7AD5E48841412E /* Build configuration list for PBXNativeTarget "HotKey" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FE4DEA23EB21E13725D99942F2CA4422 /* Debug */,
-				F4125A2AAC0183FC0C901DA8618FC0A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

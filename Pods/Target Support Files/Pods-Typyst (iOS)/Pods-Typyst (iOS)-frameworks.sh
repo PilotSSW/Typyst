@@ -175,10 +175,12 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Keyboard-Kit/KeyboardKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyBeaver-iOS/SwiftyBeaver.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftySound-iOS/SwiftySound.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Keyboard-Kit/KeyboardKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyBeaver-iOS/SwiftyBeaver.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftySound-iOS/SwiftySound.framework"
 fi

@@ -1,24 +1,30 @@
 PODS:
-  - HotKey (0.1.2)
+  - GBDeviceInfo (6.5.1):
+    - GBDeviceInfo/Core (= 6.5.1)
+  - GBDeviceInfo/Core (6.5.1)
+  - Keyboard-Kit (3.0.1)
   - SwiftyBeaver (1.9.3)
   - SwiftySound (1.2.0)
 
 DEPENDENCIES:
-  - HotKey
+  - GBDeviceInfo
+  - Keyboard-Kit
   - SwiftyBeaver
   - SwiftySound
 
 SPEC REPOS:
   trunk:
-    - HotKey
+    - GBDeviceInfo
+    - Keyboard-Kit
     - SwiftyBeaver
     - SwiftySound
 
 SPEC CHECKSUMS:
-  HotKey: ad59450195936c10992438c4210f673de5aee43e
+  GBDeviceInfo: 8c2fb32865a2f4793254a1f748a0ae2722e59ba6
+  Keyboard-Kit: 71ba79e2fe44cf4a6c53936c293c1ba7c1733edf
   SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
   SwiftySound: 9eb28bb14edb601b40027e44319e0ef8383f88bf
 
-PODFILE CHECKSUM: 0a72aa6b2dbd6ad0193a48594c82d09283034318
+PODFILE CHECKSUM: 51f208846bd112ec0544618f65af6ec321b7db4f
 
 COCOAPODS: 1.10.1

@@ -1,0 +1,36 @@
+// Douglas Hill, March 2020
+
+"app_newWindow" = "Nytt vindu";
+"app_settings" = "Innstillinger";
+"barButton_action" = "Del";
+"barButton_add" = "Legg til";
+"barButton_bookmarks" = "Bokmerker";
+"barButton_camera" = "Kamera";
+"barButton_cancel" = "Avbryt";
+"barButton_close" = "Lukk";
+"barButton_compose" = "Ny melding"; // This matches the iOS Mail accessibility label. More common in Apple strings files: Skriv
+"barButton_done" = "Ferdig";
+"barButton_edit" = "Rediger";
+"barButton_fastForward" = "Spol framover";
+"barButton_organize" = "Organiser";
+"barButton_pause" = "Pause";
+"barButton_play" = "Spill av";
+"barButton_redo" = "Utfør likevel";
+"barButton_reply" = "Svar";
+"barButton_rewind" = "Spol tilbake";
+"barButton_save" = "Arkiver";
+"barButton_search" = "Søk";
+"barButton_stop" = "Stopp";
+"barButton_undo" = "Angre";
+"delete" = "Slett";
+"find_jump" = "Gå til markering";
+"find_next" = "Finn neste";
+"find_previous" = "Finn forrige";
+"find_useSelection" = "Bruk markering til søk";
+"navigation_back" = "Tilbake";
+"refresh" = "Oppdater";
+"scrollView_zoomIn" = "Zoom inn";
+"scrollView_zoomOut" = "Zoom ut";
+"scrollView_zoomReset" = "Faktisk størrelse";
+"window_close" = "Lukk vindu";
+"window_cycle" = "Bla gjennom vinduer";

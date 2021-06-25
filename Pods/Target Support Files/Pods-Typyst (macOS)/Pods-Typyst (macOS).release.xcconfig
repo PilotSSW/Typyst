@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/HotKey" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver-macOS" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftySound-macOS"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GBDeviceInfo" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver-macOS" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftySound-macOS"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/HotKey/HotKey.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver-macOS/SwiftyBeaver.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftySound-macOS/SwiftySound.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GBDeviceInfo/GBDeviceInfo.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver-macOS/SwiftyBeaver.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftySound-macOS/SwiftySound.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/../Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "AVFoundation" -framework "AppKit" -framework "Carbon" -framework "Foundation" -framework "HotKey" -framework "SwiftyBeaver" -framework "SwiftySound"
+OTHER_LDFLAGS = $(inherited) -framework "AVFoundation" -framework "Cocoa" -framework "CoreServices" -framework "Foundation" -framework "GBDeviceInfo" -framework "SwiftyBeaver" -framework "SwiftySound"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

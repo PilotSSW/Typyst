@@ -177,12 +177,12 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyBeaver-macOS/SwiftyBeaver.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftySound-macOS/SwiftySound.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GBDeviceInfo/GBDeviceInfo.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyBeaver-macOS/SwiftyBeaver.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftySound-macOS/SwiftySound.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GBDeviceInfo/GBDeviceInfo.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
