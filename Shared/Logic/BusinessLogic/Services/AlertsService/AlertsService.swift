@@ -21,10 +21,10 @@ class AlertsService: Loggable, ObservableObject {
     func showAlert(_ alert: Alert, priorityFirstInQueue: Bool = false) {
         logEvent(.debug, "Alert added -- \(alert)")
 
-        let checkedTypes: [AlertType] = [.developer, .userInfo]
-        if checkedTypes.contains(alert.type) && !appSettings.showModalNotifications {
-            return
-        }
+        let isNonCriticalAlert = [.userInfo].contains(alert.type) && !appSettings.showModalNotifications
+        let isIgnoredDeveloperAlert = [.developer].contains(alert.type) && !appDebugSettings.debugGlobal
+
+        if (isNonCriticalAlert && isIgnoredDeveloperAlert) { return }
 
         if currentAlert != nil {
             priorityFirstInQueue
@@ -37,10 +37,11 @@ class AlertsService: Loggable, ObservableObject {
     }
 
     func dismissCurrentAlert() {
-        currentAlert = nil
-
         if alertQueue.count > 0 {
             currentAlert = alertQueue.remove(at: 0)
+        }
+        else {
+            currentAlert = nil
         }
     }
 }
