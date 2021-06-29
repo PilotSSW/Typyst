@@ -11,7 +11,11 @@ class Logging {
 
     private let swiftyBeaverLogger: SwiftyBeaverLogger
 
-    enum Level: Int {
+    enum Level: Int, Comparable {
+        static func < (lhs: Logging.Level, rhs: Logging.Level) -> Bool {
+            lhs.rawValue < rhs.rawValue
+        }
+
         case trace = 0
         case debug = 1
         case info = 2
@@ -32,9 +36,10 @@ class Logging {
             appDebugSettings: appDebugSettings)
     }
 
-    func log(_ level: Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
+    /// This function should only be used from Loggable protocol and something other than default logger instance is needeed,
+    /// the caller needs to get and hold on to reference.
+    fileprivate func log(_ level: Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
              file: String = #file, function: String = #function, line: Int = #line) {
-
         swiftyBeaverLogger.log(level, message, error: error, context: context, file: file, function: function, line: line)
     }
 }

@@ -1,0 +1,6 @@
+framework module SwiftyBeaver {
+  umbrella header "SwiftyBeaver-framework-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

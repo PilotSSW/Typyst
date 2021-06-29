@@ -5,10 +5,17 @@
 //  Created by Sean Wolford on 4/14/21.
 //
 
+import GBDeviceInfo
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
+    /// MARK: Variables
+    private var dependencyContainer = KeyboardExtensionDependencyContainer.get()
+    private var keyboardService: KeyboardService!
+    private var keyboardExtensionService: KeyboardExtensionService!
 
+
+    /// MARK: Outlets
     @IBOutlet var nextKeyboardButton: UIButton!
     
     override func updateViewConstraints() {
@@ -19,6 +26,9 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        keyboardService = dependencyContainer.rootDependencyContainer.keyboardService
+        keyboardExtensionService = dependencyContainer.keyboardExtensionService
         
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
@@ -33,6 +43,11 @@ class KeyboardViewController: UIInputViewController {
         
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+
+        logEvent(.info, "Keyboard extension view loaded", context: [
+            GBDeviceInfo.deviceInfo(),
+            GBDeviceInfo().isJailbroken,
+        ])
     }
     
     override func viewWillLayoutSubviews() {
@@ -58,19 +73,26 @@ class KeyboardViewController: UIInputViewController {
     }
 }
 
+// MARK: Keyboard handling
 extension KeyboardViewController {
     override func pressesBegan(_ presses: Set<UIPress>,
                                with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)
+        keyboardExtensionService.handleUIPressesEvent(event, .touchBegan, keyboardService: keyboardService)
     }
 
     override func pressesEnded(_ presses: Set<UIPress>,
                                with event: UIPressesEvent?) {
         super.pressesEnded(presses, with: event)
+        keyboardExtensionService.handleUIPressesEvent(event, .touchEnded, keyboardService: keyboardService)
     }
 
     override func pressesCancelled(_ presses: Set<UIPress>,
                                    with event: UIPressesEvent?) {
         super.pressesCancelled(presses, with: event)
+        keyboardExtensionService.handleUIPressesEvent(event, .touchCancelled, keyboardService: keyboardService)
     }
 }
+
+// MARK: Add logging support
+extension KeyboardViewController: Loggable {}

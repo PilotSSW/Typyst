@@ -7,7 +7,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class TypeWriterService: Alertable, Loggable, ObservableObject {
+class TypeWriterService: Loggable, ObservableObject {
     private var appSettings: AppSettings
     private var keyboardService: KeyboardService
     private var subscriptionStore: Set<AnyCancellable>
@@ -23,7 +23,7 @@ class TypeWriterService: Alertable, Loggable, ObservableObject {
         self.keyboardService = keyboardService
 
         loadTypeWriter()
-        logEvent(.trace, "TypeWriterHandler setup", loggerInstance: logger)
+        logEvent(.debug, "TypeWriter-Service setup", loggerInstance: logger)
     }
 
     deinit {
@@ -42,14 +42,18 @@ class TypeWriterService: Alertable, Loggable, ObservableObject {
                 subscriptionStore: &self.subscriptionStore,
                 keyboardService: self.keyboardService,
                 errorHandler: { [weak self] (soundErrors) in
+                    #if !KEYBOARD_EXTENSION
                     guard let self = self else { return }
                     let sounds = soundErrors.map({ $0.localizedDescription })
                     self.showAlert(ErrorAlerts.soundsFailedToLoad(sounds))
+                    #endif
                 },
                 completion: { [weak self] loadedSounds in
+                    #if !KEYBOARD_EXTENSION
                     guard let self = self else { return }
                     let soundSets = loadedSounds.soundSets.keys.map({ $0.rawValue }).sorted(by: <)
                     self.showAlert(UserInfoAlerts.soundsLoaded(soundSets))
+                    #endif
                 })
         }
 
@@ -83,3 +87,7 @@ class TypeWriterService: Alertable, Loggable, ObservableObject {
         loadedTypewriter?.setVolume(volume)
     }
 }
+
+#if !KEYBOARD_EXTENSION
+extension TypeWriterService: Alertable {}
+#endif

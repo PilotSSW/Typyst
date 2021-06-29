@@ -7,7 +7,7 @@
 		<key>TypeWriterKeyboard.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>17</integer>
 		</dict>
 		<key>Typyst (iOS).xcscheme</key>
 		<dict>
@@ -25,12 +25,12 @@
 		<key>A3FA71B62623523400E32B91</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A3FA71C92623523400E32B91</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>

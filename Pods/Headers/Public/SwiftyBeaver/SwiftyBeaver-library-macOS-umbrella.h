@@ -1,0 +1,1 @@
+../../../Target Support Files/SwiftyBeaver-library-macOS/SwiftyBeaver-library-macOS-umbrella.h

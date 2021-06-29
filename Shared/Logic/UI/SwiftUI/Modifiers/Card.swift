@@ -55,9 +55,14 @@ extension View {
     }
 
     func asParentCard(withColor color: Color) -> some View {
+        #if os(macOS)
         modifier(Card(backgroundColor: color))
             .neumorphicShadow()
             .padding(.horizontal, 8)
+        #elseif os(iOS)
+        modifier(Card(backgroundColor: color))
+            .padding(.horizontal, 8)
+        #endif
     }
 
     func asChildCard(withColor color: Color) -> some View {

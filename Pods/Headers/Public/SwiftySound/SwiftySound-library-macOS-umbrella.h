@@ -1,0 +1,1 @@
+../../../Target Support Files/SwiftySound-library-macOS/SwiftySound-library-macOS-umbrella.h

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D27F910531266D57715A356 /* Pods_Typyst__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA4E8F0087CEE16CFECEB3 /* Pods_Typyst__iOS_.framework */; };
-		5F10FDDD0B0A744DEEFEF7D4 /* Pods_Typyst__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBCE4C59C405EC8053DA08D /* Pods_Typyst__macOS_.framework */; };
 		6EF6B02E21391C6CF85E1924 /* AnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B7AFD42AE264276346B7 /* AnalyticsSettings.swift */; };
 		6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
 		6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
@@ -43,6 +41,8 @@
 		6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
 		6EF6BFA5D20E4EEA8E098AC8 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
 		6EF6BFEA0702216CABB96390 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA8E1044964D2F8CBBA6 /* AlertItem.swift */; };
+		7A61DE3CAC75565D1F3D5E4B /* Pods_Mobile_TypeWriterKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FEB0ECBA397686228B6C75 /* Pods_Mobile_TypeWriterKeyboard.framework */; };
+		994D21CBFCB0E9C746F53C72 /* Pods_Mobile_Typyst__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0216503B73F9B27F992FE65D /* Pods_Mobile_Typyst__iOS_.framework */; };
 		A300BB1E2664204B00BB7BA3 /* KeyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */; };
 		A300BB1F2664204B00BB7BA3 /* KeyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */; };
 		A33D4344263C51E8004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
@@ -68,7 +68,6 @@
 		A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
 		A35C06B6267AC15800EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
 		A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
-		A35C06B8267AC16D00EFC9A0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
 		A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
 		A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
 		A35C06BB267AC1BB00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
@@ -91,13 +90,60 @@
 		A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C5826766B3300E18CCE /* NSEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C5726766B3300E18CCE /* NSEventListener.swift */; };
-		A3975BE52627EC46001DFD47 /* TypeWriterKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3975C482627F9E9001DFD47 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
 		A3975C642627FEA6001DFD47 /* TypingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76D526237DA900E32B91 /* TypingStats.swift */; };
 		A3975CA72627FF2A001DFD47 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
 		A3A2334D26324C7900B9B527 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */; };
+		A3B5077A268B593E0016BD22 /* KeyboardExtensionDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */; };
+		A3B5077B268B593F0016BD22 /* KeyboardExtensionDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */; };
+		A3B5077C268B5EC40016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
+		A3B5077D268B5EC60016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
+		A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
+		A3B5077F268B5EC70016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		A3DEAF15262FE8D900470937 /* AlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668DF4262FD11500764DB8 /* AlertsService.swift */; };
+		A3E2AAE4268925E000F43757 /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A3262355D600E32B91 /* KeySets.swift */; };
+		A3E2AAE5268925E100F43757 /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A3262355D600E32B91 /* KeySets.swift */; };
+		A3E2AAE6268925E200F43757 /* KeySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A3262355D600E32B91 /* KeySets.swift */; };
+		A3E2AAE826892D1B00F43757 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
+		A3E2AAE926892D1C00F43757 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
+		A3E2AAEA26892D1D00F43757 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
+		A3E2AAEB26892D4900F43757 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
+		A3E2AAEC26892D4900F43757 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
+		A3E2AAED26892D4A00F43757 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
+		A3E2AAEE26892D5C00F43757 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
+		A3E2AAEF26892D7400F43757 /* TypeWriterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterService.swift */; };
+		A3E2AAF126892D9900F43757 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */; };
+		A3E2AAF226892DBC00F43757 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */; };
+		A3E2AAF326892DBD00F43757 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */; };
+		A3E2AAF426892DBE00F43757 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */; };
+		A3E2AAF526892DD700F43757 /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
+		A3E2AAF626892DD700F43757 /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
+		A3E2AAF726892DD800F43757 /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
+		A3E2AAF826892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
+		A3E2AAF926892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
+		A3E2AAFA26892DDE00F43757 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
+		A3E2AAFB26892DE600F43757 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
+		A3E2AAFC26892DE600F43757 /* TypeWriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7293262355D600E32B91 /* TypeWriterModel.swift */; };
+		A3E2AAFD26892DE600F43757 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
+		A3E2AAFE26892DE600F43757 /* TypeWriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7293262355D600E32B91 /* TypeWriterModel.swift */; };
+		A3E2AAFF26892DE700F43757 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
+		A3E2AB0026892DE700F43757 /* TypeWriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7293262355D600E32B91 /* TypeWriterModel.swift */; };
+		A3E2AB0126892F3500F43757 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7238262355D600E32B91 /* Sounds.swift */; };
+		A3E2AB0226892F3500F43757 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7238262355D600E32B91 /* Sounds.swift */; };
+		A3E2AB0326892F3600F43757 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7238262355D600E32B91 /* Sounds.swift */; };
+		A3E2AB0426892F5500F43757 /* ModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B307A262B29BC00C64B4C /* ModifierFlags.swift */; };
+		A3E2AB0526892F5500F43757 /* ModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B307A262B29BC00C64B4C /* ModifierFlags.swift */; };
+		A3E2AB0626892F5600F43757 /* ModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B307A262B29BC00C64B4C /* ModifierFlags.swift */; };
+		A3E2AB0726892F6A00F43757 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
+		A3E2AB0826892F6A00F43757 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
+		A3E2AB0926892F6B00F43757 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
+		A3E2AB0A2689301700F43757 /* iOSModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3086262B29C900C64B4C /* iOSModifierFlags.swift */; };
+		A3E2AB0B2689301700F43757 /* iOSModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3086262B29C900C64B4C /* iOSModifierFlags.swift */; };
+		A3E2AB0D2689332000F43757 /* KeyboardExtensionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */; };
+		A3E2AB0F2689377400F43757 /* KeyboardExtensionDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */; };
+		A3E2AB1026893B2900F43757 /* KeyboardExtensionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */; };
+		A3E2AB1126893B2A00F43757 /* KeyboardExtensionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */; };
 		A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
 		A3F3F66B266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
 		A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71C32623523400E32B91 /* Tests_iOS.swift */; };
@@ -213,6 +259,7 @@
 		A3FA76D726237DA900E32B91 /* TypingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76D526237DA900E32B91 /* TypingStats.swift */; };
 		A3FA76DD26237DB600E32B91 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76DC26237DB600E32B91 /* TimeHelper.swift */; };
 		A3FA76DE26237DB600E32B91 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76DC26237DB600E32B91 /* TimeHelper.swift */; };
+		B126ED2E639A5CFBBAF4DCD3 /* Pods_Laptop_Typyst__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B0EC5463B1AD7559949183 /* Pods_Laptop_Typyst__macOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,7 +293,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A3975BE52627EC46001DFD47 /* TypeWriterKeyboard.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,9 +300,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3BBCE4C59C405EC8053DA08D /* Pods_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typyst__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49CC136D92D4DA44C61498EC /* Pods-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (macOS).release.xcconfig"; path = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
-		4ECA4E8F0087CEE16CFECEB3 /* Pods_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Typyst__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0216503B73F9B27F992FE65D /* Pods_Mobile_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_Typyst__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27B0EC5463B1AD7559949183 /* Pods_Laptop_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Laptop_Typyst__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C352C3B164B44CE2FFB5A3 /* Pods-Mobile-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		30FEB0ECBA397686228B6C75 /* Pods_Mobile_TypeWriterKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TypeWriterKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DCBEBEEA88249D72D3B21D2 /* Pods-Mobile-TypeWriterKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypeWriterKeyboard.release.xcconfig"; path = "Target Support Files/Pods-Mobile-TypeWriterKeyboard/Pods-Mobile-TypeWriterKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 		6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCardImageButton.swift; sourceTree = "<group>"; };
 		6EF6B0B558DDAB48D3D68F56 /* MacOSUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSUI.swift; sourceTree = "<group>"; };
 		6EF6B0D1BDF8AD035019D339 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -282,7 +330,6 @@
 		6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoAlerts.swift; sourceTree = "<group>"; };
 		6EF6BF327759F44A0B2D4594 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		6EF6BF738F13EF32973D1724 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		92ED20838E899B95BB6E84FA /* Pods-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventStore.swift; sourceTree = "<group>"; };
 		A33D4343263C51E8004669A1 /* ResizableDragger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableDragger.swift; sourceTree = "<group>"; };
 		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -301,6 +348,9 @@
 		A3975BDE2627EC46001DFD47 /* TypeWriterKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TypeWriterKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		A3975BE22627EC46001DFD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionService.swift; sourceTree = "<group>"; };
+		A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionDependencyContainer.swift; sourceTree = "<group>"; };
 		A3F3F669266658C900046773 /* TypystAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypystAppViewModel.swift; sourceTree = "<group>"; };
 		A3FA71A92623523300E32B91 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A3FA71AF2623523400E32B91 /* Typyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -375,8 +425,10 @@
 		A3FA76BE26237C6E00E32B91 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		A3FA76D526237DA900E32B91 /* TypingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingStats.swift; sourceTree = "<group>"; };
 		A3FA76DC26237DB600E32B91 /* TimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
-		D1EE37913B0A76C3562E5ABC /* Pods-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (iOS).release.xcconfig"; path = "Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
-		F7177D77ED2CF43E0F2870E6 /* Pods-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Typyst (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		BF3FD9FC96DE3A07C7503188 /* Pods-Laptop-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laptop-Typyst (macOS).release.xcconfig"; path = "Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		CB95BEEC17754CC3A216B368 /* Pods-Mobile-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).release.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		F36E3B4E132ED58A55E209CF /* Pods-Laptop-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laptop-Typyst (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		FE4C618F18810D22A9144DAB /* Pods-Mobile-TypeWriterKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypeWriterKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-Mobile-TypeWriterKeyboard/Pods-Mobile-TypeWriterKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +436,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A61DE3CAC75565D1F3D5E4B /* Pods_Mobile_TypeWriterKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D27F910531266D57715A356 /* Pods_Typyst__iOS_.framework in Frameworks */,
+				994D21CBFCB0E9C746F53C72 /* Pods_Mobile_Typyst__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +452,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F10FDDD0B0A744DEEFEF7D4 /* Pods_Typyst__macOS_.framework in Frameworks */,
+				B126ED2E639A5CFBBAF4DCD3 /* Pods_Laptop_Typyst__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,22 +473,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C244FFD22C999AAA9240693 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4ECA4E8F0087CEE16CFECEB3 /* Pods_Typyst__iOS_.framework */,
-				3BBCE4C59C405EC8053DA08D /* Pods_Typyst__macOS_.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		63751B6898FD02DE82C97CB1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				92ED20838E899B95BB6E84FA /* Pods-Typyst (iOS).debug.xcconfig */,
-				D1EE37913B0A76C3562E5ABC /* Pods-Typyst (iOS).release.xcconfig */,
-				F7177D77ED2CF43E0F2870E6 /* Pods-Typyst (macOS).debug.xcconfig */,
-				49CC136D92D4DA44C61498EC /* Pods-Typyst (macOS).release.xcconfig */,
+				F36E3B4E132ED58A55E209CF /* Pods-Laptop-Typyst (macOS).debug.xcconfig */,
+				BF3FD9FC96DE3A07C7503188 /* Pods-Laptop-Typyst (macOS).release.xcconfig */,
+				FE4C618F18810D22A9144DAB /* Pods-Mobile-TypeWriterKeyboard.debug.xcconfig */,
+				4DCBEBEEA88249D72D3B21D2 /* Pods-Mobile-TypeWriterKeyboard.release.xcconfig */,
+				27C352C3B164B44CE2FFB5A3 /* Pods-Mobile-Typyst (iOS).debug.xcconfig */,
+				CB95BEEC17754CC3A216B368 /* Pods-Mobile-Typyst (iOS).release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -486,6 +532,7 @@
 			children = (
 				6EF6BF327759F44A0B2D4594 /* System.swift */,
 				6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */,
+				A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -535,6 +582,16 @@
 				A3668E10262FD84400764DB8 /* AlertsView.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		7A58823FFBD636C6080AC788 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27B0EC5463B1AD7559949183 /* Pods_Laptop_Typyst__macOS_.framework */,
+				30FEB0ECBA397686228B6C75 /* Pods_Mobile_TypeWriterKeyboard.framework */,
+				0216503B73F9B27F992FE65D /* Pods_Mobile_Typyst__iOS_.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A3460245268554E600BF81D4 /* Services */ = {
@@ -599,6 +656,8 @@
 		A3975BDF2627EC46001DFD47 /* TypeWriterKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */,
+				A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */,
 				A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */,
 				A3975BE22627EC46001DFD47 /* Info.plist */,
 			);
@@ -637,7 +696,7 @@
 				A3FA71CD2623523400E32B91 /* Tests macOS */,
 				A3FA71B02623523400E32B91 /* Products */,
 				63751B6898FD02DE82C97CB1 /* Pods */,
-				5C244FFD22C999AAA9240693 /* Frameworks */,
+				7A58823FFBD636C6080AC788 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -825,8 +884,8 @@
 		A3FA7254262355D600E32B91 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				A3FA7255262355D600E32B91 /* TypeWriterCardHeader.swift */,
 				A3FA7256262355D600E32B91 /* TypeWriterCard.swift */,
+				A3FA7255262355D600E32B91 /* TypeWriterCardHeader.swift */,
 				A3FA7257262355D600E32B91 /* TypeWriterCardBody.swift */,
 				6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */,
 			);
@@ -853,9 +912,9 @@
 		A3FA7260262355D600E32B91 /* Settings Menu */ = {
 			isa = PBXGroup;
 			children = (
+				A3FA726B262355D600E32B91 /* SettingsMenu.swift */,
 				A3FA7261262355D600E32B91 /* Card */,
 				A3FA7269262355D600E32B91 /* Heading */,
-				A3FA726B262355D600E32B91 /* SettingsMenu.swift */,
 			);
 			path = "Settings Menu";
 			sourceTree = "<group>";
@@ -1059,6 +1118,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3975BE92627EC46001DFD47 /* Build configuration list for PBXNativeTarget "TypeWriterKeyboard" */;
 			buildPhases = (
+				EBBF956CF6D43E24DBE1EAF4 /* [CP] Check Pods Manifest.lock */,
 				A3975BDA2627EC46001DFD47 /* Sources */,
 				A3975BDB2627EC46001DFD47 /* Frameworks */,
 				A3975BDC2627EC46001DFD47 /* Resources */,
@@ -1076,12 +1136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3FA71DD2623523400E32B91 /* Build configuration list for PBXNativeTarget "Typyst (iOS)" */;
 			buildPhases = (
-				4D9CA44907CCB4BB9511FB00 /* [CP] Check Pods Manifest.lock */,
+				F3EA43F5906D928C6FFB41F0 /* [CP] Check Pods Manifest.lock */,
 				A3FA71AB2623523400E32B91 /* Sources */,
 				A3FA71AC2623523400E32B91 /* Frameworks */,
 				A3FA71AD2623523400E32B91 /* Resources */,
-				48172FF669FC8D71DDF05280 /* [CP] Embed Pods Frameworks */,
 				A3975BE62627EC46001DFD47 /* Embed App Extensions */,
+				1E631958811E4628CFA19771 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1097,11 +1157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3FA71E02623523400E32B91 /* Build configuration list for PBXNativeTarget "Typyst (macOS)" */;
 			buildPhases = (
-				B9AC46B81D900785A626B3FB /* [CP] Check Pods Manifest.lock */,
+				9C0C4A93B0DDB6739B449DBD /* [CP] Check Pods Manifest.lock */,
 				A3FA71B32623523400E32B91 /* Sources */,
 				A3FA71B42623523400E32B91 /* Frameworks */,
 				A3FA71B52623523400E32B91 /* Resources */,
-				D16B187715A14F31230F8612 /* [CP] Embed Pods Frameworks */,
+				9CB37921806E81100A257AF2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1249,24 +1309,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48172FF669FC8D71DDF05280 /* [CP] Embed Pods Frameworks */ = {
+		1E631958811E4628CFA19771 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Typyst (iOS)/Pods-Typyst (iOS)-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4D9CA44907CCB4BB9511FB00 /* [CP] Check Pods Manifest.lock */ = {
+		9C0C4A93B0DDB6739B449DBD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1281,14 +1341,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Typyst (iOS)-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Laptop-Typyst (macOS)-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B9AC46B81D900785A626B3FB /* [CP] Check Pods Manifest.lock */ = {
+		9CB37921806E81100A257AF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBBF956CF6D43E24DBE1EAF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1303,28 +1380,33 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Typyst (macOS)-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Mobile-TypeWriterKeyboard-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D16B187715A14F31230F8612 /* [CP] Embed Pods Frameworks */ = {
+		F3EA43F5906D928C6FFB41F0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mobile-Typyst (iOS)-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Typyst (macOS)/Pods-Typyst (macOS)-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1334,12 +1416,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E2AB0026892DE700F43757 /* TypeWriterModel.swift in Sources */,
+				A3E2AB0F2689377400F43757 /* KeyboardExtensionDependencyContainer.swift in Sources */,
+				A3B5077F268B5EC70016BD22 /* ShadowIntensity.swift in Sources */,
+				A3E2AAFF26892DE700F43757 /* TypeWriterState.swift in Sources */,
+				A3E2AAED26892D4A00F43757 /* SwiftyBeaver.swift in Sources */,
+				A3E2AAE4268925E000F43757 /* KeySets.swift in Sources */,
+				A3E2AAEF26892D7400F43757 /* TypeWriterService.swift in Sources */,
 				A35C06BB267AC1BB00EFC9A0 /* KeyEvent.swift in Sources */,
 				A3975C482627F9E9001DFD47 /* KeyboardViewController.swift in Sources */,
 				A35C06BC267AC1C500EFC9A0 /* KeyboardService.swift in Sources */,
+				A3E2AAEE26892D5C00F43757 /* DependencyContainer.swift in Sources */,
 				A35C06B1267AC14100EFC9A0 /* Key.swift in Sources */,
+				A3E2AAE826892D1B00F43757 /* LoggingService.swift in Sources */,
+				A3E2AB0D2689332000F43757 /* KeyboardExtensionService.swift in Sources */,
+				A3E2AB0126892F3500F43757 /* Sounds.swift in Sources */,
+				A3E2AAFA26892DDE00F43757 /* TypeWriterKeyLogic.swift in Sources */,
 				A3975C062627F02C001DFD47 /* SwiftExtensions.swift in Sources */,
 				A35C06B6267AC15800EFC9A0 /* iOSKey.swift in Sources */,
+				A3E2AB0926892F6B00F43757 /* SoundError.swift in Sources */,
+				A3E2AB0B2689301700F43757 /* iOSModifierFlags.swift in Sources */,
+				A3E2AAF526892DD700F43757 /* TypeWriter.swift in Sources */,
+				A3E2AB0626892F5600F43757 /* ModifierFlags.swift in Sources */,
 				6EF6B8D0289848E8B5A4ABD8 /* AppSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1367,6 +1465,7 @@
 				A3FA7319262355D700E32B91 /* TypeWriterState.swift in Sources */,
 				A3FA72C9262355D700E32B91 /* TypeWriterCardBody.swift in Sources */,
 				A300BB1E2664204B00BB7BA3 /* KeyEventStore.swift in Sources */,
+				A3B5077A268B593E0016BD22 /* KeyboardExtensionDependencyContainer.swift in Sources */,
 				A3FA72A5262355D700E32B91 /* Sounds.swift in Sources */,
 				A3FA72B9262355D700E32B91 /* AnalyticsInfoCard.swift in Sources */,
 				A3FA72D1262355D700E32B91 /* InterfaceAndControls.swift in Sources */,
@@ -1388,7 +1487,9 @@
 				A3FA72F7262355D700E32B91 /* Gradients.swift in Sources */,
 				A34B470A2630E1F80069229E /* VisualEffectBackground.swift in Sources */,
 				A3FA730B262355D700E32B91 /* ViewExtension.swift in Sources */,
+				A3E2AB1126893B2A00F43757 /* KeyboardExtensionService.swift in Sources */,
 				A3FA72D5262355D700E32B91 /* TitleCard.swift in Sources */,
+				A3E2AAF126892D9900F43757 /* AppDependencyContainer.swift in Sources */,
 				A3FA72BB262355D700E32B91 /* AnalyticsInfoCardViewModel.swift in Sources */,
 				A3A2334D26324C7900B9B527 /* KeyboardViewController.swift in Sources */,
 				A36F5C4C2673B5C400E18CCE /* MainMenuCommands.swift in Sources */,
@@ -1412,6 +1513,7 @@
 				A3FA76DD26237DB600E32B91 /* TimeHelper.swift in Sources */,
 				A3FA76BF26237C6E00E32B91 /* Typyst.xcdatamodeld in Sources */,
 				A3FA7331262355D700E32B91 /* KeyEvent.swift in Sources */,
+				A3B5077C268B5EC40016BD22 /* ShadowIntensity.swift in Sources */,
 				A3FA72DF262355D700E32B91 /* AppSettingsView.swift in Sources */,
 				A3FA72BF262355D700E32B91 /* AnalyticsInfoViewModel.swift in Sources */,
 				A34B307B262B29BC00C64B4C /* ModifierFlags.swift in Sources */,
@@ -1482,6 +1584,7 @@
 				A3FA72D6262355D700E32B91 /* TitleCard.swift in Sources */,
 				A3FA72BC262355D700E32B91 /* AnalyticsInfoCardViewModel.swift in Sources */,
 				A34B3068262B290100C64B4C /* MacOSKey.swift in Sources */,
+				A3E2AAF226892DBC00F43757 /* AppDependencyContainer.swift in Sources */,
 				A3FA7330262355D700E32B91 /* KeySets.swift in Sources */,
 				A3FA7326262355D700E32B91 /* SwiftExtensions.swift in Sources */,
 				A3FA72CE262355D700E32B91 /* TypeWriterMenuScrollableSelector.swift in Sources */,
@@ -1532,13 +1635,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E2AAFE26892DE600F43757 /* TypeWriterModel.swift in Sources */,
+				A3B5077B268B593F0016BD22 /* KeyboardExtensionDependencyContainer.swift in Sources */,
+				A3E2AAFD26892DE600F43757 /* TypeWriterState.swift in Sources */,
 				A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */,
-				A35C06B8267AC16D00EFC9A0 /* KeyboardViewController.swift in Sources */,
+				A3E2AAE6268925E200F43757 /* KeySets.swift in Sources */,
+				A3E2AAE926892D1C00F43757 /* LoggingService.swift in Sources */,
+				A3E2AAEB26892D4900F43757 /* SwiftyBeaver.swift in Sources */,
 				A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
+				A3E2AB1026893B2900F43757 /* KeyboardExtensionService.swift in Sources */,
 				A35C06BD267AC1C600EFC9A0 /* KeyboardService.swift in Sources */,
 				A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */,
 				A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */,
+				A3E2AB0326892F3600F43757 /* Sounds.swift in Sources */,
+				A3E2AAF826892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
 				A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */,
+				A3B5077D268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
+				A3E2AAF326892DBD00F43757 /* AppDependencyContainer.swift in Sources */,
+				A3E2AB0726892F6A00F43757 /* SoundError.swift in Sources */,
+				A3E2AB0A2689301700F43757 /* iOSModifierFlags.swift in Sources */,
+				A3E2AAF726892DD800F43757 /* TypeWriter.swift in Sources */,
+				A3E2AB0426892F5500F43757 /* ModifierFlags.swift in Sources */,
 				A35C06BF267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1548,11 +1665,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
+				A3E2AAEC26892D4900F43757 /* SwiftyBeaver.swift in Sources */,
+				A3E2AAF426892DBE00F43757 /* AppDependencyContainer.swift in Sources */,
 				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
+				A3E2AB0826892F6A00F43757 /* SoundError.swift in Sources */,
+				A3E2AAF626892DD700F43757 /* TypeWriter.swift in Sources */,
+				A3E2AAE5268925E100F43757 /* KeySets.swift in Sources */,
+				A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
 				A35C06BE267AC1C700EFC9A0 /* KeyboardService.swift in Sources */,
 				A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */,
 				A35C06B4267AC14500EFC9A0 /* DependencyContainer.swift in Sources */,
+				A3E2AAF926892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
+				A3E2AB0526892F5500F43757 /* ModifierFlags.swift in Sources */,
 				A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */,
+				A3E2AAFB26892DE600F43757 /* TypeWriterState.swift in Sources */,
+				A3E2AB0226892F3500F43757 /* Sounds.swift in Sources */,
+				A3E2AAFC26892DE600F43757 /* TypeWriterModel.swift in Sources */,
+				A3E2AAEA26892D1D00F43757 /* LoggingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1579,6 +1708,7 @@
 /* Begin XCBuildConfiguration section */
 		A3975BE72627EC46001DFD47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE4C618F18810D22A9144DAB /* Pods-Mobile-TypeWriterKeyboard.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PK75CJKJVR;
@@ -1593,6 +1723,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = KEYBOARD_EXTENSION;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1600,6 +1731,7 @@
 		};
 		A3975BE82627EC46001DFD47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DCBEBEEA88249D72D3B21D2 /* Pods-Mobile-TypeWriterKeyboard.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PK75CJKJVR;
@@ -1614,6 +1746,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = KEYBOARD_EXTENSION;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1741,7 +1874,7 @@
 		};
 		A3FA71DE2623523400E32B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92ED20838E899B95BB6E84FA /* Pods-Typyst (iOS).debug.xcconfig */;
+			baseConfigurationReference = 27C352C3B164B44CE2FFB5A3 /* Pods-Mobile-Typyst (iOS).debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1766,7 +1899,7 @@
 		};
 		A3FA71DF2623523400E32B91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1EE37913B0A76C3562E5ABC /* Pods-Typyst (iOS).release.xcconfig */;
+			baseConfigurationReference = CB95BEEC17754CC3A216B368 /* Pods-Mobile-Typyst (iOS).release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1792,7 +1925,7 @@
 		};
 		A3FA71E12623523400E32B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7177D77ED2CF43E0F2870E6 /* Pods-Typyst (macOS).debug.xcconfig */;
+			baseConfigurationReference = F36E3B4E132ED58A55E209CF /* Pods-Laptop-Typyst (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1836,7 +1969,7 @@
 		};
 		A3FA71E22623523400E32B91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49CC136D92D4DA44C61498EC /* Pods-Typyst (macOS).release.xcconfig */;
+			baseConfigurationReference = BF3FD9FC96DE3A07C7503188 /* Pods-Laptop-Typyst (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -1,6 +1,0 @@
-framework module Pods_Typyst__macOS_ {
-  umbrella header "Pods-Typyst (macOS)-umbrella.h"
-
-  export *
-  module * { export * }
-}

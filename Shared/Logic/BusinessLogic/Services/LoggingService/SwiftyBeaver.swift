@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import GBDeviceInfo
 import SwiftyBeaver
 
 class SwiftyBeaverLogger {
@@ -29,7 +30,7 @@ class SwiftyBeaverLogger {
                 if isEnabled {
                     log?.removeAllDestinations()
 
-                    #if debug
+                    #if DEBUG
                     let console = ConsoleDestination()
                     console.format = "$DHH:mm:ss$d $L $M"//"$J"
                     log?.addDestination(console)
@@ -68,20 +69,20 @@ class SwiftyBeaverLogger {
         if error != nil && (level != .error || level != .fatal) { logType = .error }
 
         // Don't log stuff beneath warning in production unless user is having an issue
-        if !appDebugSettings.debugGlobal && level.rawValue < Logging.Level.warning.rawValue { return }
+        if !appDebugSettings.debugGlobal && level < Logging.Level.warning { return }
 
         if let log = log {
             switch (logType) {
                 case .trace:
-                    log.verbose(message, file, function, line: line, context: context)
+                    log.verbose(message, file, function, line: line, context: [context, GBDeviceInfo()])
                 case .debug:
-                    log.debug(message, file, function, line: line, context: context)
+                    log.debug(message, file, function, line: line, context: [context, GBDeviceInfo()])
                 case .info:
-                    log.info(message, file, function, line: line, context: context)
+                    log.info(message, file, function, line: line, context: [context, GBDeviceInfo()])
                 case .warning:
-                    log.warning(message, file, function, line: line, context: context)
+                    log.warning(message, file, function, line: line, context: [context, GBDeviceInfo()])
                 case .error, .fatal:
-                    log.error(message, file, function, line: line, context: context)
+                    log.error(message, file, function, line: line, context: [context, GBDeviceInfo()])
             }
         }
     }
