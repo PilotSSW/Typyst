@@ -19,28 +19,37 @@ class AlertsService: Loggable, ObservableObject {
     }
 
     func showAlert(_ alert: Alert, priorityFirstInQueue: Bool = false) {
-        logEvent(.debug, "Alert added -- \(alert)")
-
         let isNonCriticalAlert = [.userInfo].contains(alert.type) && !appSettings.showModalNotifications
         let isIgnoredDeveloperAlert = [.developer].contains(alert.type) && !appDebugSettings.debugGlobal
 
-        if (isNonCriticalAlert || isIgnoredDeveloperAlert) { return }
+        if (isNonCriticalAlert || isIgnoredDeveloperAlert) {
+            logEvent(.debug, "Alert service - ignored", context: alert)
+
+            return
+        }
 
         if currentAlert != nil {
+            logEvent(.debug, "Alert service - queued", context: alert)
+
             priorityFirstInQueue
                 ? alertQueue.insert(alert, at: 0)
                 : alertQueue.append(alert)
         }
         else {
+            logEvent(.debug, "Alert service - shown", context: alert)
             currentAlert = alert
         }
     }
 
     func dismissCurrentAlert() {
         if alertQueue.count > 0 {
+            logEvent(.debug, "Alert service - next in queue",context: currentAlert)
+
             currentAlert = alertQueue.remove(at: 0)
         }
         else {
+            logEvent(.debug, "Alert service - dismissed", context: currentAlert)
+
             currentAlert = nil
         }
     }

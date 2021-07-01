@@ -5,11 +5,17 @@
 //  Created by Sean Wolford on 4/20/21.
 //
 
-import SwiftUI
+import Foundation
+import struct SwiftUI.Alert
+import struct SwiftUI.Text
 
-func createSwiftUIAlert(_ alert: Alert?,
-                        alertsService: AlertsService) -> SwiftUI.Alert {
-    if let alert = alert {
+class AlertUI: Loggable {
+    static let instance = AlertUI()
+
+    private init() {}
+
+    func createSwiftUIAlert(_ alert: Alert,
+                            alertsService: AlertsService) -> SwiftUI.Alert {
         let title = Text(alert.title)
         var message: Text? = nil
         var primaryButton: SwiftUI.Alert.Button = .default(Text("Okay"))
@@ -21,18 +27,24 @@ func createSwiftUIAlert(_ alert: Alert?,
 
         if let primaryText = alert.primaryButtonText {
             primaryButton = .default(Text(primaryText), action: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.logEvent(.debug, "Alert primary button pressed", context: [alert])
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                     alertsService.dismissCurrentAlert()
                     alert.primaryAction?()
+                    self.logEvent(.trace, "Alert primary action run", context: [alert])
                 })
             })
         }
 
         if let secondaryText = alert.secondaryButtonText {
             secondaryButton = .cancel(Text(secondaryText), action: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.logEvent(.debug, "Alert secondary button pressed", context: [alert])
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                     alertsService.dismissCurrentAlert()
                     alert.secondaryAction?()
+                    self.logEvent(.trace, "Alert secondary action run", context: [alert])
                 })
             })
         }
@@ -47,10 +59,5 @@ func createSwiftUIAlert(_ alert: Alert?,
                 message: message,
                 primaryButton: primaryButton,
                 secondaryButton: secondaryButton ?? .cancel())
-    }
-    else {
-        return SwiftUI.Alert(title: Text("Well ding."),
-                             message: Text("Looks like the developer made a programming error."),
-                             dismissButton: .cancel())
     }
 }

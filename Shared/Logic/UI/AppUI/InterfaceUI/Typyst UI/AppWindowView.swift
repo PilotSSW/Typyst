@@ -10,8 +10,7 @@ import SwiftUI
 
 struct AppWindowView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var alertsService: AlertsService = AppDependencyContainer.get().alertsService
-    @State var currentAlert: Alert? = AppDependencyContainer.get().alertsService.currentAlert
+    @EnvironmentObject var alertsService: AlertsService
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -35,15 +34,15 @@ struct AppWindowView: View {
             }
         }
         .alert(item: $alertsService.currentAlert, content: { alertItem in
-            createSwiftUIAlert(alertItem, alertsService: alertsService)
+            AlertUI.instance.createSwiftUIAlert(alertItem, alertsService: alertsService)
         })
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView(currentAlert: AppDependencyContainer.get().alertsHandler.$currentAlert)
-//            .frame(width: 300, height: 1400)
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        AppWindowView()
+            .frame(width: 300, height: 1400)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
