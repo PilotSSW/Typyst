@@ -45,8 +45,7 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
         logEvent(.info, "Keyboard extension view loaded", context: [
-            GBDeviceInfo.deviceInfo(),
-            GBDeviceInfo().isJailbroken,
+            GBDeviceInfo.deviceInfo()
         ])
     }
     

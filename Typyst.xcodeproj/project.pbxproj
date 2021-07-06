@@ -358,7 +358,6 @@
 		A36F5C532673D4A500E18CCE /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		A36F5C5726766B3300E18CCE /* NSEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventListener.swift; sourceTree = "<group>"; };
 		A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardViewController.swift; path = ../TypeWriterKeyboard/KeyboardViewController.swift; sourceTree = "<group>"; };
-		A3975BE22627EC46001DFD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionService.swift; sourceTree = "<group>"; };
 		A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionDependencyContainer.swift; sourceTree = "<group>"; };
@@ -611,6 +610,7 @@
 		A32367E5268E515300CB2B25 /* TypystKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A3A4BD812694993E0010F72A /* TypeWriterKeyboardViews */,
 				A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */,
 				A3E2AB0C2689332000F43757 /* KeyboardExtensionService.swift */,
 				A3975BE02627EC46001DFD47 /* KeyboardViewController.swift */,
@@ -678,12 +678,19 @@
 			path = MacOSKeyListener;
 			sourceTree = "<group>";
 		};
-		A3975BDF2627EC46001DFD47 /* TypeWriterKeyboard */ = {
+		A3A4BD812694993E0010F72A /* TypeWriterKeyboardViews */ = {
 			isa = PBXGroup;
 			children = (
-				A3975BE22627EC46001DFD47 /* Info.plist */,
+				A3A4BD822694994E0010F72A /* KeyboardComponents */,
 			);
-			path = TypeWriterKeyboard;
+			path = TypeWriterKeyboardViews;
+			sourceTree = "<group>";
+		};
+		A3A4BD822694994E0010F72A /* KeyboardComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KeyboardComponents;
 			sourceTree = "<group>";
 		};
 		A3AD747E268000EE00181EDB /* KeyLogic */ = {
@@ -712,7 +719,6 @@
 			children = (
 				A3FA71A42623523300E32B91 /* Shared */,
 				A32367E5268E515300CB2B25 /* TypystKeyboard */,
-				A3975BDF2627EC46001DFD47 /* TypeWriterKeyboard */,
 				A3FA71B12623523400E32B91 /* iOS */,
 				A3FA71B82623523400E32B91 /* macOS */,
 				A3FA71C22623523400E32B91 /* Tests iOS */,
@@ -1739,9 +1745,9 @@
 			baseConfigurationReference = 29750D8A3735DB1F6A4122CD /* Pods-Mobile-TypystKeyboard.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = A8P8F5G6K3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TypystKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1753,7 +1759,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst.TypystKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = KEYBOARD_EXTENSION;
@@ -1768,9 +1774,9 @@
 			baseConfigurationReference = 06B51A8EACBB6BEBA5ACB239 /* Pods-Mobile-TypystKeyboard.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = A8P8F5G6K3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TypystKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1782,7 +1788,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst.TypystKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = KEYBOARD_EXTENSION;
