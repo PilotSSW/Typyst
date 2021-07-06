@@ -14,7 +14,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)ssw.wickedpropeller.typyst</string>
+		<string>$(AppIdentifierPrefix)com.randomaccesssoftware.typyst</string>
 	</array>
 </dict>
 </plist>

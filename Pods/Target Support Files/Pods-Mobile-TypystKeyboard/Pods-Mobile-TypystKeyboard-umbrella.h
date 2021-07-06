@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Mobile_TypeWriterKeyboardVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Mobile_TypeWriterKeyboardVersionString[];
+FOUNDATION_EXPORT double Pods_Mobile_TypystKeyboardVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Mobile_TypystKeyboardVersionString[];
 

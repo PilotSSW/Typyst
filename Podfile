@@ -17,6 +17,8 @@ abstract_target 'Mobile' do
   platform :ios, '14.0'
 
   pod 'GBDeviceInfo'
+  # pod 'HotKey'
+  # pod 'Keyboard-Kit'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 
@@ -25,16 +27,12 @@ abstract_target 'Mobile' do
     use_frameworks!
 
     # Pods for Typyst (iOS)
-    # pod 'HotKey'
-    #  pod 'Keyboard-Kit'
   end
 
-  target 'TypeWriterKeyboard' do
+  target 'TypystKeyboard' do
     # Comment the next line if you don't want to use dynamic frameworks
     use_frameworks!
 
     # Pods for Typyst (iOS)
-    # pod 'HotKey'
-    #  pod 'Keyboard-Kit'
   end
 end

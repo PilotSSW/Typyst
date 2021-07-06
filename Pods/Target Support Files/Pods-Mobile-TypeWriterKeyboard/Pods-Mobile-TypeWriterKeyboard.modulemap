@@ -1,6 +1,0 @@
-framework module Pods_Mobile_TypeWriterKeyboard {
-  umbrella header "Pods-Mobile-TypeWriterKeyboard-umbrella.h"
-
-  export *
-  module * { export * }
-}

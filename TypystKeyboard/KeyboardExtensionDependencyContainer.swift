@@ -1,6 +1,6 @@
 //
 //  KeyboardExtensionDependencyContainer.swift
-//  TypeWriterKeyboard
+//  TypystKeyboard
 //
 //  Created by Sean Wolford on 6/27/21.
 //
