@@ -6,9 +6,11 @@
 //
 
 import GBDeviceInfo
+import SwiftUI
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
+class KeyboardViewController: UIInputViewController, Loggable {
+    private static var keyboardServiceTag: String = "keyboardExtension"
     /// MARK: Variables
     private var dependencyContainer = KeyboardExtensionDependencyContainer.get()
     private var keyboardService: KeyboardService!
@@ -31,36 +33,49 @@ class KeyboardViewController: UIInputViewController {
         keyboardExtensionService = dependencyContainer.keyboardExtensionService
         
         // Perform custom UI setup here
-        self.nextKeyboardButton = UIButton(type: .system)
-        
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-        
-        self.view.addSubview(self.nextKeyboardButton)
-        
-        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        setupView()
 
-        logEvent(.info, "Keyboard extension view loaded", context: [
-            GBDeviceInfo.deviceInfo()
-        ])
+        logEvent(.info, "Keyboard extension view loaded", context: [GBDeviceInfo.deviceInfo()])
+
+        keyboardService.registerKeyPressCallback(withTag: KeyboardViewController.keyboardServiceTag) { [weak self] keyEvent in
+            guard let self = self else { return }
+            self.handleKeyboardServiceInput(keyEvent)
+        }
     }
-    
+
     override func viewWillLayoutSubviews() {
-        self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
+        if self.nextKeyboardButton != nil { self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey }
         super.viewWillLayoutSubviews()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Do something on willAppear
+    }
+
+    deinit {
+        keyboardService.removeListenerCallback(withTag: KeyboardViewController.keyboardServiceTag)
+    }
+}
+
+// MARK: Keyboard text functions
+extension KeyboardViewController {
+    private func handleKeyboardServiceInput(_ keyEvent: KeyEvent) {
+        if keyEvent.key == .delete {
+            textDocumentProxy.deleteBackward()
+        } else {
+            let text = keyEvent.key.stringValue
+            textDocumentProxy.insertText(text)
+        }
+    }
+
     override func textWillChange(_ textInput: UITextInput?) {
         // The app is about to change the document's contents. Perform any preparation here.
     }
-    
+
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
-        
+
         var textColor: UIColor
         let proxy = self.textDocumentProxy
         if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
@@ -68,30 +83,65 @@ class KeyboardViewController: UIInputViewController {
         } else {
             textColor = UIColor.black
         }
-        self.nextKeyboardButton.setTitleColor(textColor, for: [])
+        nextKeyboardButton.setTitleColor(textColor, for: [])
+    }
+}
+
+// MARK: UI setup
+extension KeyboardViewController {
+    private func setupView() {
+        view.subviews.forEach({ view in
+            view.removeFromSuperview()
+        })
+
+        view.backgroundColor = .clear
+
+        addNextKeyboardButton()
+        addKeyboard()
+    }
+
+    private func addNextKeyboardButton() {
+        nextKeyboardButton = UIButton(type: .system)
+        nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+        nextKeyboardButton.sizeToFit()
+        nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+
+        view.addSubview(self.nextKeyboardButton)
+        nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    }
+
+    private func addKeyboard() {
+        let keyboardView = Keyboard()
+        let swiftUIController = UIHostingController(rootView: keyboardView)
+        addAndContainChildVC(swiftUIController)
+
+        swiftUIController.view.translatesAutoresizingMaskIntoConstraints = false
+        swiftUIController.view.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        swiftUIController.view.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        swiftUIController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        swiftUIController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
 
 // MARK: Keyboard handling
-extension KeyboardViewController {
-    override func pressesBegan(_ presses: Set<UIPress>,
-                               with event: UIPressesEvent?) {
-        super.pressesBegan(presses, with: event)
-        keyboardExtensionService.handleUIPressesEvent(event, .touchBegan, keyboardService: keyboardService)
-    }
-
-    override func pressesEnded(_ presses: Set<UIPress>,
-                               with event: UIPressesEvent?) {
-        super.pressesEnded(presses, with: event)
-        keyboardExtensionService.handleUIPressesEvent(event, .touchEnded, keyboardService: keyboardService)
-    }
-
-    override func pressesCancelled(_ presses: Set<UIPress>,
-                                   with event: UIPressesEvent?) {
-        super.pressesCancelled(presses, with: event)
-        keyboardExtensionService.handleUIPressesEvent(event, .touchCancelled, keyboardService: keyboardService)
-    }
-}
-
-// MARK: Add logging support
-extension KeyboardViewController: Loggable {}
+//extension KeyboardViewController {
+//    override func pressesBegan(_ presses: Set<UIPress>,
+//                               with event: UIPressesEvent?) {
+//        super.pressesBegan(presses, with: event)
+//        keyboardExtensionService.handleUIPressesEvent(event, .touchBegan, keyboardService: keyboardService)
+//    }
+//
+//    override func pressesEnded(_ presses: Set<UIPress>,
+//                               with event: UIPressesEvent?) {
+//        super.pressesEnded(presses, with: event)
+//        keyboardExtensionService.handleUIPressesEvent(event, .touchEnded, keyboardService: keyboardService)
+//    }
+//
+//    override func pressesCancelled(_ presses: Set<UIPress>,
+//                                   with event: UIPressesEvent?) {
+//        super.pressesCancelled(presses, with: event)
+//        keyboardExtensionService.handleUIPressesEvent(event, .touchCancelled, keyboardService: keyboardService)
+//    }
+//}
