@@ -27,9 +27,9 @@ struct Keyboard: View {
                     .frame(maxWidth: .infinity, minHeight: 1, maxHeight: 1)
             }
         }
-        .background(Color.clear)
+        .background(Color.red)
         .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
-               minHeight: 75, idealHeight: 250, maxHeight: .infinity,
+               minHeight: 75, idealHeight: 250, maxHeight: 450,
                alignment: .center)
     }
 }
@@ -37,6 +37,7 @@ struct Keyboard: View {
 struct Keyboard_Previews: PreviewProvider {
     static var previews: some View {
         Keyboard()
-            .frame(height: 224.0)
+            .previewLayout(.device)
+            .previewDevice("iPad Pro (9.7-inch)")
     }
 }

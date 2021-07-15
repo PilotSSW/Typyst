@@ -55,54 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "init(modelType:state:sounds:appSettings:keyboardService:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2 - ca1254d3bf762144"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Typyst.KeyEvent) -&gt; () in Typyst.TypeWriterKeyLogic.init(modelType: Typyst.TypeWriterModel.ModelType, state: Typyst.TypeWriterState, sounds: Typyst.Sounds, keyHandler: Typyst.KeyHandler) -&gt; Typyst.TypeWriterKeyLogic"
-                  moduleName = "Typyst"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwolford/Developer/Projects/WickedPropellerWork/Projects/Typyst/Typyst-Swift/Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "448">
-               </Location>
-               <Location
-                  uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2 - c8038228c068a95c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Typyst.KeyEvent) -&gt; () in Typyst.TypeWriterKeyLogic.init(modelType: Typyst.TypeWriterModel.ModelType, state: Typyst.TypeWriterState, sounds: Typyst.Sounds, keyHandler: Typyst.KeyHandler) -&gt; Typyst.TypeWriterKeyLogic"
-                  moduleName = "Typyst"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwolford/Developer/Projects/WickedPropellerWork/Projects/Typyst/Typyst-Swift/Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "0">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5A9AC02B-399B-4BC1-AC8E-87EE2E4138E8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

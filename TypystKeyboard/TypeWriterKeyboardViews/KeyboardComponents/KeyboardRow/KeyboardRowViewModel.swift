@@ -6,38 +6,61 @@ import Foundation
 import struct SwiftUI.CGFloat
 import struct SwiftUI.CGSize
 
-final class KeyboardRowViewModel: ObservableObject {
-    private(set) var keyCharacters: [Key]
-    private(set) var keyViewModels: [KeyViewModel]
+typealias KeyboardRowCharacterSet = [[Key]]
 
-    init(keyCharacters: [Key], keyboardActionsKeyDelegate: KeyboardKeyActionsDelegate? = nil) {
+final class KeyboardRowViewModel: Identifiable, ObservableObject {
+    let id = UUID()
+
+    private(set) var keyCharacters: KeyboardRowCharacterSet
+    private(set) var keyViewModels: [[KeyViewModel]]
+
+    init(keyCharacters: KeyboardRowCharacterSet, keyboardActionsKeyDelegate: KeyboardKeyActionsDelegate? = nil) {
         self.keyCharacters = keyCharacters
+        keyViewModels = []
 
-        keyViewModels = KeyViewModelFactory.createViewModels(keyCharacters: keyCharacters,
-                                                             keyDelegate: keyboardActionsKeyDelegate)
+        for groupOfKeyCharacters in keyCharacters {
+            let vms = KeyViewModelFactory.createViewModels(keyCharacters: groupOfKeyCharacters,
+                                                                 keyDelegate: keyboardActionsKeyDelegate)
+            keyViewModels.append(vms)
+        }
     }
 
-    init(keyViewModels: [KeyViewModel]) {
+    init(keyViewModels: [[KeyViewModel]]) {
         self.keyViewModels = keyViewModels
-        keyCharacters = keyViewModels.map({ $0.key })
+        keyCharacters = []
+
+        for groupOfCharacters in keyViewModels {
+            keyCharacters.append(groupOfCharacters.map({ $0.key }))
+        }
+    }
+
+    func getAllKeyViewModels() -> [KeyViewModel] {
+        keyViewModels.reduce([]) {
+            var array = $0
+            let arrayOfKeyVm = $1
+
+            array.append(contentsOf: arrayOfKeyVm)
+            return array
+        }
     }
 }
 
 final class KeyboardRowViewModelFactory {
     static func createSpaceBarRow(keyboardActionsKeyDelegate: KeyboardKeyActionsDelegate? = nil) -> KeyboardRowViewModel {
         let spaceKeyVM = KeyViewModelFactory.createSpaceBar(keyDelegate: keyboardActionsKeyDelegate)
-        return KeyboardRowViewModel(keyViewModels: [spaceKeyVM])
+        return KeyboardRowViewModel(keyViewModels: [[spaceKeyVM]])
     }
 
-    static func createViewModels(keyboardCharacters: [[Key]],
+    static func createViewModels(keyboardCharacters: KeyboardCharacterSet,
                                  keyboardActionsKeyDelegate: KeyboardKeyActionsDelegate? = nil) -> [KeyboardRowViewModel] {
-        var letterRows: [KeyboardRowViewModel] = keyboardCharacters.map({
-            let rowCharacters = $0
-            return KeyboardRowViewModel(keyCharacters: rowCharacters,
-                                        keyboardActionsKeyDelegate: keyboardActionsKeyDelegate)
-        })
+        keyboardCharacters.reduce([], {
+            var array = $0
+            let rowOfCharacters = $1
 
-        letterRows.append(createSpaceBarRow(keyboardActionsKeyDelegate: keyboardActionsKeyDelegate))
-        return letterRows
+            let rowViewModel = KeyboardRowViewModel(keyCharacters: rowOfCharacters,
+                                                    keyboardActionsKeyDelegate: keyboardActionsKeyDelegate)
+            array.append(rowViewModel)
+            return array
+        })
     }
 }

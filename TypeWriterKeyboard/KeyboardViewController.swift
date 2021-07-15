@@ -11,14 +11,16 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController, Loggable {
     private static var keyboardServiceTag: String = "keyboardExtension"
-    /// MARK: Variables
-    private var dependencyContainer = KeyboardExtensionDependencyContainer.get()
-    private var keyboardService: KeyboardService!
-    private var keyboardExtensionService: KeyboardExtensionService!
 
+    /// MARK: Variables
+    private var dependencyContainer = RootDependencyContainer.get()
+    private var keyboardService: KeyboardService {
+        dependencyContainer.keyboardService
+    }
+    //private var keyboardExtensionService: KeyboardExtensionService!
 
     /// MARK: Outlets
-    @IBOutlet var nextKeyboardButton: UIButton!
+    @IBOutlet var nextKeyboardButton: UIButton?
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -29,22 +31,22 @@ class KeyboardViewController: UIInputViewController, Loggable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        keyboardService = dependencyContainer.rootDependencyContainer.keyboardService
-        keyboardExtensionService = dependencyContainer.keyboardExtensionService
+//        keyboardService = dependencyContainer.keyboardService
+        //keyboardExtensionService = dependencyContainer.keyboardExtensionService
         
         // Perform custom UI setup here
         setupView()
-
-        logEvent(.info, "Keyboard extension view loaded", context: [GBDeviceInfo.deviceInfo()])
 
         keyboardService.registerKeyPressCallback(withTag: KeyboardViewController.keyboardServiceTag) { [weak self] keyEvent in
             guard let self = self else { return }
             self.handleKeyboardServiceInput(keyEvent)
         }
+
+        logEvent(.info, "Keyboard extension view loaded", context: [GBDeviceInfo.deviceInfo()])
     }
 
     override func viewWillLayoutSubviews() {
-        if self.nextKeyboardButton != nil { self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey }
+        if let nextKeyboardButton = nextKeyboardButton { nextKeyboardButton.isHidden = !needsInputModeSwitchKey }
         super.viewWillLayoutSubviews()
     }
 
@@ -83,7 +85,7 @@ extension KeyboardViewController {
         } else {
             textColor = UIColor.black
         }
-        nextKeyboardButton.setTitleColor(textColor, for: [])
+        nextKeyboardButton?.setTitleColor(textColor, for: [])
     }
 }
 
@@ -96,20 +98,22 @@ extension KeyboardViewController {
 
         view.backgroundColor = .clear
 
-        addNextKeyboardButton()
+        if (needsInputModeSwitchKey) { addNextKeyboardButton() }
         addKeyboard()
     }
 
     private func addNextKeyboardButton() {
         nextKeyboardButton = UIButton(type: .system)
-        nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-        nextKeyboardButton.sizeToFit()
-        nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+        if let nextKeyboardButton = nextKeyboardButton {
+            nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+            nextKeyboardButton.sizeToFit()
+            nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+            nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
 
-        view.addSubview(self.nextKeyboardButton)
-        nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            view.addSubview(nextKeyboardButton)
+            nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+            nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        }
     }
 
     private func addKeyboard() {

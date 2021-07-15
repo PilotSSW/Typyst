@@ -16,7 +16,7 @@ struct KeyView: View {
                 .fill(Color.white)
                 .shadow(radius: 4)
 
-            RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .circular)
+            RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .continuous)
                 .fill(Color.gray)
                 .padding(viewModel.innerPadding)
 
@@ -39,5 +39,6 @@ struct KeyView: View {
 struct KeyView_Previews: PreviewProvider {
     static var previews: some View {
         KeyView(viewModel: KeyViewModelFactory.createSpaceBar())
+            .previewDevice("iPad Pro (9.7-inch)")
     }
 }

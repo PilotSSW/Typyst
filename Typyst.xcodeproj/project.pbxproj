@@ -137,6 +137,9 @@
 		A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C5826766B3300E18CCE /* NSEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C5726766B3300E18CCE /* NSEventListener.swift */; };
+		A37DEC4926A0992800965DC4 /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA768E2623561700E32B91 /* Soundsets */; };
+		A37DEC4A26A0993300965DC4 /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA768E2623561700E32B91 /* Soundsets */; };
+		A37DEC4B26A0993400965DC4 /* Soundsets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA768E2623561700E32B91 /* Soundsets */; };
 		A3975C642627FEA6001DFD47 /* TypingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76D526237DA900E32B91 /* TypingStats.swift */; };
 		A3975CA72627FF2A001DFD47 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
 		A3A4BD8726949D350010F72A /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4BD8626949D350010F72A /* Keyboard.swift */; };
@@ -154,6 +157,12 @@
 		A3A918D42694A4CB000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3A918D62694A675000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3A918D72694A675000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
+		A3B2B71C269E94CA00B6FFFB /* KeyboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2743C24874905B5E21F /* KeyboardRowViewModel.swift */; };
+		A3B2B71D269E94DF00B6FFFB /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
+		A3B2B71E269E94DF00B6FFFB /* KeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34CE80D2694DDA4008127E6 /* KeyViewModel.swift */; };
+		A3B2B71F269E94DF00B6FFFB /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4BD8C2694A06A0010F72A /* KeyView.swift */; };
+		A3B2B720269E94DF00B6FFFB /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4BD8626949D350010F72A /* Keyboard.swift */; };
+		A3B2B721269E94DF00B6FFFB /* KeyboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4BD902694A14C0010F72A /* KeyboardRowView.swift */; };
 		A3B5077C268B5EC40016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		A3B5077D268B5EC60016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
@@ -1367,6 +1376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3D0251A269E159D0058FF19 /* Assets.xcassets in Resources */,
+				A37DEC4926A0992800965DC4 /* Soundsets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,6 +1410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37DEC4A26A0993300965DC4 /* Soundsets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1407,6 +1418,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37DEC4B26A0993400965DC4 /* Soundsets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1806,19 +1818,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
+				A3B2B71D269E94DF00B6FFFB /* KeyboardViewModel.swift in Sources */,
 				A3E2AAEC26892D4900F43757 /* SwiftyBeaver.swift in Sources */,
 				A3E2AAF426892DBE00F43757 /* AppDependencyContainer.swift in Sources */,
 				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
+				A3B2B71C269E94CA00B6FFFB /* KeyboardRowViewModel.swift in Sources */,
 				A3236824268E53D300CB2B25 /* SwiftExtensions.swift in Sources */,
 				A3E2AB0826892F6A00F43757 /* SoundError.swift in Sources */,
 				A3E2AAF626892DD700F43757 /* TypeWriter.swift in Sources */,
 				A3E2AAE5268925E100F43757 /* KeySets.swift in Sources */,
+				A3B2B71E269E94DF00B6FFFB /* KeyViewModel.swift in Sources */,
 				A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
 				A35C06BE267AC1C700EFC9A0 /* KeyboardService.swift in Sources */,
 				A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */,
 				A323682A268E53DB00CB2B25 /* SystemFunctions.swift in Sources */,
 				A35C06B4267AC14500EFC9A0 /* DependencyContainer.swift in Sources */,
 				A3E2AAF926892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
+				A3B2B721269E94DF00B6FFFB /* KeyboardRowView.swift in Sources */,
+				A3B2B71F269E94DF00B6FFFB /* KeyView.swift in Sources */,
+				A3B2B720269E94DF00B6FFFB /* Keyboard.swift in Sources */,
 				A3E2AB0526892F5500F43757 /* ModifierFlags.swift in Sources */,
 				A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */,
 				A3E2AAFB26892DE600F43757 /* TypeWriterState.swift in Sources */,

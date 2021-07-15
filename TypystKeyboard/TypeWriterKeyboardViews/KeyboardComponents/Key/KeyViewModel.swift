@@ -13,7 +13,8 @@ protocol KeyboardKeyActionsDelegate {
     func keyWasPressed(_ event: KeyEvent)
 }
 
-final class KeyViewModel: ObservableObject {
+final class KeyViewModel: Identifiable, ObservableObject {
+    let id = UUID()
     let key: Key
     private(set) var delegate: KeyboardKeyActionsDelegate? = nil
 
@@ -43,11 +44,19 @@ final class KeyViewModel: ObservableObject {
     func setKeySize(_ keySize: CGSize) {
         self.keySize = keySize
     }
+
+    func hash(into hasher: inout Hasher) {}
 }
 
 extension KeyViewModel {
     func createKeyEvent() -> KeyEvent {
         KeyEvent(key, .keyDown, [])
+    }
+}
+
+extension KeyViewModel: Hashable {
+    static func ==(lhs: KeyViewModel, rhs: KeyViewModel) -> Bool {
+        lhs.id != rhs.id
     }
 }
 

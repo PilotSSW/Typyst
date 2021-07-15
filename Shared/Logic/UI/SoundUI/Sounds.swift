@@ -15,9 +15,13 @@ class Sounds: Loggable {
             return averageVolume
         }
         set(newValue) {
+            var multiplier = 1.0
+            #if KEYBOARD_EXTENSION
+            multiplier = 0.2
+            #endif
             soundSets.forEach({
                 $0.value.forEach({
-                    $0.volume = Float(newValue)
+                    $0.volume = Float(newValue * multiplier)
                 })
             })
         }
