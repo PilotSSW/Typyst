@@ -11,38 +11,38 @@ struct KeyboardRowView: View {
     var viewModel: KeyboardRowViewModel
 
     var body: some View {
-//        HStack(alignment: .center, spacing: 0, content: {
-//            Spacer()
-//                .frame(minWidth: 1, maxWidth: .infinity)
+        HStack(alignment: .center, spacing: 0) {
+            Spacer()
+                .frame(minWidth: 1, maxWidth: .infinity)
 
-            HStack(alignment: .center, spacing: 0) {
-                ForEach (viewModel.keyViewModels, id: \.self) { keyViewModelGroup in
+            ForEach (viewModel.keyGroupViewModels, id: \.id) { keyGroupViewModel in
+                if (keyGroupViewModel.groupPositionInRow == .right) {
                     Spacer()
-                        .frame(maxWidth: .infinity)
-                        .layoutPriority(1)
-
-                    ForEach(keyViewModelGroup, id: \.displayText) { keyViewModel in
-                        KeyView(viewModel: keyViewModel)
-                            .layoutPriority(2)
-                    }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .layoutPriority(3)
                 }
 
-                Spacer()
-                    .frame(maxWidth: .infinity)
-                    .layoutPriority(1)
+                KeyGroupView(viewModel: keyGroupViewModel)
+                    .layoutPriority(keyGroupViewModel.groupPositionInRow == .center ? 2 : 4)
+
+                if (keyGroupViewModel.groupPositionInRow == .left) {
+                    Spacer()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .layoutPriority(3)
+                }
             }
-//
-//            Spacer()
-//                .frame(minWidth: 1, maxWidth: .infinity)
-//        })
+
+            Spacer()
+                .frame(minWidth: 1, maxWidth: .infinity)
+        }
     }
 }
 
 struct KeyboardRowView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardRowView(viewModel: KeyboardRowViewModel(
-            keyCharacters: [[.a, .b, .c, .d, .e, .f, .g, .h, .i]])
-        )
-        .previewDevice("iPad Pro (9.7-inch)")
+        let keyChars: KeyboardRowCharacterSet = [[.z, .x, .c, .v, .b, .n, .m]]
+        let viewModel = KeyboardRowViewModelFactory.createRowViewModel(keyRowCharacters: keyChars)
+
+        return KeyboardRowView(viewModel: viewModel).previewDevice("iPad Pro (9.7-inch)")
     }
 }

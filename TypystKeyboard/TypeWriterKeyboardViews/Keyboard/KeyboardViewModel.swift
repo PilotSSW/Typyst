@@ -16,85 +16,94 @@ enum KeyboardConfiguration {
     case specials
 }
 
-typealias KeyboardCharacterSet = [[[Key]]]
+enum LettersConfiguration {
+    case lowercased
+    case shiftUppercased
+    case capsLocked
+}
 
-fileprivate let letterCharacters: KeyboardCharacterSet = [
-    [[.q, .w, .e, .r, .t, .y, .u, .i, .o, .p]],
-    [[.a, .s, .d, .f, .g, .h, .j, .k, .l]],
-    [[.shift], [.z, .x, .c, .v, .b, .n, .m], [.delete]],
-    [[.space]]
-]
-
-fileprivate let numberCharacters: KeyboardCharacterSet = [
-    [[.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero]],
-    [[.minus, .backslash, /*.colon,*/ .semicolon, .leftBracket, .rightBracket]], //.$, .&, .@, .\],
-    [[.period, .comma, /*.questionmark, .exclamationPoint,*/ .grave]],
-    [[.space]]
-]
-
-fileprivate let specialCharacters: KeyboardCharacterSet = [
-    [],//[,],{,},#,%,^,*,+,=],
-    [],//_,\,|,~,<,>],//,j,k,l],
-    [],//,.,,,?,!,\']
-    [[.space]]
-]
+typealias KeyboardCharacterSet = [KeyboardRowCharacterSet]
 
 final class KeyboardViewModel: Identifiable, ObservableObject {
     let id = UUID()
-    let maxKeySize: CGSize = CGSize(width: 35, height: 35)
 
-    @Published private(set) var state: KeyboardConfiguration = .letters {
+    private(set) var state: KeyboardConfiguration = .letters {
         didSet {
+            state == .letters
+                ? lettersState = .lowercased
+                : nil
             setupKeyboardViewModels()
         }
     }
-
-    @Published private(set) var keyboardRowViewModels: [KeyboardRowViewModel] = []
-    var keyViewModels: [KeyViewModel] {
-        keyboardRowViewModels
-            .map({ $0.getAllKeyViewModels() })
-            .reduce([], {
-                var array = $0
-                let keyVmArray = $1
-                array.append(contentsOf: keyVmArray)
-                return array
-            })
+    private(set) var lettersState: LettersConfiguration? = .lowercased {
+        didSet {
+            keyViewModels.forEach({ $0.setIsUppercased(lettersState != .lowercased) })
+        }
     }
 
-    init() {
+    var delegate: KeyboardViewModelActionsDelegate? = nil
+
+    private(set) var keyboardRowViewModels: [KeyboardRowViewModel] = []
+    var keyViewModels: [KeyViewModel] { keyboardRowViewModels.reduce([], { $0 + $1.keyViewModels }) }
+
+    private(set) var keyboardSize: CGSize = CGSize(width: 250, height: 100)
+    var maxKeySize: CGSize = CGSize(width: 35, height: 35) {
+        didSet { keyViewModels.forEach({ $0.setSuggestedKeySize(maxKeySize) }) }
+    }
+    var rowSpacing: CGFloat = 3.0
+    var bottomSpacing: CGFloat = 1.0
+
+    fileprivate init() {
         let characters = getKeyboardCharacters()
-        keyboardRowViewModels = KeyboardRowViewModelFactory.createViewModels(keyboardCharacters: characters,
-                                                                             keyboardActionsKeyDelegate: self)
+        keyboardRowViewModels = KeyboardRowViewModelFactory.createRowViewModels(keyboardCharacters: characters,
+                                                                                keyboardActionsKeyDelegate: self)
     }
 
     func set(_ viewDimensions: GeometryProxy) {
-        let size = viewDimensions.size
-        let width = size.width
-
-        let numCharInLongestRow = keyboardRowViewModels.map({ $0.keyCharacters.reduce(0) { $0 + $1.count }}).sorted().last ?? 0
-        let keyWidth = width / CGFloat(numCharInLongestRow)
-        let keySize = CGSize(width: keyWidth, height: keyWidth)
-
-        DispatchQueue.global().async { [weak self] in
-            guard let self = self else { return }
-
-            for rowViewModel in self.keyboardRowViewModels {
-                for groupOfKeyViewModel in rowViewModel.keyViewModels {
-                    for keyViewModel in groupOfKeyViewModel {
-                        if keyViewModel.key == .space {
-                            keyViewModel.setKeySize(CGSize(width: keyWidth * 5, height: keyWidth))
-                        } else {
-                            keyViewModel.setKeySize(keySize)
-                        }
-                    }
-                }
-            }
-        }
+        keyboardSize = viewDimensions.size
+        let numCharInLongestRow = keyboardRowViewModels.reduce(0, { max($0, $1.keyViewModels.count) })
+        let keyWidth = keyboardSize.width / CGFloat(numCharInLongestRow)
+        let keyHeight = ((keyboardSize.height - bottomSpacing) / CGFloat(keyboardRowViewModels.count)) - rowSpacing
+        maxKeySize = CGSize(width: keyWidth, height: keyHeight)
     }
 }
 
 // MARK: Private
 extension KeyboardViewModel {
+    fileprivate var bottomRow: KeyboardRowCharacterSet {
+        [[.control], [.space], [.return]]
+    }
+
+    fileprivate var letterCharacters: KeyboardCharacterSet {
+//        let leftShift: Key = lettersState == .capsLocked
+//            ? .capsLock : .shift
+
+        [
+            [[.q, .w, .e, .r, .t, .y, .u, .i, .o, .p]],
+            [[.a, .s, .d, .f, .g, .h, .j, .k, .l]],
+            [[.shift], [.z, .x, .c, .v, .b, .n, .m], [.delete]],
+            bottomRow
+        ]
+    }
+
+    fileprivate var numberCharacters: KeyboardCharacterSet {
+        [
+            [[.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero]],
+            [[.minus, .backslash, /*.colon,*/ .semicolon, .leftBracket, .rightBracket]], //.$, .&, .@, .\],
+            [[.period, .comma, /*.questionmark, .exclamationPoint,*/ .grave]],
+            bottomRow
+        ]
+    }
+
+    fileprivate var specialCharacters: KeyboardCharacterSet {
+        [
+            [],//[,],{,},#,%,^,*,+,=],
+            [],//_,\,|,~,<,>],//,j,k,l],
+            [],//,.,,,?,!,\']
+            bottomRow
+        ]
+    }
+
     private func getKeyboardCharacters() -> KeyboardCharacterSet {
         switch(state) {
         case .letters: return letterCharacters
@@ -115,14 +124,48 @@ extension KeyboardViewModel {
     }
 
     private func setupKeyboardViewModels() {
-        keyboardRowViewModels = KeyboardRowViewModelFactory.createViewModels(keyboardCharacters: getKeyboardCharacters(),
-                                                                             keyboardActionsKeyDelegate: self)
+        keyboardRowViewModels = KeyboardRowViewModelFactory.createRowViewModels(keyboardCharacters: getKeyboardCharacters(),
+                                                                                keyboardActionsKeyDelegate: self)
     }
 }
 
+protocol KeyboardViewModelActionsDelegate {
+    func keyWasPressed(_ event: KeyEvent)
+}
+
+// MARK: Handle keypresses and keyboard state logic 
 extension KeyboardViewModel: KeyboardKeyActionsDelegate {
     func keyWasPressed(_ event: KeyEvent) {
-        RootDependencyContainer.get().keyboardService.handleEvent(event)
+        if (state == .letters) {
+            if ([.capsLock, .rightShift, .shift].contains(event.key)) {
+                switch (lettersState) {
+                case .lowercased:
+                    lettersState = .shiftUppercased
+                    break
+                case .shiftUppercased:
+                    lettersState = .capsLocked
+                    break
+                case .capsLocked:
+                    lettersState = .lowercased
+                    break
+                default: lettersState = .lowercased
+                }
+            }
+            else if (KeySets.letters.contains(event.key) ||
+                     KeySets.numbers.contains(event.key)) {
+                lettersState = lettersState == .shiftUppercased
+                    ? .lowercased
+                    : lettersState
+            }
+        }
+
+        delegate?.keyWasPressed(event)
+    }
+}
+
+final class KeyboardViewModelFactory {
+    static func createKeyboardViewModel() -> KeyboardViewModel {
+        KeyboardViewModel()
     }
 }
 

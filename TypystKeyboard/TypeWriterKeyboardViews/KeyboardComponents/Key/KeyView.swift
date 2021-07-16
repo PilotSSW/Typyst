@@ -14,7 +14,7 @@ struct KeyView: View {
         ZStack() {
             RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .circular)
                 .fill(Color.white)
-                .shadow(radius: 4)
+                .shadow(radius: 5)
 
             RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .continuous)
                 .fill(Color.gray)
@@ -22,6 +22,7 @@ struct KeyView: View {
 
             Text(viewModel.displayText)
                 .asStyledText(textColor: .yellow)
+                .scaleEffect(1.25)
         }
         .padding(viewModel.innerPadding)
         .frame(width: viewModel.keySize.width,
@@ -38,7 +39,7 @@ struct KeyView: View {
 
 struct KeyView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyView(viewModel: KeyViewModelFactory.createSpaceBar())
+        KeyView(viewModel: KeyViewModelFactory.createViewModel(keyCharacter: .b))
             .previewDevice("iPad Pro (9.7-inch)")
     }
 }

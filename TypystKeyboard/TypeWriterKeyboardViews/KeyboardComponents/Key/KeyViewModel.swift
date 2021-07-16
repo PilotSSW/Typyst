@@ -15,34 +15,76 @@ protocol KeyboardKeyActionsDelegate {
 
 final class KeyViewModel: Identifiable, ObservableObject {
     let id = UUID()
-    let key: Key
-    private(set) var delegate: KeyboardKeyActionsDelegate? = nil
+    @Published private(set) var key: Key
+    fileprivate(set) var delegate: KeyboardKeyActionsDelegate? = nil
 
     // Stored Properties
-    private(set) var displayText: String
+    @Published fileprivate(set) var isUppercased: Bool? = false
     @Published var isHovering: Bool = false
-    @Published private(set) var keySize: CGSize = CGSize(width: 50, height: 50)
+
+    @Published private var suggestedMaxKeySize: CGSize = CGSize(width: 35, height: 35)
+    var keySize: CGSize {
+        let keySize = min(suggestedMaxKeySize.width, suggestedMaxKeySize.height)
+        if (key == .space) {
+            return CGSize(width: keySize * 5,
+                          height: keySize)
+        }
+
+        return CGSize(width: keySize,
+                      height: keySize)
+    }
 
     // Computed Properties
+    private var _displayText: String = ""
+    var displayText: String {
+        if (_displayText.count > 0) {
+            switch(isUppercased) {
+                case true: return _displayText.uppercased()
+                case false: return _displayText.lowercased()
+                default: return _displayText
+            }
+        }
+
+        switch(isUppercased) {
+            case true: return key.stringValue.uppercased()
+            case false: return key.stringValue.lowercased()
+            default: return key.stringValue
+        }
+    }
     var cornerRadius: CGFloat { ((keySize.height / 2.0) + (keySize.width / 2.0)) / 2.0 }
     var innerPadding: CGFloat { isHovering ? 0.0 : 2.0 }
 
-    init(_ key: Key, displayText: String = "", customKeySize: CGSize? = nil,
+    fileprivate init(_ key: Key, displayText: String = "", customKeySize: CGSize? = nil,
          delegate: KeyboardKeyActionsDelegate? = nil) {
         self.key = key
         self.delegate = delegate
-        self.displayText = displayText.count == 0 ? key.description : displayText
+        self._displayText = displayText
+        isUppercased = displayText.count > 0
+            ? nil
+            : isUppercased
         if let customKeySize = customKeySize {
-            keySize = customKeySize
+            suggestedMaxKeySize = customKeySize
         }
     }
 
     func onTap(_ completion: (() -> Void)? = nil) {
+        if ([.shift].contains(key) && isUppercased == true) {
+            key = .capsLock
+        } else if [.capsLock].contains(key) {
+            key = .shift
+        }
+
         delegate?.keyWasPressed(createKeyEvent())
     }
 
-    func setKeySize(_ keySize: CGSize) {
-        self.keySize = keySize
+    func setSuggestedKeySize(_ keySize: CGSize) {
+        suggestedMaxKeySize = keySize
+    }
+
+    func setIsUppercased(_ bool: Bool, setForCustomText: Bool = false) {
+        if isUppercased != nil || setForCustomText {
+            isUppercased = bool
+        }
     }
 
     func hash(into hasher: inout Hasher) {}
@@ -50,7 +92,11 @@ final class KeyViewModel: Identifiable, ObservableObject {
 
 extension KeyViewModel {
     func createKeyEvent() -> KeyEvent {
-        KeyEvent(key, .keyDown, [])
+        let modifiers: ModifierFlags = (KeySets.letters.contains(key) || KeySets.numbers.contains(key))
+            && isUppercased == true
+                ? [.shift]
+                : []
+        return KeyEvent(key, .keyDown, modifiers)
     }
 }
 
@@ -61,8 +107,25 @@ extension KeyViewModel: Hashable {
 }
 
 final class KeyViewModelFactory {
-    static func createViewModels(keyCharacters: [Key], keyDelegate: KeyboardKeyActionsDelegate? = nil) -> [KeyViewModel] {
-        keyCharacters.map({ KeyViewModel($0, delegate: keyDelegate) })
+    static func createGroupOfKeyViewModels(keyCharacters: KeyGroupCharacterSet,
+                                    keyboardActionsKeyDelegate: KeyboardKeyActionsDelegate? = nil) -> [KeyViewModel] {
+        keyCharacters.map({ key in
+            KeyViewModelFactory.createViewModel(keyCharacter: key,
+                                                keyDelegate: keyboardActionsKeyDelegate)
+        })
+    }
+
+    static func createViewModel(keyCharacter: Key,
+                                keyDelegate: KeyboardKeyActionsDelegate? = nil,
+                                useFactoryCustomizedKeyViewModels: Bool = true) -> KeyViewModel {
+        if (useFactoryCustomizedKeyViewModels) {
+            switch (keyCharacter) {
+            case .space: return createSpaceBar(keyDelegate: keyDelegate)
+            default: return KeyViewModel(keyCharacter, delegate: keyDelegate)
+            }
+        }
+
+        return KeyViewModel(keyCharacter, delegate: keyDelegate)
     }
 
     static func createSpaceBar(keyDelegate: KeyboardKeyActionsDelegate? = nil) -> KeyViewModel {

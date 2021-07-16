@@ -18,6 +18,8 @@ class KeyboardViewController: UIInputViewController, Loggable {
         dependencyContainer.keyboardService
     }
     //private var keyboardExtensionService: KeyboardExtensionService!
+    private var keyboardViewController: UIHostingController<KeyboardView>? = nil
+    private var keyboardViewModel: KeyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel()
 
     /// MARK: Outlets
     @IBOutlet var nextKeyboardButton: UIButton?
@@ -30,12 +32,11 @@ class KeyboardViewController: UIInputViewController, Loggable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        keyboardService = dependencyContainer.keyboardService
-        //keyboardExtensionService = dependencyContainer.keyboardExtensionService
         
         // Perform custom UI setup here
         setupView()
+
+        keyboardViewModel.delegate = self
 
         keyboardService.registerKeyPressCallback(withTag: KeyboardViewController.keyboardServiceTag) { [weak self] keyEvent in
             guard let self = self else { return }
@@ -52,7 +53,12 @@ class KeyboardViewController: UIInputViewController, Loggable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Do something on willAppear
+        addKeyboard()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        removeKeyboard()
+        super.viewWillDisappear(animated)
     }
 
     deinit {
@@ -63,10 +69,18 @@ class KeyboardViewController: UIInputViewController, Loggable {
 // MARK: Keyboard text functions
 extension KeyboardViewController {
     private func handleKeyboardServiceInput(_ keyEvent: KeyEvent) {
-        if keyEvent.key == .delete {
+        let key = keyEvent.key
+        if [.capsLock, .shift, .rightShift].contains(key) {
+            return
+        } else if [.delete].contains(key) {
             textDocumentProxy.deleteBackward()
-        } else {
-            let text = keyEvent.key.stringValue
+        } else if [.keypadEnter, .return].contains(key) {
+            textDocumentProxy.insertText("\n")
+        } else if keyboardViewModel.state == .letters {
+            let isUppercased = keyEvent.modifiers.contains(.shift) || keyEvent.modifiers.contains(.capsLock)
+            let text = isUppercased
+                ? key.stringValue.uppercased()
+                : key.stringValue.lowercased()
             textDocumentProxy.insertText(text)
         }
     }
@@ -99,7 +113,6 @@ extension KeyboardViewController {
         view.backgroundColor = .clear
 
         if (needsInputModeSwitchKey) { addNextKeyboardButton() }
-        addKeyboard()
     }
 
     private func addNextKeyboardButton() {
@@ -117,15 +130,31 @@ extension KeyboardViewController {
     }
 
     private func addKeyboard() {
-        let keyboardView = Keyboard()
-        let swiftUIController = UIHostingController(rootView: keyboardView)
-        addAndContainChildVC(swiftUIController)
+        let keyboardView = KeyboardView(viewModel: keyboardViewModel)
+        keyboardViewController = UIHostingController(rootView: keyboardView)
+        if let keyboardViewController = keyboardViewController {
+            addAndContainChildVC(keyboardViewController)
+            keyboardViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            keyboardViewController.view.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
+            keyboardViewController.view.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
+            keyboardViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+            keyboardViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }
+    }
 
-        swiftUIController.view.translatesAutoresizingMaskIntoConstraints = false
-        swiftUIController.view.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        swiftUIController.view.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        swiftUIController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        swiftUIController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    private func removeKeyboard() {
+        keyboardViewController?.removeFromParent()
+        keyboardViewController = nil
+    }
+}
+
+// MARK: Add support for listening to view model for key-presses
+extension KeyboardViewController: KeyboardViewModelActionsDelegate {
+    func keyWasPressed(_ event: KeyEvent) {
+        keyboardService.handleEvent(event, { [weak self] event in
+            guard let self = self else { return }
+            self.logEvent(.debug, "KeyboardViewController - keyWasPressedCompletion", context: [event.asAnonymousKeyEvent()])
+        })
     }
 }
 
