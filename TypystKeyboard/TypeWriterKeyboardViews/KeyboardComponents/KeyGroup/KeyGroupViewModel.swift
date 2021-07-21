@@ -21,7 +21,7 @@ final class KeyGroupViewModel: Identifiable, ObservableObject {
     let id = UUID()
 
     private(set) var keyCharacters: KeyGroupCharacterSet
-    private(set) var keyViewModels: [KeyViewModel]
+    @Published private(set) var keyViewModels: [KeyViewModel]
     var isFunctionGroupSet: Bool
     var groupPositionInRow: KeyGroupPosition = .center
 

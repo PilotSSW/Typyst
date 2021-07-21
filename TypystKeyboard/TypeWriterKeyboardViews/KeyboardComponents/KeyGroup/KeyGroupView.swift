@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KeyGroupView: View {
-    var viewModel: KeyGroupViewModel
+    @ObservedObject var viewModel: KeyGroupViewModel
 
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
@@ -24,5 +24,6 @@ struct KeyGroupView_Previews: PreviewProvider {
         let keyChars: KeyGroupCharacterSet = [.z, .x, .c, .v, .b, .n, .m]
         let viewModel = KeyGroupViewModelFactory.createGroupViewModel(keyCharacters: keyChars)
         return KeyGroupView(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
     }
 }

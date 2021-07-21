@@ -12,7 +12,7 @@ final class KeyboardRowViewModel: Identifiable, ObservableObject {
     let id = UUID()
 
     private(set) var keyCharacters: KeyboardRowCharacterSet
-    private(set) var keyGroupViewModels: [KeyGroupViewModel]
+    @Published private(set) var keyGroupViewModels: [KeyGroupViewModel]
     var keyViewModels: [KeyViewModel] { keyGroupViewModels.reduce([], { $0 + $1.keyViewModels }) }
 
     var keyboardRowSize: CGSize {
