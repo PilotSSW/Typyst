@@ -11,12 +11,12 @@ class KeyboardExtensionDependencyContainer {
     fileprivate static var keyboardExtensionDependencyContainer = KeyboardExtensionDependencyContainer(withRootDependencyContainer: RootDependencyContainer.get())
 
     private(set) var rootDependencyContainer: RootDependencyContainer
-    private(set) var keyboardExtensionService: KeyboardExtensionService
+    private(set) var textDocumentProxyService: TextDocumentProxyService
 
     private init(withRootDependencyContainer rootContainer: RootDependencyContainer) {
         rootDependencyContainer = rootContainer
 
-        keyboardExtensionService = KeyboardExtensionService()
+        textDocumentProxyService = TextDocumentProxyService()
     }
 
     static func get() -> KeyboardExtensionDependencyContainer { keyboardExtensionDependencyContainer }

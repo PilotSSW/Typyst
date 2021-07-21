@@ -8,38 +8,45 @@
 import SwiftUI
 
 struct KeyboardView: View {
-    let viewModel: KeyboardViewModel
+    @ObservedObject var viewModel: KeyboardViewModel
 
     var body: some View {
-         GeometryReader { viewDimensions in
+        GeometryReader { viewDimensions in
             let _ = viewModel.set(viewDimensions)
 
-            VStack(alignment: .center, spacing: viewModel.rowSpacing) {
-                Spacer()
+            ZStack {
+                RoundedRectangle(cornerRadius: viewDimensions.size.height / 24)
+                    .fill(TypeWriterColor.RoyalModelP.background.opacity(0.66))
+
+                VStack(alignment: .center, spacing: viewModel.uiProperties.rowSpacing) {
+                    Spacer()
                         .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
-                ForEach(viewModel.keyboardRowViewModels, id: \.id) { rowViewModel in
-                    KeyboardRowView(viewModel: rowViewModel)
+                    ForEach(viewModel.keyboardRowViewModels, id: \.id) { rowViewModel in
+                        KeyboardRowView(viewModel: rowViewModel)
                             .frame(maxWidth: viewDimensions.size.width)
                             .layoutPriority(1)
-                }
-                Spacer()
+                    }
+                    Spacer()
                         .frame(maxWidth: .infinity,
-                               minHeight: viewModel.bottomSpacing,
-                               maxHeight: viewModel.bottomSpacing)
+                               minHeight: viewModel.uiProperties.bottomSpacing,
+                               maxHeight: viewModel.uiProperties.bottomSpacing)
+                }
             }
         }
-            //        .background(Color.red)
-            .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
-                   minHeight: 75, idealHeight: 250, maxHeight: 450,
-                   alignment: .center)
+//        .padding(.vertical, 2)
+        .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
+               minHeight: 75, idealHeight: 250, maxHeight: 450,
+               alignment: .center)
     }
 }
 
 struct Keyboard_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardView(viewModel: KeyboardViewModelFactory.createKeyboardViewModel())
+        let vm = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: .Royal_Model_P)
+        KeyboardView(viewModel: vm)
+            .previewLayout(.sizeThatFits)
 //            .previewLayout(.device)
-            .previewDevice("iPad Pro (9.7-inch)")
+//            .previewDevice("iPad Pro (9.7-inch)")
     }
 }
