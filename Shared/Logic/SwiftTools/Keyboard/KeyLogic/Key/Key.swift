@@ -50,17 +50,42 @@ public enum Key {
     case nine
 
     // MARK: - Symbols
-    case period
-    case quote
+    case ampersand
+    case atSymbol
+    case backslash
+    case binaryVerticalBar
+    case leftBrace
+    case rightBrace
     case leftBracket
     case rightBracket
+    case bulletMark
+    case caretLeft
+    case caretRight
+    case caretUp
+    case colon
     case semicolon
-    case slash
-    case backslash
     case comma
+    case dollarSign
     case equal
+    case euroCurrencySymbol
+    case exclamationPoint
     case grave // Backtick
     case minus
+    case leftParenthesis
+    case rightParenthesis
+    case percentage
+    case period
+    case poundCurrencySymbol
+    case poundSign
+    case plus
+    case questionMark
+    case quote
+    case doubleQuotes
+    case slash
+    case star
+    case tilda
+    case underscore
+    case yenCurrencySymbol
 
     // MARK: - Whitespace
     case space
@@ -355,6 +380,31 @@ extension Key: CustomStringConvertible {
         case .space: return "␣"
         case .delete: return "⌫"
         case .escape: return "⎋"
+        case .ampersand: return "&"
+        case .atSymbol: return "@"
+        case .colon: return ":"
+        case .dollarSign: return "$"
+        case .exclamationPoint: return  "!"
+        case .leftParenthesis: return "("
+        case .rightParenthesis: return ")"
+        case .plus: return "+"
+        case .questionMark: return "?"
+        case .doubleQuotes: return "\""
+        case .binaryVerticalBar: return "|"
+        case .leftBrace: return "{"
+        case .rightBrace: return "}"
+        case .bulletMark: return "•"
+        case .caretLeft: return "<"
+        case .caretRight: return ">"
+        case .caretUp: return "^"
+        case .euroCurrencySymbol: return "€"
+        case .percentage: return "%"
+        case .poundCurrencySymbol: return "£"
+        case .poundSign: return "#"
+        case .star: return "*"
+        case .tilda: return "~"
+        case .underscore: return "_"
+        case .yenCurrencySymbol: return "¥"
 
         // MARK: Device Controls
         case .volumeUp: return "🔊"
@@ -479,6 +529,31 @@ extension Key: CustomStringConvertible {
         case .space: return "␣"
         case .delete: return "⌫"
         case .escape: return "⎋"
+        case .ampersand: return "&"
+        case .atSymbol: return "@"
+        case .colon: return ":"
+        case .dollarSign: return "$"
+        case .exclamationPoint: return  "!"
+        case .leftParenthesis: return "("
+        case .rightParenthesis: return ")"
+        case .plus: return "+"
+        case .questionMark: return "?"
+        case .doubleQuotes: return "\""
+        case .binaryVerticalBar: return "|"
+        case .leftBrace: return "{"
+        case .rightBrace: return "}"
+        case .bulletMark: return "•"
+        case .caretLeft: return "<"
+        case .caretRight: return ">"
+        case .caretUp: return "^"
+        case .euroCurrencySymbol: return "€"
+        case .percentage: return "%"
+        case .poundCurrencySymbol: return "£"
+        case .poundSign: return "#"
+        case .star: return "*"
+        case .tilda: return "~"
+        case .underscore: return "_"
+        case .yenCurrencySymbol: return "¥"
 
         // MARK: Device Controls
         case .volumeUp: return "🔊"

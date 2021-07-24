@@ -26,7 +26,7 @@ final class KeyViewModel: Identifiable, ObservableObject {
     var keySize: CGSize {
         let keySize = min(suggestedMaxKeySize.width, suggestedMaxKeySize.height)
         if (key == .space) {
-            return CGSize(width: keySize * 5,
+            return CGSize(width: keySize * 7,
                           height: keySize)
         }
 

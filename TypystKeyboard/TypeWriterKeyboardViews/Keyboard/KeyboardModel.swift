@@ -122,17 +122,17 @@ extension KeyboardModel {
     fileprivate var numberCharacters: KeyboardCharacterSet {
         [
             [[.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero]],
-            [[.minus, .backslash, /*.colon,*/ .semicolon, .leftBracket, .rightBracket]], //.$, .&, .@, .\],
-            [[], [.period, .comma, /*.questionmark, .exclamationPoint,*/ .grave], [.delete]],
-            [[.specials], [.space], [.return]]
+            [[.minus, .backslash, .colon, .semicolon, .leftParenthesis, .rightParenthesis, .dollarSign, .ampersand, .atSymbol, .doubleQuotes]],
+            [[.specials], [.period, .comma, .questionMark, .exclamationPoint, .grave], [.delete]],
+            [[.letters], [.space], [.return]]
         ]
     }
 
     fileprivate var specialCharacters: KeyboardCharacterSet {
         [
-            [],//.leftBracket, .rightBracket],//[,],{,},#,%,^,*,+,=],
-            [],//_,\,|,~,<,>],//,j,k,l],
-            [],//,.,,,?,!,\']
+            [[.leftBracket, .rightBracket, .leftBrace, .rightBrace, .poundSign, .percentage, .caretUp ,.star , .plus ,.equal]],
+            [[.underscore, .backslash, .binaryVerticalBar, .tilda, .caretLeft, .caretRight, .euroCurrencySymbol, .poundCurrencySymbol, .yenCurrencySymbol, .bulletMark]],
+            [[.numbers], [.period, .comma, .questionMark, .exclamationPoint, .grave], [.delete]],
             [[.letters], [.space], [.return]]
         ]
     }

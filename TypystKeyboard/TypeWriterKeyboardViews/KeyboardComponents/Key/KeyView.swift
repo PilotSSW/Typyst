@@ -28,6 +28,7 @@ struct KeyView: View {
                 Text(viewModel.displayText)
                     .asStyledText(textColor: .yellow)
                     .scaleEffect(1.25)
+                    .frame(maxWidth: .infinity)
             }
             .edgesIgnoringSafeArea(.all)
             .scaleEffect(isPressed ? 0.85 : 1.00)
