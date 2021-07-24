@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct KeyboardView: View {
-    @ObservedObject var viewModel: KeyboardViewModel
+    @StateObject var viewModel: KeyboardViewModel
 
     var body: some View {
         GeometryReader { viewDimensions in
             let _ = viewModel.set(viewDimensions)
+            let _ = print("displayingKeyboard")
 
             ZStack {
-                RoundedRectangle(cornerRadius: viewDimensions.size.height / 24)
+                RoundedRectangle(cornerRadius: viewDimensions.size.width / 18)
                     .fill(TypeWriterColor.RoyalModelP.background.opacity(0.66))
 
                 VStack(alignment: .center, spacing: viewModel.uiProperties.rowSpacing) {

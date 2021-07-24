@@ -9,14 +9,14 @@ import Foundation
 import struct SwiftUI.CGFloat
 import struct SwiftUI.CGSize
 
-protocol KeyboardKeyActionsDelegate {
+protocol KeyboardKeyActionsDelegate: AnyObject {
     func keyWasPressed(_ event: KeyEvent)
 }
 
 final class KeyViewModel: Identifiable, ObservableObject {
     let id = UUID()
     @Published private(set) var key: Key
-    fileprivate(set) var delegate: KeyboardKeyActionsDelegate? = nil
+    fileprivate(set) weak var delegate: KeyboardKeyActionsDelegate? = nil
 
     // Stored Properties
     @Published fileprivate(set) var isUppercased: Bool? = false
@@ -54,8 +54,10 @@ final class KeyViewModel: Identifiable, ObservableObject {
     var cornerRadius: CGFloat { ((keySize.height / 2.0) + (keySize.width / 2.0)) / 2.0 }
     var innerPadding: CGFloat { isHovering ? 0.0 : 2.0 }
 
-    fileprivate init(_ key: Key, displayText: String = "", customKeySize: CGSize? = nil,
-         delegate: KeyboardKeyActionsDelegate? = nil) {
+    fileprivate init(_ key: Key,
+                     displayText: String = "",
+                     customKeySize: CGSize? = nil,
+                     delegate: KeyboardKeyActionsDelegate? = nil) {
         self.key = key
         self.delegate = delegate
         self._displayText = displayText

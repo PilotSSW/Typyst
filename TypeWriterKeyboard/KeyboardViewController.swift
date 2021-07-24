@@ -27,6 +27,7 @@ class KeyboardViewController: UIInputViewController, Loggable {
     }
     private var keyboardViewController: UIHostingController<KeyboardView>? = nil
     private var keyboardViewModel: KeyboardViewModel? = nil
+    private var keyboardView: KeyboardView? = nil
 
     /// MARK: Outlets
     @IBOutlet var nextKeyboardButton: UIButton?
@@ -43,28 +44,28 @@ class KeyboardViewController: UIInputViewController, Loggable {
         // Perform custom UI setup here
         setupView()
 
-        let modelType = typeWriterService.loadedTypewriter?.modelType ?? .Royal_Model_P
-        keyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: modelType)
-        keyboardViewModel?.delegate = self
-
-        keyboardService.registerKeyPressCallback(withTag: KeyboardViewController.keyboardServiceTag) { [weak self] keyEvent in
-            guard let self = self,
-                  let keyboardViewModel = self.keyboardViewModel
-            else { return }
-
-            self.textDocumentProxyService.handleKeyPress(keyEvent,
-                                                         keyboardMode: keyboardViewModel.model.state,
-                                                         textDocumentProxy: self.textDocumentProxy)
-        }
-
         typeWriterService.$loadedTypewriter
             .sink { [weak self] model in
-                if let self = self,
-                   let model = model {
-                    self.reloadKeyboard(withModelType: model.modelType)
+                if let self = self {
+                    self.reloadKeyboard()
                 }
             }
             .store(in: &subscriptions)
+
+        keyboardService.registerKeyPressCallback(withTag: KeyboardViewController.keyboardServiceTag) { [weak self, weak keyboardViewModel] keyEvent in
+            guard let self = self,
+                  let keyboardViewModel = keyboardViewModel
+            else { return }
+
+            let model = keyboardViewModel.model
+            let mode = model.mode
+            let lettersMode = model.lettersMode
+
+            self.textDocumentProxyService.handleKeyPress(keyEvent,
+                                                         keyboardMode: mode,
+                                                         lettersMode: lettersMode,
+                                                         textDocumentProxy: self.textDocumentProxy)
+        }
 
         logEvent(.info, "Keyboard extension view loaded", context: [GBDeviceInfo.deviceInfo()])
     }
@@ -76,7 +77,7 @@ class KeyboardViewController: UIInputViewController, Loggable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addKeyboard()
+        reloadKeyboard()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +86,7 @@ class KeyboardViewController: UIInputViewController, Loggable {
     }
 
     deinit {
+        keyboardViewModel = nil
         keyboardService.removeListenerCallback(withTag: KeyboardViewController.keyboardServiceTag)
     }
 }
@@ -136,36 +138,46 @@ extension KeyboardViewController {
     }
 
     private func addKeyboard() {
+        if keyboardViewModel == nil {
+            let modelType = typeWriterService.loadedTypewriter?.modelType ?? .Royal_Model_P
+            keyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: modelType)
+            keyboardViewModel?.model.delegate = self
+        }
+
         if let keyboardViewModel = keyboardViewModel {
-            let keyboardView = KeyboardView(viewModel: keyboardViewModel)
-            keyboardViewController = UIHostingController(rootView: keyboardView)
-            keyboardViewController?.view.backgroundColor = .clear
-            if let keyboardViewController = keyboardViewController {
-                addAndContainChildVC(keyboardViewController)
-                keyboardViewController.view.translatesAutoresizingMaskIntoConstraints = false
-                keyboardViewController.view.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
-                keyboardViewController.view.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
-                keyboardViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-                keyboardViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            keyboardView = KeyboardView(viewModel: keyboardViewModel)
+
+            if let keyboardView = keyboardView {
+                keyboardViewController = UIHostingController(rootView: keyboardView)
+                keyboardViewController?.view.backgroundColor = .clear
+                if let keyboardViewController = keyboardViewController {
+                    addAndContainChildVC(keyboardViewController)
+                    keyboardViewController.view.translatesAutoresizingMaskIntoConstraints = false
+                    keyboardViewController.view.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
+                    keyboardViewController.view.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
+                    keyboardViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+                    keyboardViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+                }
             }
         }
     }
 
     private func removeKeyboard() {
+        keyboardView = nil
         keyboardViewController?.removeFromParent()
+        keyboardViewController?.children.forEach({ $0.removeFromParent() })
         keyboardViewController = nil
     }
 
-    private func reloadKeyboard(withModelType modelType: TypeWriterModel.ModelType) {
+    private func reloadKeyboard() {
+        logEvent(.debug, "Reloading keyboard")
         removeKeyboard()
-        keyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: modelType)
-        keyboardViewModel?.delegate = self
         addKeyboard()
     }
 }
 
 // MARK: Add support for listening to view model for key-presses
-extension KeyboardViewController: KeyboardViewModelActionsDelegate {
+extension KeyboardViewController: KeyboardModelActionsDelegate {
     func keyWasPressed(_ event: KeyEvent) {
         keyboardService.handleEvent(event, { [weak self] event in
             guard let self = self else { return }

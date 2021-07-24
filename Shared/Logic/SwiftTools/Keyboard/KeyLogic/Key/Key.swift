@@ -210,7 +210,6 @@ public enum Key {
         // MARK: OS Modifier Keys
         case "command", "⌘", "": self = .command
         case "rightcommand": self = .rightCommand
-        case "rightoption": self = .rightOption
         case "option", "⌥": self = .option
         case "rightoption": self = .rightOption
         case "shift", "⇧": self = .shift

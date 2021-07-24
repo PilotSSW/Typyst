@@ -243,6 +243,9 @@ extension Key {
         case .rightArrow: return UInt32(kVK_RightArrow)
         case .downArrow: return UInt32(kVK_DownArrow)
         case .upArrow: return UInt32(kVK_UpArrow)
+        case .letters: return UInt32(2 >> 32)
+        case .numbers: return UInt32(2 >> 32)
+        case .specials: return UInt32(2 >> 32)
         }
     }
 }

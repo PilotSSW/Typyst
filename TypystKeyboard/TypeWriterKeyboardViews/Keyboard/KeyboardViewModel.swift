@@ -16,9 +16,6 @@ final class KeyboardViewModel: Identifiable, ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
 
     private(set) var model: KeyboardModel = KeyboardModel()
-    var delegate: KeyboardViewModelActionsDelegate? = nil {
-        didSet { model.delegate = delegate }
-    }
 
     @Published private(set) var keyboardRowViewModels: [KeyboardRowViewModel] = []
     var keyViewModels: [KeyViewModel] { keyboardRowViewModels.reduce([], { $0 + $1.keyViewModels }) }
@@ -32,22 +29,14 @@ final class KeyboardViewModel: Identifiable, ObservableObject {
     fileprivate init(modelType: TypeWriterModel.ModelType) {
         uiProperties = KeyboardProperties.getPropertiesFor(modelType)
 
-        let characters = model.getKeyboardCharacters()
-        keyboardRowViewModels = KeyboardRowViewModelFactory.createRowViewModels(keyboardCharacters: characters,
-                                                                                keyboardActionsKeyDelegate: self)
-
-        model.$state
-            .sink { [weak self] state in
+        model.$mode
+            .sink { [weak self] mode in
                 guard let self = self else { return }
-
-                state == .letters
-                    ? self.model.lettersState = .lowercased
-                    : nil
-                self.setupKeyboardViewModels()
+                self.setupKeyboardViewModels(forKeyboardMode: mode)
             }
             .store(in: &subscriptions)
 
-        model.$lettersState
+        model.$lettersMode
             .sink { [weak self] lettersState in
                 guard let self = self else { return }
                 self.keyViewModels.forEach({ $0.setIsUppercased(lettersState != .lowercased) })
@@ -56,6 +45,8 @@ final class KeyboardViewModel: Identifiable, ObservableObject {
     }
 
     func set(_ viewDimensions: GeometryProxy) {
+        if keyboardSize == viewDimensions.size { return }
+
         keyboardSize = viewDimensions.size
         let numCharInLongestRow = keyboardRowViewModels.reduce(0, { max($0, $1.keyViewModels.count) })
         let keyWidth = keyboardSize.width / CGFloat(numCharInLongestRow)
@@ -77,15 +68,13 @@ extension KeyboardViewModel {
         return numKeys
     }
 
-    private func setupKeyboardViewModels() {
-        keyboardRowViewModels = []
-        keyboardRowViewModels = KeyboardRowViewModelFactory.createRowViewModels(keyboardCharacters: model.getKeyboardCharacters(),
+    private func setupKeyboardViewModels(forKeyboardMode mode: KeyboardMode) {
+        keyboardRowViewModels.removeAll()
+        let keyboardCharacters = model.getKeyboardCharacters(forMode: mode)
+        keyboardRowViewModels = KeyboardRowViewModelFactory.createRowViewModels(keyboardCharacters: keyboardCharacters,
                                                                                 keyboardActionsKeyDelegate: self)
+        keyViewModels.forEach({ $0.setSuggestedKeySize(maxKeySize) })
     }
-}
-
-protocol KeyboardViewModelActionsDelegate {
-    func keyWasPressed(_ event: KeyEvent)
 }
 
 // MARK: Handle keypresses and keyboard state logic

@@ -182,6 +182,8 @@
 		A3B5077C268B5EC40016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		A3B5077D268B5EC60016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
+		A3C9E93E26AB3E8A0052ADCA /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA099355B9274C6966F2 /* KeyboardModel.swift */; };
+		A3C9E93F26AB3E8B0052ADCA /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA099355B9274C6966F2 /* KeyboardModel.swift */; };
 		A3D0251A269E159D0058FF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA72212623554700E32B91 /* Assets.xcassets */; };
 		A3DA68872698045E002E1430 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7282262355D600E32B91 /* Font.swift */; };
 		A3DA68882698048E002E1430 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7278262355D600E32B91 /* Colors.swift */; };
@@ -1833,6 +1835,7 @@
 				6EF6B76987564BE9166504FC /* VolumeSettings.swift in Sources */,
 				6EF6B02E21391C6CF85E1924 /* AnalyticsSettings.swift in Sources */,
 				6EF6B23233FB92652D7EE067 /* CoreMenuItems.swift in Sources */,
+				A3C9E93E26AB3E8A0052ADCA /* KeyboardModel.swift in Sources */,
 				6EF6B8CC8BD600A17EF9ACDC /* AppMenu.swift in Sources */,
 				6EF6B7C9D5272B35C6191AE2 /* MacOSUI.swift in Sources */,
 				A34CE8182694EE0A008127E6 /* KeyView.swift in Sources */,
@@ -1897,6 +1900,7 @@
 				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
 				A3B2B71C269E94CA00B6FFFB /* KeyboardRowViewModel.swift in Sources */,
 				A3236824268E53D300CB2B25 /* SwiftExtensions.swift in Sources */,
+				A3C9E93F26AB3E8B0052ADCA /* KeyboardModel.swift in Sources */,
 				A3E2AB0826892F6A00F43757 /* SoundError.swift in Sources */,
 				A3E2AAF626892DD700F43757 /* TypeWriter.swift in Sources */,
 				A3E2AAE5268925E100F43757 /* KeySets.swift in Sources */,

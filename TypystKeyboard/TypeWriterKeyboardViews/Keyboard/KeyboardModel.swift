@@ -19,13 +19,96 @@ enum LettersMode {
 
 typealias KeyboardCharacterSet = [KeyboardRowCharacterSet]
 
+protocol KeyboardModelActionsDelegate: AnyObject {
+    func keyWasPressed(_ event: KeyEvent)
+}
+
 class KeyboardModel: Identifiable, ObservableObject {
     let id = UUID()
 
-    @Published var state: KeyboardMode = .letters
-    @Published var lettersState: LettersMode? = .lowercased
+    @Published private(set) var mode: KeyboardMode = .letters
+    @Published private(set) var lettersMode: LettersMode? = .lowercased
 
-    var delegate: KeyboardViewModelActionsDelegate? = nil
+    weak var delegate: KeyboardModelActionsDelegate? = nil
+
+    func keyWasPressed(_ event: KeyEvent) {
+        let key = event.key
+
+        // Handle keyboardMode change
+        if let mode = mapKeyToKeyboardMode(key) { setMode(mode) }
+        else if (mode == .letters) {
+            if keyShouldSetKeyboardLettersMode(key),
+               let newLettersMode = getNextLettersMode() { setLettersMode(newLettersMode) }
+        }
+
+        delegate?.keyWasPressed(event)
+
+        if (mode == .letters) {
+            if (KeySets.letters.contains(key) || KeySets.numbers.contains(key)) {
+                // If previous key was shift-uppercased
+                if (lettersMode == .shiftUppercased) { setLettersMode(.lowercased) }
+            }
+        }
+    }
+}
+
+// MARK: KeyboardMode functions
+extension KeyboardModel {
+    func mapKeyToKeyboardMode(_ key: Key) -> KeyboardMode? {
+        if .letters == key { return .letters }
+        else if .numbers == key { return .numbers }
+        else if .specials == key { return .specials }
+
+        return nil
+    }
+
+    func setMode(_ newMode: KeyboardMode) {
+        mode = newMode
+        lettersMode = mode == .letters
+            ? .lowercased
+            : nil
+    }
+}
+
+// MARK: LettersMode functions
+extension KeyboardModel {
+    func keyShouldSetKeyboardLettersMode(_ key: Key) -> Bool {
+        [.capsLock, .rightShift, .shift].contains(key)
+    }
+
+    func getNextLettersMode() -> LettersMode? {
+        if mode != .letters { return nil }
+
+        if lettersMode == .lowercased { return .shiftUppercased }
+        else if lettersMode == .shiftUppercased { return .capsLocked }
+        else if lettersMode == .capsLocked { return .lowercased }
+
+        return nil
+    }
+
+    func setLettersMode(_ newMode: LettersMode = .lowercased) {
+        if mode != .letters {
+            lettersMode = nil
+            return
+        }
+
+        lettersMode = newMode
+    }
+}
+
+// MARK: KeyboardCharacterSets
+extension KeyboardModel {
+    func getKeyboardCharacters(forMode mode: KeyboardMode? = nil) -> KeyboardCharacterSet {
+        var getMode = self.mode
+        if let mode = mode {
+            getMode = mode
+        }
+        switch(getMode) {
+            case .letters: return letterCharacters
+            case .numbers: return numberCharacters
+            case .specials: return specialCharacters
+        }
+    }
 
     fileprivate var letterCharacters: KeyboardCharacterSet {
         [
@@ -47,58 +130,10 @@ class KeyboardModel: Identifiable, ObservableObject {
 
     fileprivate var specialCharacters: KeyboardCharacterSet {
         [
-            [.leftBracket, .rightBracket, ],//[,],{,},#,%,^,*,+,=],
+            [],//.leftBracket, .rightBracket],//[,],{,},#,%,^,*,+,=],
             [],//_,\,|,~,<,>],//,j,k,l],
             [],//,.,,,?,!,\']
             [[.letters], [.space], [.return]]
         ]
-    }
-
-    func getKeyboardCharacters() -> KeyboardCharacterSet {
-        switch(state) {
-        case .letters: return letterCharacters
-        case .numbers: return numberCharacters
-        case .specials: return specialCharacters
-        }
-    }
-
-    func keyWasPressed(_ event: KeyEvent) {
-        // Handle keyboardMode change
-        if ([.letters, .numbers, .specials].contains(event.key)) {
-            switch (state) {
-            case .letters:
-                state = .numbers
-                lettersState = nil
-            case .numbers:
-                state = .specials
-            case .specials:
-                state = .letters
-                lettersState = .lowercased
-            }
-        }
-        else if (state == .letters) {
-            if ([.capsLock, .rightShift, .shift].contains(event.key)) {
-                switch (lettersState) {
-                case .lowercased:
-                    lettersState = .shiftUppercased
-                    break
-                case .shiftUppercased:
-                    lettersState = .capsLocked
-                    break
-                case .capsLocked:
-                    lettersState = .lowercased
-                    break
-                default: lettersState = .lowercased
-                }
-            }
-            else if (KeySets.letters.contains(event.key) ||
-                    KeySets.numbers.contains(event.key)) {
-                lettersState = lettersState == .shiftUppercased
-                        ? .lowercased
-                        : lettersState
-            }
-        }
-
-        delegate?.keyWasPressed(event)
     }
 }

@@ -16,6 +16,7 @@ class TextDocumentProxyService {
 
     func handleKeyPress(_ keyEvent: KeyEvent,
                         keyboardMode: KeyboardMode,
+                        lettersMode: LettersMode? = nil,
                         textDocumentProxy: UITextDocumentProxy) {
         let key = keyEvent.key
         if [.capsLock, .command, .control, .rightCommand, .rightControl, .rightShift, .shift, .letters, .numbers, .specials].contains(key) {
@@ -31,7 +32,11 @@ class TextDocumentProxyService {
             textDocumentProxy.insertText("\n")
         }
         else if keyboardMode == .letters {
-            let isUppercased = keyEvent.modifiers.contains(.shift) || keyEvent.modifiers.contains(.capsLock)
+            var isUppercased = false
+            if let lettersMode = lettersMode,
+               lettersMode == .shiftUppercased || lettersMode == .capsLocked {
+                isUppercased = true
+            }
             let text = isUppercased
                 ? key.stringValue.uppercased()
                 : key.stringValue.lowercased()

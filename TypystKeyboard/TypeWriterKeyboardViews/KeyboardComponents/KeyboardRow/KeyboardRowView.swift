@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KeyboardRowView: View {
-    @ObservedObject var viewModel: KeyboardRowViewModel
+    @StateObject var viewModel: KeyboardRowViewModel
 
     var body: some View {
         HStack(alignment: .center, spacing: 0) {

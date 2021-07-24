@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KeyGroupView: View {
-    @ObservedObject var viewModel: KeyGroupViewModel
+    @StateObject var viewModel: KeyGroupViewModel
 
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
