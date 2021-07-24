@@ -34,6 +34,9 @@ final class KeyViewModel: Identifiable, ObservableObject {
                       height: keySize)
     }
 
+    private var keyDownLock = false
+    private var keyUpLock = false
+
     // Computed Properties
     private var _displayText: String = ""
     var displayText: String {
@@ -69,14 +72,25 @@ final class KeyViewModel: Identifiable, ObservableObject {
         }
     }
 
-    func onTap(_ completion: (() -> Void)? = nil) {
+    func onTap(direction: KeyEvent.KeyDirection, _ completion: (() -> Void)? = nil) {
+        if (direction == .keyDown) {
+            if (keyDownLock == true) { return }
+            keyDownLock = true
+            keyUpLock = false
+        }
+        else if (direction == .keyUp) {
+            if (!keyDownLock || keyUpLock) { return }
+            keyUpLock = true
+            keyDownLock = false
+        }
+
         if ([.shift].contains(key) && isUppercased == true) {
             key = .capsLock
-        } else if [.capsLock].contains(key) {
+        } else if ([.capsLock].contains(key)) {
             key = .shift
         }
 
-        delegate?.keyWasPressed(createKeyEvent())
+        delegate?.keyWasPressed(createKeyEvent(direction: direction))
     }
 
     func setSuggestedKeySize(_ keySize: CGSize) {
@@ -93,12 +107,12 @@ final class KeyViewModel: Identifiable, ObservableObject {
 }
 
 extension KeyViewModel {
-    func createKeyEvent() -> KeyEvent {
+    func createKeyEvent(direction: KeyEvent.KeyDirection) -> KeyEvent {
         let modifiers: ModifierFlags = (KeySets.letters.contains(key) || KeySets.numbers.contains(key))
             && isUppercased == true
                 ? [.shift]
                 : []
-        return KeyEvent(key, .keyDown, modifiers)
+        return KeyEvent(key, direction, modifiers)
     }
 }
 

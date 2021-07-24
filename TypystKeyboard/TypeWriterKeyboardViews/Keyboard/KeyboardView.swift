@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct KeyboardView: View {
+struct KeyboardView: View, Loggable {
     @StateObject var viewModel: KeyboardViewModel
 
     var body: some View {
         GeometryReader { viewDimensions in
             let _ = viewModel.set(viewDimensions)
-            let _ = print("displayingKeyboard")
+            let _ = logEvent(.trace, "Rendering keyboard view")
 
             ZStack {
                 RoundedRectangle(cornerRadius: viewDimensions.size.width / 18)
@@ -35,7 +35,6 @@ struct KeyboardView: View {
                 }
             }
         }
-//        .padding(.vertical, 2)
         .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
                minHeight: 75, idealHeight: 250, maxHeight: 450,
                alignment: .center)

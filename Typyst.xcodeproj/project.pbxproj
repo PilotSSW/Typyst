@@ -173,6 +173,11 @@
 		A3A918D42694A4CB000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3A918D62694A675000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3A918D72694A675000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
+		A3AD463F26ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */; };
+		A3AD464026ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */; };
+		A3AD464126ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */; };
+		A3AD464226ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */; };
+		A3AD464326ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */; };
 		A3B2B71C269E94CA00B6FFFB /* KeyboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2743C24874905B5E21F /* KeyboardRowViewModel.swift */; };
 		A3B2B71D269E94DF00B6FFFB /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3B2B71E269E94DF00B6FFFB /* KeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34CE80D2694DDA4008127E6 /* KeyViewModel.swift */; };
@@ -437,6 +442,7 @@
 		A3A4BD8C2694A06A0010F72A /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
 		A3A4BD902694A14C0010F72A /* KeyboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRowView.swift; sourceTree = "<group>"; };
 		A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewModel.swift; sourceTree = "<group>"; };
+		A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PressActionsModifier.swift; path = "Shared/Logic/SwiftTools/Swift Extensions/UI/SwiftUI/Modifiers/Button/PressActionsModifier.swift"; sourceTree = SOURCE_ROOT; };
 		A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		A3E2AB0C2689332000F43757 /* TextDocumentProxyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocumentProxyService.swift; sourceTree = "<group>"; };
 		A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionDependencyContainer.swift; sourceTree = "<group>"; };
@@ -1159,6 +1165,7 @@
 		A3FA7280262355D600E32B91 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				A3AD463E26ABCE6A008E1EF1 /* PressActionsModifier.swift */,
 				A3FA7281262355D600E32B91 /* NeumorphicButton.swift */,
 			);
 			path = Button;
@@ -1595,6 +1602,7 @@
 				A3DA68872698045E002E1430 /* Font.swift in Sources */,
 				A3A4BD8F2694A06A0010F72A /* KeyView.swift in Sources */,
 				A3236805268E531C00CB2B25 /* SwiftyBeaver.swift in Sources */,
+				A3AD464326ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A3236822268E53A400CB2B25 /* SoundError.swift in Sources */,
 				A323681B268E536000CB2B25 /* Key.swift in Sources */,
 				A323682C268E53DC00CB2B25 /* SystemFunctions.swift in Sources */,
@@ -1648,6 +1656,7 @@
 				A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
 				A3FA7303262355D700E32B91 /* NeumorphicButton.swift in Sources */,
 				A3FA7321262355D700E32B91 /* SoundError.swift in Sources */,
+				A3AD463F26ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A3FA72DB262355D700E32B91 /* VolumeSettingView.swift in Sources */,
 				A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */,
 				A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */,
@@ -1828,6 +1837,7 @@
 				6EF6B8F51A49ECC6476BE489 /* AppSettings.swift in Sources */,
 				6EF6BC229E6CDB43D74C48F2 /* System.swift in Sources */,
 				6EF6BD7C5675215A2D281174 /* DependencyContainer.swift in Sources */,
+				A3AD464026ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */,
 				6EF6B9174216C245F1E26F2A /* AppSettingsMenuItems.swift in Sources */,
 				6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */,
@@ -1860,6 +1870,7 @@
 				A34CE8152694ED78008127E6 /* KeyboardViewController.swift in Sources */,
 				A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
 				A3236828268E53DA00CB2B25 /* SystemFunctions.swift in Sources */,
+				A3AD464126ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A35C06BD267AC1C600EFC9A0 /* KeyboardService.swift in Sources */,
 				A37DEC5626A0BF9B00965DC4 /* KeyGroupViewModel.swift in Sources */,
 				A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */,
@@ -1895,6 +1906,7 @@
 			files = (
 				A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
 				A3B2B71D269E94DF00B6FFFB /* KeyboardViewModel.swift in Sources */,
+				A3AD464226ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A3E2AAEC26892D4900F43757 /* SwiftyBeaver.swift in Sources */,
 				A3E2AAF426892DBE00F43757 /* AppDependencyContainer.swift in Sources */,
 				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,

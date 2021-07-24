@@ -19,7 +19,11 @@ class TextDocumentProxyService {
                         lettersMode: LettersMode? = nil,
                         textDocumentProxy: UITextDocumentProxy) {
         let key = keyEvent.key
-        if [.capsLock, .command, .control, .rightCommand, .rightControl, .rightShift, .shift, .letters, .numbers, .specials].contains(key) {
+
+        if keyEvent.direction == .keyUp {
+            return
+        }
+        else if [.capsLock, .command, .control, .rightCommand, .rightControl, .rightShift, .shift, .letters, .numbers, .specials].contains(key) {
             return
         }
         else if [.delete].contains(key) {

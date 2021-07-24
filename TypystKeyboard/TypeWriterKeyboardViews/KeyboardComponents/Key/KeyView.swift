@@ -9,16 +9,17 @@ import SwiftUI
 
 struct KeyView: View {
     @StateObject var viewModel: KeyViewModel
+    @State var isPressed: Bool = false
 
     var body: some View {
-        Button {
-            viewModel.onTap()
-        } label: {
+        Button {} label: {
             let _ = print("displaying \(viewModel.displayText)")
             ZStack() {
                 RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .circular)
                     .fill(Color.white)
-                    .shadow(color: AppColor.objectShadowDark.opacity(0.66), radius: 2.5)
+                    .shadow(color: AppColor.objectShadowDark.opacity(0.66),
+                            radius: 2.5,
+                            y: viewModel.keySize.height / 24)
 
                 RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .continuous)
                     .fill(viewModel.key == .space ? AppColor.objectShadowDark : Color.gray)
@@ -28,7 +29,18 @@ struct KeyView: View {
                     .asStyledText(textColor: .yellow)
                     .scaleEffect(1.25)
             }
+            .edgesIgnoringSafeArea(.all)
+            .scaleEffect(isPressed ? 0.85 : 1.00)
+            .offset(x: 0.0, y: isPressed ? 6 : 0)
         }
+        .buttonStyle(PlainButtonStyle())
+        .pressAction(onPress: {
+            viewModel.onTap(direction: .keyDown)
+            isPressed = true
+        }, onRelease: {
+            viewModel.onTap(direction: .keyUp)
+            isPressed = false
+        })
         .padding(viewModel.innerPadding)
         .frame(width: viewModel.keySize.width,
                height: viewModel.keySize.height,
@@ -36,9 +48,6 @@ struct KeyView: View {
         .onHover(perform: { isHovering in
             viewModel.isHovering = isHovering
         })
-//        .onTapGesture {
-//            viewModel.onTap()
-//        }
     }
 }
 
