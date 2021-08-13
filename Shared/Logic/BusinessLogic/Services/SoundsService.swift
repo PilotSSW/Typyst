@@ -6,8 +6,12 @@
 import Foundation
 import SwiftySound
 
-class Sounds: Loggable {
-    private(set) var soundSets = [Sounds.AvailableSoundSets: [Sound]]()
+class SoundsService: Loggable {
+    internal init(soundSets: [SoundsService.AvailableSoundSets : [Sound]] = [SoundsService.AvailableSoundSets: [Sound]]()) {
+        self.soundSets = soundSets
+    }
+    
+    private(set) var soundSets = [SoundsService.AvailableSoundSets: [Sound]]()
     var volume: Double {
         get {
             let sounds = soundSets.values.flatMap({ $0 })
@@ -54,13 +58,21 @@ class Sounds: Loggable {
         return (sounds, soundsNotFound)
     }
 
-    func loadSounds(for model: TypeWriterModel.ModelType, completion: ((Sounds) -> ())?, errorHandler: (([SoundError]) -> ())?) {
+    func loadSounds(for model: TypeWriterModel.ModelType, completion: ((SoundsService) -> ())?, errorHandler: (([SoundError]) -> ())?) {
         var soundErrors = [SoundError]()
+        
+        #if KEYBOARD_EXTENSION
+        let queue = DispatchQueue.main
+        let after: DispatchTime = .now() + 0.5
+        #else
+        let queue = DispatchQueue.global(qos: .userInitiated)
+        let after: DispatchTime = .now()
+        #endif
 
         // Load KeyUp sounds
-        DispatchQueue.global(qos: .userInitiated).async(execute: { [weak self] in
+        queue.asyncAfter(deadline: after, execute: { [weak self] in
             guard let self = self else { return }
-            Sounds.AvailableSoundSets.allCases.forEach({
+            SoundsService.AvailableSoundSets.allCases.forEach({
                 let key = $0
                 let result = self.getSoundSet(location: "Soundsets/\(model.rawValue)/\(key)")
                 self.soundSets[key] = result.0
@@ -84,8 +96,14 @@ class Sounds: Loggable {
         soundSets.removeAll()
     }
 
-    func playSound(for soundSet: Sounds.AvailableSoundSets, completion: (() -> ())? = nil) {
-        DispatchQueue.global(qos: .userInteractive).async(execute: { [weak self] in
+    func playSound(for soundSet: SoundsService.AvailableSoundSets, completion: (() -> ())? = nil) {
+        #if KEYBOARD_EXTENSION
+        let queue = DispatchQueue.main
+        #else
+        let queue = DispatchQueue.global(qos: .userInteractive)
+        #endif
+        
+        queue.async(execute: { [weak self] in
             guard let self = self else { return }
             if let sounds = self.soundSets[soundSet],
                let sound: Sound = sounds.randomElement() {
@@ -98,8 +116,14 @@ class Sounds: Loggable {
         })
     }
 
-    func playSound(fromOneOfAny sets: [Sounds.AvailableSoundSets], completion: (() -> ())? = nil) {
-        DispatchQueue.global(qos: .userInteractive).async(execute: { [weak self] in
+    func playSound(fromOneOfAny sets: [SoundsService.AvailableSoundSets], completion: (() -> ())? = nil) {
+        #if KEYBOARD_EXTENSION
+        let queue = DispatchQueue.main
+        #else
+        let queue = DispatchQueue.global(qos: .userInteractive)
+        #endif
+        
+        queue.async(execute: { [weak self] in
             guard let self = self else { return }
             let sounds:[Sound] = sets.compactMap({ self.soundSets[$0] }).flatMap({ $0 })
             if let sound: Sound = sounds.randomElement() {
