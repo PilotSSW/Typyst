@@ -27,6 +27,7 @@ class TextDocumentProxyService {
             return
         }
         else if [.delete].contains(key) {
+            textDocumentProxy.adjustTextPosition(byCharacterOffset: 1)
             textDocumentProxy.deleteBackward()
         }
         else if [.space].contains(key) {

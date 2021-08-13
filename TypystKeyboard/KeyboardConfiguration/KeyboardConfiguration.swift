@@ -25,7 +25,7 @@ class KeyboardProperties {
     }
 
     struct RoyalModelP: KeyboardUIProperties {
-        var bottomSpacing: CGFloat = 1.0
+        var bottomSpacing: CGFloat = 10.0
         var rowSpacing: CGFloat = 3.0
     }
 }

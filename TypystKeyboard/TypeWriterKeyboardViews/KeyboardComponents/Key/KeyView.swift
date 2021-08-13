@@ -12,15 +12,15 @@ struct KeyView: View, Loggable {
     @State var isPressed: Bool = false
 
     var body: some View {
-        Button {} label: {
-            let _ = logEvent(.trace, "displaying \(viewModel.displayText)")
+        let _ = logEvent(.trace, "rendering key-button: \(viewModel.displayText)")
 
+//        Button {} label: {
             getKeyView()
-            .edgesIgnoringSafeArea(.all)
-            .scaleEffect(isPressed ? 0.85 : 1.00)
-            .offset(x: 0.0, y: isPressed ? 6 : 0)
-        }
-        .buttonStyle(PlainButtonStyle())
+                .edgesIgnoringSafeArea(.all)
+                .scaleEffect(isPressed ? 0.85 : 1.00)
+                .offset(x: 0.0, y: isPressed ? 6 : 0)
+//        }
+//        .buttonStyle(PlainButtonStyle())
         .pressAction(onPress: {
             viewModel.onTap(direction: .keyDown)
             isPressed = true

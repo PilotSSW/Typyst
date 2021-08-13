@@ -11,36 +11,28 @@ struct KeyboardView: View, Loggable {
     @StateObject var viewModel: KeyboardViewModel
 
     var body: some View {
-        ZStack {
-            GeometryReader { viewDimensions in
-                let _ = viewModel.set(viewDimensions)
-                let _ = logEvent(.trace, "Rendering keyboard view")
+        let _ = logEvent(.trace, "rendering keyboard")
 
-                RoundedRectangle(cornerRadius: viewDimensions.size.width / 18)
-                    .fill(TypeWriterColor.RoyalModelP.background.opacity(0.66))
+        GeometryReader { viewDimensions in
+            let _ = viewModel.set(viewDimensions)
 
-                VStack(alignment: .center, spacing: viewModel.uiProperties.rowSpacing) {
-                    Spacer()
-                        .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            VStack(alignment: .center,
+                   spacing: viewModel.uiProperties.rowSpacing) {
+                Spacer()
+                    .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
-                    ForEach(viewModel.keyboardRowViewModels, id: \.id) { rowViewModel in
-                        KeyboardRowView(viewModel: rowViewModel)
-                            .frame(maxWidth: viewDimensions.size.width)
-                            .layoutPriority(1)
-                    }
-                    Spacer()
-                        .frame(maxWidth: .infinity,
-                               minHeight: viewModel.uiProperties.bottomSpacing,
-                               maxHeight: viewModel.uiProperties.bottomSpacing)
+                ForEach(viewModel.keyboardRowViewModels, id: \.id) { rowViewModel in
+                    KeyboardRowView(viewModel: rowViewModel)
+                        .frame(maxWidth: viewDimensions.size.width)
+                        .layoutPriority(1)
                 }
+                Spacer()
+                    .frame(maxWidth: .infinity,
+                           minHeight: viewModel.uiProperties.bottomSpacing,
+                           maxHeight: viewModel.uiProperties.bottomSpacing)
+                    .layoutPriority(2)
             }
         }
-        .frame(maxWidth: .infinity,
-               minHeight: 300, maxHeight: .infinity,
-               alignment: .center)
-//            .frame(minWidth: 75, idealWidth: 200, maxWidth: .infinity,
-//                   minHeight: 75, idealHeight: 250, maxHeight: 450,
-//                   alignment: .center)
     }
 }
 

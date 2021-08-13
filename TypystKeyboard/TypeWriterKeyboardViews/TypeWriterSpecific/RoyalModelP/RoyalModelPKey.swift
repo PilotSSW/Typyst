@@ -24,10 +24,9 @@ struct RoyalModelPKey: View {
                 .padding(viewModel.key == .space ? 0 : viewModel.innerPadding)
 
             Text(viewModel.displayText)
-                .asStyledText(textColor: .yellow)
+                //.asStyledText(textColor: .yellow)
                 .scaleEffect(1.25)
                 .frame(maxWidth: .infinity)
-                .shadow(color: AppColor.textShadow, radius: 2)
         }
         .shadow(color: AppColor.objectShadowDark.opacity(0.66),
                 radius: 2.5,
