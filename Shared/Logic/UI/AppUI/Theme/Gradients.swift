@@ -12,7 +12,7 @@ import SwiftUI
 class AppGradients {
     public static var cardOutlineGradient: LinearGradient {
         LinearGradient(
-            gradient: Gradient(colors: [AppColor.cardOutlinePrimary, AppColor.cardOutlineSecondary]),
+            gradient: Gradient(colors: [AppColor.cardOutlinePrimary.opacity(0.5), AppColor.cardOutlineSecondary.opacity(0.5)]),
             startPoint: .top,
             endPoint: .bottom
         )
