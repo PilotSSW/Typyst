@@ -40,7 +40,9 @@ class TypystAppViewModel_macOS: Loggable, ObservableObject {
 
         UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
 
-        OSHelper.askUserToAllowSystemAccessibility()
+        if (!OSHelper.isAccessibilityAdded()) {
+            OSHelper.askUserToAllowSystemAccessibility()
+        }
 
         logEvent(.info, "MacOS App running", context: [
             GBDeviceInfo.deviceInfo() ?? "Device Info Unavailable",
