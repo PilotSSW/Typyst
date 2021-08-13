@@ -34,7 +34,8 @@ class SwiftyBeaverLogger {
                     let console = ConsoleDestination()
                     console.format = "$DHH:mm:ss$d $L $M"//"$J"
                     log?.addDestination(console)
-                    #else
+                    #endif
+                    
                     let file = FileDestination()
                     log?.addDestination(file)
 
@@ -42,7 +43,6 @@ class SwiftyBeaverLogger {
                                                       appSecret: "przetal0geBkdUwlkomw8n7qP3trpcc0",
                                                       encryptionKey: "zxzlcCmYwNqirvsmaksV88o7nJeNiktq")
                     log?.addDestination(cloud)
-                    #endif
                 }
                 else {
                     log?.removeAllDestinations()

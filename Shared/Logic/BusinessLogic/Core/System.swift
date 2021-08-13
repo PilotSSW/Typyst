@@ -3,7 +3,6 @@
 // Copyright (c) 2021 wickedPropeller. All rights reserved.
 //
 
-import AppKit
 import Foundation
 
 class OSHelper {
@@ -11,6 +10,8 @@ class OSHelper {
 }
 
 #if os(macOS)
+import AppKit
+
 extension OSHelper {
     static func askUserToAllowSystemAccessibility(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService) {
         let alert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert({
