@@ -43,7 +43,7 @@ extension Key {
         case UInt32(kVK_ANSI_RightBracket): self = .rightBracket
         case UInt32(kVK_ANSI_O): self = .o
         case UInt32(kVK_ANSI_U): self = .u
-        case UInt32(kVK_ANSI_LeftBracket): self = .leftBracket
+        case UInt32(kVK_ANSI_LeftBracket): self = .leftBracket 
         case UInt32(kVK_ANSI_I): self = .i
         case UInt32(kVK_ANSI_P): self = .p
         case UInt32(kVK_ANSI_L): self = .l
@@ -246,6 +246,33 @@ extension Key {
         case .letters: return UInt32(2 >> 32)
         case .numbers: return UInt32(2 >> 32)
         case .specials: return UInt32(2 >> 32)
+            
+        // Unimplemented
+        case .ampersand: return UInt32(2 >> 32)
+        case .atSymbol: return UInt32(2 >> 32)
+        case .binaryVerticalBar: return UInt32(2 >> 32)
+        case .leftBrace: return UInt32(2 >> 32)
+        case .rightBrace: return UInt32(2 >> 32)
+        case .bulletMark: return UInt32(2 >> 32)
+        case .caretLeft: return UInt32(2 >> 32)
+        case .caretRight: return UInt32(2 >> 32)
+        case .caretUp: return UInt32(2 >> 32)
+        case .colon: return UInt32(2 >> 32)
+        case .dollarSign: return UInt32(2 >> 32)
+        case .doubleQuotes: return UInt32(2 >> 32)
+        case .euroCurrencySymbol: return UInt32(2 >> 32)
+        case .exclamationPoint: return UInt32(2 >> 32)
+        case .leftParenthesis: return UInt32(2 >> 32)
+        case .rightParenthesis: return UInt32(2 >> 32)
+        case .percentage: return UInt32(2 >> 32)
+        case .poundCurrencySymbol: return UInt32(2 >> 32)
+        case .poundSign: return UInt32(2 >> 32)
+        case .plus: return UInt32(2 >> 32)
+        case .questionMark: return UInt32(2 >> 32)
+        case .star: return UInt32(2 >> 32)
+        case .tilda: return UInt32(2 >> 32)
+        case .underscore: return UInt32(2 >> 32)
+        case .yenCurrencySymbol: return UInt32(2 >> 32)
         }
     }
 }

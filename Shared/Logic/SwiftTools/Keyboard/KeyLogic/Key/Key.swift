@@ -169,6 +169,7 @@ public enum Key {
     case letters
     case numbers
     case specials
+    case nextKeyboardGlobe
 
     // MARK: - Initializers
     public init?(string: String) {
@@ -285,6 +286,7 @@ public enum Key {
         case "letters": self = .letters
         case "numbers": self = .numbers
         case "specials": self = .specials
+        case "nextKeyboardGlobe": self = .nextKeyboardGlobe
 
         // MARK: Keypad
         case "keypaddecimal": self = .keypadDecimal
@@ -457,6 +459,7 @@ extension Key: CustomStringConvertible {
         case .letters: return "ABC"
         case .numbers: return "123"
         case .specials: return "#+="
+        case .nextKeyboardGlobe: return "🌐"
         }
     }
 
@@ -606,6 +609,7 @@ extension Key: CustomStringConvertible {
         case .letters: return "ABC"
         case .numbers: return "123"
         case .specials: return "#+="
+        case .nextKeyboardGlobe: return "🌐"
         }
     }
 }
