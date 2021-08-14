@@ -40,7 +40,7 @@ struct KeyboardRowView: View {
 
 struct KeyboardRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let keyChars: KeyboardRowCharacterSet = [[.shift], [.z, .x, .c, .v, .b, .n, .m], [.return]]
+        let keyChars: KeyboardRowCharacterSet = [[.letters, .nextKeyboardGlobe], [.space], [.return]]
         let viewModel = KeyboardRowViewModelFactory.createRowViewModel(keyRowCharacters: keyChars)
 
         return KeyboardRowView(viewModel: viewModel)

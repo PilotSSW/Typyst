@@ -35,15 +35,15 @@
 		6EF6BA4C4DCEF6B0BD22D9C1 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC20AA9A6FDFA2F75026 /* ErrorAlerts.swift */; };
 		6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B74B5EDE9E8420A27896 /* TypeWriterSettings.swift */; };
 		6EF6BB32C117B37A03070094 /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA099355B9274C6966F2 /* KeyboardModel.swift */; };
-		6EF6BC229E6CDB43D74C48F2 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF327759F44A0B2D4594 /* System.swift */; };
+		6EF6BC229E6CDB43D74C48F2 /* OSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF327759F44A0B2D4594 /* OSHelper.swift */; };
 		6EF6BC4BD74E1DF284A10F50 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
 		6EF6BC5CCEA4567798766DC8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF738F13EF32973D1724 /* Alert.swift */; };
 		6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF738F13EF32973D1724 /* Alert.swift */; };
 		6EF6BCCC75740FA2E89CDD52 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC20AA9A6FDFA2F75026 /* ErrorAlerts.swift */; };
 		6EF6BCD6F44F8FEA54529827 /* KeyboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2743C24874905B5E21F /* KeyboardRowViewModel.swift */; };
 		6EF6BD04FF0F0E68BC1D5C49 /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
-		6EF6BD57B8A92F15FDF29034 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
-		6EF6BD7C5675215A2D281174 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
+		6EF6BD57B8A92F15FDF29034 /* RootDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */; };
+		6EF6BD7C5675215A2D281174 /* RootDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */; };
 		6EF6BDBB597BF22BE35F2D31 /* KeyboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2743C24874905B5E21F /* KeyboardRowViewModel.swift */; };
 		6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
 		6EF6BF242B29E3BCC47D1750 /* iOSUIKitKeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B27523AD2BC680B4FAA5 /* iOSUIKitKeyboardService.swift */; };
@@ -61,7 +61,7 @@
 		A3236809268E531C00CB2B25 /* TypeWriterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA728D262355D600E32B91 /* TypeWriterService.swift */; };
 		A323680A268E531C00CB2B25 /* TypeWriterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7293262355D600E32B91 /* TypeWriterModel.swift */; };
 		A323680B268E531C00CB2B25 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76DC26237DB600E32B91 /* TimeHelper.swift */; };
-		A323680C268E531C00CB2B25 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
+		A323680C268E531C00CB2B25 /* RootDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */; };
 		A323680F268E531C00CB2B25 /* TypeWriterKeyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7294262355D600E32B91 /* TypeWriterKeyLogic.swift */; };
 		A3236811268E531C00CB2B25 /* TypingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA76D526237DA900E32B91 /* TypingStats.swift */; };
 		A3236814268E531C00CB2B25 /* TypeWriterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7292262355D600E32B91 /* TypeWriterState.swift */; };
@@ -87,10 +87,10 @@
 		A323682B268E53DC00CB2B25 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A0262355D600E32B91 /* RepeatingTimer.swift */; };
 		A323682C268E53DC00CB2B25 /* SystemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729F262355D600E32B91 /* SystemFunctions.swift */; };
 		A323682D268F59FF00CB2B25 /* Pods_Mobile_TypystKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA873E36158A1E38F10D90 /* Pods_Mobile_TypystKeyboard.framework */; };
+		A326BC5526C6E6CD0087E65D /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A32BE10F26C610BB009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
 		A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
 		A32BE11226C6119C009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
-		A333EDBB26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDBD26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDBF26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDC226BA2AA300AA9B09 /* TypeWriterMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7251262355D600E32B91 /* TypeWriterMenuData.swift */; };
@@ -123,8 +123,8 @@
 		A34CE8162694ED78008127E6 /* KeyboardExtensionDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */; };
 		A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
 		A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
-		A35C06B4267AC14500EFC9A0 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
-		A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */; };
+		A35C06B4267AC14500EFC9A0 /* RootDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */; };
+		A35C06B5267AC14600EFC9A0 /* RootDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */; };
 		A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA9455D7494127367B6C /* iOSKey.swift */; };
 		A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
 		A35C06BA267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A4262355D600E32B91 /* KeyEvent.swift */; };
@@ -214,6 +214,16 @@
 		A3E2AB0726892F6A00F43757 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
 		A3E2AB0826892F6A00F43757 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
 		A3E2AB0A2689301700F43757 /* iOSModifierFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3086262B29C900C64B4C /* iOSModifierFlags.swift */; };
+		A3E35A4826C74F380030DBC2 /* OSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF327759F44A0B2D4594 /* OSHelper.swift */; };
+		A3E35A4926C74F380030DBC2 /* OSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF327759F44A0B2D4594 /* OSHelper.swift */; };
+		A3E35A4A26C74F390030DBC2 /* OSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF327759F44A0B2D4594 /* OSHelper.swift */; };
+		A3E35A4B26C74F390030DBC2 /* OSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BF327759F44A0B2D4594 /* OSHelper.swift */; };
+		A3E35A4D26C75BD20030DBC2 /* RoyalModelPBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E35A4C26C75BD20030DBC2 /* RoyalModelPBackground.swift */; };
+		A3E35A4F26C75BD60030DBC2 /* RoyalModelPBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E35A4C26C75BD20030DBC2 /* RoyalModelPBackground.swift */; };
+		A3E35A5026C75BDC0030DBC2 /* RoyalModelPBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E35A4C26C75BD20030DBC2 /* RoyalModelPBackground.swift */; };
+		A3E35A5226C75C2D0030DBC2 /* TypeWriterBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */; };
+		A3E35A5326C75C950030DBC2 /* TypeWriterBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */; };
+		A3E35A5426C75C950030DBC2 /* TypeWriterBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */; };
 		A3EE9CC526A293190009482C /* KeyboardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE9CC426A293190009482C /* KeyboardConfiguration.swift */; };
 		A3EE9CC626A5DD0B0009482C /* KeyboardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE9CC426A293190009482C /* KeyboardConfiguration.swift */; };
 		A3EE9CC726A5DD0B0009482C /* KeyboardConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE9CC426A293190009482C /* KeyboardConfiguration.swift */; };
@@ -409,9 +419,9 @@
 		6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowIntensity.swift; sourceTree = "<group>"; };
 		6EF6BD6AC58B612B1AA22F9F /* KeyboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMenuItems.swift; sourceTree = "<group>"; };
-		6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDependencyContainer.swift; sourceTree = "<group>"; };
 		6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoAlerts.swift; sourceTree = "<group>"; };
-		6EF6BF327759F44A0B2D4594 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		6EF6BF327759F44A0B2D4594 /* OSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSHelper.swift; sourceTree = "<group>"; };
 		6EF6BF738F13EF32973D1724 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		7EBA873E36158A1E38F10D90 /* Pods_Mobile_TypystKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TypystKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventStore.swift; sourceTree = "<group>"; };
@@ -448,6 +458,8 @@
 		A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		A3E2AB0C2689332000F43757 /* TextDocumentProxyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocumentProxyService.swift; sourceTree = "<group>"; };
 		A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionDependencyContainer.swift; sourceTree = "<group>"; };
+		A3E35A4C26C75BD20030DBC2 /* RoyalModelPBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoyalModelPBackground.swift; sourceTree = "<group>"; };
+		A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterBackground.swift; sourceTree = "<group>"; };
 		A3EE9CC426A293190009482C /* KeyboardConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConfiguration.swift; sourceTree = "<group>"; };
 		A3F3F669266658C900046773 /* TypystAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypystAppViewModel.swift; sourceTree = "<group>"; };
 		A3FA71A92623523300E32B91 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -630,8 +642,8 @@
 		6EF6BBE762745B4F244E1DC9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				6EF6BF327759F44A0B2D4594 /* System.swift */,
-				6EF6BE87F0F779F575A91213 /* DependencyContainer.swift */,
+				6EF6BF327759F44A0B2D4594 /* OSHelper.swift */,
+				6EF6BE87F0F779F575A91213 /* RootDependencyContainer.swift */,
 				A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */,
 			);
 			path = Core;
@@ -864,6 +876,7 @@
 		A3C9050D26AE689A007DC282 /* TypeWriterSpecific */ = {
 			isa = PBXGroup;
 			children = (
+				A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */,
 				A3C9051B26AE6E54007DC282 /* SmithCoronaSilent */,
 				A3C9050E26AE68B9007DC282 /* RoyalModelP */,
 			);
@@ -874,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C9051526AE68F1007DC282 /* RoyalModelPKey.swift */,
+				A3E35A4C26C75BD20030DBC2 /* RoyalModelPBackground.swift */,
 			);
 			path = RoyalModelP;
 			sourceTree = "<group>";
@@ -1652,10 +1666,12 @@
 				A3C9051D26AE6E67007DC282 /* SmithCoronaSilentKey.swift in Sources */,
 				A32367F1268E517D00CB2B25 /* TextDocumentProxyService.swift in Sources */,
 				A3236816268E531C00CB2B25 /* TypeWriter.swift in Sources */,
+				A3E35A5226C75C2D0030DBC2 /* TypeWriterBackground.swift in Sources */,
 				A32367F0268E517D00CB2B25 /* KeyboardExtensionDependencyContainer.swift in Sources */,
 				A3236821268E539700CB2B25 /* SoundsService.swift in Sources */,
 				A3236819268E536000CB2B25 /* ModifierFlags.swift in Sources */,
 				A3A4BD8926949EED0010F72A /* UIKitExtensions.swift in Sources */,
+				A3E35A4B26C74F390030DBC2 /* OSHelper.swift in Sources */,
 				A3A918D42694A4CB000B208D /* KeyboardViewModel.swift in Sources */,
 				A323681A268E536000CB2B25 /* iOSKey.swift in Sources */,
 				A333EDC226BA2AA300AA9B09 /* TypeWriterMenuData.swift in Sources */,
@@ -1671,10 +1687,11 @@
 				A3236815268E531C00CB2B25 /* LoggingService.swift in Sources */,
 				A3A4BD932694A14C0010F72A /* KeyboardRowView.swift in Sources */,
 				A3236808268E531C00CB2B25 /* KeyEventStore.swift in Sources */,
+				A3E35A4D26C75BD20030DBC2 /* RoyalModelPBackground.swift in Sources */,
 				A323681F268E536900CB2B25 /* KeySets.swift in Sources */,
 				A323680A268E531C00CB2B25 /* TypeWriterModel.swift in Sources */,
 				A3236817268E533700CB2B25 /* AppSettings.swift in Sources */,
-				A323680C268E531C00CB2B25 /* DependencyContainer.swift in Sources */,
+				A323680C268E531C00CB2B25 /* RootDependencyContainer.swift in Sources */,
 				A32367EF268E517D00CB2B25 /* IOSExtensionKeyboardViewController.swift in Sources */,
 				A34CE80E2694DDA4008127E6 /* KeyViewModel.swift in Sources */,
 				A3A4BD8726949D350010F72A /* KeyboardView.swift in Sources */,
@@ -1700,12 +1717,14 @@
 				A34B30A5262D1FD700C64B4C /* KeySets.swift in Sources */,
 				A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
 				A3FA7303262355D700E32B91 /* NeumorphicButton.swift in Sources */,
+				A3E35A4826C74F380030DBC2 /* OSHelper.swift in Sources */,
 				A3FA7321262355D700E32B91 /* SoundError.swift in Sources */,
 				A3AD463F26ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A3FA72DB262355D700E32B91 /* VolumeSettingView.swift in Sources */,
 				A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */,
 				A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */,
 				A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */,
+				A3E35A5426C75C950030DBC2 /* TypeWriterBackground.swift in Sources */,
 				A37DEC5926A0BFB200965DC4 /* KeyGroupView.swift in Sources */,
 				A3FA72B5262355D700E32B91 /* AnalyticsInfoControls.swift in Sources */,
 				A3FA72D9262355D700E32B91 /* TypeWriterSettingsView.swift in Sources */,
@@ -1775,7 +1794,8 @@
 				6EF6BC4BD74E1DF284A10F50 /* iOSKey.swift in Sources */,
 				6EF6B89D087AD443C302E17C /* KeyboardService.swift in Sources */,
 				6EF6B899065B8528AB03A09A /* AlertItem.swift in Sources */,
-				A333EDBB26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */,
+				A326BC5526C6E6CD0087E65D /* TypeWriterSelector.swift in Sources */,
+				A3E35A4F26C75BD60030DBC2 /* RoyalModelPBackground.swift in Sources */,
 				6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */,
 				A34CE8122694ED77008127E6 /* IOSExtensionKeyboardViewController.swift in Sources */,
 				6EF6BCCC75740FA2E89CDD52 /* ErrorAlerts.swift in Sources */,
@@ -1783,7 +1803,7 @@
 				6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */,
 				6EF6B71F34E01EE7820E186E /* AppWindowView.swift in Sources */,
 				6EF6B84F88E113673D7382BC /* AppSettings.swift in Sources */,
-				6EF6BD57B8A92F15FDF29034 /* DependencyContainer.swift in Sources */,
+				6EF6BD57B8A92F15FDF29034 /* RootDependencyContainer.swift in Sources */,
 				6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */,
 				6EF6BCD6F44F8FEA54529827 /* KeyboardRowViewModel.swift in Sources */,
 				6EF6B0DD0C0A7A5C93DB1E2F /* iOSUIKitKeyboardService.swift in Sources */,
@@ -1876,8 +1896,8 @@
 				6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */,
 				6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */,
 				6EF6B8F51A49ECC6476BE489 /* AppSettings.swift in Sources */,
-				6EF6BC229E6CDB43D74C48F2 /* System.swift in Sources */,
-				6EF6BD7C5675215A2D281174 /* DependencyContainer.swift in Sources */,
+				6EF6BC229E6CDB43D74C48F2 /* OSHelper.swift in Sources */,
+				6EF6BD7C5675215A2D281174 /* RootDependencyContainer.swift in Sources */,
 				A3AD464026ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */,
 				6EF6B9174216C245F1E26F2A /* AppSettingsMenuItems.swift in Sources */,
@@ -1913,10 +1933,11 @@
 				A34CE8152694ED78008127E6 /* IOSExtensionKeyboardViewController.swift in Sources */,
 				A35C06B9267AC1BA00EFC9A0 /* KeyEvent.swift in Sources */,
 				A3236828268E53DA00CB2B25 /* SystemFunctions.swift in Sources */,
+				A3E35A4926C74F380030DBC2 /* OSHelper.swift in Sources */,
 				A3AD464126ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A35C06BD267AC1C600EFC9A0 /* KeyboardService.swift in Sources */,
 				A37DEC5626A0BF9B00965DC4 /* KeyGroupViewModel.swift in Sources */,
-				A35C06B5267AC14600EFC9A0 /* DependencyContainer.swift in Sources */,
+				A35C06B5267AC14600EFC9A0 /* RootDependencyContainer.swift in Sources */,
 				A3236827268E53DA00CB2B25 /* RepeatingTimer.swift in Sources */,
 				A35C06B2267AC14300EFC9A0 /* Key.swift in Sources */,
 				A3A4BD952694A1CD0010F72A /* KeyboardView.swift in Sources */,
@@ -1924,6 +1945,8 @@
 				A3EE9CC826A5DD0C0009482C /* KeyboardConfiguration.swift in Sources */,
 				A3E2AAF826892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
 				A3A4BD8B26949FCB0010F72A /* UIKitExtensions.swift in Sources */,
+				A3E35A5026C75BDC0030DBC2 /* RoyalModelPBackground.swift in Sources */,
+				A3E35A5326C75C950030DBC2 /* TypeWriterBackground.swift in Sources */,
 				A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */,
 				A3B5077D268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
 				A3A918D62694A675000B208D /* KeyboardViewModel.swift in Sources */,
@@ -1959,9 +1982,10 @@
 				A3E2AAE5268925E100F43757 /* KeySets.swift in Sources */,
 				A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
 				A35C06BE267AC1C700EFC9A0 /* KeyboardService.swift in Sources */,
+				A3E35A4A26C74F390030DBC2 /* OSHelper.swift in Sources */,
 				A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */,
 				A323682A268E53DB00CB2B25 /* SystemFunctions.swift in Sources */,
-				A35C06B4267AC14500EFC9A0 /* DependencyContainer.swift in Sources */,
+				A35C06B4267AC14500EFC9A0 /* RootDependencyContainer.swift in Sources */,
 				A3E2AAF926892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
 				A3E2AB0526892F5500F43757 /* ModifierFlags.swift in Sources */,
 				A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */,

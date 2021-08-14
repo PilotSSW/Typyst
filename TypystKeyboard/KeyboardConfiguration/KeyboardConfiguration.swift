@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import struct SwiftUI.Color
 import struct SwiftUI.CGFloat
 import struct SwiftUI.CGSize
 
@@ -25,7 +26,7 @@ class KeyboardProperties {
     }
 
     struct RoyalModelP: KeyboardUIProperties {
-        var bottomSpacing: CGFloat = 10.0
+        var bottomSpacing: CGFloat = 4.0
         var rowSpacing: CGFloat = 3.0
     }
 }

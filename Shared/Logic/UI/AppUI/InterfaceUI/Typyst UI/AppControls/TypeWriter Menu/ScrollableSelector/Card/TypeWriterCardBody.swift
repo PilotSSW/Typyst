@@ -33,6 +33,6 @@ struct TypeWriterCardBody: View {
             .padding(.horizontal, 8)
         }
         .background(Color.clear)
-        .animation(.easeOut(duration: 0.5))
+        .animation(.easeOut(duration: 0.15))
     }
 }

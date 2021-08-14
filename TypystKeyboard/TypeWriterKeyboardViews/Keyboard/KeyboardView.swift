@@ -39,7 +39,8 @@ struct KeyboardView: View, Loggable {
 struct Keyboard_Previews: PreviewProvider {
     static var previews: some View {
         let vm = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: .Royal_Model_P)
-        KeyboardView(viewModel: vm)
+        vm.model.setLettersMode(.capsLocked)
+        return KeyboardView(viewModel: vm)
             .previewLayout(.sizeThatFits)
 //            .previewLayout(.device)
 //            .previewDevice("iPad Pro (9.7-inch)")

@@ -12,26 +12,24 @@ struct KeyView: View, Loggable {
     @State var isPressed: Bool = false
 
     var body: some View {
-        let _ = logEvent(.trace, "rendering key-button: \(viewModel.displayText)")
+        //let _ = logEvent(.trace, "rendering key-button: \(viewModel.displayText)")
 
-//        Button {} label: {
-            getKeyView()
-                .edgesIgnoringSafeArea(.all)
-                .scaleEffect(isPressed ? 0.85 : 1.00)
-                .offset(x: 0.0, y: isPressed ? 6 : 0)
-//        }
-//        .buttonStyle(PlainButtonStyle())
-        .pressAction(onPress: {
-            viewModel.onTap(direction: .keyDown)
-            isPressed = true
-        }, onRelease: {
-            viewModel.onTap(direction: .keyUp)
-            isPressed = false
-        })
-        .padding(viewModel.innerPadding)
-        .frame(width: viewModel.keySize.width,
-               height: viewModel.keySize.height,
-               alignment: .center)
+        getKeyView()
+            .scaleEffect(isPressed ? 0.92 : 1.00)
+            .offset(x: 0.0, y: isPressed ? 8 : 0)
+            .padding(viewModel.innerPadding)
+            .frame(width: viewModel.keySize.width,
+                   height: viewModel.keySize.height,
+                   alignment: .center)
+            .edgesIgnoringSafeArea(.all)
+            .pressAction(onPress: {
+                viewModel.onTap(direction: .keyDown)
+                isPressed = true
+            }, onRelease: {
+                viewModel.onTap(direction: .keyUp)
+                isPressed = false
+            })
+
 //        .onHover(perform: { isHovering in
 //            viewModel.isHovering = isHovering
 //        })

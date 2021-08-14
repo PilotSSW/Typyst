@@ -14,8 +14,8 @@ struct KeyboardContainerView: View, Loggable {
         let _ = logEvent(.trace, "rendering keyboard container")
 
         ZStack() {
-            RoundedRectangle(cornerRadius: keyboardViewModel.cornerRadius)
-                .fill(TypeWriterColor.RoyalModelP.background.opacity(0.66))
+            TypeWriterBackground(typeWriterModel: keyboardViewModel.modelType,
+                                 cornerRadius: keyboardViewModel.cornerRadius)
             
             KeyboardView(viewModel: keyboardViewModel)
                 .frame(maxWidth: 400, alignment: .bottom)
@@ -29,5 +29,6 @@ struct KeyboardContainerView: View, Loggable {
 struct KeyboardContainer_Previews: PreviewProvider {
     static var previews: some View {
         KeyboardContainerView(keyboardViewModel: KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: .Royal_Model_P))
+            .previewDevice("iPhone SE (2nd generation)")
     }
 }

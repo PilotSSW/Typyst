@@ -6,7 +6,21 @@
 import Foundation
 
 class OSHelper {
-
+    enum RuntimeEnvironment {
+        case iOS
+        case macOS
+        case keyboardExtension
+    }
+    
+    static var runtimeEnvironment: RuntimeEnvironment {
+        #if KEYBOARD_EXTENSION
+        return .keyboardExtension
+        #elseif os(iOS)
+        return .iOS
+        #elseif os(macOS)
+        return .macOS
+        #endif
+    }
 }
 
 #if os(macOS)
@@ -17,7 +31,8 @@ extension OSHelper {
         let alert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert({
             NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
 
-            let alert = KeyboardAccessibilityAlerts.addToSystemAccessibilityInstructions(dismissAction: {
+
+        let alert = KeyboardAccessibilityAlerts.addToSystemAccessibilityInstructions(dismissAction: {
                 quitApp()
             }, primaryAction: {
                 listenForSystemPrefsAccessibilityAdded()

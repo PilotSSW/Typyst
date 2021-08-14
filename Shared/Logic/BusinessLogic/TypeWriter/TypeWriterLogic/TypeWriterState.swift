@@ -6,16 +6,18 @@
 import Foundation
 
 class TypeWriterState: ObservableObject {
-    @Published var cursorIndex = 0
-    @Published var marginWidth = 80
+    @Published private(set) var cursorIndex = 0
+    @Published private(set) var marginWidth = 80
 
-    @Published var lineIndex = 0
-    @Published var linesPerPage = 25
+    @Published private(set) var lineIndex = 0
+    @Published private(set) var linesPerPage = 25
 
-    private(set) var capsOn         = false
+    private(set) var capsOn = false
 
     init(marginWidth: Int = 80) {
-        self.marginWidth = marginWidth
+        DispatchQueue.main.async {
+            self.marginWidth = marginWidth
+        }
     }
 
     var isLineIndexIsOnLastLine: Bool {
@@ -23,26 +25,41 @@ class TypeWriterState: ObservableObject {
     }
 
     func incrementCursor(numberOfPositions: Int = 1) {
-        if cursorIndex >= 0 {
-            cursorIndex += numberOfPositions
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if self.cursorIndex >= 0 {
+                self.cursorIndex += numberOfPositions
+            }
         }
     }
 
     func newLine(numberOfNewLines: Int = 1) {
-        if lineIndex >= 0 {
-            lineIndex += numberOfNewLines
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if self.lineIndex >= 0 {
+                self.lineIndex += numberOfNewLines
+            }
         }
     }
 
     func resetCursorIndex() {
-        cursorIndex = 0
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.cursorIndex = 0
+        }
     }
     
     func resetLineIndex() {
-        lineIndex = 0
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.lineIndex = 0
+        }
     }
 
     func setCaps() {
-        capsOn = !capsOn
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.capsOn = !self.capsOn
+        }
     }
 }

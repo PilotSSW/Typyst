@@ -21,7 +21,7 @@ struct KeyGroupView: View {
 
 struct KeyGroupView_Previews: PreviewProvider {
     static var previews: some View {
-        let keyChars: KeyGroupCharacterSet = [.z, .x, .c, .v, .b, .n, .m]
+        let keyChars: KeyGroupCharacterSet = [.numbers, .nextKeyboardGlobe, .space]
         let viewModel = KeyGroupViewModelFactory.createGroupViewModel(keyCharacters: keyChars)
         return KeyGroupView(viewModel: viewModel)
             .previewLayout(.sizeThatFits)

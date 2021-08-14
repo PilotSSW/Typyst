@@ -13,15 +13,17 @@ import struct SwiftUI.GeometryProxy
 
 final class KeyboardViewModel: Identifiable, ObservableObject, Loggable {
     let id = UUID()
-    private var subscriptions = Set<AnyCancellable>()
+    private(set) var subscriptions = Set<AnyCancellable>()
 
+    // Business logic references
+    let modelType: TypeWriterModel.ModelType
     private(set) var model: KeyboardModel
-
     @Published private(set) var keyboardRowViewModels: [KeyboardRowViewModel] = []
     var keyViewModels: [KeyViewModel] { keyboardRowViewModels.reduce([], { $0 + $1.keyViewModels }) }
 
-    var cornerRadius: CGFloat { min(keyboardSize.height, keyboardSize.width) / 18 }
+    // UI Properties
     private(set) var keyboardSize: CGSize = CGSize(width: 250, height: 100)
+    var cornerRadius: CGFloat { min(keyboardSize.height, keyboardSize.width) / 18 }
     var maxKeySize: CGSize = CGSize(width: 35, height: 35) {
         didSet { keyViewModels.forEach({ $0.setSuggestedKeySize(maxKeySize) }) }
     }
@@ -29,6 +31,7 @@ final class KeyboardViewModel: Identifiable, ObservableObject, Loggable {
 
     fileprivate init(modelType: TypeWriterModel.ModelType,
                      requiresNextKeyboardButton: Bool = true) {
+        self.modelType = modelType
         uiProperties = KeyboardProperties.getPropertiesFor(modelType)
 
         model = KeyboardModel(requiresNextKeyboardButton: requiresNextKeyboardButton)
@@ -42,7 +45,14 @@ final class KeyboardViewModel: Identifiable, ObservableObject, Loggable {
         model.$lettersMode
             .sink { [weak self] lettersState in
                 guard let self = self else { return }
-                self.keyViewModels.forEach({ $0.setIsUppercased(lettersState != .lowercased) })
+                self.keyViewModels.forEach({
+                    let keyModel = $0
+                    if (keyModel.key == .shift && lettersState == .capsLocked) { keyModel.setNewKey(.capsLock) }
+                    else if (keyModel.key == .capsLock && lettersState != .capsLocked) { keyModel.setNewKey(.shift) }
+                    else {
+                        keyModel.setIsUppercased(lettersState == .shiftUppercased || lettersState == .capsLocked)
+                    }
+                })
             }
             .store(in: &subscriptions)
     }

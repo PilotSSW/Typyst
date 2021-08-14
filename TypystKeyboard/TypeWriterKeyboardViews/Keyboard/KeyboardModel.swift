@@ -40,20 +40,22 @@ class KeyboardModel: Identifiable, ObservableObject {
         let key = event.key
 
         // Handle keyboardMode change
-        if (event.direction == .keyUp) {
-            if let mode = mapKeyToKeyboardMode(key) { setMode(mode) }
-            else if (mode == .letters) {
+        if (event.direction == .keyDown) {
+            if (mode == .letters) {
                 if keyShouldSetKeyboardLettersMode(key),
                    let newLettersMode = getNextLettersMode() { setLettersMode(newLettersMode) }
             }
+        }
+        else {
+            if let mode = mapKeyToKeyboardMode(key) { setMode(mode) }
         }
 
         delegate?.keyWasPressed(event)
 
         if (event.direction == .keyUp && mode == .letters) {
-            if (KeySets.letters.contains(key) || KeySets.numbers.contains(key)) {
-                // If previous key was shift-uppercased
-                if (lettersMode == .shiftUppercased) { setLettersMode(.lowercased) }
+            // If previous key was shift-uppercased
+            if (![.shift, .rightShift, .capsLock].contains(key) && lettersMode == .shiftUppercased) {
+                setLettersMode(.lowercased)
             }
         }
     }
@@ -118,13 +120,15 @@ extension KeyboardModel {
     }
 
     fileprivate var letterCharacters: KeyboardCharacterSet {
+        let upperCaseButton: Key = lettersMode == .capsLocked
+            ? .capsLock : .shift
         let bottomGroup: KeyGroupCharacterSet = requiresNextKeyboardButton
             ? [.numbers, .nextKeyboardGlobe]
             : [.numbers]
         return [
             [[.q, .w, .e, .r, .t, .y, .u, .i, .o, .p]],
             [[.a, .s, .d, .f, .g, .h, .j, .k, .l]],
-            [[.shift], [.z, .x, .c, .v, .b, .n, .m], [.delete]],
+            [[upperCaseButton], [.z, .x, .c, .v, .b, .n, .m], [.delete]],
             [bottomGroup, [.space], [.return]]
         ]
     }

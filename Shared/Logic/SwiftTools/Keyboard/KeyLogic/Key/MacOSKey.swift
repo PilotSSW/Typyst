@@ -243,11 +243,11 @@ extension Key {
         case .rightArrow: return UInt32(kVK_RightArrow)
         case .downArrow: return UInt32(kVK_DownArrow)
         case .upArrow: return UInt32(kVK_UpArrow)
+            
+        // Unimplemented
         case .letters: return UInt32(2 >> 32)
         case .numbers: return UInt32(2 >> 32)
         case .specials: return UInt32(2 >> 32)
-            
-        // Unimplemented
         case .ampersand: return UInt32(2 >> 32)
         case .atSymbol: return UInt32(2 >> 32)
         case .binaryVerticalBar: return UInt32(2 >> 32)
@@ -262,6 +262,7 @@ extension Key {
         case .doubleQuotes: return UInt32(2 >> 32)
         case .euroCurrencySymbol: return UInt32(2 >> 32)
         case .exclamationPoint: return UInt32(2 >> 32)
+        case .nextKeyboardGlobe: return UInt32(2 >> 32)
         case .leftParenthesis: return UInt32(2 >> 32)
         case .rightParenthesis: return UInt32(2 >> 32)
         case .percentage: return UInt32(2 >> 32)

@@ -84,13 +84,11 @@ final class KeyViewModel: Identifiable, ObservableObject {
             keyDownLock = false
         }
 
-        if ([.shift].contains(key) && isUppercased == true) {
-            key = .capsLock
-        } else if ([.capsLock].contains(key)) {
-            key = .shift
-        }
-
         delegate?.keyWasPressed(createKeyEvent(direction: direction))
+    }
+    
+    func setNewKey(_ key: Key) {
+        self.key = key
     }
 
     func setSuggestedKeySize(_ keySize: CGSize) {
@@ -145,6 +143,6 @@ final class KeyViewModelFactory {
     }
 
     static func createSpaceBar(keyDelegate: KeyboardKeyActionsDelegate? = nil) -> KeyViewModel {
-        KeyViewModel(.space, displayText: "Space", delegate: keyDelegate)
+        KeyViewModel(.space, displayText: " ", delegate: keyDelegate)
     }
 }
