@@ -168,6 +168,7 @@ public enum Key {
     // MARK: - iOS / iPadOS / TvOS / WatchOS
     case letters
     case numbers
+    case settings
     case specials
     case nextKeyboardGlobe
 
@@ -458,6 +459,7 @@ extension Key: CustomStringConvertible {
         // MARK: Mobile Keys
         case .letters: return "ABC"
         case .numbers: return "123"
+        case .settings: return "⚙"
         case .specials: return "#+="
         case .nextKeyboardGlobe: return "🌐"
         }
@@ -608,6 +610,7 @@ extension Key: CustomStringConvertible {
         // MARK: Mobile Keys
         case .letters: return "ABC"
         case .numbers: return "123"
+        case .settings: return "⚙"
         case .specials: return "#+="
         case .nextKeyboardGlobe: return "🌐"
         }

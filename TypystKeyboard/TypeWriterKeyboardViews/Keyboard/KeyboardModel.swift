@@ -129,7 +129,7 @@ extension KeyboardModel {
             [[.q, .w, .e, .r, .t, .y, .u, .i, .o, .p]],
             [[.a, .s, .d, .f, .g, .h, .j, .k, .l]],
             [[upperCaseButton], [.z, .x, .c, .v, .b, .n, .m], [.delete]],
-            [bottomGroup, [.space], [.return]]
+            [bottomGroup, [.space], [.return, .settings]]
         ]
     }
 
@@ -141,7 +141,7 @@ extension KeyboardModel {
             [[.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero]],
             [[.minus, .backslash, .colon, .semicolon, .leftParenthesis, .rightParenthesis, .dollarSign, .ampersand, .atSymbol, .doubleQuotes]],
             [[.specials], [.period, .comma, .questionMark, .exclamationPoint, .grave], [.delete]],
-            [bottomGroup, [.space], [.return]]
+            [bottomGroup, [.space], [.return, .settings]]
         ]
     }
 
@@ -153,7 +153,7 @@ extension KeyboardModel {
             [[.leftBracket, .rightBracket, .leftBrace, .rightBrace, .poundSign, .percentage, .caretUp ,.star , .plus ,.equal]],
             [[.underscore, .backslash, .binaryVerticalBar, .tilda, .caretLeft, .caretRight, .euroCurrencySymbol, .poundCurrencySymbol, .yenCurrencySymbol, .bulletMark]],
             [[.numbers], [.period, .comma, .questionMark, .exclamationPoint, .grave], [.delete]],
-            [bottomGroup, [.space], [.return]]
+            [bottomGroup, [.space], [.return, .settings]]
         ]
     }
 }
