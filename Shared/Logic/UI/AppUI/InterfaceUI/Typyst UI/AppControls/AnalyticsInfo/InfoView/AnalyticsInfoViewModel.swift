@@ -6,7 +6,7 @@
 import Combine
 import Foundation
 
-class AnalyticsInfoViewModel: ObservableObject {
+final class AnalyticsInfoViewModel: ObservableObject {
     private let keyHandler: KeyboardService
     private(set) var keyListenerTag = "AnalyticsViewModel"
     var keyListenerCompletion: ((KeyEvent) -> Void)? {

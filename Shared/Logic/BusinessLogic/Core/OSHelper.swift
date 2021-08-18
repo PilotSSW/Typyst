@@ -5,9 +5,14 @@
 
 import Foundation
 
-class OSHelper {
+#if canImport(UIKit)
+import UIKit
+#endif
+
+final class OSHelper {
     enum RuntimeEnvironment {
         case iOS
+        case ipadOS
         case macOS
         case keyboardExtension
     }
@@ -16,7 +21,7 @@ class OSHelper {
         #if KEYBOARD_EXTENSION
         return .keyboardExtension
         #elseif os(iOS)
-        return .iOS
+        return UIDevice.current.userInterfaceIdiom == .pad ? .ipadOS : .iOS
         #elseif os(macOS)
         return .macOS
         #endif

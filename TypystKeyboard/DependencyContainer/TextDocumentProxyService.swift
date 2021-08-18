@@ -8,7 +8,7 @@
 import Foundation
 import protocol UIKit.UITextDocumentProxy
 
-class TextDocumentProxyService {
+final class TextDocumentProxyService {
 
     init() {
 
@@ -23,7 +23,7 @@ class TextDocumentProxyService {
         if keyEvent.direction == .keyUp {
             return
         }
-        else if [.capsLock, .command, .control, .rightCommand, .rightControl, .rightShift, .shift, .letters, .numbers, .specials].contains(key) {
+        else if [.capsLock, .command, .control, .rightCommand, .rightControl, .rightShift, .shift, .letters, .numbers, .settings, .specials].contains(key) {
             return
         }
         else if [.delete].contains(key) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class KeyboardExtensionDependencyContainer {
+final class KeyboardExtensionDependencyContainer {
     fileprivate static var keyboardExtensionDependencyContainer = KeyboardExtensionDependencyContainer(withRootDependencyContainer: RootDependencyContainer.get())
 
     private(set) var rootDependencyContainer: RootDependencyContainer

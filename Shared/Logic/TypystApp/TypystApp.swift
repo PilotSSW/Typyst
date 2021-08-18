@@ -35,8 +35,8 @@ struct TypystApp: App {
                 if viewModel.shouldRenderMainView {
                     AppWindowView()
                         .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                        .environmentObject(viewModel.rootDependencyContainer)
-                        .environmentObject(viewModel.appDependencyContainer)
+                        .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appDebugSettings)
+                        .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appSettings)
                         .environmentObject(viewModel.appDependencyContainer.alertsService)
                 }
             }
@@ -72,9 +72,10 @@ struct TypystApp: App {
         WindowGroup {
             AppWindowView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(viewModel.rootDependencyContainer)
-                .environmentObject(viewModel.appDependencyContainer)
-                .environmentObject(viewModel.appDependencyContainer.alertsService)        }
+                .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appDebugSettings)
+                .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appSettings)
+                .environmentObject(viewModel.appDependencyContainer.alertsService)
+        }
         .onChange(of: scenePhase, perform: { phase in
             viewModel.handleScenePhaseChange(phase)
         })

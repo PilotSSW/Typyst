@@ -9,36 +9,30 @@
 import SwiftUI
 
 struct TypeWriterSettings: View {
-    @ObservedObject
+    @StateObject
     var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             Text("TypeWriter Settings")
                 .bold()
                 .asStyledText(with: .title)
 
-            Spacer().frame(height: 14)
+            Spacer().frame(height: 6)
 
             SettingToggle(settingName: "Simulate Bell on Newline",
                           setting: $appSettings.bell)
 
-            Spacer().frame(height: 8)
-
             SettingToggle(settingName: "Simulate Lid Open and Close",
                           setting: $appSettings.lidOpenClose)
-
-            Spacer().frame(height: 8)
 
             SettingToggle(settingName: "Simulate Paper Feed",
                           setting: $appSettings.paperFeedEnabled)
 
-            Spacer().frame(height: 8)
-
             SettingToggle(settingName: "Simulate Paper Return",
                           setting: $appSettings.paperReturnEnabled)
 
-            Spacer().frame(height: 14)
+            Spacer().frame(height: 6)
         }
     }
 }

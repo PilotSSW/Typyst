@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct KeyboardContainerView: View, Loggable {
-    var keyboardViewModel: KeyboardViewModel
+    @StateObject
+    var viewModel: KeyboardContainerViewModel
     
     var body: some View {
-        let _ = logEvent(.trace, "rendering keyboard container")
+        //let _ = logEvent(.trace, "rendering keyboard container", context: [viewModel])
 
         ZStack() {
-            TypeWriterBackground(typeWriterModel: keyboardViewModel.modelType,
-                                 cornerRadius: keyboardViewModel.cornerRadius)
-            
-            KeyboardView(viewModel: keyboardViewModel)
-                .frame(maxWidth: 400, alignment: .bottom)
+            TypeWriterBackground(typeWriterModel: viewModel.currentTypeWriterModel,
+                                 cornerRadius: viewModel.cornerRadius)
+
+            VStack() {
+                if(viewModel.visibleComponent == .keyboard) {
+                    KeyboardView(viewModel: viewModel.keyboardViewModel)
+                }
+
+
+                if(viewModel.visibleComponent == .settings) {
+                    SettingsComponent(goBackAction: {
+                        viewModel.showComponent(.keyboard)
+                    })
+                    .animation(.easeInOut)
+                    .padding(.vertical, 6)
+                }
+            }
+            .frame(maxWidth: 600, alignment: .bottom)
         }
         .frame(minWidth: 100, idealWidth: 300, maxWidth: .infinity,
                minHeight: 75, idealHeight: 210, maxHeight: .infinity)
@@ -28,7 +42,9 @@ struct KeyboardContainerView: View, Loggable {
 
 struct KeyboardContainer_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardContainerView(keyboardViewModel: KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: .Royal_Model_P))
+        let viewModel = KeyboardContainerViewModel()
+        let _ = viewModel.showComponent(.settings)
+        KeyboardContainerView(viewModel: viewModel)
             .previewDevice("iPhone SE (2nd generation)")
     }
 }

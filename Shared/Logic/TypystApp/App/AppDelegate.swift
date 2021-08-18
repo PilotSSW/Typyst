@@ -9,7 +9,7 @@
 import AppKit
 import Cocoa
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
     static func quitApp() {
 
     }

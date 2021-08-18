@@ -270,6 +270,7 @@ extension Key {
         case .poundSign: return UInt32(2 >> 32)
         case .plus: return UInt32(2 >> 32)
         case .questionMark: return UInt32(2 >> 32)
+        case .settings: return UInt32(2 >> 32)
         case .star: return UInt32(2 >> 32)
         case .tilda: return UInt32(2 >> 32)
         case .underscore: return UInt32(2 >> 32)

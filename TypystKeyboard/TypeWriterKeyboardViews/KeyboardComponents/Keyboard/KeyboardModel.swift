@@ -23,17 +23,20 @@ protocol KeyboardModelActionsDelegate: AnyObject {
     func keyWasPressed(_ event: KeyEvent)
 }
 
-class KeyboardModel: Identifiable, ObservableObject {
+final class KeyboardModel: Identifiable, ObservableObject {
     let id = UUID()
     
     private(set) var requiresNextKeyboardButton: Bool = true
     @Published private(set) var mode: KeyboardMode = .letters
     @Published private(set) var lettersMode: LettersMode? = .lowercased
 
-    weak var delegate: KeyboardModelActionsDelegate? = nil
+    weak var keyActionsDelegate: KeyboardModelActionsDelegate? = nil
+    private var requestToShowSettings: (() -> Void)? = nil
     
-    init(requiresNextKeyboardButton: Bool) {
+    init(requiresNextKeyboardButton: Bool,
+         requestToShowSettings: (() -> Void)? = nil) {
         self.requiresNextKeyboardButton = requiresNextKeyboardButton
+        self.requestToShowSettings = requestToShowSettings
     }
 
     func keyWasPressed(_ event: KeyEvent) {
@@ -41,7 +44,10 @@ class KeyboardModel: Identifiable, ObservableObject {
 
         // Handle keyboardMode change
         if (event.direction == .keyDown) {
-            if (mode == .letters) {
+            if (key == .settings) {
+                requestToShowSettings?()
+            }
+            else if (mode == .letters) {
                 if keyShouldSetKeyboardLettersMode(key),
                    let newLettersMode = getNextLettersMode() { setLettersMode(newLettersMode) }
             }
@@ -50,7 +56,7 @@ class KeyboardModel: Identifiable, ObservableObject {
             if let mode = mapKeyToKeyboardMode(key) { setMode(mode) }
         }
 
-        delegate?.keyWasPressed(event)
+        keyActionsDelegate?.keyWasPressed(event)
 
         if (event.direction == .keyUp && mode == .letters) {
             // If previous key was shift-uppercased
@@ -58,6 +64,10 @@ class KeyboardModel: Identifiable, ObservableObject {
                 setLettersMode(.lowercased)
             }
         }
+    }
+
+    func setRequestToShowSettings(_ requestToShowSettings: @escaping () -> Void) {
+        self.requestToShowSettings = requestToShowSettings
     }
 }
 

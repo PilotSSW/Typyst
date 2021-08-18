@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class AppDependencyContainer: ObservableObject {
+final class AppDependencyContainer: ObservableObject {
     fileprivate static var appDependencyContainer = AppDependencyContainer(withRootDependencyContainer: RootDependencyContainer.get())
 
     private(set) var rootDependencyContainer: RootDependencyContainer

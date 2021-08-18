@@ -7,8 +7,8 @@ import Combine
 import Foundation
 import SwiftUI
 
-@dynamicMemberLookup
-class AppSettings: ObservableObject {
+//@dynamicMemberLookup
+final class AppSettings: ObservableObject {
     enum Keys {
         static let bell = "bell"
         static let lidOpenClose = "lidOpenClose"
@@ -23,22 +23,22 @@ class AppSettings: ObservableObject {
         static let showModalNotifications = "showModalNotifications"
     }
 
-    subscript(dynamicMember member: String) -> Any? {
-        switch member {
-            case Keys.bell: return bell
-        case Keys.logToFirebase: return logErrorsAndCrashes
-        case Keys.logUsageAnalytics: return logUsageAnalytics
-        case Keys.mainVolumeValue: return volumeSetting
-        case Keys.paperFeed: return paperFeedEnabled
-        case Keys.paperReturn: return paperReturnEnabled
-        case Keys.runAsMenubarApp: return runAsMenubarApp
-        case Keys.selectedTypewriter: return selectedTypewriter
-        case Keys.showMainWindow: return showMainWindow
-        case Keys.showModalNotifications: return showModalNotifications
-        default:
-            return nil
-        }
-    }
+//    subscript(dynamicMember member: String) -> Any? {
+//        switch member {
+//            case Keys.bell: return bell
+//        case Keys.logToFirebase: return logErrorsAndCrashes
+//        case Keys.logUsageAnalytics: return logUsageAnalytics
+//        case Keys.mainVolumeValue: return volumeSetting
+//        case Keys.paperFeed: return paperFeedEnabled
+//        case Keys.paperReturn: return paperReturnEnabled
+//        case Keys.runAsMenubarApp: return runAsMenubarApp
+//        case Keys.selectedTypewriter: return selectedTypewriter
+//        case Keys.showMainWindow: return showMainWindow
+//        case Keys.showModalNotifications: return showModalNotifications
+//        default:
+//            return nil
+//        }
+//    }
 
     @Published var bell: Bool = UserDefaults.standard.bool(forKey: Keys.bell) {
         didSet { UserDefaults.standard.set(bell, forKey: Keys.bell) }
@@ -85,8 +85,8 @@ class AppSettings: ObservableObject {
     }
 }
 
-@dynamicMemberLookup
-class AppDebugSettings: ObservableObject {
+//@dynamicMemberLookup
+final class AppDebugSettings: ObservableObject {
     enum Keys {
         static let debugGlobal = "debugGlobal"
         static let debugKeypresses = "debugKeypresses"
@@ -100,12 +100,12 @@ class AppDebugSettings: ObservableObject {
         didSet { UserDefaults.standard.set(debugKeypresses, forKey: Keys.debugKeypresses) }
     }
 
-    subscript(dynamicMember member: String) -> Any? {
-        switch member {
-        case Keys.debugGlobal: return debugGlobal
-        case Keys.debugKeypresses: return debugKeypresses
-        default:
-            return nil
-        }
-    }
+//    subscript(dynamicMember member: String) -> Any? {
+//        switch member {
+//        case Keys.debugGlobal: return debugGlobal
+//        case Keys.debugKeypresses: return debugKeypresses
+//        default:
+//            return nil
+//        }
+//    }
 }

@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TypeWriterState: ObservableObject {
+final class TypeWriterState: ObservableObject {
     @Published private(set) var cursorIndex = 0
     @Published private(set) var marginWidth = 80
 

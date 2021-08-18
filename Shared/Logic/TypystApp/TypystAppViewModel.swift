@@ -9,7 +9,7 @@ import Foundation
 import GBDeviceInfo
 import enum SwiftUI.ScenePhase
 
-class TypystAppViewModelFactory {
+final class TypystAppViewModelFactory {
     #if os(macOS)
     private static var viewModel: TypystAppViewModel_macOS? = nil
     static func getViewModel() -> TypystAppViewModel_macOS {
@@ -26,7 +26,7 @@ class TypystAppViewModelFactory {
 }
 
 #if os(macOS)
-class TypystAppViewModel_macOS: Loggable, ObservableObject {
+final class TypystAppViewModel_macOS: Loggable, ObservableObject {
     var rootDependencyContainer: RootDependencyContainer { RootDependencyContainer.get() }
     var appDependencyContainer: AppDependencyContainer { AppDependencyContainer.get() }
 
@@ -58,7 +58,7 @@ class TypystAppViewModel_macOS: Loggable, ObservableObject {
     }
 }
 #elseif os(iOS)
-class TypystAppViewModel_iOS: Loggable, ObservableObject {
+final class TypystAppViewModel_iOS: Loggable, ObservableObject {
     var rootDependencyContainer: RootDependencyContainer { RootDependencyContainer.get() }
     var appDependencyContainer: AppDependencyContainer { AppDependencyContainer.get() }
 

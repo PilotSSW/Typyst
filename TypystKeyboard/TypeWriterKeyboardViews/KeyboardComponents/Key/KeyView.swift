@@ -29,6 +29,7 @@ struct KeyView: View, Loggable {
                 viewModel.onTap(direction: .keyUp)
                 isPressed = false
             })
+            .animation(isPressed ? .easeOut : .easeIn)
 
 //        .onHover(perform: { isHovering in
 //            viewModel.isHovering = isHovering

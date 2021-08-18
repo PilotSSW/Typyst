@@ -5,7 +5,7 @@
 import Combine
 import Foundation
 
-class AlertsService: Loggable, ObservableObject {
+final class AlertsService: Loggable, ObservableObject {
     private var appSettings: AppSettings
     private var appDebugSettings: AppDebugSettings
 

@@ -5,7 +5,7 @@
 
 import Foundation
 
-class ErrorAlerts {
+final class ErrorAlerts {
     static func appFailedToSaveState() -> Alert {
         Alert(
             type: .error,

@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct VolumeSetting: View {
-    @ObservedObject
-    var appSettings: AppSettings
+    @StateObject
+    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -31,6 +31,6 @@ struct VolumeSetting: View {
 
 struct VolumeSetting_Previews: PreviewProvider {
     static var previews: some View {
-        VolumeSetting(appSettings: RootDependencyContainer.get().appSettings)
+        VolumeSetting()
     }
 }

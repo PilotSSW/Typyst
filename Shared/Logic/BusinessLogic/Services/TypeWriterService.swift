@@ -7,18 +7,15 @@ import Combine
 import Foundation
 import SwiftUI
 
-class TypeWriterService: Loggable, ObservableObject {
+final class TypeWriterService: Loggable, ObservableObject {
     private var appSettings: AppSettings
     private var keyboardService: KeyboardService
-    private var subscriptionStore: Set<AnyCancellable>
 
     @Published private(set) var loadedTypewriter: TypeWriter?
 
     init(withKeyboardService keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
          appSettings: AppSettings = RootDependencyContainer.get().appSettings,
-         logger: Logging,
-         subscriptionStore: Set<AnyCancellable>) {
-        self.subscriptionStore = subscriptionStore
+         logger: Logging) {
         self.appSettings = appSettings
         self.keyboardService = keyboardService
 
@@ -39,7 +36,6 @@ class TypeWriterService: Loggable, ObservableObject {
             self.loadedTypewriter = TypeWriter(
                 modelType: modelType,
                 appSettings: self.appSettings,
-                subscriptionStore: &self.subscriptionStore,
                 keyboardService: self.keyboardService,
                 errorHandler: { [weak self] (soundErrors) in
                     #if !KEYBOARD_EXTENSION

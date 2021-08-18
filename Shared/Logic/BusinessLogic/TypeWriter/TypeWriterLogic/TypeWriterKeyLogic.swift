@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TypeWriterKeyLogic {
+final class TypeWriterKeyLogic {
     private var appSettings: AppSettings
     private var keyboardService: KeyboardService
     private var soundsService: SoundsService

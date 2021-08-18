@@ -9,7 +9,7 @@ import Foundation
 import struct SwiftUI.Alert
 import struct SwiftUI.Text
 
-class AlertUI: Loggable {
+final class AlertUI: Loggable {
     static let instance = AlertUI()
 
     private init() {}

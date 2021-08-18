@@ -10,7 +10,7 @@ import Foundation
 import GBDeviceInfo
 import SwiftyBeaver
 
-class SwiftyBeaverLogger {
+final class SwiftyBeaverLogger {
     private let appSettings: AppSettings
     private let appDebugSettings: AppDebugSettings
 
@@ -36,8 +36,8 @@ class SwiftyBeaverLogger {
                     log?.addDestination(console)
                     #endif
                     
-                    let file = FileDestination()
-                    log?.addDestination(file)
+//                    let file = FileDestination()
+//                    log?.addDestination(file)
 
                     let cloud = SBPlatformDestination(appID: "Rl1RAR",
                                                       appSecret: "przetal0geBkdUwlkomw8n7qP3trpcc0",

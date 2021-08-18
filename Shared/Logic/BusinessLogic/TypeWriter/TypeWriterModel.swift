@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TypeWriterModel {
+final class TypeWriterModel {
     enum ModelType: String, CaseIterable {
         case Olympia_SM3 = "Olympia_SM3"
         case Royal_Model_P = "Royal_Model_P"

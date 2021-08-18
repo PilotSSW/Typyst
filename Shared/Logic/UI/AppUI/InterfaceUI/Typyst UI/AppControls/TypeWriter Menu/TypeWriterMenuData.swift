@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-class TypeWriterMenuOption {
+final class TypeWriterMenuOption {
     let modelType: TypeWriterModel.ModelType
     let model: TypeWriterModel
     let onClick: () -> Void
@@ -21,7 +21,7 @@ class TypeWriterMenuOption {
     }
 }
 
-class TypeWriterMenuOptions {
+final class TypeWriterMenuOptions {
     private var typeWriterService: TypeWriterService
 
     init(withTypeWriterService typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService) {

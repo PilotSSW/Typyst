@@ -59,15 +59,19 @@ extension View {
         modifier(Card(backgroundColor: color))
             .neumorphicShadow()
             .padding(.horizontal, 8)
-        #elseif os(iOS)
+        #elseif os(iOS) || KEYBOARD_EXTENSION
         modifier(Card(backgroundColor: color))
             .padding(.horizontal, 8)
         #endif
     }
 
     func asChildCard(withColor color: Color) -> some View {
+        #if os(macOS)
         modifier(Card(backgroundColor: color, cornerRadius: 20, showStrokeBorder: false))
             .neumorphicShadow()
+        #elseif os(iOS) || KEYBOARD_EXTENSION
+        modifier(Card(backgroundColor: color))
+        #endif
     }
 
     func asScrollableCard(withColor color: Color) -> some View {

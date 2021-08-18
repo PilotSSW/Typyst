@@ -103,22 +103,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE6C5D2E-C3A3-4553-B78C-B7C779268419"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/UI/SwiftUI/Modifiers/Shadows/NeumorphicShadow.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "NeumorphicShadow"
-            landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B71FB1AF-618F-4744-B373-B376929C0CD6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -135,32 +119,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B609FF0D-2E5B-423E-9F44-729858B3525D"
-            shouldBeEnabled = "Yes"
+            uuid = "C3B81776-A9BD-4360-9457-438B851CBA57"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/SwiftTools/Keyboard/KeyLogic/KeyEvent.swift"
+            filePath = "TypystKeyboard/DependencyContainer/TextDocumentProxyService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "init(_:_:_:isRepeat:timeStamp:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "handleKeyPress(_:keyboardMode:lettersMode:textDocumentProxy:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "690C6FFE-6C60-4729-AC48-3A767559C734"
+            uuid = "CE9CF35D-2ED6-4524-A9B5-9EA9C88A1CF7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/SwiftTools/Keyboard/KeyLogic/KeyEvent.swift"
+            filePath = "TypeWriterKeyboard/IOSExtensionKeyboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "init(_:_:_:isRepeat:timeStamp:)"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "pressesEnded(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "214DE584-AE99-4461-A6E2-D2687E2DEA78"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypeWriterKeyboard/IOSExtensionKeyboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "pressesCancelled(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52ACDBBE-6BFA-433E-A806-2EABE87F4768"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypeWriterKeyboard/IOSExtensionKeyboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "pressesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

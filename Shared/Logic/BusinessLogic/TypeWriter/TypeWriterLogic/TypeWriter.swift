@@ -11,7 +11,7 @@ import Foundation
 import SwiftUI
 import SwiftySound
 
-class TypeWriter: ObservableObject {
+final class TypeWriter: ObservableObject {
     private var appSettings: AppSettings
 
     static let defaultTypeWriter: TypeWriterModel.ModelType = .Royal_Model_P
@@ -26,7 +26,6 @@ class TypeWriter: ObservableObject {
     init(modelType: TypeWriterModel.ModelType,
          marginWidth: Int = 80,
          appSettings: AppSettings,
-         subscriptionStore: inout Set<AnyCancellable>,
          keyboardService: KeyboardService,
          errorHandler: (([SoundError]) -> ())?,
          completion: ((SoundsService) -> Void)?) {
@@ -34,19 +33,7 @@ class TypeWriter: ObservableObject {
         
         self.appSettings = appSettings
 
-        let so = SoundsService()
-        soundsService = so
-        soundsService.loadSounds(for: modelType, completion: { loadedSounds in
-            loadedSounds.volume = appSettings.volumeSetting
-            if appSettings.lidOpenClose {
-                loadedSounds.playSound(for: .LidUp)
-            }
-            completion?(loadedSounds)
-        }, errorHandler: errorHandler)
-
-        appSettings.$volumeSetting
-            .sink { so.volume = $0 }
-            .store(in: &subscriptionStore)
+        soundsService = SoundsService(appSettings: appSettings)
 
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
@@ -55,6 +42,18 @@ class TypeWriter: ObservableObject {
                                       soundsService: soundsService,
                                       appSettings: appSettings,
                                       keyboardService: keyboardService)
+
+        setup(errorHandler: errorHandler, completion: completion)
+    }
+
+    private func setup(errorHandler: (([SoundError]) -> ())?, completion: ((SoundsService) -> Void)?) {
+        soundsService.loadSounds(for: modelType, completion: { [weak self] loadedSounds in
+            guard let self = self else { return }
+            if self.appSettings.lidOpenClose {
+                loadedSounds.playSound(for: .LidUp)
+            }
+            completion?(loadedSounds)
+        }, errorHandler: errorHandler)
     }
 
     internal func setVolume(_ volume: Double) {

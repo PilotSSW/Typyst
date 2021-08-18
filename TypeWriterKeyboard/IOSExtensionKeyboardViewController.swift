@@ -10,7 +10,7 @@ import GBDeviceInfo
 import SwiftUI
 import UIKit
 
-class IOSExtensionKeyboardViewController: UIInputViewController, Loggable {
+final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable {
     private static var keyboardServiceTag: String = "keyboardExtension"
     private var subscriptions = Set<AnyCancellable>()
 
@@ -26,7 +26,7 @@ class IOSExtensionKeyboardViewController: UIInputViewController, Loggable {
         dependencyContainer.rootDependencyContainer.typeWriterService
     }
     private var keyboardContainerViewController: UIHostingController<KeyboardContainerView>? = nil
-    private var keyboardViewModel: KeyboardViewModel? = nil
+    private var keyboardContainerViewModel: KeyboardContainerViewModel? = nil
     private var keyboardContainerView: KeyboardContainerView? = nil
 
     /// MARK: Outlets
@@ -44,6 +44,7 @@ class IOSExtensionKeyboardViewController: UIInputViewController, Loggable {
         #if DEBUG
         dependencyContainer.rootDependencyContainer.appDebugSettings.debugGlobal = true
         dependencyContainer.rootDependencyContainer.appSettings.logErrorsAndCrashes = true
+        dependencyContainer.rootDependencyContainer.appSettings.volumeSetting = 100
         #else
         dependencyContainer.rootDependencyContainer.appDebugSettings.debugGlobal = false
         #endif
@@ -70,30 +71,30 @@ class IOSExtensionKeyboardViewController: UIInputViewController, Loggable {
     }
 
     deinit {
-        keyboardViewModel = nil
+        keyboardContainerViewModel = nil
         keyboardService.removeListenerCallback(withTag: IOSExtensionKeyboardViewController.keyboardServiceTag)
     }
 }
 
 // MARK: Keyboard text functions
-//extension IOSExtensionKeyboardViewController {
-//    override func textWillChange(_ textInput: UITextInput?) {
-//        // The app is about to change the document's contents. Perform any preparation here.
-//    }
-//
-//    override func textDidChange(_ textInput: UITextInput?) {
-//        // The app has just changed the document's contents, the document context has been updated.
-//
-//        var textColor: UIColor
-//        let proxy = self.textDocumentProxy
-//        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-//            textColor = UIColor.white
-//        } else {
-//            textColor = UIColor.black
-//        }
-//        nextKeyboardButton?.setTitleColor(textColor, for: [])
-//    }
-//}
+extension IOSExtensionKeyboardViewController {
+    override func textWillChange(_ textInput: UITextInput?) {
+        // The app is about to change the document's contents. Perform any preparation here.
+    }
+
+    override func textDidChange(_ textInput: UITextInput?) {
+        // The app has just changed the document's contents, the document context has been updated.
+
+        var textColor: UIColor
+        let proxy = self.textDocumentProxy
+        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
+            textColor = UIColor.white
+        } else {
+            textColor = UIColor.black
+        }
+        nextKeyboardButton?.setTitleColor(textColor, for: [])
+    }
+}
 
 // MARK: Business logic setup
 extension IOSExtensionKeyboardViewController {
@@ -109,12 +110,12 @@ extension IOSExtensionKeyboardViewController {
             }
             .store(in: &subscriptions)
 
-        keyboardService.registerKeyPressCallback(withTag: IOSExtensionKeyboardViewController.keyboardServiceTag) { [weak self, weak keyboardViewModel] keyEvent in
+        keyboardService.registerKeyPressCallback(withTag: IOSExtensionKeyboardViewController.keyboardServiceTag) { [weak self, weak keyboardContainerViewModel] keyEvent in
             guard let self = self,
-                  let keyboardViewModel = keyboardViewModel
+                  let keyboardContainerViewModel = keyboardContainerViewModel
             else { return }
 
-            let model = keyboardViewModel.model
+            let model = keyboardContainerViewModel.keyboardModel
             let mode = model.mode
             let lettersMode = model.lettersMode
             
@@ -142,7 +143,7 @@ extension IOSExtensionKeyboardViewController {
 
         view.backgroundColor = .clear
 
-        //if (needsInputModeSwitchKey) { addNextKeyboardButton() }
+        if (needsInputModeSwitchKey) { addNextKeyboardButton() }
     }
 
     private func addNextKeyboardButton() {
@@ -160,15 +161,19 @@ extension IOSExtensionKeyboardViewController {
     }
 
     private func addKeyboard() {
-        if keyboardViewModel == nil {
-            let modelType = typeWriterService.loadedTypewriter?.modelType ?? .Royal_Model_P
-            keyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: modelType,
-                                                                                 requiresNextKeyboardButton: needsInputModeSwitchKey)
-            keyboardViewModel?.model.delegate = self
+        if keyboardContainerViewModel == nil {
+            keyboardContainerViewModel = KeyboardContainerViewModel(
+                typeWriterService: typeWriterService,
+                keyboardRequiresNextKeyboardButton: needsInputModeSwitchKey,
+                keyboardModelActionDelegate: self
+            )
         }
 
-        if let keyboardViewModel = keyboardViewModel {
-            keyboardContainerView = KeyboardContainerView(keyboardViewModel: keyboardViewModel)
+        if let keyboardContainerViewModel = keyboardContainerViewModel {
+            let containerView = KeyboardContainerView(viewModel: keyboardContainerViewModel)
+//            containerView.environmentObject(dependencyContainer.rootDependencyContainer.appDebugSettings)
+//            containerView.environmentObject(dependencyContainer.rootDependencyContainer.appSettings)
+            keyboardContainerView = containerView
 
             if let keyboardView = keyboardContainerView {
                 keyboardContainerViewController = UIHostingController(rootView: keyboardView)
@@ -208,22 +213,22 @@ extension IOSExtensionKeyboardViewController: KeyboardModelActionsDelegate {
 }
 
 // MARK: Keyboard handling
-//extension KeyboardViewController {
-//    override func pressesBegan(_ presses: Set<UIPress>,
-//                               with event: UIPressesEvent?) {
-//        super.pressesBegan(presses, with: event)
-//        keyboardExtensionService.handleUIPressesEvent(event, .touchBegan, keyboardService: keyboardService)
-//    }
-//
-//    override func pressesEnded(_ presses: Set<UIPress>,
-//                               with event: UIPressesEvent?) {
-//        super.pressesEnded(presses, with: event)
-//        keyboardExtensionService.handleUIPressesEvent(event, .touchEnded, keyboardService: keyboardService)
-//    }
-//
-//    override func pressesCancelled(_ presses: Set<UIPress>,
-//                                   with event: UIPressesEvent?) {
-//        super.pressesCancelled(presses, with: event)
-//        keyboardExtensionService.handleUIPressesEvent(event, .touchCancelled, keyboardService: keyboardService)
-//    }
-//}
+extension IOSExtensionKeyboardViewController {
+    override func pressesBegan(_ presses: Set<UIPress>,
+                               with event: UIPressesEvent?) {
+        super.pressesBegan(presses, with: event)
+        //keyboardExtensionService.handleUIPressesEvent(event, .touchBegan, keyboardService: keyboardService)
+    }
+
+    override func pressesEnded(_ presses: Set<UIPress>,
+                               with event: UIPressesEvent?) {
+        super.pressesEnded(presses, with: event)
+        //keyboardExtensionService.handleUIPressesEvent(event, .touchEnded, keyboardService: keyboardService)
+    }
+
+    override func pressesCancelled(_ presses: Set<UIPress>,
+                                   with event: UIPressesEvent?) {
+        super.pressesCancelled(presses, with: event)
+        //keyboardExtensionService.handleUIPressesEvent(event, .touchCancelled, keyboardService: keyboardService)
+    }
+}

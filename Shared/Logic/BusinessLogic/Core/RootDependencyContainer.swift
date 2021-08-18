@@ -12,7 +12,7 @@ import Foundation
 //    case macOS
 //}
 
-class RootDependencyContainer: ObservableObject {
+final class RootDependencyContainer {
     fileprivate static var rootDependencyContainer = RootDependencyContainer()
 
     var subscriptions = Set<AnyCancellable>()
@@ -37,8 +37,7 @@ class RootDependencyContainer: ObservableObject {
         keyboardService = KeyboardService(appSettings: appSettings, appDebugSettings: appDebugSettings)
         typeWriterService = TypeWriterService(withKeyboardService: keyboardService,
                                               appSettings: appSettings,
-                                              logger: logging,
-                                              subscriptionStore: subscriptions)
+                                              logger: logging)
     }
 
     static func get() -> RootDependencyContainer { rootDependencyContainer }

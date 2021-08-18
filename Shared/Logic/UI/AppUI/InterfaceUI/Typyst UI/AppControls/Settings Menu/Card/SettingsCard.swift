@@ -10,15 +10,13 @@ import Combine
 import SwiftUI
 
 struct SettingsCard: View {
-    @ObservedObject
-    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
-
     var body: some View {
         VStack(alignment: .center) {
-            VolumeSetting(appSettings: appSettings)
+            VolumeSetting()
                 .layoutPriority(1)
 
             Divider()
+                .padding(.top, 6)
                 .padding(.bottom, 12)
 
             TypeWriterSettings()

@@ -15,7 +15,7 @@ protocol KeyboardUIProperties {
     var rowSpacing: CGFloat { get set }
 }
 
-class KeyboardProperties {
+final class KeyboardProperties {
     static func getPropertiesFor(_ model: TypeWriterModel.ModelType) -> KeyboardUIProperties {
         switch (model) {
         case .Olympia_SM3: return RoyalModelP()

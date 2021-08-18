@@ -5,7 +5,7 @@
 import Combine
 import Foundation
 
-class Logging {
+final class Logging {
     private let appSettings: AppSettings
     private let appDebugSettings: AppDebugSettings
 

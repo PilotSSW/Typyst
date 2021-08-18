@@ -11,7 +11,7 @@ enum PressType {
     case touchCancelled
 }
 
-class IOSUIKitKeyboardService {
+final class IOSUIKitKeyboardService {
     func handleUIPressesEvent(_ event: UIPressesEvent?, _ pressType: PressType, keyboardService: KeyboardService) {
         if let event = event {
             let keyEvents = mapUIPressesToKeyEvents(event.allPresses, pressType)

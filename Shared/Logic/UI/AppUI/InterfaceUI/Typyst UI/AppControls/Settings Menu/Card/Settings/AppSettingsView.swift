@@ -9,41 +9,37 @@
 import SwiftUI
 
 struct AppSettingsView: View {
-    @ObservedObject
+    @StateObject
     var appSettings: AppSettings = RootDependencyContainer.get().appSettings
 
-    @ObservedObject
+    @StateObject
     var appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings
-    
+
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
+        VStack(alignment: .center, spacing: 8) {
             Text("App Settings")
                 .bold()
                 .asStyledText(with: .title)
 
-            Spacer().frame(height: 14)
+            Spacer().frame(height: 6)
 
             #if DEBUG
             SettingToggle(settingName: "Enable debug options",
                           setting: $appDebugSettings.debugGlobal)
-
-            Spacer().frame(height: 8)
             #endif
 
+            #if !KEYBOARD_EXTENSION
             SettingToggle(settingName: "Allow Typing Statistics",
                           setting: $appSettings.logUsageAnalytics)
 
-            Spacer().frame(height: 8)
 
             SettingToggle(settingName: "Show modal notifications",
                           setting: $appSettings.showModalNotifications)
-
-            Spacer().frame(height: 8)
-
+            #endif
+            
             SettingToggle(settingName: "Log Errors and Crashes",
                           setting: $appSettings.logErrorsAndCrashes)
 
-            Spacer().frame(height: 8)
 
 //            SettingToggle(settingName: "Show Dock Icon",
 //                          setting: $appSettings.runAsMenubarApp)

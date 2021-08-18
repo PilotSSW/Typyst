@@ -3,14 +3,14 @@
 // Copyright (c) 2020 wickedPropeller. All rights reserved.
 //
 
+import Combine
 import Foundation
 import SwiftySound
 
-class SoundsService: Loggable {
-    internal init(soundSets: [SoundsService.AvailableSoundSets : [Sound]] = [SoundsService.AvailableSoundSets: [Sound]]()) {
-        self.soundSets = soundSets
-    }
-    
+final class SoundsService: Loggable {
+    private var subscriptionStore = Set<AnyCancellable>()
+    private var appSettings: AppSettings
+
     private(set) var soundSets = [SoundsService.AvailableSoundSets: [Sound]]()
     var volume: Double {
         get {
@@ -21,7 +21,7 @@ class SoundsService: Loggable {
         set(newValue) {
             var multiplier = 1.0
             #if KEYBOARD_EXTENSION
-            multiplier = 0.2
+            multiplier = 0.4
             #endif
             soundSets.forEach({
                 $0.value.forEach({
@@ -31,8 +31,27 @@ class SoundsService: Loggable {
         }
     }
 
-    init() {
+    init(appSettings: AppSettings = RootDependencyContainer.get().appSettings) {
+        self.appSettings = appSettings
+        commonInit()
+    }
+
+    internal init(withSoundSets soundSets: [SoundsService.AvailableSoundSets : [Sound]] = [SoundsService.AvailableSoundSets: [Sound]](),
+                  appSettings: AppSettings = RootDependencyContainer.get().appSettings) {
+        self.soundSets = soundSets
+        self.appSettings = appSettings
+        commonInit()
+    }
+
+    private func commonInit() {
         Sound.playersPerSound = 1
+
+        appSettings.$volumeSetting
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.volume = $0
+            }
+            .store(in: &subscriptionStore)
     }
 
     deinit {
@@ -63,7 +82,7 @@ class SoundsService: Loggable {
         
         #if KEYBOARD_EXTENSION
         let queue = DispatchQueue.main
-        let after: DispatchTime = .now() + 0.5
+        let after: DispatchTime = .now() + 0.25
         #else
         let queue = DispatchQueue.global(qos: .userInitiated)
         let after: DispatchTime = .now()
@@ -84,6 +103,8 @@ class SoundsService: Loggable {
                     errorHandler?(soundErrors)
                 })
             }
+
+            self.volume = self.appSettings.volumeSetting
 
             DispatchQueue.main.async(execute: { [weak self] in
                 guard let self = self else { return }
