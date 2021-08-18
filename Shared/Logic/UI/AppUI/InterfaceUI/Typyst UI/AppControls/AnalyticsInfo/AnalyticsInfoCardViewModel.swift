@@ -7,7 +7,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class AnalyticsInfoCardViewModel: ObservableObject {
+final class AnalyticsInfoCardViewModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable>
     let keyboardService: KeyboardService
     let typingStats: TypingStats

@@ -5,9 +5,10 @@
 
 import Foundation
 
-class TypeWriterKeyLogic {
+final class TypeWriterKeyLogic {
     private var appSettings: AppSettings
     private var keyboardService: KeyboardService
+    private var soundsService: SoundsService
 
     let state: TypeWriterState
     private let modelType: TypeWriterModel.ModelType
@@ -15,7 +16,7 @@ class TypeWriterKeyLogic {
 
     init(modelType: TypeWriterModel.ModelType,
          state: TypeWriterState,
-         sounds: Sounds,
+         soundsService: SoundsService,
          appSettings: AppSettings,
          keyboardService: KeyboardService) {
         self.modelType = modelType
@@ -23,12 +24,11 @@ class TypeWriterKeyLogic {
 
         self.appSettings = appSettings
         self.keyboardService = keyboardService
+        self.soundsService = soundsService
 
         keyboardService.registerKeyPressCallback(withTag: keyListenerTag) { [weak self] keyEvent in
             guard let self = self else { return }
-            DispatchQueue.main.async(execute: {
-                self.assignKeyPresses(for: keyEvent, sounds: sounds)
-            })
+            self.assignKeyPresses(for: keyEvent)
         }
     }
 
@@ -36,61 +36,57 @@ class TypeWriterKeyLogic {
         keyboardService.removeListenerCallback(withTag: keyListenerTag)
     }
 
-    func assignKeyPresses(for keyPressed: KeyEvent, sounds: Sounds) {
+    func assignKeyPresses(for keyPressed: KeyEvent) {
         if (keyPressed.isRepeat) { return }
 
-        handlePaperReturn(for: keyPressed, sounds: sounds)
+        handlePaperReturn(for: keyPressed)
 
         // These should be ordered by likelihood they were the key pressed. The fewer the searches, the faster the
         // sound plays ;)
 
         switch(keyPressed.key, keyPressed.direction) {
-        case (Key.shift, _): handleShift(for: keyPressed, sounds: sounds); break
-        case (Key.space, _): handleSpace(for: keyPressed, sounds: sounds); break
+        case (Key.shift, _): handleShift(for: keyPressed); break
+        case (Key.space, _): handleSpace(for: keyPressed); break
         case (Key.delete, _): fallthrough
-        case (Key.forwardDelete, _): handleBackspace(for: keyPressed, sounds: sounds); break
+        case (Key.forwardDelete, _): handleBackspace(for: keyPressed); break
         case (Key.return, _): fallthrough
-        case (Key.keypadEnter, _): handleEnter(for: keyPressed, sounds: sounds); break
-        case (Key.escape, _): handleEscape(for: keyPressed, sounds: sounds); break
-        case (Key.capsLock, _): handleCapsLock(sounds: sounds); break
-        case (Key.tab, _): handleTab(for: keyPressed, sounds: sounds); break
-        case let keyPressed where KeySets.special.contains(keyPressed.0): sounds.playSound(for: .Bell); break
-        case (Key.function, _): sounds.playSound(for: .RibbonSelector); break
-        case (Key.keypadClear, _): sounds.playSound(for: .MarginRelease); break
+        case (Key.keypadEnter, _): handleEnter(for: keyPressed); break
+        case (Key.escape, _): handleEscape(for: keyPressed); break
+        case (Key.capsLock, _): handleCapsLock(); break
+        case (Key.tab, _): handleTab(for: keyPressed); break
+        case let keyPressed where KeySets.special.contains(keyPressed.0): soundsService.playSound(for: .Bell); break
+        case (Key.function, _): soundsService.playSound(for: .RibbonSelector); break
+        case (Key.keypadClear, _): soundsService.playSound(for: .MarginRelease); break
         default:
-            handleKeyPress(for: keyPressed, sounds: sounds); break
+            handleKeyPress(for: keyPressed); break
         }
     }
 
-    func handleBackspace(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleBackspace(for keyPressed: KeyEvent) {
         if keyPressed.direction == .keyUp {
-            sounds.playSound(for: .BackspaceUp)
+            soundsService.playSound(for: .BackspaceUp)
         }
         else {
-            sounds.playSound(for: .BackspaceDown)
+            soundsService.playSound(for: .BackspaceDown)
             state.newLine()
         }
     }
 
-    func handleCapsLock(sounds: Sounds) {
+    func handleCapsLock() {
         state.capsOn ?
-            sounds.playSound(for: .ShiftLock) :
-            sounds.playSound(for: .ShiftRelease)
+            soundsService.playSound(for: .ShiftLock) :
+            soundsService.playSound(for: .ShiftRelease)
         state.setCaps()
     }
 
-    func handleEnter(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleEnter(for keyPressed: KeyEvent) {
         if state.isLineIndexIsOnLastLine {
             state.resetLineIndex()
-            sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
-
-            if appSettings.paperFeedEnabled {
-                DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1) { [weak sounds] in
-                    guard let sounds = sounds else { return }
-                    sounds.playSound(for: .PaperLoad, completion: { [weak sounds] in
-                        guard let sounds = sounds else { return }
-                        sounds.playSound(for: .PaperFeed)
-                    })
+            soundsService.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn]) { [weak self] in
+                guard let self = self else { return }
+                self.soundsService.playSound(for: .PaperLoad) { [weak self] in
+                    guard let self = self else { return }
+                    self.soundsService.playSound(for: .PaperFeed)
                 }
             }
         }
@@ -98,69 +94,69 @@ class TypeWriterKeyLogic {
             // Only count the key press once - not on both up and down
             if keyPressed.direction == .keyDown {
                 state.newLine()
-                sounds.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
+                soundsService.playSound(fromOneOfAny: [.SingleLineReturn, .DoubleLineReturn, .TripleLineReturn])
             }
         }   
     }
 
-    func handleEscape(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleEscape(for keyPressed: KeyEvent) {
         keyPressed.direction == .keyUp ?
-            sounds.playSound(for: .PaperRelease) :
-            sounds.playSound(for: .PaperReturn)
+            soundsService.playSound(for: .PaperRelease) :
+            soundsService.playSound(for: .PaperReturn)
     }
 
-    func handleKeyPress(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleKeyPress(for keyPressed: KeyEvent) {
         if keyPressed.direction == .keyDown {
             state.incrementCursor()
-            sounds.playSound(for: .KeyDown)
+            soundsService.playSound(for: .KeyDown)
         } else {
-            sounds.playSound(for: .KeyUp)
+            soundsService.playSound(for: .KeyUp)
         }
     }
 
-    func handlePaperReturn(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handlePaperReturn(for keyPressed: KeyEvent) {
         if state.cursorIndex >= state.marginWidth {
             state.resetCursorIndex()
             state.newLine()
 
-            let paperReturnCB = { [weak self, weak sounds] in
-                guard let self = self, let sounds = sounds else { return }
+            let paperReturnCB = { [weak self] in
+                guard let self = self else { return }
                 if self.appSettings.paperReturnEnabled {
-                    sounds.playSound(fromOneOfAny: [
+                    self.soundsService.playSound(fromOneOfAny: [
                         .SingleLineReturn, .DoubleLineReturn, .TripleLineReturn
                     ])
                 }
             }
 
             appSettings.bell
-                ? sounds.playSound(for: .Bell, completion: paperReturnCB)
+                ? soundsService.playSound(for: .Bell, completion: paperReturnCB)
                 : paperReturnCB()
         }
     }
 
-    func handleShift(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleShift(for keyPressed: KeyEvent) {
         keyPressed.direction == .keyDown
-            ? sounds.playSound(for: .ShiftDown)
-            : sounds.playSound(for: .ShiftUp)
+            ? soundsService.playSound(for: .ShiftDown)
+            : soundsService.playSound(for: .ShiftUp)
     }
 
-    func handleSpace(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleSpace(for keyPressed: KeyEvent) {
         if keyPressed.direction == .keyDown {
             state.incrementCursor()
-            sounds.playSound(for: .SpaceDown)
+            soundsService.playSound(for: .SpaceDown)
         }
         else {
-            sounds.playSound(for: .SpaceUp)
+            soundsService.playSound(for: .SpaceUp)
         }
     }
 
-    func handleTab(for keyPressed: KeyEvent, sounds: Sounds) {
+    func handleTab(for keyPressed: KeyEvent) {
         if keyPressed.direction == .keyDown{
             state.incrementCursor(numberOfPositions: 5)
-            sounds.playSound(for: .TabDown)
+            soundsService.playSound(for: .TabDown)
         }
         else {
-            sounds.playSound(for: .TabUp)
+            soundsService.playSound(for: .TabUp)
         }
     }
 }

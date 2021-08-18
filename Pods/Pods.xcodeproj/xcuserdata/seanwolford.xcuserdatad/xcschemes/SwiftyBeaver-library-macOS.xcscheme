@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A4DD08D8B3F0AD087B7C93E29E4CE4D5"
+               BuildableName = "libSwiftyBeaver-library-macOS.a"
+               BlueprintName = "SwiftyBeaver-library-macOS"
+               ReferencedContainer = "container:Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+</Scheme>

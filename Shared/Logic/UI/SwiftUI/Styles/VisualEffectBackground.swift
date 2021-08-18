@@ -56,7 +56,7 @@ extension VisualEffectBlur {
 
     }
 
-    class Coordinator {
+    final class Coordinator {
         let visualEffectView = NSVisualEffectView()
 
         init() {
@@ -133,7 +133,7 @@ extension VisualEffectBlur {
 
 // MARK: - Coordinator
 extension VisualEffectBlur.Representable {
-    class Coordinator {
+    final class Coordinator {
         let blurView = UIVisualEffectView()
         let vibrancyView = UIVisualEffectView()
         let hostingController: UIHostingController<Content>

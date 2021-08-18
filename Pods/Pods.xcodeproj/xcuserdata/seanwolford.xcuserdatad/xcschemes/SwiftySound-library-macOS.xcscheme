@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "07470A27A3F367C6DEB0212DDAFE8BDA"
+               BuildableName = "libSwiftySound-library-macOS.a"
+               BlueprintName = "SwiftySound-library-macOS"
+               ReferencedContainer = "container:Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+</Scheme>

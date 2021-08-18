@@ -16,6 +16,7 @@ struct TypeWriterMenu: View {
         VStack(alignment: .center) {
             TypeWriterMenuHeader()
             TypeWriterMenuScrollableSelector(options: options)
+            #if os(macOS)
             ResizableDragger(backgroundColor: AppColor.cardHeaderBackground)
                 .gesture(
                     DragGesture()
@@ -31,7 +32,7 @@ struct TypeWriterMenu: View {
                             }
                         }
                 )
-                    
+            #endif
         }
         .asParentCard(withColor: AppColor.cardPrimaryBackground)
         .frame(height: height)

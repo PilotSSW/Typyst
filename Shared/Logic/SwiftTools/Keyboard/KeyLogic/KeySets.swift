@@ -7,7 +7,7 @@ import Foundation
 
 typealias KeySet = Set<Key>
 // Recognized keypresses
-class KeySets {
+final class KeySets {
     static let letters: [Key] =
         [.a, .b, .c, .d, .e, .f, .g, .h, .i, .j, .k, .l, .m,
          .n, .o, .p, .q, .r, .s, .t, .u, .v, .x, .y, .z]

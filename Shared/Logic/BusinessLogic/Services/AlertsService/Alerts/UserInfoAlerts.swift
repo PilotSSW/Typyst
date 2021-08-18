@@ -5,7 +5,7 @@
 
 import Foundation
 
-class UserInfoAlerts {
+final class UserInfoAlerts {
     static func soundsLoaded(_ soundSets: [String]) -> Alert {
         var message = ""
         soundSets.forEach({ message += $0 + "\n" })

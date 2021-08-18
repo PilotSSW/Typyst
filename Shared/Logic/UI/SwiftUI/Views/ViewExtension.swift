@@ -10,6 +10,12 @@ import Foundation
 import SwiftUI
 
 extension View {
+    #if canImport(UIKit)
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    #endif
+
     func inverseMask<Mask>(_ mask: Mask) -> some View where Mask: View {
         // 2
         self.mask(mask

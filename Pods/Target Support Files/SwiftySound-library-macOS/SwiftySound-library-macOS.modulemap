@@ -1,0 +1,7 @@
+module SwiftySound {
+  umbrella header "SwiftySound-library-macOS-umbrella.h"
+  exclude header "SwiftySound-library-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

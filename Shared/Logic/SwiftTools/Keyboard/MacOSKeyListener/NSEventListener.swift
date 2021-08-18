@@ -9,7 +9,7 @@ import AppKit
 import Foundation
 
 /// Mark: Interface with NSEvent listeners
-class NSEventListener: Loggable {
+final class NSEventListener: Loggable {
     private var nsEventListeners: [String: Any?] = [:]
 
     internal static let eventTypes: [NSEvent.EventTypeMask] = [.keyUp, .keyDown, .flagsChanged]

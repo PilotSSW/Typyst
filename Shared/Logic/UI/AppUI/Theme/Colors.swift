@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-class AppColor {
+struct AppColor {
     /**
      * Backgrounds
      */
@@ -122,5 +122,21 @@ class AppColor {
      */
     public static var windowBackground: Color {
         Color("Window/Background").opacity(0.15)
+    }
+}
+
+struct TypeWriterColor {
+    struct RoyalModelP {
+        public static var background1: Color {
+            Color("TypewriterColorSets/RoyalModelP/BackgroundColor1")
+        }
+        
+        public static var background2: Color {
+            Color("TypewriterColorSets/RoyalModelP/BackgroundColor2")
+        }
+        
+        public static var background3: Color {
+            Color("TypewriterColorSets/RoyalModelP/BackgroundColor3")
+        }
     }
 }

@@ -1,0 +1,6 @@
+framework module GBDeviceInfo {
+  umbrella header "GBDeviceInfo-framework-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

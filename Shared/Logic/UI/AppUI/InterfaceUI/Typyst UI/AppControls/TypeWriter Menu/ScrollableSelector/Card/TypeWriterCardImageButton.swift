@@ -60,6 +60,7 @@ struct TypeWriterImageButton: View {
         .onHover(perform: { hovering in
             showVectorImage = !hovering
         })
+        .drawingGroup()
     }
 }
 

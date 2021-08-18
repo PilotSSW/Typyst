@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FF32CE9F83460373B5C2157F013176D5"
+               BuildableName = "libGBDeviceInfo-library-macOS.a"
+               BlueprintName = "GBDeviceInfo-library-macOS"
+               ReferencedContainer = "container:Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+</Scheme>

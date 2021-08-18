@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1250"
+   wasCreatedForAppExtension = "YES"
+   version = "2.0">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A32367E3268E515300CB2B25"
+               BuildableName = "TypystKeyboard.appex"
+               BlueprintName = "TypystKeyboard"
+               ReferencedContainer = "container:Typyst.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A3FA71AE2623523400E32B91"
+               BuildableName = "Typyst.app"
+               BlueprintName = "Typyst (iOS)"
+               ReferencedContainer = "container:Typyst.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      enableASanStackUseAfterReturn = "YES"
+      launchStyle = "1"
+      askForAppToLaunch = "Yes"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugXPCServices = "NO"
+      debugServiceExtension = "internal"
+      enableGPUShaderValidationMode = "2"
+      allowLocationSimulation = "YES"
+      launchAutomaticallySubstyle = "3"
+      queueDebuggingEnabled = "No">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.mobilenotes"
+         RemotePath = "/var/containers/Bundle/Application/DFAB1FB1-E39D-45F3-BD50-7978D2FFFB2F/MobileNotes.app">
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A3FA71AE2623523400E32B91"
+            BuildableName = "Typyst.app"
+            BlueprintName = "Typyst (iOS)"
+            ReferencedContainer = "container:Typyst.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES"
+      launchAutomaticallySubstyle = "2">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.mobilenotes"
+         RemotePath = "/var/containers/Bundle/Application/DFAB1FB1-E39D-45F3-BD50-7978D2FFFB2F/MobileNotes.app">
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A3FA71AE2623523400E32B91"
+            BuildableName = "Typyst.app"
+            BlueprintName = "Typyst (iOS)"
+            ReferencedContainer = "container:Typyst.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

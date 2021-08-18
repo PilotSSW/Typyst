@@ -14,7 +14,8 @@ struct TypeWriterMenuHeader: View {
                 .asStyledText(with: .largeTitle)
             Spacer(minLength: 6)
         }
-        .asStyledCardHeader(withBackgroundColor: AppColor.cardHeaderBackground, withBottomPadding: 0)
+        .asStyledCardHeader(withBackgroundColor: AppColor.cardHeaderBackground.opacity(0.5),
+                            withBottomPadding: 0)
     }
 }
 

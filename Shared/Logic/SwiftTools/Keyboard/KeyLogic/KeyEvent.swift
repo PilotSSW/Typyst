@@ -77,9 +77,9 @@ struct KeyEvent: HashableKeyEvent {
         self.modifiers = modifiers
         self.timeStamp = timeStamp
 
-        if (!KeyEvent.isFlagsChangedKey(key)) { self.direction = direction }
+        if (!KeyEvent.isFlagsChangedKey(key) || OSHelper.runtimeEnvironment == .keyboardExtension) { self.direction = direction }
         else {
-            if (modifiers.rawValue == 256) {
+            if (modifiers.contains(.shift)) {
                 self.direction = .keyUp
             }
             else {
@@ -89,7 +89,7 @@ struct KeyEvent: HashableKeyEvent {
     }
 
     func asAnonymousKeyEvent() -> AnonymousKeyEvent {
-        AnonymousKeyEvent(self)
+        AnonymousKeyEvent(self, isRepeat: self.isRepeat)
     }
 
     static func isFlagsChangedKey(_ key: Key) -> Bool {

@@ -1,0 +1,7 @@
+module SwiftyBeaver {
+  umbrella header "SwiftyBeaver-library-iOS-umbrella.h"
+  exclude header "SwiftyBeaver-library-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

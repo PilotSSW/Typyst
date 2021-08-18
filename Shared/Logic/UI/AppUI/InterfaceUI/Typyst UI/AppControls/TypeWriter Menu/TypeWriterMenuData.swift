@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-class TypeWriterMenuOption {
+final class TypeWriterMenuOption {
     let modelType: TypeWriterModel.ModelType
     let model: TypeWriterModel
     let onClick: () -> Void
@@ -21,30 +21,30 @@ class TypeWriterMenuOption {
     }
 }
 
-class TypeWriterMenuOptions {
-    private var typeWriterHandler: TypeWriterService
+final class TypeWriterMenuOptions {
+    private var typeWriterService: TypeWriterService
 
-    init(withTypeWriterHandler typeWriterHandler: TypeWriterService = RootDependencyContainer.get().typeWriterService) {
-        self.typeWriterHandler = typeWriterHandler
+    init(withTypeWriterService typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService) {
+        self.typeWriterService = typeWriterService
     }
 
     var typeWriters: [TypeWriterMenuOption] {
         let sm3 = TypeWriterMenuOption(.Olympia_SM3,
                                        onClick: ({ [weak self] in
                                            guard let self = self else { return }
-                                           self.typeWriterHandler.setCurrentTypeWriter(modelType: .Olympia_SM3)
+                                           self.typeWriterService.setCurrentTypeWriter(modelType: .Olympia_SM3)
                                        }))
 
         let modelP = TypeWriterMenuOption(.Royal_Model_P,
                                           onClick: ({ [weak self] in
                                               guard let self = self else { return }
-                                              self.typeWriterHandler.setCurrentTypeWriter(modelType: .Royal_Model_P)
+                                              self.typeWriterService.setCurrentTypeWriter(modelType: .Royal_Model_P)
                                           }))
 
         let silent = TypeWriterMenuOption(.Smith_Corona_Silent,
                                           onClick: ({ [weak self] in
                                               guard let self = self else { return }
-                                              self.typeWriterHandler.setCurrentTypeWriter(modelType: .Smith_Corona_Silent)
+                                              self.typeWriterService.setCurrentTypeWriter(modelType: .Smith_Corona_Silent)
                                           }))
 
         return [ sm3, modelP, silent ]

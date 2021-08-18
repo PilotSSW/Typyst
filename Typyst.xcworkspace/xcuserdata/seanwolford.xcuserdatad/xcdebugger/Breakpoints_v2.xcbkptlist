@@ -55,54 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "init(modelType:state:sounds:appSettings:keyboardService:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2 - ca1254d3bf762144"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Typyst.KeyEvent) -&gt; () in Typyst.TypeWriterKeyLogic.init(modelType: Typyst.TypeWriterModel.ModelType, state: Typyst.TypeWriterState, sounds: Typyst.Sounds, keyHandler: Typyst.KeyHandler) -&gt; Typyst.TypeWriterKeyLogic"
-                  moduleName = "Typyst"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwolford/Developer/Projects/WickedPropellerWork/Projects/Typyst/Typyst-Swift/Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "448">
-               </Location>
-               <Location
-                  uuid = "43403EB9-BD30-48BA-901B-2B365C7B8DF2 - c8038228c068a95c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Typyst.KeyEvent) -&gt; () in Typyst.TypeWriterKeyLogic.init(modelType: Typyst.TypeWriterModel.ModelType, state: Typyst.TypeWriterState, sounds: Typyst.Sounds, keyHandler: Typyst.KeyHandler) -&gt; Typyst.TypeWriterKeyLogic"
-                  moduleName = "Typyst"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seanwolford/Developer/Projects/WickedPropellerWork/Projects/Typyst/Typyst-Swift/Shared/Logic/BusinessLogic/TypeWriter/TypeWriterLogic/TypeWriterKeyLogic.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "0">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5A9AC02B-399B-4BC1-AC8E-87EE2E4138E8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -130,6 +82,102 @@
             endingLineNumber = "43"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B4DCECF-8FE7-42AF-800A-8FF5DA56EEA4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/GBDeviceInfo/GBDeviceInfo/GBDeviceInfo_iOS.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "isJailbroken"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B71FB1AF-618F-4744-B373-B376929C0CD6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypeWriterKeyboard/KeyboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "viewWillLayoutSubviews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3B81776-A9BD-4360-9457-438B851CBA57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypystKeyboard/DependencyContainer/TextDocumentProxyService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "handleKeyPress(_:keyboardMode:lettersMode:textDocumentProxy:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE9CF35D-2ED6-4524-A9B5-9EA9C88A1CF7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypeWriterKeyboard/IOSExtensionKeyboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "pressesEnded(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "214DE584-AE99-4461-A6E2-D2687E2DEA78"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypeWriterKeyboard/IOSExtensionKeyboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "pressesCancelled(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52ACDBBE-6BFA-433E-A806-2EABE87F4768"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TypeWriterKeyboard/IOSExtensionKeyboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "pressesBegan(_:with:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

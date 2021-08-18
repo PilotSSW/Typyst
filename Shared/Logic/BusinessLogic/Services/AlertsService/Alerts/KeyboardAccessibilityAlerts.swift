@@ -5,7 +5,7 @@
 
 import Foundation
 
-class KeyboardAccessibilityAlerts {
+final class KeyboardAccessibilityAlerts {
     static func keyCaptureUnavailableAlert(_ completion: (() -> Void)? = nil) -> Alert {
         Alert(
             type: .error,

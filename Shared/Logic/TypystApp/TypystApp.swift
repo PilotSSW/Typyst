@@ -15,9 +15,15 @@ struct TypystApp: App {
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var window: NSWindow?
+
+    @ObservedObject
+    var viewModel: TypystAppViewModel_macOS = TypystAppViewModelFactory.getViewModel()
+    #elseif os(iOS)
+
+    @ObservedObject
+    var viewModel: TypystAppViewModel_iOS = TypystAppViewModelFactory.getViewModel()
     #endif
 
-    var viewModel = TypystAppViewModel()
     var body: some Scene {
         #if os(macOS)
         WindowGroup {
@@ -25,10 +31,14 @@ struct TypystApp: App {
                 VisualEffectBlur(material: .underWindowBackground,
                                  blendingMode: .behindWindow,
                                  state: .active)
-                
-                AppWindowView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                    .environmentObject(viewModel.appDependencyContainer)
+
+                if viewModel.shouldRenderMainView {
+                    AppWindowView()
+                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                        .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appDebugSettings)
+                        .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appSettings)
+                        .environmentObject(viewModel.appDependencyContainer.alertsService)
+                }
             }
             .background(WindowAccessor(window: $window))
             .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
@@ -39,19 +49,36 @@ struct TypystApp: App {
         .onChange(of: scenePhase, perform: { phase in
             viewModel.handleScenePhaseChange(phase)
         })
+
 //        .commands {
 //            ReplacementMenuCommands()
 //            MainMenuCommands()
 //        }
-        
-        #endif
-
-        #if os(iOS)
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(viewModel.appDependencyContainer)
+            ZStack {
+                VisualEffectBlur(material: .underWindowBackground,
+                                 blendingMode: .behindWindow,
+                                 state: .active)
+
+
+            }
+            .background(WindowAccessor(window: $window))
+            .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
+                   minHeight: 300, idealHeight: 1880, maxHeight: 3840)
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
+        .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
+        #elseif os(iOS)
+        WindowGroup {
+            AppWindowView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appDebugSettings)
+                .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appSettings)
+                .environmentObject(viewModel.appDependencyContainer.alertsService)
+        }
+        .onChange(of: scenePhase, perform: { phase in
+            viewModel.handleScenePhaseChange(phase)
+        })
 //        .commands {
 //            ReplacementMenuCommands()
 //            MainMenuCommands()

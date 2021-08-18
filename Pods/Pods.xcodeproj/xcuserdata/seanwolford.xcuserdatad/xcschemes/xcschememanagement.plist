@@ -4,61 +4,80 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GBDeviceInfo.xcscheme</key>
+		<key>GBDeviceInfo-framework-iOS.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>Keyboard-Kit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Pods-Typyst (iOS).xcscheme</key>
+		<key>GBDeviceInfo-framework-macOS.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>Pods-Typyst (macOS).xcscheme</key>
+		<key>GBDeviceInfo-library-iOS.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>SwiftyBeaver-iOS.xcscheme</key>
+		<key>GBDeviceInfo-library-macOS.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>SwiftyBeaver-macOS.xcscheme</key>
+		<key>Pods-Laptop-Typyst (macOS).xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>SwiftySound-iOS.xcscheme</key>
+		<key>Pods-Mobile-Typyst (iOS).xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>SwiftySound-macOS.xcscheme</key>
+		<key>Pods-Mobile-TypystKeyboard.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false />
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>SwiftyBeaver-framework-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>SwiftyBeaver-framework-macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>SwiftyBeaver-library-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>SwiftyBeaver-library-macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>SwiftySound-framework-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>SwiftySound-framework-macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>SwiftySound-library-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>SwiftySound-library-macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

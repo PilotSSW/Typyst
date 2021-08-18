@@ -30,13 +30,19 @@ final class KeyboardService: Loggable {
     }
 
     internal func handleEvent(_ event: KeyEvent, _ completion: ((KeyEvent) -> Void)? = nil) {
-        DispatchQueue.global(qos: .userInteractive).async(execute: { [weak self] in
+        #if KEYBOARD_EXTENSION
+        let queue = DispatchQueue.main
+        #else
+        let queue = DispatchQueue.global(qos: .userInteractive)
+        #endif
+        
+        queue.async(execute: { [weak self] in
             guard let self = self else { return }
 
             // Handle debug
             if self.appDebugSettings.debugGlobal && self.appDebugSettings.debugKeypresses {
                 // Never ever log this in production
-                self.logEvent(.info, "Event: \(event)")
+                self.logEvent(.debug, "Event: \(event)")
             }
 
             if event.timeSinceEvent <= 0.75 {

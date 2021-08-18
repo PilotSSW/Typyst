@@ -9,12 +9,12 @@
 import Foundation
 import SwiftUI
 
-class AppGradients {
+final class AppGradients {
     public static var cardOutlineGradient: LinearGradient {
         LinearGradient(
-            gradient: Gradient(colors: [AppColor.cardOutlinePrimary, AppColor.cardOutlineSecondary]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+            gradient: Gradient(colors: [AppColor.cardOutlinePrimary.opacity(0.5), AppColor.cardOutlineSecondary.opacity(0.5)]),
+            startPoint: .top,
+            endPoint: .bottom
         )
     }
 
@@ -27,8 +27,8 @@ class AppGradients {
 
         return LinearGradient(
             gradient: Gradient(colors: colors),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+            startPoint: .top,
+            endPoint: .bottom
         )
     }
 }

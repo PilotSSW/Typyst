@@ -11,14 +11,14 @@ import Foundation
 import SwiftUI
 import SwiftySound
 
-class TypeWriter: ObservableObject {
+final class TypeWriter: ObservableObject {
     private var appSettings: AppSettings
 
     static let defaultTypeWriter: TypeWriterModel.ModelType = .Royal_Model_P
     let modelType: TypeWriterModel.ModelType
     var modelFilePath: String { "Soundsets/\(String(describing: modelType))/ "}
 
-    private let sounds: Sounds
+    private let soundsService: SoundsService
 
     var keyLogic: TypeWriterKeyLogic
     @Published var state: TypeWriterState
@@ -26,45 +26,50 @@ class TypeWriter: ObservableObject {
     init(modelType: TypeWriterModel.ModelType,
          marginWidth: Int = 80,
          appSettings: AppSettings,
-         subscriptionStore: inout Set<AnyCancellable>,
          keyboardService: KeyboardService,
          errorHandler: (([SoundError]) -> ())?,
-         completion: ((Sounds) -> Void)?) {
+         completion: ((SoundsService) -> Void)?) {
         self.modelType = modelType
         
         self.appSettings = appSettings
 
-        let so = Sounds()
-        sounds = so
-        sounds.loadSounds(for: modelType, completion: { loadedSounds in
-            loadedSounds.volume = appSettings.volumeSetting
-            if appSettings.lidOpenClose {
-                loadedSounds.playSound(for: .LidUp)
-            }
-            completion?(loadedSounds)
-        }, errorHandler: errorHandler)
-
-        appSettings.$volumeSetting
-            .sink { so.volume = $0 }
-            .store(in: &subscriptionStore)
+        soundsService = SoundsService(appSettings: appSettings)
 
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
         keyLogic = TypeWriterKeyLogic(modelType: modelType,
                                       state: st,
-                                      sounds: sounds,
+                                      soundsService: soundsService,
                                       appSettings: appSettings,
                                       keyboardService: keyboardService)
+
+        setup(errorHandler: errorHandler, completion: completion)
+    }
+
+    private func setup(errorHandler: (([SoundError]) -> ())?, completion: ((SoundsService) -> Void)?) {
+        soundsService.loadSounds(for: modelType, completion: { [weak self] loadedSounds in
+            guard let self = self else { return }
+            if self.appSettings.lidOpenClose {
+                loadedSounds.playSound(for: .LidUp)
+            }
+            completion?(loadedSounds)
+        }, errorHandler: errorHandler)
     }
 
     internal func setVolume(_ volume: Double) {
-        sounds.volume = volume
+        soundsService.volume = volume
     }
 
     internal func tearDown(_ completion: (() -> Void)?) {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+        #if KEYBOARD_EXTENSION
+        let queue = DispatchQueue.main
+        #else
+        let queue = DispatchQueue.global(qos: .userInteractive)
+        #endif
+        
+        queue.async { [weak self] in
             guard let self = self else { return }
-            let sounds = self.sounds
+            let sounds = self.soundsService
             if self.appSettings.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
                 sounds.playSound(for: .LidDown) {
                     sounds.unloadSounds()

@@ -10,8 +10,9 @@ import SwiftUI
 
 struct AppWindowView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var alertsService: AlertsService = AppDependencyContainer.get().alertsService
-    @State var currentAlert: Alert? = AppDependencyContainer.get().alertsService.currentAlert
+    @EnvironmentObject var alertsService: AlertsService
+
+    @State var string = ""
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -29,21 +30,25 @@ struct AppWindowView: View {
                     .frame(minHeight: 800)
                     .layoutPriority(2)
 
+                #if os(iOS)
+                TextField("Some Text", text: $string)
+                #endif
+
                 Spacer()
                     .frame(minHeight: 24)
                     .layoutPriority(1)
             }
         }
         .alert(item: $alertsService.currentAlert, content: { alertItem in
-            createSwiftUIAlert(alertItem, alertsService: alertsService)
+            AlertUI.instance.createSwiftUIAlert(alertItem, alertsService: alertsService)
         })
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView(currentAlert: AppDependencyContainer.get().alertsHandler.$currentAlert)
-//            .frame(width: 300, height: 1400)
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        AppWindowView()
+            .frame(width: 300, height: 1400)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}

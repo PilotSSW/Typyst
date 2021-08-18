@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TimeHelper {
+final class TimeHelper {
     struct TimeAmount {
         let days: Int
         let hours: Int
