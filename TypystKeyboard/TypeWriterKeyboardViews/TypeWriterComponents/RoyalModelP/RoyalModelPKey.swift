@@ -61,14 +61,26 @@ struct RoyalModelPKey: View {
 
 struct RoyalModelPKey_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = KeyViewModelFactory.createViewModel(keyCharacter: .space)
-        viewModel.setSuggestedKeySize(CGSize(width: 35, height: 120))
+        let viewModelSpace = KeyViewModelFactory.createViewModel(keyCharacter: .space)
+        viewModelSpace.setSuggestedKeySize(CGSize(width: 35, height: 35))
+
+        let viewModelA = KeyViewModelFactory.createViewModel(keyCharacter: .a)
+        viewModelSpace.setSuggestedKeySize(CGSize(width: 35, height: 35))
         
-        return RoyalModelPKey(viewModel: viewModel)
-            .frame(width: viewModel.keySize.width,
-                   height: viewModel.keySize.height,
-                   alignment: .center)
-            .padding(18)
-            .previewLayout(.sizeThatFits)
+        return VStack() {
+            RoyalModelPKey(viewModel: viewModelSpace)
+                .frame(width: viewModelSpace.keySize.width,
+                       height: viewModelSpace.keySize.height,
+                       alignment: .center)
+                .padding(18)
+                .previewLayout(.sizeThatFits)
+
+            RoyalModelPKey(viewModel: viewModelA)
+                .frame(width: viewModelA.keySize.width,
+                       height: viewModelA.keySize.height,
+                       alignment: .center)
+                .padding(18)
+                .previewLayout(.sizeThatFits)
+        }
     }
 }
