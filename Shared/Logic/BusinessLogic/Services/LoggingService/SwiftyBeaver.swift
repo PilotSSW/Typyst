@@ -13,15 +13,32 @@ import SwiftyBeaver
 final class SwiftyBeaverLogger {
     private let appSettings: AppSettings
     private let appDebugSettings: AppDebugSettings
+    private var store: Set<AnyCancellable>
 
     private var log: SwiftyBeaver.Type? = SwiftyBeaver.self
 
+    /// Mark: Init storing property observers externally for observing elsewhere
     init(withStore store: inout Set<AnyCancellable>,
          appSettings: AppSettings = RootDependencyContainer.get().appSettings,
          appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
         self.appSettings = appSettings
         self.appDebugSettings = appDebugSettings
+        self.store = store
 
+        commonInit()
+    }
+
+    /// Mark: Init storing property observers internally and deallocating on deinit
+    init(appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
+        self.appSettings = appSettings
+        self.appDebugSettings = appDebugSettings
+        self.store = Set<AnyCancellable>()
+
+        commonInit()
+    }
+
+    private func commonInit() {
         appSettings.$logErrorsAndCrashes
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
@@ -35,9 +52,9 @@ final class SwiftyBeaverLogger {
                     console.format = "$DHH:mm:ss$d $L $M"//"$J"
                     log?.addDestination(console)
                     #endif
-                    
-//                    let file = FileDestination()
-//                    log?.addDestination(file)
+
+                    //                    let file = FileDestination()
+                    //                    log?.addDestination(file)
 
                     let cloud = SBPlatformDestination(appID: "Rl1RAR",
                                                       appSecret: "przetal0geBkdUwlkomw8n7qP3trpcc0",
@@ -85,5 +102,13 @@ final class SwiftyBeaverLogger {
                     log.error(message, file, function, line: line, context: [context, GBDeviceInfo()])
             }
         }
+    }
+}
+
+extension SwiftyBeaverLogger {
+    static func logFatalCrash(_ exception: NSException? = nil) {
+        let logger = SwiftyBeaverLogger(appSettings: AppSettings(),
+                                        appDebugSettings: AppDebugSettings())
+        logger.log(.fatal, "Fatal error captured", error: nil, context: exception)
     }
 }

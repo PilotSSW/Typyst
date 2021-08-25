@@ -16,27 +16,26 @@ final class KeyboardContainerViewModel: ObservableObject, Loggable {
         case settings
     }
     @Published private(set) var visibleComponent: VisibleComponent = .keyboard
-    @Published private(set) var keyboardViewModel: KeyboardViewModel
+    @Published private(set) var keyboardViewModel: KeyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: .Unknown)
 
     private var typeWriterService: TypeWriterService
 
     init(typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService,
          keyboardRequiresNextKeyboardButton: Bool = true,
-         keyboardModelActionDelegate: KeyboardModelActionsDelegate? = nil) {
+         keyboardModelActionsDelegate: KeyboardModelActionsDelegate? = nil) {
 
         self.typeWriterService = typeWriterService
 
-        let modelType = typeWriterService.loadedTypewriter?.modelType ?? .Royal_Model_P
-        keyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: modelType,
-                                                                             requiresNextKeyboardButton: keyboardRequiresNextKeyboardButton)
-        if let keyboardModelActionDelegate = keyboardModelActionDelegate {
-            keyboardViewModel.model.keyActionsDelegate = keyboardModelActionDelegate
-
-            keyboardModel.setRequestToShowSettings { [weak self] in
-                guard let self = self else { return }
-                self.visibleComponent = .settings
+        typeWriterService.$loadedTypewriter
+            .sink { [weak self] typeWriter in
+                if let typeWriter = typeWriter {
+                    guard let self = self else { return }
+                    self.reloadKeyboard(modelType: typeWriter.modelType,
+                                        requiresNextKeyboardButton: keyboardRequiresNextKeyboardButton,
+                                        keyboardModelActionsDelegate: keyboardModelActionsDelegate)
+                }
             }
-        }
+            .store(in: &subscriptions)
     }
 
     var currentTypeWriterModel: TypeWriterModel.ModelType {
@@ -54,5 +53,21 @@ final class KeyboardContainerViewModel: ObservableObject, Loggable {
     func showComponent(_ component: VisibleComponent) {
         self.visibleComponent = component
         logEvent(.trace, "Show keyboard component: \(component)")
+    }
+
+    func reloadKeyboard(modelType: TypeWriterModel.ModelType,
+                        requiresNextKeyboardButton: Bool = true,
+                        keyboardModelActionsDelegate: KeyboardModelActionsDelegate? = nil) {
+        keyboardViewModel = KeyboardViewModelFactory.createKeyboardViewModel(forTypeWriterModel: modelType,
+                                                                             requiresNextKeyboardButton: requiresNextKeyboardButton)
+
+        if let keyboardModelActionsDelegate = keyboardModelActionsDelegate {
+            keyboardViewModel.model.keyActionsDelegate = keyboardModelActionsDelegate
+
+            keyboardModel.setRequestToShowSettings { [weak self] in
+                guard let self = self else { return }
+                self.visibleComponent = .settings
+            }
+        }
     }
 }

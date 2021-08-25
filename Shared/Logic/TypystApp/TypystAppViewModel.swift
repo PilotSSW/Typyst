@@ -31,6 +31,9 @@ final class TypystAppViewModel: Loggable, ObservableObject {
         #endif
 
         UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
+        NSSetUncaughtExceptionHandler { (exception) in
+            SwiftyBeaverLogger.logFatalCrash(exception)
+        }
 
         if (!OSHelper.isAccessibilityAdded()) {
             OSHelper.askUserToAllowSystemAccessibility()
@@ -65,6 +68,9 @@ final class TypystAppViewModel: Loggable, ObservableObject {
         logEvent(.info, "iOS /iPadOS App running", context: [
             GBDeviceInfo.deviceInfo()
         ])
+        NSSetUncaughtExceptionHandler { (exception) in
+            SwiftyBeaverLogger.logFatalCrash(exception)
+        }
     }
 
     func handleScenePhaseChange(_ phase: SwiftUI.ScenePhase) {

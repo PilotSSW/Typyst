@@ -53,6 +53,10 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
             guard let self = self else { return }
             self.hookupKeyboard()
         })
+
+        NSSetUncaughtExceptionHandler { (exception) in
+            SwiftyBeaverLogger.logFatalCrash(exception)
+        }
     }
 
     override func viewWillLayoutSubviews() {
@@ -68,6 +72,10 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
     override func viewWillDisappear(_ animated: Bool) {
         removeKeyboard()
         super.viewWillDisappear(animated)
+    }
+
+    override func didReceiveMemoryWarning() {
+        logEvent(.warning, "Did receive memory warning", context: [self])
     }
 
     deinit {
@@ -158,7 +166,7 @@ extension IOSExtensionKeyboardViewController {
             keyboardContainerViewModel = KeyboardContainerViewModel(
                 typeWriterService: typeWriterService,
                 keyboardRequiresNextKeyboardButton: needsInputModeSwitchKey,
-                keyboardModelActionDelegate: self
+                keyboardModelActionsDelegate: self
             )
         }
 
