@@ -10,19 +10,36 @@ struct TypeWriterImageButton: View {
     @State private var showVectorImage = true
 
     var onClick: () -> Void
-    var imagePath: String
+    var typeWriterModel: TypeWriterModel.ModelType
+    var imageSize: AppImages.ImageSize = .large
+    var showBlurredImage = true
+
+    init(onClick: @escaping () -> Void,
+         typeWriterModel: TypeWriterModel.ModelType,
+         imageSize: AppImages.ImageSize = .medium,
+         showBlurredImage: Bool = true) {
+        self.onClick = onClick
+        self.typeWriterModel = typeWriterModel
+        self.imageSize = imageSize
+        self.showBlurredImage = showBlurredImage
+    }
 
     var body: some View {
         Button(action: onClick) {
             ZStack {
-                Image("TypeWriterTransparencies/\(imagePath)")
-                    .interpolation(.none)
-                    .resizable()
-                    .scaledToFit()
-                    .offset(x: 12, y: 12)
-                    .blur(radius: 40)
-                    .blendMode(.exclusion)
-                    .layoutPriority(2)
+                if showBlurredImage {
+                    if let image = AppImages.TypeWriters.getImageFor(typeWriterModel,
+                                                                     imageType: .transparency,
+                                                                     imageSize: imageSize) {
+                        image.interpolation(.none)
+                            .resizable()
+                            .scaledToFit()
+                            .offset(x: 12, y: 12)
+                            .blur(radius: 40)
+                            .blendMode(.exclusion)
+                            .layoutPriority(2)
+                    }
+                }
 
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(AppColor.ImageBackground)
@@ -30,25 +47,31 @@ struct TypeWriterImageButton: View {
                     .layoutPriority(1)
 
                 if !showVectorImage {
-                    Image("TypeWriterTransparencies/\(imagePath)")
-                        .interpolation(.none)
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.93)
-                        .padding(8)
-                        .layoutPriority(3)
-                        .animation(.easeIn(duration: 0.1))
+                    if let image = AppImages.TypeWriters.getImageFor(typeWriterModel,
+                                                                     imageType: .transparency,
+                                                                     imageSize: imageSize) {
+                        image.interpolation(.none)
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(0.93)
+                            .padding(8)
+                            .layoutPriority(3)
+                            .animation(.easeIn(duration: 0.1))
+                    }
                 }
 
                 if showVectorImage {
-                    Image("TypeWriterVectors/\(imagePath)")
-                        .interpolation(.none)
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.93)
-                        .padding(8)
-                        .layoutPriority(3)
-                        .animation(.easeOut(duration: 0.5))
+                    if let image = AppImages.TypeWriters.getImageFor(typeWriterModel,
+                                                                     imageType: .vector,
+                                                                     imageSize: imageSize) {
+                        image.interpolation(.none)
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(0.93)
+                            .padding(8)
+                            .layoutPriority(3)
+                            .animation(.easeOut(duration: 0.5))
+                    }
                 }
             }
         }
@@ -67,6 +90,8 @@ struct TypeWriterImageButton: View {
 struct TypeWriterImageButton_Previews: PreviewProvider {
     static var previews: some View {
         TypeWriterImageButton(onClick: { },
-                              imagePath: "RoyalModelP")
+                              typeWriterModel: .Smith_Corona_Silent,
+                              imageSize: .medium,
+                              showBlurredImage: false)
     }
 }

@@ -52,7 +52,7 @@ final class TypeWriterModel {
         .Olympia_SM3: [
             "name": "SM3",
             "maker": "Olympia",
-            "image": "OlympiaSM3",
+            "image": "Olympia_SM3",
             "infoURL": "https://www.classictypewriter.com/olympia-sm3-sm4",
             "description":
                 """
@@ -64,7 +64,7 @@ final class TypeWriterModel {
         .Royal_Model_P: [
             "name": "Model P",
             "maker": "Royal",
-            "image": "RoyalModelP",
+            "image": "Royal_Model_P",
             "infoURL": "https://themechanicaltype.blogspot.com/2019/10/a-comprehensive-history-of-royal-model-p.html",
             "description":
                 """
@@ -75,7 +75,7 @@ final class TypeWriterModel {
         .Smith_Corona_Silent: [
             "name": "Silent",
             "maker": "Smith-Corona",
-            "image": "SmithCoronaSilent",
+            "image": "Smith_Corona_Silent",
             "infoURL": "https://americanhistory.si.edu/collections/search/object/nmah_850000",
             "description":
                 """

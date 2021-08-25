@@ -21,18 +21,16 @@ struct TypeWriterCard: View {
                 .layoutPriority(3)
                 .zIndex(3)
 
-            if let imagePath = optionInfo.model.image {
-                TypeWriterImageButton(onClick: optionInfo.onClick,
-                                      imagePath: imagePath)
-                    .padding(.top, -8)
-                    .padding(.horizontal, 8)
-                    .layoutPriority(2)
-                    .zIndex(1)
+            TypeWriterImageButton(onClick: optionInfo.onClick,
+                                  typeWriterModel: optionInfo.modelType)
+                .padding(.top, -8)
+                .padding(.horizontal, 8)
+                .layoutPriority(2)
+                .zIndex(1)
 
-                Spacer()
-                    .frame(height: 8)
-                    .layoutPriority(4)
-            }
+            Spacer()
+                .frame(height: 8)
+                .layoutPriority(4)
 
             if let description = optionInfo.model.description {
                 Divider()

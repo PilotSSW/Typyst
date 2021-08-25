@@ -9,12 +9,11 @@ import SwiftUI
 
 struct SettingsComponent: View {
     var goBackAction: (() -> Void)? = nil
+    let typeWriterOptions: TypeWriterMenuOptions = TypeWriterMenuOptions()
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .center, spacing: 0) {
-                Spacer()
-
+            VStack(alignment: .center, spacing: 6) {
                 Button(action: {
                     goBackAction?()
                 }) {
@@ -22,28 +21,26 @@ struct SettingsComponent: View {
                         .asStyledText(with: .title3)
                 }
                 .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonTertiary))
-                .padding(.top, 6)
 
-                Spacer(minLength: 18)
+                TypeWriterSelector(options: typeWriterOptions)
+                    .padding(.vertical, 6)
+
+                Divider()
 
                 VolumeSetting()
                     .layoutPriority(1)
 
                 Divider()
-                    .padding(.bottom, 12)
 
                 TypeWriterSettings()
                     .layoutPriority(1)
 
                 Divider()
-                    .padding(.bottom, 12)
 
                 AppSettingsView()
                     .layoutPriority(1)
-
-                Spacer()
             }
-            .padding(.horizontal, 12)
+            .padding(12)
             .asChildCard(withColor: AppColor.cardSecondaryBackground)
             .padding(.horizontal, 4)
         }

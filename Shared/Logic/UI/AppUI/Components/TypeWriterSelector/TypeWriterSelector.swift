@@ -8,28 +8,29 @@
 import SwiftUI
 
 struct TypeWriterSelector: View {
+    var typeWriterService: TypeWriterService {
+        RootDependencyContainer.get().typeWriterService
+    }
     var options: TypeWriterMenuOptions
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 2) {
+            HStack(spacing: 12) {
                 ForEach(Array(options.typeWriters.enumerated()), id: \.offset) { (index, option) in
-                    let imagePath = option.model.image
-                    Image("TypeWriterTransparencies/\(imagePath ?? "")")
-                        .interpolation(.none)
-                        .resizable()
-                        .scaledToFit()
-                        .padding(4)
+                    TypeWriterImageButton(onClick: option.onClick,
+                                          typeWriterModel: option.modelType,
+                                          imageSize: .small,
+                                          showBlurredImage: false)
                 }
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous).inset(by: 4))
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 }
 
 struct TypeWriterSelector_Previews: PreviewProvider {
     static var previews: some View {
         TypeWriterSelector(options: TypeWriterMenuOptions())
-            .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/600.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
+            .previewLayout(.fixed(width: 325, height: 300.0))
     }
 }
