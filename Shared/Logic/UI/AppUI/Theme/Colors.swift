@@ -139,4 +139,18 @@ struct TypeWriterColor {
             Color("TypewriterColorSets/RoyalModelP/BackgroundColor3")
         }
     }
+
+    struct SmithCoronaSilent {
+        public static var background1: Color {
+            Color("TypewriterColorSets/SmithCoronaSilent/BackgroundColor1")
+        }
+
+        public static var background2: Color {
+            Color("TypewriterColorSets/SmithCoronaSilent/BackgroundColor2")
+        }
+
+        public static var background3: Color {
+            Color("TypewriterColorSets/SmithCoronaSilent/BackgroundColor3")
+        }
+    }
 }

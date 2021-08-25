@@ -41,8 +41,6 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dependencyContainer.rootDependencyContainer.typeWriterService.setCurrentTypeWriter(modelType: .Olympia_SM3)
-
         #if DEBUG
         dependencyContainer.rootDependencyContainer.appDebugSettings.debugGlobal = true
         dependencyContainer.rootDependencyContainer.appSettings.logErrorsAndCrashes = true

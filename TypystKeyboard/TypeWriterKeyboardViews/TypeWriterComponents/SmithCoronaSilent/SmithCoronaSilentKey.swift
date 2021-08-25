@@ -1,8 +1,8 @@
 //
-//  SmithCoronaSilentKey.swift
+//  OlympiaSM3Key.swift
 //  TypystKeyboard
 //
-//  Created by Sean Wolford on 7/25/21.
+//  Created by Sean Wolford on 8/18/21.
 //
 
 import SwiftUI
@@ -11,38 +11,20 @@ struct SmithCoronaSilentKey: View {
     var viewModel: KeyViewModel
 
     var body: some View {
-        ZStack() {
-            if (viewModel.key != .space) {
-                RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .circular)
-                    .fill(Color.gray)
-            }
-
-            RoundedRectangle(cornerRadius: viewModel.cornerRadius, style: .continuous)
-                .fill(viewModel.key == .space ?
-                        AppColor.objectShadowDark :
-                        Color(.displayP3, red: 220, green: 220, blue: 220, opacity: 1.0))
-                .padding(viewModel.key == .space ? 0 : viewModel.innerPadding)
-
-            Text(viewModel.displayText)
-                .asStyledText(textColor: .yellow)
-                .scaleEffect(1.25)
-                .frame(maxWidth: .infinity)
-                .shadow(color: AppColor.textShadow, radius: 2)
-        }
-        .shadow(color: AppColor.objectShadowDark.opacity(0.66),
-                radius: 2.5,
-                y: viewModel.keySize.height / 24)
+        Text(viewModel.displayText)
     }
 }
 
 struct SmithCoronaSilentKey_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = KeyViewModelFactory.createViewModel(keyCharacter: .m)
+        let viewModel = KeyViewModelFactory.createViewModel(keyCharacter: .a)
+        viewModel.setSuggestedKeySize(CGSize(width: 35, height: 35))
 
-        SmithCoronaSilentKey(viewModel: viewModel)
+        return SmithCoronaSilentKey(viewModel: viewModel)
             .frame(width: viewModel.keySize.width,
                    height: viewModel.keySize.height,
                    alignment: .center)
+            .padding(18)
             .previewLayout(.sizeThatFits)
     }
 }

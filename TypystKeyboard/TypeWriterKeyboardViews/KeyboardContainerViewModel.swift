@@ -5,16 +5,18 @@
 //  Created by Sean Wolford on 8/15/21.
 //
 
+import Combine
 import Foundation
 import struct SwiftUI.CGFloat
 
 final class KeyboardContainerViewModel: ObservableObject, Loggable {
+    private var subscriptions = Set<AnyCancellable>()
     enum VisibleComponent {
         case keyboard
         case settings
     }
     @Published private(set) var visibleComponent: VisibleComponent = .keyboard
-    private(set) var keyboardViewModel: KeyboardViewModel
+    @Published private(set) var keyboardViewModel: KeyboardViewModel
 
     private var typeWriterService: TypeWriterService
 
@@ -38,7 +40,7 @@ final class KeyboardContainerViewModel: ObservableObject, Loggable {
     }
 
     var currentTypeWriterModel: TypeWriterModel.ModelType {
-        keyboardViewModel.modelType
+        typeWriterService.loadedTypewriter?.modelType ?? keyboardViewModel.modelType
     }
 
     var cornerRadius: CGFloat {

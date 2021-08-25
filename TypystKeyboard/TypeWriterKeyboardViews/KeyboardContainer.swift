@@ -23,7 +23,6 @@ struct KeyboardContainerView: View, Loggable {
                     KeyboardView(viewModel: viewModel.keyboardViewModel)
                 }
 
-
                 if(viewModel.visibleComponent == .settings) {
                     SettingsComponent(goBackAction: {
                         viewModel.showComponent(.keyboard)

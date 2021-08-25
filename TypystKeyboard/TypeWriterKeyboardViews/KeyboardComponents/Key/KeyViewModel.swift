@@ -14,9 +14,13 @@ protocol KeyboardKeyActionsDelegate: AnyObject {
 }
 
 final class KeyViewModel: Identifiable, ObservableObject {
+    let typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService
     let id = UUID()
     @Published private(set) var key: Key
     fileprivate(set) weak var delegate: KeyboardKeyActionsDelegate? = nil
+    var selectedTypeWriter: TypeWriterModel.ModelType {
+        typeWriterService.loadedTypewriter?.modelType ?? .Unknown
+    }
 
     // Stored Properties
     @Published fileprivate(set) var isUppercased: Bool? = false
