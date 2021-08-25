@@ -10,23 +10,15 @@ import GBDeviceInfo
 import enum SwiftUI.ScenePhase
 
 final class TypystAppViewModelFactory {
-    #if os(macOS)
-    private static var viewModel: TypystAppViewModel_macOS? = nil
-    static func getViewModel() -> TypystAppViewModel_macOS {
-        if viewModel == nil { viewModel = TypystAppViewModel_macOS() }
+    private static var viewModel: TypystAppViewModel? = nil
+    static func getViewModel() -> TypystAppViewModel {
+        if viewModel == nil { viewModel = TypystAppViewModel() }
         return viewModel!
     }
-    #elseif os(iOS)
-    private static var viewModel: TypystAppViewModel_iOS? = nil
-    static func getViewModel() -> TypystAppViewModel_iOS {
-        if viewModel == nil { viewModel = TypystAppViewModel_iOS() }
-        return viewModel!
-    }
-    #endif
 }
 
 #if os(macOS)
-final class TypystAppViewModel_macOS: Loggable, ObservableObject {
+final class TypystAppViewModel: Loggable, ObservableObject {
     var rootDependencyContainer: RootDependencyContainer { RootDependencyContainer.get() }
     var appDependencyContainer: AppDependencyContainer { AppDependencyContainer.get() }
 
@@ -45,7 +37,7 @@ final class TypystAppViewModel_macOS: Loggable, ObservableObject {
         }
 
         logEvent(.info, "MacOS App running", context: [
-            GBDeviceInfo.deviceInfo() ?? "Device Info Unavailable",
+            GBDeviceInfo.deviceInfo() ?? "Device Info Unavailable" as Any,
             GBDeviceInfo().isIAPAvailable,
             GBDeviceInfo().isMacAppStoreAvailable
         ])
@@ -58,7 +50,7 @@ final class TypystAppViewModel_macOS: Loggable, ObservableObject {
     }
 }
 #elseif os(iOS)
-final class TypystAppViewModel_iOS: Loggable, ObservableObject {
+final class TypystAppViewModel: Loggable, ObservableObject {
     var rootDependencyContainer: RootDependencyContainer { RootDependencyContainer.get() }
     var appDependencyContainer: AppDependencyContainer { AppDependencyContainer.get() }
 

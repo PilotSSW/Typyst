@@ -40,7 +40,9 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        dependencyContainer.rootDependencyContainer.typeWriterService.setCurrentTypeWriter(modelType: .Olympia_SM3)
+
         #if DEBUG
         dependencyContainer.rootDependencyContainer.appDebugSettings.debugGlobal = true
         dependencyContainer.rootDependencyContainer.appSettings.logErrorsAndCrashes = true
@@ -149,14 +151,7 @@ extension IOSExtensionKeyboardViewController {
     private func addNextKeyboardButton() {
         nextKeyboardButton = UIButton(type: .system)
         if let nextKeyboardButton = nextKeyboardButton {
-//            nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-//            nextKeyboardButton.sizeToFit()
-//            nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
             nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-
-//            view.addSubview(nextKeyboardButton)
-//            nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-//            nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         }
     }
 
@@ -171,8 +166,6 @@ extension IOSExtensionKeyboardViewController {
 
         if let keyboardContainerViewModel = keyboardContainerViewModel {
             let containerView = KeyboardContainerView(viewModel: keyboardContainerViewModel)
-//            containerView.environmentObject(dependencyContainer.rootDependencyContainer.appDebugSettings)
-//            containerView.environmentObject(dependencyContainer.rootDependencyContainer.appSettings)
             keyboardContainerView = containerView
 
             if let keyboardView = keyboardContainerView {

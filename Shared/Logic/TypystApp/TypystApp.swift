@@ -15,14 +15,10 @@ struct TypystApp: App {
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State private var window: NSWindow?
-
-    @ObservedObject
-    var viewModel: TypystAppViewModel_macOS = TypystAppViewModelFactory.getViewModel()
-    #elseif os(iOS)
-
-    @ObservedObject
-    var viewModel: TypystAppViewModel_iOS = TypystAppViewModelFactory.getViewModel()
     #endif
+
+    @ObservedObject
+    var viewModel: TypystAppViewModel = TypystAppViewModelFactory.getViewModel()
 
     var body: some Scene {
         #if os(macOS)

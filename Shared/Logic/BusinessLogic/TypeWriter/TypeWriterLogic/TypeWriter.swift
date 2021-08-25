@@ -12,13 +12,12 @@ import SwiftUI
 import SwiftySound
 
 final class TypeWriter: ObservableObject {
-    private var appSettings: AppSettings
+    private let appSettings: AppSettings
+    private let soundsService: SoundsService
 
     static let defaultTypeWriter: TypeWriterModel.ModelType = .Royal_Model_P
     let modelType: TypeWriterModel.ModelType
-    var modelFilePath: String { "Soundsets/\(String(describing: modelType))/ "}
-
-    private let soundsService: SoundsService
+    var modelFilePath: String {"Soundsets/\(String(describing: modelType))/";}
 
     var keyLogic: TypeWriterKeyLogic
     @Published var state: TypeWriterState
