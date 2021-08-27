@@ -12,6 +12,7 @@ import struct SwiftUI.CGFloat
 final class KeyboardContainerViewModel: ObservableObject, Loggable {
     private var subscriptions = Set<AnyCancellable>()
     enum VisibleComponent {
+        case none
         case keyboard
         case settings
     }

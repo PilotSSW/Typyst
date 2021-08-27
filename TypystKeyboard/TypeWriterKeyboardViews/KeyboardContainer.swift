@@ -15,27 +15,28 @@ struct KeyboardContainerView: View, Loggable {
         //let _ = logEvent(.trace, "rendering keyboard container", context: [viewModel])
 
         ZStack() {
-            TypeWriterBackground(typeWriterModel: viewModel.currentTypeWriterModel,
-                                 cornerRadius: viewModel.cornerRadius)
+            if (viewModel.visibleComponent != .none) {
+                TypeWriterBackground(typeWriterModel: viewModel.currentTypeWriterModel,
+                                     cornerRadius: viewModel.cornerRadius)
 
-            VStack() {
-                if(viewModel.visibleComponent == .keyboard) {
-                    KeyboardView(viewModel: viewModel.keyboardViewModel)
-                }
+                VStack() {
+                    if(viewModel.visibleComponent == .keyboard) {
+                        KeyboardView(viewModel: viewModel.keyboardViewModel)
+                    }
 
-                if(viewModel.visibleComponent == .settings) {
-                    SettingsComponent(goBackAction: {
-                        viewModel.showComponent(.keyboard)
-                    })
-                    .animation(.easeInOut)
-                    .padding(.vertical, 6)
+                    if(viewModel.visibleComponent == .settings) {
+                        SettingsComponent(goBackAction: {
+                            viewModel.showComponent(.keyboard)
+                        })
+                        .animation(.easeInOut)
+                        .padding(.vertical, 6)
+                    }
                 }
+                .frame(maxWidth: 600, alignment: .bottom)
             }
-            .frame(maxWidth: 600, alignment: .bottom)
         }
         .frame(minWidth: 100, idealWidth: 300, maxWidth: .infinity,
                minHeight: 75, idealHeight: 210, maxHeight: .infinity)
-        
     }
 }
 

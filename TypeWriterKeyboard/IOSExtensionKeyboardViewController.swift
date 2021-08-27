@@ -66,11 +66,13 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadKeyboard()
+        keyboardContainerViewModel?.showComponent(.keyboard)
+//        reloadKeyboard()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        removeKeyboard()
+//        removeKeyboard()
+        keyboardContainerViewModel?.showComponent(.none)
         super.viewWillDisappear(animated)
     }
 
