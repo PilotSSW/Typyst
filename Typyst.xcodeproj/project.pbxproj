@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EBBA1F07F4D3D4FA8176436 /* Pods_Mobile_Typyst__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7E6D8CE2226769734134C2 /* Pods_Mobile_Typyst__iOS_.framework */; };
+		16AB4A747E04E637AD458866 /* Pods_Mobile_TypystKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1B5458095FCC1393F45941 /* Pods_Mobile_TypystKeyboard.framework */; };
+		4BCFEDF42BB5DA11B673A303 /* Pods_Laptop_Typyst__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCFE1200F7401CE3E283A80 /* Pods_Laptop_Typyst__macOS_.framework */; };
 		6EF6B02E21391C6CF85E1924 /* AnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B7AFD42AE264276346B7 /* AnalyticsSettings.swift */; };
 		6EF6B090952B14C5D8728743 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
 		6EF6B0D6AD86663D22D1EA57 /* TypeWriterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* TypeWriterViewModel.swift */; };
@@ -56,7 +59,6 @@
 		6EF6BF242B29E3BCC47D1750 /* iOSUIKitKeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B27523AD2BC680B4FAA5 /* iOSUIKitKeyboardService.swift */; };
 		6EF6BFA5D20E4EEA8E098AC8 /* UserInfoAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */; };
 		6EF6BFEA0702216CABB96390 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA8E1044964D2F8CBBA6 /* AlertItem.swift */; };
-		994D21CBFCB0E9C746F53C72 /* Pods_Mobile_Typyst__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0216503B73F9B27F992FE65D /* Pods_Mobile_Typyst__iOS_.framework */; };
 		A300BB1E2664204B00BB7BA3 /* KeyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */; };
 		A300BB1F2664204B00BB7BA3 /* KeyEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */; };
 		A305CB2C270EA7DA000ABED3 /* TypeWriterInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A305CB2B270EA7DA000ABED3 /* TypeWriterInfoModal.swift */; };
@@ -96,7 +98,6 @@
 		A323682A268E53DB00CB2B25 /* SystemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729F262355D600E32B91 /* SystemFunctions.swift */; };
 		A323682B268E53DC00CB2B25 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A0262355D600E32B91 /* RepeatingTimer.swift */; };
 		A323682C268E53DC00CB2B25 /* SystemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729F262355D600E32B91 /* SystemFunctions.swift */; };
-		A323682D268F59FF00CB2B25 /* Pods_Mobile_TypystKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBA873E36158A1E38F10D90 /* Pods_Mobile_TypystKeyboard.framework */; };
 		A326BC5526C6E6CD0087E65D /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A32BE10F26C610BB009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
 		A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
@@ -569,7 +570,6 @@
 		A3FF85F026F299E800D1D069 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FF85EB26F299E800D1D069 /* SettingsService.swift */; };
 		A3FF85F126F2F8C600D1D069 /* UserDefaultsAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0D1BDF8AD035019D339 /* UserDefaultsAppSettings.swift */; };
 		A3FF85F226F2F8C700D1D069 /* UserDefaultsAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0D1BDF8AD035019D339 /* UserDefaultsAppSettings.swift */; };
-		B126ED2E639A5CFBBAF4DCD3 /* Pods_Laptop_Typyst__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B0EC5463B1AD7559949183 /* Pods_Laptop_Typyst__macOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -611,13 +611,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0216503B73F9B27F992FE65D /* Pods_Mobile_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_Typyst__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		06B51A8EACBB6BEBA5ACB239 /* Pods-Mobile-TypystKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypystKeyboard.release.xcconfig"; path = "Target Support Files/Pods-Mobile-TypystKeyboard/Pods-Mobile-TypystKeyboard.release.xcconfig"; sourceTree = "<group>"; };
-		27B0EC5463B1AD7559949183 /* Pods_Laptop_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Laptop_Typyst__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27C352C3B164B44CE2FFB5A3 /* Pods-Mobile-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
-		29750D8A3735DB1F6A4122CD /* Pods-Mobile-TypystKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypystKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-Mobile-TypystKeyboard/Pods-Mobile-TypystKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
-		30FEB0ECBA397686228B6C75 /* Pods_Mobile_TypeWriterKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TypeWriterKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DCBEBEEA88249D72D3B21D2 /* Pods-Mobile-TypeWriterKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypeWriterKeyboard.release.xcconfig"; path = "Target Support Files/Pods-Mobile-TypeWriterKeyboard/Pods-Mobile-TypeWriterKeyboard.release.xcconfig"; sourceTree = "<group>"; };
+		11123CBDED7D0C66194ADEBF /* Pods-Mobile-Typyst (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		2E1B5458095FCC1393F45941 /* Pods_Mobile_TypystKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TypystKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3523F47A30A52A36187F2BF3 /* Pods-Laptop-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laptop-Typyst (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		46FEBFE5E37B3BEF2CDD5C65 /* Pods-Mobile-TypystKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypystKeyboard.release.xcconfig"; path = "Target Support Files/Pods-Mobile-TypystKeyboard/Pods-Mobile-TypystKeyboard.release.xcconfig"; sourceTree = "<group>"; };
+		6CBE0C7E644F56D51FA27782 /* Pods-Laptop-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laptop-Typyst (macOS).release.xcconfig"; path = "Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWriterCardImageButton.swift; sourceTree = "<group>"; };
 		6EF6B0B558DDAB48D3D68F56 /* MacOSUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacOSUI.swift; sourceTree = "<group>"; };
 		6EF6B0D1BDF8AD035019D339 /* UserDefaultsAppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsAppSettings.swift; sourceTree = "<group>"; };
@@ -647,7 +645,8 @@
 		6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoAlerts.swift; sourceTree = "<group>"; };
 		6EF6BF327759F44A0B2D4594 /* OSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSHelper.swift; sourceTree = "<group>"; };
 		6EF6BF738F13EF32973D1724 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		7EBA873E36158A1E38F10D90 /* Pods_Mobile_TypystKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TypystKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		747E636E75EF82BBBFC25747 /* Pods-Mobile-TypystKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypystKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-Mobile-TypystKeyboard/Pods-Mobile-TypystKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		990580CCB92F532D9D043A7C /* Pods-Mobile-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).release.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventStore.swift; sourceTree = "<group>"; };
 		A305CB2B270EA7DA000ABED3 /* TypeWriterInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterInfoModal.swift; sourceTree = "<group>"; };
 		A315F9B926F3B1D500664986 /* NavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainer.swift; sourceTree = "<group>"; };
@@ -798,10 +797,8 @@
 		A3FA76D526237DA900E32B91 /* TypingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypingStats.swift; sourceTree = "<group>"; };
 		A3FA76DC26237DB600E32B91 /* TimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
 		A3FF85EB26F299E800D1D069 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
-		BF3FD9FC96DE3A07C7503188 /* Pods-Laptop-Typyst (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laptop-Typyst (macOS).release.xcconfig"; path = "Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS).release.xcconfig"; sourceTree = "<group>"; };
-		CB95BEEC17754CC3A216B368 /* Pods-Mobile-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).release.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
-		F36E3B4E132ED58A55E209CF /* Pods-Laptop-Typyst (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laptop-Typyst (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS).debug.xcconfig"; sourceTree = "<group>"; };
-		FE4C618F18810D22A9144DAB /* Pods-Mobile-TypeWriterKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypeWriterKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-Mobile-TypeWriterKeyboard/Pods-Mobile-TypeWriterKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		BCCFE1200F7401CE3E283A80 /* Pods_Laptop_Typyst__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Laptop_Typyst__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF7E6D8CE2226769734134C2 /* Pods_Mobile_Typyst__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_Typyst__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -809,7 +806,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A323682D268F59FF00CB2B25 /* Pods_Mobile_TypystKeyboard.framework in Frameworks */,
+				16AB4A747E04E637AD458866 /* Pods_Mobile_TypystKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,7 +814,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				994D21CBFCB0E9C746F53C72 /* Pods_Mobile_Typyst__iOS_.framework in Frameworks */,
+				0EBBA1F07F4D3D4FA8176436 /* Pods_Mobile_Typyst__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,7 +822,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B126ED2E639A5CFBBAF4DCD3 /* Pods_Laptop_Typyst__macOS_.framework in Frameworks */,
+				4BCFEDF42BB5DA11B673A303 /* Pods_Laptop_Typyst__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,17 +843,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ECF46F0C5E00102764EF5BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCCFE1200F7401CE3E283A80 /* Pods_Laptop_Typyst__macOS_.framework */,
+				EF7E6D8CE2226769734134C2 /* Pods_Mobile_Typyst__iOS_.framework */,
+				2E1B5458095FCC1393F45941 /* Pods_Mobile_TypystKeyboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63751B6898FD02DE82C97CB1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F36E3B4E132ED58A55E209CF /* Pods-Laptop-Typyst (macOS).debug.xcconfig */,
-				BF3FD9FC96DE3A07C7503188 /* Pods-Laptop-Typyst (macOS).release.xcconfig */,
-				FE4C618F18810D22A9144DAB /* Pods-Mobile-TypeWriterKeyboard.debug.xcconfig */,
-				4DCBEBEEA88249D72D3B21D2 /* Pods-Mobile-TypeWriterKeyboard.release.xcconfig */,
-				27C352C3B164B44CE2FFB5A3 /* Pods-Mobile-Typyst (iOS).debug.xcconfig */,
-				CB95BEEC17754CC3A216B368 /* Pods-Mobile-Typyst (iOS).release.xcconfig */,
-				29750D8A3735DB1F6A4122CD /* Pods-Mobile-TypystKeyboard.debug.xcconfig */,
-				06B51A8EACBB6BEBA5ACB239 /* Pods-Mobile-TypystKeyboard.release.xcconfig */,
+				3523F47A30A52A36187F2BF3 /* Pods-Laptop-Typyst (macOS).debug.xcconfig */,
+				6CBE0C7E644F56D51FA27782 /* Pods-Laptop-Typyst (macOS).release.xcconfig */,
+				11123CBDED7D0C66194ADEBF /* Pods-Mobile-Typyst (iOS).debug.xcconfig */,
+				990580CCB92F532D9D043A7C /* Pods-Mobile-Typyst (iOS).release.xcconfig */,
+				747E636E75EF82BBBFC25747 /* Pods-Mobile-TypystKeyboard.debug.xcconfig */,
+				46FEBFE5E37B3BEF2CDD5C65 /* Pods-Mobile-TypystKeyboard.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -972,17 +977,6 @@
 				A3668E10262FD84400764DB8 /* AlertsView.swift */,
 			);
 			path = Alerts;
-			sourceTree = "<group>";
-		};
-		7A58823FFBD636C6080AC788 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				27B0EC5463B1AD7559949183 /* Pods_Laptop_Typyst__macOS_.framework */,
-				30FEB0ECBA397686228B6C75 /* Pods_Mobile_TypeWriterKeyboard.framework */,
-				0216503B73F9B27F992FE65D /* Pods_Mobile_Typyst__iOS_.framework */,
-				7EBA873E36158A1E38F10D90 /* Pods_Mobile_TypystKeyboard.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A32367E5268E515300CB2B25 /* TypystKeyboard */ = {
@@ -1442,7 +1436,7 @@
 				A3FA71CD2623523400E32B91 /* Tests macOS */,
 				A3FA71B02623523400E32B91 /* Products */,
 				63751B6898FD02DE82C97CB1 /* Pods */,
-				7A58823FFBD636C6080AC788 /* Frameworks */,
+				1ECF46F0C5E00102764EF5BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1826,7 +1820,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A32367EE268E515300CB2B25 /* Build configuration list for PBXNativeTarget "TypystKeyboard" */;
 			buildPhases = (
-				8092DCC438140E688739DE40 /* [CP] Check Pods Manifest.lock */,
+				25CC2865EDDEA4F3AE68AB7A /* [CP] Check Pods Manifest.lock */,
 				A32367E0268E515300CB2B25 /* Sources */,
 				A32367E1268E515300CB2B25 /* Frameworks */,
 				A32367E2268E515300CB2B25 /* Resources */,
@@ -1844,12 +1838,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3FA71DD2623523400E32B91 /* Build configuration list for PBXNativeTarget "Typyst (iOS)" */;
 			buildPhases = (
-				F3EA43F5906D928C6FFB41F0 /* [CP] Check Pods Manifest.lock */,
+				28C9FC58AB7CC717A9457A33 /* [CP] Check Pods Manifest.lock */,
 				A3FA71AB2623523400E32B91 /* Sources */,
 				A3FA71AC2623523400E32B91 /* Frameworks */,
 				A3FA71AD2623523400E32B91 /* Resources */,
 				A3975BE62627EC46001DFD47 /* Embed App Extensions */,
-				1E631958811E4628CFA19771 /* [CP] Embed Pods Frameworks */,
+				34A52091A9C434F88781EA8C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1865,11 +1859,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3FA71E02623523400E32B91 /* Build configuration list for PBXNativeTarget "Typyst (macOS)" */;
 			buildPhases = (
-				9C0C4A93B0DDB6739B449DBD /* [CP] Check Pods Manifest.lock */,
+				FA5D759393C584C4BC88D3E6 /* [CP] Check Pods Manifest.lock */,
 				A3FA71B32623523400E32B91 /* Sources */,
 				A3FA71B42623523400E32B91 /* Frameworks */,
 				A3FA71B52623523400E32B91 /* Resources */,
-				9CB37921806E81100A257AF2 /* [CP] Embed Pods Frameworks */,
+				701A059D50C87D99232AD78B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2031,24 +2025,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E631958811E4628CFA19771 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8092DCC438140E688739DE40 /* [CP] Check Pods Manifest.lock */ = {
+		25CC2865EDDEA4F3AE68AB7A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2070,7 +2047,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9C0C4A93B0DDB6739B449DBD /* [CP] Check Pods Manifest.lock */ = {
+		28C9FC58AB7CC717A9457A33 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2085,14 +2062,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Laptop-Typyst (macOS)-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Mobile-Typyst (iOS)-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9CB37921806E81100A257AF2 /* [CP] Embed Pods Frameworks */ = {
+		34A52091A9C434F88781EA8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		701A059D50C87D99232AD78B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2109,7 +2103,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Laptop-Typyst (macOS)/Pods-Laptop-Typyst (macOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3EA43F5906D928C6FFB41F0 /* [CP] Check Pods Manifest.lock */ = {
+		FA5D759393C584C4BC88D3E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2124,7 +2118,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mobile-Typyst (iOS)-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Laptop-Typyst (macOS)-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2725,7 +2719,7 @@
 /* Begin XCBuildConfiguration section */
 		A32367EC268E515300CB2B25 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29750D8A3735DB1F6A4122CD /* Pods-Mobile-TypystKeyboard.debug.xcconfig */;
+			baseConfigurationReference = 747E636E75EF82BBBFC25747 /* Pods-Mobile-TypystKeyboard.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2755,7 +2749,7 @@
 		};
 		A32367ED268E515300CB2B25 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06B51A8EACBB6BEBA5ACB239 /* Pods-Mobile-TypystKeyboard.release.xcconfig */;
+			baseConfigurationReference = 46FEBFE5E37B3BEF2CDD5C65 /* Pods-Mobile-TypystKeyboard.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2904,7 +2898,7 @@
 		};
 		A3FA71DE2623523400E32B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27C352C3B164B44CE2FFB5A3 /* Pods-Mobile-Typyst (iOS).debug.xcconfig */;
+			baseConfigurationReference = 11123CBDED7D0C66194ADEBF /* Pods-Mobile-Typyst (iOS).debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2933,7 +2927,7 @@
 		};
 		A3FA71DF2623523400E32B91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB95BEEC17754CC3A216B368 /* Pods-Mobile-Typyst (iOS).release.xcconfig */;
+			baseConfigurationReference = 990580CCB92F532D9D043A7C /* Pods-Mobile-Typyst (iOS).release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2963,7 +2957,7 @@
 		};
 		A3FA71E12623523400E32B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F36E3B4E132ED58A55E209CF /* Pods-Laptop-Typyst (macOS).debug.xcconfig */;
+			baseConfigurationReference = 3523F47A30A52A36187F2BF3 /* Pods-Laptop-Typyst (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3007,7 +3001,7 @@
 		};
 		A3FA71E22623523400E32B91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF3FD9FC96DE3A07C7503188 /* Pods-Laptop-Typyst (macOS).release.xcconfig */;
+			baseConfigurationReference = 6CBE0C7E644F56D51FA27782 /* Pods-Laptop-Typyst (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
