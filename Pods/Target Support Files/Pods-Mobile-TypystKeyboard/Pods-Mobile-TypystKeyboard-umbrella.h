@@ -1,16 +1,3 @@
-#ifdef __OBJC__
-#import <UIKit/UIKit.h>
-#else
-#ifndef FOUNDATION_EXPORT
-#if defined(__cplusplus)
-#define FOUNDATION_EXPORT extern "C"
-#else
-#define FOUNDATION_EXPORT extern
-#endif
-#endif
-#endif
-
-
-FOUNDATION_EXPORT double Pods_Mobile_TypystKeyboardVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Mobile_TypystKeyboardVersionString[];
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:2eee194f64068c50ceb3f4c68e129cd99e5bb2c48d65e7666fde8c8cdfb7b9c8
+size 344

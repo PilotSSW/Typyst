@@ -1,27 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "OlympiaSM3@1x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "OlympiaSM3@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "OlympiaSM3.png",
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  },
-  "properties" : {
-    "compression-type" : "automatic",
-    "preserves-vector-representation" : true
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:02573b3629910d3bbc4de127c4db3d1ed89310d0f18e14eee7e36016b3c7760e
+size 495

@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "Smith Corona Silentmed@0.5x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5126282c6c5ba685e2e2e54943bf8ed48bf43cad7f76889b4baf7e65d25317f4
+size 325

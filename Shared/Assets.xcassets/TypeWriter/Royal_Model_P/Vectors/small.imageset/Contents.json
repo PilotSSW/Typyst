@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "RoyalModelP-vectorlow@0.25x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8783d7a5fc5cf65f1ec44856af90c7f899d17a775323fb0880900edd643c7cd5
+size 325

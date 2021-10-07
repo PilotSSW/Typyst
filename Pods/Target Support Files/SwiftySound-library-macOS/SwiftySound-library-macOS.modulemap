@@ -1,7 +1,3 @@
-module SwiftySound {
-  umbrella header "SwiftySound-library-macOS-umbrella.h"
-  exclude header "SwiftySound-library-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:687241242c763066f50be2eacf34b60596732a910e7764247bd81921e433324f
+size 170

@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "RoyalModelPthumb@0.1x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a892e84d7bed57c81636b7a0fd20164f407225a931a07410c3f2c0e3212781aa
+size 319

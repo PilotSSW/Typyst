@@ -120,14 +120,16 @@ final class NSEventListener: Loggable {
 
     func removeKeyListener(receiptKey: String) {
         if let listener = nsEventListeners[receiptKey] as? Any {
-            NSEvent.removeMonitor(listener)
+            DispatchQueue.main.async {
+                NSEvent.removeMonitor(listener)
+            }
         }
     }
 }
 
 extension NSEventListener {
     private func generateEventListenerHash(
-            eventType: NSEvent.EventTypeMask,
+        eventType: NSEvent.EventTypeMask,
             description: String = "",
             hash: UUID = UUID()) -> String {
         let descString = description.count > 0 ? "-\(description)" : ""

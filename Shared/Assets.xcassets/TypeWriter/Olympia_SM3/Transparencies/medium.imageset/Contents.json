@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "olympiasm3med@0.5x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e2421cb342969eca1a0d0c3c34c35b8a8da8b6a68aa7545552509ef3c46cac3
+size 316

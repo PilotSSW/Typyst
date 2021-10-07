@@ -6,8 +6,8 @@
 import Foundation
 
 final class TypeWriterKeyLogic {
-    private var appSettings: AppSettings
     private var keyboardService: KeyboardService
+    private var settingsService: SettingsService
     private var soundsService: SoundsService
 
     let state: TypeWriterState
@@ -16,13 +16,13 @@ final class TypeWriterKeyLogic {
 
     init(modelType: TypeWriterModel.ModelType,
          state: TypeWriterState,
+         settingsService: SettingsService,
          soundsService: SoundsService,
-         appSettings: AppSettings,
          keyboardService: KeyboardService) {
         self.modelType = modelType
         self.state = state
 
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.keyboardService = keyboardService
         self.soundsService = soundsService
 
@@ -121,14 +121,14 @@ final class TypeWriterKeyLogic {
 
             let paperReturnCB = { [weak self] in
                 guard let self = self else { return }
-                if self.appSettings.paperReturnEnabled {
+                if self.settingsService.paperReturnEnabled {
                     self.soundsService.playSound(fromOneOfAny: [
                         .SingleLineReturn, .DoubleLineReturn, .TripleLineReturn
                     ])
                 }
             }
 
-            appSettings.bell
+            settingsService.bell
                 ? soundsService.playSound(for: .Bell, completion: paperReturnCB)
                 : paperReturnCB()
         }

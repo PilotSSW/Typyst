@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 final class KeyEventStore {
-    private let appSettings: AppSettings
+    private let settingsService: SettingsService
     private let appDebugSettings: AppDebugSettings
     private let keyboardService: KeyboardService
 
@@ -39,9 +39,9 @@ final class KeyEventStore {
 
     init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
          keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
-         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.appDebugSettings = appDebugSettings
         self.keyboardService = keyboardService
 
@@ -54,9 +54,9 @@ final class KeyEventStore {
         removeOldKeyEventsTimer = RepeatingTimer(timeInterval: removeOldKeyEventsTimerInterval, leeway: .seconds(10))
         removeOldKeyEventsTimer?.resume()
 
-        if (appSettings.logUsageAnalytics) { startTracking() }
+        if (settingsService.logUsageAnalytics) { startTracking() }
 
-        appSettings.$logUsageAnalytics
+        settingsService.$logUsageAnalytics
         .sink { [weak self] in
             guard let self = self else { return }
             $0 ? self.startTracking() : self.stopTracking()
@@ -71,7 +71,7 @@ final class KeyEventStore {
     }
 
     func logEvent(_ event: AnonymousKeyEvent) {
-        if !(state == .logging && appSettings.logUsageAnalytics) { return }
+        if !(state == .logging && settingsService.logUsageAnalytics) { return }
 
         // Key events come in quickly -- don't lock up the main thread processing each one
         DispatchQueue.main.async(execute: { [weak self] in

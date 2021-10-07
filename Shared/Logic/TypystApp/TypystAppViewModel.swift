@@ -32,11 +32,7 @@ final class TypystAppViewModel: Loggable, ObservableObject {
 
         UserDefaults.standard.register(defaults: ["NSApplicationCrashOnExceptions": true])
         NSSetUncaughtExceptionHandler { (exception) in
-            SwiftyBeaverLogger.logFatalCrash(exception)
-        }
-
-        if (!OSHelper.isAccessibilityAdded()) {
-            OSHelper.askUserToAllowSystemAccessibility()
+            Logging.logFatalCrash(exception)
         }
 
         logEvent(.info, "MacOS App running", context: [
@@ -69,7 +65,7 @@ final class TypystAppViewModel: Loggable, ObservableObject {
             GBDeviceInfo.deviceInfo()
         ])
         NSSetUncaughtExceptionHandler { (exception) in
-            SwiftyBeaverLogger.logFatalCrash(exception)
+            Logging.logFatalCrash(exception)
         }
     }
 

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AppSettingsCommands: View {
     @ObservedObject
-    var appSettings: AppSettings = RootDependencyContainer.get().appSettings
+    var settingsService = RootDependencyContainer.get().settingsService
 
     @ObservedObject
     var appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings
@@ -22,11 +22,11 @@ struct AppSettingsCommands: View {
             Divider()
 
             SettingToggle(settingName: "Show informational notifications and alerts",
-                          setting: $appSettings.showModalNotifications)
+                          setting: $settingsService.showModalNotifications)
                 .keyboardShortcut("1")
 
             SettingToggle(settingName: "Send performance and error reports to developer",
-                          setting: $appSettings.logErrorsAndCrashes)
+                          setting: $settingsService.logErrorsAndCrashes)
                 .keyboardShortcut("2")
         }
     }

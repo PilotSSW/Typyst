@@ -13,39 +13,47 @@ final class AppDependencyContainer: ObservableObject {
 
     private(set) var rootDependencyContainer: RootDependencyContainer
     private(set) var alertsService: AlertsService
+    private(set) var documentsService: DocumentsService
     private(set) var emailService: EmailService
 
     private(set) var typingStats: TypingStats
 
     #if os(macOS)
-    private(set) internal var macOSKeyListener: MacOSKeyListener
-    //lazy var macOSUI = MacOSUI(self)
+    private(set) internal var macOSService: MacOSService
     #endif
 
     private init(withRootDependencyContainer rootContainer: RootDependencyContainer) {
         rootDependencyContainer = rootContainer
 
-        alertsService = AlertsService(appSettings: rootDependencyContainer.appSettings,
+        alertsService = AlertsService(settingsService: rootDependencyContainer.settingsService,
                                       appDebugSettings: rootDependencyContainer.appDebugSettings)
 
         #if os(macOS)
-        macOSKeyListener = MacOSKeyListener(keyboardService: rootDependencyContainer.keyboardService)
+        macOSService = MacOSService(alertsService: alertsService,
+                                    keyboardService: rootDependencyContainer.keyboardService,
+                                    settingsService: rootDependencyContainer.settingsService,
+                                    subscriptions: &rootDependencyContainer.subscriptions)
         #endif
+
+        documentsService = DocumentsService()
 
         emailService = EmailService()
 
         typingStats = TypingStats(withSubscriptionsStore: &rootDependencyContainer.subscriptions,
                                   keyboardService: rootDependencyContainer.keyboardService,
-                                  appSettings: rootDependencyContainer.appSettings,
+                                  settingsService: rootDependencyContainer.settingsService,
                                   appDebugSettings: rootDependencyContainer.appDebugSettings)
-        #if os(macOS)
-        //macOSUI.setup()
-        #endif
     }
 
     deinit {
-        //persistence.saveAction(self)
+
     }
 
-    static func get() -> AppDependencyContainer { appDependencyContainer }
+    static func get() -> AppDependencyContainer {
+        if (appDependencyContainer == nil) {
+            Logging.logFatalCrash()
+        }
+
+        return appDependencyContainer
+    }
 }

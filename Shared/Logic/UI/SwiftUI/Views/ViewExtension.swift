@@ -37,4 +37,14 @@ extension View {
             }
         }
     }
+
+//    func removingScrollViewBackground() -> some View {
+//        #if canImport(AppKit)
+//        self.background(ScrollViewCleaner())
+//        #elseif canImport(UIKit)
+//        UITableView.appearance().backgroundColor = .clear
+//        UITableViewCell.appearance().backgroundColor = .clear
+//        self.background(Color.clear)
+//        #endif
+//    }
 }

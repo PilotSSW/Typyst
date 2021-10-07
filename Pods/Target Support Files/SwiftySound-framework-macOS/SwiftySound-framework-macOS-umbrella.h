@@ -1,16 +1,3 @@
-#ifdef __OBJC__
-#import <Cocoa/Cocoa.h>
-#else
-#ifndef FOUNDATION_EXPORT
-#if defined(__cplusplus)
-#define FOUNDATION_EXPORT extern "C"
-#else
-#define FOUNDATION_EXPORT extern
-#endif
-#endif
-#endif
-
-
-FOUNDATION_EXPORT double SwiftySoundVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwiftySoundVersionString[];
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:c55ee20f412d713a61a611ac629803f97f5f02883cdaad7652faad170a86eaa1
+size 314

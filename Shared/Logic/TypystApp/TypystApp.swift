@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+ @main
 struct TypystApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
@@ -29,47 +29,41 @@ struct TypystApp: App {
                                  state: .active)
 
                 if viewModel.shouldRenderMainView {
-                    AppWindowView()
+                    AppWindowContainerView()
                         .environment(\.managedObjectContext, persistenceController.container.viewContext)
                         .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appDebugSettings)
-                        .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appSettings)
+                        .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.settingsService)
                         .environmentObject(viewModel.appDependencyContainer.alertsService)
                 }
             }
             .background(WindowAccessor(window: $window))
-            .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
-                   minHeight: 300, idealHeight: 1880, maxHeight: 3840)
+            .frame(minWidth: 300, minHeight: 300)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
+        .handlesExternalEvents(matching: ["main"])
         .onChange(of: scenePhase, perform: { phase in
             viewModel.handleScenePhaseChange(phase)
         })
-
-//        .commands {
-//            ReplacementMenuCommands()
-//            MainMenuCommands()
-//        }
-        WindowGroup {
-            ZStack {
-                VisualEffectBlur(material: .underWindowBackground,
-                                 blendingMode: .behindWindow,
-                                 state: .active)
-
-
-            }
-            .background(WindowAccessor(window: $window))
-            .frame(minWidth: 312, idealWidth: 320, maxWidth: 500,
-                   minHeight: 300, idealHeight: 1880, maxHeight: 3840)
+        .commands {
+            ReplacementMenuCommands()
+            MainMenuCommands()
         }
+
+        WindowGroup {
+            let viewModel = VideoPlayerViewModel()
+            VideoPlayerView(viewModel: viewModel)
+        }
+        .handlesExternalEvents(matching: ["video"])
         .windowStyle(HiddenTitleBarWindowStyle())
         .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
+
         #elseif os(iOS)
         WindowGroup {
-            AppWindowView()
+            AppWindowContainerView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appDebugSettings)
-                .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.appSettings)
+                .environmentObject(viewModel.appDependencyContainer.rootDependencyContainer.settingsService)
                 .environmentObject(viewModel.appDependencyContainer.alertsService)
         }
         .onChange(of: scenePhase, perform: { phase in

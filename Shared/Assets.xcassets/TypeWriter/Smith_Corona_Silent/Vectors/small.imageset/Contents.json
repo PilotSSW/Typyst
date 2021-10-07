@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "Smith Corona Silent - vectorsml@0.25x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3abc4a8ab8e078c03375e3c0d0da47b30b3941e2ef8ebee3b18b38f32af9fcdb
+size 335

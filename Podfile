@@ -10,6 +10,9 @@ abstract_target 'Laptop' do
     # Comment the next line if you don't want to use dynamic frameworks
     use_frameworks!
     # Pods for Typyst (macOS)
+    # pod 'HotKey'
+    pod 'Realm'
+    pod 'RealmSwift', '~>10'
   end
 end
 
@@ -17,8 +20,6 @@ abstract_target 'Mobile' do
   platform :ios, '14.0'
 
   pod 'GBDeviceInfo'
-  # pod 'HotKey'
-  # pod 'Keyboard-Kit'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 
@@ -27,6 +28,8 @@ abstract_target 'Mobile' do
     use_frameworks!
 
     # Pods for Typyst (iOS)
+    pod 'Realm'
+    pod 'RealmSwift', '~>10'
   end
 
   target 'TypystKeyboard' do
@@ -34,5 +37,7 @@ abstract_target 'Mobile' do
     use_frameworks!
 
     # Pods for Typyst (iOS)
+    pod 'Realm'
+    pod 'RealmSwift', '~>10'
   end
 end

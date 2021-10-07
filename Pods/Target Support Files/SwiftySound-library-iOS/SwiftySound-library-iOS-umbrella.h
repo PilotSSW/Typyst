@@ -1,16 +1,3 @@
-#ifdef __OBJC__
-#import <UIKit/UIKit.h>
-#else
-#ifndef FOUNDATION_EXPORT
-#if defined(__cplusplus)
-#define FOUNDATION_EXPORT extern "C"
-#else
-#define FOUNDATION_EXPORT extern
-#endif
-#endif
-#endif
-
-
-FOUNDATION_EXPORT double SwiftySoundVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwiftySoundVersionString[];
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:f316967dabe416968f57f23160edffdfa8f10dac913729154e42bb812e3f96e4
+size 314

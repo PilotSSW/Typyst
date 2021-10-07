@@ -6,18 +6,12 @@
 import Combine
 import Foundation
 
-//enum DependencyContainerRuntime {
-//    case iOS
-//    case iOSKeyboardExtension
-//    case macOS
-//}
-
 final class RootDependencyContainer {
     fileprivate static var rootDependencyContainer = RootDependencyContainer()
 
     var subscriptions = Set<AnyCancellable>()
 
-    private(set) var appSettings: AppSettings
+    private(set) var settingsService: SettingsService
     private(set) var appDebugSettings: AppDebugSettings
     private(set) var logging: Logging
 
@@ -29,17 +23,27 @@ final class RootDependencyContainer {
     private init() {
         subscriptions = Set<AnyCancellable>()
 
-        appSettings = AppSettings()
+        settingsService = SettingsService()
         appDebugSettings = AppDebugSettings()
 
-        logging = Logging(withStore: &subscriptions, appSettings: appSettings, appDebugSettings: appDebugSettings)
+        logging = Logging(withStore: &subscriptions,
+                          settingsService: settingsService,
+                          appDebugSettings: appDebugSettings)
 
-        keyboardService = KeyboardService(appSettings: appSettings, appDebugSettings: appDebugSettings)
+        keyboardService = KeyboardService(settingsService: settingsService,
+                                          appDebugSettings: appDebugSettings)
+
         typeWriterService = TypeWriterService(withKeyboardService: keyboardService,
-                                              appSettings: appSettings,
+                                              settingsService: settingsService,
                                               logger: logging)
     }
 
-    static func get() -> RootDependencyContainer { rootDependencyContainer }
+    static func get() -> RootDependencyContainer {
+        if (rootDependencyContainer == nil) {
+            Logging.logFatalCrash()
+        }
+
+        return rootDependencyContainer
+    }
 }
 

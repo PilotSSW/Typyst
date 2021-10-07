@@ -6,20 +6,20 @@ import Combine
 import Foundation
 
 final class AlertsService: Loggable, ObservableObject {
-    private var appSettings: AppSettings
+    private(set) var settingsService: SettingsService
     private var appDebugSettings: AppDebugSettings
 
     @Published var currentAlert: Alert?
     private var alertQueue: [Alert] = []
 
-    init(appSettings: AppSettings,
+    init(settingsService: SettingsService,
          appDebugSettings: AppDebugSettings) {
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.appDebugSettings = appDebugSettings
     }
 
     func showAlert(_ alert: Alert, priorityFirstInQueue: Bool = false) {
-        let isNonCriticalAlert = [.userInfo].contains(alert.type) && !appSettings.showModalNotifications
+        let isNonCriticalAlert = [.userInfo].contains(alert.type) && !settingsService.showModalNotifications
         let isIgnoredDeveloperAlert = [.developer].contains(alert.type) && !appDebugSettings.debugGlobal
 
         if (isNonCriticalAlert || isIgnoredDeveloperAlert) {

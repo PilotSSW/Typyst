@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "up-and-down-arrows-outlines-couple.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b698cce0e157208cb401d38d0567d5afe7c2f921c881e18505ac4dbc0b03b3fc
+size 332

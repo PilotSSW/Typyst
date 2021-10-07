@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "RoyalModelP-vectormed@0.5x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9fd07e987dc236f92985dc3efe537cf033dada152e4fa814d4fcb67ff7808ba8
+size 324

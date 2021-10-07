@@ -1,21 +1,3 @@
-{
-  "images" : [
-    {
-      "filename" : "OlympiaSM3-vectormed@0.5x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b8b48f53694c6aeb05880776a9e0e5558363f6b9213a4dc5d40a70e6eee3862d
+size 323

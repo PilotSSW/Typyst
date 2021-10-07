@@ -6,7 +6,7 @@ import Combine
 import Foundation
 
 final class Logging {
-    private let appSettings: AppSettings
+    private let settingsService: SettingsService
     private let appDebugSettings: AppDebugSettings
 
     private let swiftyBeaverLogger: SwiftyBeaverLogger
@@ -25,14 +25,14 @@ final class Logging {
     }
 
     init(withStore store: inout Set<AnyCancellable>,
-         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.appDebugSettings = appDebugSettings
         
         swiftyBeaverLogger = SwiftyBeaverLogger(
             withStore: &store,
-            appSettings: appSettings,
+            settingsService: settingsService,
             appDebugSettings: appDebugSettings)
     }
 
@@ -42,6 +42,10 @@ final class Logging {
              file: String = #file, function: String = #function, line: Int = #line) {
         swiftyBeaverLogger.log(level, message, error: error, context: context, file: file, function: function, line: line)
     }
+
+    static func logFatalCrash(_ exception: NSException? = nil) {
+        SwiftyBeaverLogger.logFatalCrash(exception)
+    }
 }
 
 protocol Loggable {}
@@ -49,6 +53,8 @@ extension Loggable {
     func logEvent(_ level: Logging.Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
                   file: String = #file, function: String = #function, line: Int = #line,
                   loggerInstance: Logging = RootDependencyContainer.get().logging) {
-        loggerInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
+        DispatchQueue.global(qos: .utility).async {
+            loggerInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
+        }
     }
 }

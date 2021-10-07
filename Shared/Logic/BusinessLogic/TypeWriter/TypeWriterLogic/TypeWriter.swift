@@ -12,7 +12,7 @@ import SwiftUI
 import SwiftySound
 
 final class TypeWriter: ObservableObject {
-    private let appSettings: AppSettings
+    private let settingsService: SettingsService
     private let soundsService: SoundsService
 
     static let defaultTypeWriter: TypeWriterModel.ModelType = .Royal_Model_P
@@ -24,22 +24,21 @@ final class TypeWriter: ObservableObject {
 
     init(modelType: TypeWriterModel.ModelType,
          marginWidth: Int = 80,
-         appSettings: AppSettings,
+         settingsService: SettingsService,
          keyboardService: KeyboardService,
          errorHandler: (([SoundError]) -> ())?,
          completion: ((SoundsService) -> Void)?) {
         self.modelType = modelType
-        
-        self.appSettings = appSettings
+        self.settingsService = settingsService
 
-        soundsService = SoundsService(appSettings: appSettings)
+        soundsService = SoundsService(settingsService: settingsService)
 
         let st = TypeWriterState(marginWidth: marginWidth)
         state = st
         keyLogic = TypeWriterKeyLogic(modelType: modelType,
                                       state: st,
+                                      settingsService: settingsService,
                                       soundsService: soundsService,
-                                      appSettings: appSettings,
                                       keyboardService: keyboardService)
 
         setup(errorHandler: errorHandler, completion: completion)
@@ -48,7 +47,7 @@ final class TypeWriter: ObservableObject {
     private func setup(errorHandler: (([SoundError]) -> ())?, completion: ((SoundsService) -> Void)?) {
         soundsService.loadSounds(for: modelType, completion: { [weak self] loadedSounds in
             guard let self = self else { return }
-            if self.appSettings.lidOpenClose {
+            if self.settingsService.lidOpenClose {
                 loadedSounds.playSound(for: .LidUp)
             }
             completion?(loadedSounds)
@@ -69,7 +68,7 @@ final class TypeWriter: ObservableObject {
         queue.async { [weak self] in
             guard let self = self else { return }
             let sounds = self.soundsService
-            if self.appSettings.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
+            if self.settingsService.lidOpenClose && sounds.hasSoundFromSoundset(.LidDown) {
                 sounds.playSound(for: .LidDown) {
                     sounds.unloadSounds()
                     if let completion = completion { DispatchQueue.main.async(execute: completion) }

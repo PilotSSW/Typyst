@@ -12,7 +12,13 @@ enum PressType {
 }
 
 final class IOSUIKitKeyboardService {
-    func handleUIPressesEvent(_ event: UIPressesEvent?, _ pressType: PressType, keyboardService: KeyboardService) {
+    private let keyboardService: KeyboardService
+
+    init(withKeyboardService keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService) {
+        self.keyboardService = keyboardService
+    }
+
+    func handleUIPressesEvent(_ event: UIPressesEvent?, _ pressType: PressType) {
         if let event = event {
             let keyEvents = mapUIPressesToKeyEvents(event.allPresses, pressType)
 

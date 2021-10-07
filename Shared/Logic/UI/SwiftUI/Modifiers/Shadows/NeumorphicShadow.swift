@@ -8,6 +8,7 @@ import SwiftUI
 
 struct NeumorphicShadow: ViewModifier {
     @State var shadowIntensity: ShadowIntensity = .light
+    @State var shouldRasterize: Bool = false
 
     var radius: CGFloat = 2
     var x: CGFloat = 1.33
@@ -17,7 +18,7 @@ struct NeumorphicShadow: ViewModifier {
         let lightShadow = AppColor.objectShadowLight.opacity(shadowIntensity.rawValue)
         let darkShadow = AppColor.objectShadowDark.opacity(shadowIntensity.rawValue)
 
-        return content
+        var result = content
             .shadow(color: lightShadow,
                     radius: radius,
                     x: -x,
@@ -26,6 +27,12 @@ struct NeumorphicShadow: ViewModifier {
                     radius: radius,
                     x: x,
                     y: y)
+
+        if shouldRasterize {
+            result.drawingGroup()
+        }
+
+        return result
     }
 }
 
@@ -35,3 +42,4 @@ extension View {
         self.modifier(NeumorphicShadow(shadowIntensity: shadowIntensity, radius: radius, x: x, y: y))
     }
 }
+

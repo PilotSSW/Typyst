@@ -32,28 +32,31 @@ final class OSHelper {
 import AppKit
 
 extension OSHelper {
-    static func askUserToAllowSystemAccessibility(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService) {
-        let alert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert({
-            NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane"))
+    static func askUserToAllowSystemAccessibility(alertsService: AlertsService = AppDependencyContainer.get().alertsService,
+                                                  completion: ((Bool) -> Void)? = nil) {
+        let keyCaptureAlert = KeyboardAccessibilityAlerts.keyCaptureUnavailableAlert() {
+            NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Security.prefPane/Accessibility"))
 
 
-        let alert = KeyboardAccessibilityAlerts.addToSystemAccessibilityInstructions(dismissAction: {
-                quitApp()
-            }, primaryAction: {
-                listenForSystemPrefsAccessibilityAdded()
-            })
-            alertsHandler.showAlert(alert)
-        })
-        alertsHandler.showAlert(alert)
+            let instructionsAlert = KeyboardAccessibilityAlerts.addToSystemAccessibilityInstructions(primaryAction: {
+                    listenForSystemPrefsAccessibilityAdded(completion: completion)
+                })
+            alertsService.showAlert(instructionsAlert)
+        }
+
+        alertsService.showAlert(keyCaptureAlert)
     }
 
-    static func listenForSystemPrefsAccessibilityAdded(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService) {
+    static func listenForSystemPrefsAccessibilityAdded(alertsHandler: AlertsService = AppDependencyContainer.get().alertsService,
+                                                       completion: ((Bool) -> Void)? = nil) {
         let timer = RepeatingTimer(timeInterval: 0.5)
         timer.eventHandler = { [weak timer] in
             guard let timer = timer else { return }
             if isAccessibilityAdded() {
                 timer.suspend()
+                alertsHandler.dismissCurrentAlert()
                 alertsHandler.showAlert(KeyboardAccessibilityAlerts.successfullyAddedToAccessibility())
+                completion?(true)
 
                 return
             }

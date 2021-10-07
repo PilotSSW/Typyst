@@ -1,23 +1,3 @@
-#ifdef __OBJC__
-#import <Cocoa/Cocoa.h>
-#else
-#ifndef FOUNDATION_EXPORT
-#if defined(__cplusplus)
-#define FOUNDATION_EXPORT extern "C"
-#else
-#define FOUNDATION_EXPORT extern
-#endif
-#endif
-#endif
-
-#import "GBDeviceInfoTypes_OSX.h"
-#import "GBDeviceInfo_OSX.h"
-#import "GBDeviceInfoTypes_Common.h"
-#import "GBDeviceInfo_Common.h"
-#import "GBDeviceInfo.h"
-#import "GBDeviceInfoInterface.h"
-#import "GBDeviceInfo_Subclass.h"
-
-FOUNDATION_EXPORT double GBDeviceInfoVersionNumber;
-FOUNDATION_EXPORT const unsigned char GBDeviceInfoVersionString[];
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:ed0781c16214f721e0f7d7240535b07b15c6b02e270470a86fc7c9934afb8943
+size 541

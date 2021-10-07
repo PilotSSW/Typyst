@@ -6,8 +6,7 @@
 import AppKit
 import Foundation
 
-final class MacOSKeyListener {
-    private let keyboardService: KeyboardService
+final class MacOSKeyListener: Loggable {
     private let nsEventListener = NSEventListener()
 
     enum State {
@@ -21,7 +20,7 @@ final class MacOSKeyListener {
         case global
         case local
     }
-    internal var keyPressEnvironment: KeyPressEnvironment = .all {
+    private(set) internal var keyPressEnvironment: KeyPressEnvironment = .local {
         didSet {
             if state == .listening {
                 stop()
@@ -33,10 +32,12 @@ final class MacOSKeyListener {
     private var localKPCB = [String: ((KeyEvent) -> Void)]()
     private var globalKPCB = [String: ((KeyEvent) -> Void)]()
 
-    init(shouldAutoRun: Bool = true,
-         keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService
-    ) {
-        self.keyboardService = keyboardService
+    private var modifierStates: [Key: KeyEvent.KeyDirection] = [:]
+
+    init(shouldAutoRun: Bool = true) {
+        modifierStates = [.capsLock, .command, .rightCommand, .control, .rightControl, .function, .help, .option, .rightOption, .shift,. rightShift].reduce(into: [:], { dictionary, modifierFlag in
+            dictionary[modifierFlag] = .keyUp
+        })
         if shouldAutoRun { start() }
     }
 
@@ -69,6 +70,10 @@ final class MacOSKeyListener {
         nsEventListener.removeKeyListeners()
         state = .idle
     }
+
+    func setKeyListenerEnvironment(_ environment: KeyPressEnvironment) {
+        keyPressEnvironment = environment
+    }
 }
 
 /// Mark: Register key listeners
@@ -100,24 +105,57 @@ extension MacOSKeyListener {
 
 /// MARK: Logic for determining and handling keypresses
 extension MacOSKeyListener {
+    private func setModifierKeyState(_ keyPressed: Key,
+                                     forceKeyDirection keyDirection: KeyEvent.KeyDirection? = nil,
+                                     event: NSEvent? = nil) -> KeyEvent.KeyDirection {
+        var direction: KeyEvent.KeyDirection
+
+        if let currentModifierState = modifierStates[keyPressed] {
+            let newModifierState: KeyEvent.KeyDirection = keyDirection ?? currentModifierState == .keyUp ? .keyDown : .keyUp
+            modifierStates[keyPressed] = newModifierState
+            direction = newModifierState
+        }
+        // Case: Unrecognized modifier flag
+        else {
+            logEvent(.warning, "Unrecognized modifier flag \nKeyPress:\(keyPressed)\nEvent:\(event)")
+            direction = .unknown
+        }
+
+        return direction
+    }
+
+    private func mapNSEventAndKeyCodeToKeyEvent(_ event: NSEvent, _ keyPressed: Key) -> KeyEvent? {
+        var direction: KeyEvent.KeyDirection
+        var isRepeat: Bool
+
+        // Case: Modifier Keys
+        if (modifierStates.keys.contains(keyPressed)) {//event.type == .flagsChanged) {
+            let keyDirection: KeyEvent.KeyDirection = event.modifierFlags.carbonFlags > 0 ? .keyUp : .keyDown
+            direction = setModifierKeyState(keyPressed, forceKeyDirection: keyDirection, event: event)
+            isRepeat = false
+//            logEvent(.trace, "Flags changed \(keyPressed)")
+        }
+        // Case: All other keys
+        else {
+            isRepeat = event.type == .flagsChanged ? false : event.isARepeat
+            switch(event.type) {
+                case .keyUp: direction = .keyUp
+                case .keyDown: direction = .keyDown
+                default: direction = .unknown
+            }
+        }
+
+        return KeyEvent(keyPressed,
+                        direction,
+                        ModifierFlags(event.modifierFlags),
+                        isRepeat: isRepeat)
+    }
+
     private func determineKeyPressedFrom(_ event: NSEvent) -> KeyEvent? {
         let keyCode = event.keyCode
         let intVal = UInt32(exactly: keyCode) ?? 0
         if let keyPressed = Key(carbonKeyCode: intVal) {
-            var direction: KeyEvent.KeyDirection = .keyDown
-            var isRepeat = false
-
-            if (event.type != .flagsChanged) {
-                isRepeat = event.isARepeat
-                direction = event.type == .keyUp
-                    ? .keyUp
-                    : .keyDown
-            }
-
-            return KeyEvent(keyPressed,
-                            direction,
-                            ModifierFlags(event.modifierFlags),
-                            isRepeat: isRepeat)
+            return mapNSEventAndKeyCodeToKeyEvent(event, keyPressed)
         }
 
         return nil
@@ -128,8 +166,6 @@ extension MacOSKeyListener {
             _ environment: KeyPressEnvironment) {
         if let keyEvent = determineKeyPressedFrom(event) {
             // Handle key presses and send actions to rest of app
-            keyboardService.handleEvent(keyEvent)
-
             let acceptLocalEvents = keyPressEnvironment == .local || keyPressEnvironment == .all
             let acceptExternalEvents = keyPressEnvironment == .global || keyPressEnvironment == .all
 
@@ -142,4 +178,8 @@ extension MacOSKeyListener {
             }
         }
     }
+}
+
+extension NSEvent.ModifierFlags: Hashable {
+
 }

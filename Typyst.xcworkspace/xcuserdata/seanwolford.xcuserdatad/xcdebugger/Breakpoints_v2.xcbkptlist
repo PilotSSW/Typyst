@@ -119,17 +119,51 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5D6FA016-34CD-491C-BFB8-E342A693D4E3"
-            shouldBeEnabled = "Yes"
+            uuid = "9C0778FE-361D-4C78-9965-E12BC61DCB74"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Shared/Logic/BusinessLogic/Services/LoggingService/SwiftyBeaver.swift"
+            filePath = "Shared/Logic/UI/AppUI/AppWindow UI/AppControls/AnalyticsInfo/AnalyticsInfoCard.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "logFatalCrash(_:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "711778C1-396A-41F5-B30F-0244FEF4FB72"
+            shouldBeEnabled = "No"
+            nameForDebugger = "Spacebar"
+            condition = "rect.height != rect.width"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/UI/AppUI/Components/Keyboards/TypeWriterComponents/KeyComponent/KeyShape.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "path(in:withSegments:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7CA55CCF-B1B0-4E27-BF13-FD8C1FA1E10E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Logic/UI/AppUI/Components/TypeWriter/TypeWriterCard/TypeWriterCardImageButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

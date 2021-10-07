@@ -8,15 +8,15 @@ import Foundation
 import SwiftUI
 
 final class TypeWriterService: Loggable, ObservableObject {
-    private var appSettings: AppSettings
+    private var settingsService: SettingsService
     private var keyboardService: KeyboardService
 
     @Published private(set) var loadedTypewriter: TypeWriter?
 
     init(withKeyboardService keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
-         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          logger: Logging) {
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.keyboardService = keyboardService
 
         loadTypeWriter()
@@ -28,14 +28,14 @@ final class TypeWriterService: Loggable, ObservableObject {
     }
 
     func setCurrentTypeWriter(modelType: TypeWriterModel.ModelType) {
-        appSettings.selectedTypewriter = modelType.rawValue
+        settingsService.selectedTypewriter = modelType.rawValue
 
         let loadCB = { [weak self] in
             guard let self = self else { return }
 
             self.loadedTypewriter = TypeWriter(
                 modelType: modelType,
-                appSettings: self.appSettings,
+                settingsService: self.settingsService,
                 keyboardService: self.keyboardService,
                 errorHandler: { [weak self] (soundErrors) in
                     #if !KEYBOARD_EXTENSION
@@ -61,7 +61,7 @@ final class TypeWriterService: Loggable, ObservableObject {
     func loadTypeWriter(forceWhenAlreadyLoaded: Bool = false) {
         if loadedTypewriter != nil && !forceWhenAlreadyLoaded { return }
 
-        if let modelString = appSettings.selectedTypewriter,
+        if let modelString = settingsService.selectedTypewriter,
            let modelType = TypeWriterModel.ModelType.init(rawValue: modelString) {
             setCurrentTypeWriter(modelType: modelType)
             return
@@ -79,7 +79,7 @@ final class TypeWriterService: Loggable, ObservableObject {
     }
 
     func setVolumeTo(_ volume: Double) {
-        appSettings.volumeSetting = volume
+        settingsService.volumeSetting = volume
         loadedTypewriter?.setVolume(volume)
     }
 }

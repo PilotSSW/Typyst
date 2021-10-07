@@ -1,9 +1,3 @@
-{
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  },
-  "properties" : {
-    "provides-namespace" : true
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a5a4baafa4056ebe5d4924557393780a62c698125ce3c42f665adc405f77993
+size 119

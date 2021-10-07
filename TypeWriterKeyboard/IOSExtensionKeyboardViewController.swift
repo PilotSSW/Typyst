@@ -16,6 +16,9 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
 
     /// MARK: Variables
     private var dependencyContainer = KeyboardExtensionDependencyContainer.get()
+    private var externalKeyboardService: IOSUIKitKeyboardService {
+        dependencyContainer.uiKitKeyboardService
+    }
     private var keyboardService: KeyboardService {
         dependencyContainer.rootDependencyContainer.keyboardService
     }
@@ -40,14 +43,6 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        #if DEBUG
-        dependencyContainer.rootDependencyContainer.appDebugSettings.debugGlobal = true
-        dependencyContainer.rootDependencyContainer.appSettings.logErrorsAndCrashes = true
-        dependencyContainer.rootDependencyContainer.appSettings.volumeSetting = 100
-        #else
-        dependencyContainer.rootDependencyContainer.appDebugSettings.debugGlobal = false
-        #endif
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
             guard let self = self else { return }
@@ -55,7 +50,7 @@ final class IOSExtensionKeyboardViewController: UIInputViewController, Loggable 
         })
 
         NSSetUncaughtExceptionHandler { (exception) in
-            SwiftyBeaverLogger.logFatalCrash(exception)
+            Logging.logFatalCrash(exception)
         }
     }
 
@@ -213,23 +208,23 @@ extension IOSExtensionKeyboardViewController: KeyboardModelActionsDelegate {
     }
 }
 
-// MARK: Keyboard handling
+// MARK: External Keyboard handling
 extension IOSExtensionKeyboardViewController {
     override func pressesBegan(_ presses: Set<UIPress>,
                                with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)
-        //keyboardExtensionService.handleUIPressesEvent(event, .touchBegan, keyboardService: keyboardService)
+        externalKeyboardService.handleUIPressesEvent(event, .touchBegan)
     }
 
     override func pressesEnded(_ presses: Set<UIPress>,
                                with event: UIPressesEvent?) {
         super.pressesEnded(presses, with: event)
-        //keyboardExtensionService.handleUIPressesEvent(event, .touchEnded, keyboardService: keyboardService)
+        externalKeyboardService.handleUIPressesEvent(event, .touchEnded)
     }
 
     override func pressesCancelled(_ presses: Set<UIPress>,
                                    with event: UIPressesEvent?) {
         super.pressesCancelled(presses, with: event)
-        //keyboardExtensionService.handleUIPressesEvent(event, .touchCancelled, keyboardService: keyboardService)
+        externalKeyboardService.handleUIPressesEvent(event, .touchCancelled)
     }
 }

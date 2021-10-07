@@ -34,6 +34,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
     @State var isHovering: Bool = false
 
     var backgroundColor: Color
+    var cornerRadius: CGFloat?
     var textColor: Color = AppColor.textBody
 
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -65,28 +66,36 @@ struct NeumorphicButtonStyle: ButtonStyle {
         }
 
         return  configuration.label
-            .padding(8)
+            .padding(12)
             .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(backgroundColor)
-                        .blendMode(.overlay)
-                        .shadow(color: AppColor.objectShadowLight.opacity(shadowIntensity.rawValue),
-                                radius: shadowRadius,
-                                x: -xOffset,
-                                y: -yOffSet)
-                        .shadow(color: AppColor.objectShadowDark.opacity(shadowIntensity.rawValue),
-                                radius: shadowRadius,
-                                x: xOffset,
-                                y: yOffSet)
+                GeometryReader { geometry in
+                    let size = geometry.size
+                    let buttonCornerRadius = cornerRadius ?? (min(size.width, size.height) / 2)
 
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Color.clear)
-                        .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
-                                                  lineWidth: 0.75, antialiased: true))
+                    ZStack {
+                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                            .fill(backgroundColor)
+                            .blendMode(.overlay)
+                            .shadow(color: AppColor.objectShadowLight.opacity(shadowIntensity.rawValue),
+                                    radius: shadowRadius,
+                                    x: -xOffset,
+                                    y: -yOffSet)
+                            .shadow(color: AppColor.objectShadowDark.opacity(shadowIntensity.rawValue),
+                                    radius: shadowRadius,
+                                    x: xOffset,
+                                    y: yOffSet)
+
+                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                            .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
+                                          lineWidth: 0.75, antialiased: true)
+
+//                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+//                            .fill(Color.red.opacity(0.5))
+//                            .overlay(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+//                                        .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
+//                                                      lineWidth: 0.75, antialiased: true))
                 }
-            )
+            })
             .foregroundColor(textColor)
             .onHover(perform: { isHovering in
                 self.isHovering = isHovering

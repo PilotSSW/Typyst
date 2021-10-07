@@ -8,6 +8,7 @@ import Foundation
 // MARK: Protocol/implementation meant as common base type to extend for different types to use in app.
 
 protocol HashableKeyEvent: Hashable {
+    var id: UUID { get }
     var timeStamp: Date { get set }
     var keySet: KeySets.KeySetType? { get set }
     var direction: KeyEvent.KeyDirection { get set }
@@ -23,7 +24,7 @@ extension HashableKeyEvent {
     }
 
     static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        lhs.id == rhs.id && lhs.hashValue == rhs.hashValue
     }
 
     static func < (lhs: Self, rhs: Self) -> Bool {
@@ -37,12 +38,14 @@ extension HashableKeyEvent {
 // Mark: KeyEvents meant for use in App
 
 struct AnonymousKeyEvent: HashableKeyEvent {
+    let id: UUID
     var keySet: KeySets.KeySetType?
     var direction: KeyEvent.KeyDirection
     var isRepeat: Bool
     var timeStamp: Date
 
     init(_ keyEvent: KeyEvent, isRepeat: Bool = false) {
+        id = UUID()
         keySet = keyEvent.keySet
         direction = keyEvent.direction
         timeStamp = keyEvent.timeStamp
@@ -51,11 +54,13 @@ struct AnonymousKeyEvent: HashableKeyEvent {
 }
 
 struct KeyEvent: HashableKeyEvent {
+    let id: UUID
     var keySet: KeySets.KeySetType?
 
     enum KeyDirection {
         case keyDown
         case keyUp
+        case unknown
     }
     
     var key: Key
@@ -71,21 +76,13 @@ struct KeyEvent: HashableKeyEvent {
     }
 
     init(_ key: Key, _ direction: KeyDirection, _ modifiers: ModifierFlags, isRepeat: Bool = false, timeStamp: Date = Date()) {
+        id = UUID()
+        self.direction = direction
         self.key = key
         self.keySet = KeySets.keyIsOfKeySet(key)
         self.isRepeat = isRepeat
         self.modifiers = modifiers
         self.timeStamp = timeStamp
-
-        if (!KeyEvent.isFlagsChangedKey(key) || OSHelper.runtimeEnvironment == .keyboardExtension) { self.direction = direction }
-        else {
-            if (modifiers.contains(.shift)) {
-                self.direction = .keyUp
-            }
-            else {
-                self.direction = .keyDown
-            }
-        }
     }
 
     func asAnonymousKeyEvent() -> AnonymousKeyEvent {

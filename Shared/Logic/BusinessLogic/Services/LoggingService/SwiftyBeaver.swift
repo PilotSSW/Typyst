@@ -11,7 +11,7 @@ import GBDeviceInfo
 import SwiftyBeaver
 
 final class SwiftyBeaverLogger {
-    private let appSettings: AppSettings
+    private let settingsService: SettingsService
     private let appDebugSettings: AppDebugSettings
     private var store: Set<AnyCancellable>
 
@@ -19,9 +19,9 @@ final class SwiftyBeaverLogger {
 
     /// Mark: Init storing property observers externally for observing elsewhere
     init(withStore store: inout Set<AnyCancellable>,
-         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.appDebugSettings = appDebugSettings
         self.store = store
 
@@ -29,9 +29,9 @@ final class SwiftyBeaverLogger {
     }
 
     /// Mark: Init storing property observers internally and deallocating on deinit
-    init(appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+    init(settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          appDebugSettings: AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
-        self.appSettings = appSettings
+        self.settingsService = settingsService
         self.appDebugSettings = appDebugSettings
         self.store = Set<AnyCancellable>()
 
@@ -39,7 +39,7 @@ final class SwiftyBeaverLogger {
     }
 
     private func commonInit() {
-        appSettings.$logErrorsAndCrashes
+        settingsService.$logErrorsAndCrashes
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 let log = self.log
@@ -89,17 +89,24 @@ final class SwiftyBeaverLogger {
         if !appDebugSettings.debugGlobal && level < Logging.Level.warning { return }
 
         if let log = log {
+            var logText = message
+            if let error = error {
+                logText += """
+                    Error: \(error.localizedDescription)
+                """
+            }
+
             switch (logType) {
                 case .trace:
-                    log.verbose(message, file, function, line: line, context: [context, GBDeviceInfo()])
+                    log.verbose(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
                 case .debug:
-                    log.debug(message, file, function, line: line, context: [context, GBDeviceInfo()])
+                    log.debug(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
                 case .info:
-                    log.info(message, file, function, line: line, context: [context, GBDeviceInfo()])
+                    log.info(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
                 case .warning:
-                    log.warning(message, file, function, line: line, context: [context, GBDeviceInfo()])
+                    log.warning(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
                 case .error, .fatal:
-                    log.error(message, file, function, line: line, context: [context, GBDeviceInfo()])
+                    log.error(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
             }
         }
     }
@@ -107,7 +114,7 @@ final class SwiftyBeaverLogger {
 
 extension SwiftyBeaverLogger {
     static func logFatalCrash(_ exception: NSException? = nil) {
-        let logger = SwiftyBeaverLogger(appSettings: AppSettings(),
+        let logger = SwiftyBeaverLogger(settingsService: SettingsService(),
                                         appDebugSettings: AppDebugSettings())
         logger.log(.fatal, "Fatal error captured", error: nil, context: exception)
     }

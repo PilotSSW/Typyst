@@ -6,16 +6,16 @@
 import Combine
 import Foundation
 
-final class TypingStats {
+final class TypingStats: Loggable {
     private var keyEventStore: KeyEventStore?
 
     init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
          keyboardService: KeyboardService,
-         appSettings: AppSettings = RootDependencyContainer.get().appSettings,
+         settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          appDebugSettings:AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
         keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions,
                                       keyboardService: keyboardService,
-                                      appSettings: appSettings,
+                                      settingsService: settingsService,
                                       appDebugSettings: appDebugSettings)
     }
 
@@ -26,10 +26,15 @@ final class TypingStats {
 
 // Querying Functions
 extension TypingStats {
-    internal func keypressesInThePast(_ seconds: Double) -> Set<AnonymousKeyEvent> {
-        let currentTime = Date()
+    internal func keypressesInThePast(_ seconds: Double,
+                                      fromTime time: Date = Date(),
+                                      direction: KeyEvent.KeyDirection? = .keyDown) -> Set<AnonymousKeyEvent> {
+        logEvent(.trace, "keypresses in the past seconds: \(seconds)")
         return keyEventStore?.keyPresses.filter {
-            $0.timeStamp.distance(to: currentTime) <= seconds
+            let firstCondition = $0.timeStamp.distance(to: time) <= seconds
+            let secondCondition = direction != nil ? $0.direction == direction : true
+            let thirdCondition = !$0.isRepeat
+            return firstCondition && secondCondition && thirdCondition
         } ?? Set<AnonymousKeyEvent>()
     }
 

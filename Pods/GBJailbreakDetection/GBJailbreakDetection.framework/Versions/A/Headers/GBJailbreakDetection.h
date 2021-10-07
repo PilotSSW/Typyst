@@ -1,13 +1,3 @@
-//
-//  GBJailbreakDetection.h
-//  GBJailbreakDetection
-//
-//  Created by Luka Mirosevic on 20/03/2015.
-//  Copyright (c) 2015 Luka Mirosevic. All rights reserved.
-//
-
-//! Project version number for GBJailbreakDetection.
-FOUNDATION_EXPORT double GBJailbreakDetectionVersionNumber;
-
-//! Project version string for GBJailbreakDetection.
-FOUNDATION_EXPORT const unsigned char GBJailbreakDetectionVersionString[];
+version https://git-lfs.github.com/spec/v1
+oid sha256:c6c6229926be5e9e08f42f0112e3ababc3aa3b08de97f67fa9c1682f3bdde339
+size 409

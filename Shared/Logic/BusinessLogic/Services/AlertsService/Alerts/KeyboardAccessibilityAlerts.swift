@@ -20,8 +20,10 @@ final class KeyboardAccessibilityAlerts {
     }
 
     static func addToSystemAccessibilityInstructions(
-            dismissAction: (() -> Void)? = nil,
-            primaryAction: (() -> Void)? = nil) -> Alert {
+        dismissAction: (() -> Void)? = {
+            //OSHelper.quitApp()
+        },
+        primaryAction: (() -> Void)?) -> Alert {
         Alert(
             type: .systemInstruction,
             title: "System Permissions",
@@ -30,16 +32,14 @@ final class KeyboardAccessibilityAlerts {
                      to be added to the trusted applications in your system preferences. 
 
                      To do this, do the following: 
-                     1. Unlock your 'System Preferences' if they are locked by clicking lock icon \
-                        in the bottom right hand corner.
-                     2. Scroll down to the Accessibility tab in the left menu.
-                     3. Click the + icon underneath your trusted apps and search the 'Applications' \
-                        folder and add 'Typyst.app'
+                     1. Unlock your 'System Preferences' if they are locked by clicking lock icon in the bottom right hand corner.\
+                     2. Scroll down to the Accessibility tab in the left menu.\
+                     3. Click the + icon underneath your trusted apps and search the 'Applications' folder and add 'Typyst.app'\
                      4. Close 'System Preferences' and start using Typyst.
                      """,
             primaryButtonText: "Okay, they're added",
             primaryAction: primaryAction,
-            secondaryButtonText: "Close Typyst",
+            secondaryButtonText: "Cancel",
             secondaryAction: dismissAction)
     }
 
@@ -55,6 +55,7 @@ final class KeyboardAccessibilityAlerts {
             secondaryButtonText: nil,
             secondaryAction: nil)
     }
+
 //    @objc func keyCaptureUnavailableAlert(completion: ((NSApplication.ModalResponse) -> ())?) {
 //        let question = NSLocalizedString("Uh oh.", comment: "Key press events will not be available.")
 //        let info = NSLocalizedString("""

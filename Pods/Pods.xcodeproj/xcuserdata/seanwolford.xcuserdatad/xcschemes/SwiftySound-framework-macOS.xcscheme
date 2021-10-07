@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Scheme
-   version = "1.3">
-   <BuildAction>
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForRunning = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "820B0D54C95C023D5948C68020D52AF3"
-               BuildableName = "SwiftySound.framework"
-               BlueprintName = "SwiftySound-framework-macOS"
-               ReferencedContainer = "container:Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
-   </BuildAction>
-   <LaunchAction
-      useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
-      allowLocationSimulation = "YES">
-   </LaunchAction>
-</Scheme>
+version https://git-lfs.github.com/spec/v1
+oid sha256:c24ebbd80473332568e41dcf5c6db6c17a2a58242020130a55c5fe7acaf7c2ac
+size 2047
