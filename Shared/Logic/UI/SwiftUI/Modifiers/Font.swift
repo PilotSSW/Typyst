@@ -26,7 +26,7 @@ struct StyledText: ViewModifier {
     var textColor: Color = AppColor.textBody
 
     func body(content: Content) -> some View {
-        let newView = content
+        content
             .font(.custom("AmericanTypewriter",
                           size: CGFloat(textSize),
                           relativeTo: textStyle))
@@ -35,10 +35,7 @@ struct StyledText: ViewModifier {
             .lineSpacing(1.66)
             .allowsTightening(compressable)
             .minimumScaleFactor(compressable ? 0.85 : 1)
-//            .shadow(color: AppColor.textShadow, radius: 2)
-//            .shadow(color: AppColor.objectShadowLight, radius: 1.2)
-
-        return newView
+            .shadow(color: AppColor.textShadow, radius: 3)
     }
 }
 

@@ -18,7 +18,7 @@ struct TypeWriterSelector: View {
             HStack(spacing: 12) {
                 ForEach(Array(options.typeWriters.enumerated()), id: \.offset) { (index, option) in
                     TypeWriterImageButton(onClick: option.onClick,
-                                          typeWriterModel: option.modelType,
+                                          optionInfo: option,
                                           imageSize: .small,
                                           showBlurredImage: false)
                 }

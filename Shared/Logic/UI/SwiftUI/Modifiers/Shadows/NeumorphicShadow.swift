@@ -18,7 +18,7 @@ struct NeumorphicShadow: ViewModifier {
         let lightShadow = AppColor.objectShadowLight.opacity(shadowIntensity.rawValue)
         let darkShadow = AppColor.objectShadowDark.opacity(shadowIntensity.rawValue)
 
-        var result = content
+        let result = content
             .shadow(color: lightShadow,
                     radius: radius,
                     x: -x,
@@ -31,8 +31,9 @@ struct NeumorphicShadow: ViewModifier {
         if shouldRasterize {
             result.drawingGroup()
         }
-
-        return result
+        else {
+            result
+        }
     }
 }
 

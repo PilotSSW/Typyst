@@ -37,6 +37,6 @@ struct AnalyticsInfoView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 8)
-        .asParentCard(withColor: AppColor.cardSecondaryBackground)
+        .asChildCard(withColor: AppColor.cardSecondaryBackground)
     }
 }

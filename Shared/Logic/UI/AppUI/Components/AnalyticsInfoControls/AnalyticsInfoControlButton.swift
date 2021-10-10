@@ -19,7 +19,15 @@ struct AnalyticsInfoControlButton: View {
                 .frame(minWidth: 55, maxWidth: 92,
                        minHeight: 55, maxHeight: 66,
                        alignment: .center)
+                .padding(12)
         }
         .buttonStyle(NeumorphicButtonStyle(backgroundColor: backgroundColor, cornerRadius: 18))
+    }
+}
+
+struct AnalyticsInfoControlButton_Previews: PreviewProvider {
+    static var previews: some View {
+        AnalyticsInfoControlButton(text: "Do Something!",
+                                   backgroundColor: AppColor.buttonPrimary, action: {})
     }
 }

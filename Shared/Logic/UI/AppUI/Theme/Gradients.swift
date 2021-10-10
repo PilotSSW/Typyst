@@ -16,9 +16,6 @@ final class AppGradients {
             startPoint: .top,
             endPoint: .bottom
         )
-//        RadialGradient(gradient: Gradient(colors: [AppColor.cardOutlinePrimary.opacity(0.8), AppColor.cardOutlineSecondary.opacity(0.8)]),
-//                       center: .center,
-//                       startRadius: 5, endRadius: 20)
     }
 
     public static func buttonOutlineGradient(isPressed: Bool = false) -> LinearGradient {

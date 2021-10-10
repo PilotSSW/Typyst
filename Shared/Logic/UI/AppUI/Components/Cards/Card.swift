@@ -13,6 +13,7 @@ struct Card<Content: View>: View {
         case noStyleChild
         case roundedCornerChild
         case scrollableChildCard
+        case straightCorner
     }
     var contentStyle: CardContentStyle
 
@@ -70,7 +71,7 @@ struct Card<Content: View>: View {
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 4)
-            .asParentCard()
+            .asParentCard(withCornerRadius: contentStyle == .straightCorner ? 0.0 : 24.0)
     }
 
     @ViewBuilder
@@ -79,7 +80,7 @@ struct Card<Content: View>: View {
                 content
                     .asChildCard()
         }
-        else if (contentStyle == .noStyleChild) {
+        else if (contentStyle == .noStyleChild || contentStyle == .straightCorner) {
             content
         }
         else if (contentStyle == .roundedCornerChild) {
@@ -90,6 +91,9 @@ struct Card<Content: View>: View {
             content
             .asScrollableCard()
             .frame(maxHeight: maxContentHeight)
+        }
+        else if (contentStyle == .straightCorner) {
+            content
         }
     }
 }

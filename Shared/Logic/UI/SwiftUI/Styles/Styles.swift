@@ -49,62 +49,99 @@ struct NeumorphicButtonStyle: ButtonStyle {
 
         switch (interactionMode) {
         case .isPressed:
-            shadowIntensity = .mediumStrong
-            shadowRadius = 3.0
-            xOffset = -1.0
-            yOffSet = -3.0
-        case .isHovering:
             shadowIntensity = .veryStrong
-            shadowRadius = 4.0
-            xOffset = 2.0
-            yOffSet = 4.0
+            shadowRadius = 10
+            xOffset = 0.0
+            yOffSet = 6.0
+        case .isHovering:
+            shadowIntensity = .mediumStrong
+            shadowRadius = 5.0
+            xOffset = 0.0
+            yOffSet = 4.5
         case .noInteraction:
-            shadowIntensity = .medium
-            shadowRadius = 2.0
-            xOffset = 1.0
-            yOffSet = 2.0
+            shadowIntensity = .light
+            shadowRadius = 1.0
+            xOffset = 0.0
+            yOffSet = 0.5
         }
 
         return  configuration.label
-            .padding(12)
             .background(
                 GeometryReader { geometry in
                     let size = geometry.size
+                    let avgSize = size.height + size.width / 2
                     let buttonCornerRadius = cornerRadius ?? (min(size.width, size.height) / 2)
 
                     ZStack {
-                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                        let button = RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
                             .fill(backgroundColor)
                             .blendMode(.overlay)
-                            .shadow(color: AppColor.objectShadowLight.opacity(shadowIntensity.rawValue),
-                                    radius: shadowRadius,
-                                    x: -xOffset,
-                                    y: -yOffSet)
-                            .shadow(color: AppColor.objectShadowDark.opacity(shadowIntensity.rawValue),
-                                    radius: shadowRadius,
-                                    x: xOffset,
-                                    y: yOffSet)
+                            .scaleEffect(interactionMode == .isPressed
+                                     ? (avgSize / (avgSize + 3))
+                                     : interactionMode == .isHovering
+                                         ? (avgSize / (avgSize - 3))
+                                         : 1.0)
+                        
+                        if interactionMode == .isPressed {
+                            let lightGradient = LinearGradient(gradient: Gradient(colors: [Color.clear, Color.white]),
+                                                          startPoint: .top,
+                                                          endPoint: .bottom)
+                            
+                            let darkGradient = LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black]),
+                                                               startPoint: .bottom,
+                                                               endPoint: .top)
+                            button
+                                .overlay(RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                                            .stroke(AppColor.objectShadowLight.opacity(shadowIntensity.rawValue), lineWidth: size.height * 0.05)
+                                            .blur(radius: shadowRadius)
+                                            .offset(x: -xOffset, y: -yOffSet)
+                                            .mask(RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                                                    .fill(lightGradient)))
+                                .overlay(RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                                            .stroke(AppColor.objectShadowDark.opacity(shadowIntensity.rawValue), lineWidth: size.height * 0.15)
+                                            .blur(radius: shadowRadius)
+                                            .offset(x: xOffset, y: yOffSet)
+                                            .mask(RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                                                    .fill(darkGradient)))
+                        }
+                        else if [.isHovering, .noInteraction].contains(interactionMode) {
+                            button
+                                .shadow(color: AppColor.objectShadowLight.opacity(shadowIntensity.rawValue),
+                                        radius: shadowRadius,
+                                        x: -xOffset,
+                                        y: -yOffSet)
+                                .shadow(color: AppColor.objectShadowDark.opacity(shadowIntensity.rawValue),
+                                        radius: shadowRadius,
+                                        x: xOffset,
+                                        y: yOffSet)
+                        }
+                        else {
+                            button
+                        }
 
                         RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
                             .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
-                                          lineWidth: 0.75, antialiased: true)
-
-//                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-//                            .fill(Color.red.opacity(0.5))
-//                            .overlay(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-//                                        .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
-//                                                      lineWidth: 0.75, antialiased: true))
+                                          lineWidth: configuration.isPressed ? 0.5 : 0.25, antialiased: true)
+                            .scaleEffect(interactionMode == .isPressed
+                                         ? (avgSize / (avgSize + 3))
+                                         : interactionMode == .isHovering
+                                         ? (avgSize / (avgSize - 3))
+                                         : 1.0)
+                        
+                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+                            .strokeBorder(AppGradients.cardOutlineGradient,
+                                          lineWidth: 0.7, antialiased: true)
+                            .scaleEffect(interactionMode == .isPressed
+                                         ? (avgSize / (avgSize + 3))
+                                         : interactionMode == .isHovering
+                                         ? (avgSize / (avgSize - 3))
+                                         : 1.0)
                 }
             })
             .foregroundColor(textColor)
             .onHover(perform: { isHovering in
                 self.isHovering = isHovering
             })
-            .scaleEffect(interactionMode == .isPressed
-                             ? 0.95
-                             : interactionMode == .isHovering
-                                 ? 1.025
-                                 : 1.0)
-            .animation(.easeOut(duration: 0.15))
+            .animation(.interactiveSpring())
     }
 }

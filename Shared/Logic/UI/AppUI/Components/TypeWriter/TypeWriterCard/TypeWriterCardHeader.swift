@@ -13,6 +13,7 @@ struct TypeWriterCardHeader: View {
     var model: TypeWriterModel.ModelType
     var modelName: String
     var onClick: (() -> Void)? = nil
+    var maxHeight: CGFloat = 34
 
     @State
     var showAlert = false
@@ -25,29 +26,35 @@ struct TypeWriterCardHeader: View {
     }
 
     var body: some View {
-        Button(action: {
-            onClick?()
-        }, label: {
-            HStack() {
-                Text(maker)
-                    .bold()
-                Text("-")
-                Text(modelName)
-                    .bold()
-            }
-            .asStyledCardHeader(withBackgroundColor: isSelected
-                                    ? AppColor.buttonPrimary
-                                    : AppColor.buttonOvertone,
-                                maxHeight: 28)
-        })
-        .buttonStyle(PlainButtonStyle())
+        HStack() {
+            Text(maker)
+                .bold()
+            Text("-")
+            Text(modelName)
+                .bold()
+        }
+        .frame(maxWidth: .infinity)
+        .asStyledCardHeader(withBackgroundColor: isSelected
+                                ? AppColor.buttonPrimary
+                                : AppColor.buttonOvertone,
+                            maxHeight: maxHeight,
+                            onClickAction: onClick)
     }
 }
 
 struct TypeWriterCardHeader_Previews: PreviewProvider {
     static var previews: some View {
-        TypeWriterCardHeader(maker: "Smith-Corona",
-                             model: .Smith_Corona_Silent,
-                             modelName: "Silent")
+        let optionInfo = TypeWriterMenuOption(.Royal_Model_P)
+        
+        VStack() {
+            TypeWriterCardHeader(maker: optionInfo.model.maker,
+                                 model: optionInfo.model.model,
+                                 modelName: optionInfo.model.name)
+            
+            TypeWriterCardHeader(maker: optionInfo.model.maker,
+                                 model: optionInfo.model.model,
+                                 modelName: optionInfo.model.name,
+                                 onClick: {})
+        }
     }
 }

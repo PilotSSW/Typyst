@@ -7,28 +7,38 @@ import Foundation
 import SwiftUI
 
 struct TypeWriterCardBody: View {
-    @State var showAllText: Bool = false
     var description: String = ""
+    
+    @State var compressTextBody: Bool = true
+    @State var showAllText: Bool = false
 
     var body: some View {
         VStack {
             Text(description)
-                .asStyledText(lineLimit: showAllText ? nil : 5)
+                .asStyledText(textSize: compressTextBody
+                                  ? TextSize.normal.rawValue
+                                  : TextSize.veryLarge.rawValue,
+                              lineLimit: compressTextBody && !showAllText ? 5 : nil)
+                .multilineTextAlignment(.leading)
+                .lineSpacing(TextSize.veryLarge.rawValue)
                 .padding(.horizontal, 4)
 
-            Button(action: {
-                showAllText = !showAllText
-            }) {
-                Text(showAllText ? "Hide" : "Show more")
-                    .asStyledText(with: .footnote)
-                    .frame(minWidth: 55, maxWidth: .infinity,
-                           alignment: .center)
+            if compressTextBody {
+                Button(action: {
+                    showAllText = !showAllText
+                }) {
+                    Text(showAllText ? "Hide" : "Show more")
+                        .asStyledText(with: .title)
+                        .frame(minWidth: 55, maxWidth: .infinity,
+                               alignment: .center)
+                        .padding(8)
+                }
+                .buttonStyle(NeumorphicButtonStyle(
+                    backgroundColor: showAllText
+                        ? AppColor.buttonTertiary
+                        : AppColor.buttonOvertone))
             }
-            .buttonStyle(NeumorphicButtonStyle(
-                backgroundColor: showAllText
-                    ? AppColor.buttonTertiary
-                    : AppColor.buttonOvertone))
         }
-        .animation(.easeOut(duration: 0.15))
+        .animation(.interactiveSpring())
     }
 }

@@ -15,39 +15,38 @@ struct CardContentModifier: ViewModifier {
     var showStrokeBorder: Bool = true
 
     func body(content: Content) -> some View {
-        ZStack(alignment: .center, content: {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(showInsetStrokeBorder
-                        ? AppColor.buttonBorder
-                        : backgroundColor)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(0.667)
-                .layoutPriority(1)
-
-            if (showInsetStrokeBorder) {
-                RoundedRectangle(cornerRadius: cornerRadius - insetSize, style: .continuous)
-                    .fill(backgroundColor)
-                    .padding(insetSize + 0.667)
-                    .layoutPriority(3)
-
-                RoundedRectangle(cornerRadius: cornerRadius - insetSize, style: .continuous)
-                    .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 0.667, antialiased: true)
-                    .opacity(0.66)
-                    .padding(insetSize + 0.667)
-                    .layoutPriority(3)
-            }
-
-            if (showStrokeBorder) {
+        ZStack(alignment: .center) {
+            ZStack(alignment: .center, content: {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .strokeBorder(AppGradients.cardOutlineGradient,
-                                  lineWidth: 0.667,
-                                  antialiased: true)
-                    .layoutPriority(2)
-            }
+                    .fill(showInsetStrokeBorder
+                            ? AppColor.buttonBorder
+                            : backgroundColor)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(0.667)
 
+                if (showInsetStrokeBorder) {
+                    RoundedRectangle(cornerRadius: cornerRadius - insetSize, style: .continuous)
+                        .fill(backgroundColor)
+                        .padding(insetSize + 0.667)
+
+                    RoundedRectangle(cornerRadius: cornerRadius - insetSize, style: .continuous)
+                        .strokeBorder(AppGradients.cardOutlineGradient, lineWidth: 0.667, antialiased: true)
+                        .opacity(0.66)
+                        .padding(insetSize + 0.667)
+                }
+
+                if (showStrokeBorder) {
+                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .strokeBorder(AppGradients.cardOutlineGradient,
+                                      lineWidth: 0.667,
+                                      antialiased: true)
+                }
+            })
+                .drawingGroup()
+            
             content
-                .layoutPriority(4)
-        })
+                .layoutPriority(1)
+        }
     }
 }
 
@@ -69,10 +68,10 @@ extension View {
     func asParentCard(withColor color: Color = AppColor.cardPrimaryBackground,
                       withCornerRadius cornerRadius: CGFloat = 24) -> some View {
         #if os(macOS)
-            modifier(CardContentModifier(backgroundColor: color))
-                .neumorphicShadow()
+        modifier(CardContentModifier(backgroundColor: color, cornerRadius: cornerRadius))
+            .neumorphicShadow(shadowIntensity: .mediumStrong)
         #else
-            modifier(CardContentModifier(backgroundColor: color))
+        modifier(CardContentModifier(backgroundColor: color, cornerRadius: cornerRadius))
         #endif
     }
 

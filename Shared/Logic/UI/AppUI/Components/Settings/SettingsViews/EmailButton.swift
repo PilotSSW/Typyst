@@ -18,8 +18,9 @@ struct EmailButton: View {
                 Text("Email Typyst Support")
                     .bold()
                     .asStyledText(with: .title3)
+                
             }
-            .padding(.horizontal, 8)
+            .padding(12)
         }
         .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonSecondary))
     }

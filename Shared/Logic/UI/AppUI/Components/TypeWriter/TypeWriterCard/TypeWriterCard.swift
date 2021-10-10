@@ -19,8 +19,9 @@ struct TypeWriterCard: View {
                 modelName: optionInfo.model.name,
                 onClick: optionInfo.onClick)
 
-            TypeWriterImageButton(onClick: optionInfo.onClick,
-                                  typeWriterModel: optionInfo.modelType)
+            TypeWriterImageButton(
+                presentTypeWriterModal: true,
+                optionInfo: optionInfo)
 
             if let description = optionInfo.model.description {
                 Divider()

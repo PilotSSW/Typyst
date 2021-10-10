@@ -16,7 +16,7 @@ class VideoPlayerViewModel: Loggable {
 
         func getVideoFileProperties() -> VideoFile? {
             switch self {
-                case .accessibility: return VideoFile(url: "AddMacOSAccessibility",
+                case .accessibility: return VideoFile(url: "Media/AddMacOSAccessibility",
                                                   fileType: "mov",
                                                   dimensions: CGSize(width: 667, height: 590),
                                                   shouldLoop: true,

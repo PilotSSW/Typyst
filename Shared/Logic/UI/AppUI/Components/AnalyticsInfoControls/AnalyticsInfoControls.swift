@@ -5,7 +5,7 @@
 //  Created by Sean Wolford on 3/20/21.
 //  Copyright © 2021 wickedPropeller. All rights reserved.
 //
-
+import Combine
 import SwiftUI
 
 struct AnalyticsInfoControls: View {
@@ -51,8 +51,10 @@ struct AnalyticsInfoControls: View {
     }
 }
 
-//struct AnalyticsInfoControls_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AnalyticsInfoControls(viewModel: AnalyticsInfoCardViewModel())
-//    }
-//}
+struct AnalyticsInfoControls_Previews: PreviewProvider {
+    static var previews: some View {
+        var store = Set<AnyCancellable>()
+        let viewModel = AnalyticsInfoCardViewModel(subscriptions: &store)
+        AnalyticsInfoControls(viewModel: viewModel)
+    }
+}

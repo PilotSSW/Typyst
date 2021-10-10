@@ -10,41 +10,41 @@ struct TypeWriterImageButton: View {
     @State private var showVectorImage = true
 
     var onClick: (() -> Void)?
-    var typeWriterModel: TypeWriterModel.ModelType
-    var imageSize: AppImages.ImageSize = .large
+    var presentTypeWriterModal: Bool = false
+    var optionInfo: TypeWriterMenuOption
+    var imageSize: AppImages.ImageSize = .medium
     var showBlurredImage: Bool = true
     @State var showTypeWriterInfoWindow: Bool = false
 
     init(onClick: (() -> Void)? = nil,
-         typeWriterModel: TypeWriterModel.ModelType,
+         presentTypeWriterModal: Bool = false,
+         optionInfo: TypeWriterMenuOption,
          imageSize: AppImages.ImageSize = .medium,
          showBlurredImage: Bool = true) {
         self.onClick = onClick
-        self.typeWriterModel = typeWriterModel
+        self.optionInfo = optionInfo
+        self.presentTypeWriterModal = presentTypeWriterModal
         self.imageSize = imageSize
         self.showBlurredImage = showBlurredImage
     }
 
     var body: some View {
         Button(action: {
-            if let onClick = onClick {
-                onClick()
-                if (OSHelper.runtimeEnvironment == .macOS) { showTypeWriterInfoWindow = !showTypeWriterInfoWindow }
-            }
+            onClick?()
+            if (presentTypeWriterModal && OSHelper.runtimeEnvironment == .macOS) { showTypeWriterInfoWindow = true }
         }) {
             ZStack {
                 if showBlurredImage {
-                    if let image = AppImages.TypeWriters.getImageFor(typeWriterModel,
+                    if let image = AppImages.TypeWriters.getImageFor(optionInfo.modelType,
                                                                      imageType: .transparency,
                                                                      imageSize: imageSize) {
-                        image.interpolation(.none)
+                        image//.interpolation(.none)
                             .resizable()
                             .scaledToFit()
                             .offset(x: 12, y: 12)
                             .blur(radius: 40)
                             .blendMode(.exclusion)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .layoutPriority(2)
                     }
                 }
 
@@ -52,39 +52,22 @@ struct TypeWriterImageButton: View {
                     .fill(AppColor.ImageBackground)
                     .blendMode(.multiply)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .layoutPriority(1)
 
-//                if !showVectorImage {
-                    if let image = AppImages.TypeWriters.getImageFor(typeWriterModel,
-                                                                     imageType: showVectorImage
-                                                                             ? .vector
-                                                                             : .transparency,
-                                                                     imageSize: imageSize) {
-                        image.interpolation(.none)
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(0.93)
-                            .padding(8)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .layoutPriority(3)
-                            .animation(.interactiveSpring())
-                    }
-//                }
-
-//                if showVectorImage {
-//                    if let image = AppImages.TypeWriters.getImageFor(typeWriterModel,
-//                                                                     imageType: .vector,
-//                                                                     imageSize: imageSize) {
-//                        image.interpolation(.none)
-//                            .resizable()
-//                            .scaledToFit()
-//                            .scaleEffect(0.93)
-//                            .padding(8)
-//                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                            .layoutPriority(3)
-//                            .animation(.easeOut(duration: 0.5))
-//                    }
-//                }
+                if let image = AppImages.TypeWriters.getImageFor(optionInfo.modelType,
+                                                                 imageType: showVectorImage
+                                                                         ? .vector
+                                                                         : .transparency,
+                                                                 imageSize: imageSize) {
+                    image.interpolation(Image.Interpolation.high)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.93)
+                        .padding(8)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .animation(.interactiveSpring(response: 0.25,
+                                                      dampingFraction: 0.45,
+                                                      blendDuration: 1.5))
+                }
             }
         }
         .buttonStyle(PlainButtonStyle())
@@ -101,7 +84,11 @@ struct TypeWriterImageButton: View {
         .sheet(isPresented: $showTypeWriterInfoWindow,
                content: {
             #if os(macOS)
-                TypeWriterInfoModal(optionInfo: TypeWriterMenuOptions().typeWriters.first!)
+            TypeWriterInfoModal(optionInfo: optionInfo,
+                                onClose: {
+                    showTypeWriterInfoWindow = false
+                })
+                .frame(minWidth: 500, minHeight: 500)
             #endif
         })
     }
@@ -110,7 +97,7 @@ struct TypeWriterImageButton: View {
 struct TypeWriterImageButton_Previews: PreviewProvider {
     static var previews: some View {
         TypeWriterImageButton(onClick: { },
-                              typeWriterModel: .Smith_Corona_Silent,
+                              optionInfo: TypeWriterMenuOption(.Olympia_SM3),
                               imageSize: .medium,
                               showBlurredImage: false)
     }

@@ -1,2 +1,4 @@
 *.p12
 /Pods/Realm/core/realm-monorepo.xcframework/
+Shared/Soundsets/Olympia_SM3/.DS_Store
+.DS_Store
