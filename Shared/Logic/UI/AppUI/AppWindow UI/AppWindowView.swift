@@ -11,29 +11,34 @@ struct AppWindowView: View {
     @StateObject var viewModel = AppWindowViewModel()
 
     var body: some View {
-        GeometryReader { geometry in
-            let _ = viewModel.setViewDimensions(geometry.size)
-
-            HStack(spacing: 0) {
-                #if os(iOS)
-                if OSHelper.runtimeEnvironment == .iOS {
-                    NavigationContainer {
-                        InterfaceAndControls()
-                    }
-                        .layoutPriority(1)
-                }
-                else {
-                    InterfaceAndControls()
-                        .layoutPriority(1)
-                }
-                #elseif os(macOS)
+        if OSHelper.runtimeEnvironment == .iOS {
+            NavigationContainer() {
                 InterfaceAndControls()
-                    .layoutPriority(1)
-                #endif
+            }
+        }
+        else {
+            GeometryReader { geometry in
+                let _ = viewModel.setViewDimensions(geometry.size)
 
-                if (viewModel.shouldShowTypeWriterView) {
-                    TypeWriterView()
-                        .frame(maxWidth: .infinity)
+                ZStack(alignment: .bottomLeading) {
+                    HStack() {
+                        if (viewModel.shouldShowMenu) {
+                            InterfaceAndControls()
+                                .layoutPriority(1)
+                                .transition(.move(edge: .leading))
+                                .animation(.interactiveSpring()
+                                            .speed(0.5)
+                                    .delay(0.03))
+                        }
+                    
+                        if ([.ipadOS, .macOS].contains(OSHelper.runtimeEnvironment) &&
+                           viewModel.shouldShowTypeWriterView) {
+                            TypeWriterView()
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                    
+                    MenuToggleButton(toggleState: $viewModel.showMenu)
                 }
             }
         }

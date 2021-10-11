@@ -106,6 +106,10 @@
 		A32C400526E981AE00084E56 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C400226E981AE00084E56 /* VideoPlayerView.swift */; };
 		A32C400626E981AE00084E56 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C400326E981AE00084E56 /* VideoPlayerViewModel.swift */; };
 		A32C400726E981AE00084E56 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C400326E981AE00084E56 /* VideoPlayerViewModel.swift */; };
+		A32F24B32714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
+		A32F24B42714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
+		A32F24B52714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
+		A32F24B62714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
 		A333EDBD26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDBF26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDC226BA2AA300AA9B09 /* TypeWriterMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7251262355D600E32B91 /* TypeWriterMenuData.swift */; };
@@ -460,6 +464,8 @@
 		A3F2C2382710A8BF00A5941F /* Media in Resources */ = {isa = PBXBuildFile; fileRef = A3F2C2362710A8BF00A5941F /* Media */; };
 		A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
 		A3F3F66B266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
+		A3F5A14627149EEE008D700D /* NavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315F9B926F3B1D500664986 /* NavigationContainer.swift */; };
+		A3F5A14727149EEF008D700D /* NavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315F9B926F3B1D500664986 /* NavigationContainer.swift */; };
 		A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71C32623523400E32B91 /* Tests_iOS.swift */; };
 		A3FA71CF2623523400E32B91 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71CE2623523400E32B91 /* Tests_macOS.swift */; };
 		A3FA71D72623523400E32B91 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71A92623523300E32B91 /* Persistence.swift */; };
@@ -661,6 +667,7 @@
 		A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardContainer.swift; sourceTree = "<group>"; };
 		A32C400226E981AE00084E56 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoPlayerView.swift; path = Shared/Logic/UI/AppUI/Components/Videos/VideoPlayerView.swift; sourceTree = "<group>"; };
 		A32C400326E981AE00084E56 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoPlayerViewModel.swift; path = Shared/Logic/UI/AppUI/Components/Videos/VideoPlayerViewModel.swift; sourceTree = "<group>"; };
+		A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleButton.swift; sourceTree = "<group>"; };
 		A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterSelector.swift; sourceTree = "<group>"; };
 		A33D4343263C51E8004669A1 /* ResizableDragger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableDragger.swift; sourceTree = "<group>"; };
 		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -1008,13 +1015,21 @@
 			path = ../../../../..;
 			sourceTree = "<group>";
 		};
+		A32F24B12714B3DB00CCDE60 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		A333EDB826BA284600AA9B09 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				6EF6BF50FBCAC33CAD81EDC0 /* Alerts */,
 				A3FA7248262355D600E32B91 /* AnalyticsInfoControls */,
 				A3FA724D262355D600E32B91 /* AnalyticsInfoView */,
-				A3C0676F26FAE58800BD55B4 /* Buttons */,
+				A32F24B12714B3DB00CCDE60 /* Buttons */,
 				A35A67BA26DC5B1E004A1A4E /* Cards */,
 				A35A679F26D9606F004A1A4E /* Documents */,
 				A3D8FD9D26F388C700F5B55D /* Keyboards */,
@@ -1355,13 +1370,6 @@
 				A3B3DF5726E93EBB00D2FAAD /* MacOSService.swift */,
 			);
 			path = OSService;
-			sourceTree = "<group>";
-		};
-		A3C0676F26FAE58800BD55B4 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Buttons;
 			sourceTree = "<group>";
 		};
 		A3C9050D26AE689A007DC282 /* TypeWriterComponents */ = {
@@ -2260,6 +2268,7 @@
 				A3FA72D9262355D700E32B91 /* TypeWriterSettingsView.swift in Sources */,
 				A3FA72F9262355D700E32B91 /* Colors.swift in Sources */,
 				A35A67C326DC7003004A1A4E /* DocumentsService.swift in Sources */,
+				A32F24B32714B41F00CCDE60 /* MenuToggleButton.swift in Sources */,
 				A3FA7301262355D700E32B91 /* Labels.swift in Sources */,
 				A3A4BD8D2694A06A0010F72A /* KeyView.swift in Sources */,
 				A3975CA72627FF2A001DFD47 /* TypeWriterKeyLogic.swift in Sources */,
@@ -2416,11 +2425,13 @@
 				A36E473E26E5BC7000E647A0 /* SettingsComponent.swift in Sources */,
 				A39C9EA426F4C53E00F81A75 /* PageViewModel.swift in Sources */,
 				A3FA72BE262355D700E32B91 /* AnalyticsInfoView.swift in Sources */,
+				A32F24B42714B41F00CCDE60 /* MenuToggleButton.swift in Sources */,
 				A3FA72DE262355D700E32B91 /* EmailButton.swift in Sources */,
 				A36E474B26E5BC7000E647A0 /* OlympiaSM3Key.swift in Sources */,
 				A3FA732A262355D700E32B91 /* SystemFunctions.swift in Sources */,
 				A376955726EC6F28004B552C /* BrowserView.swift in Sources */,
 				A3A63B5A26F3FACF00E03633 /* DocumentViewModel.swift in Sources */,
+				A3F5A14627149EEE008D700D /* NavigationContainer.swift in Sources */,
 				A3D8FD9B26F3830100F5B55D /* Shadow.swift in Sources */,
 				A3557B5B26F988BF00D2F3A7 /* InterfaceAndControlsViewModel.swift in Sources */,
 				A36E474426E5BC7000E647A0 /* KeyboardViewModel.swift in Sources */,
@@ -2559,6 +2570,7 @@
 				A3BE142C26E665B900A3EAB0 /* CardHeaderModifier.swift in Sources */,
 				A35C06B5267AC14600EFC9A0 /* RootDependencyContainer.swift in Sources */,
 				A3BE883B26D3578E0063D390 /* TypeWriterCardImageButton.swift in Sources */,
+				A32F24B52714B41F00CCDE60 /* MenuToggleButton.swift in Sources */,
 				A35A67AA26D960D0004A1A4E /* DocumentsListViewModel.swift in Sources */,
 				A3236827268E53DA00CB2B25 /* RepeatingTimer.swift in Sources */,
 				A38A058026E46882001E2543 /* AppWindowView.swift in Sources */,
@@ -2643,6 +2655,7 @@
 				A3B5077E268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
 				A35B665226DFD62500305797 /* Font.swift in Sources */,
 				A35E9A872712349A00DA01BB /* TypeWriterInfoModalViewModel.swift in Sources */,
+				A32F24B62714B41F00CCDE60 /* MenuToggleButton.swift in Sources */,
 				A3E35A4A26C74F390030DBC2 /* OSHelper.swift in Sources */,
 				A35B664E26DC772100305797 /* DocumentsListAddRow.swift in Sources */,
 				A36E475726E5BC7300E647A0 /* KeyViewModel.swift in Sources */,
@@ -2651,6 +2664,7 @@
 				A32C400526E981AE00084E56 /* VideoPlayerView.swift in Sources */,
 				A36E475526E5BC7300E647A0 /* RoyalModelPKey.swift in Sources */,
 				A38A058126E46882001E2543 /* AppWindowView.swift in Sources */,
+				A3F5A14727149EEF008D700D /* NavigationContainer.swift in Sources */,
 				A3ACC78126E9578800BD02C8 /* AppWindowContainerView.swift in Sources */,
 				A376955326EC6CDD004B552C /* WebViewModel.swift in Sources */,
 				A355164F26C956EA005F033E /* AppSettingsView.swift in Sources */,
@@ -2933,6 +2947,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = iphoneos;
@@ -2962,6 +2977,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = iphoneos;
@@ -2981,7 +2997,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2991,6 +3007,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -3025,7 +3042,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HMSA3J82Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -3035,6 +3052,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = macosx;

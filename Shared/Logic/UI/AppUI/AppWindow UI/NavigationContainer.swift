@@ -20,8 +20,9 @@ struct NavigationContainer<Content: View>: View {
         self.content = content()
     }
 
+    #if os(iOS)
     var body: some View {
-        NavigationView {
+        NavigationView() {
             content
         }
             .navigationBarTitle("")
@@ -33,6 +34,15 @@ struct NavigationContainer<Content: View>: View {
                 self.navBarHidden = false
             }
     }
+    #elseif os(macOS)
+    var body: some View {
+        NavigationView() {
+            Text("")
+            content
+        }
+        .navigationViewStyle(DoubleColumnNavigationViewStyle())
+    }
+    #endif
 }
 
 struct NavigationContainer_Previews: PreviewProvider {
