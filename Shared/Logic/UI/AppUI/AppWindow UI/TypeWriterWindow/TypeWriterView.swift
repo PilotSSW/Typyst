@@ -44,6 +44,9 @@ struct TypeWriterView: View {
                            maxHeight: viewModel.keyboardMaxHeight,
                            alignment: .center)
                     .shadow(color: AppColor.objectShadowDark.opacity(0.5), radius: 3.5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: -2)
+                    .animation(.interactiveSpring()
+                                .speed(0.75)
+                                .delay(0.03))
             }
         }
         .frame(maxWidth: .infinity)

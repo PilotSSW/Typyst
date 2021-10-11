@@ -288,10 +288,10 @@
 		A376955726EC6F28004B552C /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955526EC6F28004B552C /* BrowserView.swift */; };
 		A376955826EC6F28004B552C /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955526EC6F28004B552C /* BrowserView.swift */; };
 		A376955926EC6F28004B552C /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955526EC6F28004B552C /* BrowserView.swift */; };
-		A376955B26EC7390004B552C /* DocumentsListWebRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListWebRow.swift */; };
-		A376955C26EC7390004B552C /* DocumentsListWebRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListWebRow.swift */; };
-		A376955D26EC7390004B552C /* DocumentsListWebRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListWebRow.swift */; };
-		A376955E26EC7390004B552C /* DocumentsListWebRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListWebRow.swift */; };
+		A376955B26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */; };
+		A376955C26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */; };
+		A376955D26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */; };
+		A376955E26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */; };
 		A37DC7BB26C95C6D009440F1 /* KeyboardContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DC7BA26C95C6D009440F1 /* KeyboardContainerViewModel.swift */; };
 		A37DC7BC26C95C6D009440F1 /* KeyboardContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DC7BA26C95C6D009440F1 /* KeyboardContainerViewModel.swift */; };
 		A37DC7BD26C95C6D009440F1 /* KeyboardContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DC7BA26C95C6D009440F1 /* KeyboardContainerViewModel.swift */; };
@@ -702,7 +702,7 @@
 		A376954A26EC6CD2004B552C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A376954F26EC6CDD004B552C /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		A376955526EC6F28004B552C /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
-		A376955A26EC7390004B552C /* DocumentsListWebRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsListWebRow.swift; sourceTree = "<group>"; };
+		A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsListGoogleDocsRow.swift; sourceTree = "<group>"; };
 		A37DC7BA26C95C6D009440F1 /* KeyboardContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardContainerViewModel.swift; sourceTree = "<group>"; };
 		A37DEC5226A0BF9600965DC4 /* KeyGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupViewModel.swift; sourceTree = "<group>"; };
 		A37DEC5826A0BFB200965DC4 /* KeyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupView.swift; sourceTree = "<group>"; };
@@ -1193,7 +1193,7 @@
 			children = (
 				A35A67AE26D9708A004A1A4E /* DocumentsListRow.swift */,
 				A35B664A26DC772100305797 /* DocumentsListAddRow.swift */,
-				A376955A26EC7390004B552C /* DocumentsListWebRow.swift */,
+				A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */,
 			);
 			path = DocumentsListRow;
 			sourceTree = "<group>";
@@ -2260,7 +2260,7 @@
 				A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */,
 				A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */,
 				A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */,
-				A376955B26EC7390004B552C /* DocumentsListWebRow.swift in Sources */,
+				A376955B26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				A3E35A5426C75C950030DBC2 /* TypeWriterBackground.swift in Sources */,
 				A37DEC5926A0BFB200965DC4 /* KeyGroupView.swift in Sources */,
 				A38A058326E52C14001E2543 /* AppWindowViewModel.swift in Sources */,
@@ -2510,7 +2510,7 @@
 				6EF6B9174216C245F1E26F2A /* AppSettingsMenuItems.swift in Sources */,
 				A35A8F0026E3B73E00269386 /* RealmDocumentService.swift in Sources */,
 				6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */,
-				A376955C26EC7390004B552C /* DocumentsListWebRow.swift in Sources */,
+				A376955C26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				6EF6B83D11F288968BA3AFBD /* TypeWriters.swift in Sources */,
 				A38A057526E46678001E2543 /* TypeWriterView.swift in Sources */,
 				A36E474126E5BC7000E647A0 /* KeyboardModel.swift in Sources */,
@@ -2612,7 +2612,7 @@
 				A333EDBD26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */,
 				A3236825268E53D300CB2B25 /* SwiftExtensions.swift in Sources */,
 				A35B664D26DC772100305797 /* DocumentsListAddRow.swift in Sources */,
-				A376955D26EC7390004B552C /* DocumentsListWebRow.swift in Sources */,
+				A376955D26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				A3A63B5B26F3FACF00E03633 /* DocumentViewModel.swift in Sources */,
 				A35A679B26D95D2C004A1A4E /* DocumentsCard.swift in Sources */,
 				A315F9BC26F3B1D500664986 /* NavigationContainer.swift in Sources */,
@@ -2714,7 +2714,7 @@
 				A3E2AB0226892F3500F43757 /* SoundsService.swift in Sources */,
 				A3557B5F26F98DA400D2F3A7 /* InterfaceAndControls.swift in Sources */,
 				A3E2AAFC26892DE600F43757 /* TypeWriterModel.swift in Sources */,
-				A376955E26EC7390004B552C /* DocumentsListWebRow.swift in Sources */,
+				A376955E26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				A3E2AAEA26892D1D00F43757 /* LoggingService.swift in Sources */,
 				A3236829268E53DB00CB2B25 /* RepeatingTimer.swift in Sources */,
 				A36E474F26E5BC7300E647A0 /* OlympiaSM3Background.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DocumentsListWebRow.swift
+//  DocumentsListGoogleDocsRow.swift
 //  Typyst
 //
 //  Created by Sean Wolford on 9/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DocumentsListWebRow: View {
+struct DocumentsListGoogleDocsRow: View {
     var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
 
     var body: some View {
@@ -47,8 +47,8 @@ struct DocumentsListWebRow: View {
     }
 }
 
-struct DocumentsListWebRow_Previews: PreviewProvider {
+struct DocumentsListGoogleDocsRow_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentsListWebRow()
+        DocumentsListGoogleDocsRow()
     }
 }

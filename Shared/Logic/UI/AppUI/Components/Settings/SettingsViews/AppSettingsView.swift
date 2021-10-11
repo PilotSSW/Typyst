@@ -28,24 +28,25 @@ struct AppSettingsView: View {
                           setting: $appDebugSettings.debugGlobal)
             #endif
 
-            if ([.macOS].contains(OSHelper.runtimeEnvironment)) {            SettingToggle(settingName: "Play TypeWriter sounds outside of Typyst",
-                          setting: $settingsService.allowExternalMacOSKeypresses)
+            if ([.macOS].contains(OSHelper.runtimeEnvironment)) {
+                SettingToggle(settingName: "Play typewriter sounds outside of Typyst",
+                              setting: $settingsService.allowExternalMacOSKeypresses)
             }
 
             if (![.keyboardExtension].contains(OSHelper.runtimeEnvironment)) {
-                SettingToggle(settingName: "Allow Typing Statistics",
-                          setting: $settingsService.logUsageAnalytics)
+                SettingToggle(settingName: "Allow typing statistics to be tracked",
+                              setting: $settingsService.logUsageAnalytics)
 
 
                 SettingToggle(settingName: "Show modal notifications",
                               setting: $settingsService.showModalNotifications)
             }
 
-            SettingToggle(settingName: "Log Errors and Crashes",
+            SettingToggle(settingName: "Send errors and crashes to developer",
                           setting: $settingsService.logErrorsAndCrashes)
 
             if ([.ipadOS, .macOS].contains(OSHelper.runtimeEnvironment)) {
-                SettingToggle(settingName: "Show TypeWriterView",
+                SettingToggle(settingName: "Show typewriter",
                               setting: $settingsService.showTypeWriterView)
             }
 

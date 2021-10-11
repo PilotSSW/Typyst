@@ -13,7 +13,7 @@ struct DocumentsList: View {
     var body: some View {
         List() {
             Section(header: Text("Elsewhere").asStyledText()) {
-                DocumentsListWebRow()
+                DocumentsListGoogleDocsRow()
                     .padding(8)
             }
 //            .removingScrollViewBackground()

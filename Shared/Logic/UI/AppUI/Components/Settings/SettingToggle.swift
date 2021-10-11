@@ -24,7 +24,7 @@ struct SettingToggle: View {
 
             Spacer()
 
-            Toggle("", isOn: setting)
+            Toggle("", isOn: setting.animation())
                 .toggleStyle(SwitchToggleStyle(tint: AppColor.buttonPrimary))
                 .frame(alignment: .trailing)
 // Remove shadow - broken on iOS ???
