@@ -20,8 +20,9 @@ struct MenuToggleButton: View {
                 .padding(.horizontal, 13.5)
                 .padding(.vertical, 12)
         }
-        .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonSecondary))
-        .opacity(isFullOpacity ? 1.0 : 0.33)
+        .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonTertiary))
+        .opacity(isFullOpacity ? 1.0 : 0.25)
+        .scaleEffect(isFullOpacity ? 1.25 : 0.75)
         .padding(6)
         .onHover(perform: { isHovering in
             isFullOpacity = isHovering

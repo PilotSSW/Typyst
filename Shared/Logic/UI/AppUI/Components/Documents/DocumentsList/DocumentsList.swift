@@ -14,6 +14,7 @@ struct DocumentsList: View {
         List() {
             Section(header: Text("Elsewhere").asStyledText()) {
                 DocumentsListWebRow()
+                    .padding(8)
             }
 //            .removingScrollViewBackground()
 

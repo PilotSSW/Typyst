@@ -31,18 +31,27 @@ struct TypeWriterInfoModal: View {
                     .buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonTertiary))
                 }
                 
-                HStack() {
+                HSplitView() {
                     TypeWriterImageButton(onClick: nil,
                                           presentTypeWriterModal: false,
                                           optionInfo: optionInfo,
                                           imageSize: .large)
+                        .frame(minWidth: 400, idealWidth: 600)
+                        .padding(.trailing, optionInfo.model.description != nil ? 8 : 0)
                     
                     if let description = optionInfo.model.description {
-                        Divider().padding(.horizontal, 24)
-                        
-                        TypeWriterCardBody(description: description,
-                                           compressTextBody: false)
-                            .frame(minWidth: 100, maxWidth: 400)
+                        ScrollView() {
+                            Spacer()
+                                .frame(width: 12)
+                            
+                            TypeWriterCardBody(description: description,
+                                               compressTextBody: false)
+                                .frame(minWidth: 180, idealWidth: 450, maxWidth: 750)
+                            
+                            Spacer()
+                                .frame(width: 12)
+                        }
+                        .padding(.leading, 8)
                     }
                 }
             }.padding(8)

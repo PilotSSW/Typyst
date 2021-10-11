@@ -88,7 +88,7 @@ struct TypeWriterImageButton: View {
                                 onClose: {
                     showTypeWriterInfoWindow = false
                 })
-                .frame(minWidth: 500, minHeight: 500)
+                .frame(minWidth: 610, minHeight: 480)
             #endif
         })
     }

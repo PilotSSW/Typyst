@@ -17,21 +17,33 @@ struct DocumentsListWebRow: View {
                 label: {
                     content
                 })
+                .buttonStyle(NeumorphicButtonStyle(backgroundColor: .white))
+                .simultaneousGesture(TapGesture().onEnded() {
+                    let _ = documentsService.setWebDocument()
+                })
         }
         else {
-            content
+            Button(action: {
+                let _ = documentsService.setWebDocument()
+            }) {
+                content
+            }
+            .buttonStyle(NeumorphicButtonStyle(backgroundColor: .white))
         }
     }
 
     @ViewBuilder
     private var content: some View {
-        Text("Google Docs")
-            .asStyledText()
+        HStack() {
+            Text("Google Docs")
+                .asStyledText(with: .largeTitle)
+            
+            Image("Icons/googleDocsIcon")
+                .resizable()
+                .frame(width: 16, height: 16)
+        }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .padding(8)
-            .simultaneousGesture(TapGesture().onEnded() {
-                let _ = documentsService.setWebDocument()
-            })
+            .padding(12)
     }
 }
 
