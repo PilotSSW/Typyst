@@ -1,8 +1,11 @@
+source 'https://cdn.cocoapods.org/'
+
 # Uncomment the next line to define a global platform for your project
 abstract_target 'Laptop' do
   platform :macos, '11.0'
 
   pod 'GBDeviceInfo'
+  pod 'Introspect'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 
@@ -20,6 +23,7 @@ abstract_target 'Mobile' do
   platform :ios, '14.0'
 
   pod 'GBDeviceInfo'
+  pod 'Introspect'
   pod 'SwiftyBeaver'
   pod 'SwiftySound'
 

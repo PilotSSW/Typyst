@@ -16,6 +16,7 @@ struct Card<Content: View>: View {
         case straightCorner
     }
     var contentStyle: CardContentStyle
+    var contentBackgroundColor: Color
 
     let title: String?
     let isResizable: Bool
@@ -26,12 +27,13 @@ struct Card<Content: View>: View {
 
     init(title: String? = nil,
          cardContentStyle: CardContentStyle = .childCard,
+         cardContentBackgroundColor: Color = AppColor.cardSecondaryBackground,
          isResizable: Bool = false,
-         contentIsOnChildCard: Bool = true,
          onTitleClick: (() -> Void)? = nil,
          @ViewBuilder _ content: () -> Content) {
         self.title = title
         self.contentStyle = cardContentStyle
+        self.contentBackgroundColor = cardContentBackgroundColor
         self.isResizable = isResizable
         self.onTitleClick = onTitleClick
         self.content = content()
@@ -48,6 +50,7 @@ struct Card<Content: View>: View {
                 }
 
                 styledContent
+                    .frame(maxHeight: .infinity)
 
                 #if os(macOS)
                 if (isResizable) {
@@ -77,23 +80,29 @@ struct Card<Content: View>: View {
     @ViewBuilder
     var styledContent: some View {
         if (contentStyle == .childCard) {
-                content
-                    .asChildCard()
+            content
+                .asChildCard(withColor: contentBackgroundColor)
         }
-        else if (contentStyle == .noStyleChild || contentStyle == .straightCorner) {
+        else if (contentStyle == .noStyleChild) {
             content
         }
         else if (contentStyle == .roundedCornerChild) {
-            content
+            ZStack() {
+                contentBackgroundColor
+                content
+            }
                 .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         }
         else if (contentStyle == .scrollableChildCard) {
             content
-            .asScrollableCard()
-            .frame(maxHeight: maxContentHeight)
+                .asScrollableCard(withColor: contentBackgroundColor)
+                .frame(maxHeight: maxContentHeight)
         }
         else if (contentStyle == .straightCorner) {
-            content
+            ZStack() {
+                contentBackgroundColor
+                content
+            }
         }
     }
 }
@@ -115,7 +124,7 @@ struct Card_Previews: PreviewProvider {
             }
             Card(title: "A Card!", cardContentStyle: .scrollableChildCard) {
                 Text("Hello")
-                    .frame(maxWidth: .infinity, minHeight: 120, maxHeight: 120)
+                    .frame(maxWidth: .infinity, minHeight: 120, maxHeight: 240)
             }
         }
     }

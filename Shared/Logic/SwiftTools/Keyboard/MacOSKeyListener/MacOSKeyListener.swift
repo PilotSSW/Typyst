@@ -117,7 +117,7 @@ extension MacOSKeyListener {
         }
         // Case: Unrecognized modifier flag
         else {
-            logEvent(.warning, "Unrecognized modifier flag \nKeyPress:\(keyPressed)\nEvent:\(event)")
+            logEvent(.warning, "Unrecognized modifier flag \nKeyPress:\(keyPressed)\nEvent:\(String(describing: event))")
             direction = .unknown
         }
 

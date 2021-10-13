@@ -8,29 +8,28 @@
 import SwiftUI
 
 struct DocumentsCard: View {
-    @Binding var isFullHeight: Bool
-    var onTitleClick: (() -> Void)? = nil
+    private var onTitleClick: (() -> Void)? = nil
+    @Binding private var documentsListViewModel: DocumentsListViewModel
 
-    init(onTitleClick: (() -> Void)? = nil,
-         isFullHeight: Binding<Bool> = .constant(false)) {
+    init(documentsListViewModel: Binding<DocumentsListViewModel> = .constant(DocumentsListViewModel()),
+         onTitleClick: (() -> Void)? = nil) {
         self.onTitleClick = onTitleClick
-        self._isFullHeight = isFullHeight
+        self._documentsListViewModel = documentsListViewModel
     }
 
     var body: some View {
         Card(title: "Documents",
              cardContentStyle: .roundedCornerChild,
              onTitleClick: onTitleClick) {
-            DocumentsList()
-                .frame(minHeight: 340,
-                       maxHeight: isFullHeight ? .infinity : 400)
+            DocumentsList(viewModel: documentsListViewModel)
+                .padding(6)
         }
     }
 }
 
 struct DocumentsCard_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentsCard(isFullHeight: .constant(true))
-            .frame(width: 375, height: 400)
+        DocumentsCard()
+            .frame(width: 375)
     }
 }

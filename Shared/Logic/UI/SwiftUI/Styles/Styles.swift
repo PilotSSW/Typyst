@@ -65,7 +65,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
             yOffSet = 0.5
         }
 
-        return  configuration.label
+        return configuration.label
             .background(
                 GeometryReader { geometry in
                     let size = geometry.size

@@ -5,38 +5,48 @@
 //  Created by Sean Wolford on 8/27/21.
 //
 
+import Introspect
 import SwiftUI
 
 struct DocumentsList: View {
-    @StateObject var viewModel = DocumentsListViewModel()
+    @ObservedObject var viewModel: DocumentsListViewModel = DocumentsListViewModel()
 
     var body: some View {
         List() {
-            Section(header: Text("Elsewhere").asStyledText()) {
+            Section(header: Text("Elsewhere")
+                        .asStyledText()
+                        .background(Color.clear)) {
                 DocumentsListGoogleDocsRow()
                     .padding(8)
             }
-//            .removingScrollViewBackground()
 
-            Section(header: Text("Typyst Journal").asStyledText()) {
+            Section(header: Text("Typyst Journal")
+                        .asStyledText()
+                        .background(Color.clear)) {
                 DocumentsListAddRow()
+                    .padding(8)
+                
+                ForEach(viewModel.documents, id: \.id) { document in
+                    #if os(macOS)
+                    let _ = print("\(document.documentName) - \(document.id)")
+                    DocumentsListRow(document: document)
+                        .onDeleteCommand(perform: {
+                            viewModel.deleteDocument(document)
+                        })
 
-//                LazyVStack() {
-                    ForEach(viewModel.documents, id: \.id) { document in
-                        #if os(macOS)
-                        DocumentsListRow(document: document)
-                            .onDeleteCommand(perform: {
-                                viewModel.deleteDocument(document)
-                            })
-                        #else
-                        DocumentsListRow(document: document)
-                        #endif
-                    }
-//                }
+                    #else
+                    DocumentsListRow(document: document)
+                    #endif
+                }
+                .onDelete { index in
+                    //viewModel.deleteDocument()
+                }
             }
-//            .removingScrollViewBackground()
         }
-        .listStyle(InsetListStyle())
+//        .listStyle(PlainListStyle())
+        .frame(minHeight: viewModel.minHeight, maxHeight: .infinity)
+        .environment(\.defaultMinListRowHeight, viewModel.rowHeight)
+        .environment(\.defaultMinListHeaderHeight, viewModel.headerHeight)
     }
 }
 

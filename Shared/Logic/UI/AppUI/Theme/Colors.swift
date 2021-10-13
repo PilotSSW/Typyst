@@ -97,6 +97,10 @@ struct AppColor {
         Color("Buttons/Border")
     }
 
+    public static var buttonNeutral: Color {
+        Color("Buttons/Neutral")
+    }
+    
     public static var buttonOvertone: Color {
         Color("Buttons/Overtone")
     }

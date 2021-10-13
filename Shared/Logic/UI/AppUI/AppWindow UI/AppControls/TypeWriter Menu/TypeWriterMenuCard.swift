@@ -24,6 +24,7 @@ struct TypeWriterMenuCard: View {
     var body: some View {
         Card(title: "Typewriters",
              cardContentStyle: isFullHeight ? .noStyleChild : .scrollableChildCard,
+             cardContentBackgroundColor: isFullHeight ? AppColor.cardPrimaryBackground : AppColor.cardTertiaryBackground,
              onTitleClick: onTitleClick) {
             TypeWriterMenu(options: options)
         }

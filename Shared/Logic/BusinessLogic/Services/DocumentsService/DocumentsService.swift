@@ -49,7 +49,7 @@ class DocumentsService: ObservableObject {
         realmDocumentService?.deleteDocument(document) ?? false
     }
 
-    func setCurrentDocument(_ document: Document) {
+    func setCurrentDocument(_ document: Document?) {
         currentDocument = document
         webDocumentIsLoaded = false
     }
@@ -61,13 +61,13 @@ class DocumentsService: ObservableObject {
 }
 
 class Document: ObservableObject, Identifiable {
-    @Published var id: Int
+    @Published var id: UUID
     @Published var documentName: String
     @Published var dateCreated: Date
     @Published var dateLastOpened: Date
     @Published var textBody: String
 
-    init(id: Int = UUID().hashValue,
+    init(id: UUID = UUID(),
          documentName: String,
          dateCreated: Date = Date(),
          dateLastOpened: Date = Date(),
@@ -77,5 +77,19 @@ class Document: ObservableObject, Identifiable {
         self.dateCreated = dateCreated
         self.dateLastOpened = dateLastOpened
         self.textBody = textBody
+    }
+}
+
+extension Document: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(documentName.hashValue)
+        hasher.combine(dateCreated.hashValue)
+    }
+    
+    static func == (lhs: Document, rhs: Document) -> Bool {
+        lhs.id != rhs.id &&
+        lhs.documentName != rhs.documentName &&
+        lhs.dateCreated != rhs.dateCreated
     }
 }

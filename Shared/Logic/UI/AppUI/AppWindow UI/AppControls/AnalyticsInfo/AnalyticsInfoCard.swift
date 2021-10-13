@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 
 struct AnalyticsInfoCard: View {
-    @StateObject var viewModel = AnalyticsInfoCardViewModel(subscriptions: &RootDependencyContainer.get().subscriptions)
+    @ObservedObject var viewModel: AnalyticsInfoCardViewModel
+    
     var showInfo: Bool {
         viewModel.state == .logging
     }

@@ -99,6 +99,16 @@
 		A323682B268E53DC00CB2B25 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA72A0262355D600E32B91 /* RepeatingTimer.swift */; };
 		A323682C268E53DC00CB2B25 /* SystemFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729F262355D600E32B91 /* SystemFunctions.swift */; };
 		A326BC5526C6E6CD0087E65D /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
+		A329D97D27161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
+		A329D97E27161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
+		A329D97F27161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
+		A329D98027161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
+		A329D98227168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
+		A329D98327168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
+		A329D98427168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
+		A329D98527168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
+		A329D9872716A1A4004D8990 /* AppKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D9862716A1A4004D8990 /* AppKitExtensions.swift */; };
+		A329D9882716A1A4004D8990 /* AppKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D9862716A1A4004D8990 /* AppKitExtensions.swift */; };
 		A32BE10F26C610BB009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
 		A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
 		A32BE11226C6119C009A94BB /* KeyboardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */; };
@@ -110,6 +120,10 @@
 		A32F24B42714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
 		A32F24B52714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
 		A32F24B62714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
+		A32F24BD2715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
+		A32F24BE2715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
+		A32F24BF2715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
+		A32F24C02715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
 		A333EDBD26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDBF26BA287400AA9B09 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A333EDC226BA2AA300AA9B09 /* TypeWriterMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7251262355D600E32B91 /* TypeWriterMenuData.swift */; };
@@ -664,10 +678,14 @@
 		A315F9B926F3B1D500664986 /* NavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainer.swift; sourceTree = "<group>"; };
 		A32367E4268E515300CB2B25 /* TypystKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TypystKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32367E8268E515300CB2B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsListRowBackground.swift; sourceTree = "<group>"; };
+		A329D98127168D12004D8990 /* ListExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtension.swift; sourceTree = "<group>"; };
+		A329D9862716A1A4004D8990 /* AppKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitExtensions.swift; sourceTree = "<group>"; };
 		A32BE10E26C610BB009A94BB /* KeyboardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardContainer.swift; sourceTree = "<group>"; };
 		A32C400226E981AE00084E56 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoPlayerView.swift; path = Shared/Logic/UI/AppUI/Components/Videos/VideoPlayerView.swift; sourceTree = "<group>"; };
 		A32C400326E981AE00084E56 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoPlayerViewModel.swift; path = Shared/Logic/UI/AppUI/Components/Videos/VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleButton.swift; sourceTree = "<group>"; };
+		A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsListButton.swift; sourceTree = "<group>"; };
 		A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterSelector.swift; sourceTree = "<group>"; };
 		A33D4343263C51E8004669A1 /* ResizableDragger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableDragger.swift; sourceTree = "<group>"; };
 		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -1005,6 +1023,25 @@
 			path = TypystKeyboard;
 			sourceTree = "<group>";
 		};
+		A329D97A271613F2004D8990 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				A35A67AE26D9708A004A1A4E /* DocumentsListRow.swift */,
+				A35B664A26DC772100305797 /* DocumentsListAddRow.swift */,
+				A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		A329D97B27161402004D8990 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */,
+				A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		A32C3A8826E9817500084E56 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
@@ -1191,9 +1228,8 @@
 		A35B665026DC791300305797 /* DocumentsListRow */ = {
 			isa = PBXGroup;
 			children = (
-				A35A67AE26D9708A004A1A4E /* DocumentsListRow.swift */,
-				A35B664A26DC772100305797 /* DocumentsListAddRow.swift */,
-				A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */,
+				A329D97B27161402004D8990 /* Components */,
+				A329D97A271613F2004D8990 /* Rows */,
 			);
 			path = DocumentsListRow;
 			sourceTree = "<group>";
@@ -1720,6 +1756,7 @@
 		A3FA7286262355D600E32B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A329D98127168D12004D8990 /* ListExtension.swift */,
 				A3FA7287262355D600E32B91 /* ViewExtension.swift */,
 				6EF6BAE62F54493636996EBC /* WindowAccessor.swift */,
 			);
@@ -1777,8 +1814,9 @@
 		A3FA729B262355D600E32B91 /* Swift Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A3FA729C262355D600E32B91 /* SwiftExtensions.swift */,
+				A329D9862716A1A4004D8990 /* AppKitExtensions.swift */,
 				A3FA729D262355D600E32B91 /* NSEventExtension.swift */,
+				A3FA729C262355D600E32B91 /* SwiftExtensions.swift */,
 				A3A4BD8826949EED0010F72A /* UIKitExtensions.swift */,
 			);
 			path = "Swift Extensions";
@@ -2233,12 +2271,14 @@
 			files = (
 				A3C9051A26AE6AB6007DC282 /* RoyalModelPKey.swift in Sources */,
 				A37DEC5526A0BF9A00965DC4 /* KeyGroupViewModel.swift in Sources */,
+				A32F24BD2715368600CCDE60 /* DocumentsListButton.swift in Sources */,
 				A3A4BD912694A14C0010F72A /* KeyboardRowView.swift in Sources */,
 				A3FA731B262355D700E32B91 /* TypeWriterModel.swift in Sources */,
 				A35A679926D95D2C004A1A4E /* DocumentsCard.swift in Sources */,
 				A3EE9CC726A5DD0B0009482C /* KeyboardConfiguration.swift in Sources */,
 				A3668E11262FD84400764DB8 /* AlertsView.swift in Sources */,
 				A37DC7BB26C95C6D009440F1 /* KeyboardContainerViewModel.swift in Sources */,
+				A329D97D27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A376955026EC6CDD004B552C /* WebViewModel.swift in Sources */,
 				A3A383C526D5300B0023B628 /* Images.swift in Sources */,
 				A38A057426E46678001E2543 /* TypeWriterView.swift in Sources */,
@@ -2352,6 +2392,7 @@
 				6EF6BC4BD74E1DF284A10F50 /* iOSKey.swift in Sources */,
 				6EF6B899065B8528AB03A09A /* AlertItem.swift in Sources */,
 				A326BC5526C6E6CD0087E65D /* TypeWriterSelector.swift in Sources */,
+				A329D98227168D12004D8990 /* ListExtension.swift in Sources */,
 				A3E35A4F26C75BD60030DBC2 /* RoyalModelPBackground.swift in Sources */,
 				6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */,
 				A34CE8122694ED77008127E6 /* IOSExtensionKeyboardViewController.swift in Sources */,
@@ -2375,6 +2416,7 @@
 			files = (
 				A3FA731C262355D700E32B91 /* TypeWriterModel.swift in Sources */,
 				A300BB1F2664204B00BB7BA3 /* KeyEventStore.swift in Sources */,
+				A329D97E27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A3FA76D726237DA900E32B91 /* TypingStats.swift in Sources */,
 				A36F5C4D2673B78D00E18CCE /* MainMenuCommands.swift in Sources */,
 				A3FA72E2262355D700E32B91 /* SettingsMenu.swift in Sources */,
@@ -2404,6 +2446,7 @@
 				A36E474D26E5BC7000E647A0 /* OlympiaSM3_KeyShape.swift in Sources */,
 				A3FA72BA262355D700E32B91 /* AnalyticsInfoCard.swift in Sources */,
 				A35E32762706BE9D0055B01C /* ScrollViewCleaner.swift in Sources */,
+				A329D9872716A1A4004D8990 /* AppKitExtensions.swift in Sources */,
 				A3BE143326E67FD400A3EAB0 /* TextView.swift in Sources */,
 				A34B30C0262D2FA500C64B4C /* MacOSKeyListener.swift in Sources */,
 				A3FA72D2262355D700E32B91 /* InterfaceAndControls.swift in Sources */,
@@ -2497,6 +2540,7 @@
 				6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */,
 				6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */,
 				6EF6B8F51A49ECC6476BE489 /* UserDefaultsAppSettings.swift in Sources */,
+				A32F24BE2715368600CCDE60 /* DocumentsListButton.swift in Sources */,
 				A38A058426E52C14001E2543 /* AppWindowViewModel.swift in Sources */,
 				A376954C26EC6CD2004B552C /* WebView.swift in Sources */,
 				6EF6BC229E6CDB43D74C48F2 /* OSHelper.swift in Sources */,
@@ -2509,6 +2553,7 @@
 				A36E474926E5BC7000E647A0 /* RoyalModelPBackground.swift in Sources */,
 				6EF6B9174216C245F1E26F2A /* AppSettingsMenuItems.swift in Sources */,
 				A35A8F0026E3B73E00269386 /* RealmDocumentService.swift in Sources */,
+				A329D98327168D12004D8990 /* ListExtension.swift in Sources */,
 				6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */,
 				A376955C26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				6EF6B83D11F288968BA3AFBD /* TypeWriters.swift in Sources */,
@@ -2532,6 +2577,7 @@
 			files = (
 				A3C9051826AE6AB4007DC282 /* RoyalModelPKey.swift in Sources */,
 				A3FF85F126F2F8C600D1D069 /* UserDefaultsAppSettings.swift in Sources */,
+				A329D97F27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A376955226EC6CDD004B552C /* WebViewModel.swift in Sources */,
 				A376954D26EC6CD2004B552C /* WebView.swift in Sources */,
 				A32BE11226C6119C009A94BB /* KeyboardContainer.swift in Sources */,
@@ -2551,6 +2597,7 @@
 				A3B3461D26CE0C7900724513 /* OlympiaSM3_KeyShape.swift in Sources */,
 				A3E2AAEB26892D4900F43757 /* SwiftyBeaver.swift in Sources */,
 				A376955826EC6F28004B552C /* BrowserView.swift in Sources */,
+				A329D98427168D12004D8990 /* ListExtension.swift in Sources */,
 				A3BE143426E67FD400A3EAB0 /* TextView.swift in Sources */,
 				A3FC08D826C6BE6C00C8AA14 /* OlympiaSM3Key.swift in Sources */,
 				A355164C26C956E9005F033E /* VolumeSettingView.swift in Sources */,
@@ -2616,6 +2663,7 @@
 				A3A63B5B26F3FACF00E03633 /* DocumentViewModel.swift in Sources */,
 				A35A679B26D95D2C004A1A4E /* DocumentsCard.swift in Sources */,
 				A315F9BC26F3B1D500664986 /* NavigationContainer.swift in Sources */,
+				A32F24BF2715368600CCDE60 /* DocumentsListButton.swift in Sources */,
 				6EF6BDBB597BF22BE35F2D31 /* KeyboardRowViewModel.swift in Sources */,
 				A39AEE1326D1ABE10081611E /* KeyShape.swift in Sources */,
 				A3557B6026F9917B00D2F3A7 /* TypeWriterMenuCard.swift in Sources */,
@@ -2639,6 +2687,7 @@
 				A3AD464226ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A3E2AAEC26892D4900F43757 /* SwiftyBeaver.swift in Sources */,
 				A3E2AAF426892DBE00F43757 /* AppDependencyContainer.swift in Sources */,
+				A32F24C02715368600CCDE60 /* DocumentsListButton.swift in Sources */,
 				A35C06C0267AC1D300EFC9A0 /* TypeWriterService.swift in Sources */,
 				A38A057726E46678001E2543 /* TypeWriterView.swift in Sources */,
 				A3B3DF5926E93EBB00D2FAAD /* MacOSService.swift in Sources */,
@@ -2704,6 +2753,7 @@
 				A36E473326E5851100E647A0 /* SheetOfPaper.swift in Sources */,
 				A3BE142D26E665B900A3EAB0 /* CardHeaderModifier.swift in Sources */,
 				A3557B5D26F988BF00D2F3A7 /* InterfaceAndControlsViewModel.swift in Sources */,
+				A329D9882716A1A4004D8990 /* AppKitExtensions.swift in Sources */,
 				A333EDC526BA2AA500AA9B09 /* TypeWriterMenuData.swift in Sources */,
 				A36E475426E5BC7300E647A0 /* KeyboardRowView.swift in Sources */,
 				A36E475B26E5BC7300E647A0 /* RoyalModelPBackground.swift in Sources */,
@@ -2714,8 +2764,10 @@
 				A3E2AB0226892F3500F43757 /* SoundsService.swift in Sources */,
 				A3557B5F26F98DA400D2F3A7 /* InterfaceAndControls.swift in Sources */,
 				A3E2AAFC26892DE600F43757 /* TypeWriterModel.swift in Sources */,
+				A329D98527168D12004D8990 /* ListExtension.swift in Sources */,
 				A376955E26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				A3E2AAEA26892D1D00F43757 /* LoggingService.swift in Sources */,
+				A329D98027161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A3236829268E53DB00CB2B25 /* RepeatingTimer.swift in Sources */,
 				A36E474F26E5BC7300E647A0 /* OlympiaSM3Background.swift in Sources */,
 				A36E475F26E5BC7300E647A0 /* OlympiaSM3_KeyShape.swift in Sources */,

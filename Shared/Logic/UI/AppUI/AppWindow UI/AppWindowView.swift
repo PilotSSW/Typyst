@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppWindowView: View {
     @StateObject var viewModel = AppWindowViewModel()
+    @StateObject var interfaceAndControlsViewModel = InterfaceAndControlsViewModel()
 
     var body: some View {
         if OSHelper.runtimeEnvironment == .iOS {
@@ -21,24 +22,22 @@ struct AppWindowView: View {
                 let _ = viewModel.setViewDimensions(geometry.size)
 
                 ZStack(alignment: .bottomLeading) {
-                    HStack() {
-                        if (viewModel.shouldShowMenu) {
-                            InterfaceAndControls()
-                                .layoutPriority(1)
-                                .transition(.move(edge: .leading))
-                                .animation(.interactiveSpring()
-                                            .speed(0.5)
-                                    .delay(0.03))
-                        }
-                    
-                        if ([.ipadOS, .macOS].contains(OSHelper.runtimeEnvironment) &&
-                           viewModel.shouldShowTypeWriterView) {
+                    ZStack(alignment: .leading) {
+                        if (viewModel.shouldShowTypeWriterView) {
                             TypeWriterView()
                                 .frame(maxWidth: .infinity)
                         }
+                        
+                        if (viewModel.shouldShowMenu) {
+                            InterfaceAndControls(viewModel: interfaceAndControlsViewModel)
+                                .layoutPriority(1)
+                                .transition(.move(edge: .leading))
+                        }
                     }
                     
-                    MenuToggleButton(toggleState: $viewModel.showMenu)
+                    if (viewModel.shouldShowTypeWriterView) {
+                        MenuToggleButton(toggleState: $viewModel.showMenu)
+                    }
                 }
             }
         }

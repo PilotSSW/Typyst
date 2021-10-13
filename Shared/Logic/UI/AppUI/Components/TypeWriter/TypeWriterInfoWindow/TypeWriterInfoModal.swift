@@ -12,7 +12,8 @@ struct TypeWriterInfoModal: View {
     var onClose: (() -> Void) = {}
 
     var body: some View {
-        Card(cardContentStyle: .straightCorner) {
+        Card(cardContentStyle: .straightCorner,
+             cardContentBackgroundColor: AppColor.cardSecondaryBackground) {
             VStack(alignment: .center, spacing: 6) {
                 HStack(spacing: 6) {
                     TypeWriterCardHeader(

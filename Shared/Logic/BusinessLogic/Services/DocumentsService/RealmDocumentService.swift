@@ -19,7 +19,8 @@ class RealmDocumentService: Loggable {
 //                self.realm = try Realm(configuration: config)
 //            }
 //            else {
-            self.realm = try Realm()
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true) //Realm.Configuration(schemaVersion: 1)
+            self.realm = try Realm(configuration: config)
 //            }
         }
         catch(let error) {
@@ -79,7 +80,7 @@ class RealmDocumentService: Loggable {
 }
 
 class RealmDocument: Object {
-    @objc dynamic var id: Int = UUID().hashValue
+    @objc dynamic var id: UUID = UUID()
     @objc dynamic var documentName: String = ""
     @objc dynamic var dateCreated: Date = Date()
     @objc dynamic var dateLastOpened: Date = Date()
@@ -92,6 +93,14 @@ class RealmDocument: Object {
                  dateLastOpened: dateLastOpened,
                  textBody: textBody)
     }
+//
+//    convenience init(document: Document) {
+//        self.init(id: document.id,
+//                  documentName: document.documentName,
+//                  dateCreated: document.dateCreated,
+//                  dateLastOpened: document.dateLastOpened,
+//                  textBody: document.textBody)
+//    }
 }
 
 extension Document {

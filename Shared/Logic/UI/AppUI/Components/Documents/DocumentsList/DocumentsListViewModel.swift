@@ -18,7 +18,7 @@ class DocumentsListViewModel: ObservableObject {
     private var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
     @Published var documents: [Document]
 
-    init() {
+    init(isFullyExpanded: Bool = false) {
         documents = documentsService.fetchDocuments()
         documentsService.$documents
             .sink { [weak self] documents in
@@ -30,5 +30,14 @@ class DocumentsListViewModel: ObservableObject {
 
     func deleteDocument(_ document: Document) {
         let _ = documentsService.deleteDocument(document)
+    }
+    
+    @Published private(set) var headerHeight: CGFloat = 20
+    @Published private(set) var rowHeight: CGFloat = 25
+    @Published var isFullyExpanded: Bool = false
+    var minHeight: CGFloat {
+        isFullyExpanded
+            ? CGFloat(documents.count) * rowHeight + 300
+            : 300
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
- @main
+@main
 struct TypystApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
