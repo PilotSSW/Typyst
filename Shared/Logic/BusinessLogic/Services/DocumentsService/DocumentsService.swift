@@ -20,7 +20,7 @@ class DocumentsService: ObservableObject {
     func createNewDocument(withName name: String = "",
                            shouldSetCurrentDocument: Bool = true) -> Document? {
         let document = Document(documentName: name)
-        if let _ = realmDocumentService?.createNewRealmDocument(from: document) {
+        if let _ = realmDocumentService.createNewRealmDocument(from: document) {
             documents.append(document)
             return document
         }
@@ -33,20 +33,19 @@ class DocumentsService: ObservableObject {
     }
 
     func fetchDocuments() -> [Document] {
-        let realmDocuments = realmDocumentService?
+        documents = realmDocumentService
             .fetchRealmDocuments()
             .map(Document.init)
-
-        documents = realmDocuments ?? []
+        
         return documents
     }
 
     func updateDocument(_ document: Document) -> Bool {
-        realmDocumentService?.saveDocument(document) ?? false
+        realmDocumentService.saveDocument(document)
     }
 
     func deleteDocument(_ document: Document) -> Bool {
-        realmDocumentService?.deleteDocument(document) ?? false
+        realmDocumentService.deleteDocument(document)
     }
 
     func setCurrentDocument(_ document: Document?) {

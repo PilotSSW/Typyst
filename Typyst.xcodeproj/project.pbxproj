@@ -233,6 +233,10 @@
 		A3668DF5262FD11500764DB8 /* AlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668DF4262FD11500764DB8 /* AlertsService.swift */; };
 		A3668E11262FD84400764DB8 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668E10262FD84400764DB8 /* AlertsView.swift */; };
 		A3668E12262FD84400764DB8 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3668E10262FD84400764DB8 /* AlertsView.swift */; };
+		A36CC4C72719C1E90086B9EA /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CC4C62719C1E90086B9EA /* RealmService.swift */; };
+		A36CC4C82719C1E90086B9EA /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CC4C62719C1E90086B9EA /* RealmService.swift */; };
+		A36CC4C92719C1E90086B9EA /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CC4C62719C1E90086B9EA /* RealmService.swift */; };
+		A36CC4CA2719C1E90086B9EA /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CC4C62719C1E90086B9EA /* RealmService.swift */; };
 		A36D2535262DE7090069E668 /* TypystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D2534262DE7090069E668 /* TypystApp.swift */; };
 		A36D2556262DF6A30069E668 /* TypystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D2534262DE7090069E668 /* TypystApp.swift */; };
 		A36D255C262DF7240069E668 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71A92623523300E32B91 /* Persistence.swift */; };
@@ -710,6 +714,7 @@
 		A3639AA226D1B298004131EF /* OlympiaSM3Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympiaSM3Background.swift; sourceTree = "<group>"; };
 		A3668DF4262FD11500764DB8 /* AlertsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsService.swift; sourceTree = "<group>"; };
 		A3668E10262FD84400764DB8 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
+		A36CC4C62719C1E90086B9EA /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		A36D2534262DE7090069E668 /* TypystApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypystApp.swift; sourceTree = "<group>"; };
 		A36E472F26E5851100E647A0 /* SheetOfPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetOfPaper.swift; sourceTree = "<group>"; };
 		A36E473526E5A2CC00E647A0 /* StackOfPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOfPaper.swift; sourceTree = "<group>"; };
@@ -1097,6 +1102,7 @@
 				6EF6B6964E2A9E33BB56AF7D /* KeyboardService */,
 				A3FA7298262355D600E32B91 /* LoggingService */,
 				A3B3DF5626E93E9E00D2FAAD /* OSService */,
+				A36CC4C52719C1C70086B9EA /* RealmService */,
 				A3FF85EA26F2993F00D1D069 /* SettingsService */,
 				A3B3DF5426E93B4900D2FAAD /* SoundsService */,
 				A3B3DF5526E93B5900D2FAAD /* TypeWriterService */,
@@ -1240,6 +1246,14 @@
 				A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */,
 			);
 			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		A36CC4C52719C1C70086B9EA /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+				A36CC4C62719C1E90086B9EA /* RealmService.swift */,
+			);
+			path = RealmService;
 			sourceTree = "<group>";
 		};
 		A36D2583262E8BB10069E668 /* TypeWriterLogic */ = {
@@ -2343,6 +2357,7 @@
 				A376955626EC6F28004B552C /* BrowserView.swift in Sources */,
 				A3FA730B262355D700E32B91 /* ViewExtension.swift in Sources */,
 				A376954B26EC6CD2004B552C /* WebView.swift in Sources */,
+				A36CC4C72719C1E90086B9EA /* RealmService.swift in Sources */,
 				A3FA72D5262355D700E32B91 /* TitleCard.swift in Sources */,
 				A315F9BA26F3B1D500664986 /* NavigationContainer.swift in Sources */,
 				A34CE80F2694DECB008127E6 /* KeyViewModel.swift in Sources */,
@@ -2548,6 +2563,7 @@
 				6EF6BD7C5675215A2D281174 /* RootDependencyContainer.swift in Sources */,
 				A3AD464026ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				6EF6BE159AE78FDDD68F7275 /* ReplacementMenuCommands.swift in Sources */,
+				A36CC4C82719C1E90086B9EA /* RealmService.swift in Sources */,
 				A32C400626E981AE00084E56 /* VideoPlayerViewModel.swift in Sources */,
 				A35B665526DFE50F00305797 /* Card.swift in Sources */,
 				A36E474926E5BC7000E647A0 /* RoyalModelPBackground.swift in Sources */,
@@ -2668,6 +2684,7 @@
 				A39AEE1326D1ABE10081611E /* KeyShape.swift in Sources */,
 				A3557B6026F9917B00D2F3A7 /* TypeWriterMenuCard.swift in Sources */,
 				6EF6BF242B29E3BCC47D1750 /* iOSUIKitKeyboardService.swift in Sources */,
+				A36CC4C92719C1E90086B9EA /* RealmService.swift in Sources */,
 				6EF6B0F7E01871E021212FD4 /* KeyboardModel.swift in Sources */,
 				A355165626C95A64005F033E /* SettingsComponent.swift in Sources */,
 				6EF6B9ABCBB608B4882BD5AD /* KeyboardService.swift in Sources */,
@@ -2746,6 +2763,7 @@
 				A3BE143526E67FD400A3EAB0 /* TextView.swift in Sources */,
 				A35C06B3267AC14400EFC9A0 /* Key.swift in Sources */,
 				A36E474E26E5BC7300E647A0 /* SmithCoronaSilentKey.swift in Sources */,
+				A36CC4CA2719C1E90086B9EA /* RealmService.swift in Sources */,
 				A35A67B326D975C4004A1A4E /* DocumentsListRow.swift in Sources */,
 				A3BE143026E66F2F00A3EAB0 /* TypeWriterSelector.swift in Sources */,
 				A36E475D26E5BC7300E647A0 /* OlympiaSM3Key.swift in Sources */,

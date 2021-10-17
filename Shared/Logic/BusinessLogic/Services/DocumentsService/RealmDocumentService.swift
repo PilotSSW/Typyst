@@ -10,81 +10,55 @@ import Foundation
 import RealmSwift
 
 class RealmDocumentService: Loggable {
-    private var realm: Realm!
+    private var realmService: RealmService
 
-    init?() {
-        do {
-//            if let url = Bundle.main.url(forResource: "typyst", withExtension: "realm") {
-//                let config = Realm.Configuration(fileURL: url)
-//                self.realm = try Realm(configuration: config)
-//            }
-//            else {
-            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true) //Realm.Configuration(schemaVersion: 1)
-            self.realm = try Realm(configuration: config)
-//            }
-        }
-        catch(let error) {
-            print(error)
-            logEvent(.error, "Unable to create a Realm store for RealmDocumentService", error: error)
-
-            return nil
-        }
+    init(withRealmService realmService: RealmService = RealmService()!) {
+        self.realmService = realmService
     }
+    
+    private var documents: [RealmDocument] = []
 
     func createNewRealmDocument(from document: Document) -> RealmDocument? {
         let realmDocument = document.toRealmDocument()
-        let wasSaved = saveRealmDocument(realmDocument)
+        let wasSaved = realmService.createObject(realmDocument)
+        if wasSaved {
+            documents.append(realmDocument)
+        }
 
         return wasSaved ? realmDocument : nil
     }
 
     func fetchRealmDocuments() -> [RealmDocument] {
-        realm.objects(RealmDocument.self).sorted(by: { $0.dateLastOpened > $1.dateLastOpened })
+        documents = realmService.getObjects(ofType: RealmDocument).sorted(by: { $0.documentName < $0.documentName })
+        return documents
     }
 
     func saveDocument(_ document: Document) -> Bool {
-        saveRealmDocument(document.toRealmDocument())
+        if let realmDocument = documents.first(where: { $0.id == document.id })  {
+            return realmService.saveObject(realmDocument)
+        }
+        
+        logEvent(.warning, "Failed to find document object in realm database")
+        return false
     }
 
-    func saveRealmDocument(_ realmDocument: RealmDocument) -> Bool {
-        do {
-            try realm.write {
-                realm.add(realmDocument)
-            }
-
-            return true
-        }
-        catch(let error) {
-            logEvent(.error, "Failed to add document object to realm database", error: error)
-            return false
-        }
-    }
 
     func deleteDocument(_ document: Document) -> Bool {
-        deleteRealmDocument(document.toRealmDocument())
-    }
-
-    func deleteRealmDocument(_ realmDocument: RealmDocument) -> Bool {
-        do {
-            try realm.write {
-                realm.delete(realmDocument)
-            }
-
-            return true
+        if let realmDocument = documents.first(where: { $0.id == document.id })  {
+            return realmService.deleteObject(realmDocument)
         }
-        catch(let error) {
-            logEvent(.error, "Failed to remove document object from realm database", error: error)
-            return false
-        }
+        
+        logEvent(.warning, "Failed to find document object in realm database")
+        return false
     }
 }
 
 class RealmDocument: Object {
-    @objc dynamic var id: UUID = UUID()
-    @objc dynamic var documentName: String = ""
-    @objc dynamic var dateCreated: Date = Date()
-    @objc dynamic var dateLastOpened: Date = Date()
-    @objc dynamic var textBody: String = ""
+    @Persisted(primaryKey: true) var id: UUID = UUID()
+    @Persisted var documentName: String = ""
+    @Persisted var dateCreated: Date = Date()
+    @Persisted var dateLastOpened: Date = Date()
+    @Persisted var textBody: String = ""
 
     func toDocument() -> Document {
         Document(id: id,
