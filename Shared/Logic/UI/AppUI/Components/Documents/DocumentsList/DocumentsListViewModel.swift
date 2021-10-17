@@ -32,6 +32,14 @@ class DocumentsListViewModel: ObservableObject {
         let _ = documentsService.deleteDocument(document)
     }
     
+    func deleteDocument(at offsets: IndexSet) {
+        for offset in offsets {
+            if let document = documents[safe: offset] {
+                deleteDocument(document)
+            }
+        }
+    }
+    
     @Published private(set) var headerHeight: CGFloat = 20
     @Published private(set) var rowHeight: CGFloat = 25
     @Published var isFullyExpanded: Bool = false

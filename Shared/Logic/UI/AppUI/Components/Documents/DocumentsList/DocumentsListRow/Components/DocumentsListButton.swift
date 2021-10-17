@@ -26,32 +26,28 @@ struct DocumentsListButton<Content: View>: View {
     }
 
     var body: some View {
+        if showNeumorphicButton {
+            button.buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonNeutral))
+        }
+        else {
+            button.buttonStyle(PlainButtonStyle())
+        }
+    }
+    
+    @ViewBuilder
+    private var button: some View {
         if OSHelper.runtimeEnvironment == .iOS {
-            let link = NavigationLink(
+            NavigationLink(
                 destination: TypeWriterView()
                     .onAppear(perform: onSelect)
                     .onDisappear(perform: onReturn),
                 label: {
                     content
                 })
-                
-            if showNeumorphicButton {
-                link.buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonNeutral))
-            }
-            else {
-                link.buttonStyle(PlainButtonStyle())
-            }
         }
         else {
-            let button = Button(action: onSelect) {
+            Button(action: onSelect) {
                 content
-            }
-            
-            if showNeumorphicButton {
-                button.buttonStyle(NeumorphicButtonStyle(backgroundColor: AppColor.buttonNeutral))
-            }
-            else {
-                button.buttonStyle(PlainButtonStyle())
             }
         }
     }
@@ -61,6 +57,7 @@ struct DocumentListButton_Previews: PreviewProvider {
     static var previews: some View {
         DocumentsListButton(onSelect: {}) {
             Text("Hello!")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }

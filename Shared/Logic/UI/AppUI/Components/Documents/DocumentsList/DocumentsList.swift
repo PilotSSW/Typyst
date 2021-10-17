@@ -19,6 +19,7 @@ struct DocumentsList: View {
                 DocumentsListGoogleDocsRow()
                     .padding(8)
             }
+                .background(Color.clear)
 
             Section(header: Text("Typyst Journal")
                         .asStyledText()
@@ -38,12 +39,10 @@ struct DocumentsList: View {
                     DocumentsListRow(document: document)
                     #endif
                 }
-                .onDelete { index in
-                    //viewModel.deleteDocument()
-                }
+                .onDelete(perform: viewModel.deleteDocument)
             }
+                .background(Color.clear)
         }
-//        .listStyle(PlainListStyle())
         .frame(minHeight: viewModel.minHeight, maxHeight: .infinity)
         .environment(\.defaultMinListRowHeight, viewModel.rowHeight)
         .environment(\.defaultMinListHeaderHeight, viewModel.headerHeight)

@@ -36,11 +36,11 @@ struct DocumentsListRow: View {
         DocumentsListButton(
             onSelect: {
                 let _ = documentsService.setCurrentDocument(document)
-                isSelected = true
+                withAnimation { isSelected = true }
             },
             onReturn: {
                 let _ = documentsService.setCurrentDocument(nil)
-                isSelected = false
+                withAnimation { isSelected = false }
             },
             showNeumorphicButton: false)
         {
@@ -58,7 +58,9 @@ struct DocumentsListRow: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .padding(12)
-            .onHover { isHovering in self.isHovering = isHovering }
+            .onHover { isHovering in
+                withAnimation { self.isHovering = isHovering }
+            }
         }
 //            .listRowInsets(.init(top: 5, leading: -20, bottom: 5, trailing: -20))
            .listRowBackground(DocumentsListRowBackground(isHovering: $isHovering, isSelected: $isSelected))

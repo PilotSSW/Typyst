@@ -12,31 +12,31 @@ struct DocumentsListRowBackground: View {
     @Binding var isHovering: Bool
     @Binding var isSelected: Bool
     
-    var body: some View {
+    var body: some View {        
         ZStack() {
             if (isHovering && isSelected) {
                 AppColor.buttonWarning
                     .opacity(0.5)
                     .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.33))
+                    .animation(.easeInOut(duration: 0.25))
             }
             else if (isHovering) {
                 AppColor.buttonSecondary
                     .opacity(0.5)
                     .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.33))
+                    .animation(.easeInOut(duration: 0.25))
             }
             else if (isSelected) {
                 AppColor.buttonPrimary
                     .opacity(0.5)
                     .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.33))
+                    .animation(.easeInOut(duration: 0.25))
             }
             else {
                 AppColor.buttonOvertone
                     .opacity(0.5)
                     .transition(.opacity)
-                    .animation(.easeInOut(duration: 0.33))
+                    .animation(.easeInOut(duration: 0.25))
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .circular))
