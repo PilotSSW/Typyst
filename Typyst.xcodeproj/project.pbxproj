@@ -482,6 +482,10 @@
 		A3F2C2382710A8BF00A5941F /* Media in Resources */ = {isa = PBXBuildFile; fileRef = A3F2C2362710A8BF00A5941F /* Media */; };
 		A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
 		A3F3F66B266658C900046773 /* TypystAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3F669266658C900046773 /* TypystAppViewModel.swift */; };
+		A3F55036271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F55035271BE9B600D4C177 /* MenuToggleButtons.swift */; };
+		A3F55037271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F55035271BE9B600D4C177 /* MenuToggleButtons.swift */; };
+		A3F55038271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F55035271BE9B600D4C177 /* MenuToggleButtons.swift */; };
+		A3F55039271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F55035271BE9B600D4C177 /* MenuToggleButtons.swift */; };
 		A3F5A14627149EEE008D700D /* NavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315F9B926F3B1D500664986 /* NavigationContainer.swift */; };
 		A3F5A14727149EEF008D700D /* NavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315F9B926F3B1D500664986 /* NavigationContainer.swift */; };
 		A3FA71C42623523400E32B91 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA71C32623523400E32B91 /* Tests_iOS.swift */; };
@@ -764,6 +768,7 @@
 		A3EE9CC426A293190009482C /* KeyboardConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConfiguration.swift; sourceTree = "<group>"; };
 		A3F2C2362710A8BF00A5941F /* Media */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Media; sourceTree = "<group>"; };
 		A3F3F669266658C900046773 /* TypystAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypystAppViewModel.swift; sourceTree = "<group>"; };
+		A3F55035271BE9B600D4C177 /* MenuToggleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleButtons.swift; sourceTree = "<group>"; };
 		A3FA71A92623523300E32B91 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A3FA71AF2623523400E32B91 /* Typyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FA71B22623523400E32B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1060,7 +1065,7 @@
 		A32F24B12714B3DB00CCDE60 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */,
+				A3F55034271BE99800D4C177 /* MenuToggleButton */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1490,6 +1495,15 @@
 				6EF6BD3D603643A2F0BFCFDF /* App */,
 			);
 			path = TypystApp;
+			sourceTree = "<group>";
+		};
+		A3F55034271BE99800D4C177 /* MenuToggleButton */ = {
+			isa = PBXGroup;
+			children = (
+				A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */,
+				A3F55035271BE9B600D4C177 /* MenuToggleButtons.swift */,
+			);
+			path = MenuToggleButton;
 			sourceTree = "<group>";
 		};
 		A3FA719F2623523300E32B91 = {
@@ -2379,6 +2393,7 @@
 				A3FA72C7262355D700E32B91 /* TypeWriterCard.swift in Sources */,
 				A3BE143726E686A800A3EAB0 /* PaperContainer.swift in Sources */,
 				A3668DF5262FD11500764DB8 /* AlertsService.swift in Sources */,
+				A3F55036271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */,
 				A34B3055262B27DE00C64B4C /* Key.swift in Sources */,
 				A36E473626E5A2CC00E647A0 /* StackOfPaper.swift in Sources */,
 				A3A4BD8A26949F140010F72A /* UIKitExtensions.swift in Sources */,
@@ -2577,6 +2592,7 @@
 				A36E474126E5BC7000E647A0 /* KeyboardModel.swift in Sources */,
 				6EF6B76987564BE9166504FC /* VolumeSettings.swift in Sources */,
 				6EF6B02E21391C6CF85E1924 /* AnalyticsSettings.swift in Sources */,
+				A3F55037271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */,
 				6EF6B23233FB92652D7EE067 /* CoreMenuItems.swift in Sources */,
 				6EF6B8CC8BD600A17EF9ACDC /* AppMenu.swift in Sources */,
 				6EF6B7C9D5272B35C6191AE2 /* MacOSUI.swift in Sources */,
@@ -2652,6 +2668,7 @@
 				A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */,
 				A36E473226E5851100E647A0 /* SheetOfPaper.swift in Sources */,
 				A3B5077D268B5EC60016BD22 /* ShadowIntensity.swift in Sources */,
+				A3F55038271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */,
 				A3FF85EE26F299E800D1D069 /* SettingsService.swift in Sources */,
 				A3A918D62694A675000B208D /* KeyboardViewModel.swift in Sources */,
 				A3ACC78026E9578700BD02C8 /* AppWindowContainerView.swift in Sources */,
@@ -2750,6 +2767,7 @@
 				A36E475A26E5BC7300E647A0 /* KeyboardRowViewModel.swift in Sources */,
 				A3E2AAF926892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
 				A355164E26C956EA005F033E /* EmailButton.swift in Sources */,
+				A3F55039271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */,
 				A32C400726E981AE00084E56 /* VideoPlayerViewModel.swift in Sources */,
 				A36E475826E5BC7300E647A0 /* KeyGroupViewModel.swift in Sources */,
 				A36E475C26E5BC7300E647A0 /* KeyGroupView.swift in Sources */,

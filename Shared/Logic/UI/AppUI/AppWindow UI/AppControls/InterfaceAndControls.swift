@@ -60,7 +60,8 @@ struct InterfaceAndControls: View {
                 .padding(12)
                 .animation(.interactiveSpring()
                             .speed(0.5)
-                            .delay(0.03))            }
+                            .delay(0.03))
+            }
             .frame(minWidth: 275, idealWidth: 380,
                    maxWidth: OSHelper.runtimeEnvironment == .iOS ? .infinity : 380,
                    minHeight: 275, maxHeight: .infinity,

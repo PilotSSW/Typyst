@@ -18,26 +18,36 @@ struct AppWindowView: View {
             }
         }
         else {
-            GeometryReader { geometry in
-                let _ = viewModel.setViewDimensions(geometry.size)
-
-                ZStack(alignment: .bottomLeading) {
+            ZStack(alignment: .bottomLeading) {
+                GeometryReader { geometry in
+                    let _ = viewModel.setViewDimensions(geometry.size)
+                    
                     ZStack(alignment: .leading) {
-                        if (viewModel.shouldShowTypeWriterView) {
-                            TypeWriterView()
-                                .frame(maxWidth: .infinity)
+                        HStack(alignment: .bottom, spacing: 0) {
+                            if (viewModel.shouldShowMenu && viewModel.interfaceControlPosition == .inline) {
+                                Spacer()
+                                    .frame(minWidth: viewModel.shouldShowTypeWriterView ? 380 : 275,
+                                           maxWidth: 380)
+                            }
+                            
+                            if (viewModel.shouldShowTypeWriterView) {
+                                TypeWriterView()
+                                    .padding(4)
+                            }
                         }
                         
                         if (viewModel.shouldShowMenu) {
                             InterfaceAndControls(viewModel: interfaceAndControlsViewModel)
-                                .layoutPriority(1)
-                                .transition(.move(edge: .leading))
+                                .frame(minWidth: viewModel.shouldShowTypeWriterView ? 380 : 275,
+                                       maxWidth: 380)
+                                .animation(Animation.interactiveSpring().speed(0.33))
+                                .transition(.move(edge: .bottom))
                         }
                     }
-                    
-                    if (viewModel.shouldShowTypeWriterView) {
-                        MenuToggleButton(toggleState: $viewModel.showMenu)
-                    }
+                }
+
+                if (viewModel.shouldShowTypeWriterView) {
+                    MenuToggleButtons(selectedValue: $viewModel.interfaceControlPosition.animation())
                 }
             }
         }

@@ -42,7 +42,7 @@ class InterfaceAndControlsViewModel: ObservableObject {
     }
     
     func setViewDimensions(_ size: CGSize) {
-        let shouldCompressView = size.width <= 380
+        let shouldCompressView = size.width < 380
         
         if compressView != shouldCompressView { compressView = shouldCompressView }
     }
