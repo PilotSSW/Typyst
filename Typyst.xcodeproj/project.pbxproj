@@ -133,6 +133,10 @@
 		A33D4345263C528E004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
 		A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
 		A34602482685551B00BF81D4 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
+		A3484234271DECBD005DD159 /* RealmInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484233271DECBD005DD159 /* RealmInstance.swift */; };
+		A3484235271DECBD005DD159 /* RealmInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484233271DECBD005DD159 /* RealmInstance.swift */; };
+		A3484236271DECBD005DD159 /* RealmInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484233271DECBD005DD159 /* RealmInstance.swift */; };
+		A3484237271DECBD005DD159 /* RealmInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484233271DECBD005DD159 /* RealmInstance.swift */; };
 		A34B3055262B27DE00C64B4C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
 		A34B3068262B290100C64B4C /* MacOSKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3061262B286400C64B4C /* MacOSKey.swift */; };
 		A34B3073262B290700C64B4C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34B3054262B27DE00C64B4C /* Key.swift */; };
@@ -697,6 +701,7 @@
 		A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterSelector.swift; sourceTree = "<group>"; };
 		A33D4343263C51E8004669A1 /* ResizableDragger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableDragger.swift; sourceTree = "<group>"; };
 		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
+		A3484233271DECBD005DD159 /* RealmInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInstance.swift; sourceTree = "<group>"; };
 		A34B3054262B27DE00C64B4C /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		A34B3061262B286400C64B4C /* MacOSKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSKey.swift; sourceTree = "<group>"; };
 		A34B307A262B29BC00C64B4C /* ModifierFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierFlags.swift; sourceTree = "<group>"; };
@@ -1257,6 +1262,7 @@
 			isa = PBXGroup;
 			children = (
 				A36CC4C62719C1E90086B9EA /* RealmService.swift */,
+				A3484233271DECBD005DD159 /* RealmInstance.swift */,
 			);
 			path = RealmService;
 			sourceTree = "<group>";
@@ -2354,6 +2360,7 @@
 				A3FA71D72623523400E32B91 /* Persistence.swift in Sources */,
 				A3FA72C1262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
 				A3FA7307262355D700E32B91 /* Styles.swift in Sources */,
+				A3484234271DECBD005DD159 /* RealmInstance.swift in Sources */,
 				A3FA72D7262355D700E32B91 /* SettingToggle.swift in Sources */,
 				A3975C642627FEA6001DFD47 /* TypingStats.swift in Sources */,
 				A3FA72C5262355D700E32B91 /* TypeWriterCardHeader.swift in Sources */,
@@ -2567,6 +2574,7 @@
 				6EF6B1D20C73B4DDE63B477F /* AppWindowContainerView.swift in Sources */,
 				A3FF85ED26F299E800D1D069 /* SettingsService.swift in Sources */,
 				A36E473F26E5BC7000E647A0 /* KeyView.swift in Sources */,
+				A3484235271DECBD005DD159 /* RealmInstance.swift in Sources */,
 				6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */,
 				6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */,
 				6EF6B8F51A49ECC6476BE489 /* UserDefaultsAppSettings.swift in Sources */,
@@ -2663,6 +2671,7 @@
 				A3A4BD8B26949FCB0010F72A /* UIKitExtensions.swift in Sources */,
 				A3E35A5026C75BDC0030DBC2 /* RoyalModelPBackground.swift in Sources */,
 				A3B0737F26D5848500A46630 /* Images.swift in Sources */,
+				A3484236271DECBD005DD159 /* RealmInstance.swift in Sources */,
 				A3E35A5326C75C950030DBC2 /* TypeWriterBackground.swift in Sources */,
 				A35A67A326D96088004A1A4E /* DocumentsList.swift in Sources */,
 				A35C06B7267AC15900EFC9A0 /* iOSKey.swift in Sources */,
@@ -2764,6 +2773,7 @@
 				A3557B6126F9917C00D2F3A7 /* TypeWriterMenuCard.swift in Sources */,
 				A3B32DE626F3DA1C00B4BD14 /* DocumentView.swift in Sources */,
 				A35C06B4267AC14500EFC9A0 /* RootDependencyContainer.swift in Sources */,
+				A3484237271DECBD005DD159 /* RealmInstance.swift in Sources */,
 				A36E475A26E5BC7300E647A0 /* KeyboardRowViewModel.swift in Sources */,
 				A3E2AAF926892DDD00F43757 /* TypeWriterKeyLogic.swift in Sources */,
 				A355164E26C956EA005F033E /* EmailButton.swift in Sources */,

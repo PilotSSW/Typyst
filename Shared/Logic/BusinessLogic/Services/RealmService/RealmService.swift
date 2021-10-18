@@ -10,33 +10,23 @@ import RealmSwift
 import struct RealmSwift.Results
 
 class RealmService: Loggable {
-    private var realm: Realm
+    private var realmInstance: Realm!
     
-    init?() {
-        do {
-//            if let url = Bundle.main.url(forResource: "typyst", withExtension: "realm") {
-//                let config = Realm.Configuration(fileURL: url)
-//                self.realm = try Realm(configuration: config)
-//            }
-//            else {
-            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-                //Realm.Configuration(schemaVersion: 1)
-            self.realm = try Realm(configuration: config)
-        }
-        catch(let error) {
-            print(error)
-            logEvent(.fatal, "Unable to create a Realm store for RealmService", error: error)
-            
+    init?(withRealmInstance realmInstance: Realm? = RootDependencyContainer.get().realmInstance) {
+        if realmInstance == nil {
+            logEvent(.fatal, "Unable to create a Realm store for RealmService - nil realm instance provided")
             return nil
         }
+        
+        self.realmInstance = realmInstance
     }
     
     func createObject(_ object: Object) -> Bool {
         do {
-            try realm.write {
-                realm.add(object, update: .error)
+            try realmInstance.write {
+                realmInstance.add(object, update: .error)
             }
-            
+
             logEvent(.info, "Successfully created realm object")
             return true
         }
@@ -46,16 +36,20 @@ class RealmService: Loggable {
         }
     }
     
-    func getObjects<Element: Object>(ofType element: Element) -> Results<Element> {
-        realm.objects(Element.self)
+    func getObject<Element: Object, KeyType>(ofType type: Element.Type, forPrimaryKey key: KeyType) -> Element? {
+        realmInstance.object(ofType: type, forPrimaryKey: key)
+    }
+    
+    func getObjects<Element: Object>(_ type: Element.Type) -> RealmSwift.Results<Element> {
+        realmInstance.objects(type)
     }
     
     func saveObject(_ object: Object) -> Bool {
         do {
-            try realm.write {
-                realm.add(object, update: .modified)
+            try realmInstance.write {
+                realmInstance.add(object, update: .modified)
             }
-            
+
             logEvent(.info, "Successfully saved realm object")
             return true
         }
@@ -67,10 +61,10 @@ class RealmService: Loggable {
     
     func deleteObject(_ object: Object) -> Bool {
         do {
-            try realm.write {
-                realm.delete(object)
+            try realmInstance.write {
+                realmInstance.delete(object)
             }
-            
+
             logEvent(.info, "Successfully deleted realm object")
             return true
         }

@@ -46,6 +46,11 @@ final class Logging {
     static func logFatalCrash(_ exception: NSException? = nil) {
         SwiftyBeaverLogger.logFatalCrash(exception)
     }
+    
+    static func log(inInstance loggingInstance: Logging, _ level: Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
+             file: String = #file, function: String = #function, line: Int = #line) {
+        loggingInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
+    }
 }
 
 protocol Loggable {}

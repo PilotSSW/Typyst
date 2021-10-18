@@ -16,25 +16,26 @@ class RealmDocumentService: Loggable {
         self.realmService = realmService
     }
     
-    private var documents: [RealmDocument] = []
+    private var documents: Results<RealmDocument>? = nil
 
     func createNewRealmDocument(from document: Document) -> RealmDocument? {
-        let realmDocument = document.toRealmDocument()
+        let realmDocument = RealmDocument(document: document)
         let wasSaved = realmService.createObject(realmDocument)
         if wasSaved {
-            documents.append(realmDocument)
+            let _ = fetchRealmDocuments()
         }
 
         return wasSaved ? realmDocument : nil
     }
 
-    func fetchRealmDocuments() -> [RealmDocument] {
-        documents = realmService.getObjects(ofType: RealmDocument).sorted(by: { $0.documentName < $0.documentName })
-        return documents
+    func fetchRealmDocuments() -> Results<RealmDocument> {
+        let results = realmService.getObjects(RealmDocument.self)
+        documents = results
+        return results
     }
 
     func saveDocument(_ document: Document) -> Bool {
-        if let realmDocument = documents.first(where: { $0.id == document.id })  {
+        if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {
             return realmService.saveObject(realmDocument)
         }
         
@@ -44,7 +45,7 @@ class RealmDocumentService: Loggable {
 
 
     func deleteDocument(_ document: Document) -> Bool {
-        if let realmDocument = documents.first(where: { $0.id == document.id })  {
+        if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {
             return realmService.deleteObject(realmDocument)
         }
         
@@ -53,7 +54,7 @@ class RealmDocumentService: Loggable {
     }
 }
 
-class RealmDocument: Object {
+class RealmDocument: RealmSwift.Object {
     @Persisted(primaryKey: true) var id: UUID = UUID()
     @Persisted var documentName: String = ""
     @Persisted var dateCreated: Date = Date()
@@ -67,14 +68,15 @@ class RealmDocument: Object {
                  dateLastOpened: dateLastOpened,
                  textBody: textBody)
     }
-//
-//    convenience init(document: Document) {
-//        self.init(id: document.id,
-//                  documentName: document.documentName,
-//                  dateCreated: document.dateCreated,
-//                  dateLastOpened: document.dateLastOpened,
-//                  textBody: document.textBody)
-//    }
+
+    convenience init(document: Document) {
+        self.init()
+        self.id = document.id
+        self.documentName = document.documentName
+        self.dateCreated = document.dateCreated
+        self.dateLastOpened = document.dateLastOpened
+        self.textBody = document.textBody
+    }
 }
 
 extension Document {
@@ -84,16 +86,5 @@ extension Document {
                   dateCreated: documentDB.dateCreated,
                   dateLastOpened: documentDB.dateLastOpened,
                   textBody: documentDB.textBody)
-    }
-
-    fileprivate func toRealmDocument() -> RealmDocument {
-        let doc = RealmDocument()
-        doc.id = id
-        doc.documentName = documentName
-        doc.dateCreated = dateCreated
-        doc.dateLastOpened = dateLastOpened
-        doc.textBody = textBody
-
-        return doc
     }
 }

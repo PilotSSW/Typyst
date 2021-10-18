@@ -5,6 +5,7 @@
 
 import Combine
 import Foundation
+import RealmSwift
 
 final class RootDependencyContainer {
     fileprivate static var rootDependencyContainer = RootDependencyContainer()
@@ -19,16 +20,20 @@ final class RootDependencyContainer {
 
     private(set) var keyboardService: KeyboardService
     private(set) var typeWriterService: TypeWriterService
+    
+    private(set) var realmInstance: Realm?
 
     private init() {
         subscriptions = Set<AnyCancellable>()
-
+        
         settingsService = SettingsService()
         appDebugSettings = AppDebugSettings()
 
         logging = Logging(withStore: &subscriptions,
                           settingsService: settingsService,
                           appDebugSettings: appDebugSettings)
+        
+        realmInstance = Realm(.mainRealm, withLoggingInstance: logging)
 
         keyboardService = KeyboardService(settingsService: settingsService,
                                           appDebugSettings: appDebugSettings)
