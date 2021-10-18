@@ -28,13 +28,13 @@ class RealmDocumentService: Loggable {
         return wasSaved ? realmDocument : nil
     }
 
-    func fetchRealmDocuments() -> Results<RealmDocument> {
+    func fetchRealmDocuments() -> [Document] {
         let results = realmService.getObjects(RealmDocument.self)
         documents = results
-        return results
+        return results.map(Document.init)
     }
 
-    func saveDocument(_ document: Document) -> Bool {
+    func saveRealmDocument(_ document: Document) -> Bool {
         if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {
             return realmService.saveObject(realmDocument)
         }
@@ -44,7 +44,7 @@ class RealmDocumentService: Loggable {
     }
 
 
-    func deleteDocument(_ document: Document) -> Bool {
+    func deleteRealmDocument(_ document: Document) -> Bool {
         if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {
             return realmService.deleteObject(realmDocument)
         }
@@ -60,6 +60,7 @@ class RealmDocument: RealmSwift.Object {
     @Persisted var dateCreated: Date = Date()
     @Persisted var dateLastOpened: Date = Date()
     @Persisted var textBody: String = ""
+    var document: Document?
 
     func toDocument() -> Document {
         Document(id: id,
@@ -76,6 +77,7 @@ class RealmDocument: RealmSwift.Object {
         self.dateCreated = document.dateCreated
         self.dateLastOpened = document.dateLastOpened
         self.textBody = document.textBody
+        self.document = document
     }
 }
 

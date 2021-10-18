@@ -35,17 +35,21 @@ class DocumentsService: ObservableObject {
     func fetchDocuments() -> [Document] {
         documents = realmDocumentService
             .fetchRealmDocuments()
-            .map(Document.init)
         
         return documents
     }
 
     func updateDocument(_ document: Document) -> Bool {
-        realmDocumentService.saveDocument(document)
+        realmDocumentService.saveRealmDocument(document)
     }
 
     func deleteDocument(_ document: Document) -> Bool {
-        realmDocumentService.deleteDocument(document)
+        if realmDocumentService.deleteRealmDocument(document) {
+            documents.removeAll(where: { $0.id == document.id })
+            return true
+        }
+        
+        return false
     }
 
     func setCurrentDocument(_ document: Document?) {
