@@ -8,8 +8,10 @@
 import AppKit
 import Combine
 import Foundation
+import KeyLogic
+import MacOSKeyListener
 
-class MacOSService {
+class MacOSService: Loggable {
     private static let keyboardServiceTag = "macOSKeyboardService"
     private(set) var alertsService: AlertsService
     private(set) var keyboardService: KeyboardService
@@ -18,6 +20,7 @@ class MacOSService {
 
     init(alertsService: AlertsService = AppDependencyContainer.get().alertsService,
          keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
+         loggingService: Logging = RootDependencyContainer.get().logging,
          settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          subscriptions: inout Set<AnyCancellable>) {
         self.alertsService = alertsService
@@ -30,6 +33,11 @@ class MacOSService {
                                                               guard let self = self else { return }
                                                               self.keyboardService.handleEvent(keyEvent)
                                                           })
+        
+        macOSKeyListener.onLog({ [weak self] (level, message, error, context, file, function, line) in
+            guard let self = self else { return }
+            self.logEvent(level: level, message, error: error, context: context, file: file, function: function, line: line, loggerInstance: loggingService)
+        })
 
         registerServiceListeners(subscriptions: &subscriptions)
     }

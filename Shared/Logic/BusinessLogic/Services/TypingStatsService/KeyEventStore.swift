@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import KeyLogic
 
 final class KeyEventStore {
     private let settingsService: SettingsService

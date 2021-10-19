@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import KeyLogic
 import struct SwiftUI.CGFloat
 import struct SwiftUI.CGSize
 

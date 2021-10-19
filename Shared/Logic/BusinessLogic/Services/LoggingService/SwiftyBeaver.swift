@@ -107,6 +107,8 @@ final class SwiftyBeaverLogger {
                     log.warning(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
                 case .error, .fatal:
                     log.error(logText, file, function, line: line, context: [context, GBDeviceInfo(), error])
+                default:
+                    return 
             }
         }
     }

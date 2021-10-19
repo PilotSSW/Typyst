@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import KeyLogic
 import struct SwiftUI.CGFloat
 import struct SwiftUI.CGSize
 import struct SwiftUI.GeometryProxy

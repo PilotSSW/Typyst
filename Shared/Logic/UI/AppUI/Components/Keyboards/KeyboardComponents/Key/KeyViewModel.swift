@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import KeyLogic
 import struct SwiftUI.CGFloat
 import struct SwiftUI.CGSize
 
@@ -85,7 +86,7 @@ final class KeyViewModel: Identifiable, ObservableObject {
             .store(in: &store)
     }
 
-    func onTap(direction: KeyEvent.KeyDirection,
+    func onTap(direction: KeyDirection,
                sendKeypressToDelegate: Bool = true,
                _ completion: ((KeyEvent) -> Void)? = nil) {
         DispatchQueue.main.async { [weak self] in
@@ -96,7 +97,7 @@ final class KeyViewModel: Identifiable, ObservableObject {
         }
     }
 
-    private func onTapOnMain(direction: KeyEvent.KeyDirection,
+    private func onTapOnMain(direction: KeyDirection,
                sendKeypressToDelegate: Bool = true,
                _ completion: ((KeyEvent) -> Void)? = nil) {
         if (direction == .keyDown) {
@@ -139,7 +140,7 @@ final class KeyViewModel: Identifiable, ObservableObject {
 }
 
 extension KeyViewModel {
-    func createKeyEvent(direction: KeyEvent.KeyDirection) -> KeyEvent {
+    func createKeyEvent(direction: KeyDirection) -> KeyEvent {
         let modifiers: ModifierFlags = (KeySets.letters.contains(key) || KeySets.numbers.contains(key))
             && isUppercased == true
                 ? [.shift]

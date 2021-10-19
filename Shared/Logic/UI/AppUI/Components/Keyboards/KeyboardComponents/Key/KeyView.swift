@@ -5,6 +5,7 @@
 //  Created by Sean Wolford on 7/6/21.
 //
 
+import KeyLogic
 import SwiftUI
 
 struct KeyView: View, Loggable {

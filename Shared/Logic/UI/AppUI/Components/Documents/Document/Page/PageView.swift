@@ -22,7 +22,7 @@ struct PageView: View {
                 TextView(text: $viewModel.text)
                 Spacer()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: 850, maxHeight: 1100)
         }
     }
 }

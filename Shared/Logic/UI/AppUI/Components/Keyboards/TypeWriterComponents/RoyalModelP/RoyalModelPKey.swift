@@ -5,6 +5,7 @@
 //  Created by Sean Wolford on 7/25/21.
 //
 
+import KeyLogic
 import SwiftUI
 
 struct RoyalModelPKey: View {

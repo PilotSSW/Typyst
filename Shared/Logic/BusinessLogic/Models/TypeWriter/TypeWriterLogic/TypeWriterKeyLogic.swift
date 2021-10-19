@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import KeyLogic
 
 final class TypeWriterKeyLogic {
     private var keyboardService: KeyboardService

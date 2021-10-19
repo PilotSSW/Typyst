@@ -5,6 +5,7 @@
 
 import Combine
 import Foundation
+import KeyLogic
 
 final class TypingStats: Loggable {
     private var keyEventStore: KeyEventStore?
@@ -12,7 +13,8 @@ final class TypingStats: Loggable {
     init(withSubscriptionsStore subscriptions: inout Set<AnyCancellable>,
          keyboardService: KeyboardService,
          settingsService: SettingsService = RootDependencyContainer.get().settingsService,
-         appDebugSettings:AppDebugSettings = RootDependencyContainer.get().appDebugSettings) {
+         appDebugSettings:AppDebugSettings = RootDependencyContainer.get().appDebugSettings)
+    {
         keyEventStore = KeyEventStore(withSubscriptionsStore: &subscriptions,
                                       keyboardService: keyboardService,
                                       settingsService: settingsService,
@@ -28,7 +30,8 @@ final class TypingStats: Loggable {
 extension TypingStats {
     internal func keypressesInThePast(_ seconds: Double,
                                       fromTime time: Date = Date(),
-                                      direction: KeyEvent.KeyDirection? = .keyDown) -> Set<AnonymousKeyEvent> {
+                                      direction: KeyDirection? = .keyDown) -> Set<AnonymousKeyEvent>
+    {
         logEvent(.trace, "keypresses in the past seconds: \(seconds)")
         return keyEventStore?.keyPresses.filter {
             let firstCondition = $0.timeStamp.distance(to: time) <= seconds

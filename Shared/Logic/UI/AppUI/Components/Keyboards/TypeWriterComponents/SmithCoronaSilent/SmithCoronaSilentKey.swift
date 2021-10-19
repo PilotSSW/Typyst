@@ -5,6 +5,7 @@
 //  Created by Sean Wolford on 8/18/21.
 //
 
+import KeyLogic
 import SwiftUI
 
 struct SmithCoronaSilentKey: View {

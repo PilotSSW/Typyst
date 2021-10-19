@@ -5,6 +5,7 @@
 
 import Combine
 import Foundation
+import KeyLogic
 
 final class AnalyticsInfoViewModel: ObservableObject {
     private let keyHandler: KeyboardService

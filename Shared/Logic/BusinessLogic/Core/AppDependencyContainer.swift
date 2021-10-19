@@ -31,6 +31,7 @@ final class AppDependencyContainer: ObservableObject {
         #if os(macOS)
         macOSService = MacOSService(alertsService: alertsService,
                                     keyboardService: rootDependencyContainer.keyboardService,
+                                    loggingService: rootDependencyContainer.logging,
                                     settingsService: rootDependencyContainer.settingsService,
                                     subscriptions: &rootDependencyContainer.subscriptions)
         #endif

@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import KeyLogic
 
 final class KeyboardService: Loggable {
     private var settingsService: SettingsService
