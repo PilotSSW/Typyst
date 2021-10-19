@@ -1028,6 +1028,15 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
+		A31EEC08271F1C6600A75D6F /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A36CC4C52719C1C70086B9EA /* RealmService */,
+				A35A8EFE26E3B73E00269386 /* RealmDocumentService.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		A32367E5268E515300CB2B25 /* TypystKeyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1112,7 +1121,7 @@
 				6EF6B6964E2A9E33BB56AF7D /* KeyboardService */,
 				A3FA7298262355D600E32B91 /* LoggingService */,
 				A3B3DF5626E93E9E00D2FAAD /* OSService */,
-				A36CC4C52719C1C70086B9EA /* RealmService */,
+				A31EEC08271F1C6600A75D6F /* Realm */,
 				A3FF85EA26F2993F00D1D069 /* SettingsService */,
 				A3B3DF5426E93B4900D2FAAD /* SoundsService */,
 				A3B3DF5526E93B5900D2FAAD /* TypeWriterService */,
@@ -1236,7 +1245,6 @@
 			isa = PBXGroup;
 			children = (
 				A35A67C226DC7003004A1A4E /* DocumentsService.swift */,
-				A35A8EFE26E3B73E00269386 /* RealmDocumentService.swift */,
 			);
 			path = DocumentsService;
 			sourceTree = "<group>";
@@ -1261,8 +1269,8 @@
 		A36CC4C52719C1C70086B9EA /* RealmService */ = {
 			isa = PBXGroup;
 			children = (
-				A36CC4C62719C1E90086B9EA /* RealmService.swift */,
 				A3484233271DECBD005DD159 /* RealmInstance.swift */,
+				A36CC4C62719C1E90086B9EA /* RealmService.swift */,
 			);
 			path = RealmService;
 			sourceTree = "<group>";

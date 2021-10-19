@@ -130,8 +130,9 @@ final class NSEventListener: Loggable {
 extension NSEventListener {
     private func generateEventListenerHash(
         eventType: NSEvent.EventTypeMask,
-            description: String = "",
-            hash: UUID = UUID()) -> String {
+        description: String = "",
+        hash: UUID = UUID()) -> String
+    {
         let descString = description.count > 0 ? "-\(description)" : ""
         return "nsEvent-\(eventType)\(descString)-\(hash)"
     }

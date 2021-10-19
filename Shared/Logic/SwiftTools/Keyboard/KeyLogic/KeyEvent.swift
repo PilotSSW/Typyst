@@ -5,7 +5,7 @@
 
 import Foundation
 
-// MARK: Protocol/implementation meant as common base type to extend for different types to use in app.
+/// MARK: Protocol/implementation meant as common base type to extend for different types to use in app.
 
 protocol HashableKeyEvent: Hashable {
     var id: UUID { get }
@@ -35,7 +35,7 @@ extension HashableKeyEvent {
 }
 
 
-// Mark: KeyEvents meant for use in App
+/// Mark: KeyEvents meant for use in App
 
 struct AnonymousKeyEvent: HashableKeyEvent {
     let id: UUID
