@@ -276,6 +276,10 @@
 		A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
 		A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
+		A375A65327209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
+		A375A65427209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
+		A375A65527209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
+		A375A65627209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
 		A376954B26EC6CD2004B552C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376954A26EC6CD2004B552C /* WebView.swift */; };
 		A376954C26EC6CD2004B552C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376954A26EC6CD2004B552C /* WebView.swift */; };
 		A376954D26EC6CD2004B552C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A376954A26EC6CD2004B552C /* WebView.swift */; };
@@ -706,6 +710,7 @@
 		A36F5C4B2673B5C400E18CCE /* MainMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCommands.swift; sourceTree = "<group>"; };
 		A36F5C4E2673B7A500E18CCE /* AppSettingsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsCommands.swift; sourceTree = "<group>"; };
 		A36F5C532673D4A500E18CCE /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
+		A375A65227209C6F005B6ADC /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		A376954A26EC6CD2004B552C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A376954F26EC6CDD004B552C /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		A376955526EC6F28004B552C /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
@@ -1272,6 +1277,14 @@
 			path = EmailService;
 			sourceTree = "<group>";
 		};
+		A375A65127209C3F005B6ADC /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				A375A65227209C6F005B6ADC /* Math.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
 		A376953F26EC053A004B552C /* WebBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1814,6 +1827,7 @@
 		A3FA729A262355D600E32B91 /* SwiftTools */ = {
 			isa = PBXGroup;
 			children = (
+				A375A65127209C3F005B6ADC /* Math */,
 				A3FA729B262355D600E32B91 /* Swift Extensions */,
 				A3FA729E262355D600E32B91 /* System */,
 			);
@@ -2326,6 +2340,7 @@
 				A3A60ED3271FC180007C4D76 /* TypeWritersViewModel.swift in Sources */,
 				A3FA72D1262355D700E32B91 /* InterfaceAndControls.swift in Sources */,
 				A3FA72D3262355D700E32B91 /* TypeWriterStateView.swift in Sources */,
+				A375A65327209C6F005B6ADC /* Math.swift in Sources */,
 				A3FA732B262355D700E32B91 /* RepeatingTimer.swift in Sources */,
 				A3FA71D72623523400E32B91 /* Persistence.swift in Sources */,
 				A3FA72C1262355D700E32B91 /* TypeWriterMenuData.swift in Sources */,
@@ -2488,6 +2503,7 @@
 				A3FA7320262355D700E32B91 /* TypeWriter.swift in Sources */,
 				A36E474726E5BC7000E647A0 /* KeyShape.swift in Sources */,
 				A34602482685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
+				A375A65427209C6F005B6ADC /* Math.swift in Sources */,
 				A36E474026E5BC7000E647A0 /* KeyboardView.swift in Sources */,
 				A3FA72D6262355D700E32B91 /* TitleCard.swift in Sources */,
 				A36E474526E5BC7000E647A0 /* KeyViewModel.swift in Sources */,
@@ -2575,6 +2591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A375A65527209C6F005B6ADC /* Math.swift in Sources */,
 				A3C9051826AE6AB4007DC282 /* RoyalModelPKey.swift in Sources */,
 				A3FF85F126F2F8C600D1D069 /* UserDefaultsAppSettings.swift in Sources */,
 				A329D97F27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
@@ -2695,6 +2712,7 @@
 				A3E2AB0826892F6A00F43757 /* SoundError.swift in Sources */,
 				A35A67C626DC7003004A1A4E /* DocumentsService.swift in Sources */,
 				A36E475026E5BC7300E647A0 /* SettingsComponent.swift in Sources */,
+				A375A65627209C6F005B6ADC /* Math.swift in Sources */,
 				A3BE143A26E686A800A3EAB0 /* PaperContainer.swift in Sources */,
 				A35E32772706BE9D0055B01C /* ScrollViewCleaner.swift in Sources */,
 				A3E2AAF626892DD700F43757 /* TypeWriter.swift in Sources */,

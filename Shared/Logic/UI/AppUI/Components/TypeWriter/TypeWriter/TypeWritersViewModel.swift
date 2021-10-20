@@ -94,14 +94,19 @@ extension TypeWriterViewModel {
     var keyboardMaxHeight: CGFloat { OSHelper.runtimeEnvironment == .iOS ? 200 : .infinity }
     
     private var calcDocumentXOffset: CGFloat {
-        let scalar = 60 / 8
         let currentPosition = currentDocument?.currentIndex ?? 0
-        let offset = -300
+
+        let yeqmxplb = Math.slopeInterceptFromTwoPoints(x1: 0, y1: 300, x2: 80, y2: -300)
+        let xOffset = Math.currentPositionUsing(scalar: yeqmxplb.slope, offset: yeqmxplb.intercept, input: Double(currentPosition))
         
-        return CGFloat((scalar * currentPosition) + offset)
+        return CGFloat(xOffset)
     }
     private var calcDocumentYOffSet: CGFloat {
-        let scalar = -(25 / 800)
-        return CGFloat(scalar * (currentDocument?.currentLine ?? 0) + 800)
+        let currentLine = currentDocument?.currentLine ?? 0
+        
+        let yeqmxplb = Math.slopeInterceptFromTwoPoints(x1: 0, y1: 1000, x2: 25, y2: 0)
+        let yOffset = Math.currentPositionUsing(scalar: yeqmxplb.slope, offset: yeqmxplb.intercept, input: Double(currentLine))
+        
+        return CGFloat(yOffset)
     }
 }
