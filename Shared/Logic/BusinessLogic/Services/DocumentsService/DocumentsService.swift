@@ -81,6 +81,14 @@ class Document: ObservableObject, Identifiable {
         self.dateLastOpened = dateLastOpened
         self.textBody = textBody
     }
+    
+    var currentLine: Int {
+        (textBody.count / 80) + 1
+    }
+    
+    var currentIndex: Int {
+        textBody.count % 80
+    }
 }
 
 extension Document: Hashable {

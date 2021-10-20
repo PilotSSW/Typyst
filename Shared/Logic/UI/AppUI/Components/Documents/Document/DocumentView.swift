@@ -16,26 +16,12 @@ struct DocumentView: View {
     ]
 
     var body: some View {
-//        ScrollView(.horizontal, showsIndicators: false) {
-//            LazyHGrid(rows: rows,
-//                      alignment: .center,
-//                      spacing: nil) {
-//                ForEach(viewModel.pageViewModels, id: \.self) { pageViewModel in
-//                    PageView(viewModel: pageViewModel)
-//                }
-//            }
-//        }
-        ScrollView() {
-            VStack() {
-                ForEach(viewModel.pageViewModels) { pageViewModel in
-                    PageView(viewModel: pageViewModel)
-                }
+        VStack() {
+            ForEach(viewModel.pageViewModels) { pageViewModel in
+                PageView(viewModel: pageViewModel)
             }
-            .frame(alignment: .bottom)
         }
-        .onDisappear() {
-            viewModel.onDisappear()
-        }
+        .onDisappear() { viewModel.onDisappear() }
     }
 }
 

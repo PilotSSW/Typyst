@@ -38,7 +38,7 @@ struct DocumentsListButton<Content: View>: View {
     private var button: some View {
         if OSHelper.runtimeEnvironment == .iOS {
             NavigationLink(
-                destination: TypeWriterView()
+                destination: WritersView()
                     .onAppear(perform: onSelect)
                     .onDisappear(perform: onReturn),
                 label: {

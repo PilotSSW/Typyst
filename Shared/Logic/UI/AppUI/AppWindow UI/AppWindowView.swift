@@ -31,7 +31,7 @@ struct AppWindowView: View {
                             }
                             
                             if (viewModel.shouldShowTypeWriterView) {
-                                TypeWriterView()
+                                WritersView()
                                     .padding(4)
                             }
                         }
@@ -56,7 +56,8 @@ struct AppWindowView: View {
 
 struct AppWindowView_Previews: PreviewProvider {
     static var previews: some View {
+        let _ = AppDependencyContainer.get().documentsService.setCurrentDocument(Document(documentName: "Hello There!"))
         AppWindowView()
-            .previewLayout(.sizeThatFits)
+            .frame(width: 1200.0, height: 1200.0)
     }
 }

@@ -21,8 +21,10 @@ final class KeyboardService: Loggable {
         handlers.removeAll()
     }
 
-    internal func registerKeyPressCallback(withTag tag: String, completion: @escaping (KeyEvent) -> Void)  {
-        if handlers[tag] != nil { return }
+    internal func registerKeyPressCallback(withTag tag: String,
+                                           shouldOverwriteExistingTag: Bool = false,
+                                           completion: @escaping (KeyEvent) -> Void)  {
+        if handlers[tag] != nil && !shouldOverwriteExistingTag { return }
         handlers[tag] = completion
     }
 
@@ -31,20 +33,21 @@ final class KeyboardService: Loggable {
     }
 
     internal func handleEvent(_ event: KeyEvent, _ completion: ((KeyEvent) -> Void)? = nil) {
-        #if KEYBOARD_EXTENSION
-        let queue = DispatchQueue.main
-        #else
-        let queue = DispatchQueue.global(qos: .userInteractive)
-        #endif
+        let isKeyboardExtension = OSHelper.runtimeEnvironment == .keyboardExtension
+        let queue = isKeyboardExtension
+            ? DispatchQueue.main
+            : DispatchQueue.global(qos: .userInteractive)
         
         queue.async(execute: { [weak self] in
             guard let self = self else { return }
 
             // Handle debug
+            #if DEBUG
             if self.appDebugSettings.debugGlobal && self.appDebugSettings.debugKeypresses {
                 // Never ever log this in production
                 self.logEvent(.debug, "Event: \(event)")
             }
+            #endif
 
             if event.timeSinceEvent <= 0.75 {
                 self.handlers.values.forEach({ $0(event) })
