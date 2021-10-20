@@ -21,7 +21,7 @@ extension List {
             }
         }
         .introspectTableViewCell { cell in
-            print(cell.superview)
+            print(cell.superview as Any)
         }
         .introspectScrollView { scrollView in
             scrollView.drawsBackground = false

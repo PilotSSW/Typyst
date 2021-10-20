@@ -24,17 +24,6 @@ final class Logging {
         case error = 4
         case fatal = 5
         case unknown = 6
-        
-        init?(_ macOsKeyListenerLevel: MacOSKeyListener_Logger_Level) {
-            switch(macOsKeyListenerLevel) {
-            case .trace: self.init(rawValue: 0)
-            case .debug: self.init(rawValue: 1)
-            case .info: self.init(rawValue: 2)
-            case .warning: self.init(rawValue: 3)
-            case .error: self.init(rawValue: 4)
-            case .fatal: self.init(rawValue: 5)
-            }
-        }
     }
 
     init(withStore store: inout Set<AnyCancellable>,
@@ -76,13 +65,18 @@ extension Loggable {
             loggerInstance.log(level, message, error: error, context: context, file: file, function: function, line: line)
         }
     }
-    
-    func logEvent(level: MacOSKeyListener_Logger_Level = .info, _ message: String = "", error: Error? = nil, context: Any? = nil,
-                  file: String = #file, function: String = #function, line: Int = #line,
-                  loggerInstance: Logging = RootDependencyContainer.get().logging)
-    {
-        DispatchQueue.global(qos: .utility).async {
-            loggerInstance.log(Logging.Level(level) ?? .unknown, message, error: error, context: context, file: file, function: function, line: line)
+}
+
+extension MacOSKeyListener_Logger_Level {
+    internal func toLoggingLevel() -> Logging.Level {
+        switch (self) {
+        case .trace: return .trace
+        case .debug: return .debug
+        case .info: return .info
+        case .warning: return .warning
+        case .error: return .error
+        case .fatal: return .fatal
+        default: return .unknown
         }
     }
 }

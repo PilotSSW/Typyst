@@ -36,7 +36,7 @@ class MacOSService: Loggable {
         
         macOSKeyListener.onLog({ [weak self] (level, message, error, context, file, function, line) in
             guard let self = self else { return }
-            self.logEvent(level: level, message, error: error, context: context, file: file, function: function, line: line, loggerInstance: loggingService)
+            self.logEvent(level.toLoggingLevel(), message, error: error, context: context, file: file, function: function, line: line, loggerInstance: loggingService)
         })
 
         registerServiceListeners(subscriptions: &subscriptions)
