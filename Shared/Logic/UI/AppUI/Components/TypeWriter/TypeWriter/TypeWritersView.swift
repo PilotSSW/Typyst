@@ -15,14 +15,16 @@ struct TypeWritersView: View {
             if viewModel.showPaper, let documentViewModel = viewModel.currentDocumentViewModel {
                 let xOffset = viewModel.documentXOffset
                 let yOffset = viewModel.documentYOffset
+                
                 DocumentView(viewModel: documentViewModel)
                     .padding(4)
-                    .frame(maxWidth: 800)
-                    .animation(.interactiveSpring()
-                                .speed(0.75)
-                                .delay(0.03))
                     .offset(x: xOffset,
                             y: yOffset)
+                    .frame(maxWidth: 800, alignment: .bottom)
+                    .animation(.interactiveSpring()
+                               .speed(0.75)
+                               .delay(0.03))
+
             }
             
             if viewModel.showKeyboard {
@@ -38,7 +40,7 @@ struct TypeWritersView: View {
                                 .delay(0.03))
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
     }
 }
 

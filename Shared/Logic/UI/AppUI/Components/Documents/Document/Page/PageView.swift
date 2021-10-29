@@ -11,15 +11,24 @@ struct PageView: View {
     @ObservedObject
     var viewModel: PageViewModel
     
+    var textEditorViewModel: TextEditorViewModel {
+        TextEditorViewModel(onCursorPositionChanged: viewModel.onCursorPositionChanged,
+                            onTextChange: viewModel.onTextChange)
+    }
+    
     var body: some View {
         SheetOfPaper() {
             VStack(alignment: .leading) {
                 if (viewModel.title.count > 0) {
-                    TextView(isTitle: true,
-                             text: $viewModel.title)
+                    TextEditorView(isTitle: true,
+                                   text: $viewModel.title,
+                                   viewModel: textEditorViewModel)
                 }
 
-                TextView(text: $viewModel.text)
+                TextEditorView(text: $viewModel.text,
+                               viewModel: textEditorViewModel)
+                    .layoutPriority(1)
+                
                 Spacer()
             }
             .frame(maxWidth: 850, maxHeight: 1100)

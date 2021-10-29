@@ -76,7 +76,6 @@ extension MacOSKeyListener_Logger_Level {
         case .warning: return .warning
         case .error: return .error
         case .fatal: return .fatal
-        default: return .unknown
         }
     }
 }

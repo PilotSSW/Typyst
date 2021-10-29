@@ -25,3 +25,15 @@ extension NSTableView {
 //        self.intercellSpacing = NSSize(width: -2, height: 8)
     }
 }
+
+extension NSTextView {
+    public func getCursorPositionInFrame() -> CGRect? {
+        if let textContainer = textContainer {
+            let cursorLocation = NSRange(location: selectedRange().location, length: 0)
+            let coordinates = layoutManager?.boundingRect(forGlyphRange: cursorLocation, in: textContainer)
+            return coordinates
+        }
+        
+        return nil
+    }
+}

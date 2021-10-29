@@ -119,23 +119,23 @@ struct NeumorphicButtonStyle: ButtonStyle {
                             button
                         }
 
-                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
-                            .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
-                                          lineWidth: configuration.isPressed ? 0.5 : 0.25, antialiased: true)
-                            .scaleEffect(interactionMode == .isPressed
-                                         ? (avgSize / (avgSize + 3))
-                                         : interactionMode == .isHovering
-                                         ? (avgSize / (avgSize - 3))
-                                         : 1.0)
-                        
-                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
-                            .strokeBorder(AppGradients.cardOutlineGradient,
-                                          lineWidth: 0.7, antialiased: true)
-                            .scaleEffect(interactionMode == .isPressed
-                                         ? (avgSize / (avgSize + 3))
-                                         : interactionMode == .isHovering
-                                         ? (avgSize / (avgSize - 3))
-                                         : 1.0)
+//                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+//                            .strokeBorder(AppGradients.buttonOutlineGradient(isPressed: configuration.isPressed),
+//                                          lineWidth: configuration.isPressed ? 0.5 : 0.25, antialiased: true)
+//                            .scaleEffect(interactionMode == .isPressed
+//                                         ? (avgSize / (avgSize + 3))
+//                                         : interactionMode == .isHovering
+//                                         ? (avgSize / (avgSize - 3))
+//                                         : 1.0)
+//                        
+//                        RoundedRectangle(cornerRadius: buttonCornerRadius, style: .continuous)
+//                            .strokeBorder(AppGradients.cardOutlineGradient,
+//                                          lineWidth: 0.7, antialiased: true)
+//                            .scaleEffect(interactionMode == .isPressed
+//                                         ? (avgSize / (avgSize + 3))
+//                                         : interactionMode == .isHovering
+//                                         ? (avgSize / (avgSize - 3))
+//                                         : 1.0)
                 }
             })
             .foregroundColor(textColor)

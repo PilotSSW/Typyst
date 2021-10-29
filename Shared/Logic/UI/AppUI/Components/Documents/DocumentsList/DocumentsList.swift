@@ -39,7 +39,7 @@ struct DocumentsList: View {
                     DocumentsListRow(document: document)
                     #endif
                 }
-                .onDelete(perform: viewModel.deleteDocument)
+                //.onDelete(perform: viewModel.deleteDocument)
             }
                 .background(Color.clear)
         }

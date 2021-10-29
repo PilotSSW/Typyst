@@ -18,11 +18,21 @@ final class AppGradients {
         )
     }
 
-    public static func buttonOutlineGradient(isPressed: Bool = false) -> LinearGradient {
+    public static func buttonOutlineGradient(isPressed: Bool = false, opacity opacityValue: Double = 1.0) -> LinearGradient {
         var colors: [Color] {
             isPressed
-                ? [AppColor.cardOutlineSecondary, AppColor.cardOutlinePrimary]
-                : [AppColor.cardOutlinePrimary, AppColor.cardOutlineSecondary]
+                ? [
+                    AppColor.cardOutlineSecondary
+                        .opacity(opacityValue),
+                    AppColor.cardOutlinePrimary
+                        .opacity(opacityValue)
+                ]
+                : [
+                    AppColor.cardOutlinePrimary
+                        .opacity(opacityValue),
+                    AppColor.cardOutlineSecondary
+                        .opacity(opacityValue)
+                ]
         }
 
         return LinearGradient(

@@ -12,6 +12,9 @@ class PageViewModel: ObservableObject, Identifiable {
     internal let id = UUID()
     @Published var title: String
     @Published var text: String
+    
+    var onCursorPositionChanged: (_ cursorFrameLocation: CGRect, _ frame: CGRect) -> Void = { cursorFrame, frame in }
+    var onTextChange    : (String) -> Void = { _ in }
 
     init(withText text: String = "",
          withTitle title: String = "") {

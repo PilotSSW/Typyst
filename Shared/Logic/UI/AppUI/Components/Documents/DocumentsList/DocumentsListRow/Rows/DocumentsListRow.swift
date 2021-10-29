@@ -62,8 +62,8 @@ struct DocumentsListRow: View {
                 withAnimation { self.isHovering = isHovering }
             }
         }
-//            .listRowInsets(.init(top: 5, leading: -20, bottom: 5, trailing: -20))
            .listRowBackground(DocumentsListRowBackground(isHovering: $isHovering, isSelected: $isSelected))
+
     }
 }
 
