@@ -9,8 +9,6 @@ import Combine
 import Foundation
 
 class DocumentViewModel: ObservableObject, Loggable {
-    private var store = Set<AnyCancellable>()
-
     @Published var document: Document
     @Published var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
     @Published var pageViewModels: [PageViewModel] = []
@@ -32,35 +30,29 @@ class DocumentViewModel: ObservableObject, Loggable {
 
 extension DocumentViewModel {
     private func setupPageViewModel() {
-        let pageViewModel = PageViewModel(withText: document.textBody,
-                                          withTitle: document.documentName)
-        pageViewModel.$title
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] newValue in
+        let pageViewModel = PageViewModel(
+            withText: document.textBody,
+            withTitle: document.documentName,
+            onTextChange: { [weak self] newValue in
                 guard let self = self else { return }
                 self.document.documentName = newValue
                 let _ = self.documentsService.updateDocument(self.document)
-            }
-            .store(in: &store)
-        
-        pageViewModel.$text
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] newValue in
+            },
+            onTitleChange: { [weak self] newValue in
                 guard let self = self else { return }
                 self.document.textBody = newValue
                 let _ = self.documentsService.updateDocument(self.document)
+            },
+            onCursorPositionChanged: { [weak self] (cursorFrame, textViewFrame) in
+                guard let self = self else { return }
+                
+                let results = self.calculatePageOffsets(cursorFrame: cursorFrame,
+                                                        textViewFrame: textViewFrame)
+                
+                self.currentPageXOffset = results.xOffset
+                self.currentPageYOffset = results.yOffset
             }
-        .store(in: &store)
-        
-        pageViewModel.onCursorPositionChanged = { [weak self] (cursorFrame, textViewFrame) in
-            guard let self = self else { return }
-            
-            let results = self.calculatePageOffsets(cursorFrame: cursorFrame,
-                                                    textViewFrame: textViewFrame)
-            
-            self.currentPageXOffset = results.xOffset
-            self.currentPageYOffset = results.yOffset
-        }
+        )
         
         pageViewModels.append(pageViewModel)
     }

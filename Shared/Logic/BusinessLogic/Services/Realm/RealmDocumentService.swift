@@ -31,7 +31,8 @@ class RealmDocumentService: Loggable {
     func fetchRealmDocuments() -> [Document] {
         let results = realmService.getObjects(RealmDocument.self)
         documents = results
-        return results.map(Document.init)
+        if let results = results { return results.map(Document.init) }
+        return []
     }
 
     func saveRealmDocument(_ document: Document) -> Bool {

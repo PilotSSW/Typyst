@@ -160,10 +160,8 @@ final class CustomTextView: NSView {
         let contentSize = scrollView.contentSize
         let textStorage = NSTextStorage()
         
-        
         let layoutManager = NSLayoutManager()
-        textStorage.addLayoutManager(layoutManager)
-        
+        textStorage.addLayoutManager(layoutManager)        
         
         let textContainer = NSTextContainer(containerSize: scrollView.frame.size)
         textContainer.widthTracksTextView = true

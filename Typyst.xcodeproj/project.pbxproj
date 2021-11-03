@@ -770,6 +770,7 @@
 		A3E2AAF026892D9900F43757 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		A3E2AB0C2689332000F43757 /* TextDocumentProxyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocumentProxyService.swift; sourceTree = "<group>"; };
 		A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensionDependencyContainer.swift; sourceTree = "<group>"; };
+		A3E31254272E547D00010437 /* TextKitEditor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TextKitEditor; path = ../../SwiftTools/TextKitEditor; sourceTree = "<group>"; };
 		A3E35A4C26C75BD20030DBC2 /* RoyalModelPBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoyalModelPBackground.swift; sourceTree = "<group>"; };
 		A3E35A5126C75C2D0030DBC2 /* TypeWriterBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterBackground.swift; sourceTree = "<group>"; };
 		A3EE9CC426A293190009482C /* KeyboardConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConfiguration.swift; sourceTree = "<group>"; };
@@ -1392,6 +1393,7 @@
 			children = (
 				A3A60EC2271F42CB007C4D76 /* KeyLogic */,
 				A3A60EC3271F42DA007C4D76 /* MacOSKeyListener */,
+				A3E31254272E547D00010437 /* TextKitEditor */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
