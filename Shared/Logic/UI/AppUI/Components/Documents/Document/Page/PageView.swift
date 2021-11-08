@@ -14,11 +14,15 @@ struct PageView: View {
     var body: some View {
         SheetOfPaper() {
             VStack(alignment: .leading) {
-                if let childVm = viewModel.titleViewModel {
-                    TextEditorView(viewModel: childVm)
+                if let titleContainer = viewModel.titleTextContainer {
+                    TextEditorView(withTextContainer: titleContainer,
+                                   onCursorPositionChanged: viewModel.onCursorPositionChanged,
+                                   onTextChange: viewModel.onTitleChange)
                 }
 
-                TextEditorView(viewModel: viewModel.textViewModel)
+                TextEditorView(withTextContainer: viewModel.textTextContainer,
+                               onCursorPositionChanged: viewModel.onCursorPositionChanged,
+                               onTextChange: viewModel.onTextChange)
                     .layoutPriority(1)
                 
                 Spacer()
@@ -30,14 +34,14 @@ struct PageView: View {
 
 struct Page_Previews: PreviewProvider {
     static var previews: some View {
-        let text = """
-            Wow! This some crazy ass text!
-            """
-        let title = """
-            This is just a boring title. :(
-            """
-        let viewModel = PageViewModel(withText: text,
-                                      withTitle: title)
+//        let text = """
+//            Wow! This some crazy ass text!
+//            """
+//        let title = """
+//            This is just a boring title. :(
+//            """
+        let textContainer = NSTextContainer()
+        let viewModel = PageViewModel(withTextTextContainer: textContainer)
         PageView(viewModel: viewModel)
     }
 }

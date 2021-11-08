@@ -10,9 +10,14 @@
 //  MIT license
 //
 
-import AppKit
 import Combine
 import SwiftUI
+
+#if canImport(AppKit)
+import AppKit
+#elseif canImport(UIKit)
+import UIKit
+#endif
 
 struct MacEditorTextView: NSViewRepresentable {
     @Binding var text: String

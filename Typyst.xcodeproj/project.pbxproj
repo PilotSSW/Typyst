@@ -16,13 +16,16 @@
 		6EF6B0DD0C0A7A5C93DB1E2F /* iOSUIKitKeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B27523AD2BC680B4FAA5 /* iOSUIKitKeyboardService.swift */; };
 		6EF6B0F7E01871E021212FD4 /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA099355B9274C6966F2 /* KeyboardModel.swift */; };
 		6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
+		6EF6B147AE78D59792DE7EC2 /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
 		6EF6B1AB8232C6E03FBBA691 /* WritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* WritersViewModel.swift */; };
 		6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
 		6EF6B1D20C73B4DDE63B477F /* AppWindowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* AppWindowContainerView.swift */; };
 		6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BAE62F54493636996EBC /* WindowAccessor.swift */; };
 		6EF6B23233FB92652D7EE067 /* CoreMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BDF69C604944A3DC5824 /* CoreMenuItems.swift */; };
 		6EF6B2EECE8AD4C242B5993B /* iOSUIKitKeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B27523AD2BC680B4FAA5 /* iOSUIKitKeyboardService.swift */; };
+		6EF6B366EE2DDFF22BAEA1FC /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
 		6EF6B3BFBDAA4ED2D0A0496F /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B359482DB0351E243FEC /* KeyboardService.swift */; };
+		6EF6B42B77E0E6AE2D8CE19B /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
 		6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2072E681180EE0569D2 /* AppDelegate.swift */; };
 		6EF6B6A3DB2F65DF5D855224 /* WritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* WritersViewModel.swift */; };
 		6EF6B6B58BC103278F8D909E /* KeyboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2743C24874905B5E21F /* KeyboardRowViewModel.swift */; };
@@ -32,6 +35,7 @@
 		6EF6B7C9D5272B35C6191AE2 /* MacOSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0B558DDAB48D3D68F56 /* MacOSUI.swift */; };
 		6EF6B83D11F288968BA3AFBD /* TypeWriters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B98DD03A1EA57E71897C /* TypeWriters.swift */; };
 		6EF6B84F88E113673D7382BC /* UserDefaultsAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B0D1BDF8AD035019D339 /* UserDefaultsAppSettings.swift */; };
+		6EF6B8548C220D3EBF35538E /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
 		6EF6B899065B8528AB03A09A /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA8E1044964D2F8CBBA6 /* AlertItem.swift */; };
 		6EF6B8C38691D754BFE3759C /* WritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* WritersViewModel.swift */; };
 		6EF6B8CC8BD600A17EF9ACDC /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BB13EDFB032BE23771D7 /* AppMenu.swift */; };
@@ -682,6 +686,7 @@
 		6EF6BEDA919F458415DF3F3F /* UserInfoAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoAlerts.swift; sourceTree = "<group>"; };
 		6EF6BF327759F44A0B2D4594 /* OSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSHelper.swift; sourceTree = "<group>"; };
 		6EF6BF738F13EF32973D1724 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLayoutService.swift; sourceTree = "<group>"; };
 		747E636E75EF82BBBFC25747 /* Pods-Mobile-TypystKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-TypystKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-Mobile-TypystKeyboard/Pods-Mobile-TypystKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		990580CCB92F532D9D043A7C /* Pods-Mobile-Typyst (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-Typyst (iOS).release.xcconfig"; path = "Target Support Files/Pods-Mobile-Typyst (iOS)/Pods-Mobile-Typyst (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		A300BB1D2664204B00BB7BA3 /* KeyEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventStore.swift; sourceTree = "<group>"; };
@@ -1015,6 +1020,14 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
+		6EF6BE3C013A63B9F3ADAF58 /* TextLayoutService */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */,
+			);
+			path = TextLayoutService;
+			sourceTree = "<group>";
+		};
 		6EF6BE6F599FCD0F613A605D /* ResizableDragger */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1169,7 @@
 				A31EEC08271F1C6600A75D6F /* Realm */,
 				A3FF85EA26F2993F00D1D069 /* SettingsService */,
 				A3B3DF5426E93B4900D2FAAD /* SoundsService */,
+				6EF6BE3C013A63B9F3ADAF58 /* TextLayoutService */,
 				A3B3DF5526E93B5900D2FAAD /* TypeWriterService */,
 				A3FA76D426237DA900E32B91 /* TypingStatsService */,
 			);
@@ -2468,6 +2482,7 @@
 				6EF6B6E83463E77D41537D9F /* KeyboardModel.swift in Sources */,
 				6EF6BE17FE27A974E25F178F /* KeyboardService.swift in Sources */,
 				6EF6B1AB8232C6E03FBBA691 /* WritersViewModel.swift in Sources */,
+				6EF6B42B77E0E6AE2D8CE19B /* TextLayoutService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2631,6 +2646,7 @@
 				6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */,
 				6EF6BBE31198B8E202B3AA41 /* KeyboardService.swift in Sources */,
 				6EF6B0D6AD86663D22D1EA57 /* WritersViewModel.swift in Sources */,
+				6EF6B366EE2DDFF22BAEA1FC /* TextLayoutService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2738,6 +2754,7 @@
 				A355165626C95A64005F033E /* SettingsComponent.swift in Sources */,
 				6EF6B9ABCBB608B4882BD5AD /* KeyboardService.swift in Sources */,
 				6EF6B8C38691D754BFE3759C /* WritersViewModel.swift in Sources */,
+				6EF6B8548C220D3EBF35538E /* TextLayoutService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2847,6 +2864,7 @@
 				6EF6B3BFBDAA4ED2D0A0496F /* KeyboardService.swift in Sources */,
 				A3FF85EF26F299E800D1D069 /* SettingsService.swift in Sources */,
 				6EF6B6A3DB2F65DF5D855224 /* WritersViewModel.swift in Sources */,
+				6EF6B147AE78D59792DE7EC2 /* TextLayoutService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
