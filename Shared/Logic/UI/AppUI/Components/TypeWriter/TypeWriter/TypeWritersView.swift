@@ -13,13 +13,9 @@ struct TypeWritersView: View {
     var body: some View {
         ZStack() {
             if viewModel.showPaper, let documentViewModel = viewModel.currentDocumentViewModel {
-                let xOffset = viewModel.documentXOffset
-                let yOffset = viewModel.documentYOffset
                 
                 DocumentView(viewModel: documentViewModel)
                     .padding(4)
-                    .offset(x: xOffset,
-                            y: yOffset)
                     .frame(maxWidth: 800, alignment: .bottom)
                     .animation(.interactiveSpring()
                                .speed(0.75)

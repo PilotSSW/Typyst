@@ -15,12 +15,10 @@ struct TypeWriterCardBody: View {
     var body: some View {
         VStack {
             Text(description)
-                .asStyledText(textSize: compressTextBody
-                                  ? TextSize.normal.rawValue
-                                  : TextSize.veryLarge.rawValue,
+                .asStyledText(textSize: compressTextBody ? .normal : .veryLarge,
                               lineLimit: compressTextBody && !showAllText ? 5 : nil)
                 .multilineTextAlignment(.leading)
-                .lineSpacing(TextSize.veryLarge.rawValue)
+                .lineSpacing(TextSize.veryLarge.cgFloatSize)
                 .padding(.horizontal, 4)
 
             if compressTextBody {

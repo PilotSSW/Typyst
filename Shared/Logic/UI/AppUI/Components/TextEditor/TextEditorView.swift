@@ -15,55 +15,51 @@ import UIKit
 #endif
 
 struct TextEditorView: Loggable {
-    var isEditable: Bool = true
-    var font: NSFont?    = .systemFont(ofSize: 14, weight: .regular)
-
-    var onCursorPositionChanged: (_ cursorFrameLocation: CGRect, _ frame: CGRect) -> Void = { cursorFrame, frame in }
-    var onEditingChanged: () -> Void       = {}
-    var onCommit        : () -> Void       = {}
-    var onTextChange    : (String) -> Void = { _ in }
-
-    var textView: NSTextView = NSTextView()
-
-    init(withTextContainer textContainer: NSTextContainer = NSTextContainer(),
-         onCursorPositionChanged: @escaping (_ cursorFrameLocation: CGRect, _ frame: CGRect) -> Void = { cursorFrame, frame in },
-         onEditingChanged: @escaping () -> Void       = {},
-         onCommit        : @escaping () -> Void       = {},
-         onTextChange    : @escaping (String) -> Void = { _ in }
-    ) {
-        self.onCursorPositionChanged = onCursorPositionChanged
-        self.onEditingChanged = onEditingChanged
-        self.onCommit = onCommit
-        self.onTextChange = onTextChange
-        
+    internal let id = UUID()
+    
+    var textContainer: NSTextContainer
+    var textView: NSTextView
+    
+    init(withTextContainer textContainer: NSTextContainer) {
+        self.textView = NSTextView()
         textView.textContainer = textContainer
+
+        self.textContainer = textContainer
+
+        commonInit()
+    }
+
+    init(withTextView textView: NSTextView) {
+        self.textView = textView
+        self.textContainer = textView.textContainer ?? NSTextContainer()
+
+        commonInit()
+    }
+    
+    private func commonInit() {
+        // display properties
+        textView.isRulerVisible = true
+        textView.drawsBackground = true
+        textView.backgroundColor = .gray
+        textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
+        
+        textView.autoresizingMask = [.height, .width]
+        textView.isVerticallyResizable = true
+        textView.isHorizontallyResizable = true
+        
+        textView.isEditable = true
+        textView.isSelectable = true
+        textView.isHidden = false
+        textView.isFieldEditor = true
+        textView.isRichText = false
     }
 
     // MARK: - Coordinator
     class Coordinator: NSObject, NSTextViewDelegate {
         var parent: TextEditorView
-        var selectedRanges: [NSValue] = []
 
         init(_ parent: TextEditorView) {
             self.parent = parent
-        }
-
-        func textDidBeginEditing(_ notification: Notification) {
-            parent.onEditingChanged()
-        }
-
-        func textDidChange(_ notification: Notification) {
-            if let cursorFrame = parent.textView.getCursorPositionInFrame() {
-                parent.onCursorPositionChanged(cursorFrame, parent.textView.frame)
-            }
-//            TODO: Get the notification object and get text out -- call onTextChange()!
-//            notification.object as
-
-            selectedRanges = parent.textView.selectedRanges
-        }
-
-        func textDidEndEditing(_ notification: Notification) {
-            parent.onCommit()
         }
     }
 }
@@ -75,19 +71,29 @@ extension TextEditorView: NSViewRepresentable {
     }
 
     func makeNSView(context: Context) -> NSTextView {
-        textView.delegate = context.coordinator
-
-        DispatchQueue.main.async {
-            if let cursorFrame = textView.getCursorPositionInFrame() {
-                onCursorPositionChanged(cursorFrame, textView.frame)
-            }
+        if textView.textContainer == nil {
+            print("Make NSView missing textContainer")
+            textView.textContainer = textContainer
         }
-
+        
+        print("Text View created: \(id)")
+        
         return textView
     }
 
     func updateNSView(_ view: NSTextView, context: Context) {
-        view.selectedRanges = context.coordinator.selectedRanges
+        print("Text View updated: \(id)")
+        
+        textView.backgroundColor = .blue
+        
+        if textView.textContainer == nil {
+            print("Update NSView missing textContainer: \(id)")
+            textView.textContainer = textContainer
+            textView.backgroundColor = .red
+        }
+        else {
+            textView.backgroundColor = .green
+        }
     }
 }
 #elseif canImport(UIKit)
@@ -97,28 +103,20 @@ extension TextEditorView: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> NSTextView {
-        textView.delegate = context.coordinator
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            let nsTextView = textView.textView
-            if let cursorFrame = nsTextView.getCursorPositionInFrame() {
-                onCursorPositionChanged(cursorFrame, textView.frame)
-            }
-        })
-
         return textView
     }
 
-    func updateUIView(_ view: NSTextView, context: Context) {
-        view.text = text
-        view.selectedRanges = context.coordinator.selectedRanges
-    }
+    func updateUIView(_ view: NSTextView, context: Context) {}
 }
 #endif
 
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
-        TextEditorView()
-            .preferredColorScheme(.dark)
+        let layout = MultiPageTextLayout(with: ["This is a TextView with some text!!"])
+        let textView = layout.createAndAddNewTextView(withFrame: NSRect(origin: .zero, size: NSSize(width: 200, height: 100)))
+        
+        return TextEditorView(withTextView: textView)
+            .previewLayout(.device)
+            
     }
 }

@@ -7,88 +7,57 @@
 
 import Combine
 import Foundation
-import AppKit
 
 class DocumentViewModel: NSObject, ObservableObject, Loggable {
+    internal let id = UUID()
+
     @Published var document: Document
     @Published var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
     @Published var pageViewModels: [PageViewModel] = []
-
-    @Published var currentPageXOffset: CGFloat = 0.0
-    @Published var currentPageYOffset: CGFloat = 0.0
     
-    @Published var pageLayout: MultiPageTextLayout
+    var pageLayout: TextLayout
 
     init(_ document: Document) {
         self.document = document
-        self.pageLayout = MultiPageTextLayout()
-        super.init()
         
-        let sentences = document.textBody.components(separatedBy: ".?")
-        
-        pageLayout.setup(sentences, storageDelegate: self, layoutManagerDelegate: self)
+        let sentences = document.textBody.components(separatedBy: ".!?")
+        self.pageLayout = MultiPageTextLayout(with: sentences)
 
+        super.init()
         addPageViewModel()
     }
 
     func onDisappear() {
         let _ = documentsService.updateDocument(document)
     }
+    
+    deinit {
+        print("Document view model deallocated: \(id)")
+    }
 }
 
 /// MARK: Private logic functions
 extension DocumentViewModel {
-    private var shouldCreateTitleTextContainer: Bool {
-        pageViewModels.count == 0
-    }
-    
-    
-    private func calculatePageOffsets(cursorFrame: CGRect, textViewFrame: CGRect) -> (xOffset: CGFloat, yOffset: CGFloat) {
-        let startingXoffset = textViewFrame.width / 2
-        let endingXOffset = startingXoffset - cursorFrame.origin.x
-        
-        let startingYoffset = textViewFrame.width
-        let endingYOffset = startingYoffset - cursorFrame.height
-        
-        return (endingXOffset, endingYOffset)
-    }
-    
     private func addPageViewModel() {
-        let titleContainer = shouldCreateTitleTextContainer ? pageLayout.createAndAddNewTextContainer() : nil
-        let textContainer = pageLayout.createAndAddNewTextContainer()
+        let shouldAddTitle: Bool = pageViewModels.count == 0
         
         let pageViewModel = PageViewModel(
-            withTextTextContainer: textContainer,
-            withTitleTextContainer: titleContainer,
-            onTextChange: { [weak self] newValue in
-                guard let self = self else { return }
-                self.document.documentName = newValue
-                let _ = self.documentsService.updateDocument(self.document)
-            },
-            onTitleChange: { [weak self] newValue in
-                guard let self = self else { return }
-                self.document.textBody = newValue
-                let _ = self.documentsService.updateDocument(self.document)
-            },
-            onCursorPositionChanged: { [weak self] (cursorFrame, textViewFrame) in
-                guard let self = self else { return }
-                
-                let results = self.calculatePageOffsets(cursorFrame: cursorFrame,
-                                                        textViewFrame: textViewFrame)
-                
-                self.currentPageXOffset = results.xOffset
-                self.currentPageYOffset = results.yOffset
-            }
-        )
+            withTextLayout: pageLayout,
+            withTitle: shouldAddTitle ? document.documentName : nil)
+//            onTextChange: { [weak self] newValue in
+//                guard let self = self else { return }
+//                self.document.documentName = newValue
+//                let _ = self.documentsService.updateDocument(self.document)
+//            },
+//            onTitleChange: { [weak self] newValue in
+//                guard let self = self else { return }
+//                self.document.textBody = newValue
+//                let _ = self.documentsService.updateDocument(self.document)
+//            }
+//        )
         
         pageViewModels.append(pageViewModel)
     }
 }
 
-extension DocumentViewModel: NSTextStorageDelegate {
-    
-}
 
-extension DocumentViewModel: NSLayoutManagerDelegate {
-    
-}

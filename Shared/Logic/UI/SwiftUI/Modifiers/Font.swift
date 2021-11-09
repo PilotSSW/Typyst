@@ -6,29 +6,60 @@
 import Foundation
 import SwiftUI
 
-enum TextSize: Double {
-    case verySmall = 8.0
-    case small = 10.0
-    case normal = 12.0
-    case large = 14.0
-    case veryLarge = 16.0
-    case extraLarge = 18.0
-    case doublyLarge = 24.0
-    case enormous = 36.0
-    case ungodlyLarge = 48.0
+enum TextSize {
+    case verySmall
+    case small
+    case normal
+    case large
+    case veryLarge
+    case extraLarge
+    case doublyLarge
+    case enormous
+    case ungodlyLarge
+    case custom(fontSize: Double)
+    
+    var doubleSize: Double {
+        switch self {
+        case .verySmall: return 8.0
+        case .small: return 10.0
+        case .normal: return 12.0
+        case .large: return 14.0
+        case .veryLarge: return 16.0
+        case .extraLarge: return 18.0
+        case .doublyLarge: return 24.0
+        case .enormous: return 36.0
+        case .ungodlyLarge: return 48.0
+        case .custom(let fontSize): return fontSize
+        }
+    }
+    
+    var cgFloatSize: CGFloat {
+        switch self {
+        case .verySmall: return 8.0
+        case .small: return 10.0
+        case .normal: return 12.0
+        case .large: return 14.0
+        case .veryLarge: return 16.0
+        case .extraLarge: return 18.0
+        case .doublyLarge: return 24.0
+        case .enormous: return 36.0
+        case .ungodlyLarge: return 48.0
+        case .custom(let fontSize): return fontSize
+        }
+    }
 }
 
 struct StyledText: ViewModifier {
     var compressable: Bool = false
     var lineLimit: Int? = nil
-    var textSize: Double = TextSize.normal.rawValue
+    var textSize: TextSize = .normal
     var textStyle: Font.TextStyle
     var textColor: Color = AppColor.textBody
 
     func body(content: Content) -> some View {
         content
             .font(.custom("AmericanTypewriter",
-                          size: CGFloat(textSize),
+                          size: textSize.cgFloatSize,
                           relativeTo: textStyle))
             .foregroundColor(textColor)
             .lineLimit(lineLimit)
@@ -41,7 +72,7 @@ struct StyledText: ViewModifier {
 
 extension View {
     func asStyledText(with textStyle: Font.TextStyle = .body,
-                      textSize: Double = TextSize.normal.rawValue,
+                      textSize: TextSize = .normal,
                       textColor: Color = AppColor.textBody,
                       lineLimit: Int? = nil,
                       isCompressable: Bool = false) -> some View {
@@ -54,7 +85,7 @@ extension View {
     }
 
     func asLightStyledText(with textStyle: Font.TextStyle = .body,
-                           textSize: Double = TextSize.normal.rawValue,
+                           textSize: TextSize = .normal,
                            lineLimit: Int? = nil,
                            isCompressable: Bool = false) -> some View {
         modifier(StyledText(
@@ -66,7 +97,7 @@ extension View {
     }
 
     func asStyledHeader(with textStyle: Font.TextStyle = .headline,
-                        textSize: Double = TextSize.veryLarge.rawValue,
+                        textSize: TextSize = .veryLarge,
                         textColor: Color = AppColor.textHeader,
                         lineLimit: Int? = nil,
                         isCompressable: Bool = false) -> some View {

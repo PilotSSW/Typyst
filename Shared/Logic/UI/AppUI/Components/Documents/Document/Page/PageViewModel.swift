@@ -16,38 +16,59 @@ import Foundation
 
 class PageViewModel: ObservableObject, Identifiable {
     internal let id = UUID()
-    
-    @Published var titleTextContainer: NSTextContainer?
-    @Published var textTextContainer: NSTextContainer
-    
-    var onCursorPositionChanged: (_ cursorFrameLocation: CGRect, _ frame: CGRect) -> Void = { cursorFrame, frame in }
-    var onTextChange: (String) -> Void = { _ in }
-    var onTitleChange: (String) -> Void = { _ in }
+    private var store = Set<AnyCancellable>()
+    var layout: TextLayout
+    var textView: NSTextView?
 
-    init(withTextTextContainer textContainer: NSTextContainer,
-         withTitleTextContainer titleTextContainer: NSTextContainer? = nil,
-         onTextChange: @escaping (String) -> Void = { _ in },
-         onTitleChange: @escaping (String) -> Void = { _ in },
-         onCursorPositionChanged: @escaping (_ cursorFrameLocation: CGRect,
-                                             _ frame: CGRect) -> Void = { cursorFrame, frame in }
-    ) {
-        self.textTextContainer = textContainer
-        self.onTextChange = onTextChange
+    // View model properties
+    @Published var title: String?
+    
+    // View properties
+    var textViewSize: CGSize { CGSize(width: pageSize.width - margins.width, height: pageSize.height - margins.height) }
+    @Published var pageSize: CGSize = CGSize(width: 850, height: 1100)
+    @Published var margins: CGSize = CGSize(width: 40, height: 20)
+    @Published var xOffset: CGFloat = 0.0
+    @Published var yOffset: CGFloat = 0.0
+    
+    var timer: Timer?
 
-        self.titleTextContainer = titleTextContainer
-        self.onTitleChange = onTitleChange
-        
-        self.onCursorPositionChanged = onCursorPositionChanged
+    init(withTextLayout layout: TextLayout,
+         withTitle title: String?) {
+        self.title = title
+        self.layout = layout
+        self.textView = layout.createAndAddNewTextView(withFrame: CGRect(origin: .zero, size: textViewSize))
+                
+        registerObservers()
+    }
+    
+    deinit {
+        if let textView = textView {
+            let _ = layout.removeTextView(textView)
+        }
+        print("Page view model deallocated: \(id)")
     }
 }
 
 /// MARK: Private functions
 extension PageViewModel {
-    private func configureTextContainers() {
-        textTextContainer.widthTracksTextView = true
-        textTextContainer.heightTracksTextView = true
-        titleTextContainer?.widthTracksTextView = true
-        titleTextContainer?.heightTracksTextView = true
+    private func registerObservers() {
+        (layout as? MultiPageTextLayout)?.$currentCursorPosition
+            .sink { [weak self] newCursorPosition in
+                guard let self = self else { return }
+                self.xOffset = newCursorPosition?.width ?? 0.0
+                self.yOffset = newCursorPosition?.height ?? 0.0
+            }
+            .store(in: &store)
+    }
+    
+    private func calculatePageOffsets(cursorFrame: CGRect, textViewFrame: CGRect) -> (xOffset: CGFloat, yOffset: CGFloat) {
+        let startingXoffset = textViewFrame.width / 2
+        let endingXOffset = startingXoffset - cursorFrame.origin.x
+        
+        let startingYoffset = textViewFrame.width
+        let endingYOffset = startingYoffset - cursorFrame.height
+        
+        return (endingXOffset, endingYOffset)
     }
 }
 

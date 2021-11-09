@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TypystPlayground.playground">
+   </FileRef>
+   <FileRef
       location = "group:Typyst.xcodeproj">
    </FileRef>
    <FileRef

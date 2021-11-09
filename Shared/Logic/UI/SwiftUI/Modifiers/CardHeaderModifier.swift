@@ -56,7 +56,7 @@ extension View {
                                     height: maxHeight,
                                     onClickAction: onClickAction))
             .asStyledText(with: .largeTitle,
-                          textSize: TextSize.veryLarge.rawValue)
+                          textSize: .veryLarge)
     }
 }
 

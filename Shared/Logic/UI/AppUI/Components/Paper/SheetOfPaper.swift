@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SheetOfPaper<Content: View>: View {
     @Environment(\.colorScheme) var colorScheme
+    
+    var verticalPadding: CGFloat = 24
+    var horizontalPadding: CGFloat = 20
 
     var content: Content?
 
@@ -16,8 +19,11 @@ struct SheetOfPaper<Content: View>: View {
         self.content = nil
     }
 
-    init(_ content: (() -> Content)? = nil) {
+    init(verticalPadding: CGFloat = 24, horizontalPadding: CGFloat = 20,
+         _ content: (() -> Content)? = nil) {
         self.content = content?()
+        self.verticalPadding = verticalPadding
+        self.horizontalPadding = horizontalPadding
     }
 
     var body: some View {
@@ -34,13 +40,10 @@ struct SheetOfPaper<Content: View>: View {
 
             if let content = content {
                 content
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 24)
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.vertical, verticalPadding)
             }
-
         }
-        .aspectRatio(8.5/11, contentMode: .fit)
-        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

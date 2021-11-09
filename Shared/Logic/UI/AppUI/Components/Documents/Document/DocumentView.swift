@@ -11,10 +11,6 @@ struct DocumentView: View {
     @ObservedObject
     var viewModel: DocumentViewModel
 
-    let rows = [
-        GridItem(.adaptive(minimum: 80))
-    ]
-
     var body: some View {
         VStack() {
             ForEach(viewModel.pageViewModels) { pageViewModel in
@@ -29,11 +25,11 @@ struct Document_Previews: PreviewProvider {
     static var previews: some View {
         let document = Document(documentName: "This is a new Document!",
                                 textBody: """
-                                            This is a huge body of text that will go on and on
-                                            and on and on and on and on and on and on and on
-                                            and on and ...
-                                            """)
+                                          This is a sentence!!
+                                          This is another sentence!
+                                          This is a huge fucking paragraph of text that should be split into several sentences for better grammar and punctuation, because runon sentences are hard to read and understand and often lead to points that lack clarity and flow to the readers who really want to enjoy the body of text.
+                                          """)
         return DocumentView(viewModel: DocumentViewModel(document))
-            .preferredColorScheme(.dark)
+            .frame(width: 850, height: 300)
     }
 }

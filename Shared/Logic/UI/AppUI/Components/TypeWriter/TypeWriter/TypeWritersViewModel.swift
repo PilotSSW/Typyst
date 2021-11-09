@@ -9,6 +9,8 @@ import Combine
 import Foundation
 
 class TypeWriterViewModel: ObservableObject {
+    internal let id = UUID()
+
     private let keyboardServiceTag = "VirtualKeyboardAnimator"
     private var store = Set<AnyCancellable>()
     
@@ -22,9 +24,6 @@ class TypeWriterViewModel: ObservableObject {
     
     @Published var showPaper: Bool = false
     @Published var showKeyboard: Bool = true
-    
-    @Published var documentXOffset: CGFloat = 0.0
-    @Published var documentYOffset: CGFloat = 0.0
     
     init(documentsService: DocumentsService = AppDependencyContainer.get().documentsService,
          keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
@@ -40,6 +39,10 @@ class TypeWriterViewModel: ObservableObject {
                                                                 shouldShowSettingsButton: false)
         
         registerObservers()
+    }
+    
+    deinit {
+        print("TypeWriter view model deallocated")
     }
 }
 
@@ -65,11 +68,6 @@ extension TypeWriterViewModel {
             guard let self = self else { return }
             let keyViewModels = self.keyboardContainerViewModel.keyboardViewModel.keyViewModels.filter({ $0.key == keyEvent.key })
             keyViewModels.forEach({ $0.onTap(direction: keyEvent.direction, sendKeypressToDelegate: false)})
-            
-            DispatchQueue.main.async {
-                self.documentXOffset = self.calcDocumentXOffset
-                self.documentYOffset = self.calcDocumentYOffSet
-            }
         }
     }
     
@@ -92,11 +90,4 @@ extension TypeWriterViewModel {
     var keyboardMaxWidth: CGFloat { 900 }
     var keyboardMinHeight: CGFloat { OSHelper.runtimeEnvironment == .iOS ? 180 : 265 }
     var keyboardMaxHeight: CGFloat { OSHelper.runtimeEnvironment == .iOS ? 200 : .infinity }
-    
-    private var calcDocumentXOffset: CGFloat {
-        currentDocumentViewModel?.currentPageXOffset ?? 0.0
-    }
-    private var calcDocumentYOffSet: CGFloat {
-        currentDocumentViewModel?.currentPageYOffset ?? 0.0
-    }
 }
