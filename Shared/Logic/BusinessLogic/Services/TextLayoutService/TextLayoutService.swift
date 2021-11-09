@@ -64,6 +64,8 @@ extension TextLayout {
     /// MARK: TextContainer Functions
     public func createAndAddNewTextContainer(withSize size: NSSize = NSSize(width: 300, height: 300)) -> NSTextContainer {
         let textContainer = NSTextContainer(containerSize: size)
+        textContainer.widthTracksTextView = true
+        textContainer.heightTracksTextView = true
         layoutManager.addTextContainer(textContainer)
         textContainers.append(textContainer)
         return textContainer
@@ -113,14 +115,11 @@ extension TextLayout {
 }
 
 class MultiPageTextLayout: NSObject, TextLayout, Loggable {
-    
     var storage: NSTextStorage = NSTextStorage()
     var layoutManager: NSLayoutManager = NSLayoutManager()
     var textContainers: [NSTextContainer] = []
     var textViews: [NSTextView] = []
-    
-    var timer: Timer = Timer()
-    
+        
     @Published var currentCursorPosition: CGRect? = nil
 //    var onEditingChanged       : [() -> Void] = []
 //    var onCommit               : [() -> Void] = []

@@ -39,8 +39,7 @@ struct TextEditorView: Loggable {
     private func commonInit() {
         // display properties
         textView.isRulerVisible = true
-        textView.drawsBackground = true
-        textView.backgroundColor = .gray
+        textView.drawsBackground = false
         textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
         
         textView.autoresizingMask = [.height, .width]
@@ -50,7 +49,7 @@ struct TextEditorView: Loggable {
         textView.isEditable = true
         textView.isSelectable = true
         textView.isHidden = false
-        textView.isFieldEditor = true
+        textView.isFieldEditor = false
         textView.isRichText = false
     }
 
@@ -71,30 +70,10 @@ extension TextEditorView: NSViewRepresentable {
     }
 
     func makeNSView(context: Context) -> NSTextView {
-        if textView.textContainer == nil {
-            print("Make NSView missing textContainer")
-            textView.textContainer = textContainer
-        }
-        
-        print("Text View created: \(id)")
-        
         return textView
     }
 
-    func updateNSView(_ view: NSTextView, context: Context) {
-        print("Text View updated: \(id)")
-        
-        textView.backgroundColor = .blue
-        
-        if textView.textContainer == nil {
-            print("Update NSView missing textContainer: \(id)")
-            textView.textContainer = textContainer
-            textView.backgroundColor = .red
-        }
-        else {
-            textView.backgroundColor = .green
-        }
-    }
+    func updateNSView(_ view: NSTextView, context: Context) {}
 }
 #elseif canImport(UIKit)
 extension TextEditorView: UIViewRepresentable {
@@ -117,6 +96,5 @@ struct TextView_Previews: PreviewProvider {
         
         return TextEditorView(withTextView: textView)
             .previewLayout(.device)
-            
     }
 }

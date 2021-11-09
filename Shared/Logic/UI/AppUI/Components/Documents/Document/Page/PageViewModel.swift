@@ -24,7 +24,6 @@ class PageViewModel: ObservableObject, Identifiable {
     @Published var title: String?
     
     // View properties
-    var textViewSize: CGSize { CGSize(width: pageSize.width - margins.width, height: pageSize.height - margins.height) }
     @Published var pageSize: CGSize = CGSize(width: 850, height: 1100)
     @Published var margins: CGSize = CGSize(width: 40, height: 20)
     @Published var xOffset: CGFloat = 0.0
@@ -36,16 +35,21 @@ class PageViewModel: ObservableObject, Identifiable {
          withTitle title: String?) {
         self.title = title
         self.layout = layout
-        self.textView = layout.createAndAddNewTextView(withFrame: CGRect(origin: .zero, size: textViewSize))
-                
+        
         registerObservers()
+    }
+    
+    func createTextView(withSize size: CGSize) -> NSTextView {
+        let textView = layout.createAndAddNewTextView(withFrame: CGRect(origin: .zero, size: size))
+        self.textView = textView
+        return textView
     }
     
     deinit {
         if let textView = textView {
             let _ = layout.removeTextView(textView)
         }
-        print("Page view model deallocated: \(id)")
+        print("Page view model deallocatp teed: \(id)")
     }
 }
 
@@ -55,8 +59,18 @@ extension PageViewModel {
         (layout as? MultiPageTextLayout)?.$currentCursorPosition
             .sink { [weak self] newCursorPosition in
                 guard let self = self else { return }
-                self.xOffset = newCursorPosition?.width ?? 0.0
-                self.yOffset = newCursorPosition?.height ?? 0.0
+                
+                if let cursorFrame = newCursorPosition {
+                    let offsets = self.calculatePageOffsets(cursorFrame: cursorFrame,
+                                                            textViewFrame: CGRect(origin: .zero, size: self.pageSize))
+                    
+                    self.xOffset = offsets.xOffset
+                    self.yOffset = offsets.yOffset
+                }
+                else {
+                    self.xOffset = (self.pageSize.width / 2)
+                    self.yOffset = self.pageSize.height
+                }
             }
             .store(in: &store)
     }
@@ -66,7 +80,7 @@ extension PageViewModel {
         let endingXOffset = startingXoffset - cursorFrame.origin.x
         
         let startingYoffset = textViewFrame.width
-        let endingYOffset = startingYoffset - cursorFrame.height
+        let endingYOffset = startingYoffset - cursorFrame.origin.y
         
         return (endingXOffset, endingYOffset)
     }
