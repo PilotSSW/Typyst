@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class TypeWriterViewModel: ObservableObject {
+class TypeWriterViewModel: ObservableObject, Loggable {
     internal let id = UUID()
 
     private let keyboardServiceTag = "VirtualKeyboardAnimator"
@@ -39,10 +39,12 @@ class TypeWriterViewModel: ObservableObject {
                                                                 shouldShowSettingsButton: false)
         
         registerObservers()
+        
+        logEvent(.debug, "TypeWriter view model created")
     }
     
     deinit {
-        print("TypeWriter view model deallocated")
+        logEvent(.debug, "TypeWriter view model deallocated")
     }
 }
 

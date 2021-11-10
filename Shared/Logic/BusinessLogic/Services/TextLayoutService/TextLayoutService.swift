@@ -40,7 +40,7 @@ extension TextLayout {
         self.init()
         initializeStorageWithText(sentences)
         initializeLayoutManagers()
-        
+        logEvent(.trace, "Creating a text layout")
     }
     
     /// MARK: Storage Functions
@@ -53,12 +53,15 @@ extension TextLayout {
         })
         
         storage.font = defaultFont
+        logEvent(.trace, "Creating a text storage", context: sentences)
     }
     
     ///MARK: LayoutManager Functions
     public func initializeLayoutManagers() {
         layoutManager.delegate = self
         storage.addLayoutManager(layoutManager)
+        
+        logEvent(.trace, "Created new layout manager", context: [storage, layoutManager])
     }
     
     /// MARK: TextContainer Functions
@@ -66,8 +69,12 @@ extension TextLayout {
         let textContainer = NSTextContainer(containerSize: size)
         textContainer.widthTracksTextView = true
         textContainer.heightTracksTextView = true
-        layoutManager.addTextContainer(textContainer)
+        
         textContainers.append(textContainer)
+        layoutManager.addTextContainer(textContainer)
+
+        logEvent(.trace, "Created new text container with size: \(size)", context: [textContainer, layoutManager])
+        
         return textContainer
     }
     
@@ -75,10 +82,13 @@ extension TextLayout {
         if let index = layoutManager.textContainers.firstIndex(of: textContainer) {
             layoutManager.removeTextContainer(at: index)
             textContainers.remove(at: index)
+            
+            logEvent(.trace, "TextContainer removed from layout", context: [textContainer])
+            
             return true
         }
         else {
-            logEvent(.info, "TextContainer not found in layout manager")
+            logEvent(.info, "TextContainer not found in layout manager", context: [textContainer, layoutManager])
             return false
         }
     }
@@ -87,11 +97,14 @@ extension TextLayout {
     public func createAndAddNewTextView(withFrame frame: NSRect = NSRect(origin: .zero, size: NSSize(width: 300, height: 300))) -> NSTextView {
         let textContainer = createAndAddNewTextContainer(withSize: frame.size)
         let textView = NSTextView(frame: frame, textContainer: textContainer)
+        textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
         
         textView.delegate = self
         textView.font = defaultFont
         
         textViews.append(textView)
+        
+        logEvent(.trace, "Created new text view with frame: \(frame)", context: [textContainer, textView])
         
         return textView
     }
@@ -125,8 +138,10 @@ class MultiPageTextLayout: NSObject, TextLayout, Loggable {
 //    var onCommit               : [() -> Void] = []
 //    var onTextChange           : [(String) -> Void] = []
     
+    private var defaultContainerSize: NSSize { NSSize(width: 712, height: 996) }
+    
     deinit {
-        print("Deallocating MultiPageTextLayout")
+        logEvent(.info, "Deallocating MultiPageTextLayout")
     }
 }
 
@@ -135,17 +150,37 @@ extension MultiPageTextLayout: NSTextStorageDelegate {
 }
 
 extension MultiPageTextLayout: NSLayoutManagerDelegate {
+    func layoutManagerDidInvalidateLayout(_ sender: NSLayoutManager) {
+        logEvent(.info, "LayouManager did invalidate")
+    }
     
+    func layoutManager(_ layoutManager: NSLayoutManager,
+                       didCompleteLayoutFor textContainer: NSTextContainer?,
+                       atEnd layoutFinishedFlag: Bool) {
+        logEvent(.info, "LayoutManager finished laying out container: atEnd?: \(layoutFinishedFlag)")
+        
+        if layoutFinishedFlag { return }
+        
+        var size: NSSize
+        if let textContainer = textContainer {
+            size = textContainer.size
+        }
+        else {
+            size = defaultContainerSize
+        }
+        
+        let _ = createAndAddNewTextContainer(withSize: size)
+    }
 }
 
 extension MultiPageTextLayout: NSTextViewDelegate {
     func textDidBeginEditing(_ notification: Notification) {
         //onEditingChanged()
-        print("did begin editting")
+        logEvent(.info, "did begin editting")
     }
     
     func textDidChange(_ notification: Notification) {
-        print("text did change")
+        logEvent(.info, "text did change")
         if let textView = notification.object as? NSTextView {
             if let cursorFrame = textView.getCursorPositionInFrame() {
                 currentCursorPosition = cursorFrame
@@ -154,7 +189,7 @@ extension MultiPageTextLayout: NSTextViewDelegate {
     }
     
     func textDidEndEditing(_ notification: Notification) {
-        print("text did end editting")
+        logEvent(.info, "text did end editting")
         //onCommit()
     }
 }

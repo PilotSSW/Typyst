@@ -10,18 +10,14 @@ import AppKit
 #elseif canImport(UIKIt)
 import UIKit
 #endif
-
 import Combine
 import Foundation
 
-class PageViewModel: ObservableObject, Identifiable {
+class PageViewModel: ObservableObject, Identifiable, Loggable {
     internal let id = UUID()
     private var store = Set<AnyCancellable>()
+    
     var layout: TextLayout
-    var textView: NSTextView?
-
-    // View model properties
-    @Published var title: String?
     
     // View properties
     @Published var pageSize: CGSize = CGSize(width: 850, height: 1100)
@@ -29,27 +25,18 @@ class PageViewModel: ObservableObject, Identifiable {
     @Published var xOffset: CGFloat = 0.0
     @Published var yOffset: CGFloat = 0.0
     
-    var timer: Timer?
-
-    init(withTextLayout layout: TextLayout,
-         withTitle title: String?) {
-        self.title = title
+    let pageLayoutViewModel: PageLayoutViewModel
+    
+    init(pageIndex: Int, withTextLayout layout: TextLayout, withTitle title: String = "") {
         self.layout = layout
+        self.pageLayoutViewModel = PageLayoutViewModel(withTextLayout: layout, pageIndex: pageIndex, withTitle: title)
         
         registerObservers()
-    }
-    
-    func createTextView(withSize size: CGSize) -> NSTextView {
-        let textView = layout.createAndAddNewTextView(withFrame: CGRect(origin: .zero, size: size))
-        self.textView = textView
-        return textView
+        logEvent(.trace, "Page view model created: \(id)")
     }
     
     deinit {
-        if let textView = textView {
-            let _ = layout.removeTextView(textView)
-        }
-        print("Page view model deallocatp teed: \(id)")
+        logEvent(.trace, "Page view model deallocated: \(id)")
     }
 }
 

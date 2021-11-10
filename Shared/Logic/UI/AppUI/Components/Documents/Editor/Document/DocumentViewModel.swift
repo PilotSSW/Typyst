@@ -25,6 +25,7 @@ class DocumentViewModel: NSObject, ObservableObject, Loggable {
 
         super.init()
         addPageViewModel()
+        logEvent(.debug, "Document view model created: \(id)")
     }
 
     func onDisappear() {
@@ -32,18 +33,17 @@ class DocumentViewModel: NSObject, ObservableObject, Loggable {
     }
     
     deinit {
-        print("Document view model deallocated: \(id)")
+        logEvent(.debug, "Document view model deallocated: \(id)")
     }
 }
 
 /// MARK: Private logic functions
 extension DocumentViewModel {
     private func addPageViewModel() {
-        let shouldAddTitle: Bool = pageViewModels.count == 0
-        
         let pageViewModel = PageViewModel(
+            pageIndex: pageViewModels.count,
             withTextLayout: pageLayout,
-            withTitle: shouldAddTitle ? document.documentName : nil)
+            withTitle: document.documentName)
 //            onTextChange: { [weak self] newValue in
 //                guard let self = self else { return }
 //                self.document.documentName = newValue

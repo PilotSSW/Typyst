@@ -16,7 +16,7 @@ struct TypeWritersView: View {
                 
                 DocumentView(viewModel: documentViewModel)
                     .padding(4)
-                    .frame(maxWidth: 800, alignment: .bottom)
+                    .frame(minWidth: 400, maxWidth: .infinity, alignment: .bottom)
                     .animation(.interactiveSpring()
                                .speed(0.75)
                                .delay(0.03))

@@ -17,22 +17,10 @@ import UIKit
 struct TextEditorView: Loggable {
     internal let id = UUID()
     
-    var textContainer: NSTextContainer
     var textView: NSTextView
-    
-    init(withTextContainer textContainer: NSTextContainer) {
-        self.textView = NSTextView()
-        textView.textContainer = textContainer
-
-        self.textContainer = textContainer
-
-        commonInit()
-    }
 
     init(withTextView textView: NSTextView) {
         self.textView = textView
-        self.textContainer = textView.textContainer ?? NSTextContainer()
-
         commonInit()
     }
     

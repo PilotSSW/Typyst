@@ -15,7 +15,6 @@ struct DocumentView: View {
         VStack() {
             ForEach(viewModel.pageViewModels) { pageViewModel in
                 PageView(viewModel: pageViewModel)
-                    .frame(alignment: .bottom)
             }
         }
         .frame(alignment: .bottom)
