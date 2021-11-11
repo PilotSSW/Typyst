@@ -11,17 +11,29 @@ import Foundation
 class DocumentViewModel: NSObject, ObservableObject, Loggable {
     internal let id = UUID()
 
-    @Published var document: Document
     @Published var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
-    @Published var pageViewModels: [PageViewModel] = []
+    @Published var document: Document
     
-    var pageLayout: TextLayout
+    @Published var pageViewModels: [PageViewModel] = [] {
+        didSet {
+            if let viewModel = pageViewModels.last, let layout = documentTextLayout as? MultiPageTextLayout {
+                currentPageEditorViewModel = CurrentPageEditorViewModel(layout: layout,
+                                                                        currentPageViewModel: viewModel)
+            }
+            else {
+                currentPageEditorViewModel = nil
+            }
+        }
+    }
+    @Published var currentPageEditorViewModel: CurrentPageEditorViewModel?
+    
+    var documentTextLayout: TextLayout
 
     init(_ document: Document) {
         self.document = document
         
         let sentences = document.textBody.components(separatedBy: ".!?")
-        self.pageLayout = MultiPageTextLayout(with: sentences)
+        self.documentTextLayout = MultiPageTextLayout(with: sentences)
 
         super.init()
         addPageViewModel()
@@ -42,7 +54,7 @@ extension DocumentViewModel {
     private func addPageViewModel() {
         let pageViewModel = PageViewModel(
             pageIndex: pageViewModels.count,
-            withTextLayout: pageLayout,
+            withTextLayout: documentTextLayout,
             withTitle: document.documentName)
 //            onTextChange: { [weak self] newValue in
 //                guard let self = self else { return }

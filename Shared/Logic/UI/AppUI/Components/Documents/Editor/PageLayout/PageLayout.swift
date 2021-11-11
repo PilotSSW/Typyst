@@ -19,6 +19,7 @@ struct PageLayout: View {
                     .asStyledText(with: .largeTitle, textSize: .large)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.plain)
+                    .disabled(viewModel.isEdittable)
                     .frame(maxWidth: .infinity, maxHeight: 36)
                     .layoutPriority(1)
             }

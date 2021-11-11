@@ -12,9 +12,11 @@ struct DocumentView: View {
     var viewModel: DocumentViewModel
 
     var body: some View {
-        VStack() {
-            ForEach(viewModel.pageViewModels) { pageViewModel in
-                PageView(viewModel: pageViewModel)
+        ZStack() {
+//            PagesScrollerView(pages: viewModel.pageViewModels)
+            
+            if let editorViewModel = viewModel.currentPageEditorViewModel {
+                CurrentPageEditor(viewModel: editorViewModel)
             }
         }
         .frame(alignment: .bottom)

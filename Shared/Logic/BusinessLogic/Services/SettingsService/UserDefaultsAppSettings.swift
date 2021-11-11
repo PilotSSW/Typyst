@@ -96,6 +96,12 @@ final class AppDebugSettings: ObservableObject {
         static let debugGlobal = "debugGlobal"
         static let debugKeypresses = "debugKeypresses"
     }
+    
+    init() {
+        #if DEBUG
+        debugGlobal = true
+        #endif
+    }
 
     @Published var debugGlobal: Bool = UserDefaults.standard.bool(forKey: Keys.debugGlobal) {
         didSet { UserDefaults.standard.set(debugGlobal, forKey: Keys.debugGlobal) }

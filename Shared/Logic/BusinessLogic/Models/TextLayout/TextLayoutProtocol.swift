@@ -19,6 +19,8 @@ protocol TextLayout: NSObject, NSTextStorageDelegate, NSLayoutManagerDelegate, N
     var layoutManager: NSLayoutManager {get set}
     var textContainers: [NSTextContainer] {get set}
     var textViews: [NSTextView] {get set}
+    
+    var cursorPositionInCurrentTextView: CGPoint? {get}
 }
 
 extension TextLayout {
@@ -59,8 +61,7 @@ extension TextLayout {
         /// MARK: TextContainer Functions
     public func createAndAddNewTextContainer(withSize size: NSSize = NSSize(width: 300, height: 300)) -> NSTextContainer {
         let textContainer = NSTextContainer(containerSize: size)
-        textContainer.widthTracksTextView = true
-        textContainer.heightTracksTextView = true
+        configureTextContainer(textContainer)
         
         textContainers.append(textContainer)
         layoutManager.addTextContainer(textContainer)
@@ -80,19 +81,18 @@ extension TextLayout {
             return true
         }
         else {
-            logEvent(.info, "TextContainer not found in layout manager", context: [textContainer, layoutManager])
+            logEvent(.warning, "TextContainer not found in layout manager", context: [textContainer, layoutManager])
             return false
         }
     }
     
         /// MARK: TextView Functions
-    public func createAndAddNewTextView(withFrame frame: NSRect = NSRect(origin: .zero, size: NSSize(width: 300, height: 300))) -> NSTextView {
-        let textContainer = createAndAddNewTextContainer(withSize: frame.size)
+    public func createAndAddNewTextView(withFrame frame: NSRect = NSRect(origin: .zero, size: NSSize(width: 300, height: 300)),
+                                        andTextContainer existingTextContainer: NSTextContainer? = nil
+    ) -> NSTextView {
+        let textContainer: NSTextContainer = existingTextContainer ?? createAndAddNewTextContainer(withSize: frame.size)
         let textView = NSTextView(frame: frame, textContainer: textContainer)
-        textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
-        
-        textView.delegate = self
-        textView.font = defaultFont
+        configureTextView(textView)
         
         textViews.append(textView)
         
@@ -101,11 +101,11 @@ extension TextLayout {
         return textView
     }
     
-    public func removeTextView(_ textView: NSTextView) -> Bool {
+    public func removeTextView(_ textView: NSTextView, removeContainer: Bool = false) -> Bool {
         if let index = textViews.firstIndex(of: textView) {
             textViews.remove(at: index)
             
-            if let container = textView.textContainer {
+            if removeContainer, let container = textView.textContainer {
                 return removeTextContainer(container)
             }
             else {
@@ -113,8 +113,39 @@ extension TextLayout {
             }
         }
         else {
-            logEvent(.info, "TextViews not removed")
+            logEvent(.warning, "TextViews not removed", context: [textView, layoutManager])
             return false
         }
+    }
+}
+
+
+/// MARK: Text configuration functions
+extension TextLayout {
+    private func configureTextContainer(_ textContainer: NSTextContainer) {
+        textContainer.widthTracksTextView = true
+        textContainer.heightTracksTextView = true
+        
+        textContainer.lineBreakMode = .byCharWrapping
+    }
+    
+    private func configureTextView(_ textView: NSTextView) {
+        textView.delegate = self
+        textView.font = defaultFont
+        
+        textView.isRulerVisible = false
+        textView.drawsBackground = false
+//        textView.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.25)
+        textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
+        
+        textView.autoresizingMask = [.height, .width]
+        textView.isVerticallyResizable = false
+        textView.isHorizontallyResizable = false
+        
+        textView.isEditable = true
+        textView.isSelectable = true
+        textView.isHidden = false
+        textView.isFieldEditor = false
+        textView.isRichText = false
     }
 }

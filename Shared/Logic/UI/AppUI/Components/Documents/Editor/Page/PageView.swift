@@ -16,7 +16,7 @@ struct PageView: View {
             PageLayout(viewModel: viewModel.pageLayoutViewModel)
         }
         .frame(maxWidth: viewModel.pageSize.width, maxHeight: viewModel.pageSize.height)
-        .offset(x: viewModel.xOffset, y: viewModel.yOffset)
+        .neumorphicShadow()
     }
 }
 

@@ -19,9 +19,14 @@ class PageLayoutViewModel: ObservableObject, Identifiable, Loggable {
     var layout: TextLayout
     var textView: NSTextView?
     
+    var frameSize: CGSize {
+        textView?.frame.size ?? CGSize(width: 0, height: 0)
+    }
+    
     // View model properties
     let pageIndex: Int
     @Published var title: String = ""
+    @Published var isEdittable: Bool = false
     
     init(withTextLayout layout: TextLayout, pageIndex: Int, withTitle title: String = "") {
         self.layout = layout

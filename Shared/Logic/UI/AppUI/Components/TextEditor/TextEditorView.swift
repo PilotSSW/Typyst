@@ -21,24 +21,12 @@ struct TextEditorView: Loggable {
 
     init(withTextView textView: NSTextView) {
         self.textView = textView
-        commonInit()
+        //commonInit()
     }
     
     private func commonInit() {
         // display properties
-        textView.isRulerVisible = true
-        textView.drawsBackground = false
-        textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
         
-        textView.autoresizingMask = [.height, .width]
-        textView.isVerticallyResizable = true
-        textView.isHorizontallyResizable = true
-        
-        textView.isEditable = true
-        textView.isSelectable = true
-        textView.isHidden = false
-        textView.isFieldEditor = false
-        textView.isRichText = false
     }
 
     // MARK: - Coordinator
@@ -58,10 +46,13 @@ extension TextEditorView: NSViewRepresentable {
     }
 
     func makeNSView(context: Context) -> NSTextView {
+        logEvent(.trace, "Textview inserted into SwiftUI view", context: textView)
         return textView
     }
 
-    func updateNSView(_ view: NSTextView, context: Context) {}
+    func updateNSView(_ view: NSTextView, context: Context) {
+        logEvent(.trace, "Textview updated", context: textView)
+    }
 }
 #elseif canImport(UIKit)
 extension TextEditorView: UIViewRepresentable {

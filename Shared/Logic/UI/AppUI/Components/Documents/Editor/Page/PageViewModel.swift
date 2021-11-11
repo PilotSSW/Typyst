@@ -22,8 +22,12 @@ class PageViewModel: ObservableObject, Identifiable, Loggable {
     // View properties
     @Published var pageSize: CGSize = CGSize(width: 850, height: 1100)
     @Published var margins: CGSize = CGSize(width: 40, height: 20)
-    @Published var xOffset: CGFloat = 0.0
-    @Published var yOffset: CGFloat = 0.0
+    
+    var usableTextArea: CGSize {
+        pageLayoutViewModel.frameSize
+//        CGSize(width: pageSize.width - (2 * margins.width),
+//               height: pageSize.height - (2 * margins.height))
+    }
     
     let pageLayoutViewModel: PageLayoutViewModel
     
@@ -31,7 +35,6 @@ class PageViewModel: ObservableObject, Identifiable, Loggable {
         self.layout = layout
         self.pageLayoutViewModel = PageLayoutViewModel(withTextLayout: layout, pageIndex: pageIndex, withTitle: title)
         
-        registerObservers()
         logEvent(.trace, "Page view model created: \(id)")
     }
     
@@ -40,38 +43,7 @@ class PageViewModel: ObservableObject, Identifiable, Loggable {
     }
 }
 
-/// MARK: Private functions
-extension PageViewModel {
-    private func registerObservers() {
-        (layout as? MultiPageTextLayout)?.$currentCursorPosition
-            .sink { [weak self] newCursorPosition in
-                guard let self = self else { return }
-                
-                if let cursorFrame = newCursorPosition {
-                    let offsets = self.calculatePageOffsets(cursorFrame: cursorFrame,
-                                                            textViewFrame: CGRect(origin: .zero, size: self.pageSize))
-                    
-                    self.xOffset = offsets.xOffset
-                    self.yOffset = offsets.yOffset
-                }
-                else {
-                    self.xOffset = (self.pageSize.width / 2)
-                    self.yOffset = self.pageSize.height
-                }
-            }
-            .store(in: &store)
-    }
-    
-    private func calculatePageOffsets(cursorFrame: CGRect, textViewFrame: CGRect) -> (xOffset: CGFloat, yOffset: CGFloat) {
-        let startingXoffset = textViewFrame.width / 2
-        let endingXOffset = startingXoffset - cursorFrame.origin.x
-        
-        let startingYoffset = textViewFrame.width
-        let endingYOffset = startingYoffset - cursorFrame.origin.y
-        
-        return (endingXOffset, endingYOffset)
-    }
-}
+
 
 extension PageViewModel: Equatable {
     static func == (lhs: PageViewModel, rhs: PageViewModel) -> Bool {
