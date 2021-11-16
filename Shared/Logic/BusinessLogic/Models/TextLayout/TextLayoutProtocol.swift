@@ -144,8 +144,8 @@ extension TextLayout {
         textView.font = defaultFont
         
         textView.isRulerVisible = false
-        textView.drawsBackground = true
-        textView.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.25)
+        textView.drawsBackground = false
+//        textView.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.25)
         textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
         
         textView.autoresizingMask = [.height, .width]

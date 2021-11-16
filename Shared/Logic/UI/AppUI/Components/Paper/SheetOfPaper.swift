@@ -10,8 +10,8 @@ import SwiftUI
 struct SheetOfPaper<Content: View>: View {
     @Environment(\.colorScheme) var colorScheme
     
-    var verticalPadding: CGFloat = 24
-    var horizontalPadding: CGFloat = 20
+    var verticalPadding: CGFloat = 0
+    var horizontalPadding: CGFloat = 0
 
     var content: Content?
 
@@ -19,7 +19,7 @@ struct SheetOfPaper<Content: View>: View {
         self.content = nil
     }
 
-    init(verticalPadding: CGFloat = 24, horizontalPadding: CGFloat = 20,
+    init(verticalPadding: CGFloat = 0, horizontalPadding: CGFloat = 0,
          _ content: (() -> Content)? = nil) {
         self.content = content?()
         self.verticalPadding = verticalPadding
@@ -32,11 +32,10 @@ struct SheetOfPaper<Content: View>: View {
                 .fill(colorScheme == .dark
                         ? Color(.displayP3, red: 55/255, green: 55/255, blue: 55/255, opacity: 1.0)
                         : Color.white)
-                .padding(13)
+                .padding(1)
 
             RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
                 .strokeBorder(Color.gray.opacity(0.133))
-                .padding(12)
 
             if let content = content {
                 content
@@ -49,8 +48,9 @@ struct SheetOfPaper<Content: View>: View {
 
 struct SheetOfPaper_Previews: PreviewProvider {
     static var previews: some View {
-        SheetOfPaper() {
+        SheetOfPaper(verticalPadding: 12, horizontalPadding: 12) {
             Text("Hello")
         }
+        .padding(12)
     }
 }

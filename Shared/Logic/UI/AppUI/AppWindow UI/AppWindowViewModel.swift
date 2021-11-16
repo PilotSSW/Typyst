@@ -28,7 +28,7 @@ class AppWindowViewModel: ObservableObject, Loggable {
     private(set) var viewDimensions: CGSize = CGSize(width: 0, height: 0)
     @Published var shouldShowMenu: Bool = true
     @Published var shouldShowMenuPositionControls: Bool = true
-    @Published var shouldShowTypeWriterView: Bool = true
+    @Published var shouldShowWritersView: Bool = true
 
     init() {
         documentsService.$currentDocument
@@ -62,8 +62,8 @@ class AppWindowViewModel: ObservableObject, Loggable {
 extension AppWindowViewModel {
     private func setLayoutProperties(for interfaceControlPosition: AppWindowViewModel.InterfaceControlPosition) {
         shouldShowMenu = setShouldShowMenu(for: interfaceControlPosition)
-        shouldShowTypeWriterView = setShouldShowTypeWriterView()
-        shouldShowMenuPositionControls = shouldShowTypeWriterView
+        shouldShowWritersView = setShouldShowWritersView()
+        shouldShowMenuPositionControls = shouldShowWritersView
     }
     
     private func setShouldShowMenu(for interfaceControlPosition: AppWindowViewModel.InterfaceControlPosition) -> Bool {
@@ -72,7 +72,7 @@ extension AppWindowViewModel {
         return [.above, .inline].contains(interfaceControlPosition)
     }
         
-    private func setShouldShowTypeWriterView() -> Bool {
+    private func setShouldShowWritersView() -> Bool {
         return viewDimensions.width > compactWidth
     }
 }

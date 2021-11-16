@@ -25,20 +25,19 @@ struct AppWindowView: View {
                     ZStack(alignment: .leading) {
                         HStack(alignment: .bottom, spacing: 0) {
                             if (viewModel.shouldShowMenu && viewModel.interfaceControlPosition == .inline) {
-                                Spacer()
-                                    .frame(minWidth: viewModel.shouldShowTypeWriterView ? 380 : 275,
-                                           maxWidth: 380)
+                                Color.clear
+                                    .frame(minWidth: viewModel.shouldShowWritersView ? (380 - 36) : 275,
+                                           maxWidth: viewModel.shouldShowWritersView ? (380 - 36) : 380)
                             }
                             
-                            if (viewModel.shouldShowTypeWriterView) {
+                            if (viewModel.shouldShowWritersView) {
                                 WritersView()
-                                    .padding(4)
                             }
                         }
                         
                         if (viewModel.shouldShowMenu) {
                             InterfaceAndControls(viewModel: interfaceAndControlsViewModel)
-                                .frame(minWidth: viewModel.shouldShowTypeWriterView ? 380 : 275,
+                                .frame(minWidth: viewModel.shouldShowWritersView ? 380 : 275,
                                        maxWidth: 380)
                                 .animation(Animation.interactiveSpring().speed(0.33))
                                 .transition(.move(edge: .bottom))
@@ -46,7 +45,7 @@ struct AppWindowView: View {
                     }
                 }
 
-                if (viewModel.shouldShowTypeWriterView) {
+                if (viewModel.shouldShowWritersView) {
                     MenuToggleButtons(selectedValue: $viewModel.interfaceControlPosition.animation())
                 }
             }

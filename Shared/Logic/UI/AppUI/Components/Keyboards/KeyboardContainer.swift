@@ -22,6 +22,7 @@ struct KeyboardContainerView: View, Loggable {
                 VStack() {
                     if(viewModel.visibleComponent == .keyboard) {
                         KeyboardView(viewModel: viewModel.keyboardViewModel)
+                            .padding(.horizontal, 12)
                     }
 
                     if(viewModel.visibleComponent == .settings) {

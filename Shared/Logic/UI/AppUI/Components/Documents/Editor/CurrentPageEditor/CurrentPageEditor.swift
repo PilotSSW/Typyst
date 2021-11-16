@@ -16,6 +16,8 @@ struct CurrentPageEditor: View {
         GeometryReader { reader in
             if let pageViewModel = viewModel.currentPageViewModel {
                 PageView(viewModel: pageViewModel)
+//                    .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
+                    .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
                     .position(x: viewModel.xOffset,
                               y: viewModel.yOffset)
                     .transition(.slide)

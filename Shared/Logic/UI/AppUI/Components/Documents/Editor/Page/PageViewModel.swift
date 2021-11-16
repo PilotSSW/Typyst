@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 class PageViewModel: ObservableObject, Identifiable, Loggable {
     internal let id = UUID()
@@ -17,7 +18,7 @@ class PageViewModel: ObservableObject, Identifiable, Loggable {
         
     // View properties
     @Published var pageSize: CGSize = CGSize(width: 850, height: 1100)
-    @Published var margins: CGSize = CGSize(width: 60, height: 40)
+    @Published var margins: EdgeInsets = EdgeInsets(top: 30, leading: 15, bottom: 30, trailing: 15)
     
     @Published var pageLayoutViewModel: PageLayoutViewModel
     var usableTextArea: CGSize { pageLayoutViewModel.frameSize }

@@ -12,13 +12,25 @@ struct PageView: View {
     var viewModel: PageViewModel
     
     var body: some View {
-        SheetOfPaper(verticalPadding: viewModel.margins.height,
-                     horizontalPadding: viewModel.margins.width) {
-            PageLayout(viewModel: viewModel.pageLayoutViewModel)
+        SheetOfPaper() {
+            ZStack {
+                VStack {
+                    Spacer()
+                    
+                    Text("Page \(viewModel.pageIndex + 1)")
+                        .asStyledText(with: .footnote, textSize: .small)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, max(4, viewModel.margins.bottom / 4))
+                }
+                
+                PageLayout(viewModel: viewModel.pageLayoutViewModel)
+                    .padding(.top, viewModel.margins.top)
+                    .padding(.bottom, viewModel.margins.bottom)
+                    .padding(.horizontal, viewModel.margins.leading + viewModel.margins.trailing)
+            }
         }
-        .background(Color.random)
-        .frame(maxWidth: viewModel.pageSize.width, maxHeight: viewModel.pageSize.height)
-        .neumorphicShadow()
+        .frame(maxWidth: viewModel.pageSize.width,
+               maxHeight: viewModel.pageSize.height)
         
         #if DEBUG
         if #available(macOS 12.0, *) {
@@ -34,5 +46,6 @@ struct Page_Previews: PreviewProvider {
         let viewModel = PageViewModel(pageIndex: 0, withTextLayout: layout)
         
         return PageView(viewModel: viewModel)
+            .padding(12)
     }
 }

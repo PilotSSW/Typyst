@@ -12,15 +12,15 @@ struct TypeWritersView: View {
     
     var body: some View {
         ZStack() {
-            if viewModel.showPaper, let documentViewModel = viewModel.currentDocumentViewModel {
+            if viewModel.showPaper,
+               let documentViewModel = viewModel.currentDocumentViewModel {
                 
                 DocumentView(viewModel: documentViewModel)
-                    .padding(4)
                     .frame(minWidth: 400, maxWidth: .infinity, alignment: .bottom)
+                    .edgesIgnoringSafeArea(.all)
                     .animation(.interactiveSpring()
                                .speed(0.75)
                                .delay(0.03))
-
             }
             
             if viewModel.showKeyboard {
@@ -30,6 +30,8 @@ struct TypeWritersView: View {
                            minHeight: viewModel.keyboardMinHeight,
                            maxHeight: viewModel.keyboardMaxHeight,
                            alignment: .bottom)
+                    .padding(.horizontal, 18)
+                    .padding(.bottom, 4)
                     .shadow(color: AppColor.objectShadowDark.opacity(0.5), radius: 3.5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: -2)
                     .animation(.interactiveSpring()
                                 .speed(0.75)
@@ -45,6 +47,6 @@ struct TypeWritersView_Previews: PreviewProvider {
         let vm = TypeWriterViewModel()
         vm.showPaper = true
         return TypeWritersView(viewModel: vm)
-            .previewLayout(.fixed(width: 800, height: 800))
+            .previewLayout(.fixed(width: 1800, height: 2400))
     }
 }

@@ -232,8 +232,6 @@
 		A35C55812743215A0030B31F /* Tests_DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C557F2743215A0030B31F /* Tests_DocumentEditor.swift */; };
 		A35C55822743215A0030B31F /* Tests_DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C557F2743215A0030B31F /* Tests_DocumentEditor.swift */; };
 		A35C55832743215A0030B31F /* Tests_DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C557F2743215A0030B31F /* Tests_DocumentEditor.swift */; };
-		A35C5586274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C5585274321AE0030B31F /* Tests_MultiPageTextLayout.swift */; };
-		A35C5587274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C5585274321AE0030B31F /* Tests_MultiPageTextLayout.swift */; };
 		A35C5588274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C5585274321AE0030B31F /* Tests_MultiPageTextLayout.swift */; };
 		A35C5589274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C5585274321AE0030B31F /* Tests_MultiPageTextLayout.swift */; };
 		A35CC6CB2721E36400771F22 /* CustomEditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CC6CA2721E36400771F22 /* CustomEditorTextView.swift */; };
@@ -2545,7 +2543,6 @@
 				A3FA7319262355D700E32B91 /* TypeWriterState.swift in Sources */,
 				A3FA72C9262355D700E32B91 /* TypeWriterCardBody.swift in Sources */,
 				A300BB1E2664204B00BB7BA3 /* KeyEventStore.swift in Sources */,
-				A35C5586274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */,
 				A3FA72A5262355D700E32B91 /* SoundsService.swift in Sources */,
 				A3FA72B9262355D700E32B91 /* AnalyticsInfoCard.swift in Sources */,
 				A3B3461E26CE0C7A00724513 /* OlympiaSM3_KeyShape.swift in Sources */,
@@ -2677,7 +2674,6 @@
 				A3FA72DA262355D700E32B91 /* TypeWriterSettingsView.swift in Sources */,
 				A3A9ED05273C1D3600768853 /* PageLayout.swift in Sources */,
 				A3FA72FA262355D700E32B91 /* Colors.swift in Sources */,
-				A35C5587274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */,
 				A35CE8AA273D60DA00EFF1CA /* MultiPageTextLayout.swift in Sources */,
 				A3F3F66B266658C900046773 /* TypystAppViewModel.swift in Sources */,
 				A3DEAF15262FE8D900470937 /* AlertsService.swift in Sources */,

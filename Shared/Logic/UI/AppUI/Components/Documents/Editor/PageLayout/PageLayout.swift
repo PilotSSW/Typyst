@@ -13,17 +13,15 @@ struct PageLayout: View {
     var viewModel: PageLayoutViewModel
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Page \(viewModel.pageIndex)")
-                .asStyledHeader()
-            
+        VStack(alignment: .leading, spacing: 4) {
             if !viewModel.title.isEmpty {
                 TextField("Give your new document a great title!", text: $viewModel.title)
-                    .asStyledText(with: .largeTitle, textSize: .large)
+                    .asStyledHeader(with: .largeTitle, textSize: .veryLarge)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.plain)
                     .disabled(viewModel.isEditable)
-                    .frame(maxWidth: .infinity, maxHeight: 26)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 4)
                     .layoutPriority(1)
             }
             
@@ -34,7 +32,6 @@ struct PageLayout: View {
                            maxHeight: .infinity)
             }
         }
-        .background(Color.random)
         
         #if DEBUG
         if #available(macOS 12.0, *) {
@@ -47,7 +44,7 @@ struct PageLayout: View {
 struct PageLayout_Previews: PreviewProvider {
     static var previews: some View {
         let layout = MultiPageTextLayout(with: ["Hello there!"])
-        let viewModel = PageLayoutViewModel(withTextLayout: layout, pageIndex: 0)
+        let viewModel = PageLayoutViewModel(withTextLayout: layout, pageIndex: 0, withTitle: "A Whole New Document!")
         return PageLayout(viewModel: viewModel)
     }
 }

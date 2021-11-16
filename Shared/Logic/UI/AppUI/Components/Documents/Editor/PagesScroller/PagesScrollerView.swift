@@ -12,15 +12,24 @@ struct PagesScrollerView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack() {
+            LazyVGrid(
+                columns: [
+                    GridItem(.adaptive(minimum: 850, maximum: 850), spacing: 16, alignment: .center)
+                ], spacing: 16
+            ) {
                 ForEach(pages, id: \.id) { pageViewModel in
                     PageView(viewModel: pageViewModel)
                         .frame(width: pageViewModel.pageSize.width,
                                height: pageViewModel.pageSize.height)
+                        .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
+                        .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
+                        .transition(.slide)
                 }
             }
-            
-            Spacer(minLength: 300)
+            .padding(.leading, 36)
+            .padding(.trailing, 12)
+            .padding(.top, 60)
+            .padding(.bottom, 450)
         }
     }
 }
@@ -30,6 +39,6 @@ struct PagesScrollerView_Previews: PreviewProvider {
         let layout = MultiPageTextLayout()
         let pages = PageViewModelFactory.generateRandomPageViewModelsForText(withLayout: layout)
         return PagesScrollerView(pages: pages)
-            .frame(height: 5000)
+            .frame(width: 1800, height: 5000)
     }
 }
