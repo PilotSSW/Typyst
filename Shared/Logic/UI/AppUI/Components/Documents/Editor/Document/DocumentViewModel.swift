@@ -8,26 +8,18 @@
 import Combine
 import Foundation
 
-class DocumentViewModel: NSObject, ObservableObject, Loggable {
+class DocumentViewModel: NSObject, Identifiable, ObservableObject, Loggable {
     internal let id = UUID()
 
-    @Published var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
-    @Published var document: Document
+    var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
+    var document: Document
+    var documentTextLayout: MultiPageTextLayout
     
-    @Published var pageViewModels: [PageViewModel] = [] {
-        didSet {
-            if let viewModel = pageViewModels.last, let layout = documentTextLayout as? MultiPageTextLayout {
-                currentPageEditorViewModel = CurrentPageEditorViewModel(layout: layout,
-                                                                        currentPageViewModel: viewModel)
-            }
-            else {
-                currentPageEditorViewModel = nil
-            }
-        }
-    }
-    @Published var currentPageEditorViewModel: CurrentPageEditorViewModel?
+    @Published private var pageViewModels: [PageViewModel] = []
+    @Published private(set) var nonEditablePageViewModels: [PageViewModel] = []
+    @Published private(set) var currentPageEditorViewModel: CurrentPageEditorViewModel? = nil
     
-    var documentTextLayout: TextLayout
+    /// MARK: Object lifecycle methods
 
     init(_ document: Document) {
         self.document = document
@@ -36,40 +28,60 @@ class DocumentViewModel: NSObject, ObservableObject, Loggable {
         self.documentTextLayout = MultiPageTextLayout(with: sentences)
 
         super.init()
-        addPageViewModel()
+        
+        let _ = documentTextLayout.addDelegate(self)
+        
+        currentPageEditorViewModel = CurrentPageEditorViewModel(layout: documentTextLayout)
+        requestToAddNextTextContainerAndView()
+        
         logEvent(.debug, "Document view model created: \(id)")
+    }
+    
+    deinit {
+        let _ = documentTextLayout.removeDelegate(self)
+        logEvent(.debug, "Document view model deallocated: \(id)")
     }
 
     func onDisappear() {
         let _ = documentsService.updateDocument(document)
     }
     
-    deinit {
-        logEvent(.debug, "Document view model deallocated: \(id)")
+    func setNewEditorPage(_ pageViewModel: PageViewModel) {
+        nonEditablePageViewModels = pageViewModels.filter({
+            $0.pageIndex != pageViewModel.pageIndex
+        })
+        nonEditablePageViewModels.forEach({ $0.pageLayoutViewModel.isEditable = false })
+
+        pageViewModel.pageLayoutViewModel.isEditable = true
+        currentPageEditorViewModel?.setPageViewModel(pageViewModel)
     }
 }
 
 /// MARK: Private logic functions
 extension DocumentViewModel {
-    private func addPageViewModel() {
+    private func addPageViewModel() -> PageViewModel {
+        let pageIndex = pageViewModels.count
         let pageViewModel = PageViewModel(
-            pageIndex: pageViewModels.count,
+            pageIndex: pageIndex,
             withTextLayout: documentTextLayout,
-            withTitle: document.documentName)
-//            onTextChange: { [weak self] newValue in
-//                guard let self = self else { return }
-//                self.document.documentName = newValue
-//                let _ = self.documentsService.updateDocument(self.document)
-//            },
-//            onTitleChange: { [weak self] newValue in
-//                guard let self = self else { return }
-//                self.document.textBody = newValue
-//                let _ = self.documentsService.updateDocument(self.document)
-//            }
-//        )
+            withTitle: pageIndex == 0 ? document.documentName : "")
         
         pageViewModels.append(pageViewModel)
+        
+        return pageViewModel
     }
 }
 
-
+extension DocumentViewModel: MultiPageTextLayoutDelegate {
+    func requestToAddNextTextContainerAndView() {
+        let hasUninitializedTextViews = pageViewModels
+            .map({ $0.pageLayoutViewModel.textView })
+            .filter({ $0 == nil })
+            .count > 0
+        
+        if !hasUninitializedTextViews {
+            let pageViewModel = addPageViewModel()
+            setNewEditorPage(pageViewModel)
+        }
+    }
+}

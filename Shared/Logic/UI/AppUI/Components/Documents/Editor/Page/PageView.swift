@@ -12,11 +12,19 @@ struct PageView: View {
     var viewModel: PageViewModel
     
     var body: some View {
-        SheetOfPaper(verticalPadding: viewModel.margins.height, horizontalPadding: viewModel.margins.width) {
+        SheetOfPaper(verticalPadding: viewModel.margins.height,
+                     horizontalPadding: viewModel.margins.width) {
             PageLayout(viewModel: viewModel.pageLayoutViewModel)
         }
+        .background(Color.random)
         .frame(maxWidth: viewModel.pageSize.width, maxHeight: viewModel.pageSize.height)
         .neumorphicShadow()
+        
+        #if DEBUG
+        if #available(macOS 12.0, *) {
+            let _ = Self._printChanges()
+        }
+        #endif
     }
 }
 

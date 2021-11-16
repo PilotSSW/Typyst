@@ -14,11 +14,24 @@ struct CurrentPageEditor: View {
     
     var body: some View {
         GeometryReader { reader in
-            let _ = onReaderUpdate(reader)
+            if let pageViewModel = viewModel.currentPageViewModel {
+                PageView(viewModel: pageViewModel)
+                    .position(x: viewModel.xOffset,
+                              y: viewModel.yOffset)
+                    .transition(.slide)
+                    .onAppear {
+                        let _ = onReaderUpdate(reader)
+                    }
+            }
+            else {
+                EmptyView()
+            }
             
-            PageView(viewModel: viewModel.currentPageViewModel)
-                .position(x: viewModel.xOffset,
-                          y: viewModel.yOffset)
+            #if DEBUG
+            if #available(macOS 12.0, *) {
+                let _ = Self._printChanges()
+            }
+            #endif
         }
     }
     

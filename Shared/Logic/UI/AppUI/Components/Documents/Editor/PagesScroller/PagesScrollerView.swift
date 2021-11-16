@@ -13,17 +13,23 @@ struct PagesScrollerView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack() {
-                ForEach(pages) { pageViewModel in
+                ForEach(pages, id: \.id) { pageViewModel in
                     PageView(viewModel: pageViewModel)
+                        .frame(width: pageViewModel.pageSize.width,
+                               height: pageViewModel.pageSize.height)
                 }
             }
+            
+            Spacer(minLength: 300)
         }
     }
 }
 
 struct PagesScrollerView_Previews: PreviewProvider {
     static var previews: some View {
-        let pages = PageViewModelFactory.generateRandomPageViewModelsForText()
+        let layout = MultiPageTextLayout()
+        let pages = PageViewModelFactory.generateRandomPageViewModelsForText(withLayout: layout)
         return PagesScrollerView(pages: pages)
+            .frame(height: 5000)
     }
 }

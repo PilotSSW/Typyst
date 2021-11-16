@@ -9,14 +9,14 @@ import Foundation
 
 class PageViewModelFactory {
     static func generateRandomPageViewModelsForText(number: Int = 5,
-                                                    withLayout layout: TextLayout = MultiPageTextLayout(),
+                                                    withLayout layout: MultiPageTextLayout,
                                                     layoutFrameSize: CGRect = CGRect(origin: .zero, size: CGSize(width: 250, height: 650))) -> [PageViewModel] {
-        if layout.storage.string.isEmpty {
+//        if layout.storage.string.isEmpty {
             testingText
                 .components(separatedBy: ".\n")
                 .map({ NSAttributedString(string: $0) })
                 .forEach({ layout.storage.append($0) })
-        }
+//        }
         
         var viewModels = [PageViewModel]()
         

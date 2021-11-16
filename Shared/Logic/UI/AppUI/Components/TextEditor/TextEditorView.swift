@@ -46,12 +46,12 @@ extension TextEditorView: NSViewRepresentable {
     }
 
     func makeNSView(context: Context) -> NSTextView {
-        logEvent(.trace, "Textview inserted into SwiftUI view", context: textView)
+        logEvent(.trace, "Textview inserted into SwiftUI view: \(id)", context: textView)
         return textView
     }
 
     func updateNSView(_ view: NSTextView, context: Context) {
-        logEvent(.trace, "Textview updated", context: textView)
+        logEvent(.trace, "Textview updated: \(id)", context: textView)
     }
 }
 #elseif canImport(UIKit)

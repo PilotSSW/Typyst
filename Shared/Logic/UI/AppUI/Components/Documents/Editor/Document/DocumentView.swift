@@ -13,7 +13,7 @@ struct DocumentView: View {
 
     var body: some View {
         ZStack() {
-//            PagesScrollerView(pages: viewModel.pageViewModels)
+            PagesScrollerView(pages: viewModel.nonEditablePageViewModels)
             
             if let editorViewModel = viewModel.currentPageEditorViewModel {
                 CurrentPageEditor(viewModel: editorViewModel)

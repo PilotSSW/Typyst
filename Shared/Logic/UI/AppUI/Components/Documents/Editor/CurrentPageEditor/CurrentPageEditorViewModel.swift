@@ -9,45 +9,48 @@ import Combine
 import Foundation
 
 class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
-    private var store = Set<AnyCancellable>()
     internal let id = UUID()
     
     var documentTextLayout: MultiPageTextLayout
-    var currentPageViewModel: PageViewModel
+    @Published private(set) var currentPageViewModel: PageViewModel? {
+        didSet {
+            logEvent(.trace, "current editor page vm changed")
+        }
+    }
+    @Published private(set) var currentCursorPosition: CGPoint = CGPoint(x: 0, y: 0)
     
-    @Published private var viewWidth: CGFloat = 0.0
-    @Published private var viewHeight: CGFloat = 0.0
-    
-    @Published private var currentCursorPosition: CGPoint = CGPoint(x: 0, y: 0)
+    @Published private(set) var viewWidth: CGFloat = 0.0
+    @Published private(set) var viewHeight: CGFloat = 0.0
     
     @Published private(set) var xOffset: CGFloat = 0.0
     @Published private(set) var yOffset: CGFloat = 0.0
     
+    @Published private(set) var timeToLoadPage: Double = 1.0
+    
     init(layout: MultiPageTextLayout,
-         currentPageViewModel: PageViewModel
+         currentPageViewModel: PageViewModel? = nil
     ) {
         self.documentTextLayout = layout
         self.currentPageViewModel = currentPageViewModel
         
-        registerObservers()
-        
+        documentTextLayout.addDelegate(self)
+                
         logEvent(.trace, "Current page editor viewModel created: \(id)")
     }
     
-    /// MARK: Private functions
-
-    private func registerObservers() {
-        documentTextLayout.$cursorPositionInCurrentTextView
-            .sink { [weak self] newCursorPosition in
-                guard let self = self else { return }
-                if let newCursorPosition = newCursorPosition {
-                    self.currentCursorPosition = newCursorPosition
-                    self.setPageOffsets()
-                }
-            }
-            .store(in: &store)
+    deinit {
+        documentTextLayout.removeDelegate(self)
     }
     
+    func setPageViewModel(_ viewModel: PageViewModel?) {
+        currentPageViewModel = nil
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeToLoadPage, execute: { [weak self] in
+            self?.currentPageViewModel = viewModel
+            self?.setPageOffsets()
+        })
+    }
+        
     func viewSizeUpdated(_ size: CGSize) {
         var shouldUpdateOffsets = false
         
@@ -65,8 +68,15 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
             setPageOffsets()
         }
     }
-    
+}
+
+/// MARK: Private functions
+extension CurrentPageEditorViewModel {
     private func calculatePageOffsets() -> (xOffset: CGFloat, yOffset: CGFloat) {
+        guard let currentPageViewModel = currentPageViewModel else {
+            return (0.0, 0.0)
+        }
+        
         let textArea = currentPageViewModel.usableTextArea
         let textAreaWidth = textArea.width
         let textAreaHeight = textArea.height
@@ -74,7 +84,7 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
         let viewCenterX = viewWidth / 2
         
         let documentXOffset: CGFloat = (textAreaWidth / 2)
-        let documentYOffset: CGFloat = 50//(textAreaHeight / 6)
+        let documentYOffset: CGFloat = 10//(textAreaHeight / 6)
         
         // 1. Center document horizontally right in the middle
         // 2. Add half the textArea width to offset it to the right - aligned at left margin
@@ -98,6 +108,15 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
         
         if newOffsets.yOffset != yOffset {
             yOffset = newOffsets.yOffset
+        }
+    }
+}
+
+extension CurrentPageEditorViewModel: MultiPageTextLayoutDelegate {
+    func cursorPositionUpdated(_ point: CGPoint?) {
+        if let newCursorPosition = point {
+            self.currentCursorPosition = newCursorPosition
+            self.setPageOffsets()
         }
     }
 }

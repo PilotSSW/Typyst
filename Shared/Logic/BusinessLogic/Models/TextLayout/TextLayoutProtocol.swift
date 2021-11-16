@@ -35,6 +35,16 @@ extension TextLayout {
         initializeStorageWithText(sentences)
         initializeLayoutManagers()
         logEvent(.trace, "Creating a text layout")
+        
+//        var counter = 0
+//        let timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { [weak self] timer in
+//            self?.storage.append(NSAttributedString(string: "Hello\n\n\n"))
+//            
+//            counter += 1
+//            if (counter == 100) {
+//                timer.invalidate()
+//            }
+//        })
     }
     
         /// MARK: Storage Functions
@@ -134,8 +144,8 @@ extension TextLayout {
         textView.font = defaultFont
         
         textView.isRulerVisible = false
-        textView.drawsBackground = false
-//        textView.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.25)
+        textView.drawsBackground = true
+        textView.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.25)
         textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
         
         textView.autoresizingMask = [.height, .width]

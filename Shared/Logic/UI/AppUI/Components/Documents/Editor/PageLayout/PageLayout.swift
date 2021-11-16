@@ -14,21 +14,33 @@ struct PageLayout: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            if viewModel.pageIndex == 0 {
+            Text("Page \(viewModel.pageIndex)")
+                .asStyledHeader()
+            
+            if !viewModel.title.isEmpty {
                 TextField("Give your new document a great title!", text: $viewModel.title)
                     .asStyledText(with: .largeTitle, textSize: .large)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.plain)
-                    .disabled(viewModel.isEdittable)
-                    .frame(maxWidth: .infinity, maxHeight: 36)
+                    .disabled(viewModel.isEditable)
+                    .frame(maxWidth: .infinity, maxHeight: 26)
                     .layoutPriority(1)
             }
             
             GeometryReader { reader in
                 let textView = viewModel.createTextView(withSize: reader.size)
                 TextEditorView(withTextView: textView)
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity)
             }
         }
+        .background(Color.random)
+        
+        #if DEBUG
+        if #available(macOS 12.0, *) {
+            let _ = Self._printChanges()
+        }
+        #endif
     }
 }
 

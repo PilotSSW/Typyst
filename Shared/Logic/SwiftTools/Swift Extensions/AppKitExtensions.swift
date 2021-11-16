@@ -29,7 +29,7 @@ extension NSTableView {
 extension NSTextView {
     public func getCursorPositionInFrame() -> CGRect? {
         if let textContainer = textContainer {
-            let cursorLocation = NSRange(location: selectedRange().location, length: 0)
+            let cursorLocation = selectedRange()
             let coordinates = layoutManager?.boundingRect(forGlyphRange: cursorLocation, in: textContainer)
             return coordinates
         }
