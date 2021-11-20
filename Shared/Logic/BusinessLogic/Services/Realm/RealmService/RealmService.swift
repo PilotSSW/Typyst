@@ -56,6 +56,26 @@ class RealmService: Loggable {
         return nil
     }
     
+    func updateObject(_ updateBlock: (() -> Object)) -> Bool {
+        if let realm = Realm(realmConfiguration) {
+            do {
+                try realm.write {
+                    let object = updateBlock()
+                    realm.add(object, update: .modified)
+                }
+                
+                logEvent(.info, "Successfully saved realm object")
+                return true
+            }
+            catch(let error) {
+                logEvent(.error, "Failed to add object to realm database", error: error)
+                return false
+            }
+        }
+        
+        return false
+    }
+    
     func saveObject(_ object: Object) -> Bool {
         if let realm = Realm(realmConfiguration) {
             do {

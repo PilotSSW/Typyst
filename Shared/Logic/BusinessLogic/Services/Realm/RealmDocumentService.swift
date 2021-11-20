@@ -37,13 +37,16 @@ class RealmDocumentService: Loggable {
 
     func saveRealmDocument(_ document: Document) -> Bool {
         if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {
-            return realmService.saveObject(realmDocument)
+            return realmService.updateObject() {
+                realmDocument.updateFromDocument(document)
+                return realmDocument
+            }
+            //return realmService.saveObject(realmDocument)
         }
         
         logEvent(.warning, "Failed to find document object in realm database")
         return false
     }
-
 
     func deleteRealmDocument(_ document: Document) -> Bool {
         if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {
@@ -73,7 +76,11 @@ class RealmDocument: RealmSwift.Object {
 
     convenience init(document: Document) {
         self.init()
-        self.id = document.id
+        updateFromDocument(document)
+    }
+    
+    func updateFromDocument(_ document: Document) {
+        //self.id = document.id
         self.documentName = document.documentName
         self.dateCreated = document.dateCreated
         self.dateLastOpened = document.dateLastOpened
