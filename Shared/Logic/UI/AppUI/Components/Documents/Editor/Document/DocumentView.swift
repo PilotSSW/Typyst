@@ -13,8 +13,9 @@ struct DocumentView: View {
 
     var body: some View {
         ZStack() {
-            PagesScrollerView(pages: viewModel.nonEditablePageViewModels)
+            PagesScrollerView(viewModel: viewModel.pagesScrollerViewModel)
                 .edgesIgnoringSafeArea(.all)
+                .padding(-36)
             
             if let editorViewModel = viewModel.currentPageEditorViewModel {
                 CurrentPageEditor(viewModel: editorViewModel)
@@ -22,6 +23,7 @@ struct DocumentView: View {
             }
         }
         .frame(alignment: .bottom)
+        .onAppear() { viewModel.onAppear() }
         .onDisappear() { viewModel.onDisappear() }
     }
 }

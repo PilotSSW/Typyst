@@ -17,22 +17,24 @@ class PageLayoutViewModel: ObservableObject, Identifiable, Loggable {
     internal let id = UUID()
     
     private(set) var layout: TextLayout
-    private(set) weak var textView: NSTextView?
+    @Published var textView: NSTextView?
     
-    var frameSize: CGSize {
-        textView?.frame.size ?? CGSize(width: 0, height: 0)
+    var textAreaSize: CGSize {
+        textView?.frame.size ?? .zero
     }
-    
+        
     // View model properties
     let pageIndex: Int
     @Published var title: String = ""
     
-    var isEditable: Bool {
-        set { textView?.isEditable = newValue }
-        get { textView?.isEditable ?? false }
+    @Published private(set) var isEditorPage: Bool = false {
+        didSet {
+            textView?.isEditable = isEditorPage
+        }
     }
     
-    init(withTextLayout layout: TextLayout, pageIndex: Int, withTitle title: String = "") {
+    init(withTextLayout layout: TextLayout, pageIndex: Int,
+         withTitle title: String = "") {
         self.layout = layout
         self.pageIndex = pageIndex
         self.title = title
@@ -40,40 +42,43 @@ class PageLayoutViewModel: ObservableObject, Identifiable, Loggable {
         logEvent(.trace, "PageLayout view model created: \(id)")
     }
     
-    func createTextView(withSize size: CGSize) -> NSTextView {
-        // Case: TextView already created
-        if let textView = textView {
-            logEvent(.debug, "TextView from stored property in layout")
+    deinit {
+        logEvent(.trace, "PageLayout view model deallocated: \(id)")
+    }
+    
+    func onAppear() {
+
+    }
+    
+    func onDisappear() {
+
+    }
+    
+    func setIsEditorPage(_ bool: Bool) {
+        isEditorPage = bool
+    }
+    
+    private func createTextView() -> NSTextView {
+        if let textView = layout.getTextViewAtIndex(pageIndex) {
             return textView
         }
-        // Case: Is creating a TextView for a page that already exists but is not displayed
-        else if let textContainer = layout.textContainers[safe: pageIndex] {
-            let textView = layout.createAndAddNewTextView(withFrame: CGRect(origin: .zero, size: size),
-                                                          andTextContainer: textContainer)
-            self.textView = textView
-            self.textView?.isEditable = false
-            
-            logEvent(.debug, "TextView assigned to container in pageLayout")
-            return textView
+        
+        if let textContainer = layout.getTextContainer(atIndex: pageIndex) {
+            let newTextView = layout.createAndAddNewTextView(withTextContainer: textContainer)
+            textView = newTextView
+            return newTextView
         }
-        // Case: Is creating a new page
         else {
-            let textView = layout.createAndAddNewTextView(withFrame: CGRect(origin: .zero, size: size))
-            self.textView = textView
-            
-            logEvent(.debug, "TextView created in pageLayout")
-            return textView
+            let newTextView = layout.createAndAddNewTextView()
+            textView = newTextView
+            return newTextView
         }
     }
     
-    deinit {
-        if let textView = textView {
-            DispatchQueue.main.async { [weak self] in
-                let _ = self?.layout.removeTextView(textView)
-            }
-        }
-        
-        logEvent(.trace, "PageLayout view model deallocated: \(id)")
+    func setTextView() -> NSTextView {
+        let tv = createTextView()
+        self.textView = tv
+        return tv
     }
 }
 

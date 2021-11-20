@@ -5,6 +5,11 @@
 //  Created by Sean Wolford on 9/16/21.
 //
 
+#if canImport(AppKit)
+import AppKit
+#elseif canImport(UIKit)
+import UIKit
+#endif
 import Combine
 import Foundation
 
@@ -13,10 +18,13 @@ class DocumentViewModel: NSObject, Identifiable, ObservableObject, Loggable {
 
     var documentsService: DocumentsService = AppDependencyContainer.get().documentsService
     var document: Document
-    var documentTextLayout: MultiPageTextLayout
+    lazy var documentTextLayout: MultiPageTextLayout = {
+        let sentences = document.textBody.components(separatedBy: ".!?")
+        return MultiPageTextLayout(with: sentences, delegate: self)
+    }()
     
     @Published private var pageViewModels: [PageViewModel] = []
-    @Published private(set) var nonEditablePageViewModels: [PageViewModel] = []
+    @Published private(set) var pagesScrollerViewModel: PagesScrollerViewModel = PagesScrollerViewModel()
     @Published private(set) var currentPageEditorViewModel: CurrentPageEditorViewModel? = nil
     
     /// MARK: Object lifecycle methods
@@ -24,37 +32,27 @@ class DocumentViewModel: NSObject, Identifiable, ObservableObject, Loggable {
     init(_ document: Document) {
         self.document = document
         
-        let sentences = document.textBody.components(separatedBy: ".!?")
-        self.documentTextLayout = MultiPageTextLayout(with: sentences)
-
         super.init()
-        
-        let _ = documentTextLayout.addDelegate(self)
-        
-        currentPageEditorViewModel = CurrentPageEditorViewModel(layout: documentTextLayout)
-        requestToAddNextTextContainerAndView()
-        
+                
         logEvent(.debug, "Document view model created: \(id)")
     }
     
     deinit {
-        let _ = documentTextLayout.removeDelegate(self)
         logEvent(.debug, "Document view model deallocated: \(id)")
+    }
+    
+    func onAppear() {
+        let container: NSTextContainer = documentTextLayout.textContainers.first
+        ?? documentTextLayout.createAndAddNewTextContainer()
+        
+        newTextContainerAddedToLayout(container)
     }
 
     func onDisappear() {
+        let _ = documentTextLayout.removeDelegate(self)
         let _ = documentsService.updateDocument(document)
     }
-    
-    func setNewEditorPage(_ pageViewModel: PageViewModel) {
-        nonEditablePageViewModels = pageViewModels.filter({
-            $0.pageIndex != pageViewModel.pageIndex
-        })
-        nonEditablePageViewModels.forEach({ $0.pageLayoutViewModel.isEditable = false })
 
-        pageViewModel.pageLayoutViewModel.isEditable = true
-        currentPageEditorViewModel?.setPageViewModel(pageViewModel)
-    }
 }
 
 /// MARK: Private logic functions
@@ -70,18 +68,61 @@ extension DocumentViewModel {
         
         return pageViewModel
     }
+    
+    private func addPageViewModels(count: Int) -> [PageViewModel] {
+        var pageVMs: [PageViewModel] = []
+        
+        for _ in 1...count {
+            let pageViewModel = addPageViewModel()
+            pageVMs.append(pageViewModel)
+        }
+        
+        return pageVMs
+    }
+    
+    
+    private func setNewEditorPage(_ pageViewModel: PageViewModel? = nil) {
+        if let pageViewModel = pageViewModel {
+            pagesScrollerViewModel.removePage(pageViewModel)
+            currentPageEditorViewModel = CurrentPageEditorViewModel(layout: documentTextLayout,
+                                                                    currentPageViewModel: pageViewModel)
+        }
+        else {
+            currentPageEditorViewModel = nil
+        }
+    }
+    
+    private func setScrollerPages(excludePages: [PageViewModel] = []) {
+        for pageViewModel in pageViewModels {
+            excludePages.contains { $0.id == pageViewModel.id }
+                ? pagesScrollerViewModel.removePage(pageViewModel)
+                : pagesScrollerViewModel.addPage(pageViewModel)
+        }
+        pagesScrollerViewModel.sortPages()
+    }
 }
 
 extension DocumentViewModel: MultiPageTextLayoutDelegate {
-    func requestToAddNextTextContainerAndView() {
-        let hasUninitializedTextViews = pageViewModels
-            .map({ $0.pageLayoutViewModel.textView })
-            .filter({ $0 == nil })
-            .count > 0
+    func newTextContainerAddedToLayout(_ textContainer: NSTextContainer) {
+        let numberOfTextContainers = documentTextLayout.textContainers.count
+        let numberOfPages = pageViewModels.count
+        let numberToAdd = numberOfTextContainers - numberOfPages
         
-        if !hasUninitializedTextViews {
-            let pageViewModel = addPageViewModel()
-            setNewEditorPage(pageViewModel)
+        let newPageViewModels = addPageViewModels(count: numberToAdd)
+        
+        if let lastPage = newPageViewModels.last {
+            setNewEditorPage(nil)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
+                guard let self = self else { return }
+                self.setScrollerPages(excludePages: [lastPage])
+                self.setNewEditorPage(lastPage)
+            })
         }
+    }
+    
+    func textWasUpdated(_ text: String) {
+        document.textBody = documentTextLayout.storage.string
+        let _ = documentsService.updateDocument(document)
     }
 }

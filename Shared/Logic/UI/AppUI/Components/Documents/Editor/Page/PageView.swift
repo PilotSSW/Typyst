@@ -12,6 +12,12 @@ struct PageView: View {
     var viewModel: PageViewModel
     
     var body: some View {
+        #if DEBUG
+        if #available(macOS 12.0, *) {
+            let _ = Self._printChanges()
+        }
+        #endif
+        
         SheetOfPaper() {
             ZStack {
                 VStack {
@@ -29,14 +35,11 @@ struct PageView: View {
                     .padding(.horizontal, viewModel.margins.leading + viewModel.margins.trailing)
             }
         }
-        .frame(maxWidth: viewModel.pageSize.width,
-               maxHeight: viewModel.pageSize.height)
-        
-        #if DEBUG
-        if #available(macOS 12.0, *) {
-            let _ = Self._printChanges()
-        }
-        #endif
+        .frame(width: viewModel.pageSize.width,
+               height: viewModel.pageSize.height,
+               alignment: .center)
+        .onAppear() { viewModel.onAppear() }
+        .onDisappear() { viewModel.onDisappear() }
     }
 }
 

@@ -13,31 +13,37 @@ struct PageLayout: View {
     var viewModel: PageLayoutViewModel
     
     var body: some View {
+        #if DEBUG
+        if #available(macOS 12.0, *) {
+            let _ = Self._printChanges()
+        }
+        #endif
+        
         VStack(alignment: .leading, spacing: 4) {
             if !viewModel.title.isEmpty {
                 TextField("Give your new document a great title!", text: $viewModel.title)
                     .asStyledHeader(with: .largeTitle, textSize: .veryLarge)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.plain)
-                    .disabled(viewModel.isEditable)
+                    .disabled(!viewModel.isEditorPage)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 4)
                     .layoutPriority(1)
             }
-            
-            GeometryReader { reader in
-                let textView = viewModel.createTextView(withSize: reader.size)
-                TextEditorView(withTextView: textView)
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity)
-            }
+                
+            TextEditorView(withTextView: textViewBinding)
+                .frame(maxWidth: .infinity,
+                       maxHeight: .infinity)
         }
-        
-        #if DEBUG
-        if #available(macOS 12.0, *) {
-            let _ = Self._printChanges()
-        }
-        #endif
+        .onAppear() { viewModel.onAppear() }
+        .onDisappear() { viewModel.onDisappear() }
+    }
+    
+    var textViewBinding: Binding<NSTextView> {
+        Binding(
+            get: { viewModel.textView ?? viewModel.setTextView() },
+            set: { textView in }
+        )
     }
 }
 

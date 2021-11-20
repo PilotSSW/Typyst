@@ -7,6 +7,10 @@ import Foundation
 import SwiftUI
 
 struct AppColor {
+    public static var randomColor: Color {
+        Color.random
+    }
+    
     /**
      * Backgrounds
      */

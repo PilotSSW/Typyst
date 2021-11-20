@@ -23,16 +23,56 @@ class MultiPageTextLayout: NSObject, TextLayout, ObservableObject, Loggable {
     public let multicastDelegate = MulticastDelegate<MultiPageTextLayoutDelegate>()
     
     @Published var cursorPositionInCurrentTextView: CGPoint? = nil
-        //    var onEditingChanged       : [() -> Void] = []
-        //    var onCommit               : [() -> Void] = []
-        //    var onTextChange           : [(String) -> Void] = []
     
-    private var defaultContainerSize: NSSize { NSSize(width: 712, height: 996) }
+    private var defaultContainerSize: NSSize {
+        NSSize(width: CGFloat.greatestFiniteMagnitude,
+               height: CGFloat.greatestFiniteMagnitude)
+    }
+    
+    convenience init(
+        with sentences: [String],
+        shouldAutoAddFirstTextContainer: Bool = true,
+        delegate: MultiPageTextLayoutDelegate? = nil
+    ) {
+        self.init()
+        
+        if let delegate = delegate {
+            addDelegate(delegate)
+        }
+        
+        initializeStorageWithText(sentences)
+        initializeLayoutManagers()
+        logEvent(.trace, "Creating a MultiPageText layout")
+        
+        if shouldAutoAddFirstTextContainer {
+            let _ = createAndAddNewTextContainer()
+        }
+    }
     
     deinit {
         logEvent(.debug, "Deallocating MultiPageTextLayout")
     }
+    
+    func getCursorPositionInTextView(_ textView: NSTextView) -> CGPoint? {
+        var currentPoint: CGPoint? = nil
+        
+        if let cursorFrame = textView.getCursorPositionInFrame() {
+            let cursorX = cursorFrame.origin.x
+            let cursorY = cursorFrame.origin.y
+            let cursorHeight = cursorFrame.height
+            
+            currentPoint = CGPoint(x: cursorX, y: cursorY + cursorHeight)
+        }
+        
+        return currentPoint
+    }
 }
+
+///
+///
+/// MARK: Delegate functions for NSTextEngine
+///
+///
 
 /// MARK: Storage delegate functions
 extension MultiPageTextLayout: NSTextStorageDelegate {
@@ -42,20 +82,27 @@ extension MultiPageTextLayout: NSTextStorageDelegate {
 /// MARK: Layout manager delegate functions
 extension MultiPageTextLayout: NSLayoutManagerDelegate {
     func layoutManagerDidInvalidateLayout(_ sender: NSLayoutManager) {
-        logEvent(.debug, "LayouManager did invalidate")
+        logEvent(.debug, "LayoutManager did invalidate")
     }
     
     func layoutManager(_ layoutManager: NSLayoutManager,
                        didCompleteLayoutFor textContainer: NSTextContainer?,
                        atEnd layoutFinishedFlag: Bool) {
         let atTextBodyEnd = textContainer == nil
-        let shouldAddNewTextContainerAndTextView = layoutFinishedFlag && atTextBodyEnd
+        let shouldAddNewTextContainer = layoutFinishedFlag && atTextBodyEnd
         
-        if shouldAddNewTextContainerAndTextView {
-            multicastDelegate.invokeDelegates { $0.requestToAddNextTextContainerAndView() }
+        if shouldAddNewTextContainer {
+//            var size: CGSize = defaultContainerSize
+//            if let last = textViews.last,
+//               let container = last.textContainer {
+//                size = container.size
+//            }
+
+            let container = createAndAddNewTextContainer()
+            multicastDelegate.invokeDelegates { $0.newTextContainerAddedToLayout(container) }
         }
         
-        logEvent(.debug, "LayoutManager finished laying out container: Request to add new text container and view: \(shouldAddNewTextContainerAndTextView)")
+        logEvent(.debug, "LayoutManager finished laying out container: Request to add new text container and view: \(shouldAddNewTextContainer)")
     }
 }
 
@@ -71,13 +118,22 @@ extension MultiPageTextLayout: NSTextViewDelegate {
         if let textView = notification.object as? NSTextView {
             cursorPositionUpdated(inTextView: textView)
         }
+        multicastDelegate.invokeDelegates { $0.textWasUpdated("") }
     }
     
     func textDidEndEditing(_ notification: Notification) {
         logEvent(.debug, "text did end editting")
             //onCommit()
+        multicastDelegate.invokeDelegates { $0.textWasUpdated("") }
     }
 }
+
+
+///
+///
+/// MARK: Delegate functions for subscribers of MultiTextPageLayout
+///
+///
 
 /// MARK: Public multicastDelegate functions
 extension MultiPageTextLayout {
@@ -94,24 +150,19 @@ extension MultiPageTextLayout {
 /// MARK: Private function
 extension MultiPageTextLayout {
     private func cursorPositionUpdated(inTextView textView: NSTextView) {
-        var currentPoint: CGPoint? = nil
-
-        if let cursorFrame = textView.getCursorPositionInFrame() {
-            let cursorX = cursorFrame.origin.x
-            let cursorY = cursorFrame.origin.y
-            let cursorHeight = cursorFrame.height
-            
-            currentPoint = CGPoint(x: cursorX, y: cursorY + cursorHeight)
-        }
+        let cursorPosition = getCursorPositionInTextView(textView)
         
         var shouldUpdate = true
-        if let currentPoint = currentPoint, cursorPositionInCurrentTextView?.equalTo(currentPoint) ?? false {
+        if let currentPoint = cursorPosition, cursorPositionInCurrentTextView?.equalTo(currentPoint) ?? false {
             shouldUpdate = false
+        }
+        else {
+            cursorPositionInCurrentTextView = cursorPosition
         }
         
         if shouldUpdate {
-            multicastDelegate.invokeDelegates{ $0.cursorPositionUpdated(currentPoint) }
-            multicastDelegate.invokeDelegates{ $0.cursorPositionUpdated(currentPoint, in: textView) }
+            multicastDelegate.invokeDelegates{ $0.cursorPositionUpdated(cursorPosition) }
+            multicastDelegate.invokeDelegates{ $0.cursorPositionUpdated(cursorPosition, in: textView) }
 
             logEvent(.trace, "Cursor position updated: \(String(describing: cursorPositionInCurrentTextView))")
         }
@@ -121,11 +172,13 @@ extension MultiPageTextLayout {
 public protocol MultiPageTextLayoutDelegate: AnyObject {
     func cursorPositionUpdated(_ point: CGPoint?)
     func cursorPositionUpdated(_ point: CGPoint?, in textView: NSTextView)
-    func requestToAddNextTextContainerAndView()
+    func newTextContainerAddedToLayout(_ textContainer: NSTextContainer)
+    func textWasUpdated(_ text: String)
 }
 
 extension MultiPageTextLayoutDelegate {
     func cursorPositionUpdated(_ point: CGPoint?) { }
     func cursorPositionUpdated(_ point: CGPoint?, in textView: NSTextView) { }
-    func requestToAddNextTextContainerAndView() { }
+    func newTextContainerAddedToLayout(_ textContainer: NSTextContainer) { }
+    func textWasUpdated(_ text: String) { }
 }

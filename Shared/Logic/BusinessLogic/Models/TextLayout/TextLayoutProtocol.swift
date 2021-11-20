@@ -26,7 +26,7 @@ protocol TextLayout: NSObject, NSTextStorageDelegate, NSLayoutManagerDelegate, N
 extension TextLayout {
     var defaultFont: NSFont {
         NSFont(name: "AmericanTypewriter",
-               size: TextSize.large.cgFloatSize)
+               size: TextSize.veryLarge.cgFloatSize)
         ?? .systemFont(ofSize: TextSize.normal.cgFloatSize)
     }
     
@@ -69,7 +69,8 @@ extension TextLayout {
     }
     
         /// MARK: TextContainer Functions
-    public func createAndAddNewTextContainer(withSize size: NSSize = NSSize(width: 300, height: 300)) -> NSTextContainer {
+    public func createAndAddNewTextContainer(withSize size: NSSize = NSSize(width: CGFloat.greatestFiniteMagnitude,
+                                                                            height: CGFloat.greatestFiniteMagnitude)) -> NSTextContainer {
         let textContainer = NSTextContainer(containerSize: size)
         configureTextContainer(textContainer)
         
@@ -79,6 +80,10 @@ extension TextLayout {
         logEvent(.trace, "Created new text container with size: \(size)", context: [textContainer, layoutManager])
         
         return textContainer
+    }
+    
+    public func getTextContainer(atIndex index: Int) -> NSTextContainer? {
+        textContainers[safe: index]
     }
     
     public func removeTextContainer(_ textContainer: NSTextContainer) -> Bool {
@@ -97,8 +102,8 @@ extension TextLayout {
     }
     
         /// MARK: TextView Functions
-    public func createAndAddNewTextView(withFrame frame: NSRect = NSRect(origin: .zero, size: NSSize(width: 300, height: 300)),
-                                        andTextContainer existingTextContainer: NSTextContainer? = nil
+    public func createAndAddNewTextView(withFrame frame: NSRect = NSRect(origin: .zero, size: NSSize(width: 790, height: 1040)),
+                                        withTextContainer existingTextContainer: NSTextContainer? = nil
     ) -> NSTextView {
         let textContainer: NSTextContainer = existingTextContainer ?? createAndAddNewTextContainer(withSize: frame.size)
         let textView = NSTextView(frame: frame, textContainer: textContainer)
@@ -109,6 +114,10 @@ extension TextLayout {
         logEvent(.trace, "Created new text view with frame: \(frame)", context: [textContainer, textView])
         
         return textView
+    }
+    
+    public func getTextViewAtIndex(_ index: Int) -> NSTextView? {
+        textViews[safe: index]
     }
     
     public func removeTextView(_ textView: NSTextView, removeContainer: Bool = false) -> Bool {
@@ -145,12 +154,12 @@ extension TextLayout {
         
         textView.isRulerVisible = false
         textView.drawsBackground = false
-//        textView.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.25)
-        textView.textColor = NSColor(cgColor: AppColor.textBody.cgColor ?? .black)
+        //textView.backgroundColor =  NSColor(AppColor.randomColor)//NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75)
+        textView.textColor = NSColor(AppColor.textBody)
         
         textView.autoresizingMask = [.height, .width]
-        textView.isVerticallyResizable = false
-        textView.isHorizontallyResizable = false
+        textView.isVerticallyResizable = true
+        textView.isHorizontallyResizable = true
         
         textView.isEditable = true
         textView.isSelectable = true

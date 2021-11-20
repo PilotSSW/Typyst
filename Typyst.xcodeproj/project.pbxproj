@@ -148,6 +148,10 @@
 		A333EDC526BA2AA500AA9B09 /* TypeWriterMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7251262355D600E32B91 /* TypeWriterMenuData.swift */; };
 		A33D4344263C51E8004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
 		A33D4345263C528E004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
+		A342B208274589F000341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
+		A342B209274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
+		A342B20A274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
+		A342B20B274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
 		A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
 		A34602482685551B00BF81D4 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34602462685551B00BF81D4 /* SwiftyBeaver.swift */; };
 		A3484234271DECBD005DD159 /* RealmInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484233271DECBD005DD159 /* RealmInstance.swift */; };
@@ -763,6 +767,7 @@
 		A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsListButton.swift; sourceTree = "<group>"; };
 		A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterSelector.swift; sourceTree = "<group>"; };
 		A33D4343263C51E8004669A1 /* ResizableDragger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableDragger.swift; sourceTree = "<group>"; };
+		A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesScrollerViewModel.swift; sourceTree = "<group>"; };
 		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		A3484233271DECBD005DD159 /* RealmInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInstance.swift; sourceTree = "<group>"; };
 		A34CE80D2694DDA4008127E6 /* KeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyViewModel.swift; sourceTree = "<group>"; };
@@ -1585,6 +1590,7 @@
 			isa = PBXGroup;
 			children = (
 				A3A9ED0E273C73EC00768853 /* PagesScrollerView.swift */,
+				A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */,
 			);
 			path = PagesScroller;
 			sourceTree = "<group>";
@@ -2610,6 +2616,7 @@
 				A3B3462326CE0E0F00724513 /* SmithCoronaSilentKey.swift in Sources */,
 				A3FA7325262355D700E32B91 /* SwiftExtensions.swift in Sources */,
 				A3FA72CD262355D700E32B91 /* TypeWriterMenu.swift in Sources */,
+				A342B208274589F000341ED2 /* PagesScrollerViewModel.swift in Sources */,
 				A3FA7323262355D700E32B91 /* LoggingService.swift in Sources */,
 				A34CE8112694ED77008127E6 /* TextDocumentProxyService.swift in Sources */,
 				A39C9EA326F4C53E00F81A75 /* PageViewModel.swift in Sources */,
@@ -2827,6 +2834,7 @@
 				6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */,
 				A376955C26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				6EF6B83D11F288968BA3AFBD /* TypeWriters.swift in Sources */,
+				A342B209274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */,
 				A38A057526E46678001E2543 /* WritersView.swift in Sources */,
 				A3236B1327224409009CEF8E /* TextEditorViewModel.swift in Sources */,
 				A36E474126E5BC7000E647A0 /* KeyboardModel.swift in Sources */,
@@ -2949,6 +2957,7 @@
 				A35A679B26D95D2C004A1A4E /* DocumentsCard.swift in Sources */,
 				A315F9BC26F3B1D500664986 /* NavigationContainer.swift in Sources */,
 				A308F11B273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */,
+				A342B20A274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */,
 				A32F24BF2715368600CCDE60 /* DocumentsListButton.swift in Sources */,
 				6EF6BDBB597BF22BE35F2D31 /* KeyboardRowViewModel.swift in Sources */,
 				A39AEE1326D1ABE10081611E /* KeyShape.swift in Sources */,
@@ -3083,6 +3092,7 @@
 				A36E475F26E5BC7300E647A0 /* OlympiaSM3_KeyShape.swift in Sources */,
 				A3A9ED17273C750900768853 /* PageViewModelFactory.swift in Sources */,
 				A36E473926E5A2CC00E647A0 /* StackOfPaper.swift in Sources */,
+				A342B20B274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */,
 				6EF6B3BFBDAA4ED2D0A0496F /* KeyboardService.swift in Sources */,
 				A3FF85EF26F299E800D1D069 /* SettingsService.swift in Sources */,
 				6EF6B6A3DB2F65DF5D855224 /* WritersViewModel.swift in Sources */,

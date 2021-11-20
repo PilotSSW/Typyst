@@ -12,23 +12,27 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
     internal let id = UUID()
     
     var documentTextLayout: MultiPageTextLayout
-    @Published private(set) var currentPageViewModel: PageViewModel? {
-        didSet {
-            logEvent(.trace, "current editor page vm changed")
-        }
-    }
+    @Published var currentPageViewModel: PageViewModel
     @Published private(set) var currentCursorPosition: CGPoint = CGPoint(x: 0, y: 0)
     
     @Published private(set) var viewWidth: CGFloat = 0.0
     @Published private(set) var viewHeight: CGFloat = 0.0
     
-    @Published private(set) var xOffset: CGFloat = 0.0
-    @Published private(set) var yOffset: CGFloat = 0.0
+    @Published private(set) var xOffset: CGFloat = -500.0
+    @Published private(set) var yOffset: CGFloat = 3000.0
     
-    @Published private(set) var timeToLoadPage: Double = 1.0
+    @Published private(set) var timeToLoadPage: Double = 0.5
+    @Published private(set) var hasAppeared: Bool = false {
+        didSet {
+            if !hasAppeared { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeToLoadPage, execute: { [weak self] in
+                self?.setPageOffsets()
+            })
+        }
+    }
     
     init(layout: MultiPageTextLayout,
-         currentPageViewModel: PageViewModel? = nil
+         currentPageViewModel: PageViewModel
     ) {
         self.documentTextLayout = layout
         self.currentPageViewModel = currentPageViewModel
@@ -42,15 +46,16 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
         documentTextLayout.removeDelegate(self)
     }
     
-    func setPageViewModel(_ viewModel: PageViewModel?) {
-        currentPageViewModel = nil
+    func onAppear() {
+        currentPageViewModel.setIsEditorPage(true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeToLoadPage, execute: { [weak self] in
-            self?.currentPageViewModel = viewModel
-            self?.setPageOffsets()
-        })
+        hasAppeared = true
     }
         
+    func onDisappear() {
+        currentPageViewModel.setIsEditorPage(false)
+    }
+    
     func viewSizeUpdated(_ size: CGSize) {
         var shouldUpdateOffsets = false
         
@@ -73,10 +78,6 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
 /// MARK: Private functions
 extension CurrentPageEditorViewModel {
     private func calculatePageOffsets() -> (xOffset: CGFloat, yOffset: CGFloat) {
-        guard let currentPageViewModel = currentPageViewModel else {
-            return (0.0, 0.0)
-        }
-        
         let textArea = currentPageViewModel.usableTextArea
         let textAreaWidth = textArea.width
         let textAreaHeight = textArea.height
@@ -113,10 +114,21 @@ extension CurrentPageEditorViewModel {
 }
 
 extension CurrentPageEditorViewModel: MultiPageTextLayoutDelegate {
+    
+    // TODO: Fix delegate listener for cursor position
+    // Delegate func not currently working -- need to get cursor position manually
     func cursorPositionUpdated(_ point: CGPoint?) {
-        if let newCursorPosition = point {
-            self.currentCursorPosition = newCursorPosition
-            self.setPageOffsets()
+//        if let newCursorPosition = point {
+//            self.currentCursorPosition = newCursorPosition
+//            self.setPageOffsets()
+//        }
+    }
+    
+    func textWasUpdated(_ text: String) {
+        if let textView = currentPageViewModel.pageLayoutViewModel.textView,
+           let newCursorPosition = documentTextLayout.getCursorPositionInTextView(textView) {
+            currentCursorPosition = newCursorPosition
+            setPageOffsets()
         }
     }
 }

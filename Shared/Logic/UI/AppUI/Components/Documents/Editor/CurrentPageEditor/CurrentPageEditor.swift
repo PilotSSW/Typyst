@@ -13,36 +13,33 @@ struct CurrentPageEditor: View {
     var viewModel: CurrentPageEditorViewModel
     
     var body: some View {
-        GeometryReader { reader in
-            if let pageViewModel = viewModel.currentPageViewModel {
-                PageView(viewModel: pageViewModel)
-//                    .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
-                    .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
-                    .position(x: viewModel.xOffset,
-                              y: viewModel.yOffset)
-                    .transition(.slide)
-                    .onAppear {
-                        let _ = onReaderUpdate(reader)
-                    }
-            }
-            else {
-                EmptyView()
-            }
-            
+        ZStack {
             #if DEBUG
             if #available(macOS 12.0, *) {
                 let _ = Self._printChanges()
             }
             #endif
+            
+            GeometryReader { reader in
+                let _ = onReaderUpdate(reader)
+
+                PageView(viewModel: viewModel.currentPageViewModel)
+                    .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
+                    .position(x: viewModel.xOffset,
+                              y: viewModel.yOffset)
+                    .transition(.slide)
+                    .onAppear() { viewModel.onAppear() }
+                    .onDisappear() { viewModel.onDisappear() }
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private func onReaderUpdate(_ proxy: GeometryProxy) {
         DispatchQueue.main.async {
             viewModel.viewSizeUpdated(proxy.size)
         }
-    }
-    
+    }    
 }
 
 struct CurrentPageEditor_Previews: PreviewProvider {
