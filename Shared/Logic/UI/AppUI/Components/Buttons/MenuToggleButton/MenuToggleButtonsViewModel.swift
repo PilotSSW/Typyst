@@ -9,17 +9,13 @@ import Combine
 import Foundation
 
 class MenuToggleButtonsViewModel: ObservableObject, Loggable {
-
-    
-    init(selectedValue: AppWindowViewModel.InterfaceControlPosition = .closed,
+    init(selectedValue: AppWindowViewModel.InterfaceControlPosition = .inline,
          isExpanded: Bool = false) {
-        self.selectedValue = .closed
+        self.selectedValue = selectedValue
         self.isExpanded = isExpanded
         
         closedIsSelected = selectedValue == .closed
         aboveIsSelected = selectedValue == .above
         inlineIsSelected = selectedValue == .inline
     }
-    
-
 }

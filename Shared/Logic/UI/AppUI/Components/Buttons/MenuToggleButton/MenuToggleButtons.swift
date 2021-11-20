@@ -16,18 +16,18 @@ struct MenuToggleButtons: View {
     
     /// View Properties: Button's state
     @State var closedIsSelected: Bool = false
-    @State var aboveIsSelected: Bool = true
-    @State var inlineIsSelected: Bool = false
+    @State var aboveIsSelected: Bool = false
+    @State var inlineIsSelected: Bool = true
     
     private func setButtonBindingStates(_ selectedState: Binding<AppWindowViewModel.InterfaceControlPosition>) {
-        if $selectedValue.wrappedValue != selectedState.wrappedValue {
-            withAnimation {
+        withAnimation {
+            if _selectedValue.wrappedValue != selectedState.wrappedValue {
                 $selectedValue.wrappedValue = selectedState.wrappedValue
-                
-                closedIsSelected = selectedState.wrappedValue == .closed
-                aboveIsSelected = selectedState.wrappedValue == .above
-                inlineIsSelected = selectedState.wrappedValue == .inline
             }
+            
+            closedIsSelected = selectedState.wrappedValue == .closed
+            aboveIsSelected = selectedState.wrappedValue == .above
+            inlineIsSelected = selectedState.wrappedValue == .inline
         }
     }
     

@@ -10,11 +10,7 @@ import Foundation
 import struct SwiftUI.CGSize
 
 class AppWindowViewModel: ObservableObject, Loggable {
-    private var store = Set<AnyCancellable>()
-    
-    /// Services
-    private let documentsService: DocumentsService = AppDependencyContainer.get().documentsService
-    @Published var currentDocument: Document? = nil
+//    private var store = Set<AnyCancellable>()
     
     /// View properties
     enum InterfaceControlPosition {
@@ -22,7 +18,11 @@ class AppWindowViewModel: ObservableObject, Loggable {
         case inline
         case above
     }
-    @Published var interfaceControlPosition: InterfaceControlPosition = .above
+    @Published var interfaceControlPosition: InterfaceControlPosition = .inline {
+        didSet {
+            setLayoutProperties(for: interfaceControlPosition)
+        }
+    }
     
     private(set) var compactWidth: CGFloat = 380
     private(set) var viewDimensions: CGSize = CGSize(width: 0, height: 0)
@@ -31,18 +31,7 @@ class AppWindowViewModel: ObservableObject, Loggable {
     @Published var shouldShowWritersView: Bool = true
 
     init() {
-        documentsService.$currentDocument
-            .sink { [weak self] currentDocument in
-                self?.currentDocument = currentDocument
-            }
-            .store(in: &store)
-        
-        $interfaceControlPosition
-            .sink{ [weak self] currentPosition in
-                guard let self = self else { return }
-                self.setLayoutProperties(for: currentPosition)
-            }
-            .store(in: &store)
+
     }
 
     func setViewDimensions(_ dimensions: CGSize) {
@@ -73,6 +62,6 @@ extension AppWindowViewModel {
     }
         
     private func setShouldShowWritersView() -> Bool {
-        return viewDimensions.width > compactWidth
+        viewDimensions.width > compactWidth
     }
 }

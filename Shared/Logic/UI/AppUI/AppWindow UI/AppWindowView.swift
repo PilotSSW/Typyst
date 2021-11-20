@@ -24,13 +24,13 @@ struct AppWindowView: View {
                     
                     ZStack(alignment: .leading) {
                         HStack(alignment: .bottom, spacing: 0) {
-                            if (viewModel.shouldShowMenu && viewModel.interfaceControlPosition == .inline) {
-                                Color.clear
-                                    .frame(minWidth: viewModel.shouldShowWritersView ? (380 - 36) : 275,
-                                           maxWidth: viewModel.shouldShowWritersView ? (380 - 36) : 380)
-                            }
-                            
                             if (viewModel.shouldShowWritersView) {
+                                if (viewModel.interfaceControlPosition == .inline) {
+                                    Color.clear
+                                        .frame(minWidth: viewModel.shouldShowWritersView ? 380 : 275,
+                                               maxWidth: viewModel.shouldShowWritersView ? 380 : 380)
+                                }
+                                
                                 WritersView()
                             }
                         }

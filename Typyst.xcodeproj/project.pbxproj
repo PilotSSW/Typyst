@@ -250,6 +250,10 @@
 		A35E9A872712349A00DA01BB /* TypeWriterInfoModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35E9A852712349A00DA01BB /* TypeWriterInfoModalViewModel.swift */; };
 		A35E9A8827128E4100DA01BB /* TypeWriterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7256262355D600E32B91 /* TypeWriterCard.swift */; };
 		A35E9A8927128E4100DA01BB /* TypeWriterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7256262355D600E32B91 /* TypeWriterCard.swift */; };
+		A36050DC2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36050DB2748389F00CE1D0F /* DocumentsListRowViewModel.swift */; };
+		A36050DD2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36050DB2748389F00CE1D0F /* DocumentsListRowViewModel.swift */; };
+		A36050DE2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36050DB2748389F00CE1D0F /* DocumentsListRowViewModel.swift */; };
+		A36050DF2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36050DB2748389F00CE1D0F /* DocumentsListRowViewModel.swift */; };
 		A3639AA326D1B298004131EF /* OlympiaSM3Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3639AA226D1B298004131EF /* OlympiaSM3Background.swift */; };
 		A3639AA426D1B4B2004131EF /* OlympiaSM3Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3639AA226D1B298004131EF /* OlympiaSM3Background.swift */; };
 		A3639AA526D1B4B3004131EF /* OlympiaSM3Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3639AA226D1B298004131EF /* OlympiaSM3Background.swift */; };
@@ -779,6 +783,7 @@
 		A35CE8A8273D60DA00EFF1CA /* MultiPageTextLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPageTextLayout.swift; sourceTree = "<group>"; };
 		A35E32752706BE9D0055B01C /* ScrollViewCleaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewCleaner.swift; sourceTree = "<group>"; };
 		A35E9A852712349A00DA01BB /* TypeWriterInfoModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWriterInfoModalViewModel.swift; sourceTree = "<group>"; };
+		A36050DB2748389F00CE1D0F /* DocumentsListRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsListRowViewModel.swift; sourceTree = "<group>"; };
 		A3639AA226D1B298004131EF /* OlympiaSM3Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympiaSM3Background.swift; sourceTree = "<group>"; };
 		A3668DF4262FD11500764DB8 /* AlertsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsService.swift; sourceTree = "<group>"; };
 		A3668E10262FD84400764DB8 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
@@ -1157,7 +1162,7 @@
 		A329D97A271613F2004D8990 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
-				A35A67AE26D9708A004A1A4E /* DocumentsListRow.swift */,
+				A36050DA2748388400CE1D0F /* DocumentsListRow */,
 				A35B664A26DC772100305797 /* DocumentsListAddRow.swift */,
 				A376955A26EC7390004B552C /* DocumentsListGoogleDocsRow.swift */,
 			);
@@ -1381,6 +1386,15 @@
 				A35CE8A8273D60DA00EFF1CA /* MultiPageTextLayout.swift */,
 			);
 			path = TextLayout;
+			sourceTree = "<group>";
+		};
+		A36050DA2748388400CE1D0F /* DocumentsListRow */ = {
+			isa = PBXGroup;
+			children = (
+				A35A67AE26D9708A004A1A4E /* DocumentsListRow.swift */,
+				A36050DB2748389F00CE1D0F /* DocumentsListRowViewModel.swift */,
+			);
+			path = DocumentsListRow;
 			sourceTree = "<group>";
 		};
 		A3639AA626D1B8CB004131EF /* Backgrounds */ = {
@@ -2503,6 +2517,7 @@
 				A308F119273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */,
 				A35A679926D95D2C004A1A4E /* DocumentsCard.swift in Sources */,
 				A3EE9CC726A5DD0B0009482C /* KeyboardConfiguration.swift in Sources */,
+				A36050DC2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */,
 				A3668E11262FD84400764DB8 /* AlertsView.swift in Sources */,
 				A37DC7BB26C95C6D009440F1 /* KeyboardContainerViewModel.swift in Sources */,
 				A329D97D27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
@@ -2757,6 +2772,7 @@
 				A3FA7306262355D700E32B91 /* Font.swift in Sources */,
 				A36E473A26E5BC3C00E647A0 /* KeyboardContainerViewModel.swift in Sources */,
 				A3FA72C8262355D700E32B91 /* TypeWriterCard.swift in Sources */,
+				A36050DD2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */,
 				A3FA72E6262355D700E32B91 /* SettingsCard.swift in Sources */,
 				A3A383C626D5300B0023B628 /* Images.swift in Sources */,
 				A3FA72C4262355D700E32B91 /* TypeWriterMenuCard.swift in Sources */,
@@ -2852,6 +2868,7 @@
 				A38A057626E46678001E2543 /* WritersView.swift in Sources */,
 				A333EDC426BA2AA400AA9B09 /* TypeWriterMenuData.swift in Sources */,
 				A37DEC5B26A0BFB200965DC4 /* KeyGroupView.swift in Sources */,
+				A36050DE2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */,
 				A3E2AAE926892D1C00F43757 /* LoggingService.swift in Sources */,
 				A3B3461D26CE0C7900724513 /* OlympiaSM3_KeyShape.swift in Sources */,
 				A3A60ED5271FC180007C4D76 /* TypeWritersViewModel.swift in Sources */,
@@ -3023,6 +3040,7 @@
 				A35B665726DFE50F00305797 /* Card.swift in Sources */,
 				A30A90A827212A1500EB5627 /* ConfigurableTextField.swift in Sources */,
 				A35A67A426D96088004A1A4E /* DocumentsList.swift in Sources */,
+				A36050DF2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */,
 				A39C9EA626F4C53E00F81A75 /* PageViewModel.swift in Sources */,
 				A3A60ED1271FBFF2007C4D76 /* TypeWritersView.swift in Sources */,
 				A36E475926E5BC7300E647A0 /* KeyShape.swift in Sources */,

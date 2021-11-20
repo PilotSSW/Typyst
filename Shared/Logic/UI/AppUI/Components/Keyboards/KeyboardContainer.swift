@@ -18,11 +18,24 @@ struct KeyboardContainerView: View, Loggable {
             if (viewModel.visibleComponent != .none) {
                 TypeWriterBackground(typeWriterModel: viewModel.currentTypeWriterModel,
                                      cornerRadius: viewModel.cornerRadius)
-
+                
                 VStack() {
                     if(viewModel.visibleComponent == .keyboard) {
-                        KeyboardView(viewModel: viewModel.keyboardViewModel)
-                            .padding(.horizontal, 12)
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 24)
+                                .strokeBorder()
+                                .padding(.horizontal, 5)
+                                .padding(.top, 23)
+                            
+                            RoundedRectangle(cornerRadius: 24)
+                                .fill(Color.black.opacity(0.44))
+                                .blendMode(.plusDarker)
+                                .padding(.horizontal, 6)
+                                .padding(.top, 24)
+                            
+                            KeyboardView(viewModel: viewModel.keyboardViewModel)
+                                .padding(.horizontal, 12)
+                        }
                     }
 
                     if(viewModel.visibleComponent == .settings) {
@@ -46,7 +59,7 @@ struct KeyboardContainerView: View, Loggable {
 struct KeyboardContainer_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = KeyboardContainerViewModel()
-        let _ = viewModel.showComponent(.settings)
+        let _ = viewModel.showComponent(.keyboard)
         KeyboardContainerView(viewModel: viewModel)
             .previewDevice("iPhone SE (2nd generation)")
     }

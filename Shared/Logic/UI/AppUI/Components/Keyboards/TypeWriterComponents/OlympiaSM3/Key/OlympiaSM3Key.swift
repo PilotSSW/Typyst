@@ -54,28 +54,28 @@ struct OlympiaSM3Key: View {
 
                     OlympiaSM3KeyShape()
                         .fill(RadialGradient(gradient: Gradient(colors: [
-                            Color(.displayP3, red: 200/255, green: 200/255, blue: 180/255, opacity: 0.25),
-                            Color(.displayP3, red: 25/255, green: 20/255, blue: 25/255, opacity: 0.75)
+                            Color(.displayP3, red: 130/255, green: 130/255, blue: 120/255, opacity: 0.25),
+                            Color(.displayP3, red: 80/255, green: 70/255, blue: 80/255, opacity: 0.75)
                         ]), center: shouldInvertKey ? .top : .bottom, startRadius: 0, endRadius: width * 0.75))
                         .rotationEffect(shouldInvertKey ? .degrees(180) : .zero)
                         .padding(.horizontal, 0.05 * width)
                         .padding(.top, 0.04 * height)
-                        .padding(.bottom, bottomInset * 1.33)
-                        .blur(radius: 16.0, opaque: false)
+                        .padding(.bottom, bottomInset * 1.2)
+                        .blur(radius: 0.0075 * width, opaque: false)
 
                     OlympiaSM3KeyShape()
                         .stroke(Color(.displayP3, red: 255/255, green: 252/255, blue: 250/255, opacity: 0.33),
                                 lineWidth: 0.0055 * min(width, height))
-                        .blur(radius: 2.0, opaque: false)
                         .rotationEffect(shouldInvertKey ? .degrees(180) : .zero)
                         .padding(.horizontal, 0.022 * width)
                         .padding(.top, 0.017 * height)
                         .padding(.bottom, bottomInset)
+                        .blur(radius: 0.0075 * width, opaque: false)
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .padding(.bottom, height / 24)
                 .padding(.leading, 0.02 * width)
-                .drawingGroup(opaque: false, colorMode: .extendedLinear)
+//                .drawingGroup(opaque: false, colorMode: .extendedLinear)
 
                 Text(viewModel.displayText)
                     .asStyledText(textColor: Color.white)

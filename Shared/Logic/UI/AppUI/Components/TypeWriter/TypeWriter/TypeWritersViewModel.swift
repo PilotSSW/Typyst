@@ -14,23 +14,21 @@ class TypeWriterViewModel: ObservableObject, Loggable {
     private let keyboardServiceTag = "VirtualKeyboardAnimator"
     private var store = Set<AnyCancellable>()
     
-    private var documentsService: DocumentsService
     private var keyboardService: KeyboardService
+    private var settingsService: SettingsService
     private var typeWriterService: TypeWriterService
     private(set) var keyboardContainerViewModel: KeyboardContainerViewModel
+        
+    @Published var showKeyboard: Bool = false
     
-    @Published var currentDocument: Document?
-    @Published var currentDocumentViewModel: DocumentViewModel?
+    private var hasAppeared: Bool = false
     
-    @Published var showPaper: Bool = false
-    @Published var showKeyboard: Bool = true
-    
-    init(documentsService: DocumentsService = AppDependencyContainer.get().documentsService,
-         keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
+    init(keyboardService: KeyboardService = RootDependencyContainer.get().keyboardService,
+         settingsService: SettingsService = RootDependencyContainer.get().settingsService,
          typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService)
     {
-        self.documentsService = documentsService
         self.keyboardService = keyboardService
+        self.settingsService = settingsService
         self.typeWriterService = typeWriterService
         
         keyboardContainerViewModel = KeyboardContainerViewModel(typeWriterService: typeWriterService,
@@ -46,6 +44,14 @@ class TypeWriterViewModel: ObservableObject, Loggable {
     deinit {
         logEvent(.debug, "TypeWriter view model deallocated")
     }
+    
+    func onAppear() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+            guard let self = self else { return }
+            self.hasAppeared = true
+            self.showKeyboard = self.settingsService.showTypeWriterView
+        })
+    }
 }
 
 /// MARK: Private class functions
@@ -57,9 +63,9 @@ extension TypeWriterViewModel {
         }
         .store(in: &store)
         
-        documentsService.$currentDocument.sink { [weak self] currentDocument in
+        settingsService.$showTypeWriterView.sink { [weak self] showTypeWriter in
             guard let self = self else { return }
-            self.onDocumentServiceLoadNewDocument(currentDocument)
+            self.showKeyboard = showTypeWriter && self.hasAppeared
         }
         .store(in: &store)
     }
@@ -70,18 +76,6 @@ extension TypeWriterViewModel {
             guard let self = self else { return }
             let keyViewModels = self.keyboardContainerViewModel.keyboardViewModel.keyViewModels.filter({ $0.key == keyEvent.key })
             keyViewModels.forEach({ $0.onTap(direction: keyEvent.direction, sendKeypressToDelegate: false)})
-        }
-    }
-    
-    private func onDocumentServiceLoadNewDocument(_ setDocument: Document?) {
-        if let document = setDocument {
-            currentDocument = document
-            currentDocumentViewModel = DocumentViewModel(document)
-            showPaper = true
-        }
-        else {
-            currentDocumentViewModel = nil
-            showPaper = false
         }
     }
 }

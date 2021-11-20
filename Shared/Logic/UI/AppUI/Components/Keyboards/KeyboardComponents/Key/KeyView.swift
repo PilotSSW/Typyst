@@ -30,6 +30,7 @@ struct KeyView: View, Loggable {
             .onHover(perform: { isHovering in
                 viewModel.isHovering = isHovering
             })
+            .transition(.scale(scale: 1.0, anchor: .bottom))
             .animation(viewModel.isPressed
                 ? .easeOut(duration: 0.15)
                 : .easeIn(duration: 0.15))
@@ -51,10 +52,11 @@ extension KeyView {
             case .Olympia_SM3: OlympiaSM3Key(viewModel: viewModel)
             case .Royal_Model_P: RoyalModelPKey(viewModel: viewModel)
 //            case .Smith_Corona_Silent: SmithCoronaSilentKey(viewModel: viewModel)
-            default: Button(viewModel.displayText, action: {})
-                        .buttonStyle(BorderlessButtonStyle())
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .border(Color.black, width: 0.5)
+            default: Button(action: {}, label:  {
+                Text(viewModel.displayText)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            })
+                .buttonStyle(NeumorphicButtonStyle(backgroundColor: .white.opacity(0.33)))
         }
     }
 }

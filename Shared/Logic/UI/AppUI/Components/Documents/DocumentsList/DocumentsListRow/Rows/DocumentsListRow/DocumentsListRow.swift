@@ -5,54 +5,40 @@
 //  Created by Sean Wolford on 8/27/21.
 //
 
+import Combine
 import SwiftUI
 
 struct DocumentsListRow: View {
-    private let id = UUID()
-    
-    private var documentsService: DocumentsService
-    private(set) var document: Document
-    
+    @ObservedObject
+    var viewModel: DocumentsListRowViewModel
+
     @State
     var isHovering: Bool = false
-    
-    @State
-    var isSelected: Bool = false
 
     init(document: Document,
          documentsService: DocumentsService = AppDependencyContainer.get().documentsService) {
-        self.document = document
-        self.documentsService = documentsService
+
+        self.viewModel = DocumentsListRowViewModel(document: document,
+                                                   documentsService: documentsService)
     }
     
-    private var formattedDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M-dd-yyyy, h:mm:p"
-        
-        return dateFormatter.string(from: document.dateLastOpened)
-    }
-
     var body: some View {
         DocumentsListButton(
-            onSelect: {
-                let _ = documentsService.setCurrentDocument(document)
-                withAnimation { isSelected = true }
-            },
-            onReturn: {
-                let _ = documentsService.setCurrentDocument(nil)
-                withAnimation { isSelected = false }
-            },
-            showNeumorphicButton: false)
+            onSelect: viewModel.onSelect,
+            onReturn: viewModel.onDeselect,
+            showNeumorphicButton: false,
+            isSelected: $viewModel.isSelected
+        )
         {
             VStack(alignment: .center, spacing: 9) {
-                Text(document.documentName)
+                Text(viewModel.documentName)
                     .asStyledHeader()
                 
                 HStack() {
                     Text("Last Opened: ")
                         .asStyledText()
                     
-                    Text(formattedDate)
+                    Text(viewModel.formattedDate)
                         .asStyledText()
                 }
             }
@@ -62,8 +48,8 @@ struct DocumentsListRow: View {
                 withAnimation { self.isHovering = isHovering }
             }
         }
-           .listRowBackground(DocumentsListRowBackground(isHovering: $isHovering, isSelected: $isSelected))
-
+           .listRowBackground(DocumentsListRowBackground(isHovering: $isHovering,
+                                                         isSelected: $viewModel.isSelected))
     }
 }
 

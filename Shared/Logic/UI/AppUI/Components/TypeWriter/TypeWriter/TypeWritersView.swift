@@ -12,17 +12,6 @@ struct TypeWritersView: View {
     
     var body: some View {
         ZStack() {
-            if viewModel.showPaper,
-               let documentViewModel = viewModel.currentDocumentViewModel {
-                
-                DocumentView(viewModel: documentViewModel)
-                    .frame(minWidth: 400, maxWidth: .infinity, alignment: .bottom)
-                    .edgesIgnoringSafeArea(.all)
-                    .animation(.interactiveSpring()
-                               .speed(0.75)
-                               .delay(0.03))
-            }
-            
             if viewModel.showKeyboard {
                 KeyboardContainerView(viewModel: viewModel.keyboardContainerViewModel)
                     .frame(minWidth: viewModel.keyboardMinWidth,
@@ -32,20 +21,21 @@ struct TypeWritersView: View {
                            alignment: .bottom)
                     .padding(.horizontal, 18)
                     .padding(.bottom, 4)
-                    .shadow(color: AppColor.objectShadowDark.opacity(0.5), radius: 3.5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: -2)
+                    //.shadow(color: AppColor.objectShadowDark.opacity(0.5), radius: 3.5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: -2)
+                    .transition(.move(edge: .bottom))
                     .animation(.interactiveSpring()
-                                .speed(0.75)
-                                .delay(0.03))
+                                .speed(0.33)
+                                .delay(0.01))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .onAppear() { viewModel.onAppear() }
     }
 }
 
 struct TypeWritersView_Previews: PreviewProvider {
     static var previews: some View {
         let vm = TypeWriterViewModel()
-        vm.showPaper = true
         return TypeWritersView(viewModel: vm)
             .previewLayout(.fixed(width: 1800, height: 2400))
     }

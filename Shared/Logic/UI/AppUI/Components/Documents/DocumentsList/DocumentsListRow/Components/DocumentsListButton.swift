@@ -14,14 +14,17 @@ struct DocumentsListButton<Content: View>: View {
     var onSelect: () -> Void
     var onReturn: (() -> Void)? = nil
     var showNeumorphicButton: Bool = true
+    @Binding var isSelected: Bool
     
     init(onSelect: @escaping () -> Void,
          onReturn: (() -> Void)? = nil,
          showNeumorphicButton: Bool = true,
+         isSelected: Binding<Bool> = .constant(false),
          _ content: () -> Content) {
         self.onSelect = onSelect
         self.onReturn = onReturn
         self.showNeumorphicButton = showNeumorphicButton
+        self._isSelected = isSelected
         self.content = content()
     }
 
@@ -46,7 +49,9 @@ struct DocumentsListButton<Content: View>: View {
                 })
         }
         else {
-            Button(action: onSelect) {
+            Button(action: isSelected
+                   ? withAnimation { onReturn ?? {} }
+                   : withAnimation { onSelect }) {
                 content
             }
         }

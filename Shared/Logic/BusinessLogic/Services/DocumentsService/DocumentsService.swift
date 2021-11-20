@@ -53,7 +53,7 @@ class DocumentsService: ObservableObject {
     }
 
     func setCurrentDocument(_ document: Document?) {
-        if currentDocument == document { return }
+        if currentDocument?.id == document?.id { return }
         
         currentDocument = document
         webDocumentIsLoaded = false

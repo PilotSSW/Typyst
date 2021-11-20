@@ -12,14 +12,25 @@ struct WritersView: View {
     var viewModel = WritersViewModel()
 
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
+        ZStack {
+//            VStack(alignment: .center, spacing: 0) {
             if viewModel.shouldShowWebView {
                 BrowserView()
                     .cornerRadius(6, antialiased: true)
-                    .padding(8)
+                    .padding(.horizontal, 8)
+                    .padding(.top, 8)
+                    .padding(.bottom, 450)
                     .layoutPriority(1)
                     .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
                     .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
+            }
+            else if let documentViewModel = viewModel.currentDocumentViewModel {
+                DocumentView(viewModel: documentViewModel)
+                    .frame(minWidth: 400, maxWidth: .infinity, alignment: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                    .animation(.interactiveSpring()
+                                .speed(0.75)
+                                .delay(0.03))
             }
             
             TypeWritersView()

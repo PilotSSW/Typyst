@@ -40,6 +40,6 @@ struct NoBackgroundView: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: cornerRadius)
-            .stroke()
+            .fill(Color.white.opacity(0.25))
     }
 }
