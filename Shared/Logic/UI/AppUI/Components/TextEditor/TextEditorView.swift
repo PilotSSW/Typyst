@@ -15,13 +15,15 @@ import UIKit
 #endif
 
 struct TextEditorView: Loggable {
-    internal let id = UUID()
-    
-    var textView: NSTextView
+    private var store = Set<AnyCancellable>()
+    @State private(set) var viewId = UUID()
 
-    init(withTextView textView: NSTextView) {
-        self.textView = textView
+    @Binding var textView: NSTextView
+
+    init(withTextView textView: Binding<NSTextView> = .constant(NSTextView())) {
+        self._textView = textView
         //commonInit()
+        
     }
     
     private func commonInit() {
@@ -30,7 +32,7 @@ struct TextEditorView: Loggable {
     }
 
     // MARK: - Coordinator
-    class Coordinator: NSObject, NSTextViewDelegate {
+    class Coordinator: NSObject {
         var parent: TextEditorView
 
         init(_ parent: TextEditorView) {
@@ -45,13 +47,43 @@ extension TextEditorView: NSViewRepresentable {
         Coordinator(self)
     }
 
-    func makeNSView(context: Context) -> NSTextView {
-        logEvent(.trace, "Textview inserted into SwiftUI view: \(id)", context: textView)
-        return textView
+    func makeNSView(context: Context) -> NSView {
+        let containerView = NSView()
+        
+        logEvent(.trace, "TextEditorView underlying NSView created: \(viewId)", context: textView)
+
+        return containerView
     }
 
-    func updateNSView(_ view: NSTextView, context: Context) {
-        logEvent(.trace, "Textview updated: \(id)", context: textView)
+    func updateNSView(_ view: NSView, context: Context) {
+        let containerView = view
+        
+        // Case: TextView is being added for the first time -- or -- has changed to a new textView
+        if !containerView.subviews.contains(textView) {
+            // 1. Remove old textView
+            var childTextViewRemoved = false
+            containerView.subviews.forEach({
+                childTextViewRemoved = true
+                $0.removeFromSuperview()
+            })
+
+            // 2. Add new text view
+            containerView.addSubview(textView)
+
+            // 3. Add constraints to make textView full size of container view
+            textView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                textView.topAnchor.constraint(equalTo: containerView.topAnchor),
+                textView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+                textView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                textView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            ])
+
+            let logMsg = "TextEditorView child \(childTextViewRemoved ? "replaced" : "added"): \(viewId)"
+            logEvent(.trace, logMsg, context: textView)
+        }
+
+        logEvent(.trace, "TextEditorView NSView updated: \(viewId)", context: textView)
     }
 }
 #elseif canImport(UIKit)
@@ -73,7 +105,7 @@ struct TextView_Previews: PreviewProvider {
         let layout = MultiPageTextLayout(with: ["This is a TextView with some text!!"])
         let textView = layout.createAndAddNewTextView(withFrame: NSRect(origin: .zero, size: NSSize(width: 200, height: 100)))
         
-        return TextEditorView(withTextView: textView)
+        return TextEditorView(withTextView: .constant(textView))
             .previewLayout(.device)
     }
 }
