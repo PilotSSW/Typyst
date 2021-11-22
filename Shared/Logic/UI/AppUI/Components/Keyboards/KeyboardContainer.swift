@@ -17,25 +17,26 @@ struct KeyboardContainerView: View, Loggable {
         ZStack() {
             if (viewModel.visibleComponent != .none) {
                 TypeWriterBackground(typeWriterModel: viewModel.currentTypeWriterModel,
-                                     cornerRadius: viewModel.cornerRadius)
+                                     cornerRadius: 24)//viewModel.cornerRadius)
+                    .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
+                    .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
                 
                 VStack() {
                     if(viewModel.visibleComponent == .keyboard) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 24)
-                                .strokeBorder()
-                                .padding(.horizontal, 5)
-                                .padding(.top, 23)
-                            
-                            RoundedRectangle(cornerRadius: 24)
-                                .fill(Color.black.opacity(0.44))
-                                .blendMode(.plusDarker)
-                                .padding(.horizontal, 6)
-                                .padding(.top, 24)
-                            
-                            KeyboardView(viewModel: viewModel.keyboardViewModel)
-                                .padding(.horizontal, 12)
-                        }
+                        KeyboardView(viewModel: viewModel.keyboardViewModel)
+                            .padding(.horizontal, 12)
+                            .background(
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .strokeBorder()
+                                        .foregroundColor(Color.black.opacity(0.6))
+                                    
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .fill(Color.black.opacity(0.44))
+                                        .blendMode(.plusDarker)
+                                        .padding(1)
+                                }
+                            )
                     }
 
                     if(viewModel.visibleComponent == .settings) {
@@ -46,13 +47,13 @@ struct KeyboardContainerView: View, Loggable {
                         .padding(.vertical, 6)
                     }
                 }
-                .frame(maxWidth: 600, alignment: .bottom)
+                .frame(maxWidth: 800, maxHeight: 310, alignment: .bottom)
             }
         }
         .frame(minWidth: 200, idealWidth: 300, maxWidth: .infinity,
                minHeight: 125, idealHeight: 210, maxHeight: OSHelper.runtimeEnvironment == .keyboardExtension
                ? .infinity
-               : 300)
+               : 380)
     }
 }
 

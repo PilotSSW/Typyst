@@ -11,14 +11,20 @@ import struct SwiftUI.CGFloat
 class WritersViewModel: ObservableObject {
     private var store = Set<AnyCancellable>()
     private(set) var documentsService: DocumentsService
+    private(set) var settingsService: SettingsService
 
     @Published var currentDocument: Document? = nil
     @Published var currentDocumentViewModel: DocumentViewModel? = nil
     
     @Published var shouldShowWebView: Bool = false
+    @Published var fullSizeWebView: Bool = false
 
-    init(documentsService: DocumentsService = AppDependencyContainer.get().documentsService) {
+    init(
+        documentsService: DocumentsService = AppDependencyContainer.get().documentsService,
+        settingsService: SettingsService = RootDependencyContainer.get().settingsService
+    ) {
         self.documentsService = documentsService
+        self.settingsService = settingsService
         registerWebViewLoaderObserver()
     }
 
@@ -38,6 +44,13 @@ class WritersViewModel: ObservableObject {
                 if let document = currentDocument {
                     self.currentDocumentViewModel = DocumentViewModel(document)
                 }
+            }
+            .store(in: &store)
+        
+        settingsService.$showTypeWriterView
+            .sink { [weak self] showTypeWriterView in
+                guard let self = self else { return }
+                self.fullSizeWebView = showTypeWriterView
             }
             .store(in: &store)
     }

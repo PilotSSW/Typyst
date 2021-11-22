@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TypeWriterBackground: View {
     var typeWriterModel: TypeWriterModel.ModelType
-    var cornerRadius: CGFloat = 8.0
+    var cornerRadius: CGFloat = OSHelper.runtimeEnvironment == .keyboardExtension ? 4.0 : 24.0
 
     var body: some View {
         backgroundView

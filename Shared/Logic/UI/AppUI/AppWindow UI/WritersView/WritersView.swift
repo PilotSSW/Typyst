@@ -10,16 +10,15 @@ import SwiftUI
 struct WritersView: View {
     @StateObject
     var viewModel = WritersViewModel()
-
+    
     var body: some View {
         ZStack {
-//            VStack(alignment: .center, spacing: 0) {
             if viewModel.shouldShowWebView {
                 BrowserView()
                     .cornerRadius(6, antialiased: true)
                     .padding(.horizontal, 8)
                     .padding(.top, 8)
-                    .padding(.bottom, 450)
+                    .padding(.bottom, viewModel.fullSizeWebView ? 420 : 8)
                     .layoutPriority(1)
                     .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
                     .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)

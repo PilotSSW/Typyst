@@ -25,7 +25,7 @@ final class KeyboardViewModel: Identifiable, ObservableObject, Loggable {
     // UI Properties
     private(set) var keyboardSize: CGSize = CGSize(width: 250, height: 100)
     var cornerRadius: CGFloat { min(keyboardSize.height, keyboardSize.width) / 18 }
-    var maxKeySize: CGSize = CGSize(width: 35, height: 35) {
+    var maxKeySize: CGSize = CGSize(width: 45, height: 45) {
         didSet { keyViewModels.forEach({ $0.setSuggestedKeySize(maxKeySize) }) }
     }
     var uiProperties: KeyboardUIProperties
