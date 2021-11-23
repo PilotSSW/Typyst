@@ -10,6 +10,9 @@ import SwiftUI
 
 struct KeyView: View, Loggable {
     @StateObject var viewModel: KeyViewModel
+    
+    @ObservedObject
+    var typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService
 
     var body: some View {
         //let _ = logEvent(.trace, "rendering key-button: \(viewModel.displayText)")
@@ -48,15 +51,18 @@ struct KeyView_Previews: PreviewProvider {
 extension KeyView {
     @ViewBuilder
     private var keyView: some View {
-        switch(viewModel.selectedTypeWriter) {
+        switch(typeWriterService.loadedTypewriter?.modelType) {
             case .Olympia_SM3: OlympiaSM3Key(viewModel: viewModel)
             case .Royal_Model_P: RoyalModelPKey(viewModel: viewModel)
             case .Smith_Corona_Silent: SmithCoronaSilentKey(viewModel: viewModel)
-            default: Button(action: {}, label:  {
-                Text(viewModel.displayText)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            })
-                .buttonStyle(NeumorphicButtonStyle(backgroundColor: .white.opacity(0.66)))
+            case .Unknown:
+                Button(action: {}, label:  {
+                    Text(viewModel.displayText)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                })
+                    .buttonStyle(NeumorphicButtonStyle(backgroundColor: .white.opacity(0.66)))
+            default:
+                EmptyView()
         }
     }
 }

@@ -17,12 +17,9 @@ protocol KeyboardKeyActionsDelegate: AnyObject {
 
 final class KeyViewModel: Identifiable, ObservableObject {
     // Stored Properties
-    private var store = Set<AnyCancellable>()
-    let typeWriterService: TypeWriterService = RootDependencyContainer.get().typeWriterService
     let id = UUID()
     @Published private(set) var key: Key
     fileprivate(set) weak var delegate: KeyboardKeyActionsDelegate? = nil
-    @Published private(set) var selectedTypeWriter: TypeWriterModel.ModelType
 
     @Published fileprivate(set) var isUppercased: Bool? = false
     @Published var isHovering: Bool = false
@@ -69,7 +66,6 @@ final class KeyViewModel: Identifiable, ObservableObject {
                      delegate: KeyboardKeyActionsDelegate? = nil) {
         self.key = key
         self.delegate = delegate
-        selectedTypeWriter = typeWriterService.loadedTypewriter?.modelType ?? .Unknown
         _displayText = displayText
         isUppercased = displayText.count > 0
             ? nil
@@ -77,13 +73,6 @@ final class KeyViewModel: Identifiable, ObservableObject {
         if let customKeySize = customKeySize {
             suggestedMaxKeySize = customKeySize
         }
-
-        typeWriterService.$loadedTypewriter
-            .sink { [weak self] typeWriterModel in
-                guard let self = self else { return }
-                self.selectedTypeWriter = typeWriterModel?.modelType ?? .Unknown
-            }
-            .store(in: &store)
     }
 
     func onTap(direction: KeyDirection,
