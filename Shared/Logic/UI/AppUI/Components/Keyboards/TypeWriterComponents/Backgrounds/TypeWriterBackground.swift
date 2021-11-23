@@ -23,7 +23,7 @@ extension TypeWriterBackground {
         switch(typeWriterModel) {
             case .Olympia_SM3: OlympiaSM3Background(cornerRadius: cornerRadius)
             case .Royal_Model_P: RoyalModelPBackground(cornerRadius: cornerRadius)
-            //case .Smith_Corona_Silent: SmithCoronaSilentBackground(cornerRadius: cornerRadius)
+            case .Smith_Corona_Silent: SmithCoronaSilentBackground(cornerRadius: cornerRadius)
             default: NoBackgroundView(cornerRadius: cornerRadius)
         }
     }

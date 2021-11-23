@@ -28,9 +28,6 @@ struct RoyalModelPKey: View {
                             ]),
                             startPoint: .top,
                             endPoint: .bottom))
-//                    .shadow(color: AppColor.objectShadowDark.opacity(0.33),
-//                            radius: 3.0,
-//                            y: viewModel.keySize.height / 8)
             }
             else {
                 let inset = viewModel.innerPadding
@@ -42,24 +39,23 @@ struct RoyalModelPKey: View {
                         ]),
                         startPoint: .top,
                         endPoint: .bottom))
-//                    .shadow(color: AppColor.objectShadowDark.opacity(0.33),
-//                            radius: 3.0,
-//                            y: viewModel.keySize.height / 8)
                 
                 Circle()
-                    .stroke(Color.gray)
+                    .stroke(Color.gray, lineWidth: viewModel.keySize.width / 24)
                     .padding(.leading, inset)
                     .padding(.trailing, inset - (inset / 12))
                     .padding(.top, inset)
                     .padding(.bottom, inset - (inset / 12))
             }
 
-            Text(viewModel.displayText)
-                .asStyledText(textColor: Color(hue: 0.08,
-                                               saturation: 0.88,
-                                               brightness: 0.65))
-                .scaleEffect(1.25)
-                .frame(maxWidth: .infinity)
+            if ![.space].contains(viewModel.key) {
+                Text(viewModel.displayText)
+                    .asStyledText(
+                        textSize: .custom(fontSize: viewModel.keySize.width / 2),
+                        textColor: Color(hue: 0.08,
+                                         saturation: 0.88,
+                                         brightness: 0.65))
+            }
         }
     }
 }
@@ -67,10 +63,10 @@ struct RoyalModelPKey: View {
 struct RoyalModelPKey_Previews: PreviewProvider {
     static var previews: some View {
         let viewModelSpace = KeyViewModelFactory.createViewModel(keyCharacter: .space)
-        viewModelSpace.setSuggestedKeySize(CGSize(width: 35, height: 35))
+        viewModelSpace.setSuggestedKeySize(CGSize(width: 350, height: 350))
 
         let viewModelA = KeyViewModelFactory.createViewModel(keyCharacter: .a)
-        viewModelSpace.setSuggestedKeySize(CGSize(width: 35, height: 35))
+        viewModelA.setSuggestedKeySize(CGSize(width: 350, height: 350))
         
         return VStack() {
             RoyalModelPKey(viewModel: viewModelSpace)

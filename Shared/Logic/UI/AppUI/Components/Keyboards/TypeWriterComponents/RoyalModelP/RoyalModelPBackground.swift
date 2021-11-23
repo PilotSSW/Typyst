@@ -26,28 +26,28 @@ struct RoyalModelPBackground: View {
                     RadialGradient(gradient:
                         Gradient(colors: [
                             TypeWriterColor.RoyalModelP.background1,
-                            TypeWriterColor.RoyalModelP.background2,
                             TypeWriterColor.RoyalModelP.background3,
+                            TypeWriterColor.RoyalModelP.background2,
                             TypeWriterColor.RoyalModelP.background1,
                         ]),
                         center: UnitPoint(x: 0.5, y: ((-500 / height) * (magicRatio * 2.75))),
-                        startRadius: magicRatio * 300,
-                        endRadius: magicRatio * 800)
+                        startRadius: magicRatio * 500,
+                        endRadius: magicRatio * 1000)
                 
                     
                     RadialGradient(gradient:
                         Gradient(colors: [
                             TypeWriterColor.RoyalModelP.background1,
-                            TypeWriterColor.RoyalModelP.background2,
                             TypeWriterColor.RoyalModelP.background3,
+                            TypeWriterColor.RoyalModelP.background2,
                             TypeWriterColor.RoyalModelP.background1,
                         ]),
                         center: UnitPoint(x: 0.5, y: ((500 / height) * (magicRatio * 2.75) + 1)),
-                        startRadius: magicRatio * 300,
-                        endRadius: magicRatio * 800)
+                        startRadius: magicRatio * 500,
+                        endRadius: magicRatio * 1000)
                     
                 }
-                .opacity(0.66)
+                .opacity(0.9)
             }
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .drawingGroup()
@@ -58,7 +58,6 @@ struct RoyalModelPBackground: View {
 struct RoyalModelPBackground_Previews: PreviewProvider {
     static var previews: some View {
         RoyalModelPBackground(cornerRadius: 26)
-            .previewDevice("iPad Air (4th generation)")
-            .frame(width: 375, height: 110, alignment: .bottom)
+            .frame(width: 800, height: 375, alignment: .bottom)
     }
 }

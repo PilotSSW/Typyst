@@ -1,13 +1,13 @@
 //
 //  SmithCoronaSilentBackground.swift
-//  TypystKeyboard
+//  Typyst
 //
-//  Created by Sean Wolford on 8/21/21.
+//  Created by Sean Wolford on 11/23/21.
 //
 
 import SwiftUI
 
-struct OlympiaSM3Background: View {
+struct SmithCoronaSilentBackground: View {
     var cornerRadius: CGFloat
 
     var body: some View {
@@ -16,37 +16,37 @@ struct OlympiaSM3Background: View {
             let height = size.height
             let width = size.width
             let magicRatio: CGFloat = (min(height, width) / max(height, width))
-
+            
             ZStack() {
                 Rectangle()
-                    .fill(TypeWriterColor.OlympiaSM3.background1)
-
+                    .fill(TypeWriterColor.SmithCoronaSilent.background1)
+                
                 VStack(spacing: height / 16) {
                     RadialGradient(gradient:
                                     Gradient(colors: [
-                                        TypeWriterColor.OlympiaSM3.background1,
-                                        TypeWriterColor.OlympiaSM3.background2,
-                                        TypeWriterColor.OlympiaSM3.background3,
-                                        TypeWriterColor.OlympiaSM3.background1,
+                                        TypeWriterColor.SmithCoronaSilent.background1,
+                                        TypeWriterColor.SmithCoronaSilent.background2,
+                                        TypeWriterColor.SmithCoronaSilent.background3,
+                                        TypeWriterColor.SmithCoronaSilent.background1,
                                     ]),
                                    center: UnitPoint(x: 0.5, y: ((-500 / height) * (magicRatio * 2.75))),
                                    startRadius: magicRatio * 500,
                                    endRadius: magicRatio * 850)
-
-
+                    
+                    
                     RadialGradient(gradient:
                                     Gradient(colors: [
-                                        TypeWriterColor.OlympiaSM3.background1,
-                                        TypeWriterColor.OlympiaSM3.background2,
-                                        TypeWriterColor.OlympiaSM3.background3,
-                                        TypeWriterColor.OlympiaSM3.background1,
+                                        TypeWriterColor.SmithCoronaSilent.background1,
+                                        TypeWriterColor.SmithCoronaSilent.background2,
+                                        TypeWriterColor.SmithCoronaSilent.background3,
+                                        TypeWriterColor.SmithCoronaSilent.background1,
                                     ]),
                                    center: UnitPoint(x: 0.5, y: ((500 / height) * (magicRatio * 2.75) + 1)),
-                                   startRadius: magicRatio * 550,
+                                   startRadius: magicRatio * 500,
                                    endRadius: magicRatio * 850)
-
+                    
                 }
-                .opacity(0.8)
+                .opacity(0.75)
             }
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .drawingGroup()
@@ -54,9 +54,8 @@ struct OlympiaSM3Background: View {
     }
 }
 
-struct OlympiaSM3Background_Previews: PreviewProvider {
+struct SmithCoronaSilentBackground_Previews: PreviewProvider {
     static var previews: some View {
-        OlympiaSM3Background(cornerRadius: 24)
-            .frame(width: 800, height: 375, alignment: .bottom)
+        SmithCoronaSilentBackground(cornerRadius: 24)
     }
 }

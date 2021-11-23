@@ -169,6 +169,16 @@
 		A34CE8142694ED78008127E6 /* TextDocumentProxyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0C2689332000F43757 /* TextDocumentProxyService.swift */; };
 		A34CE8152694ED78008127E6 /* IOSExtensionKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3975BE02627EC46001DFD47 /* IOSExtensionKeyboardViewController.swift */; };
 		A34CE8162694ED78008127E6 /* KeyboardExtensionDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2AB0E2689377400F43757 /* KeyboardExtensionDependencyContainer.swift */; };
+		A34DA850274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */; };
+		A34DA851274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */; };
+		A34DA852274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */; };
+		A34DA853274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */; };
+		A34DA854274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */; };
+		A34DA857274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */; };
+		A34DA858274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */; };
+		A34DA859274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */; };
+		A34DA85A274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */; };
+		A34DA85B274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */; };
 		A355164526C9566C005F033E /* SettingsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A355164426C9566C005F033E /* SettingsComponent.swift */; };
 		A355164726C956E8005F033E /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7267262355D600E32B91 /* AppSettingsView.swift */; };
 		A355164826C956E8005F033E /* VolumeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7265262355D600E32B91 /* VolumeSettingView.swift */; };
@@ -771,6 +781,8 @@
 		A34602462685551B00BF81D4 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		A3484233271DECBD005DD159 /* RealmInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInstance.swift; sourceTree = "<group>"; };
 		A34CE80D2694DDA4008127E6 /* KeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyViewModel.swift; sourceTree = "<group>"; };
+		A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmithCoronaSilentBackground.swift; sourceTree = "<group>"; };
+		A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmithCoronaSilent_KeyShape.swift; sourceTree = "<group>"; };
 		A355164426C9566C005F033E /* SettingsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponent.swift; sourceTree = "<group>"; };
 		A3557B5926F988BF00D2F3A7 /* InterfaceAndControlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceAndControlsViewModel.swift; sourceTree = "<group>"; };
 		A35A679826D95D2C004A1A4E /* DocumentsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsCard.swift; sourceTree = "<group>"; };
@@ -1268,6 +1280,15 @@
 			path = KeyboardRow;
 			sourceTree = "<group>";
 		};
+		A34DA855274D5ADF00809FC5 /* Key */ = {
+			isa = PBXGroup;
+			children = (
+				A3B3462026CE0DE300724513 /* SmithCoronaSilentKey.swift */,
+				A34DA856274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift */,
+			);
+			path = Key;
+			sourceTree = "<group>";
+		};
 		A355164326C9564A005F033E /* SettingsComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -1670,7 +1691,8 @@
 		A3C9051B26AE6E54007DC282 /* SmithCoronaSilent */ = {
 			isa = PBXGroup;
 			children = (
-				A3B3462026CE0DE300724513 /* SmithCoronaSilentKey.swift */,
+				A34DA855274D5ADF00809FC5 /* Key */,
+				A34DA84F274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift */,
 			);
 			path = SmithCoronaSilent;
 			sourceTree = "<group>";
@@ -2494,6 +2516,7 @@
 				A3236815268E531C00CB2B25 /* LoggingService.swift in Sources */,
 				A3A4BD932694A14C0010F72A /* KeyboardRowView.swift in Sources */,
 				A3236808268E531C00CB2B25 /* KeyEventStore.swift in Sources */,
+				A34DA854274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */,
 				A3E35A4D26C75BD20030DBC2 /* RoyalModelPBackground.swift in Sources */,
 				A323680A268E531C00CB2B25 /* TypeWriterModel.swift in Sources */,
 				A3236817268E533700CB2B25 /* UserDefaultsAppSettings.swift in Sources */,
@@ -2501,6 +2524,7 @@
 				A32367EF268E517D00CB2B25 /* IOSExtensionKeyboardViewController.swift in Sources */,
 				A34CE80E2694DDA4008127E6 /* KeyViewModel.swift in Sources */,
 				A3A4BD8726949D350010F72A /* KeyboardView.swift in Sources */,
+				A34DA85B274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */,
 				6EF6B6B58BC103278F8D909E /* KeyboardRowViewModel.swift in Sources */,
 				A3C9051626AE68F1007DC282 /* RoyalModelPKey.swift in Sources */,
 				6EF6B2EECE8AD4C242B5993B /* iOSUIKitKeyboardService.swift in Sources */,
@@ -2515,6 +2539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34DA857274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */,
 				A3C9051A26AE6AB6007DC282 /* RoyalModelPKey.swift in Sources */,
 				A37DEC5526A0BF9A00965DC4 /* KeyGroupViewModel.swift in Sources */,
 				A32F24BD2715368600CCDE60 /* DocumentsListButton.swift in Sources */,
@@ -2546,6 +2571,7 @@
 				A39C9E9E26F4C51100F81A75 /* PageView.swift in Sources */,
 				A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */,
 				A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */,
+				A34DA850274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */,
 				A3F3F66A266658C900046773 /* TypystAppViewModel.swift in Sources */,
 				A376955B26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				A3E35A5426C75C950030DBC2 /* TypeWriterBackground.swift in Sources */,
@@ -2678,6 +2704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34DA858274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */,
 				A3FA731C262355D700E32B91 /* TypeWriterModel.swift in Sources */,
 				A300BB1F2664204B00BB7BA3 /* KeyEventStore.swift in Sources */,
 				A329D97E27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
@@ -2752,6 +2779,7 @@
 				A36E473126E5851100E647A0 /* SheetOfPaper.swift in Sources */,
 				A3FA730C262355D700E32B91 /* ViewExtension.swift in Sources */,
 				A3BE143826E686A800A3EAB0 /* PaperContainer.swift in Sources */,
+				A34DA851274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */,
 				A3FA7320262355D700E32B91 /* TypeWriter.swift in Sources */,
 				A36E474726E5BC7000E647A0 /* KeyShape.swift in Sources */,
 				A34602482685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
@@ -2886,6 +2914,7 @@
 				A3BE143426E67FD400A3EAB0 /* TextEditorView.swift in Sources */,
 				A3FC08D826C6BE6C00C8AA14 /* OlympiaSM3Key.swift in Sources */,
 				A355164C26C956E9005F033E /* VolumeSettingView.swift in Sources */,
+				A34DA859274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */,
 				A36A3F9B2742DBB50043583D /* SwiftUIExtensions.swift in Sources */,
 				A34CE8152694ED78008127E6 /* IOSExtensionKeyboardViewController.swift in Sources */,
 				A35B665126DFD62300305797 /* Font.swift in Sources */,
@@ -2906,6 +2935,7 @@
 				A3BE883B26D3578E0063D390 /* TypeWriterCardImageButton.swift in Sources */,
 				A35CE8A5273D608F00EFF1CA /* TextLayoutProtocol.swift in Sources */,
 				A32F24B52714B41F00CCDE60 /* MenuToggleButton.swift in Sources */,
+				A34DA852274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */,
 				A35A67AA26D960D0004A1A4E /* DocumentsListViewModel.swift in Sources */,
 				A3236827268E53DA00CB2B25 /* RepeatingTimer.swift in Sources */,
 				A38A058026E46882001E2543 /* AppWindowView.swift in Sources */,
@@ -3017,6 +3047,7 @@
 				A32C400526E981AE00084E56 /* VideoPlayerView.swift in Sources */,
 				A36E475526E5BC7300E647A0 /* RoyalModelPKey.swift in Sources */,
 				A38A058126E46882001E2543 /* AppWindowView.swift in Sources */,
+				A34DA853274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */,
 				A3F5A14727149EEF008D700D /* NavigationContainer.swift in Sources */,
 				A3ACC78126E9578800BD02C8 /* AppWindowContainerView.swift in Sources */,
 				A376955326EC6CDD004B552C /* WebViewModel.swift in Sources */,
@@ -3086,6 +3117,7 @@
 				A329D98027161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A3236829268E53DB00CB2B25 /* RepeatingTimer.swift in Sources */,
 				A36E474F26E5BC7300E647A0 /* OlympiaSM3Background.swift in Sources */,
+				A34DA85A274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */,
 				A30719CA273ECE2600267C6A /* MultiCastDelegate.swift in Sources */,
 				A3236B1527224409009CEF8E /* TextEditorViewModel.swift in Sources */,
 				A38D570E273C7FE5000762AE /* DocumentModel.swift in Sources */,

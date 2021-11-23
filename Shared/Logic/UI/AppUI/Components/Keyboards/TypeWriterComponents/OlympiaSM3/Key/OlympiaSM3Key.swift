@@ -32,10 +32,10 @@ struct OlympiaSM3Key: View {
                 }
                 .padding(.vertical, 0.01 * height)
                 .padding(.horizontal, 0.01 * width)
-//                .drawingGroup(opaque: false, colorMode: .extendedLinear)
 
                 Text(viewModel.displayText)
-                    .asStyledText(textColor: Color.white)
+                    .asStyledText(textSize: .custom(fontSize: min(height, width) / 2), textColor: Color.white)
+                    .padding(.bottom, height / 6)
             }
         }
     }
