@@ -51,7 +51,7 @@ extension KeyView {
         switch(viewModel.selectedTypeWriter) {
             case .Olympia_SM3: OlympiaSM3Key(viewModel: viewModel)
             case .Royal_Model_P: RoyalModelPKey(viewModel: viewModel)
-//            case .Smith_Corona_Silent: SmithCoronaSilentKey(viewModel: viewModel)
+            case .Smith_Corona_Silent: SmithCoronaSilentKey(viewModel: viewModel)
             default: Button(action: {}, label:  {
                 Text(viewModel.displayText)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

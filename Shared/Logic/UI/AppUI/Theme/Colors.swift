@@ -134,6 +134,20 @@ struct AppColor {
 }
 
 struct TypeWriterColor {
+    struct OlympiaSM3 {
+        public static var background1: Color {
+            Color("TypewriterColorSets/OlympiaSM3/BackgroundColor1")
+        }
+        
+        public static var background2: Color {
+            Color("TypewriterColorSets/OlympiaSM3/BackgroundColor2")
+        }
+        
+        public static var background3: Color {
+            Color("TypewriterColorSets/OlympiaSM3/BackgroundColor3")
+        }
+    }
+    
     struct RoyalModelP {
         public static var background1: Color {
             Color("TypewriterColorSets/RoyalModelP/BackgroundColor1")
