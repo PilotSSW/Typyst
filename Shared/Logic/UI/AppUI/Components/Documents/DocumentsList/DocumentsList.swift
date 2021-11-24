@@ -29,7 +29,6 @@ struct DocumentsList: View {
                 
                 ForEach(viewModel.documents, id: \.id) { document in
                     #if os(macOS)
-                    let _ = print("\(document.documentName) - \(document.id)")
                     DocumentsListRow(document: document)
                         .onDeleteCommand(perform: {
                             viewModel.deleteDocument(document)
@@ -39,6 +38,7 @@ struct DocumentsList: View {
                     DocumentsListRow(document: document)
                     #endif
                 }
+                .onDelete(perform: delete)
                 //.onDelete(perform: viewModel.deleteDocument)
             }
                 .background(Color.clear)
@@ -46,6 +46,10 @@ struct DocumentsList: View {
         .frame(minHeight: viewModel.minHeight, maxHeight: .infinity)
         .environment(\.defaultMinListRowHeight, viewModel.rowHeight)
         .environment(\.defaultMinListHeaderHeight, viewModel.headerHeight)
+    }
+    
+    func delete(at offsets: IndexSet) {
+        viewModel.deleteDocument(at: offsets)
     }
 }
 

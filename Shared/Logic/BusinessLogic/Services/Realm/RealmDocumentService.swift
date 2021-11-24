@@ -34,6 +34,10 @@ class RealmDocumentService: Loggable {
         if let results = results { return results.map(Document.init) }
         return []
     }
+    
+    func hasRealmDocument(withID primaryKey: UUID) -> Bool {
+        realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: primaryKey) != nil
+    }
 
     func saveRealmDocument(_ document: Document) -> Bool {
         if let realmDocument = realmService.getObject(ofType: RealmDocument.self, forPrimaryKey: document.id) {

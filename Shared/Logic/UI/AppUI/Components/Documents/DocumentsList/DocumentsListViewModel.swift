@@ -29,6 +29,7 @@ class DocumentsListViewModel: ObservableObject {
     }
 
     func deleteDocument(_ document: Document) {
+        documentsService.setCurrentDocument(nil)
         let _ = documentsService.deleteDocument(document)
     }
     

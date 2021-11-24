@@ -28,8 +28,7 @@ struct DocumentsListRow: View {
             onReturn: viewModel.onDeselect,
             showNeumorphicButton: false,
             isSelected: $viewModel.isSelected
-        )
-        {
+        ) {
             VStack(alignment: .center, spacing: 9) {
                 Text(viewModel.documentName)
                     .asStyledHeader()

@@ -44,8 +44,16 @@ class DocumentsService: ObservableObject {
     }
 
     func deleteDocument(_ document: Document) -> Bool {
-        if realmDocumentService.deleteRealmDocument(document) {
+        // Case: Is a persisted document
+        if realmDocumentService.hasRealmDocument(withID: document.id) &&
+           realmDocumentService.deleteRealmDocument(document) {
             documents.removeAll(where: { $0.id == document.id })
+            return true
+        }
+        // Case: Is a newly created document that is not yet saved in realm
+        else if let indexOfDocumentWithPrimaryKey = documents.firstIndex(where: { $0.id == document.id }) {
+            documents.remove(at: indexOfDocumentWithPrimaryKey)
+            
             return true
         }
         
