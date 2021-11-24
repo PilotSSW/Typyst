@@ -100,6 +100,9 @@ final class AppDebugSettings: ObservableObject {
     init() {
         #if DEBUG
         debugGlobal = true
+        #else
+        debugGlobal = false
+        debugKeypresses = false
         #endif
     }
 
