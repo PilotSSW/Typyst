@@ -21,7 +21,7 @@ class PageViewModelFactory {
         var viewModels = [PageViewModel]()
         
         for currentIndex in 1...number {
-            let newVM = PageViewModel(pageIndex: currentIndex, withTextLayout: layout)
+            let newVM = PageViewModel(pageIndex: currentIndex, withTextLayout: layout, withDocument: Document(documentName: "A brand new story"))
             viewModels.append(newVM)
         }
         

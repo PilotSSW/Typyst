@@ -16,6 +16,8 @@ import Foundation
 class PageLayoutViewModel: ObservableObject, Identifiable, Loggable {
     internal let id = UUID()
     
+    private var document: Document
+    private var documentsService: DocumentsService
     private(set) var layout: TextLayout
     @Published var textView: NSTextView?
     
@@ -25,7 +27,14 @@ class PageLayoutViewModel: ObservableObject, Identifiable, Loggable {
         
     // View model properties
     let pageIndex: Int
-    @Published var title: String = ""
+    @Published var title: String = "" {
+        didSet {
+            document.documentName = title.isEmpty
+                ? "The Next Great Story in Typyst!"
+                : title
+            let _ = documentsService.updateDocument(document)
+        }
+    }
     
     @Published private(set) var isEditorPage: Bool = false {
         didSet {
@@ -34,10 +43,15 @@ class PageLayoutViewModel: ObservableObject, Identifiable, Loggable {
     }
     
     init(withTextLayout layout: TextLayout, pageIndex: Int,
-         withTitle title: String = "") {
+         withDocument document: Document,
+         withDocumentsService docService: DocumentsService = AppDependencyContainer.get().documentsService
+    ) {
         self.layout = layout
         self.pageIndex = pageIndex
-        self.title = title
+        self.document = document
+        self.documentsService = docService
+        
+        self.title = document.documentName
         
         logEvent(.trace, "PageLayout view model created: \(id)")
     }

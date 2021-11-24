@@ -26,12 +26,14 @@ class PageViewModel: ObservableObject, Identifiable, Loggable {
     @Published var pageSize: CGSize = CGSize(width: 850, height: 1100)
     @Published var margins: EdgeInsets = EdgeInsets(top: 30, leading: 15, bottom: 30, trailing: 15)
     
-    init(pageIndex: Int, withTextLayout layout: TextLayout, withTitle title: String = "") {
+    init(pageIndex: Int, withTextLayout layout: TextLayout, withDocument document: Document,
+         withDocumentsService documentsService: DocumentsService = AppDependencyContainer.get().documentsService) {
         self.pageIndex = pageIndex
         self.layout = layout
         self.pageLayoutViewModel = PageLayoutViewModel(withTextLayout: layout,
                                                        pageIndex: pageIndex,
-                                                       withTitle: title)
+                                                       withDocument: document,
+                                                       withDocumentsService: documentsService)
         
         logEvent(.trace, "Page view model created: \(id)")
     }

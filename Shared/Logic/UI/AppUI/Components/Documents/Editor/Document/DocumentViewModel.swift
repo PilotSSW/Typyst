@@ -62,7 +62,8 @@ extension DocumentViewModel {
         let pageViewModel = PageViewModel(
             pageIndex: pageIndex,
             withTextLayout: documentTextLayout,
-            withTitle: pageIndex == 0 ? document.documentName : "")
+            withDocument: document,
+            withDocumentsService: documentsService)
         
         pageViewModels.append(pageViewModel)
         

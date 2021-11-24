@@ -20,7 +20,7 @@ struct PageLayout: View {
         #endif
         
         VStack(alignment: .leading, spacing: 4) {
-            if !viewModel.title.isEmpty {
+            if viewModel.pageIndex == 0 {
                 TextField("Give your new document a great title!", text: $viewModel.title)
                     .asStyledHeader(with: .largeTitle, textSize: .veryLarge)
                     .multilineTextAlignment(.center)
@@ -50,7 +50,7 @@ struct PageLayout: View {
 struct PageLayout_Previews: PreviewProvider {
     static var previews: some View {
         let layout = MultiPageTextLayout(with: ["Hello there!"])
-        let viewModel = PageLayoutViewModel(withTextLayout: layout, pageIndex: 0, withTitle: "A Whole New Document!")
+        let viewModel = PageLayoutViewModel(withTextLayout: layout, pageIndex: 0, withDocument: Document(documentName: "A brand new story"))
         return PageLayout(viewModel: viewModel)
     }
 }

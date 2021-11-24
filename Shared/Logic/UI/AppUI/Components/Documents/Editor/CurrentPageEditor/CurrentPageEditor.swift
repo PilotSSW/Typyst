@@ -45,7 +45,7 @@ struct CurrentPageEditor: View {
 struct CurrentPageEditor_Previews: PreviewProvider {
     static var previews: some View {
         let layout = MultiPageTextLayout()
-        let currentPage = PageViewModel(pageIndex: 0, withTextLayout: layout)
+        let currentPage = PageViewModel(pageIndex: 0, withTextLayout: layout, withDocument: Document(documentName: "A brand new story"))
         
         let viewModel = CurrentPageEditorViewModel(layout: layout,
                                                    currentPageViewModel: currentPage)
