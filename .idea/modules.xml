@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Typyst-Swift.iml" filepath="$PROJECT_DIR$/.idea/Typyst-Swift.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Typyst.iml" filepath="$PROJECT_DIR$/.idea/Typyst.iml" />
     </modules>
   </component>
 </project>

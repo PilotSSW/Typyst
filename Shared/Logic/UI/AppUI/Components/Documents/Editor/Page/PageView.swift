@@ -12,11 +12,14 @@ struct PageView: View {
     var viewModel: PageViewModel
     
     var body: some View {
-        #if DEBUG
-        if #available(macOS 12.0, *) {
-            let _ = Self._printChanges()
-        }
-        #endif
+//        #if DEBUG
+//        if #available(macOS 12.0, *) {
+//            let _ = Self._printChanges()
+//        }
+//        else if #available(iOS 15.0, *) {
+//            let _ = Self._printChanges()
+//        }
+//        #endif
         
         SheetOfPaper() {
             ZStack {

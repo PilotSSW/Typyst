@@ -5,6 +5,8 @@
 //  Created by Sean Wolford on 11/10/21.
 //
 
+import struct CoreGraphics.CGRect
+import struct CoreGraphics.CGSize
 import Foundation
 
 class PageViewModelFactory {

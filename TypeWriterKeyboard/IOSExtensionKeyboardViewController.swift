@@ -7,6 +7,7 @@
 
 import Combine
 import GBDeviceInfo
+import KeyLogic
 import SwiftUI
 import UIKit
 

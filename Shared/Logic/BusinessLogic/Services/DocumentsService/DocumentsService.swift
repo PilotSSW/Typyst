@@ -68,7 +68,7 @@ class DocumentsService: ObservableObject {
     }
 
     func setWebDocument() {
-        if webDocumentIsLoaded { return }
+//        if webDocumentIsLoaded { return }
         
         currentDocument = nil
         webDocumentIsLoaded = true

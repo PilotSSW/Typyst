@@ -13,12 +13,16 @@ struct OlympiaSM3Key: View {
     var shouldInvertKey: Bool {
         [.shift, .rightShift, .keypadEnter, .return, .delete, .forwardDelete, .settings, .nextKeyboardGlobe, .numbers, .letters, .specials].contains(viewModel.key)
     }
+    
+    var isWideKey: Bool {
+        [.shift, .rightShift, .capsLock, .keypadEnter, .return].contains(viewModel.key)
+    }
 
     var body: some View {
         GeometryReader { geometryReader in
             let size = geometryReader.size
             let height = size.height
-            let width = size.width
+            let width = size.width * (isWideKey ? 1.5 : 1.0)
 
             let bottomInset = height * 0.125
 
@@ -35,7 +39,7 @@ struct OlympiaSM3Key: View {
 
                 Text(viewModel.displayText)
                     .asStyledText(textSize: .custom(fontSize: min(height, width) / 2), textColor: Color.white)
-                    .padding(.bottom, height / 6)
+                    .padding(.bottom, isWideKey ? 0 : height / 6)
             }
         }
     }
@@ -110,7 +114,10 @@ struct OlympiaSM3Key_Previews: PreviewProvider {
         let _ = viewModel.setSuggestedKeySize(CGSize(width: 400, height: 400))
 
         let viewModel2 = KeyViewModelFactory.createViewModel(keyCharacter: .space)
-        let _ = viewModel2.setSuggestedKeySize(CGSize(width: 2400, height: 400))
+        let _ = viewModel2.setSuggestedKeySize(CGSize(width: 400, height: 400))
+        
+        let viewModel3 = KeyViewModelFactory.createViewModel(keyCharacter: .return)
+        let _ = viewModel3.setSuggestedKeySize(CGSize(width: 400, height: 400))
 
         VStack(alignment: .leading) {
             OlympiaSM3Key(viewModel: viewModel)
@@ -118,10 +125,14 @@ struct OlympiaSM3Key_Previews: PreviewProvider {
                        height: viewModel.keySize.height,
                        alignment: .center)
 
-            Text("\(viewModel2.keySize.width) \(viewModel2.keySize.height)")
             OlympiaSM3Key(viewModel: viewModel2)
-                .frame(width: 1400,//viewModel2.keySize.width,
-                       height: 200,//viewModel2.keySize.height,
+                .frame(width: viewModel2.keySize.width,
+                       height: viewModel2.keySize.height,
+                       alignment: .center)
+            
+            OlympiaSM3Key(viewModel: viewModel3)
+                .frame(width: viewModel3.keySize.width,
+                       height: viewModel3.keySize.height,
                        alignment: .center)
            
             ZStack {

@@ -17,7 +17,6 @@
 		6EF6B0F7E01871E021212FD4 /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BA099355B9274C6966F2 /* KeyboardModel.swift */; };
 		6EF6B10BDEB36223E0E12138 /* ShadowIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BC4CA2BCBB57FCF013F1 /* ShadowIntensity.swift */; };
 		6EF6B147AE78D59792DE7EC2 /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
-		6EF6B1AB8232C6E03FBBA691 /* WritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* WritersViewModel.swift */; };
 		6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B02746176DA3BFF9C634 /* TypeWriterCardImageButton.swift */; };
 		6EF6B1D20C73B4DDE63B477F /* AppWindowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B40036833571C7C304F0 /* AppWindowContainerView.swift */; };
 		6EF6B20A132CAB90B1AC5BB0 /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BAE62F54493636996EBC /* WindowAccessor.swift */; };
@@ -25,7 +24,6 @@
 		6EF6B2EECE8AD4C242B5993B /* iOSUIKitKeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B27523AD2BC680B4FAA5 /* iOSUIKitKeyboardService.swift */; };
 		6EF6B366EE2DDFF22BAEA1FC /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
 		6EF6B3BFBDAA4ED2D0A0496F /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B359482DB0351E243FEC /* KeyboardService.swift */; };
-		6EF6B42B77E0E6AE2D8CE19B /* TextLayoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6BFFAD66A64AD5A5D1C65 /* TextLayoutService.swift */; };
 		6EF6B56F0E5FCDE7BF87F631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2072E681180EE0569D2 /* AppDelegate.swift */; };
 		6EF6B6A3DB2F65DF5D855224 /* WritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* WritersViewModel.swift */; };
 		6EF6B6B58BC103278F8D909E /* KeyboardRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B2743C24874905B5E21F /* KeyboardRowViewModel.swift */; };
@@ -70,15 +68,12 @@
 		A30719C8273ECE2600267C6A /* MultiCastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30719C6273ECE2600267C6A /* MultiCastDelegate.swift */; };
 		A30719C9273ECE2600267C6A /* MultiCastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30719C6273ECE2600267C6A /* MultiCastDelegate.swift */; };
 		A30719CA273ECE2600267C6A /* MultiCastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30719C6273ECE2600267C6A /* MultiCastDelegate.swift */; };
-		A308F119273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308F118273D8CED00C4A839 /* CurrentPageEditorViewModel.swift */; };
 		A308F11A273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308F118273D8CED00C4A839 /* CurrentPageEditorViewModel.swift */; };
 		A308F11B273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308F118273D8CED00C4A839 /* CurrentPageEditorViewModel.swift */; };
 		A308F11C273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308F118273D8CED00C4A839 /* CurrentPageEditorViewModel.swift */; };
-		A30A90A527212A1500EB5627 /* ConfigurableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A427212A1500EB5627 /* ConfigurableTextField.swift */; };
 		A30A90A627212A1500EB5627 /* ConfigurableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A427212A1500EB5627 /* ConfigurableTextField.swift */; };
 		A30A90A727212A1500EB5627 /* ConfigurableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A427212A1500EB5627 /* ConfigurableTextField.swift */; };
 		A30A90A827212A1500EB5627 /* ConfigurableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A427212A1500EB5627 /* ConfigurableTextField.swift */; };
-		A30A90AA27212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A927212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift */; };
 		A30A90AB27212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A927212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift */; };
 		A30A90AC27212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A927212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift */; };
 		A30A90AD27212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A90A927212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift */; };
@@ -120,8 +115,6 @@
 		A329D97E27161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
 		A329D97F27161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
 		A329D98027161420004D8990 /* DocumentsListRowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D97C27161420004D8990 /* DocumentsListRowBackground.swift */; };
-		A329D98227168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
-		A329D98327168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
 		A329D98427168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
 		A329D98527168D12004D8990 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
 		A329D9872716A1A4004D8990 /* AppKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D9862716A1A4004D8990 /* AppKitExtensions.swift */; };
@@ -137,7 +130,6 @@
 		A32F24B42714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
 		A32F24B52714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
 		A32F24B62714B41F00CCDE60 /* MenuToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24B22714B41F00CCDE60 /* MenuToggleButton.swift */; };
-		A32F24BD2715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
 		A32F24BE2715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
 		A32F24BF2715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
 		A32F24C02715368600CCDE60 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
@@ -148,7 +140,6 @@
 		A333EDC526BA2AA500AA9B09 /* TypeWriterMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7251262355D600E32B91 /* TypeWriterMenuData.swift */; };
 		A33D4344263C51E8004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
 		A33D4345263C528E004669A1 /* ResizableDragger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D4343263C51E8004669A1 /* ResizableDragger.swift */; };
-		A342B208274589F000341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
 		A342B209274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
 		A342B20A274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
 		A342B20B274589F100341ED2 /* PagesScrollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342B207274589F000341ED2 /* PagesScrollerViewModel.swift */; };
@@ -250,11 +241,9 @@
 		A35C5589274321AE0030B31F /* Tests_MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35C5585274321AE0030B31F /* Tests_MultiPageTextLayout.swift */; };
 		A35CC6CB2721E36400771F22 /* CustomEditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CC6CA2721E36400771F22 /* CustomEditorTextView.swift */; };
 		A35CC6CC2721E36400771F22 /* CustomEditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CC6CA2721E36400771F22 /* CustomEditorTextView.swift */; };
-		A35CE8A3273D608F00EFF1CA /* TextLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A2273D608F00EFF1CA /* TextLayoutProtocol.swift */; };
 		A35CE8A4273D608F00EFF1CA /* TextLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A2273D608F00EFF1CA /* TextLayoutProtocol.swift */; };
 		A35CE8A5273D608F00EFF1CA /* TextLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A2273D608F00EFF1CA /* TextLayoutProtocol.swift */; };
 		A35CE8A6273D608F00EFF1CA /* TextLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A2273D608F00EFF1CA /* TextLayoutProtocol.swift */; };
-		A35CE8A9273D60DA00EFF1CA /* MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A8273D60DA00EFF1CA /* MultiPageTextLayout.swift */; };
 		A35CE8AA273D60DA00EFF1CA /* MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A8273D60DA00EFF1CA /* MultiPageTextLayout.swift */; };
 		A35CE8AB273D60DA00EFF1CA /* MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A8273D60DA00EFF1CA /* MultiPageTextLayout.swift */; };
 		A35CE8AC273D60DA00EFF1CA /* MultiPageTextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CE8A8273D60DA00EFF1CA /* MultiPageTextLayout.swift */; };
@@ -338,6 +327,9 @@
 		A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B271C5DBB24731EDD778 /* ReplacementMenuCommands.swift */; };
 		A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
 		A36F5C552673D6A300E18CCE /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F5C532673D4A500E18CCE /* EmailService.swift */; };
+		A37358F528456DD9002520F9 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
+		A37358F628457118002520F9 /* WritersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A057326E46678001E2543 /* WritersView.swift */; };
+		A37358F72845712B002520F9 /* WritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B283DBB67E0A8B5C9C66 /* WritersViewModel.swift */; };
 		A375A65327209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
 		A375A65427209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
 		A375A65527209C6F005B6ADC /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375A65227209C6F005B6ADC /* Math.swift */; };
@@ -375,7 +367,6 @@
 		A37DEC5926A0BFB200965DC4 /* KeyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DEC5826A0BFB200965DC4 /* KeyGroupView.swift */; };
 		A37DEC5B26A0BFB200965DC4 /* KeyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DEC5826A0BFB200965DC4 /* KeyGroupView.swift */; };
 		A37DEC5D26A0BFB200965DC4 /* KeyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37DEC5826A0BFB200965DC4 /* KeyGroupView.swift */; };
-		A38A057426E46678001E2543 /* WritersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A057326E46678001E2543 /* WritersView.swift */; };
 		A38A057526E46678001E2543 /* WritersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A057326E46678001E2543 /* WritersView.swift */; };
 		A38A057626E46678001E2543 /* WritersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A057326E46678001E2543 /* WritersView.swift */; };
 		A38A057726E46678001E2543 /* WritersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A057326E46678001E2543 /* WritersView.swift */; };
@@ -396,14 +387,16 @@
 		A39AEE1126D1ABB70081611E /* KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEE1026D1ABB70081611E /* KeyShape.swift */; };
 		A39AEE1226D1ABE00081611E /* KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEE1026D1ABB70081611E /* KeyShape.swift */; };
 		A39AEE1326D1ABE10081611E /* KeyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEE1026D1ABB70081611E /* KeyShape.swift */; };
-		A39C9E9E26F4C51100F81A75 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9E9D26F4C51100F81A75 /* PageView.swift */; };
 		A39C9E9F26F4C51100F81A75 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9E9D26F4C51100F81A75 /* PageView.swift */; };
 		A39C9EA026F4C51100F81A75 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9E9D26F4C51100F81A75 /* PageView.swift */; };
 		A39C9EA126F4C51100F81A75 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9E9D26F4C51100F81A75 /* PageView.swift */; };
-		A39C9EA326F4C53E00F81A75 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9EA226F4C53E00F81A75 /* PageViewModel.swift */; };
 		A39C9EA426F4C53E00F81A75 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9EA226F4C53E00F81A75 /* PageViewModel.swift */; };
 		A39C9EA526F4C53E00F81A75 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9EA226F4C53E00F81A75 /* PageViewModel.swift */; };
 		A39C9EA626F4C53E00F81A75 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9EA226F4C53E00F81A75 /* PageViewModel.swift */; };
+		A39F45002843E138000E6752 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A3F982742DBB50043583D /* SwiftUIExtensions.swift */; };
+		A39F450128455F0F000E6752 /* ListExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329D98127168D12004D8990 /* ListExtension.swift */; };
+		A39F4504284560E6000E6752 /* DocumentsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F24BC2715368500CCDE60 /* DocumentsListButton.swift */; };
+		A39F4505284561D3000E6752 /* RealmInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484233271DECBD005DD159 /* RealmInstance.swift */; };
 		A3A383C526D5300B0023B628 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A383C426D5300B0023B628 /* Images.swift */; };
 		A3A383C626D5300B0023B628 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A383C426D5300B0023B628 /* Images.swift */; };
 		A3A383C726D5300B0023B628 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A383C426D5300B0023B628 /* Images.swift */; };
@@ -431,30 +424,24 @@
 		A3A60ED4271FC180007C4D76 /* TypeWritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A60ED2271FC180007C4D76 /* TypeWritersViewModel.swift */; };
 		A3A60ED5271FC180007C4D76 /* TypeWritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A60ED2271FC180007C4D76 /* TypeWritersViewModel.swift */; };
 		A3A60ED6271FC180007C4D76 /* TypeWritersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A60ED2271FC180007C4D76 /* TypeWritersViewModel.swift */; };
-		A3A63B5926F3FACF00E03633 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A63B5826F3FACF00E03633 /* DocumentViewModel.swift */; };
 		A3A63B5A26F3FACF00E03633 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A63B5826F3FACF00E03633 /* DocumentViewModel.swift */; };
 		A3A63B5B26F3FACF00E03633 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A63B5826F3FACF00E03633 /* DocumentViewModel.swift */; };
 		A3A63B5C26F3FACF00E03633 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A63B5826F3FACF00E03633 /* DocumentViewModel.swift */; };
 		A3A918D42694A4CB000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3A918D62694A675000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
 		A3A918D72694A675000B208D /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A918D32694A4CB000B208D /* KeyboardViewModel.swift */; };
-		A3A9ED04273C1D3600768853 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED03273C1D3600768853 /* PageLayout.swift */; };
 		A3A9ED05273C1D3600768853 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED03273C1D3600768853 /* PageLayout.swift */; };
 		A3A9ED06273C1D3600768853 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED03273C1D3600768853 /* PageLayout.swift */; };
 		A3A9ED07273C1D3600768853 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED03273C1D3600768853 /* PageLayout.swift */; };
-		A3A9ED09273C1DEB00768853 /* PageLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED08273C1DEB00768853 /* PageLayoutViewModel.swift */; };
 		A3A9ED0A273C1DEB00768853 /* PageLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED08273C1DEB00768853 /* PageLayoutViewModel.swift */; };
 		A3A9ED0B273C1DEB00768853 /* PageLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED08273C1DEB00768853 /* PageLayoutViewModel.swift */; };
 		A3A9ED0C273C1DEB00768853 /* PageLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED08273C1DEB00768853 /* PageLayoutViewModel.swift */; };
-		A3A9ED0F273C73EC00768853 /* PagesScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED0E273C73EC00768853 /* PagesScrollerView.swift */; };
 		A3A9ED10273C73EC00768853 /* PagesScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED0E273C73EC00768853 /* PagesScrollerView.swift */; };
 		A3A9ED11273C73EC00768853 /* PagesScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED0E273C73EC00768853 /* PagesScrollerView.swift */; };
 		A3A9ED12273C73EC00768853 /* PagesScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED0E273C73EC00768853 /* PagesScrollerView.swift */; };
-		A3A9ED14273C750900768853 /* PageViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED13273C750900768853 /* PageViewModelFactory.swift */; };
 		A3A9ED15273C750900768853 /* PageViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED13273C750900768853 /* PageViewModelFactory.swift */; };
 		A3A9ED16273C750900768853 /* PageViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED13273C750900768853 /* PageViewModelFactory.swift */; };
 		A3A9ED17273C750900768853 /* PageViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED13273C750900768853 /* PageViewModelFactory.swift */; };
-		A3A9ED1A273C7A9600768853 /* CurrentPageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED19273C7A9600768853 /* CurrentPageEditor.swift */; };
 		A3A9ED1B273C7A9600768853 /* CurrentPageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED19273C7A9600768853 /* CurrentPageEditor.swift */; };
 		A3A9ED1C273C7A9600768853 /* CurrentPageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED19273C7A9600768853 /* CurrentPageEditor.swift */; };
 		A3A9ED1D273C7A9600768853 /* CurrentPageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9ED19273C7A9600768853 /* CurrentPageEditor.swift */; };
@@ -472,7 +459,6 @@
 		A3B0737D26D5825000A46630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A399A85026D58005004953AD /* Assets.xcassets */; };
 		A3B0737E26D5848500A46630 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A383C426D5300B0023B628 /* Images.swift */; };
 		A3B0737F26D5848500A46630 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A383C426D5300B0023B628 /* Images.swift */; };
-		A3B32DE326F3DA1C00B4BD14 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B32DE226F3DA1C00B4BD14 /* DocumentView.swift */; };
 		A3B32DE426F3DA1C00B4BD14 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B32DE226F3DA1C00B4BD14 /* DocumentView.swift */; };
 		A3B32DE526F3DA1C00B4BD14 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B32DE226F3DA1C00B4BD14 /* DocumentView.swift */; };
 		A3B32DE626F3DA1C00B4BD14 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B32DE226F3DA1C00B4BD14 /* DocumentView.swift */; };
@@ -492,7 +478,6 @@
 		A3BE142E26E665BA00A3EAB0 /* CardHeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA727B262355D600E32B91 /* CardHeaderModifier.swift */; };
 		A3BE142F26E66F2E00A3EAB0 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
 		A3BE143026E66F2F00A3EAB0 /* TypeWriterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A333EDBA26BA287400AA9B09 /* TypeWriterSelector.swift */; };
-		A3BE143226E67FD400A3EAB0 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE143126E67FD400A3EAB0 /* TextEditorView.swift */; };
 		A3BE143326E67FD400A3EAB0 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE143126E67FD400A3EAB0 /* TextEditorView.swift */; };
 		A3BE143426E67FD400A3EAB0 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE143126E67FD400A3EAB0 /* TextEditorView.swift */; };
 		A3BE143526E67FD400A3EAB0 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE143126E67FD400A3EAB0 /* TextEditorView.swift */; };
@@ -649,7 +634,6 @@
 		A3FA7320262355D700E32B91 /* TypeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7295262355D600E32B91 /* TypeWriter.swift */; };
 		A3FA7321262355D700E32B91 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
 		A3FA7322262355D700E32B91 /* SoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7297262355D600E32B91 /* SoundError.swift */; };
-		A3FA7323262355D700E32B91 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
 		A3FA7324262355D700E32B91 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA7299262355D600E32B91 /* LoggingService.swift */; };
 		A3FA7325262355D700E32B91 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
 		A3FA7326262355D700E32B91 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA729C262355D600E32B91 /* SwiftExtensions.swift */; };
@@ -2470,6 +2454,7 @@
 				A3DA68882698048E002E1430 /* Colors.swift in Sources */,
 				A3CC905F26CDCB8D00D52AF8 /* OlympiaSM3_KeyShape.swift in Sources */,
 				A323680F268E531C00CB2B25 /* TypeWriterKeyLogic.swift in Sources */,
+				A39F45002843E138000E6752 /* SwiftUIExtensions.swift in Sources */,
 				A3B3462126CE0DE400724513 /* SmithCoronaSilentKey.swift in Sources */,
 				A3DA68872698045E002E1430 /* Font.swift in Sources */,
 				A3A4BD8F2694A06A0010F72A /* KeyView.swift in Sources */,
@@ -2499,6 +2484,7 @@
 				A3236821268E539700CB2B25 /* SoundsService.swift in Sources */,
 				A3A4BD8926949EED0010F72A /* UIKitExtensions.swift in Sources */,
 				A3E35A4B26C74F390030DBC2 /* OSHelper.swift in Sources */,
+				A39F4505284561D3000E6752 /* RealmInstance.swift in Sources */,
 				A3A383C726D5300B0023B628 /* Images.swift in Sources */,
 				A3A918D42694A4CB000B208D /* KeyboardViewModel.swift in Sources */,
 				A333EDC226BA2AA300AA9B09 /* TypeWriterMenuData.swift in Sources */,
@@ -2542,10 +2528,8 @@
 				A34DA857274D5AF600809FC5 /* SmithCoronaSilent_KeyShape.swift in Sources */,
 				A3C9051A26AE6AB6007DC282 /* RoyalModelPKey.swift in Sources */,
 				A37DEC5526A0BF9A00965DC4 /* KeyGroupViewModel.swift in Sources */,
-				A32F24BD2715368600CCDE60 /* DocumentsListButton.swift in Sources */,
 				A3A4BD912694A14C0010F72A /* KeyboardRowView.swift in Sources */,
 				A3FA731B262355D700E32B91 /* TypeWriterModel.swift in Sources */,
-				A308F119273D8CED00C4A839 /* CurrentPageEditorViewModel.swift in Sources */,
 				A35A679926D95D2C004A1A4E /* DocumentsCard.swift in Sources */,
 				A3EE9CC726A5DD0B0009482C /* KeyboardConfiguration.swift in Sources */,
 				A36050DC2748389F00CE1D0F /* DocumentsListRowViewModel.swift in Sources */,
@@ -2554,9 +2538,7 @@
 				A329D97D27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A376955026EC6CDD004B552C /* WebViewModel.swift in Sources */,
 				A3A383C526D5300B0023B628 /* Images.swift in Sources */,
-				A38A057426E46678001E2543 /* WritersView.swift in Sources */,
 				A34CE8132694ED77008127E6 /* KeyboardExtensionDependencyContainer.swift in Sources */,
-				A3BE143226E67FD400A3EAB0 /* TextEditorView.swift in Sources */,
 				A3FA72E1262355D700E32B91 /* SettingsMenu.swift in Sources */,
 				A35B664B26DC772100305797 /* DocumentsListAddRow.swift in Sources */,
 				A34602472685551B00BF81D4 /* SwiftyBeaver.swift in Sources */,
@@ -2568,7 +2550,6 @@
 				A3AD463F26ABCE6A008E1EF1 /* PressActionsModifier.swift in Sources */,
 				A35A67AF26D9708A004A1A4E /* DocumentsListRow.swift in Sources */,
 				A3FA72DB262355D700E32B91 /* VolumeSettingView.swift in Sources */,
-				A39C9E9E26F4C51100F81A75 /* PageView.swift in Sources */,
 				A32BE11126C6119B009A94BB /* KeyboardContainer.swift in Sources */,
 				A36F5C512673CDAB00E18CCE /* ReplacementMenuCommands.swift in Sources */,
 				A34DA850274D4FDA00809FC5 /* SmithCoronaSilentBackground.swift in Sources */,
@@ -2586,12 +2567,12 @@
 				A3A4BD8D2694A06A0010F72A /* KeyView.swift in Sources */,
 				A3975CA72627FF2A001DFD47 /* TypeWriterKeyLogic.swift in Sources */,
 				A3FA72FB262355D700E32B91 /* CardHeaderModifier.swift in Sources */,
-				A3A9ED09273C1DEB00768853 /* PageLayoutViewModel.swift in Sources */,
 				A3FA7319262355D700E32B91 /* TypeWriterState.swift in Sources */,
 				A3FA72C9262355D700E32B91 /* TypeWriterCardBody.swift in Sources */,
 				A300BB1E2664204B00BB7BA3 /* KeyEventStore.swift in Sources */,
 				A3FA72A5262355D700E32B91 /* SoundsService.swift in Sources */,
 				A3FA72B9262355D700E32B91 /* AnalyticsInfoCard.swift in Sources */,
+				A37358F528456DD9002520F9 /* LoggingService.swift in Sources */,
 				A3B3461E26CE0C7A00724513 /* OlympiaSM3_KeyShape.swift in Sources */,
 				A36E473026E5851100E647A0 /* SheetOfPaper.swift in Sources */,
 				A3A60ED3271FC180007C4D76 /* TypeWritersViewModel.swift in Sources */,
@@ -2609,19 +2590,16 @@
 				A3975C642627FEA6001DFD47 /* TypingStats.swift in Sources */,
 				A3FA72C5262355D700E32B91 /* TypeWriterCardHeader.swift in Sources */,
 				A3FA72FF262355D700E32B91 /* CardContentModifier.swift in Sources */,
+				A37358F628457118002520F9 /* WritersView.swift in Sources */,
 				A3FA72FD262355D700E32B91 /* NeumorphicShadow.swift in Sources */,
-				A35CE8A3273D608F00EFF1CA /* TextLayoutProtocol.swift in Sources */,
 				A35A67A126D96088004A1A4E /* DocumentsList.swift in Sources */,
 				A3FA72BD262355D700E32B91 /* AnalyticsInfoView.swift in Sources */,
 				A3FA72DD262355D700E32B91 /* EmailButton.swift in Sources */,
 				A3FA7329262355D700E32B91 /* SystemFunctions.swift in Sources */,
-				A30A90A527212A1500EB5627 /* ConfigurableTextField.swift in Sources */,
 				A3FC08D726C6BE6B00C8AA14 /* OlympiaSM3Key.swift in Sources */,
 				A36F5C4F2673B7A500E18CCE /* AppSettingsCommands.swift in Sources */,
 				A3FA72F7262355D700E32B91 /* Gradients.swift in Sources */,
 				A3A60ECE271FBFF2007C4D76 /* TypeWritersView.swift in Sources */,
-				A30A90AA27212B5D00EB5627 /* ConfigurableTextFieldViewModel.swift in Sources */,
-				A3B32DE326F3DA1C00B4BD14 /* DocumentView.swift in Sources */,
 				A34B470A2630E1F80069229E /* VisualEffectBackground.swift in Sources */,
 				A376955626EC6F28004B552C /* BrowserView.swift in Sources */,
 				A3FA730B262355D700E32B91 /* ViewExtension.swift in Sources */,
@@ -2630,38 +2608,33 @@
 				A38D570B273C7FE5000762AE /* DocumentModel.swift in Sources */,
 				A3FA72D5262355D700E32B91 /* TitleCard.swift in Sources */,
 				A315F9BA26F3B1D500664986 /* NavigationContainer.swift in Sources */,
-				A3A9ED14273C750900768853 /* PageViewModelFactory.swift in Sources */,
 				A34CE80F2694DECB008127E6 /* KeyViewModel.swift in Sources */,
 				A3E2AAF126892D9900F43757 /* AppDependencyContainer.swift in Sources */,
 				A3FA72BB262355D700E32B91 /* AnalyticsInfoCardViewModel.swift in Sources */,
 				A35A8EFF26E3B73E00269386 /* RealmDocumentService.swift in Sources */,
-				A3A63B5926F3FACF00E03633 /* DocumentViewModel.swift in Sources */,
 				A36F5C4C2673B5C400E18CCE /* MainMenuCommands.swift in Sources */,
 				A36D2535262DE7090069E668 /* TypystApp.swift in Sources */,
 				A3A918D72694A675000B208D /* KeyboardViewModel.swift in Sources */,
+				A39F4504284560E6000E6752 /* DocumentsListButton.swift in Sources */,
 				A3B3462326CE0E0F00724513 /* SmithCoronaSilentKey.swift in Sources */,
 				A3FA7325262355D700E32B91 /* SwiftExtensions.swift in Sources */,
 				A3FA72CD262355D700E32B91 /* TypeWriterMenu.swift in Sources */,
-				A342B208274589F000341ED2 /* PagesScrollerViewModel.swift in Sources */,
-				A3FA7323262355D700E32B91 /* LoggingService.swift in Sources */,
 				A34CE8112694ED77008127E6 /* TextDocumentProxyService.swift in Sources */,
-				A39C9EA326F4C53E00F81A75 /* PageViewModel.swift in Sources */,
 				A3FA7305262355D700E32B91 /* Font.swift in Sources */,
 				A3FA72C7262355D700E32B91 /* TypeWriterCard.swift in Sources */,
 				A3BE143726E686A800A3EAB0 /* PaperContainer.swift in Sources */,
 				A3668DF5262FD11500764DB8 /* AlertsService.swift in Sources */,
 				A3F55036271BE9B600D4C177 /* MenuToggleButtons.swift in Sources */,
 				A36E473626E5A2CC00E647A0 /* StackOfPaper.swift in Sources */,
-				A35CE8A9273D60DA00EFF1CA /* MultiPageTextLayout.swift in Sources */,
 				A3A4BD8A26949F140010F72A /* UIKitExtensions.swift in Sources */,
 				A3FA72E5262355D700E32B91 /* SettingsCard.swift in Sources */,
 				A30719C7273ECE2600267C6A /* MultiCastDelegate.swift in Sources */,
-				A3A9ED1A273C7A9600768853 /* CurrentPageEditor.swift in Sources */,
 				A3FA72C3262355D700E32B91 /* TypeWriterMenuCard.swift in Sources */,
 				A34B30D7262D305100C64B4C /* TypeWriter.swift in Sources */,
 				A33D4344263C51E8004669A1 /* ResizableDragger.swift in Sources */,
 				A36F5C542673D4A500E18CCE /* EmailService.swift in Sources */,
 				A36A3F992742DBB50043583D /* SwiftUIExtensions.swift in Sources */,
+				A37358F72845712B002520F9 /* WritersViewModel.swift in Sources */,
 				A3FA7311262355D700E32B91 /* TypeWriterService.swift in Sources */,
 				A3FA72B7262355D700E32B91 /* AnalyticsInfoControlButton.swift in Sources */,
 				A3A4BD942694A1CC0010F72A /* KeyboardView.swift in Sources */,
@@ -2673,14 +2646,12 @@
 				A3FA76BF26237C6E00E32B91 /* Typyst.xcdatamodeld in Sources */,
 				A3B5077C268B5EC40016BD22 /* ShadowIntensity.swift in Sources */,
 				A3FA72DF262355D700E32B91 /* AppSettingsView.swift in Sources */,
-				A3A9ED0F273C73EC00768853 /* PagesScrollerView.swift in Sources */,
 				A355165726C95A65005F033E /* SettingsComponent.swift in Sources */,
 				A39AEE1226D1ABE00081611E /* KeyShape.swift in Sources */,
 				A3FA72BF262355D700E32B91 /* AnalyticsInfoViewModel.swift in Sources */,
 				A35A67A826D960D0004A1A4E /* DocumentsListViewModel.swift in Sources */,
 				6EF6B899065B8528AB03A09A /* AlertItem.swift in Sources */,
 				A326BC5526C6E6CD0087E65D /* TypeWriterSelector.swift in Sources */,
-				A329D98227168D12004D8990 /* ListExtension.swift in Sources */,
 				A3E35A4F26C75BD60030DBC2 /* RoyalModelPBackground.swift in Sources */,
 				6EF6BC62E57A1A5B8DAC933D /* Alert.swift in Sources */,
 				A34CE8122694ED77008127E6 /* IOSExtensionKeyboardViewController.swift in Sources */,
@@ -2690,13 +2661,10 @@
 				6EF6B84F88E113673D7382BC /* UserDefaultsAppSettings.swift in Sources */,
 				6EF6BD57B8A92F15FDF29034 /* RootDependencyContainer.swift in Sources */,
 				6EF6B1D154512697D559721D /* TypeWriterCardImageButton.swift in Sources */,
-				A3A9ED04273C1D3600768853 /* PageLayout.swift in Sources */,
 				6EF6BCD6F44F8FEA54529827 /* KeyboardRowViewModel.swift in Sources */,
 				6EF6B0DD0C0A7A5C93DB1E2F /* iOSUIKitKeyboardService.swift in Sources */,
 				6EF6B6E83463E77D41537D9F /* KeyboardModel.swift in Sources */,
 				6EF6BE17FE27A974E25F178F /* KeyboardService.swift in Sources */,
-				6EF6B1AB8232C6E03FBBA691 /* WritersViewModel.swift in Sources */,
-				6EF6B42B77E0E6AE2D8CE19B /* TextLayoutService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2709,6 +2677,7 @@
 				A300BB1F2664204B00BB7BA3 /* KeyEventStore.swift in Sources */,
 				A329D97E27161420004D8990 /* DocumentsListRowBackground.swift in Sources */,
 				A3FA76D726237DA900E32B91 /* TypingStats.swift in Sources */,
+				A39F450128455F0F000E6752 /* ListExtension.swift in Sources */,
 				A36F5C4D2673B78D00E18CCE /* MainMenuCommands.swift in Sources */,
 				A3FA72E2262355D700E32B91 /* SettingsMenu.swift in Sources */,
 				A3FA7304262355D700E32B91 /* NeumorphicButton.swift in Sources */,
@@ -2858,7 +2827,6 @@
 				A36E474926E5BC7000E647A0 /* RoyalModelPBackground.swift in Sources */,
 				6EF6B9174216C245F1E26F2A /* AppSettingsMenuItems.swift in Sources */,
 				A35A8F0026E3B73E00269386 /* RealmDocumentService.swift in Sources */,
-				A329D98327168D12004D8990 /* ListExtension.swift in Sources */,
 				6EF6BA9D1826B63C36D5F79D /* TypeWriterSettings.swift in Sources */,
 				A376955C26EC7390004B552C /* DocumentsListGoogleDocsRow.swift in Sources */,
 				6EF6B83D11F288968BA3AFBD /* TypeWriters.swift in Sources */,
@@ -3161,7 +3129,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TypystKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -3171,7 +3139,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst.TypystKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst.TypystKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -3191,7 +3159,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TypystKeyboard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -3201,7 +3169,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst.TypystKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst.TypystKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -3339,9 +3307,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3354,8 +3323,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst;
 				PRODUCT_NAME = Typyst;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3369,9 +3339,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3385,8 +3356,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst;
 				PRODUCT_NAME = Typyst;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3406,7 +3378,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -3433,7 +3405,7 @@
 					"-Xlinker",
 					"-interposable",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -3452,7 +3424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = HMSA3J82Q3;
+				DEVELOPMENT_TEAM = PK75CJKJVR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
@@ -3463,7 +3435,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.randomaccesssoftware.typyst;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssw.typyst;
 				PRODUCT_NAME = Typyst;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;

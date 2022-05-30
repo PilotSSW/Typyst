@@ -5,14 +5,9 @@
 //  Created by Sean Wolford on 9/6/21.
 //
 
+import AppKit
 import Combine
 import SwiftUI
-
-#if canImport(AppKit)
-import AppKit
-#elseif canImport(UIKit)
-import UIKit
-#endif
 
 struct TextEditorView: Loggable {
     private var store = Set<AnyCancellable>()
@@ -41,7 +36,6 @@ struct TextEditorView: Loggable {
     }
 }
 
-#if canImport(AppKit)
 extension TextEditorView: NSViewRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -86,19 +80,17 @@ extension TextEditorView: NSViewRepresentable {
         logEvent(.trace, "TextEditorView NSView updated: \(viewId)", context: textView)
     }
 }
-#elseif canImport(UIKit)
-extension TextEditorView: UIViewRepresentable {
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    func makeUIView(context: Context) -> NSTextView {
-        return textView
-    }
-
-    func updateUIView(_ view: NSTextView, context: Context) {}
-}
-#endif
+//extension TextEditorView: UIViewRepresentable {
+//    func makeCoordinator() -> Coordinator {
+//        Coordinator(self)
+//    }
+//
+//    func makeUIView(context: Context) -> NSTextView {
+//        return textView
+//    }
+//
+//    func updateUIView(_ view: NSTextView, context: Context) {}
+//}
 
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {

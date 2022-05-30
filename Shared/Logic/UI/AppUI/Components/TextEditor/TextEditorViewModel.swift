@@ -6,7 +6,9 @@
 //
 
 import Combine
+import struct CoreGraphics.CGRect
 import Foundation
+
 
 class TextEditorViewModel: ObservableObject, Identifiable {
     internal let id = UUID()

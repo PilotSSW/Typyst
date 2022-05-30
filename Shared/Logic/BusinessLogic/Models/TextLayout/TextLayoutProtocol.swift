@@ -8,11 +8,7 @@
 import Combine
 import Foundation
 
-#if canImport(AppKit)
 import AppKit
-#elseif canImport(UIKit)
-import UIKit
-#endif
 
 protocol TextLayout: NSObject, NSTextStorageDelegate, NSLayoutManagerDelegate, NSTextViewDelegate, Loggable {
     var storage: NSTextStorage {get set}
@@ -35,16 +31,6 @@ extension TextLayout {
         initializeStorageWithText(sentences)
         initializeLayoutManagers()
         logEvent(.trace, "Creating a text layout")
-        
-//        var counter = 0
-//        let timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { [weak self] timer in
-//            self?.storage.append(NSAttributedString(string: "Hello\n\n\n"))
-//            
-//            counter += 1
-//            if (counter == 100) {
-//                timer.invalidate()
-//            }
-//        })
     }
     
         /// MARK: Storage Functions

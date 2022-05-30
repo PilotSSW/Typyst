@@ -7,6 +7,7 @@
 
 import Foundation
 import protocol UIKit.UITextDocumentProxy
+import KeyLogic
 
 final class TextDocumentProxyService {
 

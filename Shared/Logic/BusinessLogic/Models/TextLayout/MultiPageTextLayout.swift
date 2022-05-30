@@ -5,14 +5,9 @@
 //  Created by Sean Wolford on 11/11/21.
 //
 
+import AppKit
 import Combine
 import Foundation
-
-#if canImport(AppKit)
-import AppKit
-#elseif canImport(UIKit)
-import UIKit
-#endif
 
 class MultiPageTextLayout: NSObject, TextLayout, ObservableObject, Loggable {
     var storage: NSTextStorage = NSTextStorage()

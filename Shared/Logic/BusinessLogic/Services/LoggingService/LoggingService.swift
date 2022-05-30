@@ -4,7 +4,6 @@
 //
 import Combine
 import Foundation
-import MacOSKeyListener
 
 final class Logging {
     private let settingsService: SettingsService
@@ -67,6 +66,8 @@ extension Loggable {
     }
 }
 
+#if os(macOS)
+import MacOSKeyListener
 extension MacOSKeyListener_Logger_Level {
     internal func toLoggingLevel() -> Logging.Level {
         switch (self) {
@@ -79,3 +80,4 @@ extension MacOSKeyListener_Logger_Level {
         }
     }
 }
+#endif

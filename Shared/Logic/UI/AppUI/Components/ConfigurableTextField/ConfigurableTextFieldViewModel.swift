@@ -5,20 +5,18 @@
 //  Created by Sean Wolford on 10/21/21.
 //
 
-import Foundation
-
-#if os(macOS)
 import AppKit
+import Foundation
 
 class ConfigurableTextFieldViewModel: NSObject, ObservableObject, Loggable {
     var onEditingChange: (Bool) -> Void = { _ in }
     var onCommit: () -> Void = {}
     
-    var introspectTextField: (NSTextField) -> Void = { textField in
+    var introspectTextField: (NSTextField) -> () = { textField in
         print("Shit")
     }
     
-    var introspectTextView: (NSTextView) -> Void = { textField in }
+    var introspectTextView: (NSTextView) -> () = { textField in }
 
     override init() {
         super.init()
@@ -80,36 +78,34 @@ extension ConfigurableTextFieldViewModel: NSTextFieldDelegate {
         return true
     }
 }
-#endif
 
-
-#if os(iOS)
-import UIKit
-
-class ConfigurableTextFieldViewModel: NSObject, ObservableObject, Loggable {
-    var onEditingChange: (Bool) -> Void = { _ in }
-    var onCommit: () -> Void = {}
-    
-    var introspectTextView: (UITextField) -> Void = { textField in }
-    
-    init() {
-        introspectViews()
-    }
-    
-    private func introspectViews() {
-        introspectTextView = { [weak self] textField in
-            guard let self = self else { return }
-            textField.delegate = self
-            textField.allowsDefaultTighteningForTruncation = true
-            textField.drawsBackground = false
-            textField.isAutomaticTextCompletionEnabled = false
-            textField.isBezeled = false
-            textField.isBordered = false
-            self.logEvent(.info, "", context: textField.formatter)
-        }
-        introspectTextView = { textField in
-            
-        }
-    }
-}
-#endif
+//#if os(iOS)
+//import UIKit
+//
+//class ConfigurableTextFieldViewModel: NSObject, ObservableObject, Loggable {
+//    var onEditingChange: (Bool) -> Void = { _ in }
+//    var onCommit: () -> Void = {}
+//
+//    var introspectTextView: (UITextField) -> Void = { textField in }
+//
+//    override init() {
+//        introspectViews()
+//    }
+//
+//    private func introspectViews() {
+//        introspectTextView = { [weak self] textField in
+//            guard let self = self else { return }
+//            textField.delegate = self
+//            textField.allowsDefaultTighteningForTruncation = true
+//            textField.drawsBackground = false
+//            textField.isAutomaticTextCompletionEnabled = false
+//            textField.isBezeled = false
+//            textField.isBordered = false
+//            self.logEvent(.info, "", context: textField.formatter)
+//        }
+//        introspectTextView = { textField in
+//
+//        }
+//    }
+//}
+//#endif

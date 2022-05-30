@@ -5,11 +5,7 @@
 //  Created by Sean Wolford on 9/16/21.
 //
 
-#if canImport(AppKit)
 import AppKit
-#elseif canImport(UIKit)
-import UIKit
-#endif
 import Combine
 import Foundation
 

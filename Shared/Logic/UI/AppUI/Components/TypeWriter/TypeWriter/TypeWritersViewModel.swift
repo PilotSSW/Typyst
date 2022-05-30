@@ -6,6 +6,7 @@
 //
 
 import Combine
+import struct CoreGraphics.CGFloat
 import Foundation
 
 class TypeWriterViewModel: ObservableObject, Loggable {

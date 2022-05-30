@@ -40,13 +40,13 @@ struct DocumentsListButton<Content: View>: View {
     @ViewBuilder
     private var button: some View {
         if OSHelper.runtimeEnvironment == .iOS {
-            NavigationLink(
-                destination: WritersView()
-                    .onAppear(perform: onSelect)
-                    .onDisappear(perform: onReturn),
-                label: {
-                    content
-                })
+//            NavigationLink(
+//                destination: WritersView()
+//                    .onAppear(perform: onSelect)
+//                    .onDisappear(perform: onReturn),
+//                label: {
+//                    content
+//                })
         }
         else {
             Button(action: isSelected

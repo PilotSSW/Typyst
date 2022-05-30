@@ -13,8 +13,10 @@ class WritersViewModel: ObservableObject {
     private(set) var documentsService: DocumentsService
     private(set) var settingsService: SettingsService
 
+    #if os(macOS)
     @Published var currentDocument: Document? = nil
     @Published var currentDocumentViewModel: DocumentViewModel? = nil
+    #endif
     
     @Published var shouldShowWebView: Bool = false
     @Published var fullSizeWebView: Bool = false
@@ -36,6 +38,7 @@ class WritersViewModel: ObservableObject {
             }
             .store(in: &store)
         
+        #if os(macOS)
         documentsService.$currentDocument
             .sink { [weak self] currentDocument in
                 guard let self = self else { return }
@@ -46,6 +49,7 @@ class WritersViewModel: ObservableObject {
                 }
             }
             .store(in: &store)
+        #endif
         
         settingsService.$showTypeWriterView
             .sink { [weak self] showTypeWriterView in

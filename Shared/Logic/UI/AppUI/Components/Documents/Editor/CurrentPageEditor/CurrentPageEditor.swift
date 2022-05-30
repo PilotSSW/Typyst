@@ -15,9 +15,9 @@ struct CurrentPageEditor: View {
     var body: some View {
         ZStack {
             #if DEBUG
-            if #available(macOS 12.0, *) {
-                let _ = Self._printChanges()
-            }
+//            if #available(macOS 12.0, *) {
+//                let _ = Self._printChanges()
+//            }
             #endif
             
             GeometryReader { reader in

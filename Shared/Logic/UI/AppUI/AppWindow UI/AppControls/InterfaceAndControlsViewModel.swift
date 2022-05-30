@@ -6,6 +6,7 @@
 //
 
 import Combine
+import struct CoreGraphics.CGSize
 import Foundation
 
 class InterfaceAndControlsViewModel: ObservableObject {

@@ -6,8 +6,9 @@
 //
 
 import Combine
+import struct CoreGraphics.CGFloat
+import struct CoreGraphics.CGSize
 import Foundation
-import struct SwiftUI.CGSize
 
 class AppWindowViewModel: ObservableObject, Loggable {
 //    private var store = Set<AnyCancellable>()

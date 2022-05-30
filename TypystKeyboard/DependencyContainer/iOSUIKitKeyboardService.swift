@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import KeyLogic
 import UIKit
 
 enum PressType {

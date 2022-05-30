@@ -53,18 +53,21 @@ struct MenuToggleButtons: View {
                                          isSelected: $closedIsSelected)
                         .onChange(of: closedIsSelected) { isSelected in
                             if isSelected { setButtonBindingStates(.constant(.closed)) }
+                            if OSHelper.runtimeEnvironment != .macOS { isExpanded = false }
                         }
                     
                         MenuToggleButton(buttonValue: .above,
                                          isSelected: $aboveIsSelected)
                         .onChange(of: aboveIsSelected) { isSelected in
                             if isSelected { setButtonBindingStates(.constant(.above)) }
+                            if OSHelper.runtimeEnvironment != .macOS { isExpanded = false }
                         }
                     
                         MenuToggleButton(buttonValue: .inline,
                                          isSelected: $inlineIsSelected)
                         .onChange(of: inlineIsSelected) { isSelected in
                             if isSelected { setButtonBindingStates(.constant(.inline)) }
+                            if OSHelper.runtimeEnvironment != .macOS { isExpanded = false }
                         }
                     }
                     .padding(6)
@@ -91,6 +94,9 @@ struct MenuToggleButtons: View {
         .onHover(perform: { isHovering in
             isExpanded = isHovering
         })
+        .onTapGesture {
+            isExpanded = !isExpanded
+        }
         .animation(.interactiveSpring()
                     .speed(0.5)
                     .delay(0.03))

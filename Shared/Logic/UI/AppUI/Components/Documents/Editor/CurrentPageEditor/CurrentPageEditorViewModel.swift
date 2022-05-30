@@ -6,6 +6,9 @@
 //
 
 import Combine
+import struct CoreGraphics.CGFloat
+import struct CoreGraphics.CGPoint
+import struct CoreGraphics.CGSize
 import Foundation
 
 class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
@@ -26,6 +29,10 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
         didSet {
             if !hasAppeared { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + timeToLoadPage, execute: { [weak self] in
+                if let textView = self?.currentPageViewModel.pageLayoutViewModel.textView,
+                   let newCursorPosition = self?.documentTextLayout.getCursorPositionInTextView(textView) {
+                    self?.currentCursorPosition = newCursorPosition
+                }
                 self?.setPageOffsets()
             })
         }
@@ -49,6 +56,8 @@ class CurrentPageEditorViewModel: ObservableObject, Identifiable, Loggable {
     func onAppear() {
         currentPageViewModel.setIsEditorPage(true)
         
+
+    
         hasAppeared = true
     }
         

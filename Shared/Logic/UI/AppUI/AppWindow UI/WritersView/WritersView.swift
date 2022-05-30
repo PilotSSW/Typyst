@@ -23,7 +23,9 @@ struct WritersView: View {
                     .neumorphicShadow(shadowIntensity: .mediumLight, radius: 20, x: 0, y: 12)
                     .neumorphicShadow(shadowIntensity: .medium, radius: 3, x: 0, y: 6)
             }
-            else if let documentViewModel = viewModel.currentDocumentViewModel {
+            
+            #if os(macOS)
+            if let documentViewModel = viewModel.currentDocumentViewModel {
                 DocumentView(viewModel: documentViewModel)
                     .frame(minWidth: 400, maxWidth: .infinity, alignment: .bottom)
                     .edgesIgnoringSafeArea(.all)
@@ -31,6 +33,7 @@ struct WritersView: View {
                                 .speed(0.75)
                                 .delay(0.03))
             }
+            #endif
             
             TypeWritersView()
                 .edgesIgnoringSafeArea(.all)
